@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>exam-สอบข้าราชการไทย</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F3F6F9;
+    --surface: #FFFFFF;
+    --ink: #1E293B;
+    --muted: #64748B;
+    --line: #E2E8F0;
+    --accent: #E8590C;       /* safety orange */
+    --accent-soft: #FFF1E8;
+    --navy: #1C3A52;
+    --navy-light: #2B5270;
+    --ok: #10B981;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Sarabun", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding-bottom: 80px;
+  }
+
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3, h4 { font-family: "IBM Plex Sans Thai", "Sarabun", sans-serif; line-height: 1.3; margin: 0; }
+
+  /* Hero Section */
+  header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: #ffffff;
+    padding: 40px 0;
+    border-bottom: 5px solid var(--accent);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    background: rgba(232, 89, 12, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  header .eyebrow {
+    font-size: 13px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: #9DB6CB;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+  header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  header .sub {
+    color: #C3D2DF;
+    font-size: 16px;
+    margin-top: 8px;
+    max-width: 600px;
+  }
+
+  /* Grid Layout for Courses */
+  .course-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  @media (min-width: 768px) {
+    .course-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Course Card */
+  .course-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .card-banner {
+    color: #fff;
+    padding: 24px 20px;
+    position: relative;
+  }
+  .card-banner.p1 { background: linear-gradient(135deg, #1C3A52 0%, #2A567A 100%); }
+  .card-banner.p2 { background: linear-gradient(135deg, #E8590C 0%, #FD7E14 100%); }
+  
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .course-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .card-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-body p {
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0 0 16px 0;
+    flex: 1;
+  }
+  
+  .topic-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    border-top: 1px dashed var(--line);
+    padding-top: 16px;
+  }
+  .topic-list li {
+    font-size: 14.5px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    color: var(--ink);
+  }
+  .topic-list li::before {
+    content: "✓";
+    color: var(--ok);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  /* Buttons & Links */
+  .btn-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.15s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(232, 89, 12, 0.15);
+  }
+  .btn:hover {
+    filter: brightness(1.08);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--navy);
+    border: 1.5px solid var(--navy);
+    box-shadow: none;
+  }
+  .btn-outline:hover {
+    background: rgba(28, 58, 82, 0.05);
+    color: var(--navy-light);
+  }
+
+  .footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 520px) {
+    header h1 { font-size: 22px; }
+    header .sub { font-size: 14px; }
+    .btn { font-size: 15px; padding: 11px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">ระบบจัดเก็บและอำนวยความสะดวกการติวสอบ</div>
+    <h1>หลักสูตรเตรียมสอบ กรมป้องกันและบรรเทาสาธารณภัย</h1>
+    <div class="sub">เลือกวิชาด้านล่างเพื่อเริ่มทำข้อสอบเสมือนจริงและทบทวนสรุปย่อแบบสรุปสาระสำคัญครบจบในไฟล์เดียว</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- Main Modules Grid (Exactly the 2 core modules) -->
+  <div class="course-grid" id="courseGrid">
+    
+    <!-- Card 1: พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย พ.ศ. 2550 -->
+    <div class="course-card">
+      <div class="card-banner p1">
+        <span class="badge">ส่วนที่ 1 — กฎหมายเฉพาะตำแหน่ง</span>
+        <h3>พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย พ.ศ. 2550</h3>
+      </div>
+      <div class="card-body">
+        <p>บทบัญญัติทางกฎหมายฉบับหลักที่ใช้บังคับเกี่ยวกับการ ปภ. ของประเทศ ครอบคลุมทั้งสายบังคับบัญชา และอำนาจหน้าที่ของเจ้าพนักงานระดับต่าง ๆ</p>
+        <ul class="topic-list">
+          <li>โครงสร้างคณะกรรมการ ปภ. แห่งชาติ (กปภ.ช.)</li>
+          <li>สายบังคับบัญชาผู้บัญชาการ → ผู้อำนวยการแต่ละระดับ</li>
+          <li>อำนาจสั่งการในภาวะฉุกเฉินและการบรรเทาสาธารณภัย</li>
+          <li>บทกำหนดโทษทางอาญาในการฝ่าฝืนคำสั่ง (ม.49 - ม.55)</li>
+        </ul>
+        <div class="btn-group">
+          <!-- ลิงก์ตรง Relative Path ไปยังไฟล์ที่แนบมา -->
+          <a href="พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย พ.ศ. 2550.html" class="btn">👉 เริ่มทำข้อสอบ & อ่านสรุป พ.ร.บ.</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: ความรู้เกี่ยวกับกรมป้องกันและบรรเทาสาธารณภัย -->
+    <div class="course-card">
+      <div class="card-banner p2">
+        <span class="badge">ส่วนที่ 2 — ความรู้ทั่วไปองค์กร</span>
+        <h3>ความรู้เกี่ยวกับกรมป้องกันและบรรเทาสาธารณภัย</h3>
+      </div>
+      <div class="card-body">
+        <p>เจาะลึกโครงสร้างการบริหารงาน ประวัติความเป็นมา วิสัยทัศน์ ค่านิยมองค์กร (DDPM) และยุทธศาสตร์การพัฒนาของกรม ปภ. ในทศวรรษปัจจุบัน</p>
+        <ul class="topic-list">
+          <li>ประวัติการควบรวมและเปลี่ยนผ่านจาก 5 หน่วยงานหลัก</li>
+          <li>การแบ่งส่วนราชการภายใน ส่วนกลาง 14 กอง / เขต 18 ศูนย์</li>
+          <li>ค่านิยมองค์กร DDPM (Do together, Devote, Professional, Moral)</li>
+          <li>แผนยุทธศาสตร์กรม ปภ. ระยะยาว (พ.ศ. 2565–2570)</li>
+        </ul>
+        <div class="btn-group">
+          <!-- ลิงก์ตรง Relative Path ไปยังไฟล์ที่แนบมา -->
+          <a href="ความรู้กรมปภ.html" class="btn btn-outline">👉 เริ่มทำข้อสอบ & อ่านสรุปความรู้กรม</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    ระบบสารบรรณสำหรับการเตรียมตัวสอบเข้าทำงานกรมป้องกันและบรรเทาสาธารณภัย กระทรวงมหาดไทย<br>
+    <span style="font-size: 11px">พัฒนาโดยใช้หลักเกณฑ์และอ้างอิงตรงตามมาตรฐาน พ.ร.บ. และข้อมูลจากกรมป้องกันและบรรเทาสาธารณภัยโดยตรง</span>
+  </div>
+
+</div>
+
+</body>
+</html>
