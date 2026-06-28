@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจำลองข้อสอบระเบียบรักษาความลับของทางราชการ พ.ศ. ๒๕๔๔</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sarabun) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+        /* Custom scrollbar for question grid navigation */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="bg-white p-2.5 rounded-full shadow-inner flex items-center justify-center shrink-0">
+                    <!-- Security Emblem Shield Icon -->
+                    <svg class="w-10 h-10 text-indigo-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M12 11a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/>
+                        <path d="M12 11v6m-2-3h4"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-tight">ระบบจำลองข้อสอบ ระเบียบรักษาความลับของทางราชการฯ</h1>
+                    <p class="text-xs sm:text-sm text-indigo-200 mt-1">ระเบียบว่าด้วยการรักษาความลับของทางราชการ พ.ศ. ๒๕๔๔ และที่แก้ไขเพิ่มเติม (ฉบับที่ ๒) พ.ศ. ๒๕๖๑</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 bg-indigo-800/60 text-indigo-100 rounded-full text-xs font-semibold border border-indigo-500/30">๑๐๐ ข้อเต็ม</span>
+                <span class="px-3 py-1 bg-emerald-800/60 text-emerald-100 rounded-full text-xs font-semibold border border-emerald-500/30">วิเคราะห์ทักษะละเอียด</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 py-8 sm:px-6 lg:px-8">
+        
+        <!-- Welcome / Setup / Summary Screen -->
+        <div id="setup-screen" class="max-w-4xl mx-auto space-y-8">
+            
+            <!-- Cheat Sheet (สรุปสาระสำคัญที่มักออกข้อสอบบ่อย) -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 space-y-6">
+                <div class="border-b border-slate-100 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                        <span class="text-indigo-600 font-semibold tracking-wider text-xs uppercase bg-indigo-50 px-3 py-1 rounded-full">สรุปใจความสำคัญเพื่อเตรียมสอบ (Cheat Sheet)</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-950 mt-2">สรุปประเด็นระเบียบรักษาความลับราชการ พ.ศ. ๒๕๔๔</h2>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-indigo-900 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-indigo-600 inline-block"></span> ๑. แหล่งที่มาและผู้รักษาการ
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-slate-800">กฎหมายแม่บท:</strong> อาศัยอำนาจ ม.๑๖ และ ม.๒๖ วรรคห้า พ.ร.บ.ข้อมูลข่าวสารฯ ๒๕๔๐ และรัฐธรรมนูญ</li>
+                            <li><strong class="text-slate-800">ผู้รักษาการ:</strong> <span class="font-bold text-indigo-700">นายกรัฐมนตรี</span></li>
+                            <li><strong class="text-slate-800">การทบทวนระเบียบ:</strong> นายกฯ จัดให้ทบทวนอย่างน้อย <span class="font-bold text-rose-700">ทุก ๕ ปี</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-indigo-900 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-indigo-600 inline-block"></span> ๒. ลำดับชั้นความลับ ๓ ระดับ (ม.๑๒)
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-rose-700">ลับที่สุด (Top Secret):</strong> รั่วไหลแล้วเสียหายแก่ประโยชน์แห่งรัฐ<span class="font-bold text-rose-700">ร้ายแรงที่สุด</span></li>
+                            <li><strong class="text-amber-700">ลับมาก (Secret):</strong> รั่วไหลแล้วเสียหายแก่ประโยชน์แห่งรัฐ<span class="font-bold text-amber-700">ร้ายแรง</span></li>
+                            <li><strong class="text-blue-700">ลับ (Confidential):</strong> รั่วไหลแล้วเสียหายแก่ประโยชน์แห่งรัฐ</li>
+                            <li><strong class="text-slate-800">เครื่องหมายแสดง:</strong> อักษรตัวหนาสีแดง (หรือสีเด่นชัด) แสดงกลางหน้าทั้งด้านบนและด้านล่าง</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-indigo-900 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-indigo-600 inline-block"></span> ๓. องค์การและนายทะเบียนข้อมูลลับ
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-slate-800">๓ องค์การรักษาความปลอดภัย:</strong> ฝ่ายพลเรือน (สำนักข่าวกรองฯ), ฝ่ายทหาร (ศูนย์รักษาความปลอดภัยฯ), ฝ่ายตำรวจ (บช.ส.)</li>
+                            <li><strong class="text-slate-800">นายทะเบียนข้อมูลลับ:</strong> แต่งตั้งโดยหัวหน้าหน่วยงานของรัฐ ทำหน้าที่หลักในงานสารบรรณข้อมูลลับ</li>
+                            <li><strong class="text-slate-800">ทะเบียน ๓ ประเภท:</strong> ทะเบียนรับ, ทะเบียนส่ง, <span class="font-bold text-indigo-700">ทะเบียนควบคุมข้อมูลข่าวสารลับ</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-indigo-900 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-indigo-600 inline-block"></span> ๔. กรอบเวลาและระเบียบปฏิบัติสำคัญ
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-slate-800">คณะกรรมการตรวจสอบ:</strong> ประธานคือนายทะเบียน และกรรมการอื่นไม่น้อยกว่า ๒ คน ตรวจสอบอย่างน้อย<span class="font-bold text-indigo-700">ทุก ๖ เดือน</span></li>
+                            <li><strong class="text-slate-800">การรายงานต่อ กขร.:</strong> รายงานผลการปฏิบัติรายปีภายในเดือน<span class="font-bold text-indigo-700">มีนาคม</span>ของทุกปี</li>
+                            <li><strong class="text-slate-800">การขนส่งข้อมูลลับภายนอก:</strong> บรรจุซองหรือภาชนะทึบแสงสองชั้นอย่างมั่นคง โดยซองชั้นนอกไม่มีชั้นความลับ</li>
+                            <li><strong class="text-slate-800">ทำลายข้อมูลลับ:</strong> หัวหน้าหน่วยงานของรัฐสั่งแต่งตั้งคณะกรรมการทำลายข้อมูลลับ (ประธานคือ นายทะเบียน + กรรมการอื่นไม่น้อยกว่า ๒ คน)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Setup Panel -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 space-y-8">
+                <div class="text-center space-y-2">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">เตรียมตัวสอบ ระเบียบรักษาความลับทางราชการฯ</h2>
+                    <p class="text-slate-500 text-sm max-w-lg mx-auto">ศึกษาชุดข้อสอบจำลองคุณภาพสูง ๑๐๐ ข้อเต็ม อ้างอิงคำถามหลักเกณฑ์ระเบียบกฎหมายและวิธีแก้ปัญหาการรั่วไหลจริงตามขอบข่ายเอกสารประเมิน</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Practice Mode Card -->
+                    <button onclick="selectMode('practice')" id="mode-practice-btn" class="group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-indigo-600 hover:bg-indigo-50/10 transition-all duration-200 focus:outline-none">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-indigo-100 text-indigo-700 p-3 rounded-lg group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดฝึกฝน (Practice Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">เรียนรู้พร้อมเฉลยและหลักการกฎหมายทันที แสดงอ้างอิงมาตราและเหตุผลทางกฎหมายหลังตอบแต่ละข้อ</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Exam Mode Card -->
+                    <button onclick="selectMode('exam')" id="mode-exam-btn" class="group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-slate-800 hover:bg-slate-50 transition-all duration-200 focus:outline-none">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-slate-100 text-slate-700 p-3 rounded-lg group-hover:bg-slate-800 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดสอบจริง (Exam Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">จำลองเวลาจำกัด ๔๕ นาที สลับสุ่มข้อสอบ ไม่เฉลยจนกว่าจะจบเพื่อใช้วัดระดับทักษะประเมินผลหลังสอบเสร็จ</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Parameters Selection -->
+                <div class="border-t border-slate-200 pt-6 space-y-4">
+                    <h4 class="font-semibold text-slate-800">ตั้งค่าการประเมิน</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">จำนวนข้อสอบที่ต้องการทำ</label>
+                            <select id="exam-quantity" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+                                <option value="20">20 ข้อ (ทบทวนเร่งด่วน)</option>
+                                <option value="50">50 ข้อ (ขนาดมาตรฐาน)</option>
+                                <option value="100" selected>100 ข้อเต็ม (สมบูรณ์แบบครบถ้วนเนื้อหาหลัก)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">ขอบเขตหัวข้อประเมิน</label>
+                            <select id="exam-scope" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm" disabled>
+                                <option value="all">ครอบคลุม พ.ศ. ๒๕๔๔ และที่แก้ไขเพิ่มเติมทั้งหมด</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz()" class="w-full py-4 bg-indigo-700 hover:bg-indigo-800 active:scale-[0.99] text-white font-bold rounded-xl shadow-md shadow-indigo-600/20 transition-all text-center block focus:outline-none">
+                    เริ่มทำข้อสอบประเมินตนเอง
+                </button>
+            </div>
+        </div>
+
+        <!-- Active Quiz Screen -->
+        <div id="quiz-screen" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Question Panel (3/4 of width) -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Status bar -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="flex items-center gap-3">
+                        <span id="badge-mode" class="px-2.5 py-0.5 rounded text-xs font-bold uppercase"></span>
+                        <div class="text-sm font-medium text-slate-500">
+                            ข้อที่ <span id="current-q-index" class="text-slate-800 font-bold">1</span> จาก <span id="total-q-count" class="text-slate-800 font-bold">100</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-grow max-w-md w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                        <div id="progress-bar-fill" class="bg-indigo-600 h-full transition-all duration-300" style="width: 1%"></div>
+                    </div>
+
+                    <div id="timer-container" class="flex items-center gap-2 text-rose-600 font-bold hidden">
+                        <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span id="quiz-timer">45:00</span>
+                    </div>
+                </div>
+
+                <!-- Question Card -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+                    <div class="flex justify-between items-center">
+                        <span id="question-category" class="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded">หมวดความลับ</span>
+                        <button onclick="toggleFlag()" id="flag-btn" class="text-slate-400 hover:text-amber-500 focus:outline-none flex items-center gap-1.5 text-xs font-medium">
+                            <svg id="flag-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                            <span>ปักหมุดทบทวน</span>
+                        </button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-950 leading-relaxed"></h3>
+                    </div>
+
+                    <!-- Options list -->
+                    <div id="options-container" class="grid grid-cols-1 gap-3.5">
+                        <!-- Options generated dynamically -->
+                    </div>
+
+                    <!-- Instant Explanation (Only in Practice Mode) -->
+                    <div id="explanation-panel" class="hidden bg-slate-50 rounded-xl border border-slate-200 p-5 space-y-2.5">
+                        <div class="flex items-center gap-2">
+                            <span id="explanation-title-badge" class="px-2 py-0.5 rounded text-xs font-bold text-white"></span>
+                            <span class="text-sm font-bold text-slate-800">ระเบียบ/มาตราและเหตุผลอ้างอิง:</span>
+                        </div>
+                        <p id="explanation-text" class="text-sm text-slate-600 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between items-center gap-4">
+                    <button onclick="prevQuestion()" id="prev-btn" class="px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg> ย้อนกลับ
+                    </button>
+                    
+                    <button onclick="nextQuestion()" id="next-btn" class="px-5 py-2.5 bg-indigo-700 hover:bg-indigo-800 text-white font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none flex items-center gap-2">
+                        ถัดไป <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+
+                    <button onclick="showSubmitConfirmModal()" id="submit-quiz-btn" class="hidden px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-lg shadow-md shadow-rose-600/10 transition-colors text-sm focus:outline-none">
+                        ส่งกระดาษคำตอบ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar Controllers -->
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-4">
+                    <h4 class="font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                        <span>แผงควบคุมข้อสอบ</span>
+                        <span id="score-counter" class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">0/100</span>
+                    </h4>
+                    
+                    <div id="grid-navigation" class="grid grid-cols-5 gap-2 max-h-72 overflow-y-auto p-1 custom-scrollbar">
+                        <!-- Dynamic Grid of Questions numbers -->
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-3 space-y-2">
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-indigo-700 inline-block"></span>
+                            <span>กำลังทำอยู่</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-indigo-100 border border-indigo-300 inline-block"></span>
+                            <span>ทำไปแล้ว</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-amber-500 inline-block"></span>
+                            <span>ปักหมุดทบทวน</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-slate-100 border border-slate-200 inline-block"></span>
+                            <span>ยังไม่ทำ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="confirmExit()" class="w-full py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-lg text-sm shadow-sm transition-colors focus:outline-none text-center block">
+                    ออกจากห้องสอบ
+                </button>
+            </div>
+        </div>
+
+        <!-- Result / Evaluation Dashboard -->
+        <div id="result-screen" class="hidden max-w-4xl mx-auto space-y-8 animate-fadeIn">
+            
+            <!-- Result Summary Box -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 text-center space-y-6">
+                <div class="space-y-2">
+                    <span id="result-badge" class="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">ผ่านเกณฑ์ระดับดีเลิศ</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 font-bold">ผลการประเมินความรู้และความเข้าใจ</h2>
+                </div>
+
+                <div class="relative w-44 h-44 mx-auto flex items-center justify-center">
+                    <!-- Circle Bar -->
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e2e8f0" stroke-width="8"/>
+                        <circle id="score-ring-fill" cx="50" cy="50" r="40" fill="transparent" stroke="#4338ca" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round" class="transition-all duration-1000 ease-out"/>
+                    </svg>
+                    <!-- Percentage dynamic -->
+                    <div class="absolute flex flex-col items-center">
+                        <span id="result-percentage" class="text-4xl font-extrabold text-slate-900">0%</span>
+                        <span id="result-score-fraction" class="text-xs text-slate-500 font-bold mt-1">0/100 คะแนน</span>
+                    </div>
+                </div>
+
+                <p id="result-feedback-text" class="text-slate-600 max-w-md mx-auto text-sm sm:text-base leading-relaxed"></p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-200 pt-6">
+                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                        <span class="block text-xs font-medium text-emerald-600">ตอบถูกต้อง</span>
+                        <span id="stat-correct" class="text-xl font-extrabold text-emerald-800">0 ข้อ</span>
+                    </div>
+                    <div class="bg-rose-50 rounded-xl p-4 border border-rose-100">
+                        <span class="block text-xs font-medium text-rose-600">ตอบผิด / ข้าม</span>
+                        <span id="stat-incorrect" class="text-xl font-extrabold text-rose-800">0 ข้อ</span>
+                    </div>
+                    <div class="bg-indigo-50 rounded-xl p-4 border border-indigo-100">
+                        <span class="block text-xs font-medium text-indigo-600">เวลาที่ใช้</span>
+                        <span id="stat-time-spent" class="text-xl font-extrabold text-indigo-800">0 นาที</span>
+                    </div>
+                </div>
+
+                <!-- Topic analysis skills -->
+                <div class="border-t border-slate-200 pt-6 space-y-4 text-left">
+                    <h4 class="font-bold text-slate-800">วิเคราะห์ทักษะความรู้ความเชี่ยวชาญแยกรายหมวด</h4>
+                    <div id="topic-analysis-container" class="space-y-3.5">
+                        <!-- Dynamic analysis bars go here -->
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <button onclick="restartQuiz()" class="px-6 py-3 bg-indigo-700 hover:bg-indigo-800 text-white font-bold rounded-xl shadow-md transition-all text-sm focus:outline-none">
+                        กลับสู่หน้าหลัก
+                    </button>
+                    <button onclick="toggleDetailedReview()" id="toggle-review-btn" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-all text-sm focus:outline-none border border-slate-300">
+                        ดูข้อสอบเฉลยละเอียด
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed review of correction -->
+            <div id="detailed-review-section" class="hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-slate-100 p-4 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 text-lg">คำเฉลยและบทวิเคราะห์อ้างอิงมาตราแบบเรียลข้อ</h3>
+                    <div>
+                        <select id="review-filter" onchange="filterReviewList()" class="bg-white border border-slate-300 text-xs font-bold rounded-lg px-2.5 py-1.5 focus:outline-none">
+                            <option value="all">แสดงทั้งหมด</option>
+                            <option value="incorrect">แสดงเฉพาะข้อที่ตอบผิด</option>
+                            <option value="flagged">แสดงเฉพาะข้อที่ปักหมุดทบทวน</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="review-questions-list" class="space-y-6">
+                    <!-- Review cards generated dynamically -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs mt-auto border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 space-y-1">
+            <p>ระบบจำลองข้อสอบสร้างตามระเบียบรักษาความลับทางราชการ พ.ศ. ๒๕๔๔ และฉบับปรับปรุง ๒๕๖๑ สำหรับประเมินข้าราชการ</p>
+            <p>© 2569 จำลองเพื่อส่งเสริมความพร้อมและทักษะความเชี่ยวชาญก่อนเข้าสู่ตำแหน่งข้าราชการ</p>
+        </div>
+    </footer>
+
+    <!-- Submit Confirmation Modal -->
+    <div id="submit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200">
+            <div class="text-center space-y-3">
+                <div class="bg-rose-50 text-rose-600 p-3 rounded-full w-fit mx-auto border border-rose-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">ยืนยันการส่งกระดาษคำตอบ?</h3>
+                <p id="modal-completion-status" class="text-sm text-slate-500 leading-relaxed"></p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideSubmitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำแบบทดสอบต่อ
+                </button>
+                <button onclick="submitQuiz()" class="flex-1 py-3 bg-indigo-700 hover:bg-indigo-800 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none shadow-md shadow-indigo-600/10">
+                    ยืนยันส่งคำตอบ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Confirmation Modal -->
+    <div id="exit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200">
+            <div class="text-center space-y-3">
+                <div class="bg-slate-50 text-slate-600 p-3 rounded-full w-fit mx-auto border border-slate-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">ต้องการออกจากห้องสอบหรือไม่?</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">ความก้าวหน้าและการบันทึกการทำแบบทดสอบรอบนี้จะไม่ได้รับการบันทึกไว้</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideExitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำต่อ
+                </button>
+                <button onclick="exitQuiz()" class="flex-1 py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ออกจากห้องสอบ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DB Array containing exactly 100 questions from the PDF content -->
+    <script>
+        const ALL_QUESTIONS = [
+            {
+                id: 1,
+                category: "บททั่วไปและบทนิยาม",
+                question: "ระเบียบว่าด้วยการรักษาความลับของทางราชการ พ.ศ. ๒๕๔๔ ออกโดยอาศัยอำนาจตามกฎหมายใด?",
+                options: ["ก. พระราชบัญญัติข้อมูลข่าวสารของราชการ พ.ศ. ๒๕๔๐", "ข. รัฐธรรมนูญแห่งราชอาณาจักรไทย", "ค. พระราชบัญญัติระเบียบข้าราชการพลเรือน พ.ศ. ๒๕๕๑", "ง. ข้อ ก. และข้อ ข."],
+                answer: 3,
+                rationale: "อาศัยอำนาจตาม ม.๑๖ และ ม.๒๖ วรรคห้า แห่ง พ.ร.บ.ข้อมูลข่าวสารฯ ๒๕๔๐ ประกอบ ม.๕๘ และ ม.๒๙ ของรัฐธรรมนูญแห่งราชอาณาจักรไทย"
+            },
+            {
+                id: 2,
+                category: "บททั่วไปและบทนิยาม",
+                question: "ระเบียบว่าด้วยการรักษาความลับของทางราชการ ออกประกาศและตราขึ้นเมื่อ พ.ศ. ใด?",
+                options: ["ก. พ.ศ. ๒๕๔๒", "ข. พ.ศ. ๒๕๔๔", "ค. พ.ศ. ๒๕๔๕", "ง. พ.ศ. ๒๕๕๔"],
+                answer: 1,
+                rationale: "ระเบียบฉบับนี้ตราและเริ่มประกาศบังคับใช้คือ ระเบียบว่าด้วยการรักษาความลับของทางราชการ พ.ศ. ๒๕๔๔"
+            },
+            {
+                id: 3,
+                category: "บททั่วไปและบทนิยาม",
+                question: "ผู้ใดรักษาการตามระเบียบนี้?",
+                options: ["ก. คณะรัฐมนตรี", "ข. รัฐสภา", "ค. นายกรัฐมนตรี", "ง. รัฐมนตรีว่าการกระทรวงมหาดไทย"],
+                answer: 2,
+                rationale: "ให้นายกรัฐมนตรีเป็นผู้รักษาการตามระเบียบนี้"
+            },
+            {
+                id: 4,
+                category: "บททั่วไปและบทนิยาม",
+                question: "ข้อมูลข่าวสารลับ ตามระเบียบนี้ หมายถึงข้อมูลข่าวสารที่มีคุณลักษณะตามข้อใด?",
+                options: ["ก. ข้อมูลข่าวสารตามมาตรา ๑๔ หรือมาตรา ๑๕ ที่มีคำสั่งไม่ให้เปิดเผย", "ข. อยู่ในความครอบครองหรือควบคุมดูแลของหน่วยงานของรัฐ ไม่ว่าจะเป็นเรื่องที่เกี่ยวกับการดำเนินงานของรัฐหรือที่เกี่ยวกับเอกชน", "ค. มีการกำหนดให้มีชั้นความลับเป็น ชั้นลับ ชั้นลับมาก หรือชั้นลับที่สุด", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "ข้อมูลข่าวสารลับ หมายรวมถึงข้อมูลประเภทมาตรา ๑๔, ๑๕ ตาม พ.ร.บ. ข้อมูลข่าวสารฯ ๒๕๔๐ ที่ระบุห้ามมิให้เปิดเผย และอยู่ในความคุ้มครองดูแล โดยมีชั้นความลับ ๓ ชั้น"
+            },
+            {
+                id: 5,
+                category: "บททั่วไปและบทนิยาม",
+                question: "ข้อใดกล่าวอธิบายไม่ถูกต้องตามบทนิยามของคำว่า “หัวหน้าหน่วยงานของรัฐ”?",
+                options: ["ก. ผู้ว่าราชการกรุงเทพมหานคร สำหรับกรุงเทพมหานคร", "ข. ปลัดกรุงเทพมหานคร สำหรับกรุงเทพมหานคร", "ค. นายกองค์การบริหารส่วนจังหวัด นายกเทศมนตรี นายกองค์การบริหารส่วนตำบล นายกเมืองพัทยา แล้วแต่กรณี สำหรับราชการส่วนท้องถิ่น", "ง. ผู้บริหารสูงสุดของหน่วยงานอื่นของรัฐ เช่น อัยการสูงสุด เลขาธิการสำนักงานศาลยุติธรรม เลขาธิการสภาผู้แทนราษฎร"],
+                answer: 1,
+                rationale: "สำหรับกรุงเทพมหานคร หัวหน้าหน่วยงานของรัฐคือ 'ผู้ว่าราชการกรุงเทพมหานคร' ไม่ใช่ปลัดกรุงเทพมหานคร"
+            },
+            {
+                id: 6,
+                category: "บททั่วไปและบทนิยาม",
+                question: "ข้อใดมิใช่หัวหน้าหน่วยงานของรัฐ สำหรับราชการส่วนท้องถิ่น?",
+                options: ["ก. ผู้ว่าราชการจังหวัด", "ข. ผู้ว่าราชการกรุงเทพมหานคร", "ค. นายกองค์การบริหารส่วนจังหวัด", "ง. ปลัดอำเภอ"],
+                answer: 3,
+                rationale: "ปลัดอำเภอไม่ได้ดำรงฐานะเป็นหัวหน้าหน่วยงานของรัฐประเภทส่วนท้องถิ่นในระเบียบนี้ ส่วนผู้ว่าราชการจังหวัดนั้นเป็นหัวหน้าสำหรับราชการส่วนภูมิภาค"
+            },
+            {
+                id: 7,
+                category: "บททั่วไปและบทนิยาม",
+                question: "“การปรับชั้นความลับ” ตามระเบียบนี้ หมายถึงการดำเนินการในกรณีใด?",
+                options: ["ก. การลดหรือเพิ่มชั้นความลับของข้อมูลข่าวสารลับ", "ข. การยกเลิกชั้นความลับของข้อมูลข่าวสารลับ", "ค. ข้อ ก. และข้อ ข.", "ง. ไม่มีข้อใดถูก"],
+                answer: 2,
+                rationale: "การปรับชั้นความลับ หมายรวมถึงทั้งการลด เพิ่ม หรือแม้กระทั่งการยกเลิกชั้นความลับนั้นด้วย"
+            },
+            {
+                id: 8,
+                category: "บททั่วไปและบทนิยาม",
+                question: "ผู้มีอำนาจในการจัดให้มีการทบทวนการปฏิบัติการและพิจารณาแก้ไขเพิ่มเติมระเบียบนี้ คือใคร?",
+                options: ["ก. ปลัดกระทรวงมหาดไทย", "ข. รัฐมนตรีว่าการกระทรวงมหาดไทย", "ค. นายกรัฐมนตรี", "ง. คณะรัฐมนตรี"],
+                answer: 2,
+                rationale: "ระเบียบข้อ ๖ กำหนดให้ 'นายกรัฐมนตรี' เป็นผู้จัดให้มีการทบทวนและแก้ไขตามความเหมาะสม"
+            },
+            {
+                id: 9,
+                category: "บททั่วไปและบทนิยาม",
+                question: "ต้องจัดให้มีการทบทวนการปฏิบัติการตามระเบียบนี้และพิจารณาแก้ไขเพิ่มเติมระเบียบนี้ให้เหมาะสมทุกกี่ปี?",
+                options: ["ก. ๒ ปี", "ข. ๓ ปี", "ค. ๔ ปี", "ง. ๕ ปีเป็นอย่างน้อย"],
+                answer: 3,
+                rationale: "ระเบียบข้อ ๖ ระบุให้จัดทำและดำเนินการอย่างน้อย 'ทุกห้าปีเป็นอย่างน้อย'"
+            },
+            {
+                id: 10,
+                category: "บททั่วไปและบทนิยาม",
+                question: "ข้อใดกล่าวถูกต้องเกี่ยวกับการที่บุคคลจะเข้าถึงข้อมูลข่าวสารลับในชั้นความลับใดได้?",
+                options: ["ก. ต้องเป็นบุคคลที่ผู้บังคับบัญชามอบหมายความไว้วางใจ", "ข. ให้เข้าถึงข้อมูลข่าวสารลับได้เฉพาะเรื่องที่ได้รับมอบหมายเท่านั้น", "ค. ข้อ ก. และข้อ ข.", "ง. ต้องเป็นบุคคลที่ผู้บังคับบัญชามอบหมายความไว้วางใจ และสามารถเข้าถึงข้อมูลข่าวสารลับได้ทุกกรณี"],
+                answer: 2,
+                rationale: "ระเบียบข้อ ๘ บุคคลที่จะเข้าถึงชั้นความลับได้ ต้องเป็นผู้รับความไว้วางใจ และให้เข้าถึงได้เฉพาะในขอบข่ายเรื่องที่ได้รับมอบหมายเท่านั้น"
+            },
+            {
+                id: 11,
+                category: "องค์การและชั้นความลับ",
+                question: "ข้อใดกล่าวถึงชื่อและฝ่ายของ 'องค์การรักษาความปลอดภัย' ได้ไม่ถูกต้องตามระเบียบ?",
+                options: ["ก. สำนักข่าวกรองแห่งชาติ สำนักนายกรัฐมนตรี เป็นองค์การรักษาความปลอดภัยฝ่ายพลเรือน", "ข. ศูนย์รักษาความปลอดภัย กองบัญชาการกองทัพไทย กองทัพไทย กระทรวงกลาโหมเป็นองค์การรักษาความปลอดภัยฝ่ายทหาร", "ค. กองบัญชาการตำรวจสันติบาล สำนักงานตำรวจแห่งชาติ เป็นองค์การรักษาความปลอดภัยฝ่ายตำรวจ", "ง. ศูนย์รักษาความปลอดภัย กองบัญชาการทหารสูงสุด เป็นองค์การรักษาความปลอดภัยฝ่ายทหาร"],
+                answer: 3,
+                rationale: "ตามกฎหมายระบุชื่อตำแหน่งที่ถูกต้องคือ 'กองบัญชาการกองทัพไทย' ไม่ใช่ กองบัญชาการทหารสูงสุด"
+            },
+            {
+                id: 12,
+                category: "องค์การและชั้นความลับ",
+                question: "องค์การรักษาความปลอดภัยหลักตามระเบียบนี้ แบ่งออกเป็นกี่ฝ่าย?",
+                options: ["ก. ๒ ฝ่าย", "ข. ๓ ฝ่าย", "ค. ๔ ฝ่าย", "ง. ๕ ฝ่าย"],
+                answer: 1,
+                rationale: "มี ๓ ฝ่ายหลัก คือ ฝ่ายพลเรือน (สขช.), ฝ่ายทหาร (ศรภ.), และฝ่ายตำรวจ (บช.ส.)"
+            },
+            {
+                id: 13,
+                category: "องค์การและชั้นความลับ",
+                question: "ข้อมูลฝ่ายของหน่วยงานรักษาความปลอดภัยข้อใดกล่าวผิด?",
+                options: ["ก. สำนักข่าวกรองแห่งชาติ สำนักนายกรัฐมนตรี เป็นองค์การรักษาความปลอดภัยฝ่ายพลเรือน", "ข. ศูนย์รักษาความปลอดภัย กองบัญชาการกองทัพไทย เป็นองค์การรักษาความปลอดภัยฝ่ายทหาร", "ค. กองบัญชาการตำรวจสันติบาล สำนักงานตำรวจแห่งชาติ เป็นองค์การรักษาความปลอดภัยฝ่ายตำรวจ", "ง. สำนักงานอัยการสูงสุด เป็นองค์การรักษาความปลอดภัยฝ่ายอัยการ"],
+                answer: 3,
+                rationale: "สำนักงานอัยการสูงสุดไม่ได้ทำหน้าที่เป็นองค์การรักษาความปลอดภัยตามคำจำกัดความแห่งระเบียบนี้"
+            },
+            {
+                id: 14,
+                category: "องค์การและชั้นความลับ",
+                question: "หน่วยงานใดเป็นองค์การรักษาความปลอดภัยฝ่ายพลเรือน?",
+                options: ["ก. สำนักข่าวกรองแห่งชาติ สำนักนายกรัฐมนตรี", "ข. ศูนย์รักษาความปลอดภัย กองบัญชาการกองทัพไทย", "ค. กองบัญชาการตำรวจสันติบาล สำนักงานตำรวจแห่งชาติ", "ง. สำนักงานคณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร"],
+                answer: 0,
+                rationale: "ระเบียบข้อ ๑๑ (๑) กำหนดให้สำนักข่าวกรองแห่งชาติ (สขช.) เป็นฝ่ายพลเรือน"
+            },
+            {
+                id: 15,
+                category: "องค์การและชั้นความลับ",
+                question: "ข้อใดเป็นองค์การรักษาความปลอดภัยฝ่ายทหาร?",
+                options: ["ก. ศูนย์รักษาความปลอดภัย กองบัญชาการทหารสูงสุด", "ข. ศูนย์รักษาความปลอดภัย กองบัญชาการกองทัพไทย กองทัพไทย กระทรวงกลาโหม", "ค. กองบัญชาการตำรวจสันติบาล สำนักงานตำรวจแห่งชาติ", "ง. กองอำนวยการรักษาความมั่นคงภายในราชอาณาจักร"],
+                answer: 1,
+                rationale: "ตามที่กำหนดในระเบียบ คือ ศูนย์รักษาความปลอดภัย (ศรภ.) สังกัดกองบัญชาการกองทัพไทย กระทรวงกลาโหม"
+            },
+            {
+                id: 16,
+                category: "องค์การและชั้นความลับ",
+                question: "ข้อใดเป็นองค์การรักษาความปลอดภัยฝ่ายตำรวจ?",
+                options: ["ก. กองกำกับการตำรวจ สำนักงานตำรวจแห่งชาติ", "ข. กองทะเบียนประวัติอาชญากร สำนักงานตำรวจแห่งชาติ", "ค. กองบัญชาการตำรวจสันติบาล สำนักงานตำรวจแห่งชาติ", "ง. กองบัญชาการตำรวจนครบาล สำนักงานตำรวจแห่งชาติ"],
+                answer: 2,
+                rationale: "ระเบียบกำหนดชัดเจนว่า ฝ่ายตำรวจคือ 'กองบัญชาการตำรวจสันติบาล'"
+            },
+            {
+                id: 17,
+                category: "องค์การและชั้นความลับ",
+                question: "ชั้นความลับของข้อมูลข่าวสารลับ แบ่งออกเป็นกี่ชั้น?",
+                options: ["ก. ๒ ชั้น", "ข. ๓ ชั้น", "ค. ๔ ชั้น", "ง. ๕ ชั้น"],
+                answer: 1,
+                rationale: "ข้อ ๑๒ กำหนดชั้นความลับมี ๓ ชั้น ได้แก่ ลับที่สุด, ลับมาก, และ ลับ"
+            },
+            {
+                id: 18,
+                category: "องค์การและชั้นความลับ",
+                question: "ข้อใด ไม่ใช่ ลำดับและชื่อชั้นความลับตามที่ระเบียบบัญญัติ?",
+                options: ["ก. ลับที่สุด", "ข. ลับมาก", "ค. ลับ", "ง. ลับมากที่สุด"],
+                answer: 3,
+                rationale: "ในระเบียบนี้มีเพียง ลับที่สุด, ลับมาก, และ ลับ เท่านั้น ไม่มีชื่อ 'ลับมากที่สุด'"
+            },
+            {
+                id: 19,
+                category: "องค์การและชั้นความลับ",
+                question: "ข้อมูลข่าวสารลับซึ่งหากเปิดเผยทั้งหมดหรือเพียงบางส่วนจะก่อให้เกิดความเสียหายแก่ประโยชน์แห่งรัฐอย่างร้ายแรงที่สุด คือชั้นใด?",
+                options: ["ก. ลับที่สุด (TOP SECRET)", "ข. ลับมาก (SECRET)", "ค. ลับ (CONFIDENTIAL)", "ง. ลับมากที่สุด"],
+                answer: 0,
+                rationale: "ระเบียบข้อ ๑๓ ระบุว่าคำนิยามที่มีคีย์เวิร์ด 'อย่างร้ายแรงที่สุด' จะต้องตรงกับชั้น 'ลับที่สุด'"
+            },
+            {
+                id: 20,
+                category: "องค์การและชั้นความลับ",
+                question: "ข้อมูลข่าวสารลับซึ่งหากเปิดเผยทั้งหมดหรือเพียงบางส่วนจะก่อให้เกิดความเสียหายแก่ประโยชน์แห่งรัฐอย่างร้ายแรง (ไม่มีที่สุด) คือชั้นใด?",
+                options: ["ก. ลับที่สุด", "ข. ลับมาก", "ค. ลับ", "ง. ลับมากที่สุด"],
+                answer: 1,
+                rationale: "ระเบียบข้อ ๑๔ ระบุคีย์เวิร์ด 'อย่างร้ายแรง' คือชั้น 'ลับมาก'"
+            },
+            {
+                id: 21,
+                category: "องค์การและชั้นความลับ",
+                question: "ข้อมูลข่าวสารลับซึ่งหากเปิดเผยทั้งหมดหรือเพียงบางส่วนจะก่อให้เกิดความเสียหายแก่ประโยชน์แห่งรัฐ (ไม่มีร้ายแรง) คือชั้นใด?",
+                options: ["ก. ลับที่สุด", "ข. ลับมาก", "ค. ลับ", "ง. ลับมากที่สุด"],
+                answer: 2,
+                rationale: "ระเบียบข้อ ๑๕ ระบุคีย์เวิร์ดว่าก่อความเสียหายแก่ประโยชน์แห่งรัฐ โดยไม่ได้เพิ่มคำว่าร้ายแรง คือชั้น 'ลับ'"
+            },
+            {
+                id: 22,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "ผู้ใดที่มีหน้าที่รับผิดชอบโดยตรงในการกำหนดชั้นความลับ พร้อมทั้งให้เหตุผลประกอบการกำหนดชั้นความลับ?",
+                options: ["ก. หัวหน้าส่วนราชการตามสายงาน", "ข. หัวหน้าหน่วยงานของรัฐ", "ค. เจ้าหน้าที่ของรัฐระดับ ๖ ขึ้นไป", "ง. นายทะเบียนข้อมูลข่าวสารลับ"],
+                answer: 1,
+                rationale: "ข้อ ๑๖ ระบุให้เป็นหน้าที่และอำนาจความรับผิดชอบของ 'หัวหน้าหน่วยงานของรัฐ'"
+            },
+            {
+                id: 23,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "กรณีใดที่กำหนดให้เจ้าหน้าที่ที่เกี่ยวข้องมีอำนาจกำหนดชั้นความลับเป็นการชั่วคราวได้?",
+                options: ["ก. ได้รับความเห็นชอบจากเพื่อนร่วมงาน", "ข. มีความจำเป็นเร่งด่วน", "ค. หัวหน้าส่วนราชการสังกัดฝ่ายบริหารอนุญาต", "ง. ผู้ว่าราชการจังหวัดหรือผู้บังคับบัญชาสั่งการทั่วไป"],
+                answer: 1,
+                rationale: "ระเบียบข้อ ๑๗ บัญญัติว่าในกรณีที่มี 'ความจำเป็นเร่งด่วน' เจ้าหน้าที่สามารถกำหนดชั้นความลับชั่วคราวและรีบยื่นต่อผู้มีอำนาจทันที"
+            },
+            {
+                id: 24,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "ในกรณีจำเป็นเร่งด่วนที่ให้กำหนดชั้นความลับชั่วคราวได้ หากเรื่องนั้นมีข้อมูลหลายชั้นความลับปนกันอยู่ ให้กำหนดชั้นความลับอย่างไร?",
+                options: ["ก. เท่ากับชั้นความลับสูงสุดที่มีอยู่ในข้อมูลข่าวสารลับนั้น", "ข. กำหนดเป็นชั้นลับชั่วคราวไว้ก่อนทุกกรณี", "ค. เท่ากับชั้นความลับต่ำสุดที่มีอยู่ในข้อมูลข่าวสารลับนั้น", "ง. กำหนดให้เป็นความลับระดับ ลับที่สุด"],
+                answer: 0,
+                rationale: "ระเบียบข้อ ๑๗ วรรคสอง กำหนดว่าในเรื่องเดียวกันที่มีชั้นความลับหลายชั้นปนอยู่ ให้กำหนดเท่ากับ 'ชั้นความลับสูงสุด' ของข้อมูลเรื่องนั้น"
+            },
+            {
+                id: 25,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "ในกรณีที่ต้องเขียนอ้างอิงข้อความจากชั้นความลับที่สูงกว่า ลงในหนังสือราชการที่มีชั้นความลับต่ำกว่า ต้องปฏิบัติตามหลักเกณฑ์ใด?",
+                options: ["ก. ให้ปรับลดชั้นความลับของฉบับสูงกว่าลงทันทีโดยไม่ต้องส่งคำขอ", "ข. ต้องพิจารณาถึงเนื้อหาที่อ้างถึงนั้นว่าจะไม่ทำให้ข้อมูลข่าวสารที่ชั้นความลับสูงกว่ารั่วไหล", "ค. ยึดถือแนวทางเลือกปฏิบัติใดๆ ก็ได้ตามที่ผู้รวบรวมเห็นสมควร", "ง. ทำลายเครื่องหมายแสดงความลับเดิมทิ้งแล้วบันทึกเนื้อหาลงไปตรงๆ"],
+                answer: 1,
+                rationale: "ระเบียบกำหนดให้ต้องพิจารณาอย่างเคร่งครัดว่าเนื้อหาอ้างอิงนั้นจะไม่มีส่วนที่นำไปสู่การรั่วไหลของข้อมูลในระดับชั้นความลับที่สูงกว่า"
+            },
+            {
+                id: 26,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "หากเหตุผลที่นายทะเบียนต้องบันทึกในทะเบียนควบคุมข้อมูลลับ มีรายละเอียดระดับความลับสูงกว่าตัวทะเบียนควบคุม ให้ปฏิบัติอย่างไร?",
+                options: ["ก. บันทึกรายละเอียดลงไปในปกหลังของแฟ้มควบคุมเพื่อไม่ให้บุคคลภายนอกมองเห็น", "ข. บันทึกข้อมูลส่วนที่ลับกว่าลงไปในซองจดหมายทึบแสงแยกต่างหากแล้วเย็บเล่ม", "ค. บันทึกเหตุผลย่อไว้ในทะเบียนควบคุม และบันทึกส่วนที่ลับสูงกว่าแยกออกมาเก็บไว้ระหว่างใบปกกับข้อมูลลับนั้น", "ง. สั่งทำลายและทิ้งทะเบียนฉบับดังกล่าว"],
+                answer: 2,
+                rationale: "ระเบียบข้อ ๑๘ กำหนดให้จดแยกเหตุผลละเอียดที่ลับกว่านั้นมาเสียบเก็บไว้ที่ 'ระหว่างใบปกข้อมูลข่าวสารลับกับข้อมูลข่าวสารลับนั้น'"
+            },
+            {
+                id: 27,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "ข้อใดมิใช่องค์ประกอบในการพิจารณาเพื่อกำหนดว่าข้อมูลข่าวสารควรอยู่ในชั้นความลับใดตามมาตรา ๑๙?",
+                options: ["ก. ประโยชน์และโอกาสของธุรกิจที่ได้รับจากจำนวนบุคคลที่เปิดเผยข้อมูล", "ข. ความสำคัญของเนื้อหา และแหล่งที่มาของข้อมูลข่าวสาร", "ค. วิธีการนำไปใช้ประโยชน์ และจำนวนบุคคลที่ควรรับทราบ", "ง. ผลกระทบหากมีการเปิดเผย และหน่วยงานของรัฐที่รับผิดชอบในฐานะเจ้าของเรื่อง"],
+                answer: 0,
+                rationale: "ระเบียบข้อ ๑๙ มีองค์ประกอบกำหนดไว้ ๖ ข้อ ซึ่งไม่มีเรื่อง 'ประโยชน์และโอกาสทางธุรกิจในการเปิดเผย'"
+            },
+            {
+                id: 28,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "การพิจารณากำหนดให้ข้อมูลข่าวสารอยู่ในชั้นความลับใด มีองค์ประกอบตามระเบียบกำหนดไว้กี่ประการ?",
+                options: ["ก. ๓ ประการ", "ข. ๔ ประการ", "ค. ๕ ประการ", "ง. ๖ ประการ"],
+                answer: 3,
+                rationale: "ระเบียบข้อ ๑๙ กำหนดองค์ประกอบในการพิจารณาทั้งหมด '๖ ประการ'"
+            },
+            {
+                id: 29,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "ข้อใด 'ไม่ใช่' หนึ่งในองค์ประกอบ ๖ ประการตามระเบียบในการพิจารณากำหนดชั้นความลับ?",
+                options: ["ก. ผลกระทบหากมีการเปิดเผยข้อมูล", "ข. จำนวนบุคคลที่ควรรับทราบรายละเอียด", "ค. วิธีการนำไปใช้ประโยชน์", "ง. การเปิดโอกาสให้บุคคลทั่วไปเข้ามามีส่วนร่วมแสดงความคิดเห็น"],
+                answer: 3,
+                rationale: "ไม่มีเรื่อง 'การมีส่วนร่วมแสดงความคิดเห็นของประชาชนทั่วไป' ระบุเป็นองค์ประกอบกำหนดชั้นความลับ"
+            },
+            {
+                id: 30,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "ผู้ใดที่มีอำนาจกำหนดระเบียบและแนวทางวิธีการปฏิบัติเพิ่มเติมหรือปรับปรุงวิธีรักษาความลับให้ดีขึ้นได้ภายในหน่วยงานตน?",
+                options: ["ก. นายกรัฐมนตรีในฐานะผู้รักษาการ", "ข. หัวหน้าหน่วยงานของรัฐ", "ค. คณะกรรมการข้อมูลข่าวสารของราชการ", "ง. คณะรัฐมนตรี"],
+                answer: 1,
+                rationale: "ข้อ ๒๐ กำหนดให้เป็นสิทธิและดุลยพินิจของ 'หัวหน้าหน่วยงานของรัฐ' ในการสั่งกำหนดเพิ่มหรือใช้วิธีอื่นที่มีประสิทธิภาพดีกว่าหรือเท่ากัน"
+            },
+            {
+                id: 31,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "เครื่องหมายแสดงชั้นความลับบนเอกสาร โดยปกติให้ระบุเป็นอักษรขนาดใหญ่และใช้สีใดเป็นมาตรฐาน?",
+                options: ["ก. สีเขียวสะท้อนแสง", "ข. สีแดงเด่นชัด", "ค. สีดำมาตรฐาน", "ง. สีน้ำเงินกรมท่า"],
+                answer: 1,
+                rationale: "ระเบียบข้อ ๒๑ กำหนดให้ใช้ 'สีแดง' หรือสีอื่นที่เด่นชัดสะดุดตา"
+            },
+            {
+                id: 32,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "ข้อมูลข่าวสารราชการที่เป็นเอกสาร มีวิธีการแสดงเครื่องหมายชั้นความลับอย่างไร?",
+                options: ["ก. แสดงเครื่องหมายไว้ที่กลางหน้ากระดาษ ทั้งด้านบนและด้านล่างของทุกหน้าเอกสาร", "ข. ติดตราแสดงไว้ที่มุมบนซ้ายเฉพาะแผ่นหน้าสุดของหนังสือเวียน", "ค. ประทับตราสีแดงไว้ที่มุมบนขวาหน้าสุดท้ายของเอกสารแนบ", "ง. เขียนระบุกำกับไว้ที่กลางหน้ากระดาษเฉพาะแผ่นใบปะหน้าเท่านั้น"],
+                answer: 0,
+                rationale: "ระเบียบข้อ ๒๒ (๑) กำหนดให้แสดงเครื่องหมายแสดงชั้นความลับที่ 'กลางหน้ากระดาษ ทั้งด้านบนและด้านล่างของทุกหน้าเอกสาร'"
+            },
+            {
+                id: 33,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "ข้อมูลข่าวสารประเภทเอกสารเข้าปกข้อใดกล่าวได้ถูกต้องตามแนวทางการแสดงชั้นความลับ?",
+                options: ["ก. แสดงไว้ที่กลางหน้ากระดาษทั้งด้านบนและด้านล่างของทุกแผ่น", "ข. ถ้าเอกสารมีใบปกให้แสดงชั้นความลับที่บริเวณด้านนอกของปกหน้าและปกหลังด้วย", "ค. ตัวหนงสือที่ระบุชั้นความลับต้องใหญ่กว่าฟอนต์ตัวพิมพ์ปกติ", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "เอกสารที่เข้าเล่มปก ต้องแสดงชั้นความลับทั้งกลางกระดาษทุกหน้า ด้านบน-ล่าง และต้องระบุตัวอักษรสีแดงขนาดใหญ่ไว้ที่ด้านนอกของปกหน้าและปกหลังด้วย"
+            },
+            {
+                id: 34,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "ข้อมูลข่าวสารประเภทภาพเขียน ภาพถ่าย แผนที่ แผนผัง หากม้วนหรือพับได้ ให้แสดงชั้นความลับไว้อย่างไร?",
+                options: ["ก. แสดงชั้นความลับตรงพิกัดกลางภาพเฉพาะแผ่นหน้าสุด", "ข. ประทับตราสีแดงที่พิกัดมุมของเอกสารทั้งหมดในขณะจัดเตรียม", "ค. แสดงชั้นความลับให้ปรากฏเห็นเด่นชัดได้ในขณะที่ม้วนหรือพับเอกสารนั้นอยู่", "ง. ไม่จำต้องระบุไว้ที่ม้วนภายนอกแต่ให้ติดฉลากไว้หน้าห้องควบคุมแผนก"],
+                answer: 2,
+                rationale: "ระเบียบข้อ ๒๒ (๒) ระบุว่ากรณีม้วนหรือพับได้ ให้แสดงชั้นความลับไว้ให้เห็นชัดในขณะม้วนหรือพับอยู่ด้วย"
+            },
+            {
+                id: 35,
+                category: "การกำหนดและการแสดงชั้นความลับ",
+                question: "ข้อมูลข่าวสารที่มีสภาพเป็น แถบบันทึก ฟิล์มบันทึกภาพ หรือจานบันทึก (แผ่นซีดี/ไดรฟ์) ต้องแสดงชั้นความลับอย่างไร?",
+                options: ["ก. แสดงชั้นความลับไว้ที่ต้นและปลายม้วนฟิล์ม หรือภาชนะกล่องบรรจุภัณฑ์ภายนอก", "ข. เก็บกล่องหรือหีบห่อซึ่งมีเครื่องหมายแสดงชั้นความลับหากวัสดุนั้นเล็กเกินกว่าจะสลักตรา", "ค. ใช้เฉพาะวัสดุสีแดงหรือห่อหุ้มด้วยภาชนะทึบแสงสีแดงทั้งหมด", "ง. ข้อ ก. และ ข้อ ข. ถูกต้องตามระเบียบข้อ ๒๒ (๓)"],
+                answer: 3,
+                rationale: "ข้อ ๒๒ (๓) ให้สลักไว้ที่ต้น/ปลายม้วนฟิล์มหรือภาชนะบรรจุ หากไม่สามารถทำได้ให้บรรจุกล่องหรือซองที่มีชั้นความลับชัดเจน"
+            },
+            {
+                id: 36,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "การใช้อำนาจในการปรับระดับชั้นความลับ (เพิ่ม/ลด/ยกเลิก) ต้องดำเนินการโดยบุคคลใด?",
+                options: ["ก. ผู้มีอำนาจกำหนดชั้นความลับของหน่วยงานเจ้าของเรื่อง", "ข. หัวหน้าส่วนราชการทุกระดับตามสายงานโดยเสรี", "ค. หัวหน้าหน่วยงานรัฐที่ไปติดต่อขอข้อมูลนั้นไปใช้งาน", "ง. นายทะเบียนกลางฝ่ายรักษาความปลอดภัยพลเรือน"],
+                answer: 0,
+                rationale: "ตามข้อ ๒๓ การปรับชั้นความลับต้องกระทำโดย 'ผู้มีอำนาจกำหนดชั้นความลับของหน่วยงานเจ้าของเรื่อง'"
+            },
+            {
+                id: 37,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "ข้อใดกล่าวได้ถูกต้องและชัดเจนเกี่ยวกับการปฏิบัติกรณีที่มีการขอปรับระดับชั้นความลับ?",
+                options: ["ก. เมื่อหน่วยงานเจ้าของเรื่องทำการปรับชั้นความลับแล้ว ต้องแจ้งหน่วยงานรัฐอื่นที่รับข้อมูลไปทราบทันที", "ข. ผู้บังคับบัญชาตามสายงานมีสิทธิสั่งแก้ชั้นความลับได้แต่ต้องแจ้งรายงานให้ผู้กำหนดสิทธิ์เดิมทราบ", "ค. กรณีที่คาดเดากำหนดเวลาปรับชั้นได้ล่วงหน้า ให้พิมพ์ระบุกำหนดเวลาไว้ใกล้ตราแสดงชั้นความลับที่ปกหน้า", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "วรรคท้ายของข้อ ๒๓ เปิดโอกาสให้ทำได้ตามที่ระบุ ทั้งการแจ้งหน่วยงานอื่น การปรับแก้โดยผู้บังคับบัญชา และการกำหนดเวลาปรับชั้นความลับล่วงหน้า"
+            },
+            {
+                id: 38,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "การดำเนินการแก้ไขเครื่องหมายแสดงชั้นความลับ ให้กระทำด้วยวิธีการใดตามที่ระบุในระเบียบ?",
+                options: ["ก. ลบข้อมูลลับด้วยน้ำยาลบคำผิดสีขาวแล้วปล่อยว่างไว้", "ข. ใช้ยางลบหมึกขูดลบตราประทับสีแดงเดิมออกให้สะอาด", "ค. ใช้ปากกาขีดฆ่าเครื่องหมายเดิมแล้วแสดงเครื่องหมายใหม่ไว้ใกล้กันพร้อมลงบันทึกในทะเบียนควบคุม", "ง. ใช้กระดาษทึบแสงหรือปากกาเมจิกสีดำทาทับปิดเครื่องหมายเดิม"],
+                answer: 2,
+                rationale: "การแก้ไข ให้ใช้วิธี 'ขีดฆ่า' เครื่องหมายแสดงชั้นความลับเดิม แล้วพิมพ์หรือประทับตราเครื่องหมายชั้นใหม่ไว้ใกล้กัน พร้อมจดแจ้งในทะเบียนควบคุม"
+            },
+            {
+                id: 39,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "หน่วยงานหรือคณะบุคคลใดที่มีอำนาจพิจารณาชี้ขาดและมีคำวินิจฉัยให้เปิดเผยข้อมูลราชการลับโดยปราศจากข้อจำกัด?",
+                options: ["ก. คณะกรรมการสอบสวนวินัยและข้อเท็จจริง", "ข. คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร", "ค. สภาผู้แทนราษฎรผ่านการยื่นพิจารณารายวิสามัญ", "ง. สำนักข่าวกรองแห่งชาติ (สขช.)"],
+                answer: 1,
+                rationale: "ระเบียบข้อ ๒๔ ระบุ คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร (กวอ.) มีคำชี้ขาดให้เปิดเผยโดยไม่มีข้อจำกัด ให้ถือว่าชั้นความลับเดิมถูกยกเลิกแล้ว"
+            },
+            {
+                id: 40,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "เจ้าหน้าที่ผู้ได้รับการแต่งตั้งเพื่อควบคุมและรับผิดชอบการดำเนินทะเบียนข้อมูลลับภายในหน่วยงานรัฐ มีชื่อเรียกตำแหน่งว่าอย่างไร?",
+                options: ["ก. เจ้าหน้าที่ข้อมูลข่าวสารทางราชการที่เป็นความลับ", "ข. นายทะเบียนข้อมูลของทางราชการ", "ค. นายทะเบียนข้อมูลข่าวสารลับ", "ง. หัวหน้าฝ่ายสารบรรณข้อมูลลับควบคุมกลาง"],
+                answer: 2,
+                rationale: "ข้อ ๒๕ กำหนดให้หัวหน้าแต่งตั้งเจ้าหน้าที่เรียกว่า 'นายทะเบียนข้อมูลข่าวสารลับ'"
+            },
+            {
+                id: 41,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "ผู้ใดที่เป็นผู้มีอำนาจแต่งตั้งหรือมอบสิทธิฐานะนายทะเบียนข้อมูลข่าวสารลับภายในส่วนงาน?",
+                options: ["ก. หัวหน้าหน่วยงานของรัฐ", "ข. นายทะเบียนกลางพลเรือนประจำสำนักนายกฯ", "ค. คณะรัฐมนตรีโดยความเห็นชอบของ สขช.", "ง. รัฐมนตรีว่าการกระทรวงมหาดไทย"],
+                answer: 0,
+                rationale: "ระเบียบข้อ ๒๕ กำหนดสิทธิแต่งตั้งให้แก่ 'หัวหน้าหน่วยงานของรัฐ' ประจำส่วนงานนั้นๆ"
+            },
+            {
+                id: 42,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "หน้าที่ความรับผิดชอบของ นายทะเบียนข้อมูลข่าวสารลับ ได้แก่ข้อใดต่อไปนี้?",
+                options: ["ก. ดำเนินงานทางทะเบียนข้อมูลลับ และเก็บรักษาแบบเอกสารในความปลอดภัย", "ข. เก็บสมุดบัญชีรายชื่อลายเซ็นของนายทะเบียนฝ่ายอื่นที่มาติดต่อเป็นประจำ", "ค. ประสานกับผู้ควบคุมทะเบียนความไว้วางใจในการเลือกคนเข้าถึงพิกัดข้อมูลลับ", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "ตามที่ระบุในข้อ ๒๖ นายทะเบียนข้อมูลข่าวสารลับมีหน้าที่ครอบคลุม ๕ ประการตามที่ตัวเลือกทั้งหมดกำหนดไว้"
+            },
+            {
+                id: 43,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "ทะเบียนข้อมูลข่าวสารลับที่นายทะเบียนต้องจัดให้มีแยกต่างหากจากสมุดทะเบียนสารบรรณปกติ ประกอบด้วยกี่ประเภท?",
+                options: ["ก. ทะเบียนรับ ข้อมูลราชการลับ", "ข. ทะเบียนส่ง ข้อมูลราชการลับ", "ค. ทะเบียนควบคุมข้อมูลข่าวสารลับ", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "ระเบียบข้อ ๒๗ บังคับให้ต้องจัดทำ ๓ ทะเบียนหลัก ได้แก่ ทะเบียนรับ, ทะเบียนส่ง, และทะเบียนควบคุมข้อมูลข่าวสารลับแยกเฉพาะ"
+            },
+            {
+                id: 44,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "สมุดทะเบียนข้อมูลลับที่ใช้บันทึกเฉพาะข้อมูลรายละเอียดของสิ่งสารบรรณลับที่หน่วยงาน 'ได้รับเข้ามา' เรียกว่าอะไร?",
+                options: ["ก. ทะเบียนรับ", "ข. ทะเบียนส่ง", "ค. ทะเบียนควบคุมข้อมูลข่าวสารลับ", "ง. สมุดทะเบียนสารบรรณกลาง"],
+                answer: 0,
+                rationale: "ทะเบียนรับ ใช้สำหรับบันทึกรายละเอียดของข้อมูลข่าวสารลับที่หน่วยงาน 'ได้รับไว้'"
+            },
+            {
+                id: 45,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "สมุดทะเบียนข้อมูลลับที่ใช้บันทึกข้อมูลข่าวสารลับที่ 'ส่งออกนอกบริเวณ' หน่วยงานรัฐ เรียกว่าอะไร?",
+                options: ["ก. ทะเบียนรับ", "ข. ทะเบียนส่ง", "ค. ทะเบียนควบคุมข้อมูลข่าวสารลับ", "ง. สมุดบันทึกไปรษณีย์ลับการทูต"],
+                answer: 1,
+                rationale: "ทะเบียนส่ง ใช้สำหรับบันทึกรายละเอียดของข้อมูลข่าวสารลับที่ 'ส่งออกนอกบริเวณหน่วยงาน'"
+            },
+            {
+                id: 46,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "ทะเบียนที่ใช้บันทึกทั้งข้อมูลที่ส่วนราชการจัดทำใช้งานเอง ส่งออก ได้รับมา รวมถึงบันทึกการปรับปรุงย้ายโอนและยุบเลิก คือข้อใด?",
+                options: ["ก. ทะเบียนรับ", "ข. ทะเบียนส่ง", "ค. ทะเบียนควบคุมข้อมูลข่าวสารลับ", "ง. สมุดทะเบียนตรวจวินัยพิเศษประจำส่วน"],
+                answer: 2,
+                rationale: "ทะเบียนควบคุมข้อมูลข่าวสารลับ มีหน้าที่และสิทธิครอบคลุมบันทึกทุกขั้นตอนอย่างครอบคลุมที่สุด"
+            },
+            {
+                id: 47,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "คณะกรรมการตรวจสอบการปฏิบัติตามระเบียบการรักษาความปลอดภัยข้อมูลลับ ใครเป็นผู้มีอำนาจแต่งตั้ง?",
+                options: ["ก. หัวหน้าหน่วยงานของรัฐ", "ข. รัฐมนตรีสังกัดกระทรวงเจ้าสังกัด", "ค. นายทะเบียนและผู้ว่าจังหวัดร่วมกัน", "ง. ประธานคณะกรรมการข้อมูลข่าวสารของราชการ"],
+                answer: 0,
+                rationale: "ระเบียบข้อ ๒๙ กำหนดให้ 'หัวหน้าหน่วยงานของรัฐ' เป็นผู้ลงนามคำสั่งแต่งตั้งคณะกรรมการตรวจสอบ"
+            },
+            {
+                id: 48,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "ผู้ดำรงตำแหน่งใดที่กำหนดไว้ให้เป็น 'ประธานกรรมการ' ในคณะกรรมการตรวจสอบชุดดังกล่าวโดยตำแหน่ง?",
+                options: ["ก. นายทะเบียนข้อมูลข่าวสารลับ", "ข. หัวหน้าส่วนราชการสังกัดรอง", "ค. นิติกรที่ปรึกษาทางกฎหมาย", "ง. หัวหน้ากองสารบรรณแผ่นดิน"],
+                answer: 0,
+                rationale: "ข้อ ๒๙ บัญญัติให้ 'นายทะเบียนข้อมูลข่าวสารลับ' ปฏิบัติหน้าที่ประธานคณะกรรมการตรวจสอบ"
+            },
+            {
+                id: 49,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "คณะกรรมการตรวจสอบ ต้องประกอบด้วย ประธาน และข้าราชการหรือเจ้าหน้าที่ฝ่ายอื่นร่วมงานอีกไม่น้อยกว่ากี่คน?",
+                options: ["ก. ไม่น้อยกว่า ๑ คน", "ข. ไม่น้อยกว่า ๒ คน", "ค. ไม่น้อยกว่า ๓ คน", "ง. ไม่น้อยกว่า ๔ คน"],
+                answer: 1,
+                rationale: "ระเบียบข้อ ๒๙ กำหนดเป็นประธาน และ 'เจ้าหน้าที่อื่นอีกไม่น้อยกว่าสองคน' เป็นกรรมการ"
+            },
+            {
+                id: 50,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "คณะกรรมการตรวจสอบ ต้องลงพื้นที่ตรวจสอบระบบทะเบียนและตัวตนข้อมูลข่าวสารลับของหน่วยงานอย่างน้อยที่สุดในกำหนดเวลาใด?",
+                options: ["ก. ตรวจสอบอย่างน้อยปีละครั้ง", "ข. ตรวจสอบอย่างน้อยทุก ๓ เดือน", "ค. ตรวจสอบอย่างน้อยทุก ๖ เดือน", "ง. ตรวจสอบเป็นประจำทุกสัปดาห์"],
+                answer: 2,
+                rationale: "กฎหมายระบุให้ทำการตรวจสอบความถูกต้องและการมีอยู่ของข้อมูลในทะเบียน 'อย่างน้อยทุกหกเดือน' (ม.๒๙)"
+            },
+            {
+                id: 51,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "แบบรายงานและมาตรฐานเอกสารแสดงการตรวจสอบข้อมูลข่าวสารลับ ได้รับการระบุตามข้อกำหนดโดยใคร?",
+                options: ["ก. คณะรัฐมนตรี", "ข. นายกรัฐมนตรี", "ค. ผู้อำนวยการ สขช.", "ง. ปลัดสำนักนายกรัฐมนตรี"],
+                answer: 1,
+                rationale: "แบบรายงานการตรวจสอบข้อมูลข่าวสารลับกำหนดโดย 'นายกรัฐมนตรี' โดยประกาศลงในราชกิจจานุเบกษา"
+            },
+            {
+                id: 52,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "หน่วยงานของรัฐในสังกัดต้องส่งสรุปรายงานผลการปฏิบัติงานด้านความลับเสนอประเมินประจำปีภายในเดือนใด?",
+                options: ["ก. ภายในสิ้นเดือน มกราคม", "ข. ภายในสิ้นเดือน มีนาคม", "ค. ภายในสิ้นเดือน มิถุนายน", "ง. ภายในสิ้นเดือน กันยายน"],
+                answer: 1,
+                rationale: "ระเบียบข้อ ๒๙/๑ ระบุให้หน่วยงานรายงานผลต่อคณะกรรมการข้อมูลข่าวสารของราชการ 'ภายในเดือนมีนาคมของทุกปี'"
+            },
+            {
+                id: 53,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "รายงานสรุปประจำปีตามข้อ ๒๙/๑ กำหนดให้ส่งมอบและยื่นเสนอต่อคณะบุคคลหรือหน่วยงานใด?",
+                options: ["ก. คณะรัฐมนตรีผ่านสภากระทรวงมหาดไทย", "ข. คณะกรรมการพัฒนาระบบราชการ (ก.พ.ร.)", "ค. คณะกรรมการข้อมูลข่าวสารของราชการ", "ง. สำนักข่าวกรองแห่งชาติ (สขช.)"],
+                answer: 2,
+                rationale: "กฎหมายบังคับให้หน่วยงานรายงานผลตรงต่อ 'คณะกรรมการข้อมูลข่าวสารของราชการ' (กขร.)"
+            },
+            {
+                id: 54,
+                category: "การบริหารงานทะเบียนและการตรวจสอบ",
+                question: "เมื่อคณะกรรมการชุดรับรายงาน ดำเนินการตรวจสอบเสร็จเรียบร้อยแล้ว มีหน้าที่ต้องส่งเอกสารรายงานผลสรุปต่อผู้ใด?",
+                options: ["ก. คณะรัฐมนตรีร่วมสังกัด", "ข. นายกรัฐมนตรี", "ค. ประธานศาลปกครองสูงสุด", "ง. ปลัดสำนักนายกรัฐมนตรี"],
+                answer: 1,
+                rationale: "เมื่อคณะกรรมการตรวจสอบเสร็จแล้ว ให้ส่งรายงานผลการตรวจสอบสรุปข้อเสนอต่อนายกรัฐมนตรีโดยเร็ว"
+            },
+            {
+                id: 55,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "เมื่อเกิดกรณีสงสัยว่า บุคคลที่ไร้อำนาจและสิทธิหน้าที่ได้รู้เห็นข้อมูลความลับราชการรั่วไหล หัวหน้าหน่วยงานของรัฐต้องปฏิบัติการข้อใด?",
+                options: ["ก. ลงนามแต่งตั้งคณะกรรมการสอบสวนโดยไม่ชักช้า", "ข. ยื่นคำขอร้องต่อผู้ตรวจการแผ่นดินของรัฐสภา", "ค. สั่งการให้ระงับขั้นตอนการปฏิบัติงานสารบรรณทั้งหมดของกรมทันที", "ง. รีบนำเนื้อหาข้อมูลชั้นความลับระดับสูงขึ้นซองน้ำตาลทำลายทิ้งทันที"],
+                answer: 0,
+                rationale: "ระเบียบข้อ ๓๐ ระบุ เมื่อเกิดข้อสงสัยรั่วไหลหรือละเมิดความปลอดภัยข้อมูล ให้หัวหน้า 'แต่งตั้งคณะกรรมการสอบสวนโดยไม่ชักช้า'"
+            },
+            {
+                id: 56,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ข้อใดอธิบายหลักเกณฑ์การกรอกข้อมูลและจัดทำสิ่งสารบรรณลับได้ 'ไม่ถูกต้อง'?",
+                options: ["ก. หัวหน้าหน่วยงานจำกัดกรอบจำนวนเจ้าหน้าที่ทำงานเกี่ยวกับความลับเพียงเท่าที่จำเป็นต่อภารกิจ", "ข. ข้อมูลที่เป็นเอกสารต้องบันทึกชื่อหน่วยงาน เลขที่ชุด และระบุเลขหน้าจากจำนวนหน้าทั้งหมดลงทุกแผ่น", "ค. ข้อมูลประเภทแผ่นจานหรือม้วนฟิล์ม ให้พิมพ์ระบุชื่อเจ้าของเรื่องและเลขที่ชุดไว้ที่ส่วนกล่องหรือหีบห่อบรรจุภัณฑ์", "ง. ห้ามพิมพ์ระบุตราชื่อสมาคมหรือหน่วยงานส่วนย่อยของกองกำกับรวมอยู่ในเอกสารหลักข้อมูลลับเด็ดขาด"],
+                answer: 3,
+                rationale: "ตามกฎหมายระบุว่า 'จะแสดงชื่อหน่วยงานส่วนย่อยไว้ด้วยก็ได้' การกล่าวห้ามจึงผิดคลาดเคลื่อนจากความเป็นจริง"
+            },
+            {
+                id: 57,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "เมื่อข้าราชการมีเหตุจำเป็นต้องดำเนินการคัดสำเนา คัดลอก หรือจัดทำคำแปลเอกสารลับ ต้องบันทึกรายละเอียดใด?",
+                options: ["ก. จำนวนชุดเอกสารที่ได้รับมอบหมาย", "ข. ยศ ชื่อ และตำแหน่งของผู้ปฏิบัติกระบวนการ", "ค. ตราชื่อสัญลักษณ์หน่วยงานของรัฐที่จัดทำไว้ที่หนังสือราชการต้นฉบับและสำเนา", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "ระเบียบข้อ ๓๓ ระบุรายละเอียดทั้งหมดไว้เพื่อคุมเข้มการละเมิดความปลอดภัยในการแปล สำเนา คัดลอก ถอดรหัสลับ"
+            },
+            {
+                id: 58,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ขั้นตอนการโอนข้อมูลข่าวสารลับระหว่างส่วนราชการหรือหน่วยงานของรัฐ มีวิธีการทำอย่างไร?",
+                options: ["ก. ผู้โอนและผู้รับโอนจัดทำบันทึกรายงานการโอนและรับโอนเก็บเป็นหลักฐาน", "ข. นายทะเบียนทำการจดแจ้งประวัติลงทะเบียนการโอนไว้ในทะเบียนควบคุมข้อมูลข่าวสารลับ", "ค. ดำเนินการโอนทางระบบอินเทอร์เน็ตกลางโดยตรงโดยไม่มีพยานหลักฐานลงนาม", "ง. ตัวเลือก ก. และ ข. ถูกต้องตามระเบียบข้อ ๓๔"],
+                answer: 3,
+                rationale: "การโอนย้ายความรับผิดชอบข้อมูลลับต้องมีการจัดทำบันทึกและจดบันทึกไว้ในทะเบียนควบคุม เพื่อให้มีระบบการสืบย้อนกลับได้"
+            },
+            {
+                id: 59,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "เอกสารแบบฟอร์มแสดงรายงานบันทึกการส่งมอบ-โอนย้ายข้อมูลลับ กำหนดขึ้นตามพิกัดแบบฟอร์มโดยใคร?",
+                options: ["ก. ปลัดกระทรวงสังกัด", "ข. นายกรัฐมนตรี", "ค. ผู้บังคับบัญชาสูงสุดของกองทัพ", "ง. ผู้อำนวยการ สขช."],
+                answer: 1,
+                rationale: "แบบเอกสารหลักฐานโอนย้ายระบุมาตรฐานเดียวกันกำหนดโดย 'นายกรัฐมนตรี' ลงประกาศในราชกิจจานุเบกษา"
+            },
+            {
+                id: 60,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ข้อใดกล่าวถึงขั้นตอนการขนส่งและจัดส่งข้อมูลราชการที่เป็นความลับได้ 'ผิดจากข้อบังคับระเบียบ'?",
+                options: ["ก. การส่งภายในบริเวณตัวอาคารหน่วยงานเดียวกัน ต้องเย็บปะติดปีกปะหน้าใบปะฉลากทุกแผ่น", "ข. ใบตอบรับในการจัดส่งเอกสารห้ามเขียนพิมพ์ข้อความชั้นความลับลงไปในช่องรายละเอียดของใบงานเป็นอันขาด", "ค. การส่งข้อมูลข่าวสารลับออกภายนอกหน่วยงาน ต้องบรรจุลงซองหรือหีบห่อวัสดุทึบแสงเย็บสองชั้นแข็งแรง", "ง. การส่งภายในบริเวณหน่วยงานเดียวกันสำหรับทุกระดับชั้นความลับ ไม่จำเป็นต้องใช้ใบปกข้อมูลลับปิดปะหน้าเอกสาร"],
+                answer: 3,
+                rationale: "ระเบียบข้อ ๓๕ ระบุชัดเจนว่า 'การส่งข้อมูลข่าวสารลับภายในบริเวณหน่วยงานเดียวกันทุกชั้นความลับ ต้องใช้ใบปกข้อมูลข่าวสารลับปิดทับข้อมูลข่าวสารลับ' การกล่าวไม่จำต้องใช้จึงผิด"
+            },
+            {
+                id: 61,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "กรณีการจัดส่งเอกสารลับเพื่อนำไปใช้งานนอกบริเวณส่วนงาน ต้องปฏิบัติตามวิธีการใดเพื่อความปลอดภัยทางกายภาพ?",
+                options: ["ก. ห้ามส่งทางไปรษณีย์กลางแต่ให้จ้างบริษัทขนส่งเอกชนที่มีรถเกราะเท่านั้น", "ข. ปิดปะหน้าเอกสารเฉพาะใบปกนอกสีแดงโดยไม่ต้องใช้วัสดุปิดป้องเนื้อหาภายใน", "ค. บรรจุซองหรือหีบห่อทึบแสงหนาสองชั้นอย่างมั่นคงแข็งแรง", "ง. ถูกทุกข้อที่กล่าวมาข้างต้น"],
+                answer: 2,
+                rationale: "ข้อ ๓๖ ระบุไว้ชัดเจนเรื่องมาตรฐาน 'ต้องบรรจุซองหรือภาชนะทึบแสงสองชั้นอย่างมั่นคง'"
+            },
+            {
+                id: 62,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "รายละเอียดที่กำหนดให้เขียนบนซองหรือห่อวัสดุ 'ชั้นใน' ที่ส่งข้อมูลลับภายนอกกระทรวง ได้แก่ข้อใด?",
+                options: ["ก. ระบุรหัสเลขที่ของหนังสือนำส่งปลายทาง", "ข. พิมพ์ชื่อหรือระบุตำแหน่งของข้าราชการผู้รับเรื่อง", "ค. ระบุสังกัดและชื่อผู้ส่ง พร้อมพิมพ์เครื่องหมายชั้นความลับสีแดงเด่นชัดทั้งด้านหน้าและหลังซอง", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "ซองชั้นใน ต้องจ่าหน้าและระบุชั้นความลับสีแดงให้เห็นสะดุดตาชัดเจน เพื่อให้ผู้รับด้านในระมัดระวังการเปิด"
+            },
+            {
+                id: 63,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ซองจดหมายหรือภาชนะปิดผนึก 'ชั้นนอก' สำหรับจัดส่งเอกสารลับทางราชการ ข้อใดต่อไปนี้ที่กำหนดไว้ว่า 'ไม่ต้องเขียนระบุเด็ดขาด'?",
+                options: ["ก. เลขที่หนังสือนำส่ง", "ข. ชื่อหรือตำแหน่งสังกัดผู้รับปลายทาง", "ค. ตราสัญลักษณ์ชื่อที่อยู่สังกัดส่วนงานผู้จัดส่ง", "ง. เครื่องหมายประทับชั้นความลับสีแดงทั้งด้านหน้าและหลังซอง"],
+                answer: 3,
+                rationale: "ซองชั้นนอกสุดต้องมองดูเหมือนไปรษณีย์ทั่วไป 'ห้ามมีเครื่องหมายชั้นความลับเด็ดขาด' เพื่อความปลอดภัยระหว่างจัดส่งทางกายภาพไม่ให้เป็นเป้าสายตา"
+            },
+            {
+                id: 64,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "เอกสารใบตอบรับการขนส่งเอกสารลับ ข้อความหรือส่วนใดในรายงานที่ระเบียบ 'ห้ามจดบันทึกเขียนระบุไว้เด็ดขาด'?",
+                options: ["ก. ชั้นความลับและชื่อหัวเรื่องของความลับฉบับนั้น", "ข. เลขที่หนังสือส่งส่วนงานกลาง", "ค. วัน เดือน ปี ที่จัดเตรียมจัดส่ง", "ง. จำนวนพิกัดหน้ากระดาษและระบุหมายเลขพิกัดฉบับ"],
+                answer: 0,
+                rationale: "ใบตอบรับอาจสูญหายหรือตกหล่นระหว่างขนส่งได้ จึงห้ามเขียนระบุความลับและชื่อเรื่องลงไปในใบรับ (ข้อ ๓๖)"
+            },
+            {
+                id: 65,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "แบบฟอร์มเอกสารใบตอบรับสำหรับจัดส่งสารบรรณลับ กำหนดมาตรฐานขึ้นโดยผู้ใด?",
+                options: ["ก. ปลัดสำนักนายกราชการ", "ข. คณะรัฐมนตรีประจำตำแหน่ง", "ค. นายกรัฐมนตรี", "ง. อธิบดีกรมประชาสัมพันธ์กลาง"],
+                answer: 2,
+                rationale: "แบบใบตอบรับข้อมูลราชการลับกำหนดขึ้นตามมาตรฐานระเบียบโดย 'นายกรัฐมนตรี'"
+            },
+            {
+                id: 66,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ข้อใดอธิบายระเบียบการจัดส่งเอกสารลับราชการภายนอกเขตกระทรวงโดยวิธี 'เจ้าหน้าที่นำสาร' ได้ 'ไม่ถูกต้อง'?",
+                options: ["ก. หัวหน้าหน่วยงานของรัฐหรือผู้รับสิทธิ์มอบหมายเป็นผู้อนุมัติกระทำความสะดวก", "ข. นายทะเบียนลับทำหน้าที่ลงชื่อในทะเบียนควบคุมก่อนส่งข้อมูลออก", "ค. ผู้ส่งอาจพิจารณาจัดรถอารักขาคุ้มครองความปลอดภัยเจ้าหน้าที่นำสารหากจำเป็น", "ง. เจ้าหน้าที่นำสารต้องอ้างอิงและยึดการจัดส่งตามกฎของระเบียบการทูตกระทรวงต่างประเทศเป็นทางปฏิบัติสำคัญทุกกรณี"],
+                answer: 3,
+                rationale: "ระเบียบการจัดส่งภายในประเทศใช้ข้อบังคับนี้ (ข้อ ๓๗) ส่วนระเบียบถุงเมล์การทูตกระทรวงการต่างประเทศใช้สำหรับเฉพาะกรณี 'จัดส่งออกต่างประเทศ' เท่านั้น"
+            },
+            {
+                id: 67,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "หน้าที่สำคัญที่สุดสำหรับ 'เจ้าหน้าที่นำสาร' ที่ถือหนังสือข้อมูลความลับราชการ ได้แก่ข้อใด?",
+                options: ["ก. รักษาความปลอดภัยของข้อมูลตลอดห้วงเวลานำออกนอกบริเวณอย่างเข้มข้นสูงสุด", "ข. หากส่งไม่ได้เนื่องจากผู้รับไม่อยู่ ให้นำเอกสารลับกลับมาเก็บเข้าคลังหน่วยงานเดิมทันที", "ค. หากเจ้าตัวเกิดเหตุสุดวิสัยฉุกเฉิน ให้ข้าราชการผู้อารักขานำสารปฏิบัติราชการแทนโดยตรงแล้วรีบรายงานทะเบียน", "ง. ถูกทุกข้อที่กล่าวมาข้างต้น"],
+                answer: 3,
+                rationale: "ตามมาตรา ๓๘ เจ้าหน้าที่นำสารมีข้อกำหนดบทบาทและวิธีแก้ปัญหาฉุกเฉินเฉพาะหน้าเมื่อไม่สามารถส่งข้อมูลให้ผู้รับได้ตรงตามตัวเลือกทั้งหมด"
+            },
+            {
+                id: 68,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "การจัดส่งข้อมูลราชการความลับออกไปนอกพิกัดดินแดนประเทศ (ต่างประเทศ) มีข้อปฏิบัติอย่างใด?",
+                options: ["ก. ให้ดำเนินการจัดส่งตามระเบียบถุงเมล์การทูตของกระทรวงต่างประเทศโดยอนุโลม", "ข. จัดส่งโดยมอบสิทธิ์ให้ข้าราชการฐานะสิทธิ์ทางการทูตเป็นผู้ถือเอกสารเดินทางไปด้วยตนเอง", "ค. ส่งทางโทรคมนาคมอินเทอร์เน็ตได้แต่ต้องได้รับคำยินยอมลงนามจากหัวหน้าหน่วยงานรัฐเจ้าของเรื่อง", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "ข้อ ๓๙, ๔๐ อนุญาตให้ทำได้ทั้งหมดตามกรอบขั้นตอนและข้อปฏิบัติที่กำหนดไว้เพื่อป้องกันความปลอดภัยระหว่างประเทศ"
+            },
+            {
+                id: 69,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "การเลือกส่งผ่านระบบเครือข่ายโทรคมนาคมหรือเครื่องมือวิชาการสารสนเทศ ต้องยึดถือแนวทางตามคำแนะนำขององค์กรใด?",
+                options: ["ก. ปลัดกระทรวงสังกัด", "ข. องค์การรักษาความปลอดภัย (ฝ่ายพลเรือน ทหาร ตำรวจ ตามขอบข่าย)", "ค. คณะกรรมการข้อมูลข่าวสารข้าราชการแผ่นดิน", "ง. นายทะเบียนกลางผู้คุมทะเบียน"],
+                answer: 1,
+                rationale: "มาตรา ๔๐ วรรคสอง ระบุชัดเจนว่า 'ให้ปฏิบัติตามคำแนะนำขององค์การรักษาความปลอดภัย'"
+            },
+            {
+                id: 70,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ข้อความใดต่อไปนี้ที่ระเบียบการจัดส่งเอกสารและรับจดทะเบียนสารบรรณลับกล่าวอธิบายไว้ 'ผิดคลาดเคลื่อน'?",
+                options: ["ก. เจ้าหน้าที่สารบรรณกลางเมื่อทราบว่าเป็นความลับ ต้องรีบส่งมอบให้นายทะเบียนความลับทันที", "ข. นายทะเบียนทำการประทับลายมือชื่อตอบรับซองแล้วเก็บลงทะเบียนก่อนใช้งานส่งต่อ", "ค. หากคนรับเรื่องไม่สะดวกดำเนินการในช่วงสัปดาห์นั้น ให้ฝากซองราชการลับไว้ที่สมาคมเอกชนที่เกี่ยวข้องส่งคืนแทน", "ง. การส่งตรงถึงมือบุคคลผู้รับจ่าหน้า ให้คนรับแจ้งเรื่องให้นายทะเบียนคีย์เข้าระบบทันทีโดยไม่ชักช้า"],
+                answer: 2,
+                rationale: "หากผู้รับเรื่องยังไม่สะดวกทำต่อ 'ต้องเก็บรักษาเอกสารลับไว้ในตู้นิรภัยที่ปลอดภัยตามระเบียบของหน่วยงานรัฐนั้น' ห้ามฝากเอกชนไปส่งคืนมั่วซั่ว"
+            },
+            {
+                id: 71,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "หน่วยงานของรัฐมีหน้าที่จัดการพื้นที่หรือคลังสำหรับจัดเก็บรักษาสารราชการที่เป็นความลับอย่างไร?",
+                options: ["ก. จัดการให้อยู่ในตู้เซฟ ตู้นิรภัย หรือพื้นที่ปิดกั้นที่ปลอดภัยทางกายภาพ", "ข. ประกาศกำหนดแนวทางหลักเกณฑ์รักษาความปลอดภัยพื้นที่โดยเฉพาะภายในสำนักงาน", "ค. กำหนดวิธีจัดการพื้นที่ปลอดภัยอ้างอิงตามคำแนะนำขององค์การรักษาความปลอดภัยสังกัด", "ง. ถูกทุกข้อที่กล่าวมาทั้งหมด"],
+                answer: 3,
+                rationale: "ข้อ ๔๔ บังคับให้เก็บในตู้นิรภัย มั่นคง และกำหนดวิธีการรักษาความปลอดภัยเฉพาะพิกัดตามคำแนะนำของ ศรภ., สขช., หรือ บช.ส."
+            },
+            {
+                id: 72,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "การดำเนินการปล่อยหรือยินยอมให้ข้าราชการสังกัดยืมข้อมูลความลับทางราชการ ใครมีสิทธิ์พิจารณาความไว้วางใจ?",
+                options: ["ก. หัวหน้าหน่วยงานของรัฐ", "ข. ข้าราชการที่หัวหน้าหน่วยงานมอบหมายสิทธิ์อนุญาต", "ค. ข้อ ก. และ ข้อ ข. ถูกต้องตามระเบียบข้อ ๔๕", "ง. นายทะเบียนข้อมูลข่าวสารลับกลางประจำสภา"],
+                answer: 2,
+                rationale: "ข้อ ๔๕ บัญญัติให้สิทธิ์พิจารณาตรวจสอบสิทธิ์ผู้ขอยืมแก่ 'หัวหน้าหน่วยงานของรัฐหรือผู้ได้รับมอบสิทธิ์'"
+            },
+            {
+                id: 73,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "หากมีข้าราชการขอยืมข้อมูลลับ แต่เรื่องดังกล่าวหน่วยงานรัฐอื่นเป็นผู้จัดตั้งและเป็นเจ้าของเรื่อง ต้องปฏิบัติการข้อใด?",
+                options: ["ก. ต้องได้รับความยินยอมหรือการอนุญาตจากหน่วยงานเจ้าของเรื่องเดิมนั้นก่อน", "ข. นายทะเบียนสามารถตัดสินใจลงลายเซ็นอนุมัติให้ยืมข้ามแผนกได้ทันทีโดยไม่ต้องถามความเห็น", "ค. สั่งระงับใบคำขอถาวรเนื่องจากระเบียบห้ามปล่อยข้ามฝ่ายทุกกรณี", "ง. ส่งใบคำขอขอยืมตรงต่อผู้ว่าราชการจังหวัดลงนามเห็นชอบ"],
+                answer: 0,
+                rationale: "ข้อ ๔๕ กำหนดเด็ดขาดว่า 'ต้องได้รับอนุญาตจากหน่วยงานเจ้าของเรื่องนั้นก่อน' ยกเว้นผู้ขอยืมจะเป็นต้นสังกัดเดิมนั้นเอง"
+            },
+            {
+                id: 74,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ข้อใดอธิบายเกี่ยวกับบันทึกใบคำขอยืมเอกสารความลับราชการได้ 'ไม่ถูกต้อง'?",
+                options: ["ก. นายทะเบียนมีหน้าที่ทำบันทึกและคีย์ประวัติลงลายเซ็นไว้ในทะเบียนควบคุมการยืม", "ข. รูปแบบใบรายงานบันทึกการขอยืมกำหนดมาตรฐานเดียวกันโดยผ่านระเบียบนายกรัฐมนตรี", "ค. รูปแบบใบยืมขอยืมกำหนดขึ้นตามแนวทางเลือกมติของคณะรัฐมนตรีโดยจดแจ้งราชกิจจานุเบกษา", "ง. หากผู้ยืมเป็นข้าราชการที่เป็นเจ้าของหนังสือต้นเรื่องเดิม ไม่จำต้องยื่นขอใบขออนุญาตข้ามหน่วยงาน"],
+                answer: 2,
+                rationale: "แบบบันทึกการยืมกำหนดโดยประกาศของ 'นายกรัฐมนตรี' ลงราชกิจจาฯ ไม่ใช่ของ ครม. ตัวเลือก ค. จึงผิดจากระเบียบ"
+            },
+            {
+                id: 75,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ในกรณีประเมินฉุกเฉินพบว่าข้อมูลลับสุดยอดชั้น ลับที่สุด (Top Secret) เสี่ยงต่อความปลอดภัยรั่วไหลเฉียบพลัน ใครมีอำนาจสั่งลงนามทำลายข้อมูลทิ้งทันที?",
+                options: ["ก. หัวหน้าหน่วยงานของรัฐ", "ข. นายทะเบียนผู้ดูแลเอกสาร", "ค. ข้าราชการความปลอดภัยระดับปฏิบัติการในพิกัดพื้นที่", "ง. คณะกรรมการรักษาความมั่นคงรัฐประจำพื้นที่"],
+                answer: 0,
+                rationale: "ข้อ ๔๖ วรรคหนึ่งกำหนดความเร่งด่วนเฉพาะสำหรับ ลับที่สุด ให้สิทธิ์ 'หัวหน้าหน่วยงานของรัฐ' สั่งการทำลายได้โดยพลัน"
+            },
+            {
+                id: 76,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "กรณีปฏิบัติงานปกติทั่วไปที่ไม่ใช่ความเร่งด่วน การสั่งทำลายความลับราชการที่พ้นระยะการใช้งานแล้ว ต้องส่งมอบตรวจสอบที่ใดก่อนทำลาย?",
+                options: ["ก. สำนักงานปลัดสำนักนายกฯ เพื่อคีย์บันทึก", "ข. หอจดหมายเหตุแห่งชาติ กรมศิลปากร เพื่อคัดกรองคุณค่าทางประวัติศาสตร์", "ค. นายทะเบียนและศาลปกครองสูงสุดอนุมัติร่วมกัน", "ง. สำนักงานอัยการสูงสุดเพื่อลงมติคดีความ"],
+                answer: 1,
+                rationale: "ห้ามทำลายมั่วซั่ว ต้องส่งให้ 'หอจดหมายเหตุแห่งชาติ' ตรวจสอบก่อนว่าไม่มีมูลค่าทางเอกสารประวัติศาสตร์ก่อนนำไปทำลาย"
+            },
+            {
+                id: 77,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ผู้ใดที่ได้รับมอบตำแหน่งเป็น 'ประธานกรรมการ' ในโครงสร้างของ คณะกรรมการทำลายข้อมูลความลับราชการ?",
+                options: ["ก. หัวหน้าหน่วยงานเจ้าของเรื่อง", "ข. นายทะเบียนข้อมูลข่าวสารลับ", "ค. ปลัดสังกัดประจำกระทรวง", "ง. ประธานสภาทนายความข้าราชการ"],
+                answer: 1,
+                rationale: "ระเบียบกำหนดชัดเจนว่า ประธานคณะกรรมการทำลายข้อมูลลับ คือ 'นายทะเบียนข้อมูลข่าวสารลับ'"
+            },
+            {
+                id: 78,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "คำสั่งลงนามลงคะแนนจัดตั้งโครงสร้าง คณะกรรมการทำลายข้อมูลความลับราชการ เป็นบทบาทผู้ใด?",
+                options: ["ก. หัวหน้าหน่วยงานย่อยในสังกัด", "ข. นายทะเบียนผู้ถือควบคุมแฟ้ม", "ค. หัวหน้าหน่วยงานของรัฐ", "ง. ฝ่ายพัสดุกลางประจำกระทรวง"],
+                answer: 2,
+                rationale: "หัวหน้าหน่วยงานของรัฐเป็นผู้มีอำนาจเซ็นคำสั่งแต่งตั้งคณะกรรมการทำลายข้อมูลความลับราชการขึ้น"
+            },
+            {
+                id: 79,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "องค์ประกอบข้าราชการในบอร์ดคณะกรรมการทำลาย ประกอบด้วย นายทะเบียนเป็นประธาน และเจ้าหน้าที่ร่วมฝ่ายอื่นทำงานด้วยไม่น้อยกว่ากี่คน?",
+                options: ["ก. ไม่น้อยกว่า ๒ คน", "ข. ไม่น้อยกว่า ๓ คน", "ค. ไม่น้อยกว่า ๔ คน", "ง. ไม่น้อยกว่า ๕ คน"],
+                answer: 0,
+                rationale: "ประกอบด้วยนายทะเบียนข้อมูลข่าวสารลับเป็นประธาน และ 'เจ้าหน้าที่ที่เกี่ยวข้องอีกไม่น้อยกว่าสองคน' เป็นกรรมการ"
+            },
+            {
+                id: 80,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "จำนวนสมาชิกข้าราชการขั้นต่ำที่สุดรวมกันใน คณะกรรมการทำลายข้อมูลความลับราชการ มีจำนวนกี่คน?",
+                options: ["ก. มีจำนวนขั้นต่ำ ๒ คน", "ข. มีจำนวนขั้นต่ำ ๓ คน (รวมประธานแล้ว)", "ค. มีจำนวนขั้นต่ำ ๔ คน", "ง. มีจำนวนขั้นต่ำ ๕ คน"],
+                answer: 1,
+                rationale: "ประธาน (นายทะเบียน ๑ คน) + กรรมการข้าราชการอื่น (ไม่น้อยกว่า ๒ คน) รวมกันทั้งหมดคืออย่างน้อย 'สามคน'"
+            },
+            {
+                id: 81,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "หลังดำเนินการทำลายเอกสารความลับราชการเสร็จสิ้น ต้องจดแจ้งประวัติและเก็บรักษาใบรับรองการทำลายไว้เป็นหลักฐานไม่น้อยกว่ากี่ปี?",
+                options: ["ก. ไม่น้อยกว่า ๑ ปี", "ข. ไม่น้อยกว่า ๒ ปี", "ค. ไม่น้อยกว่า ๕ ปี", "ง. ไม่น้อยกว่า ๑๐ ปี"],
+                answer: 0,
+                rationale: "ระเบียบข้อ ๔๖ วรรคสี่ บังคับเก็บเอกสารใบรับรอง 'ไม่น้อยกว่าหนึ่งปี' เพื่อสืบประวัติตรวจสอบ"
+            },
+            {
+                id: 82,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "กรณีเห็นควรตรวจสอบ คณะกรรมการข้อมูลข่าวสารของราชการ (กขร.) มีอำนาจเสนอข้อคิดเห็นต่อผู้ใดเพื่อปรับมาตรฐานกรอบการใช้ดุลพินิจของข้าราชการ?",
+                options: ["ก. รัฐมนตรีมหาดไทย", "ข. คณะรัฐมนตรี", "ค. นายกรัฐมนตรี", "ง. ประธานศาลรัฐธรรมนูญแผ่นดิน"],
+                answer: 2,
+                rationale: "ตามกฎหมายระบุ ให้คณะกรรมการเสนอต่อ 'นายกรัฐมนตรี' เพื่อกำหนดกรอบการใช้ดุลพินิจ"
+            },
+            {
+                id: 83,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "มาตรฐานของใบรับรองสรุปการทำลายเอกสารความลับราชการ กำหนดขึ้นตามมติหรือระเบียบโดยใคร?",
+                options: ["ก. รัฐมนตรีมหาดไทย", "ข. คณะรัฐมนตรี", "ค. นายกรัฐมนตรี", "ง. ปลัดประจำกระทรวงคลัง"],
+                answer: 2,
+                rationale: "แบบใบรับรองการทำลายข้อมูลความลับราชการระบุมาตรฐานสากลกำหนดโดย 'นายกรัฐมนตรี'"
+            },
+            {
+                id: 84,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ใครเป็นผู้รับผิดชอบจัดให้มี แผนการปฏิบัติงานฉุกเฉิน (การย้าย รักษา และทำลายลำดับลับตามเหตุการณ์) ประจำส่วนงานราชการ?",
+                options: ["ก. หัวหน้าหน่วยงานของรัฐ", "ข. นายทะเบียนกลางฝ่ายควบคุมทะเบียน", "ค. สังกัดปลัดกระทรวงกลาโหม", "ง. กรมศิลปากรส่วนหอจดหมายเหตุแผ่นดิน"],
+                answer: 0,
+                rationale: "ข้อ ๔๗ บัญญัติให้เป็นหน้าที่ 'ของหน่วยงานของรัฐ' (โดยหัวหน้าหน่วยงาน) เป็นผู้บริหารงานตั้งแผนเผชิญเหตุความปลอดภัยฉุกเฉิน"
+            },
+            {
+                id: 85,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "หากพบเหตุฉุกเฉินว่าสารราชการความลับสูญหายทางกายภาพ ใครมีสิทธิ์และหน้าที่รายงานข้อเท็จจริงความจริงแจ้งแก่หัวหน้าส่วนงานทราบด่วนที่สุด?",
+                options: ["ก. ผู้ทราบข้อเท็จจริงประจักษ์แก่เหตุ", "ข. ข้าราชการเฉพาะตำแหน่งนายทะเบียนกลาง", "ค. ปลัดอำเภอท้องถิ่น", "ง. พนักงานสอบสวนประจำพื้นที่คดี"],
+                answer: 0,
+                rationale: "ข้อ ๔๘ กำหนดบทบาทกว้างขวางแก่ 'ผู้ทราบข้อเท็จจริง' ทุกคนในหน่วยงานเพื่อรายงานเหตุด่วนป้องกันความเสียหายข้ามฝ่าย"
+            },
+            {
+                id: 86,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "เมื่อนายทะเบียนได้รับแจ้งเหตุเอกสารลับสูญหาย ต้องคีย์รายงานประวัติและจดบันทึกการสูญหายลงในทะเบียนเอกสารลับประเภทใด?",
+                options: ["ก. ทะเบียนรับ", "ข. ทะเบียนส่ง", "ค. ทะเบียนควบคุมข้อมูลข่าวสารลับ", "ง. สมุดบันทึกไปรษณีย์สารบรรณปกติ"],
+                answer: 2,
+                rationale: "ต้องบันทึกประวัติการสูญหายลงใน 'ทะเบียนควบคุมข้อมูลข่าวสารลับ' ซึ่งเป็นหัวใจหลักในการคุมสถานะข้อมูลลับทุกฉบับ"
+            },
+            {
+                id: 87,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ข้อมูลประวัติการประกาศบังคับใช้ระเบียบว่าด้วยการรักษาความลับของทางราชการ พ.ศ. ๒๕๔๔ และที่แก้ไขเพิ่มเติม ข้อใดกล่าว 'ไม่ถูกต้อง'?",
+                options: ["ก. ๓ ฝ่ายองค์การความปลอดภัย ประสานจัดให้มีการศึกษา อบรมบุคลากรตามรอบงบประมาณ", "ข. นายกรัฐมนตรี พลเอก ประยุทธ์ จันทร์โอชา ลงนามคำสั่งในระเบียบฉบับปรับปรุงเพิ่มเติม", "ค. ระเบียบฉบับปรับปรุงแก้ไขนี้ประกาศแจ้งในราชกิจจานุเบกษาเมื่อ ๒๘ มิถุนายน พ.ศ. ๒๕๖๑", "ง. ตราสารลงชื่อประกาศความปลอดภัย ณ วันที่ ๓๐ พฤษภาคม พ.ศ. ๒๕๖๑"],
+                answer: 2,
+                rationale: "ระเบียบฉบับแก้ไขเพิ่มเติม ได้รับการประกาศลงราชกิจจานุเบกษาอย่างเป็นทางการเมื่อวันที่ '๒๖ มิถุนายน ๒๕๖๑' (คำอ้างอิงระบุ ๒๘ จึงเป็นคำตอบที่กล่าวผิด)"
+            },
+            {
+                id: 88,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ข้อมูลทั่วไปและประวัติการแก้เพิ่มเติมระเบียบรักษาความปลอดภัยความลับราชการข้อใดกล่าวผิด?",
+                options: ["ก. ระเบียบนี้ได้รับการแก้ไขเพิ่มเติมประวัติล่าสุดคือ (ฉบับที่ ๒) พ.ศ. ๒๕๖๒", "ข. นายกรัฐมนตรีทำหน้าที่รักษาการตามระเบียบสารบรรณความปลอดภัยฉบับนี้", "ค. ผู้ว่าราชการจังหวัด ถือฐานะหัวหน้าหน่วยงานของรัฐส่วนภูมิภาคตามนิยาม", "ง. ระเบียบนี้กำหนดให้มีการทบทวนกระบวนปฏิบัติการรักษาความลับทุก ๕ ปีเป็นอย่างน้อย"],
+                answer: 0,
+                rationale: "ระเบียบฉบับปรับปรุงแก้ไขเพิ่มเติมที่ตราและใช้ล่าสุดคือ 'พ.ศ. ๒๕๖๑' (คำกล่าวอ้างว่า ๒๕๖๒ จึงเป็นคำตอบ)"
+            },
+            {
+                id: 89,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ข้อกำหนดและระเบียบปฏิบัติในข้อใดต่อไปนี้ที่อธิบาย 'ขัดแย้งหรือผิดหลักการทางกฎหมาย'?",
+                options: ["ก. บุคคลที่จะก้าวเข้าถึงข้อมูลลับ ต้องได้รับสิทธิ์ความไว้วางใจ และคุมพิกัดเฉพาะเรื่องที่รับงานเท่านั้น", "ข. ทุกรอบระยะเวลา ๕ ปีเป็นอย่างน้อย ให้ปลัดสำนักนายกรัฐมนตรีจัดดำเนินการทบทวนสิทธิ์ระเบียบนี้โดยลำพัง", "ค. สขช., ศรภ. และ บช.ส. เป็น ๓ เสาหลักหน่วยงานองค์การรักษาความปลอดภัย", "ง. เครื่องหมายแสดงระดับชั้นความลับมี ลับที่สุด, ลับมาก และ ลับ"],
+                answer: 1,
+                rationale: "ข้อ ๖ กำหนดหน้าที่ทบทวนระเบียบเป็นของ 'นายกรัฐมนตรี' ไม่ใช่ปลัดสำนักนายกฯ สั่งการโดยลำพัง"
+            },
+            {
+                id: 90,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ข้อมูลหลักเกณฑ์เรื่องลำดับชั้นความลับตามที่ระบุในระเบียบราชการ ข้อความใดกล่าวผิด?",
+                options: ["ก. ระดับชั้นความลับแบ่งแยกออกอย่างชัดเจนเป็น ๓ ชั้นหลักตามความรุนแรงหากรั่วไหล", "ข. ระดับความลับราชการ เรียงลำดับจาก ลับที่สุด, ลับมาก ไปจนถึงชั้น ปกปิด", "ค. ระดับความลับ เรียงจาก ลับที่สุด, ลับมาก ไปจนถึงชั้น ลับ", "ง. หากความเสียหายก่อเกิดผลร้ายแรงที่สุดต่อสิทธิแห่งรัฐ จัดอยู่ในชั้น ลับที่สุด"],
+                answer: 1,
+                rationale: "ในระเบียบนี้ไม่มีระดับชั้นความลับที่ชื่อว่า 'ปกปิด' ชั้นความลับต่ำสุดคือชั้น 'ลับ' ดังนั้นตัวเลือก ข. กล่าวผิด"
+            },
+            {
+                id: 91,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "รายละเอียดการใช้งานเครื่องหมายแสดงสัญลักษณ์ชั้นความลับ ข้อใดกล่าวไม่ถูกต้องตามพิกัดระเบียบ?",
+                options: ["ก. หากข้อมูลมีชั้นความลับรั่วไหลเสียหายร้ายแรงที่สุด ให้ระบุคำสัญลักษณ์ ลับที่สุด", "ข. หากรั่วไหลส่งผลเสียอย่างรุนแรงต่อรัฐราชการ ให้ระบุตราคำแสดง ลับมาก", "ค. ข้อมูลสารที่เกิดผลเสียปานกลางหรือไม่รุนแรงต่อแผ่นดิน ให้ระบุสัญลักษณ์ ลับ", "ง. เครื่องหมายแสดงชั้นความลับสัญลักษณ์สีมาตรฐาน ต้องเลือกใช้ปากกาสีดำหรือน้ำเงินประทับตราขนาดใหญ่"],
+                answer: 3,
+                rationale: "ระเบียบ ม.๒๑ บังคับเด็ดขาดให้ตัวอักษรใหญ่กว่าปกติ 'โดยใช้สีแดงหรือสีเด่นชัด' การระบุสีดำหรือน้ำเงินเป็นสีมาตรฐานจึงเป็นการกล่าวผิด"
+            },
+            {
+                id: 92,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ข้อใดกล่าวถึงอำนาจและระเบียบปฏิบัติกระบวนงานรักษาความลับได้ 'ผิดพลาดจากกฎข้อบังคับ'?",
+                options: ["ก. หัวหน้าหน่วยงานของรัฐ เป็นผู้แบกรับความรับผิดชอบในการลงนามกำหนดระดับความลับสารบรรณ", "ข. เจ้าหน้าที่ผู้เกี่ยวข้องกรณีเหตุเผชิญหน้าฉุกเฉิน มีสิทธิ์กำหนดระดับชั้นความลับชั่วคราวแล้วรายงานด่วน", "ค. เกณฑ์ประเมินชั้นความลับมาตรา ๑๙ ให้พิจารณาพยานเนื้อหารายละเอียด และผู้เกี่ยวข้อง รวมถึงหน่วยงานที่อาจเกี่ยวข้อง", "ง. ตราเครื่องหมายระดับความลับใช้ฟอนต์ตัวพิมพ์หนาเด่นชัดพิกัดกลางกระดาษทั้งบนและล่าง"],
+                answer: 2,
+                rationale: "องค์ประกอบมาตรา ๑๙ ข้อ ๖ ระบุคีย์เวิร์ดคือ 'หน่วยงานของรัฐที่รับผิดชอบในฐานะเจ้าของเรื่องหรือผู้อนุมัติ' ไม่ใช่ 'หน่วยงานรัฐที่อาจเกี่ยวข้อง'"
+            },
+            {
+                id: 93,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "การระบุสัญลักษณ์ระดับชั้นความลับลงบนสารราชการที่เป็นเอกสาร ข้อใดระบุพิกัดได้ 'ผิดกฎเกณฑ์'?",
+                options: ["ก. ให้ระบุกำหนดประทับตราพิกัดมุมบนด้านขวาหน้าแรกและด้านล่างขวาหน้าสุดท้ายของแผ่นงาน", "ข. แสดงตราประทับสีแดงพิกัดกึ่งกลางหน้ากระดาษ ทั้งด้านบนและด้านล่างของทุกหน้าเอกสารแผ่นงาน", "ค. กรณีวัสดุภาพเขียน แผนผัง ภาพถ่าย หากม้วนได้ ให้ติดเครื่องหมายแสดงระดับความลับภายนอกขณะม้วนด้วย", "ง. ข้อมูลประเภทแผ่นจานหรือม้วนฟิล์ม ให้ระบุสัญลักษณ์ไว้ที่กล่อง บรรจุภัณฑ์ หรือหัวท้ายม้วนข้อมูล"],
+                answer: 0,
+                rationale: "ระเบียบข้อ ๒๒ (๑) บังคับประทับตราไว้พิกัด 'กึ่งกลางหน้ากระดาษ ทั้งด้านบนและด้านล่างของทุกหน้า' ไม่ใช่ตรงขอบมุมขวา"
+            },
+            {
+                id: 94,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "กฎเกณฑ์และขั้นตอนการพิจารณาปรับระดับชั้นความลับในแฟ้มสารบรรณความลับ ข้อใดกล่าวผิดพลาด?",
+                options: ["ก. สิทธิ์และเกณฑ์ในการปรับระดับความลับเป็นของหน่วยงานผู้จัดสร้างเจ้าของเรื่องเดิม", "ข. ข้อมูลความลับทุกระดับ ห้ามปรับลดระดับความลับเด็ดขาดจนกว่า กวอ. จะส่งหนังสืออนุมัติอนุญาต", "ค. วิธีการลงดาบแก้ไขระดับชั้นความลับ ให้ใช้วิธีปากกาขีดฆ่าประทับตราสัญลักษณ์ใหม่เคียงคู่กัน", "ง. คำวินิจฉัยเปิดเผยข้อมูลของ คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร ถือเป็นอันยกเลิกชั้นความลับพ้นกำหนดสิทธิ์"],
+                answer: 1,
+                rationale: "สิทธิ์และอำนาจการปรับชั้นความลับเป็นดุลยพินิจของ 'ผู้มีอำนาจของหน่วยงานเจ้าของเรื่องเดิม' ปรับลดหรือเพิ่มได้โดยไม่ต้องรอ กวอ. ตลอดเวลา"
+            },
+            {
+                id: 95,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "การดำเนินกระบวนทะเบียนสารบรรณข้อมูลราชการที่เป็นความลับ ข้อใดต่อไปนี้ระบุข้อมูลได้ 'ไม่ถูกต้อง'?",
+                options: ["ก. หัวหน้าแต่งตั้งข้าราชการผู้คุมทะเบียนเรียกว่า นายทะเบียนข้อมูลข่าวสารลับ คอนโทรลงาน", "ข. นายทะเบียนมีอำนาจหน้าที่บันทึกและสอดส่องการเข้าใช้งานพื้นที่เก็บข้อมูลนิรภัยลับของหน่วยงาน", "ค. นายทะเบียนสารบรรณลับจัดให้มี ทะเบียนรับ และ ทะเบียนส่ง ข้อมูลราชการลับ คอนโทรลคลังข้อมูลเพียงสองประเภท", "ง. ทะเบียนรับ ข้อมูลราชการลับ บันทึกประวัติและรายละเอียดซองความลับแผ่นงานที่จัดส่งหรือได้รับมอบเข้ามา"],
+                answer: 2,
+                rationale: "ตามมาตรา ๒๗ นายทะเบียน 'อย่างน้อยต้องจัดให้มี ๓ ทะเบียน' (ทะเบียนรับ, ทะเบียนส่ง, และทะเบียนควบคุมข้อมูลข่าวสารลับ) ขาดทะเบียนควบคุมไม่ได้ ตัวเลือก ค. จึงผิด"
+            },
+            {
+                id: 96,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ข้อใดอธิบายขอบเขตโครงสร้างและวิธีการแต่งตั้ง คณะกรรมการตรวจสอบข้อมูลลับ ได้ 'ผิดพลาดความจริง'?",
+                options: ["ก. บอร์ดคณะกรรมการตรวจสอบ ประกอบด้วย นายทะเบียนเป็นประธาน และข้าราชการอื่นอีกไม่น้อยกว่า ๓ คน", "ข. ทะเบียนควบคุมความลับราชการ ใช้จดข้อมูลยื่นส่ง โอน หรือสิทธิ์เข้าคลังตรวจสอบย้อนหลัง", "ค. แบบทะเบียนรับ-ส่งคลังสารบรรณความลับ ใช้พิกัดมาตรฐานเอกสารตามระเบียบประกาศนายกรัฐมนตรี", "ง. หัวหน้าหน่วยงานของรัฐ เป็นคนลงชื่ออนุมัติบอร์ดตรวจสอบสิทธิ์ความปลอดภัยในสำนักงานประจำกอง"],
+                answer: 0,
+                rationale: "คณะกรรมการตรวจสอบ ประกอบด้วยนายทะเบียนเป็นประธาน และข้าราชการอื่น 'ไม่น้อยกว่าสองคน' (ตัวเลือก ก. ระบุ ๓ คนจึงกล่าวผิดพลาด)"
+            },
+            {
+                id: 97,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "แนวทางขอบเขตระยะเวลาการคัดกรองจัดส่งประวัติรายงานประเมินความลับราชการ ข้อความใดกล่าวผิด?",
+                options: ["ก. ให้หน่วยงานจัดทำข้อมูลคัดกรองรายงานส่ง กขร. ภายในกำหนดสิ้นเดือนธันวาคมประจำปีงบประมาณ", "ข. เกณฑ์ส่งรายงานผลงานความลับรอบปี บังคับส่งมอบไม่เกินระยะสิ้นเดือนมีนาคมของทุกรอบปีงบประมาณ", "ค. กขร. รับเอกสารรอบปีแล้ว ตรวจประเมินก่อนเสนอแนะข้อคิดเห็นส่งมอบนายกรัฐมนตรีคัดกรอง", "ง. เมื่อพบเหตุละเมิดความปลอดภัยหรือขโมยความลับราชการ หัวหน้ามีหน้าที่ตั้งกรรมการสอบวินัยโดยเร็ว"],
+                answer: 0,
+                rationale: "กฎหมายระบุเด็ดขาดตามมาตรา ๒๙/๑ ว่ารายงานผลการปฏิบัติให้ส่ง 'ภายในเดือนมีนาคมของทุกปี' (ไม่ใช่ธันวาคม)"
+            },
+            {
+                id: 98,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "หลักเกณฑ์ในการส่งมอบจัดลำดับขนส่งความปลอดภัยสารราชการลับภายในบริเวณสำนักงาน ข้อใดกล่าวผิด?",
+                options: ["ก. บังคับห้ามพนักงานข้าราชการเข้าถึงความลับโดยไร้สิทธิ์ความไว้วางใจ และคุมจำกัดคนใช้งานเท่าที่จำเป็น", "ข. การแปล สำเนาเอกสาร ต้องบันทึกชื่อพนักงาน พิกัดตำแหน่งชุดลงฉบับสำเนาคู่มือเพื่อป้องกันรั่วไหล", "ค. การโอนย้ายความลับข้ามสังกัดแผนก ต้องทำเอกสารโอน-รับโอน พร้อมให้นายทะเบียนคีย์ลงทะเบียนควบคุม", "ง. การส่งข้อมูลลับภายในตึกบริเวณพิกัดเดียวกัน ไม่ต้องใส่ใบปกปิดพะหน้าป้องกันเนื้อหากลางหน้ากระดาษ"],
+                answer: 3,
+                rationale: "ระเบียบข้อ ๓๕ ระบุชัดเจนว่า 'การส่งข้อมูลข่าวสารลับภายในบริเวณหน่วยงานเดียวกันทุกชั้นความลับ ต้องใช้ใบปกข้อมูลข่าวสารลับปิดทับข้อมูลข่าวสารลับ' การกล่าวไม่จำต้องใช้จึงผิดคลาดเคลื่อน"
+            },
+            {
+                id: 99,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "การดำเนินการจัดการและประสานรับเอกสารลับที่จัดส่งเข้ามายังพิกัดแผนกราชการ ข้อความใดระบุข้อมูลผิด?",
+                options: ["ก. ซองข้อมูลลับราชการส่งจากต่างกระทรวงเข้าภายนอก ต้องระบุซองทึบแสงแข็งแรงหนาสองชั้นป้องกันแสงเล็ดลอด", "ข. เจ้าหน้าที่นำสารเมื่อเดินทางถึงพิกัด ให้พิจารณาจัดส่งซองข้อมูลแก่พนักงานผู้ดูแลคลังทะเบียนเท่านั้น", "ค. การจัดส่งเอกสารลับเพื่อไปปฏิบัติการแดนต่างประเทศ ให้ยึดแนวทางการทูตถุงเมล์ของต่างประเทศประกอบเป็นแบบ", "ง. ให้คณะกรรมการตรวจสอบความลับแผ่นดินเป็นผู้ลงชื่อลายเซ็นในใบตอบรับซองกระดาษก่อนรับข้อมูลเข้าระบบ"],
+                answer: 3,
+                rationale: "ผู้ลงลายมือชื่อตอบรับในใบตอบรับการส่งมอบข้อมูลลับ คือ 'นายทะเบียนข้อมูลข่าวสารลับ' (ข้อ ๔๒) ไม่ใช่คณะกรรมการตรวจสอบความลับแผ่นดิน"
+            },
+            {
+                id: 100,
+                category: "การปฏิบัติงานความปลอดภัยและการทำลาย",
+                question: "ข้อกำหนดระเบียบสารบรรณเรื่องการยืม ค้นคว้า แฟ้มข้อมูลราชการลับ ข้อความใดกล่าวผิดพลาดความจริง?",
+                options: ["ก. หากต้องการยืมเอกสารข้ามหน่วยงานที่กระทรวงอื่นเป็นผู้จัดสร้างสิทธิ์ ต้องยื่นใบขอและผ่านคณะกรรมการข้อมูลลับก่อนด่านแรก", "ข. พนักงานผู้มีสิทธิ์ปลายทางได้รับเอกสารลับตามจ่าหน้าแล้ว ต้องรีบแจ้งนายทะเบียนคีย์ประวัติสารบรรณทันที", "ค. ผู้มีสิทธิ์ยื่นขอยืม แฟ้มต้องผ่านการประเมินสิทธิ์ความไว้ใจและความเหมาะสมโดยหัวหน้าส่วนงานหน่วยงานรัฐ", "ง. ทะเบียนควบคุมกลางใช้ระบุข้อมูลการยืม ประวัติ และระยะเวลาคืนของข้าราชการผู้ขอใช้งาน"],
+                answer: 0,
+                rationale: "การยืมเอกสารลับที่หน่วยงานอื่นเป็นเจ้าของเรื่อง 'ต้องได้รับอนุญาตจากหน่วยงานเจ้าของเรื่องนั้นก่อน' ไม่ใช่คณะกรรมการข้อมูลลับส่วนกลาง ดังนั้นข้อ ก. จึงกล่าวผิดอย่างชัดเจน"
+            }
+        ];
+
+        // --- App State ---
+        let quizQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = {}; // questionIndex -> selectedOptionIndex
+        let flaggedQuestions = {}; // questionIndex -> boolean
+        let quizMode = 'practice'; // 'practice' or 'exam'
+        let quizDuration = 2700; // 45 minutes in seconds
+        let timerInterval = null;
+        let isQuizSubmitted = false;
+        let startTime = null;
+        let timeSpentSeconds = 0;
+
+        // --- Mode Selection Controls ---
+        function selectMode(mode) {
+            quizMode = mode;
+            const btnPractice = document.getElementById('mode-practice-btn');
+            const btnExam = document.getElementById('mode-exam-btn');
+            
+            if (mode === 'practice') {
+                btnPractice.className = "group text-left p-5 rounded-xl border-2 border-indigo-600 bg-indigo-50/20 focus:outline-none";
+                btnExam.className = "group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-slate-800 hover:bg-slate-50 transition-all duration-200 focus:outline-none";
+            } else {
+                btnExam.className = "group text-left p-5 rounded-xl border-2 border-slate-800 bg-slate-100 focus:outline-none";
+                btnPractice.className = "group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-indigo-600 hover:bg-indigo-50/10 transition-all duration-200 focus:outline-none";
+            }
+        }
+
+        // Set Default mode on load
+        selectMode('practice');
+
+        // Shuffling algorithm helper (Fisher-Yates)
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex != 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        // --- Start Quiz Action ---
+        function startQuiz() {
+            const quantitySelect = document.getElementById('exam-quantity');
+            const quantity = parseInt(quantitySelect.value);
+            
+            let sourceQuestions = [...ALL_QUESTIONS];
+            if (quizMode === 'exam') {
+                // Completely shuffle in exam mode to simulate unpredictable environment
+                sourceQuestions = shuffle(sourceQuestions);
+            }
+            
+            quizQuestions = sourceQuestions.slice(0, Math.min(quantity, sourceQuestions.length));
+
+            // Reset States
+            currentQuestionIndex = 0;
+            userAnswers = {};
+            flaggedQuestions = {};
+            isQuizSubmitted = false;
+            timeSpentSeconds = 0;
+            startTime = new Date();
+
+            // Set up Badge/Timer UI
+            const badge = document.getElementById('badge-mode');
+            if (quizMode === 'practice') {
+                badge.innerText = "โหมดฝึกฝน (เฉลยละเอียดรายข้อ)";
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-indigo-100 text-indigo-800 border border-indigo-200";
+                document.getElementById('timer-container').classList.add('hidden');
+                document.getElementById('score-counter').classList.remove('hidden');
+            } else {
+                badge.innerText = "โหมดสอบจริง (จำลองห้องสอบมีเวลาจำกัด)";
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-rose-100 text-rose-800 border border-rose-200";
+                document.getElementById('timer-container').classList.remove('hidden');
+                document.getElementById('score-counter').classList.add('hidden');
+                startTimer();
+            }
+
+            // View Transition
+            document.getElementById('setup-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+
+            renderNavigationGrid();
+            loadQuestion(0);
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            let timerSeconds = quizDuration;
+            const timerDisplay = document.getElementById('quiz-timer');
+            
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                timeSpentSeconds++;
+                
+                const minutes = Math.floor(timerSeconds / 60);
+                const seconds = timerSeconds % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timerSeconds <= 300) { // Warning: 5 mins remaining
+                    timerDisplay.parentElement.classList.add('text-rose-500', 'animate-pulse');
+                } else {
+                    timerDisplay.parentElement.classList.remove('text-rose-500', 'animate-pulse');
+                }
+
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        // --- Load active question details ---
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const q = quizQuestions[index];
+
+            // Render status texts
+            document.getElementById('current-q-index').innerText = index + 1;
+            document.getElementById('total-q-count').innerText = quizQuestions.length;
+            
+            const progressPercent = ((index + 1) / quizQuestions.length) * 100;
+            document.getElementById('progress-bar-fill').style.width = `${progressPercent}%`;
+
+            // Category & Question text
+            document.getElementById('question-category').innerText = q.category;
+            document.getElementById('question-text').innerText = `ข้อที่ ${index + 1}: ${q.question}`;
+
+            // Bookmarked/Flagged status
+            const flagBtn = document.getElementById('flag-btn');
+            const flagIcon = document.getElementById('flag-icon');
+            if (flaggedQuestions[index]) {
+                flagIcon.setAttribute('fill', '#f59e0b');
+                flagIcon.setAttribute('stroke', '#f59e0b');
+                flagBtn.classList.add('text-amber-500');
+            } else {
+                flagIcon.setAttribute('fill', 'none');
+                flagIcon.setAttribute('stroke', 'currentColor');
+                flagBtn.classList.remove('text-amber-500');
+            }
+
+            // Options Renderer
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const selectedAnswer = userAnswers[index];
+            const isAnswered = selectedAnswer !== undefined;
+            const showAnswersDirectly = (quizMode === 'practice' && isAnswered);
+
+            q.options.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border transition-all text-sm font-medium focus:outline-none flex justify-between items-center gap-4 min-h-[44px]";
+                btn.onclick = () => selectOption(optIdx);
+
+                const textSpan = document.createElement('span');
+                textSpan.innerText = opt;
+                btn.appendChild(textSpan);
+
+                // Option styling logic based on state and mode
+                if (selectedAnswer === optIdx) {
+                    if (showAnswersDirectly) {
+                        if (optIdx === q.answer) {
+                            btn.className += " bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm";
+                            btn.appendChild(createIcon('check', 'text-emerald-600'));
+                        } else {
+                            btn.className += " bg-rose-50 border-rose-400 text-rose-800 shadow-sm";
+                            btn.appendChild(createIcon('x', 'text-rose-600'));
+                        }
+                    } else {
+                        btn.className += " bg-indigo-50 border-indigo-600 text-indigo-950 shadow-md scale-[1.01]";
+                    }
+                } else {
+                    if (showAnswersDirectly && optIdx === q.answer) {
+                        btn.className += " bg-emerald-50 border-emerald-400 text-emerald-800";
+                        btn.appendChild(createIcon('check', 'text-emerald-500'));
+                    } else {
+                        btn.className += " bg-white border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700";
+                    }
+                }
+
+                if (showAnswersDirectly) {
+                    btn.disabled = true;
+                    btn.onclick = null;
+                }
+
+                optionsContainer.appendChild(btn);
+            });
+
+            // Handle Instant Explanation Panel (Practice Mode only)
+            const expPanel = document.getElementById('explanation-panel');
+            if (showAnswersDirectly) {
+                expPanel.classList.remove('hidden');
+                const isCorrect = (selectedAnswer === q.answer);
+                
+                const titleBadge = document.getElementById('explanation-title-badge');
+                if (isCorrect) {
+                    titleBadge.innerText = "ตอบถูกต้อง";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-emerald-600";
+                } else {
+                    titleBadge.innerText = "ตอบผิดพลาด";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-rose-600";
+                }
+                
+                document.getElementById('explanation-text').innerText = q.rationale;
+            } else {
+                expPanel.classList.add('hidden');
+            }
+
+            // Navigation buttons adjustments
+            document.getElementById('prev-btn').disabled = (index === 0);
+            const nextBtn = document.getElementById('next-btn');
+            const submitQuizBtn = document.getElementById('submit-quiz-btn');
+
+            if (index === quizQuestions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitQuizBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitQuizBtn.classList.add('hidden');
+            }
+
+            updateNavigationGridActive();
+        }
+
+        // SVG helper for response checks
+        function createIcon(type, colorClass) {
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.setAttribute("class", `w-5 h-5 ${colorClass} shrink-0`);
+            svg.setAttribute("fill", "none");
+            svg.setAttribute("viewBox", "0 0 24 24");
+            svg.setAttribute("stroke", "currentColor");
+            svg.setAttribute("stroke-width", "3");
+
+            if (type === 'check') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M5 13l4 4L19 7");
+                svg.appendChild(path);
+            } else if (type === 'x') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M6 18L18 6M6 6l12 12");
+                svg.appendChild(path);
+            }
+            return svg;
+        }
+
+        function selectOption(optionIndex) {
+            if (isQuizSubmitted) return;
+            userAnswers[currentQuestionIndex] = optionIndex;
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function toggleFlag() {
+            flaggedQuestions[currentQuestionIndex] = !flaggedQuestions[currentQuestionIndex];
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                loadQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        // Render side helper panel of questions
+        function renderNavigationGrid() {
+            const grid = document.getElementById('grid-navigation');
+            grid.innerHTML = '';
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('score-counter').innerText = `${answeredCount}/${quizQuestions.length}`;
+
+            quizQuestions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full py-2 rounded-lg text-xs font-bold text-center border focus:outline-none transition-all min-h-[36px]";
+                btn.innerText = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+
+                const isSelected = (idx === currentQuestionIndex);
+                const hasAnswered = (userAnswers[idx] !== undefined);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                if (isSelected) {
+                    btn.className += " bg-indigo-700 border-indigo-800 text-white ring-2 ring-indigo-300 ring-offset-1";
+                } else if (isFlagged) {
+                    btn.className += " bg-amber-500 border-amber-600 text-white";
+                } else if (hasAnswered) {
+                    btn.className += " bg-indigo-100 border-indigo-300 text-indigo-800 hover:bg-indigo-200";
+                } else {
+                    btn.className += " bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100";
+                }
+
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateNavigationGridActive() {
+            const grid = document.getElementById('grid-navigation');
+            const btns = grid.children;
+            for (let i = 0; i < btns.length; i++) {
+                const btn = btns[i];
+                if (i === currentQuestionIndex) {
+                    btn.classList.add('ring-2', 'ring-indigo-300', 'ring-offset-1');
+                } else {
+                    btn.classList.remove('ring-2', 'ring-indigo-300', 'ring-offset-1');
+                }
+            }
+        }
+
+        // --- Modals Controls ---
+        function showSubmitConfirmModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = quizQuestions.length - answeredCount;
+            const statusText = document.getElementById('modal-completion-status');
+
+            if (unanswered > 0) {
+                statusText.innerText = `คุณยังเว้นว่างข้อสอบอีก ${unanswered} ข้อ จากทั้งหมด ${quizQuestions.length} ข้อ หากกดยืนยัน ระบบจะทำความเห็นประเมินเฉพาะข้อที่มีคำตอบเท่านั้น`;
+                statusText.className = "text-sm text-amber-600 leading-relaxed font-semibold";
+            } else {
+                statusText.innerText = "ยอดเยี่ยมมาก! คุณดำเนินการตอบคำถามครบถ้วนครบทุกข้อแล้ว ต้องการส่งกระดาษคำตอบใช่หรือไม่?";
+                statusText.className = "text-sm text-emerald-600 leading-relaxed font-semibold";
+            }
+
+            document.getElementById('submit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideSubmitConfirmModal() {
+            document.getElementById('submit-confirm-modal').classList.add('hidden');
+        }
+
+        function confirmExit() {
+            document.getElementById('exit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideExitConfirmModal() {
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+        }
+
+        function exitQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+
+        // --- Submit Quiz & Calculate Results ---
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            isQuizSubmitted = true;
+            hideSubmitConfirmModal();
+
+            let scoreCorrect = 0;
+            const categoryAnalysis = {};
+
+            // Initialize categories statistics
+            quizQuestions.forEach(q => {
+                if (!categoryAnalysis[q.category]) {
+                    categoryAnalysis[q.category] = { correct: 0, total: 0 };
+                }
+                categoryAnalysis[q.category].total++;
+            });
+
+            // Calculate score
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if (userAns !== undefined && userAns === q.answer) {
+                    scoreCorrect++;
+                    categoryAnalysis[q.category].correct++;
+                }
+            });
+
+            const totalCount = quizQuestions.length;
+            const percent = Math.round((scoreCorrect / totalCount) * 100);
+
+            // Compute elapsed time
+            if (quizMode !== 'exam') {
+                const end = new Date();
+                timeSpentSeconds = Math.round((end - startTime) / 1000);
+            }
+            const minsUsed = Math.floor(timeSpentSeconds / 60);
+            const secsUsed = timeSpentSeconds % 60;
+
+            // Display Results View
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+
+            document.getElementById('result-percentage').innerText = `${percent}%`;
+            document.getElementById('result-score-fraction').innerText = `${scoreCorrect}/${totalCount} คะแนน`;
+
+            // Draw circular progress bar
+            const dashArray = 251.2;
+            const offset = dashArray - (dashArray * percent) / 100;
+            document.getElementById('score-ring-fill').style.strokeDashoffset = offset;
+
+            // Generate contextual advice
+            const resultBadge = document.getElementById('result-badge');
+            const feedbackText = document.getElementById('result-feedback-text');
+
+            if (percent >= 80) {
+                resultBadge.innerText = "ผ่านเกณฑ์ระดับยอดเยี่ยม";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-200";
+                feedbackText.innerText = "ยินดีด้วย! คุณมีความเชี่ยวชาญในระเบียบว่าด้วยการรักษาความลับของทางราชการ พ.ศ. ๒๕๔๔ อย่างยอดเยี่ยม สมบูรณ์แบบ พร้อมสำหรับการสอบวัดผลระดับประเทศ";
+            } else if (percent >= 60) {
+                resultBadge.innerText = "ผ่านเกณฑ์มาตรฐาน";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800 border border-indigo-200";
+                feedbackText.innerText = "คุณผ่านเกณฑ์มาตรฐานความรู้เบื้องต้นแล้ว แนะนำให้ทบทวนข้อผิดพลาดผ่านหัวข้อ 'ดูข้อสอบเฉลยละเอียด' ด้านล่างเพื่อปรับระดับคะแนนสู่เกณฑ์ไร้ที่ติ";
+            } else {
+                resultBadge.innerText = "ควรศึกษาทบทวนเพิ่มเติม";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800 border border-amber-200";
+                feedbackText.innerText = "ผลคะแนนของคุณยังไม่ผ่านเกณฑ์การประเมินขั้นต่ำ แนะนำให้อ่าน 'Cheat Sheet' ในหน้าหลัก และลองฝึกฝนด้วย 'โหมดฝึกฝน' อีกครั้งเพื่อจำแนวมาตราอ้างอิง";
+            }
+
+            // Fill basic analytics boxes
+            document.getElementById('stat-correct').innerText = `${scoreCorrect} ข้อ`;
+            document.getElementById('stat-incorrect').innerText = `${totalCount - scoreCorrect} ข้อ`;
+            document.getElementById('stat-time-spent').innerText = `${minsUsed} น. ${secsUsed} วิ.`;
+
+            // Fill skills analysis section
+            const topicContainer = document.getElementById('topic-analysis-container');
+            topicContainer.innerHTML = '';
+
+            for (const [category, data] of Object.entries(categoryAnalysis)) {
+                const catPercent = Math.round((data.correct / data.total) * 100);
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = "space-y-1.5";
+
+                const labelRow = document.createElement('div');
+                labelRow.className = "flex justify-between items-center text-xs font-bold text-slate-700";
+                labelRow.innerHTML = `<span>${category}</span> <span class="font-mono">${data.correct}/${data.total} (${catPercent}%)</span>`;
+                wrapper.appendChild(labelRow);
+
+                const barBg = document.createElement('div');
+                barBg.className = "w-full bg-slate-200 h-2.5 rounded-full overflow-hidden";
+                
+                const barFill = document.createElement('div');
+                barFill.className = catPercent >= 80 ? "bg-emerald-500 h-full" : (catPercent >= 60 ? "bg-indigo-500 h-full" : "bg-amber-500 h-full");
+                barFill.style.width = `${catPercent}%`;
+                barBg.appendChild(barFill);
+                
+                wrapper.appendChild(barBg);
+                topicContainer.appendChild(wrapper);
+            }
+
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('toggle-review-btn').innerText = "ดูข้อสอบเฉลยละเอียด";
+            generateDetailedReviewList();
+        }
+
+        // --- Detailed Review List Generation ---
+        function generateDetailedReviewList() {
+            const listContainer = document.getElementById('review-questions-list');
+            listContainer.innerHTML = '';
+
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCorrect = (userAns !== undefined && userAns === q.answer);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                const card = document.createElement('div');
+                card.className = "bg-white border rounded-xl p-5 sm:p-6 space-y-4 shadow-sm transition-all";
+                card.dataset.isCorrect = isCorrect ? "true" : "false";
+                card.dataset.isFlagged = isFlagged ? "true" : "false";
+
+                // Review Card Header
+                const cardHeader = document.createElement('div');
+                cardHeader.className = "flex justify-between items-start gap-4 border-b border-slate-100 pb-2.5";
+                
+                const flexLeft = document.createElement('div');
+                flexLeft.className = "flex items-center gap-2 flex-wrap";
+                
+                const qNum = document.createElement('span');
+                qNum.className = "text-sm font-bold text-slate-800";
+                qNum.innerText = `ข้อที่ ${idx + 1}`;
+                flexLeft.appendChild(qNum);
+
+                const catBadge = document.createElement('span');
+                catBadge.className = "text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded";
+                catBadge.innerText = q.category;
+                flexLeft.appendChild(catBadge);
+
+                if (isFlagged) {
+                    const flgBadge = document.createElement('span');
+                    flgBadge.className = "text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 flex items-center gap-1";
+                    flgBadge.innerHTML = `<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"/></svg> ปักหมุดไว้`;
+                    flexLeft.appendChild(flgBadge);
+                }
+
+                cardHeader.appendChild(flexLeft);
+
+                // Right Badge Status
+                const statusBadge = document.createElement('span');
+                if (isCorrect) {
+                    statusBadge.innerText = "ตอบถูก";
+                    statusBadge.className = "text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200";
+                } else if (userAns === undefined) {
+                    statusBadge.innerText = "ไม่ได้ทำ";
+                    statusBadge.className = "text-[10px] font-bold text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200";
+                } else {
+                    statusBadge.innerText = "ตอบผิด";
+                    statusBadge.className = "text-[10px] font-bold text-rose-800 bg-rose-50 px-2 py-0.5 rounded border border-rose-200";
+                }
+                cardHeader.appendChild(statusBadge);
+
+                card.appendChild(cardHeader);
+
+                // Question Text
+                const qText = document.createElement('h5');
+                qText.className = "font-bold text-slate-950 leading-relaxed text-sm sm:text-base";
+                qText.innerText = q.question;
+                card.appendChild(qText);
+
+                // Options list in review card
+                const listGrid = document.createElement('div');
+                listGrid.className = "grid grid-cols-1 gap-2 pt-2";
+
+                q.options.forEach((opt, optIdx) => {
+                    const optBlock = document.createElement('div');
+                    optBlock.className = "p-3 rounded-lg border text-xs font-medium flex justify-between items-center gap-3";
+                    optBlock.innerText = opt;
+
+                    if (optIdx === q.answer) {
+                        optBlock.className += " bg-emerald-50 border-emerald-300 text-emerald-800";
+                        optBlock.appendChild(createIcon('check', 'text-emerald-600'));
+                    } else if (userAns === optIdx) {
+                        optBlock.className += " bg-rose-50 border-rose-300 text-rose-800";
+                        optBlock.appendChild(createIcon('x', 'text-rose-600'));
+                    } else {
+                        optBlock.className += " bg-white border-slate-200 text-slate-600";
+                    }
+
+                    listGrid.appendChild(optBlock);
+                });
+
+                card.appendChild(listGrid);
+
+                // Explanation Block
+                const expWrapper = document.createElement('div');
+                expWrapper.className = "bg-slate-50 p-4 rounded-lg border border-slate-100 space-y-1";
+                
+                const expLabel = document.createElement('div');
+                expLabel.className = "text-[10px] font-extrabold text-indigo-700 uppercase tracking-wide";
+                expLabel.innerText = "หลักเกณฑ์/ระเบียบข้อบังคับ และเหตุผลอ้างอิง:";
+                expWrapper.appendChild(expLabel);
+
+                const expP = document.createElement('p');
+                expP.className = "text-xs text-slate-600 leading-relaxed";
+                expP.innerText = q.rationale;
+                expWrapper.appendChild(expP);
+
+                card.appendChild(expWrapper);
+                listContainer.appendChild(card);
+            });
+        }
+
+        function toggleDetailedReview() {
+            const reviewSection = document.getElementById('detailed-review-section');
+            const btn = document.getElementById('toggle-review-btn');
+
+            if (reviewSection.classList.contains('hidden')) {
+                reviewSection.classList.remove('hidden');
+                btn.innerText = "ซ่อนข้อสอบเฉลยละเอียด";
+                reviewSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                reviewSection.classList.add('hidden');
+                btn.innerText = "ดูข้อสอบเฉลยละเอียด";
+            }
+        }
+
+        function filterReviewList() {
+            const filterValue = document.getElementById('review-filter').value;
+            const container = document.getElementById('review-questions-list');
+            const cards = container.children;
+
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const isCorrect = card.dataset.isCorrect === "true";
+                const isFlagged = card.dataset.isFlagged === "true";
+
+                if (filterValue === 'all') {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'incorrect' && !isCorrect) {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'flagged' && isFlagged) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            }
+        }
+
+        function restartQuiz() {
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
+```
+eof

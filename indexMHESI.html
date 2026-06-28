@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สารบรรณ · ชุดเตรียมสอบ กระทรวง อว.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --royal: #1a3a6b;
+    --gold: #c9922a;
+    --gold-light: #f0c96a;
+    --cream: #fdfaf5;
+    --warm-white: #f7f3ec;
+    --muted: #6b7a8d;
+    --border: #d6cfc3;
+    --text: #1c2b3a;
+    --text-light: #4a5a6a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  .site-header {
+    background: var(--navy);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 52px 32px 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-emblem {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .emblem-line {
+    height: 2px;
+    background: var(--gold);
+    flex: 1;
+  }
+
+  .emblem-badge {
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .site-header h1 {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+    margin-bottom: 10px;
+  }
+
+  .site-header .subtitle {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    letter-spacing: 0.03em;
+  }
+
+  .gold-rule {
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, transparent 100%);
+    margin-top: 36px;
+  }
+
+  /* header decorative circles */
+  .header-decor {
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,146,42,0.15);
+  }
+  .header-decor-2 {
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,146,42,0.1);
+  }
+
+  /* ─── LEGEND / CATEGORY PILLS ─── */
+  .legend {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 24px 32px 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .legend-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-right: 4px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 11px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border: 1px solid transparent;
+  }
+
+  .pill-knowledge { background: #eef3fb; color: #2e5fa3; border-color: #c4d5ef; }
+  .pill-quiz { background: #f0faf3; color: #267a45; border-color: #b5dfc4; }
+  .pill-law { background: #fdf4ec; color: #b55c1a; border-color: #f3c99b; }
+
+  /* ─── CONTENT AREA ─── */
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 20px 32px 72px;
+  }
+
+  /* ─── SECTION DIVIDER ─── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 36px 0 16px;
+  }
+
+  .section-header .section-title {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .section-header .section-line {
+    height: 1px;
+    background: var(--border);
+    flex: 1;
+  }
+
+  /* ─── CARDS ─── */
+  .card-grid {
+    display: grid;
+    gap: 14px;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
+    position: relative;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 28px rgba(13,31,60,0.10);
+    transform: translateY(-2px);
+    border-color: var(--gold);
+    text-decoration: none;
+  }
+
+  .card-inner {
+    display: grid;
+    grid-template-columns: 7px 1fr;
+  }
+
+  .card-accent {
+    background: var(--navy);
+    border-radius: 0;
+    width: 7px;
+    min-height: 100%;
+  }
+
+  .card-accent.accent-blue { background: #2e5fa3; }
+  .card-accent.accent-green { background: #267a45; }
+  .card-accent.accent-orange { background: #b55c1a; }
+  .card-accent.accent-teal { background: #1a6b6b; }
+
+  .card-body {
+    padding: 20px 22px 18px;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .card-num {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    font-feature-settings: "tnum";
+    background: var(--warm-white);
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  .card-title {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.45;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .card-desc {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding-top: 11px;
+    border-top: 1px solid var(--warm-white);
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 9px;
+    border-radius: 5px;
+    font-size: 0.76rem;
+    font-weight: 500;
+  }
+
+  .badge-b { background: #eef3fb; color: #2e5fa3; }
+  .badge-g { background: #f0faf3; color: #267a45; }
+  .badge-o { background: #fdf4ec; color: #b55c1a; }
+  .badge-t { background: #edf7f7; color: #1a6b6b; }
+
+  .card-arrow {
+    margin-left: auto;
+    font-size: 0.9rem;
+    color: var(--muted);
+    opacity: 0.5;
+    transition: opacity 0.15s, transform 0.15s;
+  }
+
+  .card:hover .card-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+    color: var(--gold);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 32px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 860px;
+    margin: 0 auto;
+    letter-spacing: 0.01em;
+  }
+
+  footer strong {
+    color: var(--text-light);
+    font-weight: 500;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    .site-header h1 { font-size: 1.5rem; }
+    .header-inner { padding: 38px 20px 36px; }
+    .content, .legend, footer { padding-left: 16px; padding-right: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-decor"></div>
+  <div class="header-decor-2"></div>
+  <div class="header-inner">
+    <div class="header-emblem">
+      <div class="emblem-badge">อว.</div>
+      <div class="emblem-line"></div>
+    </div>
+    <h1>สารบรรณ · ชุดเตรียมสอบ<br>กระทรวง อว.</h1>
+    <p class="subtitle">ระบบข้อสอบปรนัย · สรุปเนื้อหา · กฎหมายและนโยบาย</p>
+    <div class="gold-rule"></div>
+  </div>
+</header>
+
+<!-- LEGEND -->
+<div class="legend">
+  <span class="legend-label">ประเภท</span>
+  <span class="pill pill-knowledge">📖 ความรู้และนโยบาย</span>
+  <span class="pill pill-quiz">📝 ข้อสอบพร้อมเฉลย</span>
+  <span class="pill pill-law">⚖️ พระราชบัญญัติ</span>
+</div>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- หมวด 1: พื้นฐาน -->
+  <div class="section-header">
+    <span class="section-title">ความรู้และนโยบาย</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card-grid">
+
+    <a class="card" href="MHESI1.html">
+      <div class="card-inner">
+        <div class="card-accent accent-blue"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-num">01</span>
+            <span class="pill pill-knowledge" style="font-size:0.74rem;padding:2px 8px;">📖 ความรู้พื้นฐาน</span>
+          </div>
+          <span class="card-title">ความเป็นมา กระทรวง อว. และ สป.อว.</span>
+          <div class="card-desc">สรุปประวัติ โครงสร้าง และบทบาทของกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม (อว.) และสำนักงานปลัดกระทรวง (สป.อว.) พร้อมข้อสอบปรนัยเก็งแม่น จุดดัก และเฉลยละเอียด</div>
+          <div class="card-footer">
+            <span class="badge badge-b">สรุปเนื้อหา</span>
+            <span class="badge badge-b">ข้อสอบปรนัย</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="MHESI2.html">
+      <div class="card-inner">
+        <div class="card-accent accent-blue"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-num">02</span>
+            <span class="pill pill-knowledge" style="font-size:0.74rem;padding:2px 8px;">📖 แผนระดับชาติ</span>
+          </div>
+          <span class="card-title">แผนด้านการอุดมศึกษา ฉบับปรับปรุง พ.ศ. 2566–2570</span>
+          <div class="card-desc">สรุปสาระสำคัญครบทุกมิติ: 3 ยุทธศาสตร์ · 9 แนวทาง · 30 กลยุทธ์ · 7 นโยบายหลัก + 3 กลไกหลัก พร้อมชุดตัวเลขทองและข้อสอบปรนัยเก็งแม่น</div>
+          <div class="card-footer">
+            <span class="badge badge-b">แผนระยะ 5 ปี</span>
+            <span class="badge badge-b">ตัวเลขสำคัญ</span>
+            <span class="badge badge-b">ข้อสอบ</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="MHESI3.html">
+      <div class="card-inner">
+        <div class="card-accent accent-teal"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-num">03</span>
+            <span class="pill pill-knowledge" style="font-size:0.74rem;padding:2px 8px;">📖 กรอบนโยบาย</span>
+          </div>
+          <span class="card-title">กรอบนโยบายและยุทธศาสตร์ อววน. พ.ศ. 2566–2570</span>
+          <div class="card-desc">ติวสอบเข้มข้น 9 หมวด ครอบคลุม 4 ยุทธศาสตร์หลัก วิสัยทัศน์ เป้าหมาย และตัวเลขกรอบเวลาสำคัญ พร้อมข้อสอบปรนัย 65 ข้อ สุ่มใหม่ทุกครั้ง</div>
+          <div class="card-footer">
+            <span class="badge badge-t">4 ยุทธศาสตร์</span>
+            <span class="badge badge-t">65 ข้อสอบ</span>
+            <span class="badge badge-t">9 หมวด</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- หมวด 2: พระราชบัญญัติ -->
+  <div class="section-header">
+    <span class="section-title">พระราชบัญญัติสำคัญ · ระบบจำลองสอบ 100 ข้อ</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="card-grid">
+
+    <a class="card" href="MHESI4.html">
+      <div class="card-inner">
+        <div class="card-accent accent-orange"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-num">04</span>
+            <span class="pill pill-law" style="font-size:0.74rem;padding:2px 8px;">⚖️ กฎหมาย</span>
+          </div>
+          <span class="card-title">พ.ร.บ. การอุดมศึกษา พ.ศ. ๒๕๖๒</span>
+          <div class="card-desc">ระบบจำลองข้อสอบ 100 ข้อเต็ม ครอบคลุมทุกมาตรา: 5 หลักการอุดมศึกษา (ม.9) · สิทธิผู้เรียน · การยกเว้นส่งคลัง · อัตราโทษ (จำคุกไม่เกิน 3 ปี) และนิยามกฎหมาย พร้อม Cheat Sheet</div>
+          <div class="card-footer">
+            <span class="badge badge-o">100 ข้อ</span>
+            <span class="badge badge-o">Practice Mode</span>
+            <span class="badge badge-o">Exam Mode</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="MHESI5.html">
+      <div class="card-inner">
+        <div class="card-accent accent-orange"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-num">05</span>
+            <span class="pill pill-law" style="font-size:0.74rem;padding:2px 8px;">⚖️ กฎหมาย</span>
+          </div>
+          <span class="card-title">พ.ร.บ. สถาบันอุดมศึกษาเอกชน พ.ศ. ๒๕๔๖</span>
+          <div class="card-desc">ระบบจำลองข้อสอบ 100 ข้อเต็ม ครอบคลุม: เงื่อนไขที่ดิน (ม.16) · โครงสร้างสภาสถาบัน (ม.28) · ตำแหน่งวิชาการ (ม.45) · ทรัพย์สินและบัญชี (ม.66) พร้อมจุดดักที่พบบ่อยในสนามสอบ</div>
+          <div class="card-footer">
+            <span class="badge badge-o">100 ข้อ</span>
+            <span class="badge badge-o">Practice Mode</span>
+            <span class="badge badge-o">Exam Mode</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="MHESI6.html">
+      <div class="card-inner">
+        <div class="card-accent accent-orange"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-num">06</span>
+            <span class="pill pill-law" style="font-size:0.74rem;padding:2px 8px;">⚖️ กฎหมาย</span>
+          </div>
+          <span class="card-title">พ.ร.บ. ระเบียบบริหารราชการกระทรวง อว. พ.ศ. ๒๕๖๒</span>
+          <div class="card-desc">ระบบจำลองข้อสอบ 100 ข้อเต็ม ครอบคลุม: ส่วนราชการในกระทรวง (ม.8) · คณะกรรมการ กกอ. · กมอ. · บทเฉพาะกาล และวันบังคับใช้ (2 พ.ค. 2562) พร้อม Ultimate Cheat Sheet</div>
+          <div class="card-footer">
+            <span class="badge badge-o">100 ข้อ</span>
+            <span class="badge badge-o">กกอ. / กมอ.</span>
+            <span class="badge badge-o">Exam Mode</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+</main>
+
+<footer>
+  ชุดเตรียมสอบนักวิเคราะห์นโยบายและแผน · <strong>กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม (อว.)</strong><br>
+  เนื้อหาจัดทำเพื่อการทบทวนเตรียมสอบเท่านั้น · ตรวจสอบกับเอกสารต้นฉบับก่อนใช้งานจริง
+</footer>
+
+</body>
+</html>

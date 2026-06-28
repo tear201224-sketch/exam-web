@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจำลองข้อสอบ พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. ๒๕๔๐</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-blue-900 to-indigo-950 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="bg-white p-2.5 rounded-full shadow-inner flex items-center justify-center">
+                    <!-- Government Shield Icon -->
+                    <svg class="w-10 h-10 text-indigo-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <circle cx="12" cy="11" r="3"/>
+                        <path d="M12 14v4"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-tight">ระบบจำลองข้อสอบ พ.ร.บ. ข้อมูลข่าวสารฯ</h1>
+                    <p class="text-xs sm:text-sm text-blue-200 mt-1">พระราชบัญญัติข้อมูลข่าวสารของราชการ พ.ศ. ๒๕๔๐ (คลังข้อสอบอัปเดต ๑๐๐ ข้อเต็ม)</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 bg-blue-700/50 text-blue-100 rounded-full text-xs font-semibold border border-blue-500/30">คลังข้อสอบ 100 ข้อ</span>
+                <span class="px-3 py-1 bg-indigo-700/50 text-indigo-100 rounded-full text-xs font-semibold border border-indigo-500/30">ระบบวิเคราะห์ทักษะละเอียด</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 py-8 sm:px-6 lg:px-8">
+        
+        <!-- Welcome / Setup / Summary Screen -->
+        <div id="setup-screen" class="max-w-4xl mx-auto space-y-8 animate-fadeIn">
+            
+            <!-- Quick Summary Panel -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 space-y-6">
+                <div class="border-b border-slate-100 pb-4">
+                    <span class="text-indigo-600 font-semibold tracking-wider text-xs uppercase bg-indigo-50 px-3 py-1 rounded-full">สรุปใจความสำคัญก่อนสอบ (Cheat Sheet)</span>
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-950 mt-2">สรุปประเด็น พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. ๒๕๔๐ ที่ออกสอบบ่อยที่สุด</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-indigo-900 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-indigo-600 inline-block"></span> ๑. ข้อมูลข่าวสารที่ต้องเผยแพร่ (มาตรา ๗ & ๙)
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-slate-800">พิมพ์ลงราชกิจจาฯ (ม.๗):</strong> โครงสร้างองค์กร, อำนาจหน้าที่สำคัญ, สถานที่ติดต่อ, กฎ มติ ครม. ที่มีผลทั่วไปต่อเอกชน</li>
+                            <li><strong class="text-slate-800">จัดให้ประชาชนตรวจดู (ม.๙):</strong> แผนงาน/งบประมาณปีปัจจุบัน, สัญญาสัมปทาน/ผูกขาด/ร่วมทุน, มติ ครม., คู่มือปฏิบัติงานของเจ้าหน้าที่ที่มีผลต่อสิทธิเอกชน</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-indigo-900 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-indigo-600 inline-block"></span> ๒. การรักษาความลับ & ระยะเวลาจัดเก็บ (ม.๑๔, ๑๕, ๒๖)
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-rose-700">ข้อมูลที่ห้ามเปิดเผยเด็ดขาด (ม.๑๔):</strong> ข้อมูลที่อาจก่อความเสียหายต่อสถาบันพระมหากษัตริย์ (เก็บส่งหอจดหมายเหตุเมื่อครบ <span class="font-bold text-rose-700">๗๕ ปี</span>)</li>
+                            <li><strong class="text-amber-700">ข้อมูลที่อาจมีคำสั่งไม่เปิดเผยก็ได้ (ม.๑๕):</strong> ความมั่นคงของประเทศ ความปลอดภัยบุคคล รายงานการแพทย์ (เก็บส่งเมื่อครบ <span class="font-bold text-amber-700">๒๐ ปี</span>)</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-indigo-900 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-indigo-600 inline-block"></span> ๓. การคัดค้าน & อุทธรณ์ (มาตรา ๑๗, ๑๘, ๒๕)
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-slate-800">การเสนอคำคัดค้าน (ม.๑๗):</strong> เจ้าหน้าที่ต้องแจ้งผู้มีส่วนได้เสียคัดค้านเป็นหนังสือใน <span class="font-bold text-indigo-600">๑๕ วัน</span></li>
+                            <li><strong class="text-slate-800">สิทธิอุทธรณ์ (ม.๑๘):</strong> หากเจ้าหน้าที่สั่งไม่เปิดเผยหรือปฏิเสธคำคัดค้าน ให้อุทธรณ์ใน <span class="font-bold text-indigo-600">๑๕ วัน</span></li>
+                            <li><strong class="text-slate-800">การอุทธรณ์แก้ไขข้อมูลส่วนบุคคล (ม.๒๕):</strong> ยื่นอุทธรณ์ใน <span class="font-bold text-indigo-600">๓๐ วัน</span> เสนอต่อคณะกรรมการข้อมูลข่าวสาร</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-indigo-900 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-indigo-600 inline-block"></span> ๔. คณะกรรมการสำคัญตามกฎหมาย
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-slate-800">คณะกรรมการข้อมูลข่าวสาร (กขร.):</strong> ประธานคือรัฐมนตรีที่นายกฯ มอบหมาย, ผู้ทรงคุณวุฒิ ครม. แต่งตั้ง <span class="font-bold text-indigo-600">๙ คน</span>, มีปลัดสำนักนายกฯ เป็นกรรมการ</li>
+                            <li><strong class="text-slate-800">คณะกรรมการวินิจฉัยฯ (กวอ.):</strong> ครม. แต่งตั้งตามสาขาเฉพาะทาง (ความเชี่ยวชาญ) คณะละไม่น้อยกว่า <span class="font-bold text-indigo-600">๓ คน</span> คำวินิจฉัยถือเป็น <span class="font-bold text-indigo-600">"ที่สุด"</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Setup Panel -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 space-y-8">
+                <div class="text-center space-y-2">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">เข้าสู่โหมดทำข้อสอบ พ.ร.บ. ข้อมูลข่าวสารฯ</h2>
+                    <p class="text-slate-500 text-sm max-w-lg mx-auto">เลือกโหมดและจำนวนข้อสอบที่คุณต้องการเพื่อเริ่มต้นพิชิตข้อสอบสนามจริง</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Practice Mode Card -->
+                    <button onclick="selectMode('practice')" class="group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-indigo-600 hover:bg-indigo-50/20 transition-all duration-200 focus:outline-none">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-indigo-100 text-indigo-700 p-3 rounded-lg group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดฝึกฝน (Practice Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">เหมาะสำหรับการอ่านทบทวน แสดงเฉลยประกอบมาตราและคำชี้แจงกฎหมายอย่างละเอียดทันทีหลังเลือกข้อตอบ</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Exam Mode Card -->
+                    <button onclick="selectMode('exam')" class="group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/20 transition-all duration-200 focus:outline-none">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-blue-100 text-blue-700 p-3 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดสอบจริง (Exam Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">จำลองบรรยากาศจริง กำหนดเวลา 45 นาที สุ่มคำถามสลับตำแหน่งช้อยส์ และไม่แสดงเฉลยจนกว่าจะกดส่งข้อสอบ</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Parameters Selection -->
+                <div class="border-t border-slate-200 pt-6 space-y-4">
+                    <h4 class="font-semibold text-slate-800">ตั้งค่าแบบทดสอบ</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">จำนวนข้อสอบที่ต้องการทำ</label>
+                            <select id="exam-quantity" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+                                <option value="20">20 ข้อ (ประเมินแบบสั้น)</option>
+                                <option value="45">45 ข้อ (มาตรฐานวิชาการ)</option>
+                                <option value="75">75 ข้อ (ประเมินแบบเข้มข้น)</option>
+                                <option value="100" selected>100 ข้อ (ทดสอบสมบูรณ์แบบครบคลัง)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">ขอบเขตเนื้อหา</label>
+                            <select id="exam-scope" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+                                <option value="all">ครอบคลุมทุกหมวดและมาตราสำคัญตาม พ.ร.บ. (๑๐๐ ข้อ)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz()" class="w-full py-4 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-bold rounded-xl shadow-md shadow-indigo-600/20 transition-all text-center block focus:outline-none">
+                    เริ่มทำข้อสอบ
+                </button>
+            </div>
+        </div>
+
+        <!-- Active Quiz Screen -->
+        <div id="quiz-screen" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-8 animate-fadeIn">
+            
+            <!-- Question Panel (3/4 of width) -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Status bar -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="flex items-center gap-3">
+                        <span id="badge-mode" class="px-2.5 py-0.5 rounded text-xs font-bold uppercase"></span>
+                        <div class="text-sm font-medium text-slate-500">
+                            ข้อที่ <span id="current-q-index" class="text-slate-800 font-bold">1</span> จาก <span id="total-q-count" class="text-slate-800 font-bold">100</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-grow max-w-md w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                        <div id="progress-bar-fill" class="bg-indigo-600 h-full transition-all duration-300" style="width: 1%"></div>
+                    </div>
+
+                    <div id="timer-container" class="flex items-center gap-2 text-rose-600 font-bold hidden">
+                        <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span id="quiz-timer">45:00</span>
+                    </div>
+                </div>
+
+                <!-- Question Card -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+                    <div class="flex justify-between items-center">
+                        <span id="question-category" class="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded">บทนิยามและโครงสร้าง</span>
+                        <button onclick="toggleFlag()" id="flag-btn" class="text-slate-400 hover:text-amber-500 focus:outline-none flex items-center gap-1.5 text-xs font-medium">
+                            <svg id="flag-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                            <span>ปักหมุดข้อนี้</span>
+                        </button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-950 leading-relaxed"></h3>
+                    </div>
+
+                    <!-- Options list -->
+                    <div id="options-container" class="grid grid-cols-1 gap-3.5">
+                        <!-- Options generated dynamically -->
+                    </div>
+
+                    <!-- Instant Explanation (Only in Practice Mode) -->
+                    <div id="explanation-panel" class="hidden bg-slate-50 rounded-xl border border-slate-200 p-5 space-y-2.5 animate-fadeIn">
+                        <div class="flex items-center gap-2">
+                            <span id="explanation-title-badge" class="px-2 py-0.5 rounded text-xs font-bold text-white"></span>
+                            <span class="text-sm font-bold text-slate-800">มาตรา/เฉลยและเหตุผลทางกฎหมาย:</span>
+                        </div>
+                        <p id="explanation-text" class="text-sm text-slate-600 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="flex justify-between items-center gap-4">
+                    <button onclick="prevQuestion()" id="prev-btn" class="px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg> ย้อนกลับ
+                    </button>
+                    
+                    <button onclick="nextQuestion()" id="next-btn" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none flex items-center gap-2">
+                        ถัดไป <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+
+                    <button onclick="showSubmitConfirmModal()" id="submit-quiz-btn" class="hidden px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-lg shadow-md shadow-rose-600/10 transition-colors text-sm focus:outline-none">
+                        ส่งกระดาษคำตอบ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar Controllers -->
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-4">
+                    <h4 class="font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                        <span>แผงควบคุมข้อสอบ</span>
+                        <span id="score-counter" class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">0/100</span>
+                    </h4>
+                    
+                    <div id="grid-navigation" class="grid grid-cols-5 gap-2 max-h-72 overflow-y-auto p-1">
+                        <!-- Dynamic Grid of Questions numbers -->
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-3 space-y-2">
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-indigo-600 inline-block"></span>
+                            <span>กำลังทำอยู่</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-indigo-100 border border-indigo-300 inline-block"></span>
+                            <span>ทำไปแล้ว</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-amber-500 inline-block"></span>
+                            <span>ปักหมุดทบทวน</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-slate-100 border border-slate-200 inline-block"></span>
+                            <span>ยังไม่ทำ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="confirmExit()" class="w-full py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-lg text-sm shadow-sm transition-colors focus:outline-none text-center block">
+                    ออกจากห้องสอบ
+                </button>
+            </div>
+        </div>
+
+        <!-- Result / Evaluation Dashboard -->
+        <div id="result-screen" class="hidden max-w-4xl mx-auto space-y-8 animate-fadeIn">
+            
+            <!-- Result Summary Box -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 text-center space-y-6">
+                <div class="space-y-2">
+                    <span id="result-badge" class="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">ผ่านเกณฑ์ยอดเยี่ยม</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900">ผลการทดสอบ พ.ร.บ. ข้อมูลข่าวสารฯ</h2>
+                </div>
+
+                <div class="relative w-44 h-44 mx-auto flex items-center justify-center">
+                    <!-- Circle Bar -->
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e2e8f0" stroke-width="8"/>
+                        <circle id="score-ring-fill" cx="50" cy="50" r="40" fill="transparent" stroke="#4f46e5" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round" class="transition-all duration-1000 ease-out"/>
+                    </svg>
+                    <!-- Percentage dynamic -->
+                    <div class="absolute flex flex-col items-center">
+                        <span id="result-percentage" class="text-4xl font-extrabold text-slate-900">0%</span>
+                        <span id="result-score-fraction" class="text-xs text-slate-500 font-bold mt-1">0/100 คะแนน</span>
+                    </div>
+                </div>
+
+                <p id="result-feedback-text" class="text-slate-600 max-w-md mx-auto text-sm sm:text-base leading-relaxed"></p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-200 pt-6">
+                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                        <span class="block text-xs font-medium text-emerald-600">ตอบถูกต้อง</span>
+                        <span id="stat-correct" class="text-xl font-extrabold text-emerald-800">0 ข้อ</span>
+                    </div>
+                    <div class="bg-rose-50 rounded-xl p-4 border border-rose-100">
+                        <span class="block text-xs font-medium text-rose-600">ตอบผิด / ข้าม</span>
+                        <span id="stat-incorrect" class="text-xl font-extrabold text-rose-800">0 ข้อ</span>
+                    </div>
+                    <div class="bg-blue-50 rounded-xl p-4 border border-blue-100">
+                        <span class="block text-xs font-medium text-blue-600">เวลาที่ใช้</span>
+                        <span id="stat-time-spent" class="text-xl font-extrabold text-blue-800">0 นาที</span>
+                    </div>
+                </div>
+
+                <!-- Topic analysis skills -->
+                <div class="border-t border-slate-200 pt-6 space-y-4 text-left">
+                    <h4 class="font-bold text-slate-800">การวิเคราะห์ทักษะและความเข้าใจรายหัวข้อ</h4>
+                    <div id="topic-analysis-container" class="space-y-3.5">
+                        <!-- Dynamic analysis bars go here -->
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <button onclick="restartQuiz()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-md transition-all text-sm focus:outline-none">
+                        กลับสู่หน้าแรก
+                    </button>
+                    <button onclick="toggleDetailedReview()" id="toggle-review-btn" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-all text-sm focus:outline-none border border-slate-300">
+                        ดูข้อสอบเฉลยละเอียด
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed review of correction -->
+            <div id="detailed-review-section" class="hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-slate-100 p-4 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 text-lg">คำเฉลยและข้อแนะนำรายข้อ</h3>
+                    <div>
+                        <select id="review-filter" onchange="filterReviewList()" class="bg-white border border-slate-300 text-xs font-bold rounded-lg px-2.5 py-1.5 focus:outline-none">
+                            <option value="all">แสดงทั้งหมด</option>
+                            <option value="incorrect">แสดงเฉพาะข้อที่ตอบผิด</option>
+                            <option value="flagged">แสดงเฉพาะข้อที่ปักหมุดไว้</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="review-questions-list" class="space-y-6">
+                    <!-- Review cards generated dynamically -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs mt-auto border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 space-y-1">
+            <p>ระบบจำลองข้อสอบสร้างตาม พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. ๒๕๔๐ สำหรับทบทวนสิทธิและการประเมินข้าราชการ</p>
+            <p>© 2569 จำลองและเตรียมพร้อมประเมินตนเองเพื่อความเป็นรัฐบาลโปร่งใสโดยประชาชน</p>
+        </div>
+    </footer>
+
+    <!-- Submit Confirmation Modal -->
+    <div id="submit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200 animate-fadeIn">
+            <div class="text-center space-y-3">
+                <div class="bg-rose-50 text-rose-600 p-3 rounded-full w-fit mx-auto border border-rose-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">ยืนยันการส่งกระดาษคำตอบ?</h3>
+                <p id="modal-completion-status" class="text-sm text-slate-500 leading-relaxed"></p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideSubmitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำข้อสอบต่อ
+                </button>
+                <button onclick="submitQuiz()" class="flex-1 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none shadow-md shadow-indigo-600/10">
+                    ยืนยันส่งคำตอบ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Confirmation Modal -->
+    <div id="exit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200 animate-fadeIn">
+            <div class="text-center space-y-3">
+                <div class="bg-slate-50 text-slate-600 p-3 rounded-full w-fit mx-auto border border-slate-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">ต้องการออกจากห้องสอบหรือไม่?</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">ความก้าวหน้าและการทำข้อสอบรอบนี้จะไม่ได้รับการบันทึก</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideExitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำต่อ
+                </button>
+                <button onclick="exitQuiz()" class="flex-1 py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ออกจากห้องสอบ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DB Array containing exactly 100 questions -->
+    <script>
+        const ALL_QUESTIONS = [
+            {
+                id: 1,
+                category: "บททั่วไปและรักษาการ",
+                question: "ผู้รักษาการตาม พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. ๒๕๔๐ คือใคร?",
+                options: ["ก. นายกรัฐมนตรี", "ข. ปลัดสำนักนายกรัฐมนตรี", "ค. รองนายกรัฐมนตรีที่ได้รับมอบหมาย", "ง. คณะรัฐมนตรี"],
+                answer: 0,
+                rationale: "ตามกฎหมาย ผู้รักษาการตามพระราชบัญญัตินี้คือ 'นายกรัฐมนตรี' ซึ่งมีอำนาจออกกฎกระทรวงและระเบียบเพื่อปฏิบัติการตามพระราชบัญญัตินี้"
+            },
+            {
+                id: 2,
+                category: "บทนิยามและโครงสร้าง",
+                question: "สำนักงานคณะกรรมการข้อมูลข่าวสารของราชการ (สขร.) จัดตั้งขึ้นในส่วนราชการใด?",
+                options: ["ก. สำนักงานปลัดกระทรวงการคลัง", "ข. สำนักงานคณะกรรมการข้าราชการพลเรือน (ก.พ.)", "ค. สำนักงานปลัดสำนักนายกรัฐมนตรี", "ง. สำนักงานคณะกรรมการพัฒนาระบบราชการ (ก.พ.ร.)"],
+                answer: 2,
+                rationale: "มาตรา ๖ บัญญัติให้จัดตั้งสำนักงานคณะกรรมการข้อมูลข่าวสารของราชการขึ้นใน 'สำนักงานปลัดสำนักนายกรัฐมนตรี' มีหน้าที่ปฏิบัติงานวิชาการและธุรการให้แก่คณะกรรมการ"
+            },
+            {
+                id: 3,
+                category: "บทนิยามและโครงสร้าง",
+                question: "องค์กรใดมีหน้าที่ในการจัดงานวิชาการและงานธุรการให้แก่ คณะกรรมการข้อมูลข่าวสารของราชการ และคณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร?",
+                options: ["ก. สำนักงาน ก.พ.", "ข. สำนักงานข้อมูลข่าวสารราชการ", "ค. สำนักงานปลัดสำนักนายกรัฐมนตรี", "ง. สำนักงานคณะกรรมการข้อมูลข่าวสารของราชการ"],
+                answer: 3,
+                rationale: "ตามมาตรา ๖ สำนักงานคณะกรรมการข้อมูลข่าวสารของราชการ (สขร.) มีหน้าที่ปฏิบัติงานธุรการและงานวิชาการ แก่ทั้งสองคณะกรรมการหลัก"
+            },
+            {
+                id: 4,
+                category: "ข้อมูลที่เผยแพร่ลงราชกิจจาฯ",
+                question: "ข้อมูลใดที่หน่วยงานของรัฐต้องส่งลงพิมพ์ในราชกิจจานุเบกษาตามมาตรา ๗?",
+                options: ["ก. โครงสร้างและการจัดองค์กรในการดำเนินงาน", "ข. สรุปอำนาจหน้าที่ที่สำคัญและวิธีการดำเนินงาน", "ค. สถานที่ติดต่อเพื่อขอรับข้อมูลข่าวสารหรือคำแนะนำการติดต่อ", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "มาตรา ๗ บัญญัติให้หน่วยงานของรัฐส่งข้อมูลอย่างน้อย ๕ ประเภทลงพิมพ์ในราชกิจจานุเบกษา รวมถึงโครงสร้างองค์กร อำนาจหน้าที่ และสถานที่ติดต่อ"
+            },
+            {
+                id: 5,
+                category: "ข้อมูลที่เผยแพร่ลงราชกิจจาฯ",
+                question: "ข้อมูลประเภท กฎ มติคณะรัฐมนตรี ข้อบังคับ คำสั่ง ระเบียบ นโยบาย หรือการตีความ ในลักษณะใดที่ต้องส่งลงพิมพ์ในราชกิจจานุเบกษา?",
+                options: ["ก. เฉพาะที่จัดให้มีขึ้นโดยสภาพอย่างกฎ เพื่อให้มีผลเป็นการทั่วไปต่อเอกชนที่เกี่ยวข้อง", "ข. เฉพาะที่มีสภาพบังคับเป็นการเฉพาะบุคคลของเอกชนรายใดรายหนึ่ง", "ค. ที่มีลักษณะเป็นนโยบายภายในโดยไม่มีผลบังคับทั่วไป", "ง. ที่มีผลใช้บังคับกับเฉพาะข้าราชการในสังกัดกรมเดียวกันเท่านั้น"],
+                answer: 0,
+                rationale: "ตามมาตรา ๗ (๔) ระบุเฉพาะจัดให้มีขึ้นโดยสภาพอย่างกฎเพื่อให้มีผลเป็นการทั่วไปต่อเอกชนที่เกี่ยวข้องเท่านั้นที่จำเป็นต้องพิมพ์ลงในราชกิจจานุเบกษา"
+            },
+            {
+                id: 6,
+                category: "ข้อมูลจัดไว้ให้ประชาชนตรวจดู",
+                question: "ตามมาตรา ๙ ข้อมูลข่าวสารประเภทใดที่หน่วยงานของรัฐต้องจัดไว้ให้ประชาชนเข้าตรวจดูได้โดยตรง?",
+                options: ["ก. ผลการวินิจฉัยหรือคำวินิจฉัยที่มีผลโดยตรงต่อเอกชน รวมทั้งความเห็นแย้งและคำสั่งเกี่ยวข้อง", "ข. นโยบายหรือการตีความที่ไม่เข้าข่ายต้องลงพิมพ์ในราชกิจจานุเบกษา", "ค. แผนงาน โครงการ และงบประมาณรายจ่ายประจำปีของปีที่กำลังดำเนินการ", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "มาตรา ๙ ระบุข้อมูลข่าวสารอย่างน้อย ๘ ประเภทที่ประชาชนต้องสามารถเข้าตรวจดูได้ รวมถึงคำวินิจฉัย นโยบายภายในที่ไม่ลงราชกิจจาฯ และงบประมาณปีที่กำลังดำเนินการ"
+            },
+            {
+                id: 7,
+                category: "ข้อมูลจัดไว้ให้ประชาชนตรวจดู",
+                question: "เอกสารประเภทสัญญาในข้อใดที่หน่วยงานของรัฐต้องนำไปจัดไว้ให้ประชาชนเข้าตรวจดูตามมาตรา ๙?",
+                options: ["ก. สัญญาสัมปทาน สัญญาผูกขาดตัดตอน หรือสัญญาร่วมทุนกับเอกชนในการจัดทำบริการสาธารณะ", "ข. สัญญาจ้างเอกสารจัดพิมพ์ในสำนักงานทั่วไป", "ค. สัญญาซื้อขายวัสดุครุภัณฑ์สำนักงานเล็ก ๆ", "ง. สัญญารับรองความประพฤติพนักงานชั่วคราว"],
+                answer: 0,
+                rationale: "มาตรา ๙ (๖) กำหนดให้สัญญาสัมปทาน สัญญาผูกขาดตัดตอน หรือสัญญาร่วมทุนทำบริการสาธารณะ ต้องจัดให้ประชาชนเข้าตรวจดูได้เพื่อความโปร่งใส"
+            },
+            {
+                id: 8,
+                category: "ข้อมูลจัดไว้ให้ประชาชนตรวจดู",
+                question: "ข้อมูลข่าวสารที่จัดให้ประชาชนเข้าตรวจดูตามมาตรา ๙ หากปรากฏว่ามีส่วนที่ต้องห้ามมิให้เปิดเผยปะปนอยู่ ให้เจ้าหน้าที่ดำเนินการอย่างไร?",
+                options: ["ก. ห้ามเปิดเผยข้อมูลนั้นทั้งฉบับโดยไม่มีข้อยกเว้น", "ข. ให้ลบหรือตัดทอนหรือทำโดยประการอื่นใดที่ไม่เป็นการเปิดเผยข้อมูลส่วนนั้น", "ค. ให้ขีดฆ่าด้วยหมึกสีแดงและเซ็นชื่อรับรองกำกับเพื่อเปิดเผยได้ทั้งหมด", "ง. ส่งให้ศาลพิจารณาเปิดเผยเป็นรายบุคคลเท่านั้น"],
+                answer: 1,
+                rationale: "ตามมาตรา ๙ วรรคท้าย ระบุว่าถ้ามีส่วนที่ต้องห้ามมิให้เปิดเผยอยู่ด้วย ให้ลบหรือตัดทอนหรือทำโดยประการอื่นใดที่ไม่เป็นการเปิดเผยข้อมูลส่วนนั้น"
+            },
+            {
+                id: 9,
+                category: "ข้อมูลจัดไว้ให้ประชาชนตรวจดู",
+                question: "ข้อความใดกล่าวไม่ถูกต้องเกี่ยวกับสิทธิการเข้าตรวจดูข้อมูลของประชาชน?",
+                options: ["ก. บุคคลที่จะขอตรวจดูข้อมูลข่าวสารที่ส่วนราชการจัดให้ตรวจดู ต้องเป็นผู้มีส่วนได้เสียเท่านั้น", "ข. หน่วยงานของรัฐอาจเรียกเก็บค่าธรรมเนียมในการขอสำเนาหรือขอสำเนาที่รับรองถูกต้องได้", "ค. บุคคลไม่ว่าจะมีส่วนได้เสียเกี่ยวข้องหรือไม่ ย่อมมีสิทธิเข้าตรวจดูข้อมูลที่เปิดเผยตามมาตรา ๙", "ง. การจัดเก็บค่าธรรมเนียมการรับรองสำเนาต้องเป็นไปตามอัตราที่คณะกรรมการให้ความเห็นชอบ"],
+                answer: 0,
+                rationale: "พ.ร.บ. นี้มุ่งเปิดเผยให้บุคคลทั่วไป ไม่ว่าจะมีส่วนได้เสียเกี่ยวข้องหรือไม่ ย่อมมีสิทธิเข้าตรวจดูข้อมูลข่าวสารได้ ดังนั้น ตัวเลือก ก. จึงเป็นข้อความที่ผิด"
+            },
+            {
+                id: 10,
+                category: "บททั่วไปและรักษาการ",
+                question: "หน่วยงานของรัฐมีหน้าที่โดยตรงเกี่ยวกับข้อมูลข่าวสารของราชการตามกฎหมายนี้ในเรื่องใดบ้าง?",
+                options: ["ก. ส่งข้อมูลสำคัญลงพิมพ์ในราชกิจจานุเบกษาตามมาตรา ๗", "ข. จัดเตรียมข้อมูลโครงสร้างและเอกสารอื่นไว้ให้ประชาชนเข้าตรวจดูตามมาตรา ๙", "ค. จัดหาข้อมูลราชการให้แก่ประชาชนที่ยื่นคำขอตามสมควรตามมาตรา ๑๑", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "หน่วยงานของรัฐมีหน้าที่ ๓ มิติ คือ พิมพ์ลงราชกิจจาฯ (มาตรา ๗) จัดให้เข้าตรวจดู (มาตรา ๙) และจัดหาให้ตามคำขอเฉพาะเจาะจง (มาตรา ๑๑)"
+            },
+            {
+                id: 11,
+                category: "กระบวนการบริการข้อมูล",
+                question: "หากมีผู้ยื่นคำขอข้อมูลราชการ แต่ข้อมูลที่ขอนั้นอยู่ในความควบคุมดูแลของหน่วยงานของรัฐแห่งอื่นหรือส่วนสาขา ให้หน่วยงานที่รับคำขอปฏิบัติอย่างไร?",
+                options: ["ก. ปฏิเสธการรับคำร้องขอโดยทันที", "ข. ดำเนินการไปติดต่อขอรับข้อมูลแทนเพื่อส่งให้ผู้ร้องขอ", "ค. ให้คำแนะนำโดยเร็วเพื่อไปยื่นคำขอต่อหน่วยงานที่ควบคุมข้อมูลนั้นโดยไม่ชักช้า", "ง. ส่งเรื่องให้คณะกรรมการข้อมูลข่าวสารชี้ขาดกระบวนการยื่น"],
+                answer: 2,
+                rationale: "มาตรา ๑๒ กำหนดว่าแม้ข้อมูลจะอยู่ในความดูแลของส่วนอื่นหรือหน่วยงานอื่น ให้หน่วยงานที่รับคำขอให้คำแนะนำเพื่อไปยื่นต่อหน่วยงานผู้รับผิดชอบโดยไม่ชักช้า"
+            },
+            {
+                id: 12,
+                category: "กระบวนการบริการข้อมูล",
+                question: "หากหน่วยงานผู้รับคำขอพบว่า ข้อมูลที่ขอเป็นข้อมูลที่จัดทำขึ้นโดยหน่วยงานอื่น และระบุห้ามการเปิดเผยไว้ตามระเบียบ ให้หน่วยงานที่รับคำขอปฏิบัติตามข้อใด?",
+                options: ["ก. แนะนำให้ผู้ขอยื่นคำขอต่อคณะกรรมการวินิจฉัยแทน", "ข. ส่งคำขอนั้นให้หน่วยงานของรัฐผู้จัดทำข้อมูลข่าวสารนั้นพิจารณาเพื่อมีคำสั่งต่อไป", "ค. ทำการปฏิเสธคำขอและทำลายคำร้องทิ้งทันที", "ง. มีคำสั่งให้เปิดเผยได้ด้วยตนเองโดยไม่ต้องปรึกษาใคร"],
+                answer: 1,
+                rationale: "มาตรา ๑๒ วรรคสอง ระบุว่าหากข้อมูลเป็นของหน่วยงานอื่นและระบุห้ามเปิดเผยตามระเบียบมาตรา ๑๖ ให้ส่งคำขอนั้นให้หน่วยงานผู้จัดทำข้อมูลดังกล่าวพิจารณาออกคำสั่ง"
+            },
+            {
+                id: 13,
+                category: "การร้องเรียนต่อคณะกรรมการ",
+                question: "ผู้ใดเห็นว่าหน่วยงานของรัฐไม่จัดพิมพ์ข้อมูลลงราชกิจจาฯ หรือไม่จัดข้อมูลไว้ให้ประชาชนเข้าตรวจดู ผู้นั้นมีสิทธิอย่างไรตามมาตรา ๑๓?",
+                options: ["ก. ยื่นคำร้องขอฟ้องศาลปกครองด่านแรกสุด", "ข. ยื่นคำร้องเรียนต่อคณะกรรมการข้อมูลข่าวสารของราชการ", "ค. อุทธรณ์ต่อคณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสารทันที", "ง. ฟ้องร้องดำเนินคดีอาญาฐานละเว้นการปฏิบัติหน้าที่โดยมิชอบ"],
+                answer: 1,
+                rationale: "ตามมาตรา ๑๓ สิทธิในกรณีที่หน่วยงานไม่จัดพิมพ์ข้อมูล ไม่จัดให้ตรวจดู หรือปฏิบัติหน้าที่ล่าช้า คือ 'มีสิทธิร้องเรียนต่อคณะกรรมการข้อมูลข่าวสารของราชการ'"
+            },
+            {
+                id: 14,
+                category: "การร้องเรียนต่อคณะกรรมการ",
+                question: "ในกรณีที่หน่วยงานของรัฐปฏิเสธไม่จัดหาข้อมูลข่าวสารเฉพาะกรณีให้แก่ตนตามคำขอ มาตรา ๑๓ กำหนดให้ผู้นั้นมีสิทธิอย่างไร?",
+                options: ["ก. ร้องทุกข์ต่อสำนักงานตำรวจแห่งชาติ", "ข. ร้องเรียนต่อคณะกรรมการข้อมูลข่าวสารของราชการ", "ค. อุทธรณ์ต่อผู้ตรวจการแผ่นดินของรัฐสภา", "ง. ปรับปรุงข้อเสนอขอฟ้องแพ่งทางละเมิด"],
+                answer: 1,
+                rationale: "การไม่จัดหาข้อมูลให้ตามคำร้องขอตามมาตรา ๑๑ ให้สิทธิในการร้องเรียนต่อคณะกรรมการข้อมูลข่าวสารของราชการตามมาตรา ๑๓"
+            },
+            {
+                id: 15,
+                category: "การร้องเรียนต่อคณะกรรมการ",
+                question: "กรณีใดต่อไปนี้ที่ประชาชน 'ไม่มีสิทธิร้องเรียน' ต่อคณะกรรมการข้อมูลข่าวสารของราชการ ตามมาตรา ๑๓ แต่ต้องอุทธรณ์ต่อคณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสารแทน?",
+                options: ["ก. หน่วยงานของรัฐปฏิบัติหน้าที่บริการด้านข้อมูลราชการอย่างล่าช้า", "ข. ตนไม่ได้รับความสะดวกในการขอข้อมูลข่าวสารโดยไม่มีเหตุอันสมควร", "ค. หน่วยงานมีคำสั่งมิให้เปิดเผยข้อมูลข่าวสารตามคำขอหรือสั่งไม่รับฟังคำคัดค้าน", "ง. หน่วยงานไม่ยอมจัดพิมพ์เอกสารโครงสร้างลงในราชกิจจานุเบกษา"],
+                answer: 2,
+                rationale: "มาตรา ๑๓ ข้อยกเว้นของการร้องเรียนคือ เรื่องที่เป็นกรณีเกี่ยวกับคำสั่งมิให้เปิดเผยข้อมูล (มาตรา ๑๕) หรือคำสั่งไม่รับฟังคำคัดค้าน (มาตรา ๑๗) ซึ่งจัดอยู่ในช่องทางของกระบวนการอุทธรณ์"
+            },
+            {
+                id: 16,
+                category: "ข้อจำกัดการเปิดเผย",
+                question: "ข้อมูลข่าวสารประเภทใดของราชการที่กฎหมายบัญญัติไว้เด็ดขาดว่า 'จะเปิดเผยมิได้' ตามมาตรา ๑๔?",
+                options: ["ก. ข้อมูลข่าวสารของราชการที่อาจก่อให้เกิดความเสียหายต่อสถาบันพระมหากษัตริย์", "ข. ความเห็นแย้งภายในหรือข้อเสนอเชิงนโยบายที่รอการพิจารณาอนุมัติ", "ค. แผนงานโครงการพัฒนาและข้อมูลความมั่นคงทางเศรษฐกิจของประเทศ", "ง. ข้อมูลข่าวสารเกี่ยวกับทะเบียนประวัติแพทย์ของข้าราชการ"],
+                answer: 0,
+                rationale: "มาตรา ๑๔ บัญญัติห้ามไว้เป็นเด็ดขาดว่า ข้อมูลข่าวสารของราชการที่อาจก่อให้เกิดความเสียหายต่อสถาบันพระมหากษัตริย์จะเปิดเผยมิได้"
+            },
+            {
+                id: 17,
+                category: "การคัดค้านการเปิดเผย",
+                question: "ในกรณีที่เจ้าหน้าที่เห็นว่าการเปิดเผยข้อมูลใดอาจกระทบประโยชน์ได้เสียของผู้ใด เจ้าหน้าที่ต้องแจ้งให้ผู้นั้นเสนอคำคัดค้านภายในเวลากี่วัน?",
+                options: ["ก. ไม่น้อยกว่า ๗ วัน นับแต่วันที่ยื่นร้องขอ", "ข. ไม่น้อยกว่า ๑๕ วัน นับแต่วันที่ได้รับแจ้ง", "ค. ไม่น้อยกว่า ๓๐ วัน นับแต่วันประกาศลงข่าว", "ง. ไม่น้อยกว่า ๖๐ วัน นับแต่วันจดบันทึก"],
+                answer: 1,
+                rationale: "มาตรา ๑๗ กำหนดว่าหากกระทบประโยชน์ได้เสียของใคร ให้ส่งหนังสือแจ้งและให้ยื่นคัดค้านได้ โดยต้องให้เวลาเสนอคำคัดค้านไม่น้อยกว่าสิบห้าวันนับแต่วันที่ได้รับแจ้ง"
+            },
+            {
+                id: 18,
+                category: "กระบวนการอุทธรณ์",
+                question: "หากเจ้าหน้าที่ของรัฐมีคำสั่งมิให้เปิดเผยข้อมูล หรือมีคำสั่งไม่รับฟังคำคัดค้าน ผู้นั้นมีสิทธิอุทธรณ์ภายในกี่วันนับแต่วันที่ได้รับแจ้ง?",
+                options: ["ก. ๗ วัน", "ข. ๑๕ วัน", "ค. ๓๐ วัน", "ง. ๖๐ วัน"],
+                answer: 1,
+                rationale: "มาตรา ๑๘ กำหนดให้สามารถยื่นคำอุทธรณ์ต่อคณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร (ผ่านคณะกรรมการข้อมูลข่าวสาร) ภายในสิบห้าวันนับแต่วันที่ได้รับแจ้งคำสั่ง"
+            },
+            {
+                id: 19,
+                category: "ข้อจำกัดการเปิดเผย",
+                question: "ข้อมูลข่าวสารประเภทใดที่หน่วยงานหรือเจ้าหน้าที่ของรัฐ 'อาจมีคำสั่งมิให้เปิดเผยก็ได้' โดยพิจารณาตามความเหมาะสมตามมาตรา ๑๕?",
+                options: ["ก. ข้อมูลที่อาจทำให้การบังคับใช้กฎหมายเสื่อมประสิทธิภาพหรือไม่อาจสำเร็จผลตามวัตถุประสงค์", "ข. ความเห็นหรือคำแนะนำภายในหน่วยงานที่ยังไม่ได้มีข้อยุติ (ไม่รวมรายงานทางวิชาการ)", "ค. รายงานการแพทย์หรือข้อมูลส่วนบุคคลที่รุกล้ำความเป็นส่วนตัวเกินสมควร", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "มาตรา ๑๕ ระบุข้อยกเว้น ๗ ประเภทที่เจ้าหน้าที่ 'อาจมีคำสั่งมิให้เปิดเผยก็ได้' เช่น ประสิทธิภาพการบังคับใช้กฎหมาย ความเห็นภายใน และข้อมูลส่วนบุคคล"
+            },
+            {
+                id: 20,
+                category: "การคัดค้านการเปิดเผย",
+                question: "ผู้ที่ทราบว่าการเปิดเผยข้อมูลข่าวสารราชการใดอาจกระทบสิทธิประโยชน์ได้เสียของตน มีสิทธิคัดค้านการเปิดเผยโดยทำเป็นหนังสือยื่นต่อผู้ใด?",
+                options: ["ก. เจ้าหน้าที่ของรัฐผู้รับผิดชอบข้อมูลนั้น", "ข. คณะกรรมการข้อมูลข่าวสารของราชการ", "ค. คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร", "ง. หัวหน้าฝ่ายบุคคลส่วนท้องถิ่น"],
+                answer: 0,
+                rationale: "ตามมาตรา ๑๗ วรรคสอง กำหนดให้ผู้มีส่วนได้เสียมีสิทธิคัดค้านการเปิดเผยได้โดยทำเป็นหนังสือถึง 'เจ้าหน้าที่ของรัฐผู้รับผิดชอบ'"
+            },
+            {
+                // Q21 in DB (corresponds to Q26 in PDF text)
+                category: "การคัดค้านการเปิดเผย",
+                question: "ข้อใดกล่าวไม่ถูกต้องเกี่ยวกับกรณีที่ผู้มีส่วนได้เสียทำการคัดค้านการเปิดเผยข้อมูลราชการ?",
+                options: ["ก. เจ้าหน้าที่ผู้รับผิดชอบต้องรีบพิจารณาและแจ้งผลให้ผู้คัดค้านทราบโดยไม่ชักช้า", "ข. หากเจ้าหน้าที่มีคำสั่งไม่รับฟังคำคัดค้าน ให้เจ้าหน้าที่เปิดเผยข้อมูลแก่ผู้ขอได้ทันทีในวันถัดไป", "ค. ผู้คัดค้านมีสิทธิคัดค้านโดยทำเป็นหนังสือภายในเวลาที่กำหนดไม่น้อยกว่า ๑๕ วัน", "ง. หากมีคำสั่งไม่รับฟังคำคัดค้าน จะเปิดเผยข้อมูลมิได้จนกว่าจะพ้นกำหนดอุทธรณ์หรือคณะกรรมการวินิจฉัยได้มีคำสั่งชี้ขาด"],
+                answer: 1,
+                rationale: "ตามมาตรา ๑๗ วรรคท้าย หากเจ้าหน้าที่มีคำสั่งไม่รับฟังคำคัดค้าน จะเปิดเผยข้อมูลมิได้จนกว่าล่วงพ้นกำหนดเวลาอุทธรณ์ ๑๕ วัน หรือคณะกรรมการวินิจฉัยได้มีคำวินิจฉัยให้เปิดเผย"
+            },
+            {
+                category: "กระบวนการวินิจฉัยอุทธรณ์",
+                question: "การพิจารณาข้อมูลข่าวสารที่มีคำสั่งมิให้เปิดเผย ของคณะกรรมการ คณะกรรมการวินิจฉัยฯ หรือศาล ข้อใดปฏิบัติถูกต้องตามกฎหมาย?",
+                options: ["ก. ต้องดำเนินกระบวนการพิจารณาโดยเปิดเผยและให้บุคคลทั่วไปร่วมเข้าฟังได้ทุกกรณีเพื่อความโปร่งใส", "ข. จะต้องดำเนินกระบวนการพิจารณาโดยมิให้ข้อมูลนั้นเปิดเผยแก่บุคคลอื่นใดที่ไม่จำเป็นแก่การพิจารณา", "ค. หากมีความจำเป็น จะดำเนินการพิจารณาลับหลังคู่กรณีหรือคู่ความฝ่ายใดก็ได้", "ง. ตัวเลือก ข. และ ค. กล่าวได้ถูกต้อง"],
+                answer: 3,
+                rationale: "มาตรา ๑๙ กำหนดการพิจารณาข้อมูลที่ห้ามเปิดเผยว่า จะต้องมิให้เปิดเผยแก่คนที่ไม่เกี่ยวข้อง และหากจำเป็นก็อนุญาตให้พิจารณาลับหลังคู่กรณีคู่ความได้ด้วย"
+            },
+            {
+                category: "ความรับผิดทางกฎหมาย",
+                question: "กรณีใดที่กำหนดให้ 'เจ้าหน้าที่ไม่ต้องรับผิดทางกฎหมาย' หากมีการเปิดเผยข้อมูลโดยสุจริตตามมาตรา ๒๐?",
+                options: ["ก. ข้อมูลตามมาตรา ๑๕ หากเปิดเผยโดยถูกต้องตามระเบียบมาตรา ๑๖ และเป็นไปโดยสุจริต", "ข. ข้อมูลตามมาตรา ๑๕ หากเจ้าหน้าที่ระดับตามกฎกระทรวงสั่งให้เปิดเผยเพื่อประโยชน์ที่สำคัญยิ่งกว่าสาธารณะหรือชีวิตร่างกาย", "ค. การเปิดเผยข้อมูลข่าวสารทุกประเภท ไม่ว่ากรณีใด ๆ ให้ถือว่าหลุดพ้นจากความรับผิดชอบทางกฎหมายของเอกชนเสมอ", "ง. ตัวเลือก ก. และ ข. กล่าวถูกต้องตามมาตรา ๒๐"],
+                answer: 3,
+                rationale: "มาตรา ๒๐ กำหนดข้อยกเว้นการพ้นผิดทางแพ่ง อาญา หรือวินัยของเจ้าหน้าที่ หากเปิดเผยข้อมูลมาตรา ๑๕ โดยสุจริตตามระเบียบหรือคำสั่งที่สมควรแก่เหตุเพื่อประโยชน์สาธารณะยิ่งกว่า"
+            },
+            {
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "คำว่า 'บุคคล' ที่ได้รับการคุ้มครองสิทธิข้อมูลส่วนบุคคลตามพระราชบัญญัตินี้ หมายความตามข้อใด?",
+                options: ["ก. บุคคลธรรมดาที่มีสัญชาติไทย และบุคคลธรรมดาที่ไม่มีสัญชาติไทยแต่มีถิ่นที่อยู่ในประเทศไทย", "ข. บุคคลธรรมดาและนิติบุคคลสัญชาติไทยทั้งหมดที่มีสิทธิทำนิติกรรมสัญญา", "ค. บุคคลธรรมดาที่ยื่นคำขอขึ้นทะเบียนเป็นผู้มีสิทธิเลือกตั้งเท่านั้น", "ง. ชาวต่างชาติทุกคนที่เดินทางเข้ามาท่องเที่ยวชั่วคราวในประเทศไทย"],
+                answer: 0,
+                rationale: "ตามมาตรา ๒๑ บัญญัติคำนิยามว่า 'บุคคล' หมายความว่าบุคคลธรรมดาที่มีสัญชาติไทย และบุคคลธรรมดาที่ไม่มีสัญชาติไทยแต่มีถิ่นที่อยู่ในประเทศไทย"
+            },
+            {
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "หน่วยงานความมั่นคงใดที่ได้รับยกเว้นในการออกระเบียบที่ได้รับการยอมรับจากคณะกรรมการ เพื่อไม่ให้นำข้อบังคับเกี่ยวกับการลงพิมพ์ข้อมูลในราชกิจจาฯ มาบังคับใช้กับข้อมูลส่วนบุคคล?",
+                options: ["ก. สำนักข่าวกรองแห่งชาติ", "ข. สำนักงานสภาความมั่นคงแห่งชาติ", "ค. หน่วยงานอื่นตามที่กำหนดไว้ในกฎกระทรวง", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "มาตรา ๒๒ กำหนดให้ สำนักข่าวกรองแห่งชาติ สำนักงานสภาความมั่นคงแห่งชาติ และหน่วยงานความมั่นคงอื่นตามกฎกระทรวง สามารถออกระเบียบยกเว้นดังกล่าวได้โดยชอบ"
+            },
+            {
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "ในการจัดระบบข้อมูลข่าวสารส่วนบุคคล หน่วยงานของรัฐจะต้องปฏิบัติอย่างไรตามกฎหมายมาตรา ๒๓?",
+                options: ["ก. จัดให้มีระบบข้อมูลส่วนบุคคลเท่าที่เกี่ยวข้องและจำเป็นเพื่อการดำเนินงาน และยกเลิกเมื่อหมดความจำเป็น", "ข. พยายามเก็บข้อมูลข่าวสารส่วนบุคคลโดยตรงจากเจ้าของข้อมูลโดยเฉพาะกรณีที่กระทบส่วนได้เสีย", "ค. ตรวจสอบแก้ไขข้อมูลส่วนบุคคลในความรับผิดชอบให้ถูกต้องอยู่เสมอและมีระบบความปลอดภัยที่เหมาะสม", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "มาตรา ๒๓ บัญญัติให้หน่วยงานรัฐต้องปฏิบัติตามหลักเกณฑ์การจัดระบบข้อมูลส่วนบุคคลรวม ๕ ประการ รวมถึงการเก็บเท่าที่จำเป็น และรักษาความปลอดภัยข้อมูลด้วย"
+            },
+            {
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "การจัดระบบข้อมูลข่าวสารส่วนบุคคล หน่วยงานของรัฐต้องปฏิบัติโดยจัดพิมพ์ลงในราชกิจจานุเบกษาและตรวจสอบแก้ไขให้ถูกต้องอยู่เสมอ ยกเว้นข้อใด?",
+                options: ["ก. ประเภทของบุคคลที่มีการจัดเก็บรวบรวมข้อมูลส่วนบุคคลไว้", "ข. ลักษณะการใช้ข้อมูลตามปกติ และวิธีการขอตรวจดูของเจ้าของข้อมูล", "ค. ชื่อและตำแหน่งของเจ้าหน้าที่ผู้รับผิดชอบพิมพ์เก็บข้อมูล และระยะเวลาทำลายข้อมูลรายปี", "ง. วิธีการขอให้แก้ไขเปลี่ยนแปลงข้อมูล แหล่งที่มาของข้อมูลการเก็บ"],
+                answer: 2,
+                rationale: "มาตรา ๒๓ (๓) กำหนดรายละเอียด ๖ หัวข้อที่ต้องจัดพิมพ์เผยแพร่ในราชกิจจาฯ ซึ่งไม่มีข้อกำหนดเรื่องการประกาศชื่อและตำแหน่งของเจ้าหน้าที่ผู้คัดลอกจัดเก็บ"
+            },
+            {
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "ในกรณีที่หน่วยงานเก็บข้อมูลส่วนบุคคลโดยตรงจากเจ้าของข้อมูล หน่วยงานของรัฐจะต้องดำเนินการแจ้งข้อใดให้เจ้าของข้อมูลทราบล่วงหน้าหรือพร้อมกับการขอข้อมูล?",
+                options: ["ก. แจ้งวัตถุประสงค์ที่จะนำข้อมูลไปใช้ประโยชน์", "ข. แจ้งลักษณะการนำไปใช้งานตามปกติทั่วไปของหน่วยงาน", "ค. แจ้งว่าเป็นกรณีที่อาจให้ข้อมูลโดยความสมัครใจ หรือเป็นกรณีมีกฎหมายบังคับให้ส่งข้อมูล", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "ตามมาตรา ๒๓ วรรคสอง ระบุข้อบังคับว่าเจ้าหน้าที่ต้องแจ้งล่วงหน้าหรือแจ้งพร้อมกันถึงวัตถุประสงค์ การใช้งาน และสภาพบังคับตามกฎหมาย"
+            },
+            {
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "พระราชบัญญัตินี้กำหนดหลักการเปิดเผยข้อมูลข่าวสารส่วนบุคคลที่อยู่ในความควบคุมของหน่วยงานไว้ตามข้อใด?",
+                options: ["ก. ห้ามเปิดเผยข้อมูลส่วนบุคคลต่อหน่วยงานอื่นหรือบุคคลภายนอก เว้นแต่จะได้รับความยินยอมเป็นหนังสือของเจ้าของข้อมูลล่วงหน้าหรือขณะนั้น", "ข. สามารถเปิดเผยให้แก่พนักงานหรือบริษัทเอกชนใดก็ได้ที่ร้องขอเพื่อประโยชน์ทางการค้า", "ค. ยินยอมให้เปิดเผยข้อมูลได้ด้วยวาจาจากญาติพี่น้องหากเจ้าของข้อมูลไม่สะดวกมาเซ็นใบอนุญาต", "ง. ให้เปิดเผยได้เฉพาะทางระบบโทรศัพท์แบบไม่มีเสียงบันทึก"],
+                answer: 0,
+                rationale: "มาตรา ๒๔ กำหนดหลักการสำคัญว่าห้ามเปิดเผยข้อมูลส่วนบุคคลโดยปราศจากความยินยอมเป็นลายลักษณ์อักษร ยกเว้นเข้าข่ายข้อยกเว้นตามกฎหมาย"
+            },
+            {
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "ข้อใด 'ไม่ใช่' ข้อยกเว้นตามกฎหมายที่อนุญาตให้เปิดเผยข้อมูลข่าวสารส่วนบุคคลโดยปราศจากความยินยอมเป็นหนังสือของเจ้าของข้อมูลตามมาตรา ๒๔?",
+                options: ["ก. เพื่อการใช้งานตามอำนาจหน้าที่ของเจ้าหน้าที่ในหน่วยงานของตนเอง", "ข. ต่อหน่วยงานของรัฐที่ทำงานวางแผน สถิติ หรือสำมะโนประชากร ซึ่งมีหน้าที่ต้องรักษาความลับข้อมูล", "ค. ต่อเพื่อนร่วมงานในหน่วยงานราชการแห่งอื่นทุกแห่ง เพื่อผลประโยชน์ส่วนตนหรือช่วยเหลือการทำงานทั่วไป", "ง. เป็นการให้เพื่อประโยชน์แก่การศึกษาวิจัยโดยไม่มีการระบุชื่อระบุตัวตนของผู้เป็นเจ้าของข้อมูล"],
+                answer: 2,
+                rationale: "มาตรา ๒๔ ข้อยกเว้น (๑) ระบุให้เผยแพร่เฉพาะภายในหน่วยงานของตนเองเพื่ออำนาจหน้าที่เท่านั้น การส่งให้ผู้อื่นในหน่วยงานรัฐแห่งอื่นอย่างไร้ขอบเขต ไม่ใช่ข้อยกเว้นที่ทำได้"
+            },
+            {
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "กรณีใดบ้างที่กฎหมายยกเว้นให้หน่วยงานเปิดเผยข้อมูลส่วนบุคคลได้ทันทีโดยไม่ต้องได้รับคำยินยอมจากเจ้าของตามมาตรา ๒๔?",
+                options: ["ก. เผยแพร่ให้แก่ศาล หรือหน่วยงานผู้มีอำนาจตามกฎหมายเพื่อขอข้อเท็จจริงประกอบการพิจารณา", "ข. ส่งมอบให้หอจดหมายเหตุแห่งชาติ กรมศิลปากร เพื่อตรวจดูคุณค่าในการเก็บรักษา", "ค. เผยแพร่เพื่อป้องกันหรือระงับอันตรายร้ายแรงต่อชีวิตหรือสุขภาพของบุคคล", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "กรณีความปลอดภัยของชีวิต (๗) หอจดหมายเหตุ (๕) และคำสั่งศาล (๘) ล้วนเป็นข้อยกเว้นทางกฎหมายที่ระบุไว้ชัดเจนในมาตรา ๒๔ ที่เปิดเผยได้"
+            },
+            {
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "ข้อใดกล่าวไม่ถูกต้องเกี่ยวกับสิทธิรับรู้ข้อมูลข่าวสารส่วนบุคคลตามพระราชบัญญัตินี้?",
+                options: ["ก. บุคคลธรรมดาย่อมมีสิทธิที่จะได้รู้ข้อมูลข่าวสารส่วนบุคคลที่เกี่ยวข้องกับตนเอง", "ข. บุคคลธรรมดาย่อมมีสิทธิขอเข้าตรวจดูข้อมูลข่าวสารส่วนบุคคลของผู้อื่นได้โดยเสรีไม่ต้องแจ้งเรื่อง", "ค. การยื่นขอตรวจดูหรือขอสำเนาข้อมูลส่วนบุคคลของตนเองต้องทำคำขอเป็นหนังสือ", "ง. หากมีเหตุสมควร เจ้าหน้าที่อาจเปิดเผยรายงานการแพทย์ของบุคคลใดให้เฉพาะแก่แพทย์ที่คนนั้นมอบหมาย"],
+                answer: 1,
+                rationale: "สิทธิในการเข้าถึงข้อมูลส่วนบุคคลคุ้มครองสิทธิเฉพาะ 'บุคคลที่เกี่ยวข้องกับตนเอง' บุคคลอื่นไม่มีสิทธิขอตรวจดูข้อมูลผู้อื่นโดยเสรี ดังนั้นตัวเลือก ข. จึงไม่ถูกต้อง"
+            },
+            {
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "หากบุคคลใดเห็นว่าข้อมูลข่าวสารส่วนบุคคลที่เกี่ยวกับตนส่วนใด 'ไม่ถูกต้องตามเป็นจริง' มีสิทธิร้องอุทธรณ์ต่อคณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสารภายในกี่วันนับแต่วันได้รับแจ้งคำสั่งปฏิเสธ?",
+                options: ["ก. ๑๕ วัน", "ข. ๓๐ วัน", "ค. ๔๕ วัน", "ง. ๖๐ วัน"],
+                answer: 1,
+                rationale: "ตามมาตรา ๒๕ วรรคสาม กำหนดว่าหากหน่วยงานไม่แก้ไขเปลี่ยนแปลงหรือลบข้อมูลตามคำขอ ให้ผู้นั้นมีสิทธิอุทธรณ์ต่อคณะกรรมการวินิจฉัยฯ ภายในสามสิบวันนับแต่วันได้รับแจ้ง"
+            },
+            {
+                category: "การส่งมอบให้หอจดหมายเหตุ",
+                question: "ข้อมูลข่าวสารของราชการที่หน่วยงานรัฐไม่ประสงค์จะเก็บรักษา หรือมีอายุครบกำหนดเวลาเก็บ จะต้องส่งมอบให้แก่หน่วยงานใด?",
+                options: ["ก. หอสมุดแห่งชาติ", "ข. กรมศิลปากร (หอจดหมายเหตุแห่งชาติ)", "ค. หน่วยงานอื่นตามพระราชกฤษฎีกาเพื่อคัดเลือกให้ประชาชนศึกษา", "ง. ตัวเลือก ข. และ ค. กล่าวถูกต้อง"],
+                answer: 3,
+                rationale: "มาตรา ๒๖ กำหนดส่งมอบให้แก่หอจดหมายเหตุแห่งชาติ กรมศิลปากร หรือหน่วยงานอื่นของรัฐตามที่กำหนดในพระราชกฤษฎีกา"
+            },
+            {
+                category: "การส่งมอบให้หอจดหมายเหตุ",
+                question: "ข้อมูลข่าวสารของราชการเกี่ยวกับสถาบันพระมหากษัตริย์ (มาตรา ๑๔) มีกำหนดเวลาต้องส่งมอบให้แก่หอจดหมายเหตุเมื่อใดนับแต่จัดทำข้อมูลเสร็จ?",
+                options: ["ก. เมื่อครบ ๒๐ ปี", "ข. เมื่อครบ ๕๐ ปี", "ค. เมื่อครบ ๗๕ ปี", "ง. เมื่อครบ ๑๐๐ ปี"],
+                answer: 2,
+                rationale: "ตามมาตรา ๒๖ (๑) กำหนดอายุสำหรับข้อมูลเกี่ยวกับสถาบันพระมหากษัตริย์เมื่อครบ 'เจ็ดสิบห้าปี'"
+            },
+            {
+                category: "การส่งมอบให้หอจดหมายเหตุ",
+                question: "ข้อมูลข่าวสารทั่วไป (มาตรา ๑๕) ที่มีคำสั่งห้ามเปิดเผยเพื่อความมั่นคงหรือความสงบเรียบร้อย มีกำหนดเวลาต้องส่งมอบให้แก่หอจดหมายเหตุแห่งชาติเมื่อใด?",
+                options: ["ก. เมื่อครบ ๕ ปี", "ข. เมื่อครบ ๑๐ ปี", "ค. เมื่อครบ ๒๐ ปี", "ง. เมื่อครบ ๗๕ ปี"],
+                answer: 2,
+                rationale: "ตามมาตรา ๒๖ (๒) กำหนดส่งมอบข้อมูลข่าวสารของราชการตามมาตรา ๑๕ เมื่อครบ 'ยี่สิบปี'"
+            },
+            {
+                category: "การส่งมอบให้หอจดหมายเหตุ",
+                question: "หากหน่วยงานราชการประสงค์จะขยายเวลากำหนดการส่งมอบข้อมูลไม่ให้เปิดเผยแก่ประชาชนเนื่องจากความจำเป็นส่วนตัวหรือเป็นคำสั่งเฉพาะราย สามารถสั่งขยายเวลาได้คราวละไม่เกินกี่ปี?",
+                options: ["ก. ไม่เกิน ๒ ปี", "ข. ไม่เกิน ๓ ปี", "ค. ไม่เกิน ๕ ปี", "ง. ไม่เกิน ๑๐ ปี"],
+                answer: 2,
+                rationale: "ตามมาตรา ๒๖ วรรคสาม (๒) คำสั่งการขยายเวลานั้นให้กำหนดระยะเวลาไว้ด้วย แต่จะกำหนดขยายเวลาเกินคราวละห้าปีไม่ได้"
+            },
+            {
+                category: "คณะกรรมการข้อมูลข่าวสาร",
+                question: "ประธานคณะกรรมการข้อมูลข่าวสารของราชการตามมาตรา ๒๗ คือใคร?",
+                options: ["ก. นายกรัฐมนตรี", "ข. ปลัดสำนักนายกรัฐมนตรี", "ค. รัฐมนตรีซึ่งนายกรัฐมนตรีมอบหมาย", "ง. อธิบดีกรมประชาสัมพันธ์"],
+                answer: 2,
+                rationale: "มาตรา ๒๗ กำหนดให้ประธานประกอบด้วย 'รัฐมนตรีซึ่งนายกรัฐมนตรีมอบหมาย' ไม่ใช่นายกรัฐมนตรีโดยตำแหน่งโดยตรง"
+            },
+            {
+                category: "คณะกรรมการข้อมูลข่าวสาร",
+                question: "จำนวนกรรมการผู้ทรงคุณวุฒิในคณะกรรมการข้อมูลข่าวสารของราชการ (กขร.) มีกี่คน?",
+                options: ["ก. ๕ คน", "ข. ๗ คน", "ค. ๙ คน", "ง. ๑๒ คน"],
+                answer: 2,
+                rationale: "มาตรา ๒๗ กำหนดให้มีกรรมการผู้ทรงคุณวุฒิอื่นจากภาครัฐและภาคเอกชน ซึ่งคณะรัฐมนตรีแต่งตั้งอีก 'เก้าคน' เป็นกรรมการ"
+            },
+            {
+                category: "คณะกรรมการข้อมูลข่าวสาร",
+                question: "ใครคือผู้มีอำนาจในการแต่งตั้งคณะกรรมการผู้ทรงคุณวุฒิในคณะกรรมการข้อมูลข่าวสารของราชการ?",
+                options: ["ก. นายกรัฐมนตรี", "ข. คณะรัฐมนตรี", "ค. ปลัดสำนักนายกรัฐมนตรี", "ง. คณะผู้พิพากษาศาลปกครองสูงสุด"],
+                answer: 1,
+                rationale: "มาตรา ๒๗ บัญญัติว่ากรรมการผู้ทรงคุณวุฒิ ๙ คน ต้องแต่งตั้งโดย 'คณะรัฐมนตรี'"
+            },
+            {
+                // Q41 in DB (corresponds to Q46 in PDF text)
+                category: "คณะกรรมการข้อมูลข่าวสาร",
+                question: "ตำแหน่งการบริหารใดตามพระราชบัญญัตินี้ที่เป็นผู้แต่งตั้งเลขานุการและผู้ช่วยเลขานุการในคณะกรรมการข้อมูลข่าวสารของราชการ?",
+                options: ["ก. ปลัดสำนักนายกรัฐมนตรีแต่งตั้งข้าราชการของสำนักงานปลัดสำนักนายกฯ", "ข. อธิบดีกรมส่งเสริมการปกครองส่วนท้องถิ่น", "ค. นายกรัฐมนตรีแต่งตั้งจากบุคคลภายนอกราชการ", "ง. เลขาธิการคณะกรรมการกฤษฎีกา"],
+                answer: 0,
+                rationale: "มาตรา ๒๗ วรรคท้ายระบุให้ ปลัดสำนักนายกรัฐมนตรีเป็นผู้แต่งตั้งข้าราชการของสำนักงานปลัดสำนักนายกรัฐมนตรีคนหนึ่งเป็นเลขานุการ และอีกสองคนเป็นผู้ช่วยเลขานุการ"
+            },
+            {
+                category: "คณะกรรมการข้อมูลข่าวสาร",
+                question: "ข้อใด 'ไม่ใช่' อำนาจหน้าที่โดยตรงของ คณะกรรมการข้อมูลข่าวสารของราชการ (กขร.) ตามที่กฎหมายมาตรา ๒๘ กำหนด?",
+                options: ["ก. สอดส่องดูแลและให้คำแนะนำในการดำเนินงานแก่เจ้าหน้าที่หน่วยงานรัฐ", "ข. แก้ไขปรับปรุงกฎหมายในระดับรัฐธรรมนูญให้สอดคล้องกับพระราชบัญญัตินี้", "ค. เสนอแนะในการตราพระราชกฤษฎีกาและการออกกฎกระทรวงตามพระราชบัญญัตินี้", "ง. พิจารณาและให้ความเห็นในเรื่องร้องเรียนเกี่ยวกับการอำนวยความสะดวก"],
+                answer: 1,
+                rationale: "คณะกรรมการไม่มีอำนาจและหน้าที่ในการแก้ไขกฎหมายรัฐธรรมนูญ หน้าที่ของคณะกรรมการคือเสนอแนะ ให้คำปรึกษา แนะนำ และพิจารณาเรื่องร้องเรียนตามมาตรา ๑๓"
+            },
+            {
+                category: "คณะกรรมการข้อมูลข่าวสาร",
+                question: "คณะกรรมการข้อมูลข่าวสารของราชการต้องจัดทำรายงานเกี่ยวกับการปฏิบัติตาม พ.ร.บ. นี้เสนอคณะรัฐมนตรีอย่างน้อยที่สุดในกำหนดเวลาใด?",
+                options: ["ก. อย่างน้อยปีละหนึ่งครั้ง", "ข. อย่างน้อยสองครั้งต่อปี", "ค. ทุกสามเดือนรายไตรมาส", "ง. ทุกสองปีหนึ่งครั้ง"],
+                answer: 0,
+                rationale: "ตามมาตรา ๒๘ (๕) กำหนดให้คณะกรรมการจัดทำรายงานการปฏิบัติงานเสนอคณะรัฐมนตรีตามความเหมาะสม แต่ 'อย่างน้อยปีละหนึ่งครั้ง'"
+            },
+            {
+                category: "คณะกรรมการข้อมูลข่าวสาร",
+                question: "ในการดำเนินงาน คณะกรรมการข้อมูลข่าวสารของราชการมีอำนาจเสนอแนะในเรื่องใดบ้าง?",
+                options: ["ก. เสนอแนะตราพระราชกฤษฎีกา", "ข. เสนอแนะออกกฎกระทรวง", "ค. เสนอแนะระเบียบของคณะรัฐมนตรี", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "ตามมาตรา ๒๘ (๓) คณะกรรมการมีอำนาจหน้าที่เสนอแนะในการตราพระราชกฤษฎีกา การออกกฎกระทรวง หรือระเบียบของ ครม. ตามพระราชบัญญัตินี้"
+            },
+            {
+                category: "คณะกรรมการข้อมูลข่าวสาร",
+                question: "กรรมการผู้ทรงคุณวุฒิในคณะกรรมการข้อมูลข่าวสารของราชการ มีวาระการดำรงตำแหน่งอยู่ในวาระคราวละกี่ปี?",
+                options: ["ก. วาระคราวละ ๒ ปี", "ข. วาระคราวละ ๓ ปี", "ค. วาระคราวละ ๔ ปี", "ง. วาระคราวละ ๕ ปี"],
+                answer: 1,
+                rationale: "มาตรา ๒๙ บัญญัติให้กรรมการผู้ทรงคุณวุฒิซึ่งได้รับแต่งตั้งมีวาระอยู่ในตำแหน่งคราวละสามปี นับแต่วันได้รับแต่งตั้ง และอาจได้รับการแต่งตั้งใหม่ได้"
+            },
+            {
+                category: "คณะกรรมการข้อมูลข่าวสาร",
+                question: "กรรมการผู้ทรงคุณวุฒิในคณะกรรมการข้อมูลข่าวสาร จะพ้นจากตำแหน่งนอกเหนือจากการพ้นตามวาระในกรณีใดบ้างตามมาตรา ๓๐?",
+                options: ["ก. ตกเป็นบุคคลล้มละลาย หรือเป็นคนไร้ความสามารถเสมือนไร้ความสามารถ", "ข. ได้รับโทษจำคุกโดยคำพิพากษาถึงที่สุดให้จำคุก เว้นแต่ความผิดประมาทหรือลหุโทษ", "ค. คณะรัฐมนตรีให้ออกเพราะประพฤติเสื่อมเสียบกพร่อง หย่อนความสามารถ หรือไม่สุจริต", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "มาตรา ๓๐ บัญญัติข้อยกเว้นการพ้นจากตำแหน่งนอกเหนือจากพ้นวาระ เช่น ตาย ลาออก และกรณีคุณสมบัติผิดกฎหมายที่ระบุในข้อ ก. ข. และ ค."
+            },
+            {
+                category: "การตรวจสอบและคุ้มครอง",
+                question: "หากหน่วยงานปฏิเสธคำขอข้อมูลราชการโดยอ้างว่าไม่มีข้อมูล แต่ผู้ยื่นขอไม่เชื่อและร้องเรียนต่อคณะกรรมการ มาตรา ๓๓ กำหนดสิทธิและการปฏิบัติงานไว้อย่างไร?",
+                options: ["ก. คณะกรรมการมีอำนาจเข้าไปตรวจสอบข้อมูลข่าวสารราชการในหน่วยงานนั้นได้", "ข. หน่วยงานของรัฐและเจ้าหน้าที่ต้องยินยอมให้คณะกรรมการหรือผู้รับมอบหมายเข้าตรวจสอบได้ แม้เป็นข้อมูลที่เปิดเผยไม่ได้", "ค. คณะกรรมการมีหน้าที่แจ้งผลการเข้าตรวจสอบชี้แจงให้แก่ผู้ร้องเรียนทราบ", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "มาตรา ๓๓ ระบุอำนาจเชิงรุกของคณะกรรมการในการเข้าตรวจคลังข้อมูลแม้เป็นข้อมูลชั้นความลับ โดยหน่วยงานต้องให้ความร่วมมือยินยอมให้เข้าตรวจค้น"
+            },
+            {
+                category: "คณะกรรมการวินิจฉัยฯ",
+                question: "คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร (กวอ.) ได้รับการจัดตั้งโดยการเสนอของใคร?",
+                options: ["ก. นายกรัฐมนตรี", "ข. สภาผู้แทนราษฎร", "ค. คณะรัฐมนตรี", "ง. คณะกรรมการข้อมูลข่าวสารของราชการ (กขร.)"],
+                answer: 3,
+                rationale: "มาตรา ๓๕ บัญญัติให้มีคณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสารสาขาต่าง ๆ ซึ่งคณะรัฐมนตรีแต่งตั้งตามข้อเสนอของ 'คณะกรรมการข้อมูลข่าวสารของราชการ'"
+            },
+            {
+                category: "คณะกรรมการวินิจฉัยฯ",
+                question: "ผู้ใดเป็นผู้แต่งตั้งคณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสารสาขาต่าง ๆ?",
+                options: ["ก. นายกรัฐมนตรี", "ข. คณะรัฐมนตรี", "ค. ปลัดสำนักนายกรัฐมนตรี", "ง. ประธานสภาผู้แทนราษฎร"],
+                answer: 1,
+                rationale: "ตามมาตรา ๓๕ ตัวคณะกรรมการวินิจฉัยฯ แต่งตั้งโดยมติและคำสั่งของ 'คณะรัฐมนตรี'"
+            },
+            {
+                category: "คณะกรรมการวินิจฉัยฯ",
+                question: "การแต่งตั้งคณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร (กวอ.) จะต้องแต่งตั้งตามสาขาความเชี่ยวชาญข้อใดบ้าง?",
+                options: ["ก. สาขาด้านความมั่นคงของประเทศ", "ข. สาขาด้านเศรษฐกิจและการคลังของประเทศ", "ค. สาขาด้านการบังคับใช้กฎหมาย", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "ตามมาตรา ๓๕ วรรคสอง กำหนดให้แต่งตั้งตามสาขาความเชี่ยวชาญเฉพาะด้าน เช่น ความมั่นคง เศรษฐกิจการคลัง หรือการบังคับใช้กฎหมาย"
+            },
+            {
+                // Q51 in DB (corresponds to Q56 in PDF text)
+                category: "คณะกรรมการวินิจฉัยฯ",
+                question: "ข้อใดเป็นอำนาจและหน้าที่โดยตรงของ คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร (กวอ.)?",
+                options: ["ก. พิจารณาวินิจฉัยอุทธรณ์คำสั่งมิให้เปิดเผยข้อมูลข่าวสารของทางราชการ", "ข. พิจารณาวินิจฉัยอุทธรณ์คำสั่งไม่รับฟังคำคัดค้านในการเปิดเผย", "ค. พิจารณาวินิจฉัยคำสั่งไม่ยินยอมแก้ไขเปลี่ยนแปลงหรือลบข้อมูลข่าวสารส่วนบุคคล", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "คณะกรรมการวินิจฉัยฯ (กวอ.) ทำหน้าที่เป็นคนชี้ขาดขั้นสุดท้าย (ที่สุด) ในเรื่องอุทธรณ์การเปิดเผย (มาตรา ๑๕), คำคัดค้าน (มาตรา ๑๗) และการแก้ไขข้อมูลส่วนบุคคล (มาตรา ๒๕)"
+            },
+            {
+                category: "คณะกรรมการวินิจฉัยฯ",
+                question: "ข้อใด 'ไม่ใช่' อำนาจหน้าที่ของ คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร (กวอ.)?",
+                options: ["ก. พิจารณาวินิจฉัยคำสั่งไม่เปิดเผยข้อมูลความมั่นคงทางทหาร", "ข. วินิจฉัยอุทธรณ์คำสั่งลบประวัติเวชระเบียนของผู้ป่วยราชการ", "ค. ให้คำปรึกษาและสอดส่องดูแลการปฏิบัติงานทั่วไปของเจ้าหน้าที่รัฐประจำกระทรวง", "ง. วินิจฉัยคำสั่งปฏิเสธไม่รับฟังคำคัดค้านของเอกชนผู้มีส่วนได้เสีย"],
+                answer: 2,
+                rationale: "การให้คำปรึกษา สอดส่องดูแล และออกรายงานประจำปีเป็นบทบาทหน้าที่เฉพาะของ 'คณะกรรมการข้อมูลข่าวสารของราชการ (กขร.)' ไม่ใช่หน้าที่ของ กวอ."
+            },
+            {
+                category: "คณะกรรมการวินิจฉัยฯ",
+                question: "คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร (กวอ.) แต่ละคณะ ประกอบด้วยสมาชิกจำนวนเท่าใด?",
+                options: ["ก. ตามความจำเป็นแต่ต้องไม่น้อยกว่าสามคน", "ข. ตามความจำเป็นแต่ต้องไม่น้อยกว่าห้าคน", "ค. ต้องระบุเจาะจงจำนวนเก้าคนเท่ากันทุกคณะ", "ง. แล้วแต่ดุลยพินิจของปลัดสำนักนายกฯ แต่ไม่เกินสิบคน"],
+                answer: 0,
+                rationale: "มาตรา ๓๖ กำหนดว่า คณะกรรมการวินิจฉัยคณะหนึ่งประกอบด้วยบุคคลตามความจำเป็นแต่ 'ต้องไม่น้อยกว่าสามคน'"
+            },
+            {
+                category: "กระบวนการส่งอุทธรณ์",
+                question: "เมื่อคณะกรรมการข้อมูลข่าวสารได้รับคำอุทธรณ์จากประชาชนแล้ว ต้องส่งคำอุทธรณ์นั้นให้คณะกรรมการวินิจฉัยฯ พิจารณาภายในกำหนดกี่วัน?",
+                options: ["ก. ภายใน ๕ วันนับแต่วันได้รับเรื่อง", "ข. ภายใน ๗ วันนับแต่วันได้รับคำอุทธรณ์", "ค. ภายใน ๑๕ วันนับแต่วันประชุมร่วม", "ง. ภายใน ๓๐ วันนับแต่วันสรุปรายงาน"],
+                answer: 1,
+                rationale: "มาตรา ๓๗ กำหนดขั้นตอนให้คณะกรรมการส่งคำอุทธรณ์ให้คณะกรรมการวินิจฉัยฯ 'ภายในเจ็ดวันนับแต่วันที่คณะกรรมการได้รับคำอุทธรณ์'"
+            },
+            {
+                category: "กระบวนการวินิจฉัยอุทธรณ์",
+                question: "คำชี้ขาดหรือคำวินิจฉัยของคณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร (กวอ.) มีสถานะทางกฎหมายอย่างไร?",
+                options: ["ก. สามารถขออุทธรณ์แก้ไขได้อีกชั้นหนึ่งต่อคณะรัฐมนตรี", "ข. ให้นำเรื่องไปอุทธรณ์ฟ้องดำเนินคดีแพ่งต่ออัยการสูงสุดได้", "ค. คำวินิจฉัยของคณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสารให้เป็นที่สุด", "ง. ถือเป็นข้อแนะนำเบื้องต้นที่หน่วยงานรัฐจะทำตามหรือไม่ทำตามก็ได้"],
+                answer: 2,
+                rationale: "มาตรา ๓๗ วรรคสอง กำหนดไว้อย่างเด็ดขาดว่า 'คำวินิจฉัยของคณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสารให้เป็นที่สุด' ในกระบวนการทางปกครอง"
+            },
+            {
+                category: "บททั่วไปและรักษาการ",
+                question: "ผู้ลงนามรับสนองพระบรมราชโองการ ในการประกาศใช้พระราชบัญญัตินี้ คือบุคคลในตำแหน่งใดในขณะประกาศใช้?",
+                options: ["ก. พลเอก ชวลิต ยงใจยุทธ (นายกรัฐมนตรี)", "ข. นายชวน หลีกภัย (ประธานรัฐสภา)", "ค. นายอภิสิทธิ์ เวชชาชีวะ (นายกรัฐมนตรี)", "ง. พลเอก สุรยุทธ์ จุลานนท์ (นายกรัฐมนตรี)"],
+                answer: 0,
+                rationale: "ผู้รับสนองพระบรมราชโองการในการตรา พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. ๒๕๔๐ คือ 'พลเอก ชวลิต ยงใจยุทธ' ดำรงตำแหน่งนายกรัฐมนตรีขณะนั้น"
+            },
+            {
+                category: "บททั่วไปและรักษาการ",
+                question: "ตำแหน่งใดเป็นผู้รักษาการตามพระราชบัญญัตินี้ตามมาตรา ๕?",
+                options: ["ก. นายกรัฐมนตรี", "ข. ปลัดกระทรวงการคลัง", "ค. รัฐมนตรีว่าการกระทรวงมหาดไทย", "ง. ประธานสภานิติบัญญัติแห่งชาติ"],
+                answer: 0,
+                rationale: "ตามกฎหมายระบุว่า 'นายกรัฐมนตรี' เป็นผู้รักษาการตามพระราชบัญญัตินี้"
+            },
+            {
+                category: "บททั่วไปและรักษาการ",
+                question: "เหตุผลสำคัญที่สุดในการตราพระราชบัญญัติข้อมูลข่าวสารของราชการ พ.ศ. ๒๕๔๐ คือข้อใด?",
+                options: ["ก. เพื่อคุ้มครองความลับของทางราชการไม่ให้ประชาชนมีสิทธิรับรู้ได้อย่างเสรี", "ข. เพื่อพัฒนาระบอบประชาธิปไตยให้มั่นคงและจะยังผลให้ประชาชนมีโอกาสรู้ถึงสิทธิหน้าที่ของตนอย่างเต็มที่", "ค. เพื่อลดปริมาณการใช้กระดาษและส่งเสริมข้อมูลออนไลน์ในคลังข้อมูล", "ง. เพื่อให้หน่วยงานศาลสามารถตรวจสอบพยานประวัติของข้าราชการได้รวดเร็ว"],
+                answer: 1,
+                rationale: "ตามหมายเหตุท้าย พ.ร.บ. เหตุผลการตรากฎหมายคือการส่งเสริมระบอบประชาธิปไตยและสิทธิการรับรู้เพื่อให้เกิดความเป็นรัฐบาลของประชาชนและความมั่นคงทางสิทธิ"
+            },
+            {
+                category: "บทนิยามและโครงสร้าง",
+                question: "ข้อความใดกล่าวผิดเกี่ยวกับความรับผิดชอบและการรักษาการตามกฎหมาย?",
+                options: ["ก. ข้อมูลราชการคุ้มครองรวมถึงข้อมูลข่าวสารส่วนบุคคลของผู้ที่ถึงแก่กรรมแล้วด้วย", "ข. ข้อมูลข่าวสารครอบคลุมถึงสื่อบันทึกคอมพิวเตอร์ ฟิล์ม ภาพถ่าย และแผนที่", "ค. รัฐมนตรีว่าการกระทรวงมหาดไทยเป็นผู้รักษาการตามพระราชบัญญัตินี้ร่วมกับปลัดสำนักนายกฯ", "ง. สำนักงานคณะกรรมการข้อมูลข่าวสารของราชการ ย่อว่า สขร."],
+                answer: 2,
+                rationale: "รัฐมนตรีมหาดไทยไม่ได้เป็นผู้รักษาการร่วม ผู้รักษาการตามกฎหมายนี้คือ 'นายกรัฐมนตรี' เพียงตำแหน่งเดียว ดังนั้นตัวเลือก ค. จึงเป็นข้อความที่ผิด"
+            },
+            {
+                category: "บทนิยามและโครงสร้าง",
+                question: "ข้อใดคือชื่อย่อของ สำนักงานคณะกรรมการข้อมูลข่าวสารของราชการ ที่ถูกต้อง?",
+                options: ["ก. สคร.", "ข. สขร.", "ค. สกร.", "ง. สขข."],
+                answer: 1,
+                rationale: "ชื่อย่ออย่างเป็นทางการของหน่วยงานผู้รับผิดชอบงานธุรการข้อมูลข่าวสารราชการคือ 'สขร.'"
+            },
+            {
+                category: "ข้อมูลที่เผยแพร่ลงราชกิจจาฯ",
+                question: "ตามมาตรา ๗ ข้อมูลใดที่หน่วยงานของรัฐ 'ไม่จำเป็น' ต้องจัดทำเพื่อพิมพ์เผยแพร่ในราชกิจจานุเบกษา?",
+                options: ["ก. แผนผังแผนที่ขอบเขตพื้นที่ทหารกองทัพภาคและฐานยุทธศาสตร์ความมั่นคงลับ", "ข. โครงสร้างและการจัดตั้งองค์กรในการดำเนินงานราชการ", "ค. สรุปอำนาจหน้าที่ที่สำคัญและขั้นตอนวิธีการปฏิบัติหน้าที่", "ง. สถานที่และวิธีช่องทางการติดต่อราชการเพื่อขอคำปรึกษา"],
+                answer: 0,
+                rationale: "แผนผังพื้นที่ทหารและแผนความมั่นคงจัดเป็นข้อมูลห้ามเผยแพร่ตามมาตรา ๑๕ และไม่อยู่ในเงื่อนไขการพิมพ์ลงราชกิจจาฯ ตามมาตรา ๗"
+            },
+            {
+                category: "การร้องเรียนต่อคณะกรรมการ",
+                question: "กรณีที่ประชาชนยื่นคำขอตรวจดูข้อมูล แต่ได้รับแจ้งจากหน่วยงานรัฐอย่างไม่เป็นธรรม ข้อความใดกล่าวผิดเกี่ยวกับสิทธิร้องเรียน?",
+                options: ["ก. ผู้ใดเห็นว่าหน่วยงานปฏิบัติงานล่าช้าหรือขอแล้วไม่สะดวก มีสิทธิร้องเรียนต่อคณะกรรมการ", "ข. หากหน่วยงานปฏิเสธไม่ยอมจัดหาข้อมูลตามขอ ให้ยื่นคำร้องเรียนต่อคณะกรรมการข้อมูลข่าวสาร", "ค. สิทธิร้องเรียนและสิทธิอุทธรณ์ในพระราชบัญญัตินี้ มีวิธีปฏิบัติส่งเรื่องและกรอบเวลาเดียวกันทุกประการ", "ง. ความเสียหายเกี่ยวกับสถาบันพระมหากษัตริย์เป็นข้อมูลที่เปิดเผยไม่ได้เด็ดขาด"],
+                answer: 2,
+                rationale: "การร้องเรียน (มาตรา ๑๓) และการอุทธรณ์ (มาตรา ๑๘, ๒๕) มีเงื่อนไข กรอบระยะเวลา (ร้องเรียนไม่มีกำหนดเวลาตายตัว แต่อุทธรณ์ต้องยื่นใน ๑๕ หรือ ๓๐ วัน) และคณะผู้รับผิดชอบที่ต่างกัน ดังนั้นตัวเลือก ค. จึงกล่าวผิด"
+            },
+            {
+                category: "การคัดค้านการเปิดเผย",
+                question: "หากเจ้าหน้าที่ประสงค์จะเปิดเผยข้อมูลที่มีผลกระทบต่อสิทธิผู้ใด และส่งหนังสือแจ้งไปแล้ว ข้อความใดกล่าวผิดเกี่ยวกับคำคัดค้าน?",
+                options: ["ก. ผู้ได้รับแจ้งคัดค้านต้องเสนอคำคัดค้านภายในไม่น้อยกว่า ๑๕ วันนับแต่วันได้รับแจ้ง", "ข. การเสนอคำคัดค้านให้ทำเป็นวาจาแจ้งต่อพนักงานสอบสวนท้องถิ่นเพื่อลงบันทึกประจำวัน", "ค. หากเจ้าหน้าที่มีคำสั่งไม่รับฟังคำคัดค้าน จะเปิดเผยข้อมูลมิได้จนกว่าล่วงพ้นกำหนดเวลาอุทธรณ์หรือคณะกรรมการวินิจฉัยมีคำวินิจฉัยแล้ว", "ง. ผู้มีส่วนได้เสียมีสิทธิเสนอคำคัดค้านเป็นหนังสือส่งถึงเจ้าหน้าที่ผู้รับผิดชอบ"],
+                answer: 1,
+                rationale: "การเสนอคำคัดค้านตามกฎหมายมาตรา ๑๗ 'ต้องกระทำเป็นลายลักษณ์อักษรหรือทำเป็นหนังสือ' ไม่สามารถทำด้วยวาจาแจ้งตำรวจได้ ตัวเลือก ข. จึงกล่าวผิด"
+            },
+            {
+                category: "การคัดค้านการเปิดเผย",
+                question: "กรอบเวลาสำหรับการอุทธรณ์และคำคัดค้านในข้อใดที่กฎหมายบัญญัติไว้ไม่ถูกต้อง?",
+                options: ["ก. อุทธรณ์คำสั่งไม่รับฟังคำคัดค้าน ยื่นต่อคณะกรรมการวินิจฉัยฯ ใน ๑๕ วันนับแต่รับแจ้ง", "ข. การคัดค้านข้อมูลกระทบส่วนได้เสีย ให้เวลายื่นคัดค้านไม่น้อยกว่า ๓๐ วันนับแต่รับแจ้งจากเจ้าหน้าที่", "ค. อุทธรณ์คำสั่งปฏิเสธไม่ยอมลบข้อมูลส่วนบุคคลที่ยื่นขอ ยื่นภายใน ๓๐ วันนับแต่รับแจ้งคำสั่ง", "ง. คำสั่งไม่เปิดเผยข้อมูลราชการ ยื่นอุทธรณ์ต่อคณะกรรมการภายในกำหนด ๑๕ วัน"],
+                answer: 1,
+                rationale: "ระยะเวลายื่นคำคัดค้านประโยชน์ได้เสียตามมาตรา ๑๗ กำหนดขั้นต่ำไว้คือ 'ไม่น้อยกว่าสิบห้าวัน' ไม่ใช่สามสิบวัน ตัวเลือก ข. จึงกล่าวไม่ถูกต้อง"
+            },
+            {
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "สิทธิในข้อมูลส่วนบุคคลตามพระราชบัญญัตินี้ ข้อความใดกล่าวได้ถูกต้องที่สุด?",
+                options: ["ก. เจ้าของข้อมูลธรรมดาไม่มีสิทธิขอตรวจดูข้อมูลเฉพาะตัวที่รัฐจัดเก็บได้เลยจนกว่าจะพ้นสภาพราชการ", "ข. หน่วยงานสามารถส่งมอบข้อมูลส่วนบุคคลให้แก่องค์กรธุรกิจเอกชนภายนอกเพื่อประมวลผลเป็นความลับได้ตามใจชอบ", "ค. เจ้าของข้อมูลส่วนบุคคลหรือผู้แทนชอบธรรมย่อมมีสิทธิยื่นขอตรวจดูหรือขอสำเนาข้อมูลของตนได้โดยทำคำขอเป็นหนังสือ", "ง. บัญชีที่แสดงการเปิดเผยข้อมูลส่วนบุคคลต่อผู้อื่นไม่จำเป็นต้องจัดทำเก็บไว้ให้เจ้าตัวตรวจเช็คย้อนหลัง"],
+                answer: 2,
+                rationale: "มาตรา ๒๕ บัญญัติคุ้มครองให้สิทธิแก่บุคคลในข้อมูลที่เกี่ยวกับตน มีสิทธิขอตรวจดูหรือขอสำเนาโดยทำเป็นหนังสือได้ชอบธรรม"
+            },
+            {
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "การพิมพ์รายการจัดระบบข้อมูลส่วนบุคคลลงในราชกิจจานุเบกษาเพื่อความโปร่งใสตามมาตรา ๒๓ ไม่จำเป็นต้องระบุรายการใด?",
+                options: ["ก. วิธีการทำลายข้อมูล และรายชื่อเจ้าหน้าที่ผู้พิมพ์กรอกข้อมูลรายบุคคลในสำนักงาน", "ข. ประเภทของบุคคลที่มีการจัดเก็บข้อมูล และประเภทของระบบจัดเก็บ", "ค. แหล่งที่มาของข้อมูลการจัดเก็บส่วนบุคคล", "ง. วิธีการขอตรวจดูและการขอแก้ไขเปลี่ยนแปลงข้อมูลของเจ้าของข้อมูล"],
+                answer: 0,
+                rationale: "มาตรา ๒๓ (๓) ระบุข้อมูลระบบ ๖ รายการที่ต้องลงพิมพ์ในราชกิจจาฯ ซึ่งไม่มีการกำหนดให้ต้องพิมพ์วิธีการทำลายหรือชื่อเจ้าหน้าที่คีย์ข้อมูลรายคน ตัวเลือก ก. จึงเป็นคำตอบ"
+            },
+            {
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "ข้อความใดระบุสิทธิในการยื่นอุทธรณ์คำสั่งปฏิเสธไม่แก้ไขข้อมูลส่วนบุคคลที่ไม่ถูกต้องตามที่เป็นจริงได้ถูกต้องตามมาตรา ๒๕?",
+                options: ["ก. มีสิทธิยื่นอุทธรณ์ต่อคณะกรรมการวินิจฉัยฯ ภายใน ๑๕ วัน โดยยื่นผ่านอธิบดีกรมจัดเก็บข้อมูล", "ข. มีสิทธิร้องขอให้หน่วยงานหมายเหตุคำขอของตนแนบไว้กับข้อมูลส่วนที่เกี่ยวข้องได้ในกรณีโดนปฏิเสธแก้ไข", "ค. อุทธรณ์ต่อศาลปกครองด่านแรกภายในกำหนด ๙๐ วัน โดยไม่ต้องยื่นอุทธรณ์ตามขั้นตอนสารบรรณก่อน", "ง. สามารถขอลบและกู้คืนไฟล์ข้อมูลส่วนบุคคลได้เองที่หน่วยงานคอมพิวเตอร์กลาง"],
+                answer: 1,
+                rationale: "มาตรา ๒๕ วรรคสามเปิดโอกาสว่า หากหน่วยงานไม่แก้ไขให้ เจ้าของข้อมูลมีสิทธิร้องขอให้หมายเหตุคำขอของตนแนบไว้กับข้อมูลนั้น ๆ ส่วนอุทธรณ์วินิจฉัยต้องยื่นใน ๓๐ วัน"
+            },
+            {
+                category: "การส่งมอบให้หอจดหมายเหตุ",
+                question: "ข้อมูลตามข้อใดต่อไปนี้ที่หน่วยงานรัฐได้รับการ 'ยกเว้น' ไม่ต้องส่งมอบให้หอจดหมายเหตุเมื่อครบกำหนดอายุการจัดเก็บตามมาตรา ๒๖?",
+                options: ["ก. ข้อมูลที่เกี่ยวกับคดีความฟ้องร้องของเอกชนที่ยังไม่พ้นกำหนดสิทธิ", "ข. ข้อมูลที่คณะรัฐมนตรีออกระเบียบกำหนดให้ทำลายหรืออาจทำลายได้โดยไม่ต้องเก็บรักษา", "ค. ข้อมูลที่เกี่ยวกับการแพทย์ของส่วนบุคคล", "ง. ข้อมูลการสัมปทานโครงการสาธารณูปโภค"],
+                answer: 1,
+                rationale: "มาตรา ๒๖ วรรคท้าย ระบุว่าบทบัญญัตินี้มิให้ใช้บังคับกับข้อมูลที่คณะรัฐมนตรีออกระเบียบกำหนดให้หน่วยงานทำลายได้โดยไม่ต้องเก็บรักษา"
+            },
+            {
+                category: "คณะกรรมการข้อมูลข่าวสาร",
+                question: "องค์ประกอบของคณะกรรมการข้อมูลข่าวสารของราชการ (กขร.) มีบุคคลใดเป็นกรรมการโดยตำแหน่ง?",
+                options: ["ก. ปลัดสำนักนายกรัฐมนตรี ปลัดกระทรวงกลาโหม ปลัดกระทรวงการคลัง ปลัดกระทรวงมหาดไทย", "ข. เลขาธิการคณะกรรมการกฤษฎีกา เลขาธิการ ก.พ. เลขาธิการสภาความมั่นคงแห่งชาติ", "ค. ผู้อำนวยการสำนักข่าวกรองแห่งชาติ ผู้อำนวยการสำนักงบประมาณ", "ง. ถูกทุกบุคคลและตำแหน่งที่กล่าวมา"],
+                answer: 3,
+                rationale: "มาตรา ๒๗ กำหนดองค์ประกอบโดยละเอียดซึ่งรวมทุกตำแหน่งที่กล่าวมาข้างต้นเป็นกรรมการโดยตำแหน่งร่วมกับผู้ทรงคุณวุฒิ"
+            },
+            {
+                category: "คณะกรรมการข้อมูลข่าวสาร",
+                question: "กรรมการผู้ทรงคุณวุฒิในคณะกรรมการข้อมูลข่าวสารของราชการ (กขร.) ได้รับการแต่งตั้งตามข้อใด?",
+                options: ["ก. คณะรัฐมนตรีแต่งตั้งผู้ทรงคุณวุฒิจากภาครัฐและเอกชน จำนวน ๙ คน", "ข. ปลัดสำนักนายกฯ แต่งตั้งจากข้าราชการระดับ ๙ จำนวน ๕ คน", "ค. นายกรัฐมนตรีแต่งตั้งจากภาควิชาการทางกฎหมาย จำนวน ๗ คน", "ง. รัฐมนตรีมหาดไทยแต่งตั้งจากองค์กรอิสระ จำนวน ๑๒ คน"],
+                answer: 0,
+                rationale: "กรรมการผู้ทรงคุณวุฒิตามมาตรา ๒๗ มีจำนวน ๙ คน ซึ่ง ครม. แต่งตั้งจากผู้มีความเชี่ยวชาญทั้งภาครัฐและเอกชน"
+            },
+            {
+                category: "คณะกรรมการวินิจฉัยฯ",
+                question: "ข้อใดกล่าวไม่ถูกต้องเกี่ยวกับ คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร (กวอ.)?",
+                options: ["ก. กรรมการวินิจฉัยที่มาจากหน่วยงานต้นเรื่องที่กำลังพิจารณา มีสิทธิเข้าร่วมร่วมชี้ขาดพิจารณาด้วยได้", "ข. คณะกรรมการวินิจฉัยคณะหนึ่ง ๆ ประกอบด้วยกรรมการไม่น้อยกว่าสามคน", "ค. จะต้องเป็นผู้มีความรู้ความเชี่ยวชาญเฉพาะทางตามแต่ละสาขาของข้อมูลราชการ", "ง. กรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร จะรับหน้าที่เป็นเลขานุการร่วมด้วยตนเองไม่ได้"],
+                answer: 0,
+                rationale: "มาตรา ๓๖ วรรคสอง ระบุว่าหากพิจารณาข้อมูลของหน่วยงานแห่งใด กรรมการซึ่งมาจากหน่วยงานนั้นจะเข้าร่วมพิจารณาด้วยไม่ได้ เพื่อความเป็นธรรม ดังนั้นตัวเลือก ก. จึงผิด"
+            },
+            {
+                category: "กระบวนการส่งอุทธรณ์",
+                question: "การพิจารณาส่งคำอุทธรณ์ให้คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร (กวอ.) ข้อใดระบุหลักเกณฑ์และกรอบเวลาได้ถูกต้อง?",
+                options: ["ก. คณะกรรมการข้อมูลข่าวสารต้องส่งคำอุทธรณ์ให้ กวอ. ภายใน ๗ วันนับแต่วันได้รับคำอุทธรณ์", "ข. ส่งตรงให้ประธานคณะกรรมการ กวอ. เป็นผู้เก็บรักษาสารลับภายใน ๑๕ วันทำการ", "ค. ให้ส่งรายงานอุทธรณ์ผ่านระบบไปรษณีย์ด่วนพิเศษภายในกำหนด ๓ วันหลังรับเรื่อง", "ง. ยื่นตรงให้คณะรัฐมนตรีวินิจฉัยคำสั่งก่อนนำส่ง กวอ. ภายใน ๓๐ วัน"],
+                answer: 0,
+                rationale: "มาตรา ๓๗ กำหนดให้ส่งคำอุทธรณ์ต่อคณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสารโดยคำนึงความเชี่ยวชาญเฉพาะด้านภายในกำหนดเจ็ดวัน"
+            },
+            {
+                category: "บทนิยามและโครงสร้าง",
+                question: "สำนักงานคณะกรรมการข้อมูลข่าวสารของราชการ (สขร.) มีตัวอักษรย่อเป็นอย่างไรตามระเบียบงานราชการ?",
+                options: ["ก. สขร.", "ข. สคข.", "ค. ขสร.", "ง. สคร."],
+                answer: 0,
+                rationale: "อักษรย่ออย่างเป็นทางการที่ถูกต้องและนิยมออกข้อสอบบ่อยที่สุดคือ 'สขร.'"
+            },
+            {
+                category: "บททั่วไปและรักษาการ",
+                question: "พระราชบัญญัติข้อมูลข่าวสารของราชการ พ.ศ. ๒๕๔๐ ประกาศลงในราชกิจจานุเบกษาตรงกับวันที่เท่าใด?",
+                options: ["ก. วันที่ ๑ กันยายน ๒๕๔๐", "ข. วันที่ ๑๐ กันยายน ๒๕๔๐", "ค. วันที่ ๙ ธันวาคม ๒๕๔๐", "ง. วันที่ ๑ มกราคม ๒๕๔๑"],
+                answer: 1,
+                rationale: "พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. ๒๕๔๐ ได้รับการประกาศลงในราชกิจจานุเบกษาเมื่อ 'วันที่ ๑๐ กันยายน พ.ศ. ๒๕๔๐'"
+            },
+            {
+                category: "บททั่วไปและรักษาการ",
+                question: "พระราชบัญญัติข้อมูลข่าวสารของราชการ พ.ศ. ๒๕๔๐ มีผลบังคับใช้ตามกฎหมายตั้งแต่วันที่เท่าใด?",
+                options: ["ก. วันที่ ๑๑ กันยายน ๒๕๔๐", "ข. วันที่ ๙ ธันวาคม ๒๕๔๐", "ค. วันที่ ๑๐ ธันวาคม ๒๕๔๐", "ง. วันที่ ๑ มกราคม ๒๕๔๑"],
+                answer: 1,
+                rationale: "มาตรา ๒ ระบุว่าให้ใช้บังคับเมื่อพ้นเก้าสิบวันนับแต่วันประกาศในราชกิจจาฯ ซึ่งคำนวณจากวันที่ ๑๐ กันยายน ๒๕๔๐ จะตรงกับ 'วันที่ ๙ ธันวาคม ๒๕๔๐'"
+            },
+            
+            // --- NEW ADDITIONAL QUESTIONS TO REACH EXACTLY 100 EXAM QUESTIONS ---
+            {
+                id: 81,
+                category: "บทนิยามและโครงสร้าง",
+                question: "คำว่า 'หน่วยงานของรัฐ' ตามพระราชบัญญัตินี้ หมายความครอบคลุมข้อใด?",
+                options: ["ก. ราชการส่วนกลาง ราชการส่วนภูมิภาค และราชการส่วนท้องถิ่น", "ข. รัฐวิสาหกิจ ส่วนราชการสังกัดรัฐสภา และศาลเฉพาะส่วนที่ไม่เกี่ยวกับการพิจารณาคดี", "ค. องค์กรควบคุมการประกอบวิชาชีพ และหน่วยงานอื่นตามที่กำหนดในกฎกระทรวง", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "มาตรา ๔ ระบุขอบเขตของ 'หน่วยงานของรัฐ' ไว้อย่างกว้างขวางเพื่อคลุมความโปร่งใสของทุกหน่วยงานที่มีการใช้จ่ายงบประมาณแผ่นดิน"
+            },
+            {
+                id: 82,
+                category: "บทนิยามและโครงสร้าง",
+                question: "องค์กรประเภทใดต่อไปนี้ที่ 'ไม่จัดอยู่' ในคำนิยามของคำว่าหน่วยงานของรัฐตาม พ.ร.บ. นี้?",
+                options: ["ก. เทศบาล หรือ อบต. ในจังหวัดต่าง ๆ", "ข. ศาลเฉพาะในส่วนที่เกี่ยวกับกระบวนพิจารณาและพิพากษาคดี", "ค. รัฐวิสาหกิจขนาดใหญ่ที่มีกระทรวงการคลังถือหุ้นหลัก", "ง. สภาทนายความ หรือแพทยสภาในฐานะองค์กรควบคุมวิชาชีพ"],
+                answer: 1,
+                rationale: "พ.ร.บ. นิยามหน่วยงานรัฐครอบคลุมศาล 'เฉพาะในส่วนที่ไม่เกี่ยวกับการพิจารณาพิพากษาคดี' เพื่อปกป้องความเป็นอิสระทางตุลาการในการดำเนินคดี"
+            },
+            {
+                id: 83,
+                category: "บทนิยามและโครงสร้าง",
+                question: "คำว่า 'ข้อมูลข่าวสาร' ตามพระราชบัญญัตินี้ มีความหมายที่สอดคล้องกับข้อใด?",
+                options: ["ก. สิ่งที่สื่อความหมายให้รู้เรื่องราวข้อเท็จจริง ไม่ว่าจะเป็นโดยสภาพของสิ่งนั้นเองหรือผ่านวิธีการใดๆ", "ข. เฉพาะข้อมูลราชการที่ได้รับการรับรองเอกสารต้นฉบับเรียบร้อยแล้วเท่านั้น", "ค. ข้อมูลที่เป็นความเห็นของบุคคลธรรมดาที่เขียนวิจารณ์ลงเว็บไซต์สังคมออนไลน์", "ง. หนังสือเรียนที่จัดพิมพ์โดยสำนักพิมพ์เอกชนที่ไม่ได้งบสนับสนุน"],
+                answer: 0,
+                rationale: "มาตรา ๔ นิยามกว้างขวาง โดยครอบคลุมถึงสิ่งที่สื่อความหมายให้รู้เรื่องราวข้อเท็จจริง ไม่ว่าจัดทำในรูปเอกสาร แผนผัง แผนที่ หรือสื่อคอมพิวเตอร์"
+            },
+            {
+                id: 84,
+                category: "บททั่วไปและรักษาการ",
+                question: "ข้อยกเว้นการไม่เปิดเผยข้อมูลราชการตามพระราชบัญญัตินี้ มีลักษณะเด่นตามข้อใด?",
+                options: ["ก. เป็นข้อยกเว้นที่เปิดโอกาสให้หัวหน้าส่วนราชการปฏิเสธไม่เปิดเผยข้อมูลได้ตามใจชอบ", "ข. เป็นข้อยกเว้นที่แจ้งชัดและจำกัดเฉพาะข้อมูลข่าวสารที่หากเปิดเผยจะเกิดความเสียหายต่อประเทศหรือเอกชน", "ค. เป็นข้อยกเว้นที่นำมาจากพระราชบัญญัติควบคุมการใช้อาวุธทหาร", "ง. เป็นไปเพื่อสนับสนุนไม่ให้ประชาชนมีส่วนร่วมทางการเมืองมากเกินไป"],
+                answer: 1,
+                rationale: "การตรากฎหมายมุ่งเปิดเผยเป็นหลัก ปิดเผยเป็นข้อยกเว้นเฉพาะข้อมูลที่ก่อความเสียหายต่อความมั่นคงของชาติหรือผลประโยชน์เอกชนที่สำคัญยิ่งยวด"
+            },
+            {
+                id: 85,
+                category: "ข้อจำกัดการเปิดเผย",
+                question: "ข้อมูลความมั่นคงทางทหารหรือผลกระทบต่อความสัมพันธ์ระหว่างประเทศ (มาตรา ๑๕) เจ้าหน้าที่จะเปิดเผยได้เมื่อพิจารณาประกอบปัจจัยใด?",
+                options: ["ก. ผลประโยชน์สาธารณะและประโยชน์ของเอกชนที่เกี่ยวข้องประกอบกันกับการทำตามกฎหมาย", "ข. ความยินยอมของทหารกองหนุนในพื้นที่ปฏิบัติการ", "ค. อัตราความนิยมทางการเมืองของคณะรัฐบาลในขณะนั้น", "ง. งบประมาณที่ได้รับจากกระทรวงการต่างประเทศ"],
+                answer: 0,
+                rationale: "มาตรา ๑๕ กำหนดให้เจ้าหน้าที่สั่งไม่เปิดเผยโดยคำนึงถึง 'การปฏิบัติหน้าที่ตามกฎหมาย ประโยชน์สาธารณะ และประโยชน์ของเอกชนประกอบกัน'"
+            },
+            {
+                id: 86,
+                category: "ข้อมูลจัดไว้ให้ประชาชนตรวจดู",
+                question: "ข้อมูลตามมาตรา ๙ ประเภท 'คู่มือปฏิบัติงานของเจ้าหน้าที่' ต้องมีลักษณะเพิ่มเติมตามข้อใดจึงจะจัดเข้าข่ายต้องเผยแพร่ให้เข้าตรวจดู?",
+                options: ["ก. เป็นคู่มือการเบิกจ่ายเบี้ยเลี้ยงลับส่วนราชการภายในแผนก", "ข. เป็นคู่มือหรือคำสั่งซึ่งมีผลกระทบถึงสิทธิหน้าที่ของเอกชน", "ค. เป็นสมุดบันทึกประวัติการบรรจุข้าราชการย้อนหลังสามสิบปี", "ง. เป็นเพียงคู่มือการบำรุงรักษาคอมพิวเตอร์ของฝ่ายเทคโนโลยี"],
+                answer: 1,
+                rationale: "มาตรา ๙ (๔) บัญญัติระบุถึง 'คู่มือหรือคำสั่งเกี่ยวกับวิธีปฏิบัติงานของเจ้าหน้าที่ของรัฐซึ่งมีผลกระทบถึงสิทธิหน้าที่ของเอกชน'"
+            },
+            {
+                id: 87,
+                category: "กระบวนการบริการข้อมูล",
+                question: "หากเอกสารราชการที่ร้องขอ ถูกทำลายหรือไม่มีอยู่จริง และผู้ขอตรวจมีสิทธิร้องเรียนต่อคณะกรรมการ ข้อใดกล่าวถูกต้องเกี่ยวกับการตรวจสอบความโปร่งใส?",
+                options: ["ก. คณะกรรมการมีอำนาจสั่งลงโทษจำคุกหัวหน้าหน่วยงานได้ทันทีที่มีการร้องเรียน", "ข. คณะกรรมการมีอำนาจตรวจสอบข้อมูลส่วนลึกของหน่วยงานได้เพื่อแจ้งผลตรวจสอบให้ผู้ร้องเรียนทราบ", "ค. หน่วยงานของรัฐไม่มีหน้าที่ต้องอำนวยความสะดวกหากปฏิเสธความจริงด้วยวาจาแล้ว", "ง. เรื่องลับทุกกรณีห้ามส่งให้คณะกรรมการตรวจสอบตรวจประวัติค้นคว้า"],
+                answer: 1,
+                rationale: "ตามมาตรา ๓๓ คณะกรรมการมีสิทธิเข้าตรวจสอบข้อเท็จจริงในสถานที่ แม้เป็นเอกสารที่เปิดเผยต่อบุคคลทั่วไปไม่ได้ เพื่อให้กระบวนการตรวจสอบโปร่งใสและเป็นธรรม"
+            },
+            {
+                id: 88,
+                category: "กระบวนการบริการข้อมูล",
+                question: "การระบุคำขอข้อมูลข่าวสารราชการตามมาตรา ๑๑ ข้อใดระบุลักษณะการขอที่ถูกต้องทางกฎหมาย?",
+                options: ["ก. ต้องระบุชื่อรหัสเอกสารแฟ้มและเลขที่ส่งจดหมายตรงเป๊ะตามทะเบียนกลางอย่างชัดแจ้ง", "ข. ขอรับข้อมูลโดยระบุคำขอในลักษณะที่พอสมควรจะเข้าใจได้ว่าเป็นข้อมูลข่าวสารใดที่ต้องการ", "ค. ต้องให้ข้าราชการในส่วนราชการนั้นมาเซ็นรับรองใบคำขออย่างน้อยสามคน", "ง. ต้องพิมพ์ลายพิมพ์นิ้วมือกำกับบนใบคำขอผ่านเครื่องคอมพิวเตอร์ออนไลน์ทุกครั้ง"],
+                answer: 1,
+                rationale: "มาตรา ๑๑ อำนวยความสะดวกโดยกำหนดให้ผู้ยื่นขอระบุรายละเอียด 'พอสมควรที่จะเข้าใจได้ว่าเป็นข้อมูลข่าวสารใด' เพื่อไม่ให้เป็นภาระต่อประชาชน"
+            },
+            {
+                id: 89,
+                category: "กระบวนการบริการข้อมูล",
+                question: "การเรียกเก็บค่าธรรมเนียมของสำเนาข้อมูลข่าวสารราชการและสำเนาที่รับรองถูกต้อง ต้องยึดถือหลักการสำคัญตามข้อใด?",
+                options: ["ก. การจัดหาข้อมูลต้องเพื่อช่วยเหลือผู้มีรายได้น้อย และไม่แสวงหาผลประโยชน์ทางการค้าเป็นหลัก", "ข. ต้องจัดเก็บค่าธรรมเนียมให้ได้กำไรสูงสุดเพื่อส่งเข้ากองทุนราชการ", "ค. การเก็บเงินขึ้นอยู่กับความพึงพอใจของเจ้าหน้าที่จัดทำเอกสารในรอบวัน", "ง. ห้ามเรียกเก็บเงินจากประชาชนทุกกรณีโดยไม่มีข้อยกเว้น"],
+                answer: 0,
+                rationale: "มาตรา ๑๑ วรรคสอง กำหนดให้อัตราค่าธรรมเนียมต้องคำนึงถึงการช่วยเหลือผู้มีรายได้น้อย โดยผ่านความเห็นชอบของคณะกรรมการ"
+            },
+            {
+                id: 90,
+                category: "การร้องเรียนต่อคณะกรรมการ",
+                question: "กรณีใดที่ประชาชนมีสิทธิร้องเรียนต่อคณะกรรมการข้อมูลข่าวสารของราชการ เนื่องจากความล่าช้าหรือไม่ได้รับความสะดวก?",
+                options: ["ก. เจ้าหน้าที่ปฏิบัติหน้าที่ในการให้บริการข้อมูลเป็นไปด้วยความล่าช้าเกินสมควร", "ข. เจ้าหน้าที่ปฏิเสธคำขอบริการสำเนาโดยไม่มีเหตุผลอันเหมาะสม", "ค. การจัดหาข้อมูลราชการไม่สะดวกเนื่องจากปัญหาระบบจัดเก็บชำรุดโดยไม่พยายามแก้ไข", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "มาตรา ๑๓ เปิดช่องให้ประชาชนร้องเรียนได้ทุกกรณีหากไม่ได้รับความสะดวกล่าช้า หรือฝ่าฝืนไม่จัดหาข้อมูลตามมาตรา ๑๑"
+            },
+            {
+                id: 91,
+                category: "ข้อจำกัดการเปิดเผย",
+                question: "มาตรา ๑๔ ที่ระบุข้อมูลสถาบันพระมหากษัตริย์ห้ามเปิดเผยเด็ดขาด แตกต่างจากมาตรา ๑๕ อย่างไรในแง่ของสิทธิและอำนาจคำสั่ง?",
+                options: ["ก. มาตรา ๑๔ ห้ามเด็ดขาดไม่มีข้อยกเว้น ส่วนมาตรา ๑๕ เจ้าหน้าที่ 'อาจ' มีคำสั่งไม่เปิดเผยก็ได้ตามสมควรประกอบเหตุผล", "ข. มาตรา ๑๔ สามารถยื่นขอตรวจสอบลับได้หลังพ้น ๑๐ ปี ส่วนมาตรา ๑๕ ต้องรอ ๕๐ ปี", "ค. มาตรา ๑๔ อุทธรณ์ตรงต่อคณะรัฐมนตรี ส่วนมาตรา ๑๕ อุทธรณ์ตรงต่อกองทัพบก", "ง. ไม่มีความแตกต่างกันเลย ทุกข้อยกเว้นมีสิทธิปฏิบัติเป็นอย่างเดียวกัน"],
+                answer: 0,
+                rationale: "มาตรา ๑๔ ใช้คำว่า 'จะเปิดเผยมิได้' (ห้ามเด็ดขาด) ส่วนมาตรา ๑๕ ใช้คำว่า 'อาจมีคำสั่งมิให้เปิดเผยก็ได้' (ใช้ดุลยพินิจของรัฐ)"
+            },
+            {
+                id: 92,
+                category: "การคัดค้านการเปิดเผย",
+                question: "กรณีที่เจ้าหน้าที่แจ้งเรื่องการเปิดเผยข้อมูลกระทบส่วนได้เสีย และผู้รับแจ้งต้องการโต้แย้งสิทธิ ต้องดำเนินการคัดค้านในลักษณะใด?",
+                options: ["ก. โทรศัพท์ติดต่อพนักงานพูดคุยให้ความเห็นพิจารณายกเลิกการเปิดเผย", "ข. ต้องทำคำคัดค้านเป็นหนังสือหรือลายลักษณ์อักษรเสนอต่อเจ้าหน้าที่ผู้รับผิดชอบข้อมูลนั้น", "ค. ประกาศข่าวลงในหนังสือพิมพ์เพื่อให้สภาเข้าพิจารณา", "ง. ฟ้องศาลอาญาให้ส่งหมายจับพนักงานในหน่วยงานทันที"],
+                answer: 1,
+                rationale: "ตามกฎหมายระบุชัดเจนว่าสิทธิคัดค้านต้องจัดตั้ง 'ทำเป็นหนังสือ' ยื่นเป็นพยานหลักฐานถึงเจ้าหน้าที่ผู้รับผิดชอบข้อมูลนั้น"
+            },
+            {
+                id: 93,
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "ข้อมูลส่วนบุคคลประเภทใดต่อไปนี้ที่ได้รับการคุ้มครองสิทธิตามเจตจำนงของพระราชบัญญัตินี้?",
+                options: ["ก. ทะเบียนประวัติสุขภาพ ประวัติอาชญากรรม หรือประวัติการศึกษาและการทำงาน", "ข. ลายพิมพ์นิ้วมือ รูปถ่าย และแผ่นบันทึกลักษณะเสียงของบุคคล", "ค. ทะเบียนการเงินและหลักฐานสิทธิในทรัพย์สินของแต่ละบุคคลธรรมดา", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "มาตรา ๔ นิยาม 'ข้อมูลข่าวสารส่วนบุคคล' ไว้อย่างกว้างขวางเพื่อคุ้มครองทุกข้อมูลส่วนตัวที่มีเลขรหัสหรือชื่อบอกลักษณะชี้ตัวตนบุคคลธรรมดาได้"
+            },
+            {
+                id: 94,
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "หากเจ้าของข้อมูลส่วนบุคคลถึงแก่กรรมแล้ว สิทธิตามมาตรา ๒๓, ๒๔, ๒๕ (การขอตรวจ ขอแก้ไข ขอให้ลบ) จะตกเป็นของผู้ใด?",
+                options: ["ก. ตกเป็นสิทธิ์แก่บุคคลตามที่กำหนดในกฎกระทรวงให้ทำหน้าที่แทนผู้ถึงแก่กรรม", "ข. ถือเป็นอันระงับสิทธิไปโดยสิ้นเชิง ไม่สามารถมีผู้ใดมาขอแทนได้", "ค. เป็นอำนาจเด็ดขาดของหัวหน้าสำนักปลัดนายกฯ ในการจัดเก็บต่อ", "ง. ตกเป็นของศาลปกครองเป็นผู้พิจารณาชี้ขาดทุกเรื่องแทน"],
+                answer: 0,
+                rationale: "มาตรา ๒๕ วรรคสี่ ระบุให้บุคคลตามกฎกระทรวงมีสิทธิดำเนินการแทนผู้เยาว์ คนไร้ความสามารถ คนเสมือนไร้ความสามารถ หรือเจ้าของข้อมูลที่ถึงแก่กรรมแล้วได้"
+            },
+            {
+                id: 95,
+                category: "ข้อมูลข่าวสารส่วนบุคคล",
+                question: "ข้อความรับรองคำยื่นขอแก้ข้อมูลส่วนบุคคลในเรื่องใดที่กฎหมาย 'ห้าม' ปฏิเสธการบันทึกหมายเหตุแนบกระดาษ?",
+                options: ["ก. ห้ามหน่วยงานปฏิเสธการหมายเหตุบันทึกคำขอของเจ้าของข้อมูลแนบไว้กับข้อมูลส่วนที่ไม่ยอมแก้ไขเพื่อเป็นหลักฐานตรวจสอบ", "ข. ห้ามขอตรวจสอบสิทธิของคนอื่นที่มีชีวิตอยู่ทุกเรื่อง", "ค. ห้ามขอแก้ไขคะแนนประเมินประจำปีของตนเอง", "ง. ห้ามส่งข้อมูลอุทธรณ์ล่าช้าเกินกว่ากำหนด ๑ ปี"],
+                answer: 0,
+                rationale: "มาตรา ๒๕ วรรคท้ายระบุชัดเจนว่า 'ไม่ว่ากรณีใด ๆ ให้เจ้าของข้อมูลมีสิทธิร้องขอให้หน่วยงานของรัฐหมายเหตุคำขอของตนแนบไว้กับข้อมูลข่าวสารส่วนที่เกี่ยวข้องได้'"
+            },
+            {
+                id: 96,
+                category: "การส่งมอบให้หอจดหมายเหตุ",
+                question: "การขยายระยะเวลากำหนดการส่งมอบข้อมูลความมั่นคงให้หอจดหมายเหตุแห่งชาติ สามารถขอขยายเวลาเกินคราวละ ๕ ปีได้หรือไม่?",
+                options: ["ก. สามารถขยายเวลาได้ไม่จำกัดจำนวนปีหากรัฐมนตรีลงนามอนุมัติ", "ข. ขยายไม่ได้เด็ดขาด เพราะกฎหมายระบุจะกำหนดขยายเวลาเกินคราวละห้าปีไม่ได้", "ค. ขยายได้คราวละ ๑๐ ปี สำหรับพื้นที่ชายแดนความมั่นคงลับ", "ง. ขยายได้เฉพาะช่วงสถานการณ์ฉุกเฉินและพ้นกำหนดสิทธิแล้ว"],
+                answer: 1,
+                rationale: "มาตรา ๒๖ วรรคสาม (๒) กำหนดกรอบจำกัดการใช้อำนาจของรัฐว่าคำสั่งการขยายเวลานั้น 'จะกำหนดเกินคราวละห้าปีไม่ได้' เพื่อป้องกันการเก็บข้อมูลไม่เปิดเผยชั่วนิรันดร์"
+            },
+            {
+                id: 97,
+                category: "คณะกรรมการข้อมูลข่าวสาร",
+                question: "สำนักงานปลัดสำนักนายกรัฐมนตรี มีบทบาทและความสัมพันธ์อย่างไรกับ คณะกรรมการข้อมูลข่าวสารของราชการ (กขร.)?",
+                options: ["ก. ทำหน้าที่เป็นประธานชี้ขาดทุกเรื่องในสภา", "ข. ทำหน้าที่ดูแลเรื่องวิชาการและธุรการ ตลอดจนได้รับแต่งตั้งข้าราชการเป็นเลขานุการและผู้ช่วย", "ค. ทำหน้าที่เป็นผู้ยื่นอุทธรณ์แทนประชาชนผู้เดือดร้อน", "ง. ทำหน้าที่เป็นฝ่ายสอบสวนสืบสวนพยานประวัติลับข้าราชการ"],
+                answer: 1,
+                rationale: "มาตรา ๖ และ ๒๗ วรรคท้าย กำหนดให้ สขร. ในสังกัดสำนักงานปลัดสำนักนายกฯ ทำหน้าที่ธุรการวิชาการ และให้ปลัดแต่งตั้งข้าราชการในสังกัดเป็นเลขานุการและผู้ช่วย"
+            },
+            {
+                id: 98,
+                category: "คณะกรรมการข้อมูลข่าวสาร",
+                question: "กรอบระยะเวลาวาระการดำรงตำแหน่งของกรรมการผู้ทรงคุณวุฒิในคณะกรรมการข้อมูลข่าวสารของราชการ (กขร.) คือเท่าใด?",
+                options: ["ก. ๒ ปี และห้ามรับการแต่งตั้งซ้ำอีกรอบ", "ข. ๓ ปี และผู้พ้นตำแหน่งแล้วอาจได้รับการแต่งตั้งใหม่ได้อีกคราว", "ค. ๕ ปี เท่ากับวาระผู้ว่าราชการทั่วไป", "ง. มีผลตลอดชีวิตหรือจนกว่าจะลาออก"],
+                answer: 1,
+                rationale: "มาตรา ๒๙ กำหนดวาระสามปี และมีระบอบผ่อนปรนให้ได้รับการแต่งตั้งซ้ำอีกรอบเพื่อสืบเนื่องความต่อเนื่องของงานวิชาการ"
+            },
+            {
+                id: 99,
+                category: "คณะกรรมการวินิจฉัยฯ",
+                question: "กระบวนการอุทธรณ์คำสั่งไม่เปิดเผยข้อมูลส่วนบุคคลหรือคำสั่งไม่ยอมแก้ไขข้อมูลส่วนบุคคล มีเส้นทางยื่นอุทธรณ์อย่างไรจึงถูกต้อง?",
+                options: ["ก. ประชาชนต้องยื่นคำอุทธรณ์เป็นหนังสือโดยยื่นตรงผ่าน 'คณะกรรมการข้อมูลข่าวสาร' เพื่อส่งต่อให้คณะกรรมการวินิจฉัย (กวอ.) ชี้ขาด", "ข. ยื่นตรงส่งให้ศาลรัฐธรรมนูญตีความทันทีโดยไม่ต้องผ่านส่วนราชการ", "ค. ยื่นอุทธรณ์ผ่านระบบไปรษณีย์ส่งมอบสภาทนายความประเมินสิทธิก่อน", "ง. ส่งมอบข้อร้องขอตรงไปที่กรมศิลปากรหอจดหมายเหตุแผ่นดิน"],
+                answer: 0,
+                rationale: "ตามกฎหมายอุทธรณ์ให้ยื่นอุทธรณ์โดยยื่นคำอุทธรณ์ต่อคณะกรรมการข้อมูลข่าวสารของราชการ ซึ่งคณะกรรมการจะส่งคำอุทธรณ์ต่อให้ กวอ. ภายใน ๗ วัน"
+            },
+            {
+                id: 100,
+                category: "กระบวนการวินิจฉัยอุทธรณ์",
+                question: "คำวินิจฉัยชี้ขาดของ คณะกรรมการวินิจฉัยการเปิดเผยข้อมูลข่าวสาร (กวอ.) มีขอบเขตและผลผูกพันทางกฎหมายอย่างไร?",
+                options: ["ก. เป็นที่สุดทางกระบวนการปกครอง และจะมีข้อสังเกตเสนอต่อคณะกรรมการเพื่อสั่งการให้หน่วยงานปฏิบัติการตามที่เห็นสมควรก็ได้", "ข. ถือเป็นเพียงความเห็นเบื้องต้นที่หน่วยงานรัฐสามารถนำไปปฏิเสธคำวินิจฉัยได้เสรี", "ค. ผูกพันเฉพาะหน่วยงานส่วนกลาง ไม่ผูกพันราชการส่วนภูมิภาคหรือท้องถิ่น", "ง. มีผลใช้บังคับชั่วคราวเพียง ๑๘๐ วัน นับแต่มีคำสั่งวินิจฉัยเสร็จสิ้น"],
+                answer: 0,
+                rationale: "ตามมาตรา ๓๗ วรรคท้ายระบุ คำวินิจฉัยของ กวอ. ให้เป็นที่สุดในทางปกครอง และให้มีข้อสังเกตเสนอต่อคณะกรรมการเพื่อสั่งการให้หน่วยงานปฏิบัติการตามความเหมาะสม"
+            }
+        ];
+
+        // --- App State ---
+        let quizQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = {}; // questionIndex -> selectedOptionIndex
+        let flaggedQuestions = {}; // questionIndex -> boolean
+        let quizMode = 'practice'; // 'practice' or 'exam'
+        let quizDuration = 2700; // 45 minutes in seconds
+        let timerInterval = null;
+        let isQuizSubmitted = false;
+        let startTime = null;
+        let timeSpentSeconds = 0;
+
+        // --- Mode Select ---
+        function selectMode(mode) {
+            quizMode = mode;
+            const btnPractice = document.querySelector('button[onclick*="practice"]');
+            const btnExam = document.querySelector('button[onclick*="exam"]');
+            
+            if (mode === 'practice') {
+                btnPractice.classList.add('border-indigo-600', 'bg-indigo-50/20');
+                btnExam.classList.remove('border-blue-600', 'bg-blue-50/20');
+            } else {
+                btnExam.classList.add('border-blue-600', 'bg-blue-50/20');
+                btnPractice.classList.remove('border-indigo-600', 'bg-indigo-50/20');
+            }
+        }
+
+        // Set Default mode
+        selectMode('practice');
+
+        // Shuffling items helper
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex != 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        // --- Start Quiz Action ---
+        function startQuiz() {
+            const quantitySelect = document.getElementById('exam-quantity');
+            const quantity = parseInt(quantitySelect.value);
+            
+            // In exam mode, we shuffle completely. In practice mode, we can keep the standard list but shuffle choices if wanted.
+            let sourceQuestions = [...ALL_QUESTIONS];
+            if (quizMode === 'exam') {
+                sourceQuestions = shuffle(sourceQuestions);
+            }
+            
+            quizQuestions = sourceQuestions.slice(0, Math.min(quantity, sourceQuestions.length));
+
+            // Reset States
+            currentQuestionIndex = 0;
+            userAnswers = {};
+            flaggedQuestions = {};
+            isQuizSubmitted = false;
+            timeSpentSeconds = 0;
+            startTime = new Date();
+
+            // Set up Badge/Timer UI
+            const badge = document.getElementById('badge-mode');
+            if (quizMode === 'practice') {
+                badge.innerText = "โหมดฝึกฝน (เรียนรู้ละเอียด)";
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-indigo-100 text-indigo-800 border border-indigo-200";
+                document.getElementById('timer-container').classList.add('hidden');
+                document.getElementById('score-counter').classList.remove('hidden');
+            } else {
+                badge.innerText = "โหมดสอบจริง (จำลองเวลา)";
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-rose-100 text-rose-800 border border-rose-200";
+                document.getElementById('timer-container').classList.remove('hidden');
+                document.getElementById('score-counter').classList.add('hidden');
+                startTimer();
+            }
+
+            // View Transition
+            document.getElementById('setup-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+
+            renderNavigationGrid();
+            loadQuestion(0);
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            let timerSeconds = quizDuration;
+            const timerDisplay = document.getElementById('quiz-timer');
+            
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                timeSpentSeconds++;
+                
+                const minutes = Math.floor(timerSeconds / 60);
+                const seconds = timerSeconds % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timerSeconds <= 300) { // 5 mins warning
+                    timerDisplay.parentElement.classList.add('text-rose-500', 'animate-pulse');
+                }
+
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        // --- Load active question details ---
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const q = quizQuestions[index];
+
+            // Render status texts
+            document.getElementById('current-q-index').innerText = index + 1;
+            document.getElementById('total-q-count').innerText = quizQuestions.length;
+            
+            const progressPercent = ((index + 1) / quizQuestions.length) * 100;
+            document.getElementById('progress-bar-fill').style.width = `${progressPercent}%`;
+
+            // Category & Question text
+            document.getElementById('question-category').innerText = q.category;
+            document.getElementById('question-text').innerText = `ข้อที่ ${index + 1}: ${q.question}`;
+
+            // Bookmarked/Flagged status
+            const flagBtn = document.getElementById('flag-btn');
+            const flagIcon = document.getElementById('flag-icon');
+            if (flaggedQuestions[index]) {
+                flagIcon.setAttribute('fill', '#f59e0b');
+                flagIcon.setAttribute('stroke', '#f59e0b');
+                flagBtn.classList.add('text-amber-500');
+            } else {
+                flagIcon.setAttribute('fill', 'none');
+                flagIcon.setAttribute('stroke', 'currentColor');
+                flagBtn.classList.remove('text-amber-500');
+            }
+
+            // Options Renderer
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const selectedAnswer = userAnswers[index];
+            const isAnswered = selectedAnswer !== undefined;
+            const showAnswersDirectly = (quizMode === 'practice' && isAnswered);
+
+            q.options.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border transition-all text-sm font-medium focus:outline-none flex justify-between items-center gap-4 ";
+                btn.onclick = () => selectOption(optIdx);
+
+                const textSpan = document.createElement('span');
+                textSpan.innerText = opt;
+                btn.appendChild(textSpan);
+
+                // Option styling logic
+                if (selectedAnswer === optIdx) {
+                    if (showAnswersDirectly) {
+                        if (optIdx === q.answer) {
+                            btn.className += "bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm";
+                            btn.appendChild(createIcon('check', 'text-emerald-600'));
+                        } else {
+                            btn.className += "bg-rose-50 border-rose-400 text-rose-800 shadow-sm";
+                            btn.appendChild(createIcon('x', 'text-rose-600'));
+                        }
+                    } else {
+                        btn.className += "bg-indigo-50 border-indigo-600 text-indigo-950 shadow-md scale-[1.01]";
+                    }
+                } else {
+                    if (showAnswersDirectly && optIdx === q.answer) {
+                        btn.className += "bg-emerald-50 border-emerald-400 text-emerald-800";
+                        btn.appendChild(createIcon('check', 'text-emerald-500'));
+                    } else {
+                        btn.className += "bg-white border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700";
+                    }
+                }
+
+                if (showAnswersDirectly) {
+                    btn.disabled = true;
+                    btn.onclick = null;
+                }
+
+                optionsContainer.appendChild(btn);
+            });
+
+            // Handle Instant Explanation Panel
+            const expPanel = document.getElementById('explanation-panel');
+            if (showAnswersDirectly) {
+                expPanel.classList.remove('hidden');
+                const isCorrect = (selectedAnswer === q.answer);
+                
+                const titleBadge = document.getElementById('explanation-title-badge');
+                if (isCorrect) {
+                    titleBadge.innerText = "ตอบถูกต้อง";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-emerald-600";
+                } else {
+                    titleBadge.innerText = "ตอบผิดพลาด";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-rose-600";
+                }
+                
+                document.getElementById('explanation-text').innerText = q.rationale;
+            } else {
+                expPanel.classList.add('hidden');
+            }
+
+            // Navigation status
+            document.getElementById('prev-btn').disabled = (index === 0);
+            const nextBtn = document.getElementById('next-btn');
+            const submitQuizBtn = document.getElementById('submit-quiz-btn');
+
+            if (index === quizQuestions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitQuizBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitQuizBtn.classList.add('hidden');
+            }
+
+            updateNavigationGridActive();
+        }
+
+        // SVG helper
+        function createIcon(type, colorClass) {
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.setAttribute("class", `w-5 h-5 ${colorClass}`);
+            svg.setAttribute("fill", "none");
+            svg.setAttribute("viewBox", "0 0 24 24");
+            svg.setAttribute("stroke", "currentColor");
+            svg.setAttribute("stroke-width", "3");
+
+            if (type === 'check') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M5 13l4 4L19 7");
+                svg.appendChild(path);
+            } else if (type === 'x') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M6 18L18 6M6 6l12 12");
+                svg.appendChild(path);
+            }
+            return svg;
+        }
+
+        function selectOption(optionIndex) {
+            if (isQuizSubmitted) return;
+            userAnswers[currentQuestionIndex] = optionIndex;
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function toggleFlag() {
+            flaggedQuestions[currentQuestionIndex] = !flaggedQuestions[currentQuestionIndex];
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                loadQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        // Render side helper panel of questions
+        function renderNavigationGrid() {
+            const grid = document.getElementById('grid-navigation');
+            grid.innerHTML = '';
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('score-counter').innerText = `${answeredCount}/${quizQuestions.length}`;
+
+            quizQuestions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full py-2 rounded-lg text-xs font-bold text-center border focus:outline-none transition-all ";
+                btn.innerText = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+
+                const isSelected = (idx === currentQuestionIndex);
+                const hasAnswered = (userAnswers[idx] !== undefined);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                if (isSelected) {
+                    btn.className += "bg-indigo-600 border-indigo-700 text-white ring-2 ring-indigo-300 ring-offset-1";
+                } else if (isFlagged) {
+                    btn.className += "bg-amber-500 border-amber-600 text-white";
+                } else if (hasAnswered) {
+                    btn.className += "bg-indigo-100 border-indigo-300 text-indigo-800 hover:bg-indigo-200";
+                } else {
+                    btn.className += "bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100";
+                }
+
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateNavigationGridActive() {
+            const grid = document.getElementById('grid-navigation');
+            const btns = grid.children;
+            for (let i = 0; i < btns.length; i++) {
+                const btn = btns[i];
+                if (i === currentQuestionIndex) {
+                    btn.classList.add('ring-2', 'ring-indigo-300', 'ring-offset-1');
+                } else {
+                    btn.classList.remove('ring-2', 'ring-indigo-300', 'ring-offset-1');
+                }
+            }
+        }
+
+        // --- Modals Controls ---
+        function showSubmitConfirmModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = quizQuestions.length - answeredCount;
+            const statusText = document.getElementById('modal-completion-status');
+
+            if (unanswered > 0) {
+                statusText.innerText = `พบข้อมูลคำตอบว่างอยู่ ${unanswered} ข้อ จากทั้งหมด ${quizQuestions.length} ข้อ หากกดยืนยัน ระบบจะปิดห้องสอบและคำนวณคะแนนเฉพาะข้อที่คุณได้ส่งเลือกช้อยส์ไว้เท่านั้น`;
+                statusText.className = "text-sm text-amber-600 leading-relaxed font-semibold";
+            } else {
+                statusText.innerText = "ยอดเยี่ยม! คุณตอบครบทุกข้อแล้ว คุณต้องการเสร็จสิ้นและตรวจส่งกระดาษคำตอบชุดนี้ใช่หรือไม่?";
+                statusText.className = "text-sm text-emerald-600 leading-relaxed font-semibold";
+            }
+
+            document.getElementById('submit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideSubmitConfirmModal() {
+            document.getElementById('submit-confirm-modal').classList.add('hidden');
+        }
+
+        function confirmExit() {
+            document.getElementById('exit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideExitConfirmModal() {
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+        }
+
+        function exitQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+
+        // --- Submit Quiz & Calculate Results ---
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            isQuizSubmitted = true;
+            hideSubmitConfirmModal();
+
+            let scoreCorrect = 0;
+            const categoryAnalysis = {};
+
+            // Initialize categories stats
+            quizQuestions.forEach(q => {
+                if (!categoryAnalysis[q.category]) {
+                    categoryAnalysis[q.category] = { correct: 0, total: 0 };
+                }
+                categoryAnalysis[q.category].total++;
+            });
+
+            // Calculate score
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if (userAns !== undefined && userAns === q.answer) {
+                    scoreCorrect++;
+                    categoryAnalysis[q.category].correct++;
+                }
+            });
+
+            const totalCount = quizQuestions.length;
+            const percent = Math.round((scoreCorrect / totalCount) * 100);
+
+            // Compute elapsed time
+            if (quizMode !== 'exam') {
+                const end = new Date();
+                timeSpentSeconds = Math.round((end - startTime) / 1000);
+            }
+            const minsUsed = Math.floor(timeSpentSeconds / 60);
+            const secsUsed = timeSpentSeconds % 60;
+
+            // Display Results View
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+
+            document.getElementById('result-percentage').innerText = `${percent}%`;
+            document.getElementById('result-score-fraction').innerText = `${scoreCorrect}/${totalCount} คะแนน`;
+
+            // Draw circular progress bar
+            const dashArray = 251.2;
+            const offset = dashArray - (dashArray * percent) / 100;
+            document.getElementById('score-ring-fill').style.strokeDashoffset = offset;
+
+            // Generate contextual advice
+            const resultBadge = document.getElementById('result-badge');
+            const feedbackText = document.getElementById('result-feedback-text');
+
+            if (percent >= 80) {
+                resultBadge.innerText = "ผ่านเกณฑ์ระดับดีเลิศ";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-200 animate-bounce";
+                feedbackText.innerText = "ยอดเยี่ยมมาก! คุณมีความเข้าใจในบทกฎหมายและขั้นตอนวิธีการสิทธิข้อมูลข่าวสารตาม พ.ร.บ. อย่างสมบูรณ์แบบ พร้อมที่สุดสำหรับเวทีการประเมินและการปฏิบัติงานจริง";
+            } else if (percent >= 60) {
+                resultBadge.innerText = "ผ่านเกณฑ์มาตรฐาน";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-800 border border-blue-200";
+                feedbackText.innerText = "ยินดีด้วยคุณผ่านเกณฑ์ประเมินเบื้องต้น แนะนำให้อ่านเพิ่มหรือดูข้อแนะนำตรงจุดที่คุณตอบผิดพลาดด้านล่างเพื่ออัปเกรดความมั่นใจให้เป็นคะแนนเต็ม";
+            } else {
+                resultBadge.innerText = "ควรทบทวนพร่ำเรียนใหม่";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800 border border-amber-200";
+                feedbackText.innerText = "คุณยังทำคะแนนผ่านเกณฑ์ได้ไม่ครบถ้วน แนะนำให้ลองศึกษาบทสรุป พ.ร.บ. ย่อด้านหน้าแรก และทำซ้ำในโหมดฝึกฝนเพื่อศึกษามาตราแบบเรียลไทม์";
+            }
+
+            // Fill basic analytics boxes
+            document.getElementById('stat-correct').innerText = `${scoreCorrect} ข้อ`;
+            document.getElementById('stat-incorrect').innerText = `${totalCount - scoreCorrect} ข้อ`;
+            document.getElementById('stat-time-spent').innerText = `${minsUsed} น. ${secsUsed} วิ.`;
+
+            // Fill skills analysis section
+            const topicContainer = document.getElementById('topic-analysis-container');
+            topicContainer.innerHTML = '';
+
+            for (const [category, data] of Object.entries(categoryAnalysis)) {
+                const catPercent = Math.round((data.correct / data.total) * 100);
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = "space-y-1.5";
+
+                const labelRow = document.createElement('div');
+                labelRow.className = "flex justify-between items-center text-xs font-bold text-slate-700";
+                labelRow.innerHTML = `<span>${category}</span> <span class="font-mono">${data.correct}/${data.total} (${catPercent}%)</span>`;
+                wrapper.appendChild(labelRow);
+
+                const barBg = document.createElement('div');
+                barBg.className = "w-full bg-slate-200 h-2.5 rounded-full overflow-hidden";
+                
+                const barFill = document.createElement('div');
+                barFill.className = catPercent >= 80 ? "bg-emerald-500 h-full" : (catPercent >= 60 ? "bg-blue-500 h-full" : "bg-amber-500 h-full");
+                barFill.style.width = `${catPercent}%`;
+                barBg.appendChild(barFill);
+                
+                wrapper.appendChild(barBg);
+                topicContainer.appendChild(wrapper);
+            }
+
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('toggle-review-btn').innerText = "ดูข้อสอบเฉลยละเอียด";
+            generateDetailedReviewList();
+        }
+
+        // --- Detailed Review List Generation ---
+        function generateDetailedReviewList() {
+            const listContainer = document.getElementById('review-questions-list');
+            listContainer.innerHTML = '';
+
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCorrect = (userAns !== undefined && userAns === q.answer);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                const card = document.createElement('div');
+                card.className = "bg-white border rounded-xl p-5 sm:p-6 space-y-4 shadow-sm transition-all ";
+                card.dataset.isCorrect = isCorrect ? "true" : "false";
+                card.dataset.isFlagged = isFlagged ? "true" : "false";
+
+                // Review Card Header
+                const cardHeader = document.createElement('div');
+                cardHeader.className = "flex justify-between items-start gap-4 border-b border-slate-100 pb-2.5";
+                
+                const flexLeft = document.createElement('div');
+                flexLeft.className = "flex items-center gap-2";
+                
+                const qNum = document.createElement('span');
+                qNum.className = "text-sm font-bold text-slate-800";
+                qNum.innerText = `ข้อที่ ${idx + 1}`;
+                flexLeft.appendChild(qNum);
+
+                const catBadge = document.createElement('span');
+                catBadge.className = "text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded";
+                catBadge.innerText = q.category;
+                flexLeft.appendChild(catBadge);
+
+                if (isFlagged) {
+                    const flgBadge = document.createElement('span');
+                    flgBadge.className = "text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 flex items-center gap-1";
+                    flgBadge.innerHTML = `<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"/></svg> ปักหมุดไว้`;
+                    flexLeft.appendChild(flgBadge);
+                }
+
+                cardHeader.appendChild(flexLeft);
+
+                // Right Badge Status
+                const statusBadge = document.createElement('span');
+                if (isCorrect) {
+                    statusBadge.innerText = "ตอบถูก";
+                    statusBadge.className = "text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200";
+                } else if (userAns === undefined) {
+                    statusBadge.innerText = "ไม่ได้ทำ";
+                    statusBadge.className = "text-[10px] font-bold text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200";
+                } else {
+                    statusBadge.innerText = "ตอบผิด";
+                    statusBadge.className = "text-[10px] font-bold text-rose-800 bg-rose-50 px-2 py-0.5 rounded border border-rose-200";
+                }
+                cardHeader.appendChild(statusBadge);
+
+                card.appendChild(cardHeader);
+
+                // Question Text
+                const qText = document.createElement('h5');
+                qText.className = "font-bold text-slate-950 leading-relaxed text-sm sm:text-base";
+                qText.innerText = q.question;
+                card.appendChild(qText);
+
+                // Options list in review card
+                const listGrid = document.createElement('div');
+                listGrid.className = "grid grid-cols-1 gap-2 pt-2";
+
+                q.options.forEach((opt, optIdx) => {
+                    const optBlock = document.createElement('div');
+                    optBlock.className = "p-3 rounded-lg border text-xs font-medium flex justify-between items-center gap-3 ";
+                    optBlock.innerText = opt;
+
+                    if (optIdx === q.answer) {
+                        optBlock.className += "bg-emerald-50 border-emerald-300 text-emerald-800";
+                        optBlock.appendChild(createIcon('check', 'text-emerald-600'));
+                    } else if (userAns === optIdx) {
+                        optBlock.className += "bg-rose-50 border-rose-300 text-rose-800";
+                        optBlock.appendChild(createIcon('x', 'text-rose-600'));
+                    } else {
+                        optBlock.className += "bg-white border-slate-200 text-slate-600";
+                    }
+
+                    listGrid.appendChild(optBlock);
+                });
+
+                card.appendChild(listGrid);
+
+                // Explanation Block
+                const expWrapper = document.createElement('div');
+                expWrapper.className = "bg-slate-50 p-4 rounded-lg border border-slate-100 space-y-1";
+                
+                const expLabel = document.createElement('div');
+                expLabel.className = "text-[10px] font-extrabold text-indigo-700 uppercase tracking-wide";
+                expLabel.innerText = "ข้อแนะนำทางกฎหมาย / เฉลยประกอบมาตรา:";
+                expWrapper.appendChild(expLabel);
+
+                const expP = document.createElement('p');
+                expP.className = "text-xs text-slate-600 leading-relaxed";
+                expP.innerText = q.rationale;
+                expWrapper.appendChild(expP);
+
+                card.appendChild(expWrapper);
+                listContainer.appendChild(card);
+            });
+        }
+
+        function toggleDetailedReview() {
+            const reviewSection = document.getElementById('detailed-review-section');
+            const btn = document.getElementById('toggle-review-btn');
+
+            if (reviewSection.classList.contains('hidden')) {
+                reviewSection.classList.remove('hidden');
+                btn.innerText = "ซ่อนข้อสอบเฉลยละเอียด";
+                reviewSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                reviewSection.classList.add('hidden');
+                btn.innerText = "ดูข้อสอบเฉลยละเอียด";
+            }
+        }
+
+        function filterReviewList() {
+            const filterValue = document.getElementById('review-filter').value;
+            const container = document.getElementById('review-questions-list');
+            const cards = container.children;
+
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const isCorrect = card.dataset.isCorrect === "true";
+                const isFlagged = card.dataset.isFlagged === "true";
+
+                if (filterValue === 'all') {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'incorrect' && !isCorrect) {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'flagged' && isFlagged) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            }
+        }
+
+        function restartQuiz() {
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

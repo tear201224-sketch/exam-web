@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สารบรรณ · ชุดเตรียมสอบราชการ กฎหมายหลัก</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f4f0;
+    --surface: #ffffff;
+    --navy: #0f2044;
+    --royal: #1b3d7a;
+    --gold: #c8881e;
+    --gold-light: #f5c96a;
+    --red: #9b2335;
+    --teal: #13646b;
+    --green: #1e6b3a;
+    --purple: #4a3080;
+    --text: #1a2535;
+    --text-light: #4c5d6e;
+    --muted: #7a8a98;
+    --border: #ddd8cf;
+    --border-light: #ede9e3;
+    --warm: #f9f7f3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ─── HERO HEADER ─── */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* thai flag stripe accent */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg,
+      #ef3340 0% 20%,
+      #fff 20% 40%,
+      #2e44a0 40% 60%,
+      #fff 60% 80%,
+      #ef3340 80% 100%
+    );
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 52px 32px 46px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200,136,30,0.15);
+    border: 1px solid rgba(200,136,30,0.4);
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .hero .subtitle {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 32px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .stat {
+    flex: 1;
+    min-width: 120px;
+    padding: 14px 20px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    display: block;
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+    display: block;
+  }
+
+  /* ─── SEARCH / FILTER BAR ─── */
+  .filter-bar {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 32px 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .filter-label {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-right: 4px;
+  }
+
+  .filter-btn {
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'Sarabun', sans-serif;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s;
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--text-light);
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+  }
+
+  /* ─── MAIN LAYOUT ─── */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 12px 32px 72px;
+  }
+
+  /* ─── SECTION ─── */
+  .section {
+    margin-top: 36px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .section-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .section-icon.law { background: #fff3ec; color: #9b2335; border: 1px solid #f5c6b0; }
+  .section-icon.policy { background: #eef3fc; color: #1b3d7a; border: 1px solid #c4d4f0; }
+  .section-icon.plan { background: #f0faf3; color: #1e6b3a; border: 1px solid #b5dfc4; }
+  .section-icon.civil { background: #f5f0fc; color: #4a3080; border: 1px solid #cdbff0; }
+  .section-icon.finance { background: #edf9f7; color: #13646b; border: 1px solid #a8dcd9; }
+  .section-icon.const { background: #fcf0ee; color: #8b1a1a; border: 1px solid #f0bdb5; }
+  .section-icon.info { background: #f0f7fa; color: #1a5878; border: 1px solid #b0d4e5; }
+  .section-icon.digital { background: #eef6ee; color: #245c24; border: 1px solid #b5d9b5; }
+
+  .section-title {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  .section-line {
+    height: 1px;
+    background: var(--border-light);
+    flex: 1;
+  }
+
+  .section-count {
+    font-size: 0.76rem;
+    color: var(--muted);
+    font-weight: 500;
+    background: var(--warm);
+    border: 1px solid var(--border);
+    padding: 2px 9px;
+    border-radius: 10px;
+  }
+
+  /* ─── CARD GRID ─── */
+  .cards {
+    display: grid;
+    gap: 10px;
+  }
+
+  .cards.two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    display: grid;
+    grid-template-columns: 6px 1fr;
+    overflow: hidden;
+    transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
+    position: relative;
+  }
+
+  .card:hover {
+    box-shadow: 0 6px 24px rgba(15,32,68,0.11);
+    transform: translateY(-2px);
+    border-color: #b0b8c8;
+    text-decoration: none;
+  }
+
+  .card-stripe { min-height: 100%; }
+  .stripe-red    { background: var(--red); }
+  .stripe-navy   { background: var(--royal); }
+  .stripe-green  { background: var(--green); }
+  .stripe-purple { background: var(--purple); }
+  .stripe-teal   { background: var(--teal); }
+  .stripe-gold   { background: var(--gold); }
+  .stripe-dark   { background: #2a2a3a; }
+  .stripe-blue   { background: #2563a8; }
+  .stripe-forest { background: #2d5a27; }
+
+  .card-body {
+    padding: 16px 18px 14px;
+  }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 7px;
+  }
+
+  .card-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    background: var(--warm);
+    border: 1px solid var(--border);
+    padding: 2px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-feature-settings: "tnum";
+  }
+
+  .card-title {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.45;
+  }
+
+  .card-desc {
+    font-size: 0.83rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 11px;
+  }
+
+  .card-foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.73rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .tag-red    { background: #fdf0f0; color: #9b2335; border: 1px solid #f5c0c0; }
+  .tag-navy   { background: #eef3fc; color: #1b3d7a; border: 1px solid #c4d4f0; }
+  .tag-green  { background: #f0faf3; color: #1e6b3a; border: 1px solid #b5dfc4; }
+  .tag-teal   { background: #edf9f7; color: #13646b; border: 1px solid #a8dcd9; }
+  .tag-purple { background: #f5f0fc; color: #4a3080; border: 1px solid #cdbff0; }
+  .tag-gold   { background: #fdf6ec; color: #8a5a0a; border: 1px solid #f0d49a; }
+  .tag-dark   { background: #f0f0f3; color: #2a2a3a; border: 1px solid #c8c8d8; }
+  .tag-blue   { background: #eef4fc; color: #2563a8; border: 1px solid #b8d3f0; }
+
+  .card-arrow {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: var(--muted);
+    opacity: 0.4;
+    transition: opacity 0.15s, transform 0.15s, color 0.15s;
+  }
+  .card:hover .card-arrow { opacity: 1; transform: translateX(3px); color: var(--gold); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 32px;
+    text-align: center;
+    font-size: 0.79rem;
+    color: var(--muted);
+    max-width: 900px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+  footer strong { color: var(--text-light); font-weight: 500; }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.4rem; }
+    .hero-inner { padding: 38px 18px 36px; }
+    .content, .filter-bar, footer { padding-left: 14px; padding-right: 14px; }
+    .cards.two-col { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; }
+    .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">📚 ชุดเตรียมสอบราชการ</div>
+    <h1>กฎหมายและนโยบายหลัก<br>สำหรับสนามสอบข้าราชการ</h1>
+    <p class="subtitle">ครอบคลุม พ.ร.บ. · พ.ร.ฎ. · รัฐธรรมนูญ · ยุทธศาสตร์ชาติ · แผนพัฒนา · ข้อสอบจำลองสนามจริง</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">16</span>
+        <span class="stat-label">ชุดเอกสาร</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">1,550+</span>
+        <span class="stat-label">ข้อสอบรวม</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">5</span>
+        <span class="stat-label">หมวดหมู่</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">ก.พ. / ท้องถิ่น</span>
+        <span class="stat-label">ใช้สอบได้ทุกสนาม</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="content">
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- หมวด 1: โครงสร้างการบริหารราชการแผ่นดิน -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon law">⚖️</div>
+      <span class="section-title">โครงสร้างและการบริหารราชการแผ่นดิน</span>
+      <div class="section-line"></div>
+      <span class="section-count">2 ชุด</span>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="coreexamgovernmentlaws1.html">
+        <div class="card-stripe stripe-red"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">01</span>
+            <span class="card-title">พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน พ.ศ. ๒๕๓๔ · ชุดพรีเมียม</span>
+          </div>
+          <div class="card-desc">สรุปเนื้อหาพรีเมียมครบ ม.1–75 ครอบคลุมทุกหมวด: โครงสร้างราชการส่วนกลาง ส่วนภูมิภาค การปฏิบัติราชการแทน/รักษาราชการแทน และหลักธรรมาภิบาล ม.3/1 พร้อมคลังข้อสอบ 100 ข้อ</div>
+          <div class="card-foot">
+            <span class="tag tag-red">100 ข้อ</span>
+            <span class="tag tag-red">สรุปรายมาตรา</span>
+            <span class="tag tag-red">ม.1–75</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="coreexamgovernmentlaws2.html">
+        <div class="card-stripe stripe-red"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">02</span>
+            <span class="card-title">พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน พ.ศ. 2534 · ติวข้อสอบ</span>
+          </div>
+          <div class="card-desc">ข้อสอบปรนัยสุ่มใหม่ทุกครั้ง พร้อมเฉลย จุดดัก และสรุปจับจุดออกสอบ อ้างอิงแก้ไขเพิ่มเติมถึงฉบับที่ 8 พ.ศ. 2553 เหมาะสำหรับฝึกทำซ้ำหลายรอบ</div>
+          <div class="card-foot">
+            <span class="tag tag-red">ข้อสอบสุ่ม</span>
+            <span class="tag tag-red">เฉลยพร้อมจุดดัก</span>
+            <span class="tag tag-red">ฉ.8 พ.ศ.2553</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- หมวด 2: ระเบียบและกฎหมายสำนักงาน        -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon info">📋</div>
+      <span class="section-title">ระเบียบสำนักงาน ข้อมูลข่าวสาร และความลับราชการ</span>
+      <div class="section-line"></div>
+      <span class="section-count">3 ชุด</span>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="coreexamgovernmentlaws3.html">
+        <div class="card-stripe stripe-navy"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">03</span>
+            <span class="card-title">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณ พ.ศ. ๒๕๒๖ (ถึงฉบับที่ ๔)</span>
+          </div>
+          <div class="card-desc">คลังข้อสอบ 200 ข้อ ระบบตรวจคะแนนอัตโนมัติ ข้อสอบเสมือนจริงภาค ก. และ ข. ครอบคลุมประเภทหนังสือราชการ การรับ-ส่ง เก็บรักษา และทำลายหนังสือ อัปเดตตามฉบับแก้ไขล่าสุด พ.ศ. ๒๕๖๔</div>
+          <div class="card-foot">
+            <span class="tag tag-navy">200 ข้อ</span>
+            <span class="tag tag-navy">ภาค ก. / ข.</span>
+            <span class="tag tag-navy">ฉบับที่ 4/2564</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="coreexamgovernmentlaws4.html">
+        <div class="card-stripe stripe-blue"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">04</span>
+            <span class="card-title">พ.ร.บ. ข้อมูลข่าวสารของราชการ พ.ศ. ๒๕๔๐</span>
+          </div>
+          <div class="card-desc">คลังข้อสอบ 100 ข้อ ระบบวิเคราะห์ทักษะละเอียด พร้อม Cheat Sheet สรุปประเด็น: ข้อมูลที่ต้องเผยแพร่ (ม.7 & ม.9) · ข้อมูลลับ · สิทธิร้องเรียน · คณะกรรมการข้อมูลข่าวสาร</div>
+          <div class="card-foot">
+            <span class="tag tag-blue">100 ข้อ</span>
+            <span class="tag tag-blue">ม.7 & ม.9</span>
+            <span class="tag tag-blue">Cheat Sheet</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="coreexamgovernmentlaws7.html">
+        <div class="card-stripe stripe-dark"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">07</span>
+            <span class="card-title">ระเบียบว่าด้วยการรักษาความลับของทางราชการ พ.ศ. ๒๕๔๔ (ถึงฉบับที่ ๒)</span>
+          </div>
+          <div class="card-desc">คลังข้อสอบ 100 ข้อ สรุปประเด็น: แหล่งที่มาและผู้รักษาการ · ชั้นความลับ 3 ระดับ · ระยะเวลาเก็บรักษา · การล่วงรู้ เปิดเผย และทำลาย อ้างอิงฉบับแก้ไขเพิ่มเติม พ.ศ. ๒๕๖๑</div>
+          <div class="card-foot">
+            <span class="tag tag-dark">100 ข้อ</span>
+            <span class="tag tag-dark">ชั้นความลับ 3 ระดับ</span>
+            <span class="tag tag-dark">ฉ.2/2561</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- หมวด 3: ข้าราชการพลเรือนและการเงินการคลัง -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon civil">👤</div>
+      <span class="section-title">ข้าราชการพลเรือน · การเงินการคลัง · PDPA</span>
+      <div class="section-line"></div>
+      <span class="section-count">3 ชุด</span>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="coreexamgovernmentlaws9.html">
+        <div class="card-stripe stripe-purple"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">09</span>
+            <span class="card-title">พ.ร.บ. ระเบียบข้าราชการพลเรือน พ.ศ. ๒๕๕๑ (แก้ไขเพิ่มเติมถึงฉบับที่ ๓)</span>
+          </div>
+          <div class="card-desc">คลังข้อสอบจำลอง 250 ข้อ อัปเดตแก้ไขเพิ่มเติมล่าสุด ฉบับที่ 3 พ.ศ. 2562 ครอบคลุม: โครงสร้าง ก.พ. · ตำแหน่ง · สิทธิหน้าที่ · วินัยและโทษทางวินัย · การออกจากราชการ พร้อม Cheat Sheet</div>
+          <div class="card-foot">
+            <span class="tag tag-purple">250 ข้อ</span>
+            <span class="tag tag-purple">ก.พ. / ฉ.3/2562</span>
+            <span class="tag tag-purple">วินัยและโทษ</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="coreexamgovernmentlaws12.html">
+        <div class="card-stripe stripe-teal"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">12</span>
+            <span class="card-title">พ.ร.บ. วินัยการเงินการคลังของรัฐ พ.ศ. ๒๕๖๑</span>
+          </div>
+          <div class="card-desc">คลังข้อสอบวิเคราะห์ 100 ข้อ ครอบคลุมทุกมาตรา: นิยามและตัวละครหลัก (ม.4–5) · ข้อห้ามการเงินการคลัง · สัดส่วนกู้เงิน · การตรวจสอบ สตง. พร้อม Ultimate Fiscal Discipline Cheat Sheet</div>
+          <div class="card-foot">
+            <span class="tag tag-teal">100 ข้อ</span>
+            <span class="tag tag-teal">วินัยการเงิน</span>
+            <span class="tag tag-teal">สตง.</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="coreexamgovernmentlaws11.html">
+        <div class="card-stripe stripe-dark"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">11</span>
+            <span class="card-title">พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล (PDPA) พ.ศ. ๒๕๖๒</span>
+          </div>
+          <div class="card-desc">คลังข้อสอบวิเคราะห์ 100 ข้อ ครอบคลุมละเอียดยิบทุกมาตรา: ขอบเขตและข้อยกเว้น · สิทธิของเจ้าของข้อมูล · ผู้ควบคุมและผู้ประมวลผล · บทลงโทษทางอาญา พร้อม Ultimate PDPA Cheat Sheet</div>
+          <div class="card-foot">
+            <span class="tag tag-dark">100 ข้อ</span>
+            <span class="tag tag-dark">PDPA</span>
+            <span class="tag tag-dark">บทลงโทษ</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- หมวด 4: รัฐธรรมนูญ ธรรมาภิบาล อิเล็กทรอนิกส์ -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon const">🏛️</div>
+      <span class="section-title">รัฐธรรมนูญ · ธรรมาภิบาล · ราชการอิเล็กทรอนิกส์</span>
+      <div class="section-line"></div>
+      <span class="section-count">3 ชุด</span>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="coreexamgovernmentlaws10.html">
+        <div class="card-stripe stripe-red"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">10</span>
+            <span class="card-title">รัฐธรรมนูญแห่งราชอาณาจักรไทย พุทธศักราช ๒๕๖๐</span>
+          </div>
+          <div class="card-desc">อภิมหาคลังข้อสอบ 250 ข้อ ครบทุกหมวดมาตรา 1–279 และบทเฉพาะกาล: สิทธิเสรีภาพ · รัฐสภา · คณะรัฐมนตรี · ศาล · องค์กรอิสระ พร้อมเฉลยละเอียดและ Ultimate Cheat Sheet</div>
+          <div class="card-foot">
+            <span class="tag tag-red">250 ข้อ</span>
+            <span class="tag tag-red">ม.1–279</span>
+            <span class="tag tag-red">บทเฉพาะกาล</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="coreexamgovernmentlaws6.html">
+        <div class="card-stripe stripe-gold"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">06</span>
+            <span class="card-title">พ.ร.ฎ. การบริหารกิจการบ้านเมืองที่ดี พ.ศ. ๒๕๔๖ (และฉบับที่ ๒ / พ.ศ. ๒๕๖๒)</span>
+          </div>
+          <div class="card-desc">คลังข้อสอบ 100 ข้อ พร้อมวิเคราะห์ผลละเอียด สรุปประเด็น: 7 เป้าหมายบ้านเมืองที่ดี (ม.6) · กระบวนงานที่มีคุณภาพ · ลดขั้นตอน · ประเมินผลสัมฤทธิ์ พร้อม Cheat Sheet ฉบับแก้ไขล่าสุด</div>
+          <div class="card-foot">
+            <span class="tag tag-gold">100 ข้อ</span>
+            <span class="tag tag-gold">7 เป้าหมาย ม.6</span>
+            <span class="tag tag-gold">ฉ.2/2562</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="coreexamgovernmentlaws13.html">
+        <div class="card-stripe stripe-forest"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">13</span>
+            <span class="card-title">พ.ร.บ. การปฏิบัติราชการทางอิเล็กทรอนิกส์ พ.ศ. ๒๕๖๕</span>
+          </div>
+          <div class="card-desc">สรุปเจตนารมณ์และสาระสำคัญครบถ้วน พร้อมแบบทดสอบ 50 ข้อ ครอบคลุม: เอกสารอิเล็กทรอนิกส์ · หนังสือราชการดิจิทัล · ลายมือชื่ออิเล็กทรอนิกส์ · ระบบศูนย์กลางบริการภาครัฐ</div>
+          <div class="card-foot">
+            <span class="tag tag-green">50 ข้อ</span>
+            <span class="tag tag-green">กฎหมายใหม่ 2565</span>
+            <span class="tag tag-green">ราชการดิจิทัล</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- หมวด 5: นโยบาย แผน ยุทธศาสตร์ชาติ      -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon plan">🗺️</div>
+      <span class="section-title">นโยบาย แผนพัฒนา และยุทธศาสตร์ชาติ</span>
+      <div class="section-line"></div>
+      <span class="section-count">5 ชุด</span>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="coreexamgovernmentlaws5.html">
+        <div class="card-stripe stripe-green"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">05</span>
+            <span class="card-title">แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 13 (พ.ศ. 2566–2570)</span>
+          </div>
+          <div class="card-desc">ข้อสอบปรนัยเน้นจุดฮิตออกสอบบ่อย สรุปสาระสำคัญ: 4 หมุดหมาย · 13 หมุดหมายย่อย · แนวทางพัฒนา · ตัวชี้วัดและค่าเป้าหมาย พร้อมเฉลย จุดดัก ครอบคลุมทุกประเด็นสำหรับสอบ นักวิเคราะห์นโยบายฯ</div>
+          <div class="card-foot">
+            <span class="tag tag-green">แผน 5 ปี</span>
+            <span class="tag tag-green">13 หมุดหมาย</span>
+            <span class="tag tag-green">ข้อสอบสุ่ม</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="coreexamgovernmentlaws8.html">
+        <div class="card-stripe stripe-teal"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">08</span>
+            <span class="card-title">นโยบาย แผนงาน โครงการ การบริหารจัดการ และงบประมาณ</span>
+          </div>
+          <div class="card-desc">คลังข้อสอบ 100 ข้อ อ้างอิงหลักการ SWOT, McKinsey 7S, แผน 3 ระดับ และการงบประมาณภาครัฐ สรุปประเด็น: วิเคราะห์สภาพแวดล้อม · วางแผนยุทธศาสตร์ · การติดตามประเมินผล · ประสิทธิภาพงบประมาณ</div>
+          <div class="card-foot">
+            <span class="tag tag-teal">100 ข้อ</span>
+            <span class="tag tag-teal">SWOT / 7S</span>
+            <span class="tag tag-teal">งบประมาณภาครัฐ</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="coreexamgovernmentlaws14.html">
+        <div class="card-stripe stripe-navy"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">14</span>
+            <span class="card-title">ยุทธศาสตร์ชาติ ๒๐ ปี (พ.ศ. ๒๕๖๑–๒๕๘๐)</span>
+          </div>
+          <div class="card-desc">คลังข้อสอบ 150 ข้อ สรุป 6 ยุทธศาสตร์ย่อยพร้อมจุดออกสอบบ่อยสุด วิสัยทัศน์ "มั่นคง มั่งคั่ง ยั่งยืน" · เป้าหมายระดับชาติ · ตัวชี้วัดแต่ละยุทธศาสตร์ อ้างอิงพระบรมราชโองการ 8 ตุลาคม 2561</div>
+          <div class="card-foot">
+            <span class="tag tag-navy">150 ข้อ</span>
+            <span class="tag tag-navy">6 ยุทธศาสตร์</span>
+            <span class="tag tag-navy">20 ปี</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="coreexamgovernmentlaws15.html">
+        <div class="card-stripe stripe-forest"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">15</span>
+            <span class="card-title">แผนแม่บทภายใต้ยุทธศาสตร์ชาติ ๒๐ ปี (พ.ศ. ๒๕๖๑–๒๕๘๐)</span>
+          </div>
+          <div class="card-desc">คลังข้อสอบจำลองสนามจริง 200 ข้อ จากแผนแม่บท 23 ฉบับ สรุปตัวชี้วัดสำคัญ ไทม์ไลน์ และเป้าหมายระดับแผน ครบครอบคลุมทุกยุทธศาสตร์ย่อย พร้อมวิเคราะห์ทักษะละเอียด</div>
+          <div class="card-foot">
+            <span class="tag tag-green">200 ข้อ</span>
+            <span class="tag tag-green">23 แผนแม่บท</span>
+            <span class="tag tag-green">ตัวชี้วัดหลัก</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="coreexamgovernmentlaws16.html">
+        <div class="card-stripe stripe-navy"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-num">16</span>
+            <span class="card-title">แผนการปฏิรูปประเทศ พ.ศ. ๒๕๖๒</span>
+          </div>
+          <div class="card-desc">คลังข้อสอบวิเคราะห์ 150 ข้อ ครอบคลุม 13 ด้านหลักการปฏิรูป: รากฐานรัฐธรรมนูญ · ยุทธศาสตร์ชาติ · กรอบระยะเวลาปฏิรูป · กลไกขับเคลื่อน · เป้าหมายรายด้าน พร้อม National Reform Cheat Sheet</div>
+          <div class="card-foot">
+            <span class="tag tag-navy">150 ข้อ</span>
+            <span class="tag tag-navy">13 ด้านปฏิรูป</span>
+            <span class="tag tag-navy">Cheat Sheet</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  ชุดเตรียมสอบข้าราชการ · <strong>กฎหมายและนโยบายหลักสำหรับสนามสอบ ก.พ. ท้องถิ่น และข้าราชการทุกระดับ</strong><br>
+  เนื้อหาจัดทำเพื่อการทบทวนเตรียมสอบเท่านั้น · โปรดตรวจสอบกับกฎหมายต้นฉบับฉบับล่าสุดก่อนนำไปใช้งานจริง
+</footer>
+
+</body>
+</html>

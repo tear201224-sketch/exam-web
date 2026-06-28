@@ -1,0 +1,3155 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบทดสอบความรู้ระเบียบงานสารบรรณ</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-blue-800 to-indigo-900 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="bg-white p-2.5 rounded-full shadow-inner">
+                    <!-- Garuda Icon Placeholder / SVG Emblem -->
+                    <svg class="w-10 h-10 text-indigo-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M12 8v8"/>
+                        <path d="M8 12h8"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-tight">ระบบจำลองข้อสอบงานสารบรรณ</h1>
+                    <p class="text-xs sm:text-sm text-blue-200 mt-1">ระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณ พ.ศ. ๒๕๒๖ และที่แก้ไขเพิ่มเติม (ถึงฉบับที่ ๔ พ.ศ. ๒๕๖๔)</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 bg-blue-700/50 text-blue-100 rounded-full text-xs font-semibold border border-blue-500/30">คลังข้อสอบ 200 ข้อ</span>
+                <span class="px-3 py-1 bg-indigo-700/50 text-indigo-100 rounded-full text-xs font-semibold border border-indigo-500/30">ระบบตรวจคะแนนอัตโนมัติ</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 py-8 sm:px-6 lg:px-8">
+        
+        <!-- Welcome / Setup Screen -->
+        <div id="setup-screen" class="max-w-3xl mx-auto bg-white rounded-2xl shadow-md border border-slate-200/80 p-6 sm:p-10 space-y-8">
+            <div class="text-center space-y-3">
+                <span class="text-indigo-600 font-semibold tracking-wider text-xs uppercase bg-indigo-50 px-3 py-1 rounded-full">พร้อมรับมือการสอบภาค ก. และ ข.</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">เตรียมความพร้อมพิชิตคะแนนเต็มสารบรรณ</h2>
+                <p class="text-slate-500 text-sm sm:text-base max-w-lg mx-auto">ฝึกทำข้อสอบปรนัยเสมือนจริงที่อัปเดตตามระเบียบสารบรรณฉบับล่าสุด เลือกโหมดการทำข้อสอบที่คุณต้องการเพื่อเริ่มต้นเรียนรู้</p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Card Mode 1 -->
+                <button onclick="selectMode('practice')" class="group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-indigo-600 hover:bg-indigo-50/20 transition-all duration-200 focus:outline-none">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-indigo-100 text-indigo-700 p-3 rounded-lg group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">โหมดฝึกฝน (Practice Mode)</h3>
+                            <p class="text-slate-500 text-xs mt-1 leading-relaxed">เหมาะสำหรับการอ่านทบทวนเฉลยอย่างละเอียดทันทีในแต่ละข้อ ไม่มีเวลาจำกัด สามารถสลับข้อได้อิสระ</p>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Card Mode 2 -->
+                <button onclick="selectMode('exam')" class="group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:bg-blue-50/20 transition-all duration-200 focus:outline-none">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-blue-100 text-blue-700 p-3 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">โหมดสอบจริง (Exam Mode)</h3>
+                            <p class="text-slate-500 text-xs mt-1 leading-relaxed">จำลองการทำข้อสอบแบบสุ่ม มีการกำหนดเวลาจำกัด 45 นาที ไม่แสดงเฉลยจนกว่าจะกดส่งกระดาษคำตอบ</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Configuration -->
+            <div class="border-t border-slate-200 pt-6 space-y-4">
+                <h4 class="font-semibold text-slate-800">ตั้งค่าแบบทดสอบ</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-500 mb-1.5">จำนวนข้อสอบที่ต้องการทำ</label>
+                        <select id="exam-quantity" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+                            <option value="20">20 ข้อ (ทดสอบสั้น ๆ)</option>
+                            <option value="40" selected>40 ข้อ (มาตรฐาน)</option>
+                            <option value="80">80 ข้อ (ทดสอบแบบเข้มข้น)</option>
+                            <option value="120">120 ข้อ (ทดสอบแบบระยะยาว)</option>
+                            <option value="200">200 ข้อ (ครบทุกข้อในคลังสารบรรณ)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-500 mb-1.5">ขอบเขตเนื้อหา</label>
+                        <select id="exam-scope" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+                            <option value="all">ครอบคลุมระเบียบและข้อแก้ไขทั้งหมด (๒๐๐ ข้อ)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="startQuiz()" class="w-full py-4 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-bold rounded-xl shadow-md shadow-indigo-600/20 transition-all text-center block focus:outline-none">
+                เริ่มเข้าสู่แบบทดสอบ
+            </button>
+        </div>
+
+        <!-- Active Quiz Screen -->
+        <div id="quiz-screen" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Question Panel (3/4 of the width on desktop) -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Status/Progress Bar -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="flex items-center gap-3">
+                        <span id="badge-mode" class="px-2.5 py-0.5 rounded text-xs font-bold uppercase"></span>
+                        <div class="text-sm font-medium text-slate-500">
+                            ข้อที่ <span id="current-q-index" class="text-slate-800 font-bold">1</span> จาก <span id="total-q-count" class="text-slate-800 font-bold">40</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Progress bar indicator -->
+                    <div class="flex-grow max-w-md w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                        <div id="progress-bar-fill" class="bg-indigo-600 h-full transition-all duration-300" style="width: 5%"></div>
+                    </div>
+
+                    <!-- Timer block -->
+                    <div id="timer-container" class="flex items-center gap-2 text-rose-600 font-bold hidden">
+                        <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span id="quiz-timer">45:00</span>
+                    </div>
+                </div>
+
+                <!-- Main Question Card -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+                    <!-- Category & Bookmark -->
+                    <div class="flex justify-between items-center">
+                        <span id="question-category" class="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded">หมวดทั่วไป</span>
+                        <button onclick="toggleFlag()" id="flag-btn" class="text-slate-400 hover:text-amber-500 focus:outline-none flex items-center gap-1.5 text-xs font-medium">
+                            <svg id="flag-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                            <span>ปักหมุดทบทวน</span>
+                        </button>
+                    </div>
+
+                    <!-- Question Text -->
+                    <div class="space-y-4">
+                        <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-900 leading-relaxed"></h3>
+                    </div>
+
+                    <!-- Answer Options List -->
+                    <div id="options-container" class="grid grid-cols-1 gap-3.5">
+                        <!-- Options generated dynamically here -->
+                    </div>
+
+                    <!-- Instant Explanation Panel (Only for Practice Mode) -->
+                    <div id="explanation-panel" class="hidden bg-slate-50 rounded-xl border border-slate-200 p-5 space-y-2.5 animate-fadeIn">
+                        <div class="flex items-center gap-2">
+                            <span id="explanation-title-badge" class="px-2 py-0.5 rounded text-xs font-bold text-white"></span>
+                            <span class="text-sm font-bold text-slate-800">คำอธิบายประกอบระเบียบ</span>
+                        </div>
+                        <p id="explanation-text" class="text-sm text-slate-600 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between items-center gap-4">
+                    <button onclick="prevQuestion()" id="prev-btn" class="px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg> ย้อนกลับ
+                    </button>
+                    
+                    <button onclick="nextQuestion()" id="next-btn" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none flex items-center gap-2">
+                        ถัดไป <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+
+                    <button onclick="showSubmitConfirmModal()" id="submit-quiz-btn" class="hidden px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-lg shadow-md shadow-rose-600/10 transition-colors text-sm focus:outline-none">
+                        ส่งคำตอบและสิ้นสุดการสอบ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar Navigation Grid (1/4 of the width) -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- Helper block -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-4">
+                    <h4 class="font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                        <span>แผงควบคุมคำตอบ</span>
+                        <span id="score-counter" class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono"></span>
+                    </h4>
+                    
+                    <div id="grid-navigation" class="grid grid-cols-5 gap-2 max-h-72 overflow-y-auto p-1">
+                        <!-- Numbers generated dynamically here -->
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-3 space-y-2">
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-indigo-600 inline-block"></span>
+                            <span>กำลังทำอยู่</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-indigo-100 border border-indigo-300 inline-block"></span>
+                            <span>ตอบแล้ว</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-amber-500 inline-block"></span>
+                            <span>ปักหมุดรีวิว</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-slate-100 border border-slate-200 inline-block"></span>
+                            <span>ยังไม่ทำ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="confirmExit()" class="w-full py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-lg text-sm shadow-sm transition-colors focus:outline-none text-center block">
+                    ออกจากห้องสอบ
+                </button>
+            </div>
+        </div>
+
+        <!-- Result / Scoring Dashboard Screen -->
+        <div id="result-screen" class="hidden max-w-4xl mx-auto space-y-8">
+            <!-- Score Card -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 text-center space-y-6">
+                <div class="space-y-2">
+                    <span id="result-badge" class="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider"></span>
+                    <h2 class="text-3xl font-extrabold text-slate-900">สรุปคะแนนสอบของคุณ</h2>
+                </div>
+
+                <div class="relative w-44 h-44 mx-auto flex items-center justify-center">
+                    <!-- Progress Ring -->
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e2e8f0" stroke-width="8"/>
+                        <circle id="score-ring-fill" cx="50" cy="50" r="40" fill="transparent" stroke="#4f46e5" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round" class="transition-all duration-1000 ease-out"/>
+                    </svg>
+                    <!-- Percentage text -->
+                    <div class="absolute flex flex-col items-center">
+                        <span id="result-percentage" class="text-4xl font-extrabold text-slate-900">0%</span>
+                        <span id="result-score-fraction" class="text-xs text-slate-500 font-bold mt-1"></span>
+                    </div>
+                </div>
+
+                <!-- Analysis Text -->
+                <p id="result-feedback-text" class="text-slate-600 max-w-md mx-auto text-sm sm:text-base leading-relaxed"></p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-200 pt-6">
+                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                        <span class="block text-xs font-medium text-emerald-600">ตอบถูก</span>
+                        <span id="stat-correct" class="text-xl font-extrabold text-emerald-800"></span>
+                    </div>
+                    <div class="bg-rose-50 rounded-xl p-4 border border-rose-100">
+                        <span class="block text-xs font-medium text-rose-600">ตอบผิด / ไม่ตอบ</span>
+                        <span id="stat-incorrect" class="text-xl font-extrabold text-rose-800"></span>
+                    </div>
+                    <div class="bg-blue-50 rounded-xl p-4 border border-blue-100">
+                        <span class="block text-xs font-medium text-blue-600">เวลาที่ใช้</span>
+                        <span id="stat-time-spent" class="text-xl font-extrabold text-blue-800"></span>
+                    </div>
+                </div>
+
+                <!-- Topic Analysis Progress Bars -->
+                <div class="border-t border-slate-200 pt-6 space-y-4 text-left">
+                    <h4 class="font-bold text-slate-800">การวิเคราะห์ทักษะรายหัวข้อ</h4>
+                    <div id="topic-analysis-container" class="space-y-3.5">
+                        <!-- Analyzed categories appear here dynamically -->
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <button onclick="restartQuiz()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-md transition-all text-sm focus:outline-none">
+                        ทำแบบทดสอบอีกครั้ง
+                    </button>
+                    <button onclick="toggleDetailedReview()" id="toggle-review-btn" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-all text-sm focus:outline-none border border-slate-300">
+                        ดูข้อสอบเฉลยละเอียด
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed Correction View -->
+            <div id="detailed-review-section" class="hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-slate-100 p-4 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 text-lg">คำเฉลยและข้อแนะนำโดยละเอียด</h3>
+                    <div class="flex gap-2">
+                        <select id="review-filter" onchange="filterReviewList()" class="bg-white border border-slate-300 text-xs font-bold rounded-lg px-2.5 py-1.5 focus:outline-none">
+                            <option value="all">แสดงทั้งหมด</option>
+                            <option value="incorrect">แสดงเฉพาะข้อที่ตอบผิด</option>
+                            <option value="flagged">แสดงเฉพาะข้อที่ปักหมุด</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="review-questions-list" class="space-y-6">
+                    <!-- Dynamic review cards generated here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400 py-6 text-center text-xs mt-auto border-t border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 space-y-1">
+            <p>ระบบข้อสอบและคำอธิบายเรียบเรียงขึ้นตามระเบียบงานสารบรรณอย่างเป็นทางการ</p>
+            <p>© 2569 จำลองข้อสอบเสมือนจริงเพื่อพัฒนาทักษะวิชาชีพข้าราชการไทย</p>
+        </div>
+    </footer>
+
+    <!-- Submit Quiz Confirmation Modal -->
+    <div id="submit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200 animate-fadeIn">
+            <div class="text-center space-y-3">
+                <div class="bg-rose-50 text-rose-600 p-3 rounded-full w-fit mx-auto border border-rose-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">คุณแน่ใจหรือไม่ที่จะส่งกระดาษคำตอบ?</h3>
+                <p id="modal-completion-status" class="text-sm text-slate-500 leading-relaxed"></p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideSubmitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    กลับไปทำต่อ
+                </button>
+                <button onclick="submitQuiz()" class="flex-1 py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none shadow-md shadow-rose-600/10">
+                    ยืนยันส่งกระดาษคำตอบ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Confirmation Modal -->
+    <div id="exit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200 animate-fadeIn">
+            <div class="text-center space-y-3">
+                <div class="bg-slate-50 text-slate-600 p-3 rounded-full w-fit mx-auto border border-slate-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">ต้องการออกจากห้องสอบหรือไม่?</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">ความก้าวหน้าและการทำข้อสอบในรอบนี้จะไม่ถูกบันทึกไว้</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideExitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำข้อสอบต่อ
+                </button>
+                <button onclick="exitQuiz()" class="flex-1 py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ยืนยันออกจากการสอบ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 200 Comprehensive Question Bank derived from Official Correspondence Regulations ---
+        const ALL_QUESTIONS = [
+            {
+                id: 1,
+                category: "บททั่วไป",
+                question: "ผู้วางระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณ พ.ศ. ๒๕๒๖ คือบุคคล/องค์กรใด?",
+                options: ["ก. นายกรัฐมนตรี", "ข. คณะรัฐมนตรี", "ค. ก.พ.", "ง. ปลัดสำนักนายกรัฐมนตรี"],
+                answer: 1,
+                rationale: "ผู้วางระเบียบนี้คือ คณะรัฐมนตรี ส่วนผู้รักษาการตามระเบียบนี้คือ ปลัดสำนักนายกรัฐมนตรี"
+            },
+            {
+                id: 2,
+                category: "บททั่วไป",
+                question: "ระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณ พ.ศ. ๒๕๒๖ มีผลใช้บังคับเมื่อใด?",
+                options: ["ก. ๑ มีนาคม ๒๕๒๖", "ข. ๒ มิถุนายน ๒๕๒๖", "ค. ๑ มิถุนายน ๒๕๒๖", "ง. ๑ ธันวาคม ๒๕๒๖"],
+                answer: 2,
+                rationale: "ให้ใช้บังคับตั้งแต่วันที่ ๑ มิถุนายน พ.ศ. ๒๕๒๖ เป็นต้นไป"
+            },
+            {
+                id: 3,
+                category: "บททั่วไป",
+                question: "หากส่วนราชการมีความจำเป็นในการปฏิบัติงานนอกเหนือจากที่ระเบียบกำหนดไว้ จะต้องทำความตกลงกับใคร?",
+                options: ["ก. นายกรัฐมนตรี", "ข. ปลัดสำนักนายกรัฐมนตรี", "ค. รองนายกรัฐมนตรี", "ง. คณะรัฐมนตรี"],
+                answer: 1,
+                rationale: "ข้อ ๔ กำหนดให้ความจำเป็นที่นอกเหนือไปจากระเบียบนี้ ให้ขอทำความตกลงกับผู้รักษาการ (ปลัดสำนักนายกรัฐมนตรี)"
+            },
+            {
+                id: 4,
+                category: "บททั่วไป",
+                question: "กรณีใดที่ได้รับยกเว้น ไม่ต้องถือปฏิบัติตามระเบียบงานสารบรรณนี้?",
+                options: [
+                    "ก. เมื่อระเบียบความปลอดภัยแห่งชาติกำหนดเป็นอย่างอื่น",
+                    "ข. เมื่อระเบียบการรักษาความลับของทางราชการกำหนดเป็นอย่างอื่น",
+                    "ค. เมื่อนายกรัฐมนตรีกำหนดไว้เป็นอย่างอื่น",
+                    "ง. ถูกทั้ง ก. และ ข."
+                ],
+                answer: 3,
+                rationale: "ข้อ ๕ ในกรณีที่กฎหมาย ระเบียบความปลอดภัย หรือการรักษาความลับกำหนดไว้เป็นอย่างอื่น ให้ถือตามนั้น"
+            },
+            {
+                id: 5,
+                category: "คำนิยาม",
+                question: "ความหมายของคำว่า 'งานสารบรรณ' ตามระเบียบนี้คือข้อใด?",
+                options: [
+                    "ก. การจัดการเอกสาร",
+                    "ข. การบริการด้านเอกสาร",
+                    "ค. การปฏิบัติงานด้านงานสารบรรณ",
+                    "ง. งานที่เกี่ยวกับการบริหารงานเอกสาร"
+                ],
+                answer: 3,
+                rationale: "งานสารบรรณ หมายถึง งานที่เกี่ยวกับการบริหารงานเอกสาร เริ่มตั้งแต่จัดทำ รับ ส่ง เก็บ ยืม และทำลาย"
+            },
+            {
+                id: 6,
+                category: "คำนิยาม",
+                question: "ขั้นตอนแรกตามนิยามและกระบวนการของงานสารบรรณคือสิ่งใด?",
+                options: ["ก. การจัดทำ", "ข. การรับ", "ค. การส่ง", "ง. การเก็บรักษา"],
+                answer: 0,
+                rationale: "นิยามงานสารบรรณเรียงลำดับขั้นตอน: จัดทำ -> รับ -> ส่ง -> เก็บรักษา -> ยืม -> ทำลาย ดังนั้นการจัดทำคือขั้นตอนแรกสุด"
+            },
+            {
+                id: 7,
+                category: "คำนิยาม",
+                question: "การจัดทำ การรับ การส่ง การเก็บรักษา การยืม จนถึงการทำลาย คือนิยามของอะไร?",
+                options: ["ก. ระบบทะเบียนกลาง", "ข. การจัดการจดหมายเหตุ", "ค. เอกสารสำคัญทางกฎหมาย", "ง. งานสารบรรณ"],
+                answer: 3,
+                rationale: "เป็นองค์ประกอบขั้นตอนทั้งหมดของ 'งานสารบรรณ' ตามข้อ ๖ ของระเบียบ"
+            },
+            {
+                id: 8,
+                category: "คำนิยาม",
+                question: "ในระเบียบนี้ คำว่า 'หนังสือ' หมายความตรงกับข้อใด?",
+                options: ["ก. หนังสือติดต่อทั่วไป", "ข. หนังสือราชการ", "ค. ทะเบียนหนังสือรับส่ง", "ง. เอกสารกฎหมายทั้งหมด"],
+                answer: 1,
+                rationale: "ในระเบียบนี้ 'หนังสือ' หมายความว่า 'หนังสือราชการ'"
+            },
+            {
+                id: 9,
+                category: "คำนิยาม",
+                question: "ข้อใดให้ความหมายของคำว่า 'อิเล็กทรอนิกส์' ได้ถูกต้องครบถ้วนตามระเบียบสารบรรณ?",
+                options: [
+                    "ก. การประยุกต์ใช้วิธีการทางอิเล็กตรอน ไฟฟ้า คลื่นแม่เหล็กไฟฟ้า หรือวิธีการทำนองเดียวกัน",
+                    "ข. การรวมถึงวิธีการทางแสง วิธีการทางแม่เหล็ก หรืออุปกรณ์ที่เกี่ยวข้อง",
+                    "ค. การจัดการผ่านสื่อกลางเทคโนโลยี",
+                    "ง. ถูกทุกข้อ"
+                ],
+                answer: 3,
+                rationale: "นิยามอิเล็กทรอนิกส์ ครอบคลุมวิธีการทางอิเล็กตรอน ไฟฟ้า แม่เหล็กไฟฟ้า ทางแสง และทางแม่เหล็กทั้งหมด"
+            },
+            {
+                id: 10,
+                category: "คำนิยาม",
+                question: "ระบบสารบรรณอิเล็กทรอนิกส์ตามระเบียบนี้ รวมความถึงช่องทางรับส่งไปรษณีย์อิเล็กทรอนิกส์ (Email) หรือไม่?",
+                options: [
+                    "ก. ไม่รวม อีเมลเป็นเรื่องเทคโนโลยีสารสนเทศทั่วไป",
+                    "ข. รวมไปรษณีย์อิเล็กทรอนิกส์ของส่วนราชการ และช่องทางอื่นตามที่หัวหน้าส่วนราชการกำหนด",
+                    "ค. รวมเฉพาะระบบโปรแกรมจัดเก็บแบบปิดของส่วนกลางเท่านั้น",
+                    "ง. รวมเฉพาะการรับส่ง ไม่รวมการเก็บรักษา"
+                ],
+                answer: 1,
+                rationale: "ระบบสารบรรณอิเล็กทรอนิกส์รวมถึงการส่งด้วยไปรษณีย์อิเล็กทรอนิกส์ของส่วนราชการหรือที่จัดสรรให้เจ้าหน้าที่ใช้งาน"
+            },
+            {
+                id: 11,
+                category: "คำนิยาม",
+                question: "ตามนิยามคำว่า 'ส่วนราชการ' ในระเบียบนี้ ข้อใดมิใช่ส่วนราชการที่อยู่ภายใต้การบังคับใช้หลัก?",
+                options: [
+                    "ก. กระทรวง ทบวง กรม",
+                    "ข. ราชการส่วนท้องถิ่น",
+                    "ค. การดำเนินกระบวนพิจารณาในชั้นศาล",
+                    "ง. คณะกรรมการที่ได้รับมอบหมายจากทางราชการ"
+                ],
+                answer: 2,
+                rationale: "ราชการศาลในแง่การดำเนินกระบวนพิจารณาคดีไม่ได้ใช้ระเบียบนี้โดยตรง แต่ส่วนราชการตามระเบียบครอบคลุมกระทรวง ทบวง กรม ส่วนท้องถิ่น และรวมถึงคณะกรรมการด้วย"
+            },
+            {
+                id: 12,
+                category: "คำนิยาม",
+                question: "ผู้รักษาการตามระเบียบสารบรรณฉบับปัจจุบันคือใคร?",
+                options: ["ก. นายกรัฐมนตรี", "ข. ปลัดสำนักนายกรัฐมนตรี", "ค. รัฐมนตรีประจำสำนักนายกรัฐมนตรี", "ง. เลขาธิการคณะรัฐมนตรี"],
+                answer: 1,
+                rationale: "ตามข้อ ๘ ปลัดสำนักนายกรัฐมนตรีเป็นผู้รักษาการตามระเบียบนี้"
+            },
+            {
+                id: 13,
+                category: "คำนิยาม",
+                question: "เมื่อเกิดปัญหาเกี่ยวกับการตีความและวินิจฉัยปัญหาในการปฏิบัติตามระเบียบนี้ ใครเป็นผู้มีอำนาจชี้ขาดสูงสุด?",
+                options: ["ก. ศาลปกครอง", "ข. ปลัดสำนักนายกรัฐมนตรี", "ค. นายกรัฐมนตรี", "ง. คณะกรรมการกฤษฎีกา"],
+                answer: 1,
+                rationale: "ข้อ ๘ กำหนดให้ปลัดสำนักนายกรัฐมนตรีเป็นผู้มีอำนาจตีความและวินิจฉัยปัญหาเกี่ยวกับการปฏิบัติตามระเบียบนี้"
+            },
+            {
+                id: 14,
+                category: "บททั่วไป",
+                question: "ใครคือหน่วยงานหรือผู้ที่มีหน้าที่ดำเนินงานฝึกอบรมสารบรรณแก่บุคลากรภาครัฐ?",
+                options: ["ก. สถาบันดำรงราชานุภาพ", "ข. ก.พ.", "ค. ปลัดสำนักนายกรัฐมนตรี", "ง. สำนักงาน ก.พ.ร."],
+                answer: 2,
+                rationale: "เป็นอำนาจหน้าที่ของปลัดสำนักนายกรัฐมนตรีในฐานะผู้รักษาการตามระเบียบ (ข้อ ๘ วรรคหนึ่ง)"
+            },
+            {
+                id: 15,
+                category: "ชนิดหนังสือ",
+                question: "ข้อใดถือว่าเป็น 'หนังสือราชการ' ตามนิยามของข้อ ๙ ของระเบียบ?",
+                options: [
+                    "ก. หนังสือติดต่อระหว่างส่วนราชการด้วยกัน",
+                    "ข. เอกสารที่ส่วนราชการมีถึงบุคคลภายนอก หรือบุคคลภายนอกมีมาถึงทางราชการ",
+                    "ค. ข้อมูลข่าวสารทางสารบรรณอิเล็กทรอนิกส์",
+                    "ง. ถูกทุกข้อ"
+                ],
+                answer: 3,
+                rationale: "หนังสือราชการครอบคลุม ๖ กรณีตามข้อ ๙ รวมถึงหนังสือติดต่อระหว่างส่วนราชการ นอกส่วนราชการ และอิเล็กทรอนิกส์ด้วย"
+            },
+            {
+                id: 16,
+                category: "ชนิดหนังสือ",
+                question: "หนังสือราชการมีทั้งหมดกี่ชนิด?",
+                options: ["ก. ๔ ชนิด", "ข. ๕ ชนิด", "ค. ๖ ชนิด", "ง. ๗ ชนิด"],
+                answer: 2,
+                rationale: "ข้อ ๑๐ กำหนดว่าหนังสือราชการแบ่งออกเป็น ๖ ชนิด ได้แก่ หนังสือภายนอก ภายใน ประทับตรา สั่งการ ประชาสัมพันธ์ และหนังสือที่เจ้าหน้าที่ทำขึ้น/รับไว้"
+            },
+            {
+                id: 17,
+                category: "ชนิดหนังสือ",
+                question: "ข้อใดไม่ถือเป็นหนึ่งในหนังสือสั่งการ?",
+                options: ["ก. คำสั่ง", "ข. ระเบียบ", "ค. ข้อบังคับ", "ง. ประกาศ"],
+                answer: 3,
+                rationale: "หนังสือสั่งการมี ๓ ชนิดคือ คำสั่ง ระเบียบ และข้อบังคับ ส่วนประกาศเป็นหนังสือประชาสัมพันธ์"
+            },
+            {
+                id: 18,
+                category: "ชนิดหนังสือ",
+                question: "หนังสือภายนอกต้องใช้คู่กับกระดาษชนิดใดในการจัดพิมพ์อย่างเป็นทางการ?",
+                options: ["ก. บันทึกข้อความ", "ข. กระดาษตราครุฑ", "ค. กระดาษประทับตรา", "ง. กระดาษขาวเรียบไม่มีหัวจดหมาย"],
+                answer: 1,
+                rationale: "ข้อ ๑๑ กำหนดให้หนังสือภายนอกเป็นหนังสือแบบพิธีใช้กับกระดาษตราครุฑ"
+            },
+            {
+                id: 19,
+                category: "ชนิดหนังสือ",
+                question: "ส่วนประกอบใดเป็นรายละเอียดเฉพาะเจาะจงที่ระบุอยู่ใน 'ที่' ของหนังสือภายนอก?",
+                options: [
+                    "ก. รหัสตัวพยัญชนะและเลขประจำตัวเจ้าของหนังสือ ทับเลขทะเบียนหนังสือส่ง",
+                    "ข. รหัสไปรษณีย์และตราประทับกระทรวง",
+                    "ค. เลขประจำตัวประชาชนผู้ส่งเอกสาร",
+                    "ง. ลายมือชื่อพยานที่ลงนาม"
+                ],
+                answer: 0,
+                rationale: "ตามระเบียบข้อ ๑๑.๑ 'ที่' ให้ลงรหัสตัวพยัญชนะและเลขประจำของเจ้าของเรื่อง ทับเลขทะเบียนส่ง"
+            },
+            {
+                id: 20,
+                category: "ชนิดหนังสือ",
+                question: "การลง 'วัน เดือน ปี' ในหนังสือภายนอกและภายใน ข้อใดเขียนได้ถูกต้องที่สุดตามระเบียบ?",
+                options: ["ก. วันที่ ๑ มีนาคม พ.ศ. ๒๕๖๖", "ข. ๑ มีนาคม ๒๕๖๖", "ค. ๑ มี.ค. ๖๖", "ง. ๑ เดือนมีนาคม พ.ศ. ๒๕๖๖"],
+                answer: 1,
+                rationale: "ให้เขียนเลขวันที่ ชื่อเต็มของเดือน และเลขปีพุทธศักราชโดยทันที เช่น '๑ มีนาคม ๒๕๖๖' โดยไม่มีคำว่า 'วันที่', 'เดือน' หรือ 'พ.ศ.'"
+            },
+            {
+                id: 21,
+                category: "ชนิดหนังสือ",
+                question: "การระบุคำลงท้าย ชื่อ และตำแหน่ง ในส่วนท้ายของหนังสือภายนอก มีลำดับการจัดวางอย่างไรจึงจะถูกต้อง?",
+                options: [
+                    "ก. ลงชื่อ -> คำลงท้าย -> ตำแหน่ง",
+                    "ข. คำลงท้าย -> ลงชื่อ -> ตำแหน่ง",
+                    "ค. ตำแหน่ง -> คำลงท้าย -> ลงชื่อ",
+                    "ง. คำลงท้าย -> ตำแหน่ง -> ลงชื่อ"
+                ],
+                answer: 1,
+                rationale: "ลำดับการเขียนคำลงท้ายตามระเบียบคือ วางคำลงท้ายก่อน จากนั้นจึงเป็นส่วนลายมือชื่อ และตำแหน่งของผู้ลงนามตามลำดับ"
+            },
+            {
+                id: 22,
+                category: "ชนิดหนังสือ",
+                question: "หากส่วนราชการที่ออกจดหมายอยู่ในระดับกรมลงมา การเขียน 'ส่วนราชการเจ้าของเรื่อง' ควรปฏิบัติอย่างไร?",
+                options: [
+                    "ก. ต้องเขียนระดับกระทรวงลงไปจนถึงระดับงานย่อย",
+                    "ข. ลงชื่อส่วนราชการเจ้าของเรื่องเพียงระดับกองหรือหน่วยงานที่รับผิดชอบเท่านั้น",
+                    "ค. ไม่จำเป็นต้องระบุแผนก",
+                    "ง. ลงระดับกระทรวงและกรมเคียงคู่กัน"
+                ],
+                answer: 1,
+                rationale: "ถ้าส่วนราชการออกหนังสือระดับกรมลงมา ให้ระบุส่วนราชการเจ้าของเรื่องเพียงระดับกองหรือหน่วยงานที่รับผิดชอบ"
+            },
+            {
+                id: 23,
+                category: "ชนิดหนังสือ",
+                question: "หนังสือภายในใช้กระดาษชนิดใดในการติดต่อสื่อสารราชการ?",
+                options: ["ก. กระดาษตราครุฑ", "ข. กระดาษบันทึกข้อความ", "ค. กระดาษตราประทับส่วนตัว", "ง. กระดาษ A4 เปล่าไม่มีตรา"],
+                answer: 1,
+                rationale: "หนังสือภายในเป็นหนังสือพิธีการน้อยกว่าหนังสือภายนอก ใช้ติดต่อภายในกระทรวงเดียวกันหรือจังหวัดเดียวกัน โดยใช้กระดาษบันทึกข้อความ"
+            },
+            {
+                id: 24,
+                category: "ชนิดหนังสือ",
+                question: "ส่วนประกอบใดที่จะ 'ไม่มี' ปรากฏในหนังสือภายในอย่างเด็ดขาด?",
+                options: ["ก. ส่วนราชการผู้ส่ง", "ข. ที่เลขหนังสือ", "ค. คำลงท้าย", "ง. วันเดือนปีที่ออกจดหมาย"],
+                answer: 2,
+                rationale: "หนังสือภายในเขียนโดยใช้กระดาษบันทึกข้อความซึ่งมีเพียงคำขึ้นต้นแต่ไม่มี 'คำลงท้าย' (เช่น ขอแสดงความนับถือ)"
+            },
+            {
+                id: 25,
+                category: "ชนิดหนังสือ",
+                question: "หนังสือประทับตราคือหนังสือราชการที่ใช้สิ่งใดแทนการลงลายมือชื่อของหัวหน้าส่วนราชการระดับกรมขึ้นไป?",
+                options: ["ก. การใช้อีเมลยืนยัน", "ข. การประทับตราสัญลักษณ์ครุฑเฉยๆ", "ค. การประทับตราชื่อส่วนราชการสีแดงพร้อมลงชื่อย่อกำกับ", "ง. การใช้นามบัตรลงชื่อแนบ"],
+                answer: 2,
+                rationale: "หนังสือประทับตราใช้การประทับตราชื่อส่วนราชการ (หมึกแดง) และให้ผู้รับผิดชอบ (หัวหน้ากองหรือผู้ได้รับมอบหมาย) ลงชื่อย่อกำกับตรา"
+            },
+            {
+                id: 26,
+                category: "ชนิดหนังสือ",
+                question: "กรณีใดต่อไปนี้ 'ห้าม' ใช้หนังสือประทับตราในการดำเนินงานส่งราชการ?",
+                options: [
+                    "ก. การขอข้อมูลเพิ่มเติมหรือส่งรายงานปกติ",
+                    "ข. การแจ้งการเงินสำคัญหรือเรื่องราชการที่เป็นนโยบายลับและสำคัญมาก",
+                    "ค. การตอบรับทราบเรื่องงานทั่วไป",
+                    "ง. การเตือนติดตามงานค้าง"
+                ],
+                answer: 1,
+                rationale: "หนังสือประทับตราใช้สำหรับกรณีทั่วไปที่ไม่ใช่เรื่องสำคัญมากนัก ไม่เหมาะอย่างยิ่งกับเรื่องการเงินหรือเรื่องเชิงนโยบายที่สำคัญอย่างสูง"
+            },
+            {
+                id: 27,
+                category: "ชนิดหนังสือ",
+                question: "หมึกประทับตราชื่อส่วนราชการในหนังสือประทับตราจะต้องเป็นสีอะไร?",
+                options: ["ก. สีน้ำเงิน", "ข. สีดำ", "ค. สีแดง", "ง. สีเขียว"],
+                answer: 2,
+                rationale: "ระเบียบกำหนดให้ใช้ประทับตราชื่อส่วนราชการด้วย 'หมึกแดง' เสมอ"
+            },
+            {
+                id: 28,
+                category: "ชนิดหนังสือ",
+                question: "การใช้หนังสือประทับตรา ใครเป็นผู้มีหน้าที่ลงลายมือชื่อย่อกำกับตราประทับสีแดงนั้น?",
+                options: [
+                    "ก. ข้าราชการทุกคนในหน่วยงาน",
+                    "ข. หัวหน้าส่วนราชการระดับกอง หรือข้าราชการผู้ได้รับมอบหมายจากระดับกรมขึ้นไป",
+                    "ค. ปลัดสำนักนายกรัฐมนตรีผู้เดียว",
+                    "ง. อธิบดีเท่านั้น"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๑๓ ระบุชัดว่าผู้ลงลายมือชื่อย่อกำกับคือ หัวหน้าส่วนราชการระดับกอง หรือผู้ที่ได้รับมอบหมายจากหัวหน้าส่วนราชการระดับกรมขึ้นไป"
+            },
+            {
+                id: 29,
+                category: "ชนิดหนังสือ",
+                question: "หนังสือสั่งการมี ๓ ชนิด ประกอบด้วยอะไรบ้าง?",
+                options: [
+                    "ก. คำสั่ง ระเบียบ และข้อบังคับ",
+                    "ข. ประกาศ แถลงการณ์ และข่าว",
+                    "ค. หนังสือรับรอง บันทึก และจดหมายเหตุ",
+                    "ง. นโยบาย คำสั่ง และแนวทางปฏิบัติ"
+                ],
+                answer: 0,
+                rationale: "ข้อ ๑๕ และ ๑๖ บ่งชี้ว่าหนังสือสั่งการมี ๓ ชนิดเท่านั้น คือ คำสั่ง ระเบียบ และข้อบังคับ"
+            },
+            {
+                id: 30,
+                category: "ชนิดหนังสือ",
+                question: "บรรดาข้อความที่ผู้บังคับบัญชาสั่งการให้ปฏิบัติโดยชอบด้วยกฎหมาย มีชื่อเรียกว่าอะไร?",
+                options: ["ก. กฎกระทรวง", "ข. ระเบียบปฏิบัติ", "ค. ข้อบังคับ", "ง. คำสั่ง"],
+                answer: 3,
+                rationale: "คำนิยามตามข้อ ๑๖: 'คำสั่ง' คือ บรรดาข้อความที่ผู้บังคับบัญชาสั่งการให้ปฏิบัติโดยชอบด้วยกฎหมาย"
+            },
+            {
+                id: 31,
+                category: "ชนิดหนังสือ",
+                question: "ในหนังสือสั่งการประเภท 'ระเบียบ' ข้อความที่เป็นโครงสร้างบังคับของระเบียบ ข้อที่ ๑ ต้องกำหนดสิ่งใดเสมอ?",
+                options: ["ก. วันที่ใช้บังคับ", "ข. ชื่อของระเบียบ", "ค. ผู้รักษาการ", "ง. อำนาจทางกฎหมาย"],
+                answer: 1,
+                rationale: "ตามข้อ ๑๗.๖ การจัดเรียงข้อของระเบียบให้ข้อที่ ๑ เป็น 'ชื่อระเบียบ' และข้อที่ ๒ เป็น 'วันใช้บังคับ'"
+            },
+            {
+                id: 32,
+                category: "ชนิดหนังสือ",
+                question: "หนังสือสั่งการชนิดใดที่ออกโดยอาศัยอำนาจของกฎหมายที่บัญญัติให้กระทำได้โดยตรง?",
+                options: ["ก. คำสั่ง", "ข. ระเบียบ", "ค. ข้อบังคับ", "ง. ประกาศ"],
+                answer: 2,
+                rationale: "ตามนิยาม ข้อ ๑๘ 'ข้อบังคับ' คือ บรรดาข้อความที่ผู้มีอำนาจหน้าที่กำหนดให้ใช้ โดยอาศัยอำนาจของกฎหมายที่บัญญัติให้กระทำได้"
+            },
+            {
+                id: 33,
+                category: "ชนิดหนังสือ",
+                question: "หนังสือสั่งการชนิดใดที่ผู้มีอำนาจจะออกโดยอาศัยอำนาจตามกฎหมายหลักหรือไม่ก็ได้?",
+                options: ["ก. คำสั่ง", "ข. ระเบียบ", "ค. ข้อบังคับ", "ง. ถูกทุกข้อ"],
+                answer: 1,
+                rationale: "ระเบียบ คือข้อความที่วางไว้โดย 'จะอาศัยอำนาจของกฎหมายหรือไม่ก็ได้' เพื่อถือเป็นหลักปฏิบัติงานประจำ (ข้อ ๑๗)"
+            },
+            {
+                id: 34,
+                category: "ชนิดหนังสือ",
+                question: "หนังสือประชาสัมพันธ์มีกี่ชนิด อะไรบ้าง?",
+                options: [
+                    "ก. ประกาศ แถลงการณ์ และข่าว",
+                    "ข. ประชาสัมพันธ์ รายงาน และคำชี้แจง",
+                    "ค. แผ่นพับ จดหมายข่าว และวารสาร",
+                    "ง. คำสั่ง ระเบียบ และข้อบังคับ"
+                ],
+                answer: 0,
+                rationale: "ตามข้อ ๑๙ หนังสือประชาสัมพันธ์มี ๓ ชนิด คือ ประกาศ แถลงการณ์ และข่าว"
+            },
+            {
+                id: 35,
+                category: "ชนิดหนังสือ",
+                question: "จงจับคู่นิยาม: 'บรรดาข้อความที่ทางราชการประกาศหรือชี้แจงให้ทราบหรือแนะนำแนวทางปฏิบัติ' คือหนังสือประเภทใด?",
+                options: ["ก. ข่าว", "ข. แถลงการณ์", "ค. ระเบียบ", "ง. ประกาศ"],
+                answer: 3,
+                rationale: "นี่คือนิยามของคำว่า 'ประกาศ' ตามกฎบัตรงานสารบรรณข้อ ๒๐"
+            },
+            {
+                id: 36,
+                category: "ชนิดหนังสือ",
+                question: "หากกฎหมายบัญญัติให้ทำเอกสารเป็น 'แจ้งความ' ระเบียบสารบรรณกำหนดให้ปฏิบัติจัดทำเอกสารแบบใด?",
+                options: [
+                    "ก. ให้ทำจดหมายส่วนตัว",
+                    "ข. ให้ปฏิบัติแบบเดียวกับคำสั่งราชการ",
+                    "ค. ให้ทำเป็นประกาศ แต่เปลี่ยนหัวเอกสารจาก 'ประกาศ' เป็น 'แจ้งความ'",
+                    "ง. ไม่ให้ดำเนินการเนื่องจากระเบียบยกเลิกไปแล้ว"
+                ],
+                answer: 2,
+                rationale: "ข้อ ๒๐.๖ ระบุว่า ในกรณีที่กฎหมายกำหนดให้ทำเป็นแจ้งความ ให้เปลี่ยนคำว่า 'ประกาศ' เป็น 'แจ้งความ'"
+            },
+            {
+                id: 37,
+                category: "ชนิดหนังสือ",
+                question: "หนังสือประชาสัมพันธ์ชนิดใดที่ใช้สำหรับชี้แจงเพื่อ 'ทำความเข้าใจ' ในกรณีเหตุการณ์ต่างๆ?",
+                options: ["ก. ประกาศ", "ข. ข่าว", "ค. แถลงการณ์", "ง. รายงานการประชุม"],
+                answer: 2,
+                rationale: "แถลงการณ์ คือข้อความที่แถลงเพื่อทำความเข้าใจในกิจการ หรือเหตุการณ์ใดๆ ให้ทราบชัดเจนร่วมกัน (ข้อ ๒๑)"
+            },
+            {
+                id: 38,
+                category: "ชนิดหนังสือ",
+                question: "เอกสารประชาสัมพันธ์ที่ทางราชการเห็นสมควรเผยแพร่แก่สื่อมวลชนและสาธารณชนทั่วไปโดยไม่ต้องลงชื่อคือจดหมายเหตุประเภทใด?",
+                options: ["ก. ข่าว", "ข. ประกาศกรม", "ค. บันทึกเหตุการณ์", "ง. สรุปวิชาการ"],
+                answer: 0,
+                rationale: "ข่าว เป็นข้อความที่ทางราชการเห็นสมควรเผยแพร่เพื่อให้ทราบทั่วไป ไม่จำเป็นต้องลงลายมือชื่อผู้บังคับบัญชาแบบเอกสารสั่งการ (ข้อ ๒๒)"
+            },
+            {
+                id: 39,
+                category: "ชนิดหนังสือ",
+                question: "หนังสือที่เจ้าหน้าที่ทำขึ้นหรือรับไว้เป็นหลักฐานในราชการ มีทั้งหมดกี่ชนิด?",
+                options: ["ก. ๒ ชนิด", "ข. ๓ ชนิด", "ค. ๔ ชนิด", "ง. ๕ ชนิด"],
+                answer: 2,
+                rationale: "มี ๔ ชนิด ได้แก่ (๑) หนังสือรับรอง (๒) รายงานการประชุม (๓) บันทึก และ (๔) หนังสืออื่น"
+            },
+            {
+                id: 40,
+                category: "ชนิดหนังสือ",
+                question: "เมื่อมีการติดรูปถ่ายบน 'หนังสือรับรอง' ที่มอบให้ข้าราชการไปติดต่อการต่างประเทศ ต้องใช้รูปถ่ายขนาดเท่าใด?",
+                options: ["ก. ๑ x ๒ นิ้ว", "ข. ๓ x ๔ ซม.", "ค. ๔ x ๖ ซม.", "ง. ๒ x ๓ นิ้ว"],
+                answer: 2,
+                rationale: "หากเป็นเรื่องสำคัญที่ออกให้บุคคลและต้องติดรูปถ่าย ให้ใช้รูปถ่ายหน้าตรง ไม่สวมหมวก ขนาด ๔ x ๖ เซนติเมตร (ข้อ ๗๑ PDF)"
+            },
+            {
+                id: 41,
+                category: "ชนิดหนังสือ",
+                question: "เมื่อทำการติดรูปถ่ายของผู้ได้รับการรับรองบนใบรับรองแล้ว ต้องดำเนินการอย่างไรเพื่อป้องกันการปลอมแปลงรูปถ่าย?",
+                options: [
+                    "ก. ให้ผู้รับจดหมายเขียนชื่อย่อบนภาพ",
+                    "ข. ประทับตราชื่อส่วนราชการที่ออกหนังสือทับคาบเกี่ยวรอยต่อขอบล่างด้านขวาของรูปลงบนแผ่นกระดาษ",
+                    "ค. นำแผ่นพลาสติกเคลือบแข็งคลุมทับ",
+                    "ง. นำส่งกรมตำรวจตรวจประวัติ"
+                ],
+                answer: 1,
+                rationale: "ระเบียบกำหนดให้ประทับตราชื่อส่วนราชการสีแดงคาบเกี่ยวขอบล่างด้านขวาของรูปถ่ายลงบนกระดาษรับรองเพื่อความปลอดภัย"
+            },
+            {
+                id: 42,
+                category: "ชนิดหนังสือ",
+                question: "การบันทึกความคิดเห็นของผู้เข้าประชุม และมติของที่ประชุมไว้เป็นหลักฐาน เรียกว่าอะไร?",
+                options: ["ก. ข้อตกลงร่วม", "ข. รายงานการประชุม", "ค. สรุปสัมมนา", "ง. บันทึกสั่งการ"],
+                answer: 1,
+                rationale: "เป็นความหมายและวัตถุประสงค์โดยตรงของ 'รายงานการประชุม' (ข้อ ๒๕)"
+            },
+            {
+                id: 43,
+                category: "ชนิดหนังสือ",
+                question: "ในการจัดพิมพ์รายงานการประชุม หัวข้อ 'ครั้งที่' ข้อใดระบุได้ถูกต้องตามรูปแบบระเบียบ?",
+                options: ["ก. ครั้งที่ ๑/๒๕๖๖", "ข. ครั้งที่ ๑ ประจำปีงบประมาณ ๒๕๖๖", "ค. ครั้งที่ ๑ ณ วันที่ ๑ มกราคม ๒๕๖๖", "ง. ครั้งที่ ๑ เดือนมกราคม ๒๕๖๖"],
+                answer: 0,
+                rationale: "ตามรูปแบบระเบียบ ให้เขียนเป็นลำดับครั้งที่ประชุมทับปีปฏิทิน เช่น 'ครั้งที่ ๑/๒๕๖๖'"
+            },
+            {
+                id: 44,
+                category: "ชนิดหนังสือ",
+                question: "รายงานการประชุมส่วนใดที่จะต้องถูกจัดวางอยู่เป็น 'เรื่องแรกสุด' เสมอในส่วนข้อความเนื้อหา?",
+                options: [
+                    "ก. เรื่องที่เสนอให้ที่ประชุมพิจารณา",
+                    "ข. เรื่องที่ประธานแจ้งให้ที่ประชุมทราบ",
+                    "ค. เรื่องการรับรองรายงานการประชุมครั้งที่แล้ว",
+                    "ง. เรื่องอื่นๆ"
+                ],
+                answer: 1,
+                rationale: "วาระเปิดเรื่องในการประชุมคือ 'เรื่องที่ประธานแจ้งให้ที่ประชุมทราบ' ถัดมาจึงเป็นการรับรองรายงานการประชุมครั้งที่แล้ว"
+            },
+            {
+                id: 45,
+                category: "ชนิดหนังสือ",
+                question: "คำว่า 'บันทึก' มีคำนิยามและการปฏิบัติใช้งานที่สอดคล้องกับข้อใดมากที่สุด?",
+                options: [
+                    "ก. ข้อความที่ผู้ใต้บังคับบัญชาเสนอต่อผู้บังคับบัญชา หรือใช้ในการสื่อสารระหว่างหน่วยงานที่ต่ำกว่าระดับกรม",
+                    "ข. จดหมายเชิญบุคคลภายนอกมาบริจาค",
+                    "ค. รายงานงบประมาณรายไตรมาส",
+                    "ง. หนังสือโต้ตอบข้ามกระทรวงหลัก"
+                ],
+                answer: 0,
+                rationale: "ข้อ ๒๖ บันทึก คือข้อความส่งไปมาที่ระดับต่ำกว่าอธิบดีกรม หรือผู้ใต้เสนอผู้เหนือ โดยทั่วไปใช้กระดาษบันทึกข้อความ"
+            },
+            {
+                id: 46,
+                category: "ชนิดหนังสือ",
+                question: "เอกสารทางราชการชนิดใด รวมถึงภาพถ่าย ฟิล์ม แผ่นเสียง แถบบันทึกภาพ สื่อกลางบันทึกข้อมูลคลาวด์?",
+                options: ["ก. รายงานสืบสวน", "ข. สารบัญเก็บเอกสาร", "ค. สื่อราชการแบบปิด", "ง. หนังสืออื่น (ตามข้อ ๒๗)"],
+                answer: 3,
+                rationale: "ข้อ ๒๗ กำหนดว่า 'หนังสืออื่น' คือหนังสือหรือเอกสารอื่นใดที่เกิดขึ้นจากการปฏิบัติงานของเจ้าหน้าที่ รวมถึงฟิล์ม แถบบันทึกภาพ เสียง สื่อบันทึกอิเล็กทรอนิกส์ หรือบริการคลาวด์"
+            },
+            {
+                id: 47,
+                category: "ชั้นความเร็ว",
+                question: "หนังสือที่ต้องจัดส่งและดำเนินการทางสารบรรณเป็นพิเศษ แบ่งออกเป็นกี่ประเภท (ชั้นความเร็ว)?",
+                options: ["ก. ๒ ประเภท", "ข. ๓ ประเภท", "ค. ๔ ประเภท", "ง. ๕ ประเภท"],
+                answer: 1,
+                rationale: "ชั้นความเร็วแบ่งเป็น ๓ ประเภท คือ ด่วนที่สุด, ด่วนมาก, และด่วน"
+            },
+            {
+                id: 48,
+                category: "ชั้นความเร็ว",
+                question: "ข้อใดหมายถึงชั้นความเร็วขั้น 'ด่วนที่สุด'?",
+                options: [
+                    "ก. ให้เจ้าหน้าที่ดำเนินการทันทีที่ได้รับหนังสือ",
+                    "ข. ให้เจ้าหน้าที่ทำภายในสามวัน",
+                    "ค. ให้เจ้าหน้าที่ปฏิบัติงานโดยเร็วที่สุดเท่าที่จะทำได้",
+                    "ง. ส่งจดหมายทางไปรษณีย์อากาศด่วนพิเศษ"
+                ],
+                answer: 0,
+                rationale: "ข้อ ๒๘.๑ 'ด่วนที่สุด' กำหนดให้เจ้าหน้าที่ปฏิบัติในทันทีที่ได้รับหนังสือนั้น"
+            },
+            {
+                id: 49,
+                category: "ชั้นความเร็ว",
+                question: "จงเปรียบเทียบนิยามชั้นความเร็ว ข้อใดหมายถึงระดับความเร็ว 'ด่วนมาก'?",
+                options: [
+                    "ก. ปฏิบัติทันทีที่ได้รับ",
+                    "ข. ปฏิบัติโดยเร็ว",
+                    "ค. ปฏิบัติเร็วกว่าปกติเท่าที่จะทำได้",
+                    "ง. ปฏิบัติภายในรอบวันทำงานถัดไป"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๒๘.๒ 'ด่วนมาก' หมายถึง ให้เจ้าหน้าที่ปฏิบัติ 'โดยเร็ว'"
+            },
+            {
+                id: 50,
+                category: "ชั้นความเร็ว",
+                question: "การระบุคำแสดง 'ชั้นความเร็ว' บนหนังสือราชการอย่างเป็นทางการ ต้องใช้ตัวอักษรสีใด?",
+                options: ["ก. สีน้ำเงิน", "ข. สีดำ", "ค. สีแดง", "ง. สีใดก็ได้ขอให้เด่นชัด"],
+                answer: 2,
+                rationale: "ระเบียบระบุว่าให้พ่น/พิมพ์ระบุชั้นความเร็วด้วยตัวอักษร 'สีแดง' ตัวใหญ่ชัดเจน"
+            },
+            {
+                id: 51,
+                category: "ชั้นความเร็ว",
+                question: "ตำแหน่งการระบุชั้นความเร็วบนแผ่นกระดาษจดหมายครุฑอย่างถูกต้อง อยู่ที่บริเวณใด?",
+                options: [
+                    "ก. เหนือหัวกระดาษตรงกลาง",
+                    "ข. มุมล่างสุดด้านขวาของลายมือชื่อ",
+                    "ค. บริเวณเหนือตราครุฑ",
+                    "ง. บริเวณเท้าครุฑด้านซ้าย (และกึ่งกลางด้านบน/ล่างของจดหมายปกปิด)"
+                ],
+                answer: 3,
+                rationale: "บนกระดาษตราครุฑอย่างเป็นทางการ ชั้นความเร็วจะระบุไว้เหนือรหัสอ้างอิง หรือบริเวณใกล้เคียงเท้าครุฑด้านซ้ายมือ"
+            },
+            {
+                id: 52,
+                category: "ความลับและระบบติดต่อ",
+                question: "ตามระเบียบใหม่ ปี ๒๕๖๔ กำหนดให้วิธีการติดต่อราชการใช้รูปแบบช่องทางใดเป็นหลัก?",
+                options: [
+                    "ก. สื่อทางจดหมายกระดาษตราครุฑส่งด้วยพนักงานเดินหนังสือเท่านั้น",
+                    "ข. สื่อระบบสารบรรณอิเล็กทรอนิกส์เป็นหลัก",
+                    "ค. ทางแอปพลิเคชัน Line ส่วนตัว",
+                    "ง. ทางโทรศัพท์จดบันทึกโต้ตอบ"
+                ],
+                answer: 1,
+                rationale: "ระเบียบแก้ไขเพิ่มเติม ฉบับที่ ๔ พ.ศ. ๒๕๖๔ กำหนดให้ 'การติดต่อราชการให้ดำเนินการด้วยระบบสารบรรณอิเล็กทรอนิกส์เป็นหลัก'"
+            },
+            {
+                id: 53,
+                category: "ความลับและระบบติดต่อ",
+                question: "หนังสือราชการชั้นใดที่ 'ห้ามส่งผ่านระบบสารบรรณอิเล็กทรอนิกส์ทั่วไป' และต้องทำตามระเบียบความปลอดภัยความลับขั้นสูงสุด?",
+                options: [
+                    "ก. ชั้นความลับด่วนมาก",
+                    "ข. ข้อมูลข่าวสารลับชั้นลับที่สุด (Top Secret)",
+                    "ค. เรื่องการเงินของส่วนราชการส่วนภูมิภาค",
+                    "ง. ทะเบียนประวัติข้าราชการทั่วไป"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๒๙ กำหนดข้อยกเว้นสำหรับเอกสารลับขั้นสูงสุด 'ลับที่สุด' หรือมีความจำเป็นทางความมั่นคงไม่ให้จัดส่งอิเล็กทรอนิกส์แบบเปิดทั่วไป"
+            },
+            {
+                id: 54,
+                category: "ความลับและระบบติดต่อ",
+                question: "การติดต่อด้วยระบบสารบรรณอิเล็กทรอนิกส์ เมื่อผู้ส่งได้ทำการส่งหนังสือสำเร็จและมีระบบตอบรับอัตโนมัติแล้ว ผู้ส่งต้องทำสิ่งใดต่อ?",
+                options: [
+                    "ก. ต้องจัดพิมพ์กระดาษจริงส่งซ้ำไปอีกรอบเสมอ",
+                    "ข. ไม่ต้องจัดส่งหนังสือเป็นเอกสารจริงกระดาษตามไปอีก",
+                    "ค. ต้องโทรศัพท์ยืนยันทุกครั้งโดยไม่มีข้อยกเว้น",
+                    "ง. ถือว่าการทำธุรกรรมยังไม่สิ้นสุดจนกว่าจะพิมพ์ลงสมุดส่ง"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๒๙ วรรคสองระบุว่า หากได้รับการตอบรับและส่งสำเร็จแล้ว ไม่ต้องจัดส่งเอกสารกระดาษซ้ำตามไปอีกเพื่อลดการใช้ทรัพยากร"
+            },
+            {
+                id: 55,
+                category: "สำเนาเอกสาร",
+                question: "การจัดทำจดหมายราชการส่งออก โดยปกติระเบียบกำหนดให้ผลิตสำเนาคู่ฉบับเก็บไว้กี่ฉบับ?",
+                options: [
+                    "ก. เก็บไว้ที่ผู้ลงนาม ๑ ฉบับและผู้รับ ๑ ฉบับ",
+                    "ข. เก็บสำเนาคู่ฉบับไว้ที่ต้นเรื่อง ๑ ฉบับ และหน่วยงานสารบรรณกลาง ๑ ฉบับ",
+                    "ค. ไม่จำเป็นต้องจัดทำสำเนาถ้าบันทึกด้วยระบบคอมพิวเตอร์",
+                    "ง. จัดทำสำเนา ๕ ฉบับเพื่อแจกแผนก"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๓๐ กำหนดให้มีสำเนาคู่ฉบับเก็บไว้ที่ต้นเรื่อง ๑ ฉบับ และส่งเก็บที่หน่วยสารบรรณกลาง ๑ ฉบับ"
+            },
+            {
+                id: 56,
+                category: "สำเนาเอกสาร",
+                question: "ข้าราชการกลุ่มทั่วไปที่จะมีสิทธิ์ 'ลงลายมือชื่อรับรองสำเนาถูกต้อง' ตามระเบียบนี้ ต้องเป็นข้าราชการระดับใดขึ้นไป?",
+                options: [
+                    "ก. ข้าราชการประเภททั่วไป ระดับปฏิบัติงาน",
+                    "ข. ข้าราชการประเภทวิชาการ ระดับปฏิบัติการ หรือประเภททั่วไป ระดับชำนาญงานขึ้นไป",
+                    "ค. ต้องเป็นระดับผู้อำนวยการส่วนขึ้นไปเท่านั้น",
+                    "ง. ข้าราชการทุกคนที่บรรจุแล้ว"
+                ],
+                answer: 1,
+                rationale: "ตามข้อ ๓๑ ข้าราชการที่จะรับรองสำเนาถูกต้องได้คือระดับวิชาการระดับปฏิบัติการ หรือประเภททั่วไป ระดับชำนาญงานขึ้นไป หรือเทียบเท่า"
+            },
+            {
+                id: 57,
+                category: "สำเนาเอกสาร",
+                question: "หนังสือราชการที่มีหัวเรื่อง และเนื้อความเดียวกันเพื่อส่งถึงผู้รับจำนวนมากๆ เรียกว่าหนังสือชนิดใด?",
+                options: ["ก. จดหมายเวียนทั่วไป", "ข. ประกาศกระทรวง", "ค. หนังสือเวียน", "ง. ข่าวสังคม"],
+                answer: 2,
+                rationale: "หนังสือเวียน คือหนังสือที่มีถึงผู้รับจำนวนมาก มีใจความอย่างเดียวกันตามนิยาม ข้อ ๓๒"
+            },
+            {
+                id: 58,
+                category: "สำเนาเอกสาร",
+                question: "หนังสือเวียนจะต้องมีการระบุตัวอักษรย่อรหัสพยัญชนะตัวใดไว้ด้านหน้านำหน้าเลขส่งหนังสือ?",
+                options: ["ก. ตัวพยัญชนะ 'ด' (ด่วน)", "ข. ตัวพยัญชนะ 'ว' (เวียน)", "ค. ตัวพยัญชนะ 'ป' (ประกาศ)", "ง. ตัวพยัญชนะ 'ล' (ลับ)"],
+                answer: 1,
+                rationale: "ให้เพิ่มรหัสตัวพยัญชนะ 'ว' หน้าเลขทะเบียนหนังสือส่งเพื่อระบุว่าเป็นหนังสือเวียน"
+            },
+            {
+                id: 59,
+                category: "การรับและทะเบียนหนังสือ",
+                question: "หนังสือราชการที่ทางส่วนราชการ 'ได้รับเข้ามาจากภายนอก' เรียกว่าหนังสืออะไรในระบบทะเบียน?",
+                options: ["ก. หนังสือส่ง", "ข. หนังสือรับ", "ค. หนังสือเวียนเข้า", "ง. เอกสารรับมอบหมาย"],
+                answer: 1,
+                rationale: "ตามข้อ ๓๕ 'หนังสือรับ' คือ หนังสือที่ได้รับเข้ามาจากภายนอกส่วนราชการ"
+            },
+            {
+                id: 60,
+                category: "การรับและทะเบียนหนังสือ",
+                question: "เมื่อเจ้าหน้าที่ดำเนินการรับหนังสือเข้ามาทางสารบรรณ ขั้นแรกที่จะต้องกระทำทันทีในการจัดการคือข้อใด?",
+                options: [
+                    "ก. จัดเรียงพิมพ์ลงโปรแกรม Word",
+                    "ข. ทำลายซองจดหมายทันที",
+                    "ค. จัดลำดับความสำคัญและความเร่งด่วนของหนังสือเพื่อดำเนินการก่อนหลัง",
+                    "ง. นำเสนอผู้อำนวยการพิจารณาโดยไม่จำแนก"
+                ],
+                answer: 2,
+                rationale: "ข้อ ๓๖ กำหนดว่าขั้นตอนแรกสุดเมื่อรับเข้าคือ 'จัดลำดับความสำคัญและความเร่งด่วนเพื่อดำเนินการก่อนหลัง' แล้วจึงเปิดซอง"
+            },
+            {
+                id: 61,
+                category: "การรับและทะเบียนหนังสือ",
+                question: "เมื่อทำการรับหนังสือทางราชการอย่างเป็นทางการ ต้องประทับตราทะเบียนรับที่มุมใดของจดหมาย?",
+                options: ["ก. มุมล่างซ้าย", "ข. มุมบนขวา", "ค. กึ่งกลางด้านหลังกระดาษ", "ง. มุมล่างขวาคาบเกี่ยวซอง"],
+                answer: 1,
+                rationale: "ข้อ ๓๗ กำหนดให้ 'ประทับตรารับหนังสือ ที่มุมบนด้านขวาของหนังสือ' เพื่อลงเลขทะเบียนรับและวันเวลา"
+            },
+            {
+                id: 62,
+                category: "การรับและทะเบียนหนังสือ",
+                question: "รายละเอียดใดที่ 'ไม่มีระบุอยู่' ภายในช่องกรอกของตราประทับรับหนังสือตามแบบมาตรฐาน?",
+                options: ["ก. เลขรับ", "ข. ลายมือชื่อเจ้าหน้าที่ผู้ส่งหนังสือ", "ค. วันที่รับ", "ง. เวลาที่รับ"],
+                answer: 1,
+                rationale: "ตราประทับรับหนังสือตามแบบที่ ๑๒ ประกอบด้วย: ๑. ชื่อส่วนราชการ ๒. เลขรับ ๓. วันที่ ๔. เวลา ไม่มีลายมือชื่อผู้ส่งจดหมาย"
+            },
+            {
+                id: 63,
+                category: "การเก็บรักษา",
+                question: "ระยะเวลาการจัดเก็บหนังสือราชการโดยทั่วไปตามกฎหมายสารบรรณ หากไม่มีระเบียบเฉพาะเจาะจงเป็นอย่างอื่น ให้เก็บไว้อย่างน้อยกี่ปี?",
+                options: ["ก. ๕ ปี", "ข. ๑๐ ปี", "ค. ๒๐ ปี", "ง. ตลอดไปไม่มีกำหนดสลาย"],
+                answer: 1,
+                rationale: "ข้อ ๕๗ กำหนดอายุการเก็บหนังสือโดยปกติ ให้เก็บรักษาไว้ไม่น้อยกว่า ๑๐ ปี"
+            },
+            {
+                id: 64,
+                category: "การเก็บรักษา",
+                question: "หนังสือที่เป็นคู่สำเนาซึ่งต้นเรื่องจริงสามารถค้นหาตรวจเจอได้จากแหล่งอื่นทั่วไป ให้เก็บสำเนานี้ไว้อย่างน้อยกี่ปี?",
+                options: ["ก. ๑ ปี", "ข. ๒ ปี", "ค. ๕ ปี", "ง. ๑๐ ปี"],
+                answer: 2,
+                rationale: "ข้อ ๕๗.๔ กำหนดหนังสือที่เป็นคู่สำเนาที่มีต้นเรื่องค้นหาได้จากที่อื่น ให้เก็บไว้ไม่น้อยกว่า ๕ ปี"
+            },
+            {
+                id: 65,
+                category: "การเก็บรักษา",
+                question: "จดหมายที่เป็นเรื่องธรรมดาสามัญ ไม่มีความสำคัญ และเกิดขึ้นเป็นประจำ เมื่อปฏิบัติงานเสร็จสิ้นแล้วให้รักษาไว้อย่างน้อยกี่ปี?",
+                options: ["ก. ๑ ปี", "ข. ๓ ปี", "ค. ๕ ปี", "ง. ไม่ต้องเก็บสามารถทำลายทันที"],
+                answer: 0,
+                rationale: "ตามระเบียบข้อ ๕๗.๕ หนังสือธรรมดาสามัญไม่มีความสำคัญและเกิดเป็นประจำ ให้เก็บรักษาไว้ไม่น้อยกว่า ๑ ปี"
+            },
+            {
+                id: 66,
+                category: "การเก็บรักษา",
+                question: "หากส่วนราชการต้องการขอทำลายหรือลดระยะเวลาจัดเก็บเอกสารด้านการเงินที่ไม่จำเป็นต้องเก็บถึง ๕ ปีหรือ ๑๐ ปี ต้องทำความตกลงกับกระทรวงใด?",
+                options: ["ก. กระทรวงมหาดไทย", "ข. กระทรวงการคลัง", "ค. กระทรวงดิจิทัลฯ", "ง. สำนักงานตรวจเงินแผ่นดิน"],
+                answer: 1,
+                rationale: "การตกลงลดเวลากรณีเอกสารการเงินต้องได้รับความยินยอมและทำตกลงร่วมกับ 'กระทรวงการคลัง' เท่านั้น"
+            },
+            {
+                id: 67,
+                category: "การเก็บรักษา",
+                question: "ทุกปีปฏิทิน ส่วนราชการต้องจัดส่งเอกสารของหน่วยงานที่มีอายุครบกี่ปี นับจากวันที่ผลิต ไปเก็บไว้ที่กองจดหมายเหตุแห่งชาติ?",
+                options: ["ก. ครบ ๕ ปี", "ข. ครบ ๑๐ ปี", "ค. ครบ ๒๐ ปี", "ง. ครบ ๕๐ ปี"],
+                answer: 2,
+                rationale: "ข้อ ๕๘ กำหนดให้ส่งมอบหนังสือที่มีอายุครบ ๒๐ ปีนับแต่วันจัดทำ ให้แก่กองจดหมายเหตุแห่งชาติ กรมศิลปากร ภายในวันที่ ๓๑ มกราคมของปีถัดไป"
+            },
+            {
+                id: 68,
+                category: "การเก็บรักษา",
+                question: "การระบุคำตราประทับกำหนดอายุการเก็บจดหมายราชการ ข้อใดกล่าวไม่ถูกต้อง?",
+                options: [
+                    "ก. เอกสารสำคัญห้ามทำลายให้ประทับตรา 'ห้ามทำลาย' ด้วยหมึกสีแดง",
+                    "ข. เอกสารที่กำหนดเวลาทำลายให้ประทับตรา 'เก็บถึง พ.ศ. ...' ด้วยหมึกสีน้ำเงิน",
+                    "ค. ให้ประทับตรากำหนดเก็บไว้ที่มุมล่างด้านขวาของหน้าแรกของหนังสือ",
+                    "ง. ให้ประทับตราสีเขียวเสมอทุกกรณี"
+                ],
+                answer: 3,
+                rationale: "ระเบียบห้ามสีเขียว แต่กำหนดชัด: ห้ามทำลาย (หมึกแดง), เก็บถึง (หมึกน้ำเงิน) และประทับตราไว้ที่มุมล่างขวาของหน้าแรก"
+            },
+            {
+                id: 69,
+                category: "การเก็บรักษา",
+                question: "หากปรากฏว่าหนังสือที่สูญหายไปเป็นเอกสารสำคัญที่เป็นพยานแสดง 'สิทธิในทรัพย์สินทางกฎหมาย' (เอกสารสิทธิ) เจ้าหน้าที่ต้องกระทำสิ่งใดเป็นขั้นตอนด่วนทางกฎหมาย?",
+                options: [
+                    "ก. พิมพ์เอกสารใหม่ทดแทนเองเงียบๆ",
+                    "ข. ดำเนินการแจ้งความร้องทุกข์ต่อพนักงานสอบสวน (ตำรวจ)",
+                    "ค. ลงบันทึกจำหน่ายทิ้งทันที",
+                    "ง. ประกาศลงหนังสือพิมพ์ท้องถิ่น"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๖๑ ระบุว่าหากหนังสือสูญหายเป็นเอกสารแสดงเอกสารสิทธิสำคัญทางกฎหมาย ให้รีบแจ้งความดำเนินคดีต่อพนักงานสอบสวนทันที"
+            },
+            {
+                id: 70,
+                category: "การยืมและการทำลาย",
+                question: "การขอยืมหนังสือราชการระหว่าง 'ส่วนราชการต่างกระทรวงหรือหน่วยงานต่างแห่ง' ผู้ยืมและผู้ให้ยืมต้องครองตำแหน่งระดับใดขึ้นไป?",
+                options: ["ก. ข้าราการระดับชำนาญงาน", "ข. หัวหน้าส่วนราชการระดับกองขึ้นไป หรือผู้ได้รับมอบหมาย", "ค. ปลัดกระทรวง", "ง. นายกรัฐมนตรีชี้ขาด"],
+                answer: 1,
+                rationale: "ข้อ ๖๒.๓ การยืมระหว่างส่วนราชการ ผู้ยืมและผู้ให้ยืมต้องเป็นหัวหน้าส่วนราชการระดับกองขึ้นไป หรือเทียบเท่า"
+            },
+            {
+                id: 71,
+                category: "การยืมและการทำลาย",
+                question: "การยืมหนังสือภายในส่วนราชการเดียวกัน (เช่น ภายในกรมหรือกระทรวงเดียวกัน) ผู้ยืมและผู้อนุญาตต้องอยู่ระดับใด?",
+                options: ["ก. ข้าราชการประเภททั่วไปทุกระดับ", "ข. หัวหน้าส่วนราชการระดับแผนกขึ้นไป หรือผู้ได้รับมอบหมาย", "ค. อธิบดีเท่านั้น", "ง. หัวหน้ากองวิชาการ"],
+                answer: 1,
+                rationale: "ข้อ ๖๒.๔ กำหนดการยืมภายในส่วนราชการเดียวกัน ให้หัวหน้าแผนก (หรือเทียบเท่า) ขึ้นไปเป็นผู้ยืมและอนุญาตยืม"
+            },
+            {
+                id: 72,
+                category: "การยืมและการทำลาย",
+                question: "บุคคลภายนอกจะสามารถทำธุรกรรมยืมหนังสือราชการตัวจริงออกนอกส่วนราชการได้หรือไม่?",
+                options: [
+                    "ก. ยืมได้ตลอดเวลาโดยวางบัตรประชาชนไว้เป็นประกัน",
+                    "ข. ยืมไม่ได้โดยเด็ดขาด เว้นแต่จะได้รับอนุญาตให้ดูหรือคัดลอก และต้องได้รับอนุญาตจากหัวหน้าส่วนราชการระดับกองขึ้นไป",
+                    "ค. ยืมได้ถ้าเสียค่าธรรมเนียมราชการ",
+                    "ง. ยืมได้โดยมีข้าราชการค้ำประกันสัญญา"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๖๕ การยืมโดยบุคคลภายนอกจะกระทำมิได้ เว้นแต่การให้ดูหรือคัดลอก ณ สถานที่ราชการ และต้องขออนุมัติระดับหัวหน้ากองขึ้นไปด้วย"
+            },
+            {
+                id: 73,
+                category: "การยืมและการทำลาย",
+                question: "ภายในกี่วันหลังสิ้นปีปฏิทินที่เจ้าหน้าที่ผู้รับผิดชอบการเก็บหนังสือต้องสำรวจหนังสือเพื่อขอทำลาย?",
+                options: ["ก. ๓๐ วัน", "ข. ๖๐ วัน", "ค. ๙๐ วัน", "ง. ๑๘๐ วัน"],
+                answer: 1,
+                rationale: "ข้อ ๖๖ ระบุว่าให้ดำเนินการสำรวจและจัดตั้งกระบวนการขอทำลายหนังสือภายใน ๖๐ วันหลังจากสิ้นปีปฏิทินของทุกปี"
+            },
+            {
+                id: 74,
+                category: "การยืมและการทำลาย",
+                question: "ใครคือผู้มีอำนาจหน้าที่ตามกฎหมายในการออกคำสั่งแต่งตั้ง 'คณะกรรมการทำลายหนังสือ' ของส่วนราชการ?",
+                options: ["ก. รัฐมนตรีว่าการกระทรวง", "ข. หัวหน้าส่วนราชการระดับกรม (เช่น อธิบดี)", "ค. หัวหน้าฝ่ายบุคคลสารบรรณ", "ง. ปลัดสำนักนายกรัฐมนตรี"],
+                answer: 1,
+                rationale: "ข้อ ๖๖ และ ๖๗ กำหนดให้หัวหน้าส่วนราชการระดับกรมเป็นผู้พิจารณาแต่งตั้งคณะกรรมการทำลายหนังสือประจำปี"
+            },
+            {
+                id: 75,
+                category: "การยืมและการทำลาย",
+                question: "คณะกรรมการทำลายหนังสือที่จะได้รับการแต่งตั้ง จะต้องประกอบด้วยจำนวนสมาชิกอย่างน้อยกี่คน?",
+                options: ["ก. อย่างน้อย ๒ คน", "ข. อย่างน้อย ๓ คน (ประธานและกรรมการอีกอย่างน้อยสองคน)", "ค. อย่างน้อย ๕ คน", "ง. ต้องเป็นเลขคี่เสมอเริ่มที่ ๗ คน"],
+                answer: 1,
+                rationale: "ข้อ ๖๗ ระบุว่าคณะกรรมการประกอบด้วย ประธานกรรมการและกรรมการอีกอย่างน้อยสองคน รวมเป็นอย่างน้อย ๓ คน"
+            },
+            {
+                id: 76,
+                category: "การยืมและการทำลาย",
+                question: "หากคณะกรรมการเห็นชอบร่วมกันว่าหนังสือใด 'ควรทำลาย' ให้ระบุการพิจารณาในบัญชีทำลายหนังสือด้วยเครื่องหมายสัญลักษณ์ใด?",
+                options: ["ก. เครื่องหมายถูก (✓)", "ข. เครื่องหมายกากบาท (X)", "ค. เครื่องหมายวงกลม (O)", "ง. การลงชื่อกำกับเฉยๆ"],
+                answer: 1,
+                rationale: "ตามกฎระเบียบข้อ ๖๘.๓ กรณีที่คณะกรรมการพิจารณาให้ทำลายหนังสือ ให้เขียนกรอก 'เครื่องหมายกากบาท (X)' ลงในช่องการพิจารณา"
+            },
+            {
+                id: 77,
+                category: "การยืมและการทำลาย",
+                question: "หากกองจดหมายเหตุแห่งชาติ กรมศิลปากร ไม่ติดต่อทักท้วงบัญชีส่งทำลายเอกสารของหน่วยงานใดภายในกี่วัน ให้ถือว่ากรมศิลปากรเห็นชอบและทำลายได้?",
+                options: ["ก. ๓๐ วัน", "ข. ๔๕ วัน", "ค. ๖๐ วัน", "ง. ๙๐ วัน"],
+                answer: 2,
+                rationale: "ตามข้อ ๗๐.๑ หากกองจดหมายเหตุแห่งชาติไม่ทักท้วงหรือแจ้งกลับภายในกำหนด ๖๐ วัน ให้ถือว่าเห็นชอบและส่วนราชการดำเนินการทำลายต่อไปได้"
+            },
+            {
+                id: 78,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ตราครุฑสำหรับนำมาใช้พิมพ์ในแบบฟอร์มเอกสารราชการไทย มีกี่ขนาดมาตรฐานหลักตามระเบียบสารบรรณ?",
+                options: ["ก. ขนาดเดียวคือ ๓ ซม.", "ข. ๒ ขนาด คือ ขนาดตัวสูง ๓ ซม. และตัวสูง ๑.๕ ซม.", "ค. ๓ ขนาด คือ ขนาด ๔.๕ ซม., ๓ ซม., และ ๑.๕ ซม.", "ง. ขนาดเท่าใดก็ได้ตามความสวยงามของเอกสาร"],
+                answer: 1,
+                rationale: "ตราครุฑสำหรับนำไปใช้พิมพ์มี ๒ ขนาดหลักคือ ขนาดสูง ๓ เซนติเมตร และขนาดสูง ๑.๕ เซนติเมตร (ข้อ ๗๑)"
+            },
+            {
+                id: 79,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ตราครุฑที่มีขนาดความสูง ๑.๕ เซนติเมตร โดยระเบียบแล้วนิยมจัดพิมพ์อยู่บนส่วนใดของเอกสารราชการ?",
+                options: [
+                    "ก. กึ่งกลางด้านบนสุดของกระดาษตราครุฑหนังสือภายนอก",
+                    "ข. บริเวณมุมบนด้านซ้ายของกระดาษบันทึกข้อความ (หนังสือภายใน)",
+                    "ค. บริเวณท้ายชื่อตำแหน่งผู้ออกหนังสือ",
+                    "ง. ตราประทับซองจดหมายด่วนที่สุดตรงกลาง"
+                ],
+                answer: 1,
+                rationale: "ครุฑขนาดเล็ก ๑.๕ ซม. จะใช้ประดับวางไว้ที่มุมบนด้านซ้ายของกระดาษบันทึกข้อความ (จดหมายโต้ตอบภายใน)"
+            },
+            {
+                id: 80,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ตราชื่อส่วนราชการเพื่อใช้สำหรับการประทับตราหมึกสีแดง (เช่น ตราวงกลม) มีขนาดเส้นผ่านศูนย์กลางวงนอกและวงในเท่าใด?",
+                options: [
+                    "ก. วงนอก ๕ ซม. วงใน ๔ ซม.",
+                    "ข. วงนอก ๔.๕ ซม. วงใน ๓.๕ ซม.",
+                    "ค. วงนอก ๓.๕ ซม. วงใน ๒.๕ ซม.",
+                    "ง. วงนอก ๖ ซม. วงใน ๕ ซม."
+                ],
+                answer: 1,
+                rationale: "ตามแบบที่ ๒๗ ตราประทับเป็นวงกลมสองวงซ้อน วงนอก ๔.๕ เซนติเมตร วงใน ๓.๕ เซนติเมตร ล้อมรูปครุฑสูง ๓ เซนติเมตร"
+            },
+            {
+                id: 81,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "สำหรับส่วนราชการที่มีหน้าที่ติดต่อกับต่างประเทศอย่างสม่ำเสมอ ในตราวงกลมประทับชื่อส่วนราชการ สามารถเพิ่มเติมลักษณะพิเศษใดได้?",
+                options: [
+                    "ก. ประดับตราเพชรล้อมรอบตัวครุฑ",
+                    "ข. เพิ่มภาษาต่างประเทศ โดยให้อักษรไทยอยู่ขอบบน และอักษรโรมัน (อังกฤษ) อยู่ขอบล่างของตราประทับ",
+                    "ค. ใช้ตราประทับเป็นรูปพญานาคคู่ล้อมครุฑ",
+                    "ง. ใช้หมึกพิมพ์สีทองพิเศษในการติดต่อส่งงาน"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๗๒ กำหนดว่าหากมีภาษาต่างประเทศ ให้ระบุอักษรไทยที่วงขอบส่วนบน และอักษรโรมัน (อังกฤษ) ด้านขอบด้านล่าง"
+            },
+            {
+                id: 82,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "มาตรฐานของกระดาษที่ใช้ในงานสารบรรณโดยปกติใช้กระดาษปอนด์ขาว น้ำหนักอย่างน้อยเท่าใดต่อตารางเมตร?",
+                options: ["ก. ๖๐ กรัมต่อตารางเมตร", "ข. ๗๐ กรัมต่อตารางเมตร", "ค. ๘๐ กรัมต่อตารางเมตร", "ง. ๑๐๐ กรัมต่อตารางเมตรขึ้นไป"],
+                answer: 0,
+                rationale: "ข้อ ๗๔.๑ กำหนดมาตรฐานปกติให้ใช้กระดาษปอนด์ขาว น้ำหนัก ๖๐ กรัมต่อตารางเมตร"
+            },
+            {
+                id: 83,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "กระดาษขนาดมาตรฐาน 'A4' มีขนาดกว้างและยาวกี่มิลลิเมตร?",
+                options: ["ก. ๑๔๘ x ๒๑๐ มม.", "ข. ๒๑๐ x ๒๙๗ มม.", "ค. ๒๙๗ x ๔๒๐ มม.", "ง. ๒๕๐ x ๓๕๐ มม."],
+                answer: 1,
+                rationale: "ขนาดกระดาษมาตรฐาน A4 สากลและตามระเบียบคือ กว้าง ๒๑๐ มม. ยาว ๒๙๗ มม."
+            },
+            {
+                id: 84,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ซองหนังสือขนาดมาตรฐาน 'C4' (ขนาดใหญ่สุดตามระเบียบ) ออกแบบมาสำหรับการบรรจุจดหมายตราครุฑในลักษณะใด?",
+                options: [
+                    "ก. พับจดหมายเป็น ๓ ส่วน",
+                    "ข. บรรจุหนังสือโดยไม่ต้องพับแผ่นกระดาษเลย",
+                    "ค. พับครึ่งจดหมาย (พับ ๒)",
+                    "ง. พับ ๔ ส่วนเพื่อส่ง"
+                ],
+                answer: 1,
+                rationale: "ตามข้อ ๗๗.๑ ซองขนาด C4 เหมาะสำหรับบรรจุหนังสือกระดาษตราครุฑโดยไม่ต้องพับ มีทั้งแบบธรรมดาและขยายข้าง"
+            },
+            {
+                id: 85,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "หากต้องการส่งเอกสารตราครุฑพับ ๓ ส่วน ควรใช้ซองมาตรฐานขนาดใดจึงจะพอดียอดเยี่ยมที่สุด?",
+                options: ["ก. ซองขนาด C4", "ข. ซองขนาด C5", "ค. ซองขนาด C6", "ง. ซองขนาด DL"],
+                answer: 3,
+                rationale: "ข้อ ๗๗.๔ กำหนดชัดเจนว่า 'ขนาดดีแอล (DL)' ใช้สำหรับบรรจุหนังสือกระดาษตราครุฑที่พับ ๓ ส่วน"
+            },
+            {
+                id: 86,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ตราประทับรับหนังสือ (ตราสี่เหลี่ยมรับจดหมาย) มีมิติขนาดขนาดกว้างและยาวมาตรฐานเท่าใด?",
+                options: ["ก. ๒ x ๔ ซม.", "ข. ๒.๕ x ๕ ซม.", "ค. ๓ x ๖ ซม.", "ง. ๔ x ๘ ซม."],
+                answer: 1,
+                rationale: "ตามระเบียบข้อ ๗๘ ตราประทับรับจดหมายมีลักษณะรูปสี่เหลี่ยมผืนผ้า ขนาด ๒.๕ เซนติเมตร x ๕ เซนติเมตร"
+            },
+            {
+                id: 87,
+                category: "ระบบจัดเก็บและทะเบียน",
+                question: "ทะเบียนหนังสือรับ (และหนังสือส่ง) ที่ใช้ประจำวันในการคุมข้อมูลการรับจดหมาย มีมิติกระดาษและพิมพ์อย่างไร?",
+                options: [
+                    "ก. ขนาดพิเศษส่งโรงพิมพ์ทำเป็นเล่มใหญ่",
+                    "ข. มีขนาดกระดาษ A4 พิมพ์ข้อมูลทั้งสองหน้า มีชนิดเป็นเล่มและชนิดเป็นแผ่น",
+                    "ค. ใช้สมุดปกแข็งทั่วไปไม่มีแบบฟอร์มกำหนด",
+                    "ง. มีขนาด A3 เท่านั้น"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๗๙ ระบุว่า ทะเบียนรับมีขนาด A4 พิมพ์สองหน้า แบ่งเป็นชนิดเล่มและชนิดแผ่น"
+            },
+            {
+                id: 88,
+                category: "ระบบจัดเก็บและทะเบียน",
+                question: "รหัสตัวเลขระบุแผนก 'เลขประจำของเจ้าของเรื่อง' ในหนังสือราชการประกอบด้วยรหัสตัวเลขรวมกี่ตัว?",
+                options: ["ก. ๒ ตัว", "ข. ๓ ตัว", "ค. ๔ ตัว", "ง. ๕ ตัว"],
+                answer: 2,
+                rationale: "เลขประจำเจ้าของเรื่องประกอบด้วยตัวเลข ๔ ตัว (เช่น นร ๐๑๐๖)"
+            },
+            {
+                id: 89,
+                category: "ระบบจัดเก็บและทะเบียน",
+                question: "ในรหัสตัวเลข ๔ ตัวของเจ้าของเรื่อง ตัวเลข ๒ ตัวแรก สัญลักษณ์ของกระทรวง/ทบวง หมายความถึงระดับใด?",
+                options: ["ก. ส่วนราชการระดับกรม", "ข. ส่วนราชการระดับกระทรวง", "ค. ส่วนราชการระดับกอง", "ง. รหัสเขตจังหวัด"],
+                answer: 0,
+                rationale: "เลข ๒ ตัวแรกหมายถึงส่วนราชการระดับกรม (หรือเทียบเท่า) ภายใต้กระทรวงนั้นๆ"
+            },
+            {
+                id: 90,
+                category: "ระบบจัดเก็บและทะเบียน",
+                question: "ในรหัสตัวเลข ๔ ตัวของเลขเจ้าของเรื่อง ตัวเลข ๒ ตัวหลัง บ่งบอกถึงระดับส่วนราชการระดับใด?",
+                options: ["ก. ระดับกระทรวง", "ข. ระดับกรม", "ค. สำนัก กอง หรือส่วนราชการที่มีฐานะเทียบกอง", "ง. ระดับแผนกย่อยฝ่ายบุคคล"],
+                answer: 2,
+                rationale: "ตัวเลข ๒ ตัวหลังของรหัส ใช้หมายถึง สำนัก กอง หรือส่วนราชการที่มีฐานะเทียบเท่ากองขึ้นไป"
+            },
+            {
+                id: 91,
+                category: "ระบบจัดเก็บและทะเบียน",
+                question: "การระบุสิทธิ์เมื่อตำแหน่งผู้บริหารหลักไม่มีผู้ดำรงตำแหน่ง หรือไม่อาจปฏิบัติราชการได้ ระเบียบกำหนดให้ใช้คำอย่างเป็นทางการว่าอย่างไร?",
+                options: ["ก. รักษาการแทน", "ข. ปฏิบัติราชการแทน", "ค. รักษาราชการแทน", "ง. ทำการแทนผู้บริหาร"],
+                answer: 2,
+                rationale: "ตามกฎหมายระเบียบบริหารราชการแผ่นดินและสารบรรณ เมื่อตำแหน่งว่างหรือปฏิบัติไม่ได้ ให้ใช้คำว่า 'รักษาราชการแทน'"
+            },
+            {
+                id: 92,
+                category: "ระบบจัดเก็บและทะเบียน",
+                question: "ในกรณีมอบอำนาจตามกฎหมายให้รองหัวหน้าดำเนินการแทนในขอบเขตงานเฉพาะเจาะจง ให้ใช้คำทางเอกสารราชการว่าอย่างไร?",
+                options: ["ก. รักษาการแทน", "ข. ปฏิบัติราชการแทน", "ค. รักษาราชการในตำแหน่ง", "ง. สั่งการแทนอธิบดี"],
+                answer: 1,
+                rationale: "การส่งมอบอำนาจหน้าที่ที่มีอยู่ตามกฎหมายให้รับผิดชอบทำเอกสารแทนตามการมอบหมาย ให้ใช้คำว่า 'ปฏิบัติราชการแทน'"
+            },
+            {
+                id: 93,
+                category: "ระบบจัดเก็บและทะเบียน",
+                question: "คำนำหน้านามประเภทใดต่อไปนี้ที่ 'ห้ามใช้ระบุ' นำหน้าชื่อเจ้าของลายมือชื่อด้านล่างของหนังสือราชการไทย?",
+                options: [
+                    "ก. ยศ บรรดาศักดิ์ ฐานันดรศักดิ์",
+                    "ข. คำแสดงวิชาชีพส่วนตัว (เช่น นายแพทย์, ทันตแพทย์, เภสัชกร)",
+                    "ค. ตำแหน่งทางวิชาการ (ศาสตราจารย์, รองศาสตราจารย์)",
+                    "ง. คำนำหน้านามผู้หญิงที่ได้รับพระราชทานเครื่องราชฯ (คุณหญิง, ท่านผู้หญิง)"
+                ],
+                answer: 1,
+                rationale: "ระเบียบห้ามการระบุคำแสดงวิชาชีพส่วนตัว เช่น นายแพทย์ ในลายเซ็นใต้จดหมายราชการ ให้ใช้คำนำหน้าทั่วไป (นาย/นาง/นางสาว) หรือ ยศ/ตำแหน่งวิชาการแทน"
+            },
+            {
+                id: 94,
+                category: "ระบบจัดเก็บและทะเบียน",
+                question: "หากต้องพิมพ์จดหมายหลายๆ หน้า และต้องการพิมพ์เลขลำดับหน้าที่มุมกึ่งกลางด้านบนกระดาษ รูปแบบเครื่องหมายใดถูกต้อง?",
+                options: ["ก. (๒)", "ข. - ๒ -", "ค. ๒.", "ง. / ๒ /"],
+                answer: 1,
+                rationale: "การพิมพ์เลขหน้าให้ระบุตัวเลขอารบิกไว้ระหว่างเครื่องหมายยัติภังค์ที่กึ่งกลางด้านบนสุด เช่น '- ๒ -'"
+            },
+            {
+                id: 95,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "ระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณ (ฉบับที่ ๔) พ.ศ. ๒๕๖๔ มีสาระสำคัญสูงสุดในเรื่องใด?",
+                options: [
+                    "ก. ปรับเพิ่มราคากระดาษและซอง",
+                    "ข. กำหนดการทำงานด้วยระบบคลาวด์และสารบรรณอิเล็กทรอนิกส์ในงานราชการอย่างเต็มตัว",
+                    "ค. ยกเลิกตราครุฑเปลี่ยนไปใช้ตราประจำจังหวัดแทน",
+                    "ง. การเปลี่ยนวิธีการจัดเก็บจดหมายเข้าตู้เซฟป้องกันไฟ"
+                ],
+                answer: 1,
+                rationale: "ฉบับแก้ไขที่ ๔ พ.ศ. ๒๕๖๔ ออกมาปรับปรุงเพื่อรองรับการทำงานรัฐบาลดิจิทัล การเก็บเอกสารบนคลาวด์ และส่งระบบอีเมลอย่างสมบูรณ์"
+            },
+            {
+                id: 96,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "บริการพื้นที่คลาวด์ (Cloud Computing) ถือว่าเป็น 'สื่อกลางบันทึกข้อมูล' หรือไม่ตามระเบียบสารบรรณใหม่?",
+                options: [
+                    "ก. ไม่เป็น คลาวด์เป็นของเอกชนไม่ใช่ของหลวง",
+                    "ข. เป็น โดยให้สอดคล้องกับเทคโนโลยีการจัดเก็บข้อมูลอิเล็กทรอนิกส์ในระบบปัจจุบัน",
+                    "ค. เป็นเฉพาะกรณีหน่วยงานความมั่นคงแห่งชาติ",
+                    "ง. เป็นเฉพาะระบบปิดของสมาคมคอมพิวเตอร์"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๒๗ วรรคสาม ระบุให้ 'สื่อกลางบันทึกข้อมูล' หมายความรวมถึงพื้นที่ที่ส่วนราชการใช้ในการจัดเก็บข้อมูลอิเล็กทรอนิกส์ เช่น บริการคลาวด์ (Cloud computing)"
+            },
+            {
+                id: 97,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "ตามระเบียบใหม่ การพิมพ์ 'บันทึก' ในระบบคอมพิวเตอร์ผ่านช่องทางอีเมลที่มีระบบยืนยันตัวตน มีข้อผ่อนปรนการลงชื่ออย่างไร?",
+                options: [
+                    "ก. ต้องพิมพ์ภาพลายเซ็นจริงแนบเสมอ",
+                    "ข. สามารถพิมพ์ชื่อผู้บันทึกแทนการลงลายมือชื่อจริง และไม่ต้องลงวันเดือนปีหากระบบบันทึกเวลาไว้อยู่แล้ว",
+                    "ค. ถือว่าใช้ไม่ได้ถ้านายทะเบียนไม่อนุมัติเป็นกระดาษ",
+                    "ง. ต้องส่งรหัส SMS OTP ทุกครั้ง"
+                ],
+                answer: 1,
+                rationale: "การแก้ไขปี ๒๕๖๔ อำนวยความสะดวกกรณีบันทึกอิเล็กทรอนิกส์ที่มีระบบยืนยันตัวตน สามารถพิมพ์ชื่อแทนการจรดปากกาเขียนเซ็นจริงได้"
+            },
+            {
+                id: 98,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "หนังสืออิเล็กทรอนิกส์ที่ผ่านระบบสารบรรณออนไลน์และส่งเข้าสำรองข้อมูลคลาวด์ของกรมศิลปากร มีข้อกำหนดไฟล์ขั้นต่ำอย่างไร?",
+                options: [
+                    "ก. ไฟล์ภาพ JPG ขาวดำ",
+                    "ข. ไฟล์ประเภท PDF มีความละเอียดไม่น้อยกว่า ๑๕๐ dpi",
+                    "ค. ไฟล์ Microsoft Word มีคุณสมบัติแก้ไขได้",
+                    "ง. ไฟล์ขนาดไม่เกิน ๕ เมกะไบต์เท่านั้น"
+                ],
+                answer: 1,
+                rationale: "ระเบียบกำหนดรูปแบบมาตรฐานส่งสำรองข้อมูลคลาวด์เป็นไฟล์ เช่น PDF ที่มีความละเอียดไม่น้อยกว่า ๑๕๐ dpi (ความละเอียดสูงชัดเจน)"
+            },
+            {
+                id: 99,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "ระบบสารบรรณอิเล็กทรอนิกส์ของส่วนราชการ ต้องมีการตรวจสอบอีเมลรับจดหมายเป็นประจำตามข้อกำหนดขั้นต่ำวันละกี่ครั้ง?",
+                options: [
+                    "ก. วันละ ๑ ครั้งในตอนเย็นหลังเลิกงาน",
+                    "ข. ไม่น้อยกว่าวันละ ๒ ครั้ง ในเวลาราชการ (อย่างน้อยช่วงเช้า ๑ ครั้ง และช่วงบ่าย ๑ ครั้ง)",
+                    "ค. สัปดาห์ละ ๓ ครั้งเท่านั้น",
+                    "ง. ตรวจสอบเฉพาะเมื่อได้รับการโทรแจ้งจากหน่วยงานส่ง"
+                ],
+                answer: 1,
+                rationale: "เพื่อป้องกันงานค้างล้าช้า ระเบียบกำหนดให้เจ้าหน้าที่ตรวจสอบระบบจดหมายอย่างน้อยวันละ ๒ ครั้ง (ช่วงเช้า ๑ ครั้ง และช่วงบ่าย ๑ ครั้ง)"
+            },
+            {
+                id: 100,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "การกำหนดรูปแบบการตั้งชื่อไฟล์ส่งงานสารบรรณราชการทางอีเมล ข้อใดเรียงลำดับหัวข้อชื่อไฟล์ได้ถูกต้องตรงตามระเบียบกำหนด?",
+                options: [
+                    "ก. รหัสพยัญชนะกระทรวง -> เลขที่ส่ง -> ปีพุทธศักราช",
+                    "ข. ปีพุทธศักราช -> รหัสอักษรโรมันกระทรวง -> รหัสหน่วยงานต้นเรื่อง -> เลขจดหมายส่งออก",
+                    "ค. วันที่ -> เดือน -> ปี -> หัวข้อสั้น",
+                    "ง. ชื่อเรื่องภาษาไทยสั้นๆ เท่านั้น"
+                ],
+                answer: 1,
+                rationale: "รูปแบบไฟล์ทางการระเบียบปี ๒๕๖๔ กำหนด: [ปีพุทธศักราช]_[รหัสอักษรโรมันกระทรวง][รหัสต้นเรื่อง]_[เลขที่ทะเบียนส่ง].pdf เช่น 2564_OPM0913_56.pdf"
+            },
+            // --- NEWLY ADDED QUESTIONS (101 - 200) ---
+            {
+                id: 101,
+                category: "ความลับและระบบติดต่อ",
+                question: "การส่งหนังสือราชการผ่านทางไปรษณีย์อิเล็กทรอนิกส์ (Email) ในวันหยุดราชการ ถือว่าผู้รับได้รับเมื่อใด?",
+                options: [
+                    "ก. ถือว่าได้รับทันทีตามเวลาวินาทีที่ส่งสำเร็จ",
+                    "ข. ถือว่าได้รับในวันและเวลาเริ่มเปิดทำการงานทำงานถัดไป",
+                    "ค. ถือว่าใช้บังคับไม่ได้เลยเว้นแต่จะส่งตรงวันธรรมดา",
+                    "ง. ถือว่าได้รับก่อนเที่ยงคืนของวันหยุดนั้น"
+                ],
+                answer: 1,
+                rationale: "ตามระเบียบแก้ไขปรับปรุง หากระบบส่งนอกเวลาทำการปกติหรือวันหยุดราชการ ให้ถือว่าได้รับในวันเวลาเปิดทำการทำงานถัดไปเป็นสำคัญ"
+            },
+            {
+                id: 102,
+                category: "บททั่วไป",
+                question: "หากต้องการยกเว้นหรือผ่อนผันการปฏิบัติตามระเบียบสารบรรณนี้ ส่วนราชการต้องยื่นคำขอนี้ในรูปแบบใด?",
+                options: [
+                    "ก. ทำเป็นรายงานบันทึกภายใน",
+                    "ข. ทำเป็นหนังสือภายนอกเสนอต่อปลัดสำนักนายกรัฐมนตรีในฐานะผู้รักษาการ",
+                    "ค. ยื่นเอกสารต่อคณะรัฐมนตรีโดยตรง",
+                    "ง. ทำเป็นประกาศราชการ"
+                ],
+                answer: 1,
+                rationale: "การขอทำความตกลงผ่อนผันหรือยกเว้น ให้ทำเป็นจดหมายแบบพิธีการ หรือหนังสือภายนอก ชี้แจงเหตุผลความจำเป็นต่อผู้รักษาการระเบียบ"
+            },
+            {
+                id: 103,
+                category: "ชนิดหนังสือ",
+                question: "ข้อใดให้คำจำกัดความของคำว่า 'หนังสืออื่นที่เจ้าหน้าที่ทำขึ้นหรือรับไว้เป็นหลักฐาน' ได้ถูกต้องที่สุด?",
+                options: [
+                    "ก. รวมถึงเอกสารจดหมายเหตุ ภาพถ่าย วารสาร แผ่นเสียง หรือพยานวัตถุที่บันทึกข้อมูลและส่วนราชการเก็บไว้",
+                    "ข. หนังสือโต้ตอบส่วนตัวของข้าราชการที่ทำงาน",
+                    "ค. รายงานงบการเงินส่วนตัวของคู่ค้า",
+                    "ง. ข่าวกีฬาและข่าวสารการทูตที่ไม่ได้จัดเก็บบันทึก"
+                ],
+                answer: 0,
+                rationale: "ตามระเบียบข้อ ๒๗ 'หนังสืออื่น' ครอบคลุมเอกสารที่เกิดขึ้นจากการปฏิบัติงาน รวมถึงสื่อประเภทร่องรอย บันทึก ภาพ แผ่นเสียง วารสาร และข้อมูลเก็บรักษาทางราชการ"
+            },
+            {
+                id: 104,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ซองจดหมายมาตรฐานขนาด 'C5' ออกแบบมาสำหรับการพับจดหมายตราครุฑในรูปแบบใด?",
+                options: [
+                    "ก. ไม่ต้องพับกระดาษเลย",
+                    "ข. พับครึ่งกระดาษแผ่นงาน (พับ ๒ ส่วน)",
+                    "ค. พับ ๓ ส่วนเท่ากัน",
+                    "ง. พับ ๔ ส่วน"
+                ],
+                answer: 1,
+                rationale: "ตามแบบมาตรฐานที่ ๒๓ ซองขนาด C5 (กว้าง ๑๖๒ มม. ยาว ๒๒๙ มม.) ออกแบบมาเหมาะสมสำหรับกระดาษขนาด A4 พับครึ่ง"
+            },
+            {
+                id: 105,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ซองจดหมายมาตรฐานขนาด 'C6' ออกแบบมาสำหรับการพับจดหมายแบบใด?",
+                options: [
+                    "ก. พับ ๓ ส่วน",
+                    "ข. พับครึ่ง",
+                    "ค. พับ ๔ ส่วน (พับครึ่งแล้วพับครึ่งอีกครั้ง)",
+                    "ง. บรรจุเอกสารแผ่นป้ายประกาศใหญ่"
+                ],
+                answer: 2,
+                rationale: "ซองขนาด C6 เป็นซองขนาดเล็ก (๑๑๔ x ๑๖๒ มม.) เหมาะสมสำหรับบรรจุหนังสือกระดาษ A4 พับ ๔ ส่วน"
+            },
+            {
+                id: 106,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ในการพิมพ์จดหมายราชการผ่านระบบคอมพิวเตอร์ กำหนดระยะห่างของบรรทัด (Line Spacing) ไว้ที่เท่าใด?",
+                options: ["ก. ระยะ Single (ระยะเดี่ยวปกติ)", "ข. ระยะ Double (บรรทัดคู่)", "ค. 1.5 บรรทัด", "ง. แล้วแต่ดุลยพินิจของเจ้าหน้าที่พิมพ์"],
+                answer: 0,
+                rationale: "มาตรฐานการจัดทำหนังสือราชการด้วยระบบคอมพิวเตอร์กำหนดให้ใช้ระยะบรรทัดปกติเดี่ยว (Single Spacing) เว้นแต่ระยะระหว่างย่อหน้าที่ให้เว้นระยะเพิ่ม"
+            },
+            {
+                id: 107,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ฟอนต์หรือชุดตัวอักษรไทยมาตรฐานสำหรับการจัดพิมพ์หนังสือราชการ และขนาดปกติคือข้อใด?",
+                options: [
+                    "ก. TH Sarabun PSK ขนาด ๑๖ พอยท์ (Point)",
+                    "ข. Angsana New ขนาด ๑๔ พอยท์",
+                    "ค. Cordia New ขนาด ๑๘ พอยท์",
+                    "ง. TH Sarabun PSK ขนาด ๑๔ พอยท์"
+                ],
+                answer: 0,
+                rationale: "รัฐบาลไทยกำหนดให้ใช้ฟอนต์ตระกูล TH Sarabun (เช่น TH Sarabun PSK / New) โดยขนาดปกติสำหรับข้อความเนื้อหาคือ ๑๖ พอยท์"
+            },
+            {
+                id: 108,
+                category: "ชนิดหนังสือ",
+                question: "ในหนังสือภายนอก หัวข้อสุดท้ายที่อยู่กึ่งกลางระดับล่างสุดของเอกสาร (เยื้องล่างขวา) จะพิมพ์ข้อมูลใด?",
+                options: [
+                    "ก. ชื่อและตำแหน่งของผู้ลงนาม",
+                    "ข. ส่วนราชการเจ้าของเรื่องและเบอร์โทรศัพท์ติดต่อประสานงาน",
+                    "ค. คำขึ้นต้น",
+                    "ง. รหัสไปรษณีย์ของผู้รับ"
+                ],
+                answer: 0,
+                rationale: "ส่วนท้ายขวาของหนังสือภายนอกจะเป็นพื้นที่สำหรับลงลายมือชื่อจริง และพิมพ์ชื่อเต็มในวงเล็บตามด้วยตำแหน่งของผู้ลงนาม"
+            },
+            {
+                id: 109,
+                category: "การยืมและการทำลาย",
+                question: "ใครคือผู้มีอำนาจหน้าที่อนุญาตให้บุคคลภายนอกเข้ามาตรวจดูหรือคัดลอกเอกสารหนังสือราชการตัวจริง ณ สถานที่เก็บรักษา?",
+                options: [
+                    "ก. ข้าราชการผู้เฝ้าเวรประจำวัน",
+                    "ข. หัวหน้าส่วนราชการระดับกองขึ้นไป หรือผู้ที่ได้รับมอบหมาย",
+                    "ค. ปลัดสำนักนายกรัฐมนตรีคนเดียวเท่านั้น",
+                    "ง. นายกรัฐมนตรี"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๖๕ กำหนดห้ามยืมเอกสารออกนอก เว้นแต่ตรวจดูหรือคัดลอก ณ ที่ทำงาน และผู้มีสิทธิ์อนุมัติคือหัวหน้ากองขึ้นไป"
+            },
+            {
+                id: 110,
+                category: "ชนิดหนังสือ",
+                question: "หากที่ประชุมมีมติให้จดรายงานการประชุมแบบ 'ย่อ' เจ้าหน้าที่ผู้บันทึกรายงานการประชุมต้องเขียนอย่างไร?",
+                options: [
+                    "ก. จดเฉพาะรายชื่อผู้เข้าประชุมโดยละเว้นมติ",
+                    "ข. จดประเด็นสำคัญของเรื่องที่พิจารณา เหตุผลประกอบหลักๆ และมติของที่ประชุม",
+                    "ค. พิมพ์คำพูดย่อคำต่อคำโดยไม่แก้ไขสำนวน",
+                    "ง. สรุปเฉพาะหัวข้อเรื่องโดยระบุว่าผ่านหรือไม่ผ่านเท่านั้น"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๒๕ ระบุการจดแบบย่อคือ ให้จดประเด็นสำคัญพิจารณา เหตุผลความเห็น และมติที่ประชุมสรุปไว้ชัดเจน"
+            },
+            {
+                id: 111,
+                category: "ชนิดหนังสือ",
+                question: "ในหนังสือสั่งการประเภท 'คำสั่ง' หากมิได้มีการเขียนระบุ 'วันใช้บังคับ' ไว้ในตัวเอกสาร ให้มีผลทางกฎหมายเมื่อใด?",
+                options: [
+                    "ก. มีผลนับถัดจากวันที่ลงนาม ๓ วัน",
+                    "ข. มีผลย้อนหลังไป ๓๐ วัน",
+                    "ค. มีผลตั้งแต่วันที่ลงนามในเอกสารคำสั่งนั้นเป็นต้นไป",
+                    "ง. ไม่มีผลบังคับใช้จนกว่าจะประกาศในราชกิจจานุเบกษา"
+                ],
+                answer: 2,
+                rationale: "คำสั่งราชการเป็นคำสั่งฝ่ายปกครอง หากไม่เขียนข้อความเจาะจงวันเริ่มใช้ ให้ถือว่ามีผลทันทีนับตั้งแต่วันลงชื่อสั่งการ"
+            },
+            {
+                id: 112,
+                category: "ความลับและระบบติดต่อ",
+                question: "ตราประพ่นหรือประทับแสดงชั้น 'ความลับ' ของเอกสารราชการไทย แบ่งออกเป็นกี่ระดับ?",
+                options: ["ก. ๒ ระดับ", "ข. ๓ ระดับ คือ ลับที่สุด, ลับมาก, ลับ", "ค. ๔ ระดับ", "ง. ๕ ระดับ"],
+                answer: 1,
+                rationale: "การแบ่งชั้นลับตามระเบียบรักษาความปลอดภัยแห่งชาติมี ๓ ชั้นคือ ลับที่สุด (Top Secret), ลับมาก (Secret), และ ลับ (Confidential)"
+            },
+            {
+                id: 113,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ในการพับกระดาษจดหมายตราครุฑเพื่อบรรจุลงในซองขนาด DL (ขนาดจดหมายทั่วไป) ต้องดำเนินการพับอย่างไร?",
+                options: [
+                    "ก. พับครึ่งตามยาว",
+                    "ข. พับเป็น ๓ ส่วนเท่าๆ กันในแนวนอน",
+                    "ค. พับเป็นรูปกากบาทไขว้",
+                    "ง. พับ ๔ ส่วน"
+                ],
+                answer: 1,
+                rationale: "การบรรจุจดหมายในซอง DL ให้พับกระดาษ A4 ขนานเป็นสามส่วนเท่าๆ กันเพื่อให้เปิดกางอ่านได้เรียบร้อยและไม่ทับตราครุฑเสียหาย"
+            },
+            {
+                id: 114,
+                category: "ชนิดหนังสือ",
+                question: "ตราครุฑบนหัวจดหมาย 'บันทึกข้อความ' (หนังสือภายใน) จัดวางอยู่ที่ส่วนใดของกระดาษ?",
+                options: [
+                    "ก. กึ่งกลางด้านบนสุด",
+                    "ข. มุมบนด้านขวาสุด",
+                    "ค. มุมบนด้านซ้ายสุด",
+                    "ง. ท้ายมุมล่างซ้าย"
+                ],
+                answer: 2,
+                rationale: "กระดาษบันทึกข้อความตามระเบียบกำหนดให้มีตราครุฑจัดพิมพ์อยู่ทางมุมบนด้านซ้ายมือ (ขนาด ๑.๕ ซม.)"
+            },
+            {
+                id: 115,
+                category: "การรับและทะเบียนหนังสือ",
+                question: "ในขั้นตอนตรวจรับหนังสือ หากพัสดุหรือซองจดหมายนั้นจ่าหน้าซองเฉพาะเจาะจง 'ถึงตัวบุคคล' (ระบุชื่อข้าราชการโดยตรง) เจ้าหน้าที่สารบรรณควรทำอย่างไร?",
+                options: [
+                    "ก. เปิดซองอ่านและแสตมป์ทะเบียนรับทันที",
+                    "ข. ห้ามเปิดซองเด็ดขาด ให้ลงทะเบียนรับเฉพาะรายละเอียดหน้าซองและส่งต่อบุคคลผู้นั้นโดยด่วน",
+                    "ค. ส่งคืนไปรษณีย์เนื่องจากไม่เป็นจดหมายหลวง",
+                    "ง. ให้ฉีกซองเพื่อสแกนเอกสารเข้าสู่ระบบคอมพิวเตอร์"
+                ],
+                answer: 1,
+                rationale: "จดหมายเฉพาะตัวบุคคลเป็นสิทธิ์และความเป็นส่วนตัว เจ้าหน้าที่สารบรรณมีหน้าที่ลงทะเบียนควบคุมซองภายนอกแล้วส่งมอบให้เจ้าตัวเปิดซองเอง"
+            },
+            {
+                id: 116,
+                category: "ชนิดหนังสือ",
+                question: "หัวข้อ 'อ้างถึง' ในการร่างหนังสือราชการภายนอก มีวัตถุประสงค์เพื่อสิ่งใด?",
+                options: [
+                    "ก. เพื่อบอกชื่อหนังสือตำราวิชาการที่อ้างอิงเนื้อหา",
+                    "ข. เพื่อระบุถึงจดหมายราชการฉบับเดิมที่มีการติดต่อสื่อสารโต้ตอบกันมาก่อนหน้านี้เพื่อให้สะดวกแก่การสืบค้นเรื่องเดิม",
+                    "ค. เพื่ออ้างอิงประมวลกฎหมายอาญา",
+                    "ง. เพื่อลงลายมือชื่อพยานสนับสนุน"
+                ],
+                answer: 1,
+                rationale: "หัวข้ออ้างถึงมีไว้เพื่อให้ผู้รับจดหมายค้นจดหมายเดิมมาอ่านประกอบการพิจารณาได้รวดเร็ว (ข้อ ๑๑.๓)"
+            },
+            {
+                id: 117,
+                category: "ชนิดหนังสือ",
+                question: "หากจดหมายราชการภายนอกนั้นไม่มีข้อมูลหัวข้อ 'อ้างถึง' รายการต่อจาก 'เรื่อง' จะระบุหัวข้อใดเป็นลำดับถัดไป?",
+                options: [
+                    "ก. คำขึ้นต้น",
+                    "ค. สิ่งที่ส่งมาด้วย (ถ้ามี)",
+                    "ค. ข้อความเนื้อหา",
+                    "ง. ชื่อผู้ลงนาม"
+                ],
+                answer: 1,
+                rationale: "ลำดับหัวข้อจดหมายภายนอกเรียงดังนี้: เรื่อง -> อ้างถึง (ถ้ามี) -> สิ่งที่ส่งมาด้วย (ถ้ามี) -> คำขึ้นต้น"
+            },
+            {
+                id: 118,
+                category: "สำเนาเอกสาร",
+                question: "เอกสารที่คัดลอกจากต้นฉบับจริง หากไม่มีการลงชื่อรับรองสำเนาถูกต้องโดยข้าราชการผู้มีอำนาจ จะมีผลตามระเบียบอย่างไร?",
+                options: [
+                    "ก. ยังถือเป็นเอกสารหลักฐานที่ใช้การได้เหมือนต้นฉบับ",
+                    "ข. ไม่ถือเป็นพยานเอกสารราชการที่สมบูรณ์และไม่สามารถใช้อ้างอิงการพิจารณาคดีได้เต็มร้อย",
+                    "ค. ถือว่าผู้คัดลอกมีความผิดทางอาญาฐานปลอมแปลง",
+                    "ง. ไม่มีผลกระทบใดๆ"
+                ],
+                answer: 1,
+                rationale: "การลงนามรับรองสำเนาถูกต้องเป็นกระบวนการยืนยันทางกฎหมายให้เอกสารนั้นมีน้ำหนักความน่าเชื่อถือเท่าเทียมกับตัวจริง"
+            },
+            {
+                id: 119,
+                category: "ชนิดหนังสือ",
+                question: "การประทับตราสีแดงชื่อส่วนราชการในจดหมายแบบ 'หนังสือประทับตรา' ต้องประทับอยู่บริเวณใด?",
+                options: [
+                    "ก. เหนือตราครุฑกึ่งกลางกระดาษ",
+                    "ข. ใต้ข้อความอธิบายความต้องการ และทับคาบเกี่ยวชื่อส่วนราชการผู้ส่งพร้อมลายมือชื่อย่อข้าราชการผู้รับผิดชอบ",
+                    "ค. ที่ด้านหลังสุดของซองจดหมาย",
+                    "ง. มุมล่างซ้ายสุดของหน้ากระดาษ"
+                ],
+                answer: 1,
+                rationale: "ตราวงกลมสีแดงจะถูกประทับปิดท้ายเนื้อความจดหมายทางขวาเยื้องล่าง และมีลายเซ็นย่อของผู้กำกับตราอยู่ในขอบวงกลม"
+            },
+            {
+                id: 120,
+                category: "การเก็บรักษา",
+                question: "การนับอายุการเก็บรักษาหนังสือราชการ ให้เริ่มนับจากวันใดเป็นวันแรกตามกฎหมายสารบรรณ?",
+                options: [
+                    "ก. วันที่ลงนามในหนังสือนั้นเป็นวันแรก",
+                    "ข. วันที่ได้รับจดหมายเข้ามายังหน่วยงาน",
+                    "ค. วันที่ ๑ มกราคม ของปีถัดจากปีที่จัดทำหรือได้รับหนังสือนั้นๆ",
+                    "ง. สิ้นปีงบประมาณแผ่นดิน"
+                ],
+                answer: 2,
+                rationale: "ข้อ ๕๗ วรรคสองกำหนดการเริ่มนับอายุเก็บรักษาเอกสาร ให้เริ่มนับปฏิทินถัดไปคือวันที่ ๑ มกราคมของปีถัดไปเพื่อสะดวกต่อการคุมทะเบียนรายปี"
+            },
+            {
+                id: 121,
+                category: "การยืมและการทำลาย",
+                question: "หลังจากทำการคัดเลือกและตรวจสอบแล้ว คณะกรรมการทำลายหนังสือต้องจัดทำรายงานบัญชีหนังสือขอทำลายและผลการตรวจสอบเสนอต่อใครเพื่ออนุมัติ?",
+                options: [
+                    "ก. หัวหน้าส่วนราชการระดับกรมขึ้นไป",
+                    "ข. นายกรัฐมนตรี",
+                    "ค. ปลัดสำนักนายกรัฐมนตรี",
+                    "ง. อธิบดีกรมศิลปากร"
+                ],
+                answer: 0,
+                rationale: "คณะกรรมการทำลายหนังสือเป็นคณะทำงานของส่วนราชการนั้นๆ เมื่อพิจารณาเสร็จแล้วต้องส่งรายงานขออนุมัติหลักจากอธิบดีกรมหรือผู้บริหารสูงสุดของหน่วยงานก่อนส่งต่อกองจดหมายเหตุฯ"
+            },
+            {
+                id: 122,
+                category: "การยืมและการทำลาย",
+                question: "กรณีที่กองจดหมายเหตุแห่งชาติพิจารณาบัญชีขอทำลายหนังสือแล้วเห็นว่าบางรายการมีคุณค่าทางประวัติศาสตร์จะดำเนินการอย่างไร?",
+                options: [
+                    "ก. สั่งปรับหัวหน้าส่วนราชการ",
+                    "ข. แจ้งให้ส่วนราชการนั้นๆ ส่งมอบหนังสือนั้นไปเก็บรักษาไว้ที่หอจดหมายเหตุแห่งชาติแทนการทำลาย",
+                    "ค. เข้ามาทำการสืบสวนคดีลับ",
+                    "ง. สั่งปิดระงับการทำลายเอกสารทั้งหมดของหน่วยงาน"
+                ],
+                answer: 1,
+                rationale: "เอกสารที่มีคุณค่าทางการเมือง ประวัติศาสตร์ และวัฒนธรรม จะถูกห้ามทำลายและดึงไปเก็บเป็นมรดกเอกสารชาติที่หอจดหมายเหตุแห่งชาติ"
+            },
+            {
+                id: 123,
+                category: "บททั่วไป",
+                question: "การร่างพระบรมราชโองการหรือพระบรมราชวินิจฉัยของพระมหากษัตริย์ ถือเป็นงานสารบรรณที่อยู่ภายใต้การใช้ระเบียบนี้หรือไม่?",
+                options: [
+                    "ก. อยู่ เพราะถือเป็นเอกสารของประมุขภาครัฐ",
+                    "ข. ไม่อยู่ เนื่องจากมีกฎหมาย ขนบธรรมเนียม และแนวทางปฏิบัติราชการในพระองค์ของสำนักพระราชวังกำหนดไว้เป็นการเฉพาะ",
+                    "ค. อยู่เฉพาะกรณีเรื่องการเงินการคลัง",
+                    "ง. อยู่ในส่วนเอกสารลับที่สุด"
+                ],
+                answer: 1,
+                rationale: "เอกสารในพระองค์และราชการส่วนพระมหากษัตริย์มีระบบสารบรรณและจารีตโบราณเฉพาะตัวของสำนักพระราชวัง ไม่อยู่ใต้ระเบียบสำนักนายกฯ"
+            },
+            {
+                id: 124,
+                category: "ชนิดหนังสือ",
+                question: "คำลงท้ายในหนังสือราชการภายนอกที่ส่งถึง 'นายกรัฐมนตรี' หรือ 'ประธานรัฐสภา' ต้องใช้คำใดจึงจะถูกต้องตามระเบียบสารบรรณ?",
+                options: ["ก. ขอแสดงความนับถือ", "ข. ขอแสดงความนับถืออย่างยิ่ง", "ค. ขอแสดงความเคารพอย่างสูง", "ง. ขอแสดงความจริงใจ"],
+                answer: 1,
+                rationale: "ตามภาคผนวกท้ายระเบียบ บุคคลสำคัญระดับสูง ๑๕ ตำแหน่งหลัก (เช่น นายกรัฐมนตรี ประธานรัฐสภา ประธานศาลฎีกา) คำลงท้ายต้องระบุ 'ขอแสดงความนับถืออย่างยิ่ง'"
+            },
+            {
+                id: 125,
+                category: "ชนิดหนังสือ",
+                question: "ในการติดต่อราชการโต้ตอบกับ 'พระภิกษุสงฆ์' ทั่วไป ข้าราชการต้องถือปฏิบัติสอดคล้องกับข้อใด?",
+                options: [
+                    "ก. ใช้แบบฟอร์มหนังสือภายนอกปกติและคำขึ้นต้นแบบบุคคลทั่วไป",
+                    "ข. ให้ปฏิบัติตามหลักคำขึ้นต้น คำลงท้าย และสรรพนามสำหรับพระภิกษุสงฆ์ตามผนวกท้ายระเบียบ",
+                    "ค. ใช้เฉพาะระบบติดต่ออิเล็กทรอนิกส์เท่านั้น",
+                    "ง. ให้พระสงฆ์เป็นฝ่ายลงนามฝ่ายเดียว"
+                ],
+                answer: 1,
+                rationale: "ระเบียบจัดหมวดหมู่คำขึ้นต้น คำลงท้าย สรรพนามสำหรับใช้กับพระภิกษุและสมณศักดิ์ต่างๆ แยกเป็นกรณีเฉพาะเพื่อความเคารพทางพุทธศาสนา"
+            },
+            {
+                id: 126,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "การจัดพิมพ์หนังสือราชการที่มีหัวข้อย่อยซับซ้อนหลายชั้น ควรปฏิบัติอย่างไรเพื่อให้อ่านง่าย?",
+                options: [
+                    "ก. จัดพิมพ์ชิดขอบซ้ายทั้งหมดเท่ากัน",
+                    "ข. ให้พิมพ์เยื้องตัวอักษรขยับร่นเข้าไปทางขวาเป็นลำดับขั้นตอนอย่างเป็นระเบียบชัดเจน",
+                    "ค. ให้ใช้ตัวหนาและตัวสีแดงในหัวข้อย่อย",
+                    "ง. ให้ยุบหัวข้อย่อยรวมเป็นหนึ่งย่อหน้ายาว"
+                ],
+                answer: 1,
+                rationale: "การเว้นระยะเยื้อง (Tab) ในหัวข้อย่อยช่วยรักษาระดับสายตาและบ่งบอกโครงสร้างลำดับความสัมพันธ์ของเนื้อความเอกสารอย่างเป็นมืออาชีพ"
+            },
+            {
+                id: 127,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ตราครุฑที่ใช้พิมพ์บน 'ซองจดหมาย' สำหรับจัดส่งทางราชการ กำหนดให้มีขนาดความสูงเท่าใด?",
+                options: ["ก. ๑.๕ เซนติเมตร", "ข. ๓ เซนติเมตร", "ค. ๔.๕ เซนติเมตร", "ง. ขนาดใดก็ได้"],
+                answer: 0,
+                rationale: "ซองจดหมายราชการใช้ตราครุฑขนาดเล็กคือขนาดสูง ๑.๕ เซนติเมตร จัดวางตำแหน่งมุมบนด้านซ้ายของหน้าซอง"
+            },
+            {
+                id: 128,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "หากพบว่าระบบคอมพิวเตอร์สารบรรณอิเล็กทรอนิกส์มีช่องโหว่ความปลอดภัยหรือเกิดเหตุโจรกรรมข้อมูล เจ้าหน้าที่ต้องแจ้งสิ่งใดเป็นสำคัญ?",
+                options: [
+                    "ก. แจ้งความกองปราบทันที",
+                    "ข. รายงานต่อหัวหน้าส่วนราชการและผู้รับผิดชอบระบบไอทีของหน่วยงานเพื่อระงับและหาทางแก้ไขตามคู่มือความปลอดภัยข้อมูล",
+                    "ค. ทำการปิดเครื่องและแกล้งทำเป็นไม่รู้เรื่อง",
+                    "ง. ลบไฟล์ฐานข้อมูลระบบทิ้งเพื่อความปลอดภัย"
+                ],
+                answer: 1,
+                rationale: "ขั้นตอนการเผชิญเหตุความมั่นคงไซเบอร์กำหนดให้ระงับเหตุภายใน ทำการตรวจสอบระดับความเสียหาย และแจ้งผู้ดูแลระบบรวมถึงผู้บริหารด่านแรก"
+            },
+            {
+                id: 129,
+                category: "การเก็บรักษา",
+                question: "บันทึกข้อความ (หนังสือภายใน) ของเจ้าหน้าที่แต่ละฝ่ายงาน จะถูกรวบรวมจัดเก็บเข้าสู่แฟ้มทะเบียนกลางของแผนกสารบรรณได้เมื่อใด?",
+                options: [
+                    "ก. รวบรวมส่งทุกวันเวลาก่อนเที่ยง",
+                    "ข. เมื่อการดำเนินงานในเรื่องนั้นๆ สำเร็จเสร็จสิ้นการปฏิบัติราชการและจำหน่ายเรื่องเรียบร้อยแล้ว",
+                    "ค. ทันทีที่ร่างบันทึกเสร็จ",
+                    "ง. เมื่อครบอายุ ๑๐ ปี"
+                ],
+                answer: 1,
+                rationale: "เอกสารที่อยู่ระหว่างปฏิบัติงานจะเก็บรักษาไว้ที่หน่วยงานเจ้าของเรื่องก่อน เมื่อเสร็จสิ้นกระบวนการจึงจะจัดส่งเก็บเข้าสารบรรณกลางควบคุมอายุเก็บรักษาต่อไป"
+            },
+            {
+                id: 130,
+                category: "ชนิดหนังสือ",
+                question: "ในกรณีประชุมสัมมนาและมีการอัดบันทึกข้อมูลเสียงไว้ในเทปบันทึกเสียง เทปนี้มีสถานะตามระเบียบงานสารบรรณอย่างไร?",
+                options: [
+                    "ก. เป็นเพียงพยานวัตถุ ไม่จัดอยู่ในระเบียบสารบรรณ",
+                    "ข. จัดเป็น 'หนังสืออื่น' (ชนิดที่ ๖) ซึ่งเจ้าหน้าที่ทำขึ้นหรือรับไว้เป็นหลักฐานในราชการ",
+                    "ค. ถือเป็นรายงานการประชุมฉบับสมบูรณ์ทันทีโดยไม่ต้องถอดเทป",
+                    "ง. ถือเป็นเอกสารส่วนตัวของผู้เข้าร่วมประชุม"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๒๗ ระบุรวมถึงแถบบันทึกเสียง ภาพ และสิ่งบันทึกทางดิจิทัลด้วย หากเกิดจากการปฏิบัติงานของเจ้าหน้าที่จะนับเป็นหนังสืออื่นที่เป็นหลักฐานราชการ"
+            },
+            {
+                id: 131,
+                category: "ชนิดหนังสือ",
+                question: "คำขึ้นต้นที่ใช้ในการติดต่อจดหมายโต้ตอบกับบุคคลภายนอกทั่วไป (ที่ไม่มีฐานันดรศักดิ์ ยศ หรือตำแหน่งพิเศษ) คือคำใด?",
+                options: ["ก. กราบเรียน", "ข. นมัสการ", "ค. เรียน", "ง. เสนอ"],
+                answer: 2,
+                rationale: "คำขึ้นต้นระดับมาตรฐานสากลสำหรับติดต่อบุคคลทั่วไปคือคำว่า 'เรียน'"
+            },
+            {
+                id: 132,
+                category: "การรับและทะเบียนหนังสือ",
+                question: "เมื่อข้าราชการร่างจดหมายส่งออกสำเร็จ รายละเอียดแรกสุดที่จะต้องกรอกลงใน 'สมุดทะเบียนส่งหนังสือ' คือข้อใด?",
+                options: [
+                    "ก. วันเดือนปี",
+                    "ข. ทะเบียนเลขที่ส่ง (เลขลำดับส่งถัดไป)",
+                    "ค. เรื่องของจดหมาย",
+                    "ง. ลายเซ็นผู้ตรวจสอบ"
+                ],
+                answer: 1,
+                rationale: "เลขทะเบียนส่งทำหน้าที่เป็นรหัสคุมลำดับหนังสือส่งออก จึงต้องรันและระบุลงเป็นข้อมูลหลักแรกสุดของช่องตารางทะเบียนส่ง"
+            },
+            {
+                id: 133,
+                category: "ชั้นความเร็ว",
+                question: "การประทับตัวหนังสือสีแดงแสดงความเร่งด่วน 'ด่วนที่สุด' บนซองจดหมาย ให้จัดพิมพ์หรือประทับไว้ที่บริเวณใด?",
+                options: [
+                    "ก. กึ่งกลางด้านหลังของซอง",
+                    "ข. เหนือจ่าหน้าซองที่มุมบนด้านซ้ายมือ",
+                    "ค. ที่มุมล่างขวาสุด",
+                    "ง. ทับตัวตราไปรษณียากร"
+                ],
+                answer: 1,
+                rationale: "การจัดวางชั้นความเร็วภายนอกซอง ให้ประทับไว้มุมบนด้านซ้ายเหนือชื่อที่อยู่ผู้รับจดหมายเพื่อให้เจ้าหน้าที่ไปรษณีย์หรือคนส่งเห็นและคัดแยกส่งได้รวดเร็วทันที"
+            },
+            {
+                id: 134,
+                category: "ความลับและระบบติดต่อ",
+                question: "ในสถานการณ์วิกฤตที่มีภัยพิบัติรุนแรงหรือภัยสงคราม การดำเนินงานสารบรรณส่งเอกสารมีข้ออนุโลมทางปฏิบัติอย่างไร?",
+                options: [
+                    "ก. ให้ระงับการส่งงานทั้งหมดจนกว่าเหตุการณ์จะสงบ",
+                    "ข. สามารถแจ้งเรื่องข้อมูลด้วยวาจา โทรศัพท์ หรือเครื่องมือสื่อสารฉุกเฉินอื่นใดก่อนได้ แล้วจัดทำหนังสือเป็นลายลักษณ์อักษรยืนยันตามไปภายหลังโดยเร็ว",
+                    "ค. ให้ส่งด้วยพนักงานเดินสารวิ่งเท้าเพียงทางเดียว",
+                    "ง. ไม่มีการผ่อนปรนใดๆ"
+                ],
+                answer: 1,
+                rationale: "ความปลอดภัยของราชการแผ่นดินมีความสำคัญสูงสุด ยามฉุกเฉินอนุญาตให้ประสานส่งสารด้วยวิธีฉับไวทุกรูปแบบเพื่อความรวดเร็วและปลอดภัย แล้วจึงบันทึกยืนยันเป็นทางการภายหลัง"
+            },
+            {
+                id: 135,
+                category: "การยืมและการทำลาย",
+                question: "ประธานของคณะกรรมการทำลายหนังสือประจำปีของส่วนราชการ โดยทั่วไปควรได้รับการเสนอแต่งตั้งจากผู้ดำรงตำแหน่งระดับใด?",
+                options: [
+                    "ก. ข้าราชการใหม่พึ่งบรรจุ",
+                    "ข. ข้าราชการประเภทวิชาการ ระดับชำนาญการ หรือประเภททั่วไป ระดับชำนาญงานขึ้นไป",
+                    "ค. ข้าราชการทุกคนมีสิทธิ์เท่ากันสุ่มจับสลาก",
+                    "ง. อธิบดีเพียงคนเดียวเท่านั้น"
+                ],
+                answer: 1,
+                rationale: "การเป็นคณะกรรมการต้องมีความรอบรู้ในโครงสร้างและภารกิจของกรมเป็นอย่างดี เพื่อให้วินิจฉัยคุณค่าและอายุเอกสารได้ถูกต้อง จึงกำหนดคุณสมบัติขั้นต่ำไว้ที่ระดับชำนาญการ/ชำนาญงานขึ้นไป"
+            },
+            {
+                id: 136,
+                category: "การยืมและการทำลาย",
+                question: "หากคณะกรรมการพิจารณาสำรวจแล้วเห็นสมควรว่าหนังสือบางรายการ 'ยังไม่ควรทำลาย' (เช่น เรื่องสำคัญทางสิทธิหรืออยู่ระหว่างสอบสวน) ต้องปฏิบัติอย่างไร?",
+                options: [
+                    "ก. ให้จัดเก็บแยกไว้ และระบุความเห็นเสนอขยายระยะเวลาจัดเก็บลงในช่องบันทึกของบัญชีทำลายเอกสาร",
+                    "ข. ลอบเผาทำลายเพื่อตัดปัญหา",
+                    "ค. ส่งมอบให้หอสมุดชุมชน",
+                    "ง. จำหน่ายทิ้งเป็นเศษกระดาษ"
+                ],
+                answer: 0,
+                rationale: "ข้อ ๖๘ คณะกรรมการมีหน้าที่ให้ความเห็นทักท้วงหากเห็นควรเลื่อนหรือขยายเวลาจัดเก็บหนังสือบางฉบับที่ยังมีประโยชน์ค้างอยู่"
+            },
+            {
+                id: 137,
+                category: "การยืมและการทำลาย",
+                question: "เจ้าหน้าที่ในส่วนราชการเดียวกันต้องการขอยืมแฟ้มหนังสือราชการเพื่อนำไปใช้ทำงานนอกเขตสำนักงาน (นอกสถานที่ราชการ) ต้องผ่านการอนุมัติจากใคร?",
+                options: [
+                    "ก. หัวหน้าส่วนราชการระดับกอง หรือเทียบเท่าขึ้นไป",
+                    "ข. ข้าราชการระดับปฏิบัติการในแผนกเดียวกัน",
+                    "ค. ปลัดสำนักนายกรัฐมนตรี",
+                    "ง. ยืมออกไปได้เลยไม่ต้องขออนุญาต"
+                ],
+                answer: 0,
+                rationale: "การยืมเอกสารออกนอกที่ตั้งสำนักงานมีความเสี่ยงต่อเอกสารสูญหายอย่างสูง จึงจำเป็นต้องได้รับคำอนุมัติจากผู้บริหารกองเจ้าของเรื่องขึ้นไปเพื่อควบคุมความปลอดภัย"
+            },
+            {
+                id: 138,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "เอกสารที่จัดส่งด้วยระบบออนไลน์ผ่านเว็บพอร์ทัลของประชาชนที่รัฐบาลจัดไว้ให้รับบริการ ถือเป็นหนังสือราชการที่ถูกต้องตามระเบียบสารบรรณหรือไม่?",
+                options: [
+                    "ก. ไม่เป็น เพราะไม่ได้ใช้คอมพิวเตอร์ของส่วนราชการพิมพ์",
+                    "ข. เป็น เพราะถือเป็นข้อมูลอิเล็กทรอนิกส์ที่ส่วนราชการได้รับไว้เป็นหลักฐานตามช่องทางที่จัดตั้งตามระเบียบ",
+                    "ค. เป็นเฉพาะกรณีที่มีตราสัญลักษณ์ครุฑแนบมาด้วยเท่านั้น",
+                    "ง. ไม่เป็น เป็นเพียงใบคำขอทั่วไป"
+                ],
+                answer: 1,
+                rationale: "ระเบียบปี ๒๕๖๔ รองรับการทำธุรกรรมภาครัฐร่วมกับประชาชน ช่องทางการสื่อสารทางอิเล็กทรอนิกส์ที่ชอบด้วยกฎหมายถือเป็นหนังสือราชการรับเข้าสารบรรณอย่างเป็นทางการ"
+            },
+            {
+                id: 139,
+                category: "ชนิดหนังสือ",
+                question: "ในโครงสร้างหนังสือราชการภายนอก ส่วนที่เรียกว่า 'ภาคความประสงค์' มีลักษณะหน้าที่อย่างไร?",
+                options: [
+                    "ก. เป็นส่วนที่ระบุประวัติความเป็นมาและเรื่องราวในอดีต",
+                    "ข. เป็นส่วนที่อธิบายจุดมุ่งหมาย ความต้องการ หรือสิ่งที่ต้องการให้ผู้รับหนังสือดำเนินการ (เช่น จึงเรียนมาเพื่อโปรดพิจารณา)",
+                    "ค. เป็นพื้นที่ระบุรหัสไปรษณีย์",
+                    "ง. เป็นลายเซ็นของอธิบดี"
+                ],
+                answer: 1,
+                rationale: "ภาคความประสงค์เป็นข้อความย่อหน้าปิดสรุป เพื่อแจ้งเจตจำนงชัดเจนว่าผู้ส่งเขียนหนังสือมานี้เพื่อประสงค์สิ่งใดให้ผู้รับจดหมายปฏิบัติ"
+            },
+            {
+                id: 140,
+                category: "ชนิดหนังสือ",
+                question: "ในโครงสร้างหนังสือราชการภายนอก ส่วนที่เรียกว่า 'ภาคเหตุ' มีลักษณะหน้าที่อย่างไร?",
+                options: [
+                    "ก. เป็นส่วนสรุปยอดบัญชีงบประมาณ",
+                    "ข. เป็นส่วนอ้างอิงเรื่องราว ความเป็นมา เหตุผล หรือความจำเป็นในการที่ต้องมีจดหมายฉบับนี้ส่งไป",
+                    "ค. เป็นช่องสำหรับกรอกวันที่รับจดหมาย",
+                    "ง. เป็นการลงลายมือชื่อย่อ"
+                ],
+                answer: 1,
+                rationale: "ภาคเหตุเป็นส่วนเนื้อความช่วงแรกที่ใช้อธิบายเหตุผล ต้นเรื่อง หรือปัญหาแวดล้อมที่นำไปสู่การออกหนังสือราชการส่งออก"
+            },
+            {
+                id: 141,
+                category: "ชนิดหนังสือ",
+                question: "ข้อความนำว่า 'ด้วย จังหวัด... ได้รับแจ้งจาก... ว่า...' จัดอยู่ในส่วนภาคโครงสร้างใดของจดหมายโต้ตอบทางราชการ?",
+                options: ["ก. ภาคความประสงค์", "ข. ภาคเหตุ", "ค. ภาคลงท้าย", "ง. ภาคลงชื่อ"],
+                answer: 1,
+                rationale: "คำขึ้นต้นที่อธิบายเหตุการณ์หรือการอ้างถึงเช่น 'ด้วย...', 'เนื่องจาก...' คือจุดเริ่มต้นในการชี้แจง 'ภาคเหตุ' ของหนังสือ"
+            },
+            {
+                id: 142,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ตราประทับวงกลมสองวงซ้อนสำหรับตราชื่อส่วนราชการ (หมึกแดง) กำหนดให้เขียนระบุชื่อส่วนราชการไว้ที่บริเวณใดของตราประทับ?",
+                options: [
+                    "ก. ล้อมอยู่ขอบวงด้านบน",
+                    "ข. อยู่ตรงกลางคาบเกี่ยวขาทั้งสองข้างของครุฑ",
+                    "ค. ล้อมอยู่รอบขอบในส่วนล่างสุด",
+                    "ง. อยู่ที่ด้านหลังสุดภายนอกวงกลม"
+                ],
+                answer: 0,
+                rationale: "ตามแบบที่ ๒๗ การเขียนตราชื่อระบุให้ชื่อส่วนราชการหลักเขียนขอบบน ส่วนขอบล่างอาจระบุชื่อแผนกย่อย จังหวัด หรือภาษาต่างประเทศประกอบ"
+            },
+            {
+                id: 143,
+                category: "ชนิดหนังสือ",
+                question: "ในการจัดพิมพ์รายงานการประชุม หากในคราวประชุมมีประเด็นหัวข้อพิจารณาโต้แย้งและหารือหลายเรื่อง เจ้าหน้าที่ควรเขียนรายงานการประชุมอย่างไร?",
+                options: [
+                    "ก. พิมพ์สรุปรวมกันทั้งหมดในย่อหน้าเดียว",
+                    "ข. แยกสรุปเนื้อความ ความเห็น และมติออกเป็นข้อๆ แยกตามลำดับวาระประชุมให้เป็นระเบียบชัดเจน",
+                    "ค. เลือกจดเฉพาะเรื่องที่ประธานประชุมเห็นชอบเรื่องเดียว",
+                    "ง. ให้จดคำต่อคำโดยไม่แยกประเภท"
+                ],
+                answer: 1,
+                rationale: "รายงานการประชุมที่ดีต้องสามารถใช้อ้างอิงการปฏิบัติงานรายข้อได้ง่าย การแบ่งเป็นวาระและข้อๆ จะช่วยให้ส่วนราชการที่เกี่ยวข้องนำมติไปปฏิบัติได้สะดวกและไร้ข้อกังขา"
+            },
+            {
+                id: 144,
+                category: "ชนิดหนังสือ",
+                question: "การระบุอักษรตัวสะกดในเครื่องหมายวงเล็บใต้รอยเส้นลายเซ็น (ผู้ลงนามจดหมายภายนอก) ข้อใดกล่าวถูกต้อง?",
+                options: [
+                    "ก. ต้องระบุยศ บรรดาศักดิ์ พร้อมทั้งชื่อและนามสกุลเต็มในวงเล็บ",
+                    "ข. ห้ามเขียนคำนำหน้าประเภทนาง/นางสาว",
+                    "ค. ให้ระบุเพียงตัวย่อชื่อเท่านั้น",
+                    "ง. ให้ระบุวันเดือนปีเกิด"
+                ],
+                answer: 0,
+                rationale: "เพื่อให้ทราบชื่อเต็มที่ถูกต้องสำหรับโต้ตอบจดหมายกลับ ในวงเล็บจึงให้พิมพ์ยศ บรรดาศักดิ์ หรือคำนำหน้าทางกฎหมายพร้อมชื่อนามสกุลเต็มของข้าราชการผู้ลงชื่อ"
+            },
+            {
+                id: 145,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "หากหนังสือราชการมีความยาวจัดพิมพ์มากกว่า ๑ หน้าขึ้นไป และจำเป็นต้องไปขึ้นแผ่นหน้าใหม่ (หน้าที่ ๒) เจ้าหน้าที่ควรพิมพ์จุดสังเกตใดไว้ที่มุมล่างขวาของหน้าแรก?",
+                options: [
+                    "ก. คำว่า 'อ่านต่อหน้าถัดไป'",
+                    "ข. คำสำคัญคำแรกของหน้าถัดไป โดยพ่น/พิมพ์ไว้ระหว่างรอยเว้น",
+                    "ค. ลงลายเซ็นย่ออธิบดี",
+                    "ง. ตราครุฑสีแดงขนาดเล็ก"
+                ],
+                answer: 1,
+                rationale: "ระเบียบกำหนดให้พิมพ์คำแรกของหน้าถัดไปไว้ที่มุมล่างขวาของหน้าแรก เพื่อช่วยเป็นจุดสังเกตตรวจสอบความต่อเนื่องของเนื้อความว่าไม่มีแผ่นใดขาดหายไป"
+            },
+            {
+                id: 146,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ซองจดหมายที่มีขนาดมิติวัดความกว้างยาวเป็น 'ครึ่งหนึ่งของแผ่นกระดาษ A4' พอดี เรียกว่าซองจดหมายขนาดมาตรฐานใด?",
+                options: ["ก. ขนาด C4", "ข. ขนาด C5", "ค. ขนาด C6", "ง. ขนาด DL"],
+                answer: 1,
+                rationale: "ซองขนาด C5 ออกแบบมาให้มีขนาดพอดีสำหรับการบรรจุกระดาษขนาด A4 ที่ผ่านการพับครึ่งแล้วเข้าไปได้พอดีอย่างเรียบร้อย"
+            },
+            {
+                id: 147,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "อุปกรณ์และระบบเทคโนโลยีที่ใช้สำหรับเชื่อมโยงสารบรรณออนไลน์ในส่วนราชการ ต้องปฏิบัติตามมาตรฐานความปลอดภัยด้านใด?",
+                options: [
+                    "ก. นโยบายและแนวปฏิบัติการรักษาความมั่นคงปลอดภัยสารสนเทศของส่วนราชการนั้นๆ และกฎหมายเทคโนโลยีสารสนเทศ",
+                    "ข. มาตรฐานความปลอดภัยของบริษัทขายอุปกรณ์คอมพิวเตอร์ภายนอก",
+                    "ค. ไม่มีข้อกำหนดความปลอดภัยคอมพิวเตอร์สารบรรณ",
+                    "ง. มาตรฐานเดียวกับระบบธนาคารต่างประเทศทั้งหมด"
+                ],
+                answer: 0,
+                rationale: "เพื่อให้ข้อมูลราชการไม่ถูกรั่วไหล ระบบต้องตั้งค่าความปลอดภัยตามหลักเกณฑ์ของกระทรวงดิจิทัลฯ และกฎหมายการรักษาความมั่นคงปลอดภัยไซเบอร์"
+            },
+            {
+                id: 148,
+                category: "การรับและทะเบียนหนังสือ",
+                question: "หากเจ้าหน้าที่สารบรรณพบว่า มีจดหมายราชการเวียนส่งผิดมายังส่วนราชการของเราโดยที่หน่วยงานเราไม่มีส่วนเกี่ยวข้องหรือมีชื่อผู้รับ เจ้าหน้าที่ควรปฏิบัติอย่างไร?",
+                options: [
+                    "ก. นำไปทำลายทำเศษกระดาษรีไซเคิล",
+                    "ข. จัดส่งคืนให้ส่วนราชการผู้ส่งโดยเร็วที่สุด หรือส่งต่อไปยังส่วนราชการที่มีชื่อและหน้าที่รับผิดชอบจริงหากทราบข้อมูล",
+                    "ค. เก็บกักแฟ้มไว้เผื่อมีคนมาทวงถาม",
+                    "ง. ถือว่าจดหมายนั้นเป็นโมฆะไม่มีมูลค่า"
+                ],
+                answer: 1,
+                rationale: "การติดต่อส่งจดหมายผิดซองเป็นเรื่องที่เกิดขึ้นได้ หน้าที่การประสานงานที่ดีคือการส่งคืนต้นทางหรือส่งต่อหน่วยงานที่ถูกต้องทันทีเพื่อรักษากรอบเวลาปฏิบัติงาน"
+            },
+            {
+                id: 149,
+                category: "การรับและทะเบียนหนังสือ",
+                question: "ในช่องตารางคำว่า 'ผู้รับ' ในสมุดส่งหนังสือราชการ ให้เจ้าหน้าที่ระบุชื่อของสิ่งใด?",
+                options: [
+                    "ก. ชื่อพนักงานไปรษณีย์ที่มารับซอง",
+                    "ข. ชื่อส่วนราชการ หน่วยงาน หรือบุคคลภายนอกที่หนังสือนั้นส่งถึง",
+                    "ค. ชื่ออธิบดีผู้ลงนามส่ง",
+                    "ง. ชื่อเจ้าหน้าที่สารบรรณที่เป็นคนกรอกข้อมูล"
+                ],
+                answer: 1,
+                rationale: "ตารางช่องผู้รับมีไว้ควบคุมปลายทางจดหมาย เพื่อให้สามารถตรวจสอบภายหลังได้ว่าจดหมายส่งเลขนี้เดินทางไปถึงหน่วยงานปลายทางใด"
+            },
+            {
+                id: 150,
+                category: "ชนิดหนังสือ",
+                question: "บันทึกข้อความแบบสั้นๆ หรือเอกสารที่เขียนติดต่อภายในระดับงานหรือส่วนเดียวกันโดยไม่ได้พิมพ์อย่างเป็นทางการ เรียกว่าอะไร?",
+                options: ["ก. ประกาศอย่างเป็นทางการ", "ข. บันทึกย่อ (Memo) หรือบันทึกภายในแผนก", "ค. รายงานการประชุมย่อ", "ง. หนังสือเวียนภายนอก"],
+                answer: 1,
+                rationale: "ในการทำงานระดับแผนกย่อย การบันทึกย่อเพื่อมอบงานหรือประสานงานอย่างรวดเร็วสามารถทำได้ผ่านกระดาษจดบันทึกขนาดเล็กโดยไม่มีพิธีการทางการเมืองซับซ้อน"
+            },
+            {
+                id: 151,
+                category: "บททั่วไป",
+                question: "วันเริ่มต้นปีปฏิทินที่เจ้าหน้าที่สารบรรณต้องรันเลขทะเบียนหนังสือส่งและหนังสือรับ เริ่มจากหมายเลข '๑' เสมอ คือวันใด?",
+                options: ["ก. ๑ ตุลาคม (วันเริ่มปีงบประมาณ)", "ข. ๑ มกราคม (วันขึ้นปีใหม่)", "ค. ๑ มิถุนายน (วันครบรอบระเบียบ)", "ง. วันแรกที่เปิดทำการของปีงบประมาณใหม่"],
+                answer: 1,
+                rationale: "การรันเลขทะเบียนรับและส่งในระบบสารบรรณ ยึดปีปฏิทินแบบสากล เริ่มเปิดทะเบียนใหม่วันที่ ๑ มกราคมของทุกปี"
+            },
+            {
+                id: 152,
+                category: "ชนิดหนังสือ",
+                question: "หนังสือสั่งการชนิดใดที่วางหลักเกณฑ์ปฏิบัติงานประจำสำหรับข้าราชการ โดยผู้มีอำนาจจะออกอาศัยกฎหมายหรือไม่ก็ได้?",
+                options: ["ก. คำสั่ง", "ข. ระเบียบ", "ค. ข้อบังคับ", "ง. ประกาศ"],
+                answer: 1,
+                rationale: "ข้อ ๑๗ นิยามว่า 'ระเบียบ' คือ บรรดาข้อความที่ผู้มีอำนาจหน้าที่วางไว้เพื่อถือเป็นหลักปฏิบัติงานประจำ โดยจะอาศัยอำนาจของกฎหมายหรือไม่ก็ได้"
+            },
+            {
+                id: 153,
+                category: "ชนิดหนังสือ",
+                question: "ตราประทับสีแดงบนหนังสือประทับตราต้องใช้ตราขนาดมาตรฐานใดของครุฑ?",
+                options: ["ก. ตราครุฑขนาด ๑.๕ เซนติเมตร", "ข. ตราครุฑขนาด ๓ เซนติเมตร", "ค. ตราครุฑขนาด ๔.๕ เซนติเมตร", "ง. ตราครุฑขนาด ๕ เซนติเมตร"],
+                answer: 1,
+                rationale: "ในตราประทับวงกลมสองวงซ้อนสำหรับหนังสือประทับตรา ตรงกลางตราจะเป็นรูปครุฑขนาดความสูง ๓ เซนติเมตร"
+            },
+            {
+                id: 154,
+                category: "การเก็บรักษา",
+                question: "หลังจากครบกำหนดอายุการจัดเก็บหนังสือแล้ว เจ้าหน้าที่สารบรรณต้องนำไปทำลายเพื่ออะไรเป็นสำคัญ?",
+                options: [
+                    "ก. เพื่อความสะอาดและเป็นการเพิ่มพื้นที่ใช้สอยในห้องเก็บเอกสาร",
+                    "ข. เพื่อป้องกันเอกสารสำคัญรั่วไหลและจำกัดเอกสารหมดความจำเป็นในการใช้งานอย่างปลอดภัยตามระเบียบ",
+                    "ค. เพื่อนำกระดาษไปขายเป็นรายได้แผนก",
+                    "ง. ถูกทั้ง ก. และ ข."
+                ],
+                answer: 3,
+                rationale: "การทำลายหนังสือหลังสิ้นอายุเก็บรักษา นอกจากช่วยประหยัดพื้นที่จัดเก็บแล้ว ยังเป็นการบริหารคลังข้อมูลไม่ให้เอกสารพ้นประโยชน์และรั่วไหลออกไปสู่บุคคลภายนอกโดยไม่สมควร"
+            },
+            {
+                id: 155,
+                category: "การเก็บรักษา",
+                question: "การระบุอายุเก็บจดหมายด้วยการปั๊มตรา 'เก็บถึง พ.ศ. ...' ต้องระบุลงไปบนพื้นที่ใดของหนังสือราชการ?",
+                options: [
+                    "ก. ที่มุมล่างด้านขวาของหน้าแรกของหนังสือนั้นๆ",
+                    "ข. ที่กึ่งกลางหน้าหลังสุด",
+                    "ค. บนตัวซองบรรจุจดหมาย",
+                    "ง. ข้างตราครุฑกึ่งกลาง"
+                ],
+                answer: 0,
+                rationale: "ระเบียบกำหนดให้ประทับตรากำหนดอายุการเก็บเอกสารไว้ที่มุมล่างขวาของหน้าแรก เพื่อให้ผู้ใช้ค้นคว้าหรือคัดแยกเอกสารรู้กำหนดอายุได้ทันทีที่พลิกดูหน้าแรก"
+            },
+            {
+                id: 156,
+                category: "การยืมและการทำลาย",
+                question: "การทำลายเอกสารหนังสือราชการ หากใช้วิธีนำไป 'เผาหรือทำลาย' ด้วยเครื่องทำลายกระดาษ ต้องดำเนินการอย่างไร?",
+                options: [
+                    "ก. ดำเนินการทำลายได้โดยเจ้าหน้าที่สารบรรณแอบทำเพียงลำพัง",
+                    "ข. ต้องทำลายต่อหน้าคณะกรรมการทำลายหนังสือที่ได้รับการแต่งตั้งอย่างเป็นทางการ และจัดทำรายงานการทำลายหนังสือลงชื่อพยานเสนออธิบดีกรม",
+                    "ค. ส่งมอบให้เอกชนผู้รับซื้อขยะรีไซเคิลเป็นผู้นำไปต้มสลายเองตามความสมัครใจ",
+                    "ง. ดำเนินการนอกเวลาราชการท่านั้น"
+                ],
+                answer: 1,
+                rationale: "กระบวนการทำลายหนังสือราชการเป็นขั้นตอนทางกฎหมาย คณะกรรมการต้องพยานและตรวจตราความถูกต้องจนเอกสารถูกสลายตัวเสร็จสิ้นเพื่อยืนยันมติทำลายสมบูรณ์"
+            },
+            {
+                id: 157,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ตราวงกลมชื่อส่วนราชการหมึกแดง (ตราประทับ) กำหนดให้ใช้สีแดงเพราะวัตถุประสงค์หลักใด?",
+                options: [
+                    "ก. เพื่อเป็นสิริมงคลตามความเชื่อโบราณ",
+                    "ข. เพื่อให้เห็นเด่นชัด ตัดกับสีของน้ำหมึกข้อความจดหมาย และป้องกันการลอกเลียนแบบหรือถ่ายเอกสารสีขาวดำแยกแยะได้ง่าย",
+                    "ค. เพราะเป็นสียอดนิยมในการซื้อของราชการ",
+                    "ง. ถูกกำหนดโดยองค์การสหประชาชาติ"
+                ],
+                answer: 1,
+                rationale: "หมึกแดงช่วยรับประกันความเป็นทางการและความปลอดภัย เนื่องจากตราสีแดงคาบเกี่ยวลายเซ็นจริงจะช่วยแยกแยะจดหมายจริงออกจากสำเนาเอกสารขาวดำทั่วไปได้เด่นชัด"
+            },
+            {
+                id: 158,
+                category: "ระบบจัดเก็บและทะเบียน",
+                question: "การระบุสิทธิ์รักษาราชการแทนข้าราชการประเภทวิชาการ เมื่อไม่มีผู้ดำรงตำแหน่ง จะใช้คำใดนำหน้าในหนังสือ?",
+                options: ["ก. ปฏิบัติหน้าที่แทน", "ข. รักษาราชการแทน", "ค. รักษาการแทน", "ง. ทำการแทนในตำแหน่ง"],
+                answer: 1,
+                rationale: "ตามมาตรา ๔๖ ของ พ.ร.บ.ระเบียบบริหารราชการแผ่นดิน และระเบียบสารบรรณ การแทนตำแหน่งที่ว่างหรือทำไม่ได้ให้ระบุ 'รักษาราชการแทน'"
+            },
+            {
+                id: 159,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "ระเบียบสารบรรณฉบับที่ ๔ พ.ศ. ๒๕๖๔ กำหนดการนำส่งและตอบรับจดหมายราชการอิเล็กทรอนิกส์ไว้อย่างไร?",
+                options: [
+                    "ก. ให้ส่งระบบตอบรับอัตโนมัติ (Auto-acknowledgment) ของผู้รับปลายทาง ถือเป็นพยานหลักฐานการรับจดหมายส่งที่ถูกต้อง",
+                    "ข. ต้องพิมพ์ลงระบบกระดาษส่งพนักงานวิ่งเซ็นรับรองซ้ำอีกรอบ",
+                    "ค. ต้องโทรศัพท์ให้ผู้รับสารบันทึกพิมพ์เป็นสมุดคุมเสมอ",
+                    "ง. ผู้รับจดหมายต้องสแกนพิมพ์ลายนิ้วมือส่งกลับ"
+                ],
+                answer: 0,
+                rationale: "เทคโนโลยีระบบตอบรับอัตโนมัติได้รับการยอมรับทางกฎหมายให้เป็นข้อพิสูจน์การเชื่อมต่อส่งไฟล์ข้อมูลระหว่างเซิร์ฟเวอร์ระบบราชการเสร็จสิ้นเรียบร้อย"
+            },
+            {
+                id: 160,
+                category: "ความลับและระบบติดต่อ",
+                question: "ในกรณีที่ได้รับจดหมายทางไปรษณีย์อิเล็กทรอนิกส์ แต่ไฟล์แนบชำรุดเสียหายเปิดอ่านไม่ได้ เจ้าหน้าที่ปลายทางควรทำอย่างไร?",
+                options: [
+                    "ก. ลบอีเมลทิ้งและเพิกเฉยต่อเรื่องนั้น",
+                    "ข. แจ้งประสานกลับไปยังส่วนราชการผู้ส่งโดยทันที เพื่อแจ้งสถานะปัญหาและขอรับส่งไฟล์จดหมายชุดใหม่มาทดแทน",
+                    "ค. ปริ้นท์แผ่นกระดาษเปล่าขึ้นทะเบียนรับแทน",
+                    "ง. รายงานแจ้งความตำรวจเพื่อสืบค้นระบบ"
+                ],
+                answer: 1,
+                rationale: "การทำงานสารบรรณดิจิทัลต้องมีความพร้อมเชิงข้อมูล การแจ้งปัญหาทันควันเป็นระเบียบที่ดีที่ช่วยรักษาคุณภาพและความต่อเนื่องของงานราชการ"
+            },
+            {
+                id: 161,
+                category: "คำนิยาม",
+                question: "ตามระเบียบนี้ ข้อใดระบุชื่อเต็มขององค์กรภาครัฐประเภท 'การบริหารส่วนท้องถิ่น' ได้ถูกต้องสมบูรณ์?",
+                options: [
+                    "ก. องค์การบริหารส่วนจังหวัด เทศบาล องค์การบริหารส่วนตำบล และกรุงเทพมหานคร",
+                    "ข. องค์การบริหารส่วนจังหวัด เทศบาล องค์การบริหารส่วนตำบล กรุงเทพมหานคร และเมืองพัทยา",
+                    "ค. กระทรวงมหาดไทยส่วนภูมิภาค",
+                    "ง. ถูกเฉพาะข้อ ก."
+                ],
+                answer: 1,
+                rationale: "ส่วนราชการท้องถิ่นรวมถึงรูปแบบพิเศษของรัฐไทยคือ กรุงเทพมหานคร และเมืองพัทยา และองค์กรปกครองท้องถิ่นทุกระดับใช้ระเบียบสารบรรณนี้ร่วมกัน"
+            },
+            {
+                id: 162,
+                category: "ชนิดหนังสือ",
+                question: "หนังสือโต้ตอบราชการที่ใช้รหัสชื่อผู้ส่งเป็นตัวเลข (เช่น พยัญชนะ ยล ๐๑) ส่งติดต่อระหว่างกรมต่างๆ ในกระทรวงเดียวกัน จัดเป็นหนังสือประเภทใด?",
+                options: ["ก. หนังสือภายนอก", "ข. หนังสือภายใน", "ค. หนังสือประทับตรา", "ง. หนังสือแจ้งความ"],
+                answer: 1,
+                rationale: "หนังสือภายในเป็นหนังสือพิธีการที่ใช้ติดต่อโต้ตอบระหว่างกรม หรือหน่วยงานต่างๆ ที่อยู่ภายใต้กระทรวงหรือจังหวัดเดียวกัน โดยใช้บันทึกข้อความ"
+            },
+            {
+                id: 163,
+                category: "ชนิดหนังสือ",
+                question: "องค์ประกอบส่วนใดของหนังสือภายใน (บันทึกข้อความ) ที่อยู่ด้านบนซ้ายถัดจากหัวข้อ 'ส่วนราชการ'?",
+                options: ["ก. 'ที่'", "ข. 'วันที่'", "ค. 'เรื่อง'", "ง. 'คำขึ้นต้น'"],
+                answer: 0,
+                rationale: "แบบโครงสร้างกระดาษบันทึกข้อความ (แบบที่ ๒๑) ด้านบนซ้ายจะพิมพ์หัวข้อ 'ที่' เพื่อลงรหัสเลขส่งเอกสารคู่ขนานกับ 'วันที่' ทางซ้ายและขวา"
+            },
+            {
+                id: 164,
+                category: "ชั้นความเร็ว",
+                question: "ระยะเวลาในการปฏิบัติงานสำหรับหนังสือที่กำหนดชั้นความเร็วระดับ 'ด่วนมาก' คือข้อใด?",
+                options: [
+                    "ก. ให้ปฏิบัติทันทีที่ได้รับ",
+                    "ข. ให้ปฏิบัติโดยเร็ว",
+                    "ค. ให้เสร็จภายในวันที่ส่งจดหมาย",
+                    "ง. ให้ทำตามลำดับคิวค้างปกติ"
+                ],
+                answer: 1,
+                rationale: "ความเร็วของงานสารบรรณแยกเป็น: ด่วนที่สุด = ทันที, ด่วนมาก = โดยเร็ว, ด่วน = เร็วกว่าปกติเท่าที่จะกระทำได้ (ข้อ ๒๘)"
+            },
+            {
+                id: 165,
+                category: "การรับและทะเบียนหนังสือ",
+                question: "การประทับตราทะเบียนรับที่ 'มุมบนด้านขวา' ของหนังสือราชการ มีมิติกำหนดขนาดตารางกรอกข้อมูลกว้างและยาวเท่าใด?",
+                options: [
+                    "ก. กว้าง ๑.๕ ซม. ยาว ๓ ซม.",
+                    "ข. กว้าง ๒.๕ ซม. ยาว ๕ ซม.",
+                    "ค. กว้าง ๓.๕ ซม. ยาว ๗ ซม.",
+                    "ง. กว้าง ๔.๕ ซม. ยาว ๙ ซม."
+                ],
+                answer: 1,
+                rationale: "ตราทะเบียนรับ (แบบที่ ๑๒) เป็นกรอบสี่เหลี่ยมผืนผ้าขนาดมาตรฐาน กว้าง ๒.๕ เซนติเมตร ยาว ๕ เซนติเมตร"
+            },
+            {
+                id: 166,
+                category: "การเก็บรักษา",
+                question: "อายุการจัดเก็บหนังสือประเภท 'สัญญาราชการหรือเอกสารการกู้ยืมเงินทางกฎหมาย' ควรกำหนดระยะเวลาเก็บรักษาไว้อย่างไร?",
+                options: [
+                    "ก. เก็บไว้เพียง ๕ ปีแล้วเผาทิ้ง",
+                    "ข. ให้เก็บรักษาไว้เป็นหลักฐานตลอดไป หรือจนกว่าจะหมดภาระผูกพันทางกฎหมายหรือพ้นความรับผิดชอบ",
+                    "ค. ส่งมอบให้หอจดหมายเหตุตั้งแต่วันเริ่มทำสัญญา",
+                    "ง. เก็บรักษาไว้ ๑๐ ปีเท่านั้น"
+                ],
+                answer: 1,
+                rationale: "เอกสารที่มีผลผูกพันทางกฎหมาย การเงิน หรือสิทธิครอบครองทรัพย์สิน ห้ามสลายทิ้งจนกว่าสัญญานั้นๆ จะหมดอายุความฟ้องร้องหรือภาระสิทธิหนี้สิ้นสุดลง"
+            },
+            {
+                id: 167,
+                category: "การยืมและการทำลาย",
+                question: "ใครคือข้าราชการสูงสุดที่เป็น 'ผู้อนุมัติขั้นสุดท้าย' ในการจำหน่ายและออกคำสั่งทำลายหนังสือราชการประจำปีของกระทรวงหรือกรม?",
+                options: [
+                    "ก. หัวหน้าส่วนราชการระดับกรม (เช่น อธิบดี)",
+                    "ข. อธิบดีกรมศิลปากร (กองจดหมายเหตุแห่งชาติ)",
+                    "ค. ปลัดกระทรวงศึกษาธิการ",
+                    "ง. เจ้าหน้าที่ตรวจบัญชีเงินแผ่นดิน"
+                ],
+                answer: 0,
+                rationale: "ปลัดสำนักนายกฯ หรืออธิบดีกรมศิลปากรทำหน้าที่ตรวจสอบทางเทคนิคและวิชาการ ส่วนผู้ออกคำสั่งแต่งตั้งและอนุมัติลงดาบทำลายเป็นอำนาจของหัวหน้าส่วนราชการระดับกรมที่เป็นเจ้าของเอกสารนั้นเอง"
+            },
+            {
+                id: 168,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "กระดาษราชการที่มีขนาดกว้าง ๑๔๘ มิลลิเมตร ยาว ๒๑๐ มิลลิเมตร เป็นกระดาษขนาดมาตรฐานใด?",
+                options: ["ก. ขนาด A3", "ข. ขนาด A4", "ค. ขนาด A5", "ง. ขนาด A6"],
+                answer: 2,
+                rationale: "กระดาษขนาด A5 มีขนาดเท่ากับครึ่งหนึ่งของแผ่นกระดาษ A4 ยอดนิยมใช้สำหรับการพิมพ์เอกสารหรือแบบฟอร์มสั้น"
+            },
+            {
+                id: 169,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "คุณสมบัติสำคัญสูงสุดของระบบจัดเก็บบนคลาวด์ (Cloud Computing) ของส่วนราชการคือเรื่องใด?",
+                options: [
+                    "ก. เป็นระบบเชื่อมต่อฟรีของต่างประเทศทั่วไป",
+                    "ข. มีสิทธิ์การเข้าถึงข้อมูลที่เข้มงวด มีการสำรองข้อมูล (Backup) และรับประกันความพร้อมใช้งานต่อเนื่องตามมาตรฐานความมั่นคงไซเบอร์",
+                    "ค. การเปิดพื้นที่ให้ทุกคนแก้ไขประวัติได้อิสระ",
+                    "ง. การมีพื้นที่เก็บภาพกราฟิกขนาดใหญ่ได้ไม่จำกัด"
+                ],
+                answer: 1,
+                rationale: "ความลับและข้อมูลราชการสำคัญเป็นความมั่นคงของชาติ คลาวด์ราชการต้องรัดกุม ปลอดภัย และป้องกันความเสียหายสูญหายจากระบบคอมพิวเตอร์ล่ม"
+            },
+            {
+                id: 170,
+                category: "สำเนาเอกสาร",
+                question: "ในกรณีที่ได้รับอนุมัติให้จำลองเอกสารด้วย 'เครื่องถ่ายเอกสาร' เพื่อส่งงาน ข้าราชการผู้รับรองความถูกต้องของสำเนาควรเขียนข้อความรับรองอย่างไร?",
+                options: [
+                    "ก. พิมพ์คำว่า 'ภาพนี้เป็นจริง'",
+                    "ข. พิมพ์หรือเขียนคำว่า 'สำเนาถูกต้อง' พร้อมลงชื่อตัวย่อ นามสกุล และตำแหน่งด้วยปากกาหมึกสีน้ำเงินหรือสีดำชัดเจน",
+                    "ค. สแกนแสตมป์ภาพของหน่วยงานภายนอก",
+                    "ง. ปล่อยว่างไว้ไม่ต้องเซ็นทับ"
+                ],
+                answer: 1,
+                rationale: "การลงชื่อด้วยลายปากกาจริงพร้อมระบุถ้อยคำรับรอง 'สำเนาถูกต้อง' เป็นแบบมาตรฐานในการยืนยันตัวตนและความรับผิดชอบของข้าราชการผู้จัดทำสำเนาส่ง"
+            },
+            {
+                id: 171,
+                category: "บททั่วไป",
+                question: "การติดต่อส่งจดหมายโต้ตอบระหว่างส่วนราชการไทยกับสถานเอกอัครราชทูตต่างประเทศ ให้จัดตั้งทำเป็นหนังสือประเภทใดเป็นหลัก?",
+                options: ["ก. หนังสือภายนอก", "ข. หนังสือภายใน", "ค. หนังสือประทับตรา", "ง. แถลงการณ์ร่วม"],
+                answer: 0,
+                rationale: "เนื่องจากสถานทูตเป็นหน่วยงานภายนอกระบบราชการไทย การติดต่อจึงต้องใช้หนังสือแบบพิธีการ หรือหนังสือภายนอก เพื่อรักษาความสัมพันธ์ทางการทูตเป็นหลักการ"
+            },
+            {
+                id: 172,
+                category: "ชนิดหนังสือ",
+                question: "หัวข้อข่าวประชาสัมพันธ์ที่ทางราชการเผยแพร่แจกสื่อมวลชน (ชนิดที่ ๕.๓) มีจุดเด่นพิเศษแตกต่างจากประกาศทั่วไปอย่างไร?",
+                options: [
+                    "ก. ต้องเก็บรักษายาวนานถึง ๕๐ ปี",
+                    "ข. ไม่จำเป็นต้องลงลายมือชื่อและตำแหน่งของผู้บริหารระดับสูง และมีรูปแบบการนำเสนอเป็นข่าวเล่าเรื่องเข้าใจง่าย",
+                    "ค. ต้องใช้คู่กับซองจดหมายขนาด C4 เท่านั้น",
+                    "ง. ต้องส่งสแกนลายนิ้วมือผู้พิมพ์"
+                ],
+                answer: 1,
+                rationale: "ข่าวราชการมีวัตถุประสงค์เพื่อการสื่อสารสารสนเทศและการรับรู้ของสื่อ จึงตัดทอนกระบวนการพิธีการทางกฎหมายออกเพื่อความคล่องตัวในการส่งเสริมประชาสัมพันธ์"
+            },
+            {
+                id: 173,
+                category: "ชนิดหนังสือ",
+                question: "ในหนังสือสั่งการประเภท 'ระเบียบ' วันประกาศบังคับใช้ตามข้อที่ ๒ จะเขียนระบุข้อความอย่างไร?",
+                options: [
+                    "ก. ระบุว่า 'มีผลใช้บังคับทันทีนับแต่วันที่ประธานเห็นชอบ'",
+                    "ข. ระบุว่า 'ให้ใช้บังคับตั้งแต่วันประกาศนี้เป็นต้นไป' หรือระบุวันเจาะจงที่แน่นอนในอนาคต",
+                    "ค. ห้ามระบุวันเด็ดขาดจนกว่าสภาจะมีมติ",
+                    "ง. ให้ใช้บังคับย้อนหลังไปก่อนวันที่ประธานลงนาม"
+                ],
+                answer: 1,
+                rationale: "วันใช้บังคับระเบียบปกครองต้องระบุเป็นข้อความให้เข้าใจตรงกัน เพื่อป้องกันผลบังคับคดีตกค้างล้าหลังและคุ้มครองประโยชน์สาธารณะอย่างยุติธรรม"
+            },
+            {
+                id: 174,
+                category: "การเก็บรักษา",
+                question: "จดหมายราชการทั่วไปที่เกี่ยวกับแผนปฏิบัติงานรายไตรมาส (ที่ไม่ใช่แผนยุทธศาสตร์ชาติ) เมื่อเสร็จสิ้นกระบวนการทำงานแล้ว ให้เก็บไว้ไม่น้อยกว่ากี่ปี?",
+                options: ["ก. ๒ ปี", "ข. ๕ ปี", "ค. ๑๐ ปี", "ง. ๒๐ ปี"],
+                answer: 1,
+                rationale: "แผนรายไตรมาสทั่วไปพ้นอายุอ้างอิงสั้นกว่าแผนระดับนโยบายหลัก จึงได้รับการอนุญาตให้เก็บจัดคุมรักษาไม่น้อยกว่า ๕ ปี"
+            },
+            {
+                id: 175,
+                category: "การยืมและการทำลาย",
+                question: "ความหมายของ 'ปีปฏิทิน' ในการคัดเลือกและจำหน่ายหนังสือเพื่อทำลายหมายถึงกรอบเวลาช่วงใด?",
+                options: [
+                    "ก. ตั้งแต่วันที่ ๑ ตุลาคม ถึง ๓๐ กันยายนของปีถัดไป",
+                    "ข. ตั้งแต่วันที่ ๑ มกราคม ถึง ๓๑ ธันวาคม ของรอบปีนั้นๆ",
+                    "ค. ช่วงเวลา ๑๘๐ วันนับแต่วันออกระเบียบ",
+                    "ง. แล้วแต่ตารางตรวจเงินแผ่นดิน"
+                ],
+                answer: 1,
+                rationale: "ระเบียบนี้ยึดถือวันรอบปีตามสากลคือ ปีปฏิทิน ๑ มกราคม ถึง ๓๑ ธันวาคม ในการจัดตั้งระบบสารบรรณและทะเบียนทั้งหมด"
+            },
+            {
+                id: 176,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ขนาดของกระดาษราชการที่เป็นแผ่นงานกระดาษขนาด 'A3' มีขนาดเทียบเท่ากับสิ่งใด?",
+                options: [
+                    "ก. แผ่นกระดาษ A4 จำนวน ๒ แผ่นต่อเรียงกัน",
+                    "ข. แผ่นกระดาษ A4 พับครึ่ง",
+                    "ค. ครึ่งหนึ่งของแผ่นกระดาษ A5",
+                    "ง. แผ่นฟิล์มบันทึกเสียงใหญ่"
+                ],
+                answer: 0,
+                rationale: "กระดาษ A3 เป็นกระดาษขนาดแผ่นใหญ่ มีมิติความกว้างยาวกว้างกว่า A4 เป็นสองเท่า มักใช้สำหรับการพิมพ์แผนภูมิ ตารางแผนผังขนาดใหญ่"
+            },
+            {
+                id: 177,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "ระบบเครือข่ายอินเทอร์เน็ตที่ส่วนราชการเลือกใช้ส่งจดหมายสารบรรณอิเล็กทรอนิกส์ ต้องเป็นเครือข่ายรูปแบบใด?",
+                options: [
+                    "ก. ใช้เครือข่ายอินเทอร์เน็ตสาธารณะ (Public Wi-Fi) ฟรีที่ไม่ตั้งรหัสผ่าน",
+                    "ข. ต้องทำงานผ่านระบบเครือข่ายสื่อสารที่มีความปลอดภัยสูงของหน่วยงาน หรือระบบเครือข่ายกลางบริการภาครัฐที่ปลอดภัย",
+                    "ค. เครือข่ายส่วนตัวของอธิบดี",
+                    "ง. เครือข่ายใดก็ได้ขอแค่เข้าใช้งาน Google ได้"
+                ],
+                answer: 1,
+                rationale: "การรับส่งข้อมูลราชการต้องเป็นไปอย่างปลอดภัย มีความน่าเชื่อถือ และป้องกันรหัสพาสเวิร์ดหลุดไหล จึงห้ามใช้เน็ตสาธารณะแบบเปิดในการรับส่งจดหมายราชการโดยเด็ดขาด"
+            },
+            {
+                id: 178,
+                category: "การรับและทะเบียนหนังสือ",
+                question: "ในสมุดควบคุมทะเบียนหนังสือรับ รายการรายละเอียดต่อจากหัวข้อ 'จาก' จะกรอกข้อมูลสิ่งใด?",
+                options: [
+                    "ก. ชื่อและสังกัดของผู้ส่งจดหมาย (ส่วนราชการผู้ส่ง)",
+                    "ข. ชื่อผู้ลงนามรับของที่หน้าเคาน์เตอร์",
+                    "ค. ข้อความเนื้อหาเรื่องแบบย่อ",
+                    "ง. เลขที่แผงควบคุม"
+                ],
+                answer: 0,
+                rationale: "ช่องจาก (From) ในทะเบียนรับมีไว้คุมประวัติคู่สัญญาหรือต้นทางจดหมาย เพื่อทราบความจำนนของจดหมายส่งเข้าย้อนหลังได้ชัดเจน"
+            },
+            {
+                id: 179,
+                category: "ชนิดหนังสือ",
+                question: "รายงานการประชุมจะถูกลงนามรับรองความถูกต้องโดยบุคคลตำแหน่งใดเป็นหลัก?",
+                options: [
+                    "ก. เจ้าหน้าที่สารบรรณที่เป็นคนสแกนส่งงาน",
+                    "ข. ประธานคณะกรรมการการประชุม และผู้จดบันทึกรายงานการประชุม",
+                    "ค. สมาชิกสภาทั้งหมดทุกคน",
+                    "ง. ปลัดกระทรวงเพียงท่านเดียว"
+                ],
+                answer: 1,
+                rationale: "ตามแบบที่ ๒๕ ประธานประชุมในฐานะผู้นำวาระ และผู้จดรายงานในฐานะผู้รวบรวมข้อมูล เป็นคู่ลงนามรับรองความถูกต้องของสรุปรายงาน"
+            },
+            {
+                id: 180,
+                category: "คำนิยาม",
+                question: "ในระเบียบงานสารบรรณ คำว่า 'บทนิยาม' มีความสำคัญในการปฏิบัติงานอย่างไร?",
+                options: [
+                    "ก. ช่วยอธิบายกฎบัตรสากลให้ประชาชนทราบ",
+                    "ข. ช่วยจำกัดความหมายและมาตรฐานคำศัพท์ทางกฎหมายสารบรรณไม่ให้เกิดความสับสนหรือตีความคลาดเคลื่อนในการปฏิบัติราชการ",
+                    "ค. เป็นตัวเขียนสำหรับการทดสอบเลื่อนระดับข้าราชการ",
+                    "ง. ช่วยรักษาความลับของหน่วยงานความปลอดภัย"
+                ],
+                answer: 1,
+                rationale: "การนิยามคำศัพท์ทางราชการมีผลสูงต่ออำนาจขอบเขตและความรับผิดชอบของส่วนราชการ การตีความคลาดเคลื่อนอาจนำไปสู่ข้อผิดพลาดใหญ่ในการเซ็นเอกสารรัฐได้"
+            },
+            {
+                id: 181,
+                category: "บททั่วไป",
+                question: "ในจดหมายติดต่อทางราชการกับหน่วยงานเอกชนต่างประเทศ (เช่น บริษัทมหาชน) รูปแบบคำลงท้ายระดับสากลคือคำใด?",
+                options: ["ก. ขอแสดงความจริงใจอย่างสูง", "ข. ขอแสดงความเคารพอย่างสูง", "ค. ขอแสดงความนับถือ", "ง. ด้วยความนับถือ"],
+                answer: 2,
+                rationale: "ตามระเบียบสารบรรณไทย คำลงท้ายปกติสำหรับจดหมายภายนอกที่ส่งถึงบุคคลทั่วไปหรือนิติบุคคลเอกชนคือคำว่า 'ขอแสดงความนับถือ'"
+            },
+            {
+                id: 182,
+                category: "ชนิดหนังสือ",
+                question: "หนังสือที่จัดทำขึ้นโดยเจ้าหน้าที่ของกรมทางหลวง เพื่อยืนยันสิทธิแนวเวนคืนที่ดินให้แก่ประชาชน จัดเป็นหนังสือประเภทใด?",
+                options: ["ก. ประกาศ", "ข. รายงานการประชุม", "ค. หนังสือรับรอง (ชนิดที่ ๖.๑)", "ง. หนังสือเวียนเชิงลึก"],
+                answer: 2,
+                rationale: "หนังสือรับรอง คือหนังสือที่ส่วนราชการออกให้เพื่อรับรองแก่บุคคล สิทธิ์ หรือฐานะใดๆ เพื่อนำไปใช้เป็นหลักฐานยืนยันอ้างอิงทางการคลังและกฎหมาย"
+            },
+            {
+                id: 183,
+                category: "การเก็บรักษา",
+                question: "จดหมายราชการทั่วไปที่มีความสำคัญทางประวัติศาสตร์และห้ามทำลายโดยเด็ดขาด จะจัดเก็บบันทึกประวัติอย่างเป็นทางการภายใต้การกำกับของใคร?",
+                options: [
+                    "ก. กองจดหมายเหตุแห่งชาติ กรมศิลปากร",
+                    "ข. หอสมุดแห่งชาติ",
+                    "ค. สำนักงานสถิติแห่งชาติ",
+                    "ง. คณะรัฐมนตรี"
+                ],
+                answer: 0,
+                rationale: "กองจดหมายเหตุแห่งชาติมีอำนาจหน้าที่ตามพระราชบัญญัติจดหมายเหตุแห่งชาติ ในการเก็บรักษา บำรุง และพจนานุกรมมรดกเอกสารชาติที่ห้ามทำลาย"
+            },
+            {
+                id: 184,
+                category: "การยืมและการทำลาย",
+                question: "เมื่อคณะกรรมการทำลายหนังสือส่งเรื่องบัญชีให้กรมศิลปากรพิจารณาแล้ว ทางกรมศิลปากรต้องแจ้งความทักท้วงกลับภายในกี่วัน?",
+                options: ["ก. ๓๐ วัน", "ข. ๔๕ วัน", "ค. ๖๐ วัน", "ง. ๙๐ วัน"],
+                answer: 2,
+                rationale: "ข้อ ๗๐ ของระเบียบให้เวลาหอจดหมายเหตุกรมศิลปากรตรวจสอบภายใน ๖๐ วัน หากพ้นกำหนดไม่ตอบกลับ ส่วนราชการสามารถทำลายเอกสารตามบัญชีได้ทันที"
+            },
+            {
+                id: 185,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "ตราประทับตาราง 'ทะเบียนส่งหนังสือราชการ' กำหนดให้ใช้ขนาดสัดส่วนมาตรฐานของกระดาษใด?",
+                options: ["ก. ขนาด A3", "ข. ขนาด A4 (พิมพ์สองหน้า)", "ค. ขนาด A5", "ง. ขนาด A6"],
+                answer: 1,
+                rationale: "ตารางทะเบียนรับ-ส่งจดหมาย (แบบที่ ๒๐ และ ๒๑) ออกแบบมาให้มีขนาดเหมาะสมในกระดาษพิมพ์แบบมาตรฐานหน้า A4 เพื่อให้เข้าเล่มคุมคลังได้ง่าย"
+            },
+            {
+                id: 186,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "ลายมือชื่ออิเล็กทรอนิกส์ (Electronic Signature) บนบันทึกข้อความราชการออนไลน์ มีผลรับรองทางกฎหมายอย่างสมบูรณ์ตามพระราชบัญญัติใด?",
+                options: [
+                    "ก. พระราชบัญญัติว่าด้วยธุรกรรมทางอิเล็กทรอนิกส์ พ.ศ. ๒๕๔๔",
+                    "ข. พระราชบัญญัติควบคุมการใช้อาวุธปืน",
+                    "ค. พระราชบัญญัติการเงินภาครัฐ",
+                    "ง. กฎหมายแพ่งและพาณิชย์ทั่วไป"
+                ],
+                answer: 0,
+                rationale: "พ.ร.บ.ธุรกรรมทางอิเล็กทรอนิกส์คุ้มครองและให้สิทธิ์รับรองผลลายมือชื่อคอมพิวเตอร์ที่ตรวจสอบตัวตนผู้เซ็นได้ว่ามีผลผูกพันทางกฎหมายเช่นเดียวกับปากกาจริง"
+            },
+            {
+                id: 187,
+                category: "การรับและทะเบียนหนังสือ",
+                question: "ในสมุดลงทะเบียนรับจดหมายราชการ ช่องข้อมูล 'เรื่อง' ควรบันทึกอย่างไร?",
+                options: [
+                    "ก. จดประโยคแรกของเนื้อความจดหมายทั้งหมด",
+                    "ข. จดใจความหลัก ย่อหัวข้ออย่างกระชับ เข้าใจง่าย และระบุสารัตถะหลักว่าจดหมายนั้นคุยเรื่องใด",
+                    "ค. จดรายชื่อพยานลงรับ",
+                    "ง. ปล่อยว่างไว้พิมพ์เครื่องหมายขีด"
+                ],
+                answer: 1,
+                rationale: "ตารางเรื่องมีไว้เป็นดัชนีนำสายตา การสรุปเรื่องสั้นกระชับ (เช่น เรื่อง ขออนุมัติซื้อวัสดุคอมพิวเตอร์) ช่วยให้นายทะเบียนสืบค้นประวัติย้อนหลังได้รวดเร็ว"
+            },
+            {
+                id: 188,
+                category: "ชนิดหนังสือ",
+                question: "องค์ประกอบหนังสือสั่งการประเภท 'ระเบียบ' ประกอบด้วยโครงสร้างบังคับกี่หัวข้อใหญ่?",
+                options: ["ก. ๓ หัวข้อ", "ข. ๕ หัวข้อ", "ค. ๗ หัวข้อ", "ง. ๙ หัวข้อ"],
+                answer: 2,
+                rationale: "ข้อ ๑๗ ระบุว่าระเบียบมีส่วนประกอบ ได้แก่ (๑) ชื่อระเบียบ (๒) วันใช้บังคับ (๓) ตัวข้อความระเบียบ (๔) วันประกาศ (๕) ลงชื่อ และ (๖) ตำแหน่งผู้ลงนาม (รวมถึงรหัสควบคุม)"
+            },
+            {
+                id: 189,
+                category: "คำนิยาม",
+                question: "ตามระเบียบนี้ คำว่า 'ปลัดสำนักนายกรัฐมนตรี' มีความเกี่ยวข้องในฐานะสูงสุดด้านใด?",
+                options: [
+                    "ก. เป็นผู้ถือตรายางครุฑประจำชาติ",
+                    "ข. เป็นผู้รักษาการตามระเบียบ และมีอำนาจวินิจฉัยปัญหาการตีความทั้งหมด",
+                    "ค. เป็นอธิบดีกรมสารบรรณแผ่นดิน",
+                    "ง. เป็นผู้ลงนามอนุมัติทำลายของกรมศิลปากร"
+                ],
+                answer: 1,
+                rationale: "ข้อ ๘ ของระเบียบตั้งใจเขียนคุมให้ ปลัดสำนักนายกรัฐมนตรีทำหน้าที่รักษากรอบกติกา มีอำนาจวินิจฉัย และอำนวยการใช้ระเบียบนี้ให้เสมอกันทุกกระทรวง"
+            },
+            {
+                id: 190,
+                category: "บททั่วไป",
+                question: "วันหยุดนักขัตฤกษ์หรือวันเสาร์อาทิตย์ของทางราชการ ส่งผลต่อการนับกำหนดเวลาจัดส่งหนังสือเร่งด่วนทางกฎหมายอย่างไร?",
+                options: [
+                    "ก. ไม่นับรวมวันหยุดเหล่านั้นเข้าในกรอบเวลาปฏิบัติราชการปกติด่วน",
+                    "ข. ให้นับรวมวันหยุดสะสมเข้าไปด้วยโดยห้ามผ่อนปรน",
+                    "ค. ให้ยกเลิกการส่งจดหมายฉบับนั้นทันที",
+                    "ง. ให้ใช้ตามระบบกฎหมายงบประมาณแผ่นดิน"
+                ],
+                answer: 0,
+                rationale: "การนับวันและเวลาทางปกครอง โดยทั่วไปจะไม่นับวันหยุดราชการรวมเข้าไปเป็นวันกำหนดส่งงาน เว้นแต่มีกฎหมายเจาะจงเฉพาะเรื่องกำหนดเวลาพิเศษทางแพ่ง"
+            },
+            {
+                id: 191,
+                category: "ชนิดหนังสือ",
+                question: "ในกรณีที่ได้รับมอบหมายให้เขียนจดหมายโต้ตอบทางราชการแทนอธิบดีข้ามกระทรวง คำขึ้นต้นจดหมายโต้ตอบอย่างเป็นทางการคือคำใด?",
+                options: ["ก. ขอแสดงความเคารพอย่างสูง", "ข. กราบเรียน", "ค. เรียน", "ง. นมัสการ"],
+                answer: 2,
+                rationale: "จดหมายติดต่อระหว่างส่วนราชการปกติ มีคำขึ้นต้นทางการที่ผ่านการยอมรับร่วมกันคือคำว่า 'เรียน'"
+            },
+            {
+                id: 192,
+                category: "ชนิดหนังสือ",
+                question: "องค์ประกอบข้อความ 'ส่วนราชการเจ้าของเรื่อง' ของจดหมายภายนอก มักมีรายละเอียดที่ระบุติดต่ออะไรเพิ่มเติม?",
+                options: [
+                    "ก. ประวัติการทำงานของข้าราชการคนเขียน",
+                    "ข. หมายเลขโทรศัพท์ โทรสาร ไปรษณีย์อิเล็กทรอนิกส์ (Email) และรหัสไปรษณีย์เพื่อความสะดวกในการส่งสารประสานงาน",
+                    "ค. ยอดงบรายรับรายจ่ายของกรม",
+                    "ง. บันทึกผลสอบประวัติข้าราชการ"
+                ],
+                answer: 1,
+                rationale: "ระเบียบกำหนดให้มีข้อมูลช่องทางประสานงานเพื่ออำนวยความสะดวกให้แก่เจ้าหน้าที่กระทรวงอื่นสามารถโทรศัพท์สอบถามรายละเอียดเพิ่มเติมได้อย่างมีประสิทธิภาพ"
+            },
+            {
+                id: 193,
+                category: "การเก็บรักษา",
+                question: "จดหมายราชการทั่วไปที่พ้นกำหนดอายุการใช้งานแล้ว แต่ส่วนราชการลืมทำเรื่องสำรวจทำลาย จะมีผลอย่างไร?",
+                options: [
+                    "ก. แฟ้มเหล่านั้นจะตกเป็นกรรมสิทธิ์ของเจ้าหน้าที่สารบรรณ",
+                    "ข. ข้อมูลยังคงอยู่ในสถานะที่ต้องจัดเก็บสำรองต่อไป และเสี่ยงต่อภาระค่าใช้จ่ายและพื้นที่คลังจัดเก็บ",
+                    "ค. เอกสารจะมีผลเป็นโมฆะและสลายตัวไปเองทางกฎหมาย",
+                    "ง. ถูกสืบสวนโดนกรมตรวจเงินแผ่นดินทันที"
+                ],
+                answer: 1,
+                rationale: "การละเลยไม่สำรวจทำลายเอกสารตามปีปฏิทินทำให้เอกสารค้างคลัง สะสมสิ่งฝุ่นและสูญเสียเนื้อที่และทรัพยากรจัดคุมโดยไร้ความคุ้มค่า"
+            },
+            {
+                id: 194,
+                category: "การยืมและการทำลาย",
+                question: "การจัดเก็บและดูแลรักษาหนังสือประเภท 'จดหมายเหตุหรือจดหมายประวัติศาสาตร์พงศาวดาร' จะไม่มีกำหนดเวลาทำลาย (ห้ามทำลายตลอดไป) เพราะอะไร?",
+                options: [
+                    "ก. เพราะเป็นมรดกความรู้ เอกสารพยาน และพยานหลักฐานการบริหารราชการแผ่นดินในอดีตที่มีคุณค่าสูงทางมานุษยวิทยา",
+                    "ข. เพราะมีกฎระเบียบของศาลอาญากำหนดไว้",
+                    "ค. เพราะเจ้าหน้าที่ไม่มีสิทธิ์อนุมัติการเผา",
+                    "ง. เพราะไม่สิ้นสุดการฟ้องร้องทางการคลัง"
+                ],
+                answer: 0,
+                rationale: "เอกสารเชิงประวัติศาสตร์ช่วยพิสูจน์ต้นกำเนิด ขนบ และระบอบราชการไทยในอดีต ถือเป็นทรัพย์สินทางปัญญาสาธารณะของชาติที่ระเบียบต้องสงวนรักษาไว้ห้ามสลายทำลายเด็ดขาด"
+            },
+            {
+                id: 195,
+                category: "มาตรฐานกระดาษและตรา",
+                question: "กระดาษราชการที่มีขนาดมาตรฐานยอดนิยม 'A4' ออกแบบมาสำหรับการคัดลอก ถ่ายเอกสาร และเขียนจดหมายราชการ มีขนาดมิติเท่าใด?",
+                options: [
+                    "ก. กว้าง ๒๑๐ มิลลิเมตร ยาว ๒๙๗ มิลลิเมตร",
+                    "ข. กว้าง ๑๔๘ มิลลิเมตร ยาว ๒๑๐ มิลลิเมตร",
+                    "ค. กว้าง ๒๙๗ มิลลิเมตร ยาว ๔๒๐ มิลลิเมตร",
+                    "ง. กว้าง ๘๐ มิลลิเมตร ยาว ๑๒๐ มิลลิเมตร"
+                ],
+                answer: 0,
+                rationale: "ขนาดมาตรฐานกว้าง ๒๑๐ มม. ยาว ๒๙๗ มม. เป็นขนาดมาตรฐานสากล ISO 216 ที่ระบบงานเอกสารไทยยึดถือจัดพิมพ์ร่วมกัน"
+            },
+            {
+                id: 196,
+                category: "ระเบียบฉบับแก้ไขปี ๒๕๖๔",
+                question: "ข้อดีสูงสุดของการจัดพิมพ์หนังสือภายในหรือบันทึกข้อความราชการออนไลน์ในคอมพิวเตอร์ตามระเบียบแก้ไขใหม่คือข้อใด?",
+                options: [
+                    "ก. ประหยัดทรัพยากรกระดาษ ตึกคลังจัดเก็บ สะดวกรวดเร็วในการสืบค้น และส่งสารประสานงานได้แบบทันท่วงที (Real-time)",
+                    "ข. สามารถแก้ไขตัวอักษรของนายทะเบียนย้อนหลังได้โดยไม่ทิ้งหลักฐาน",
+                    "ค. มีรูปแบบฟอนต์ให้เลือกได้หลายร้อยแบบ",
+                    "ง. ไม่ต้องผ่านการสแกนตรวจสอบความปลอดภัย"
+                ],
+                answer: 0,
+                rationale: "การปฏิรูปสารบรรณดิจิทัลฉบับแก้ไขปี ๒๕๖๔ มีเป้าหมายสูงสุดเพื่อลดขั้นตอน สิ้นเปลือง และยกระดับประสิทธิภาพความรวดเร็วในการอำนวยบริการประชาชน"
+            },
+            {
+                id: 197,
+                category: "การรับและทะเบียนหนังสือ",
+                question: "ใครคือผู้มีสิทธิ์ลงทะเบียนส่งจดหมายหรือเปิดทะเบียนรับหนังสือเป็นนายทะเบียนกลางของส่วนราชการ?",
+                options: [
+                    "ก. ข้าราชการผู้ได้รับแต่งตั้งให้ทำหน้าที่เจ้าหน้าที่งานสารบรรณ หรือผู้ปฏิบัติงานตามคำสั่งหัวหน้าส่วนราชการ",
+                    "ข. แม่บ้านประจำตึกอาคารราชการ",
+                    "ค. เจ้าหน้าที่ตรวจบัญชีเอกชน",
+                    "ง. ข้าราชการทุกคนมีสิทธิ์เปิดลงทะเบียนได้อิสระโดยไม่ต้องแจ้งความคุม"
+                ],
+                answer: 0,
+                rationale: "งานทะเบียนสารบรรณกลางต้องดำเนินการอย่างเป็นระบบ มีการคุมเอกสารและการป้องกันรหัสผ่านรัดกุม จึงต้องทำโดยเจ้าหน้าที่สารบรรณที่รับผิดชอบสายงานโดยตรง"
+            },
+            {
+                id: 198,
+                category: "ชนิดหนังสือ",
+                question: "ในกรณีที่ข้าราชการผู้จดบันทึกรายงานการประชุมล้มป่วยกะทันหัน ใครเป็นผู้มีสิทธิ์จัดทำร่างบันทึกแทน?",
+                options: [
+                    "ก. ข้าราชการคนอื่นที่ประธานการประชุมมอบหมายให้ปฏิบัติหน้าที่แทนชั่วคราว",
+                    "ข. ประธานที่ประชุมต้องมาพิมพ์บันทึกเองคนเดียว",
+                    "ค. ปล่อยการประชุมนั้นเป็นโมฆะไม่ต้องทำรายงาน",
+                    "ง. พนักงานส่งจดหมายกลาง"
+                ],
+                answer: 0,
+                rationale: "การทำงานราชการต้องมีความยืดหยุ่น ประธานประชุมมีอำนาจสั่งการเฉพาะกิจแต่งตั้งเจ้าหน้าที่จัดทำรายงานประชุมเพื่อไม่ให้งานตรวจสอบและการสั่งการในสภาสะดุดล่าช้า"
+            },
+            {
+                id: 199,
+                category: "คำนิยาม",
+                question: "ในระเบียบนี้ คำว่า 'การรับส่งข้อมูลอิเล็กทรอนิกส์' ครอบคลุมรูปแบบโปรแกรมใดบ้าง?",
+                options: [
+                    "ก. ไปรษณีย์อิเล็กทรอนิกส์ (Email) ระบบแลกเปลี่ยนข้อมูลภาครัฐ และแอปพลิเคชันสารบรรณภายในกรมที่เป็นไปตามเกณฑ์ความปลอดภัย",
+                    "ข. เฉพาะการโต้ตอบด้วยจดหมายใน Line ส่วนตัวเท่านั้น",
+                    "ค. การโพสต์ความคืบหน้าลงบนเว็บไซต์สังคมออนไลน์ Facebook",
+                    "ง. ระบบส่งข้อความ SMS ทางโทรศัพท์เคลื่อนที่อย่างเดียว"
+                ],
+                answer: 0,
+                rationale: "ช่องทางการรับส่งข้อมูลได้รับการยอมรับตามระเบียบใหม่ ต้องผ่านกระบวนการที่มีการลงทะเบียน ตรวจสอบรหัสความปลอดภัย และมีการคุ้มครองข้อมูลทางราชการอย่างเป็นทางการ"
+            },
+            {
+                id: 200,
+                category: "บททั่วไป",
+                question: "กรณีที่ส่วนราชการเกิดข้อกังขาหรือความเห็นขัดแย้งเกี่ยวกับหลักเกณฑ์การปฏิบัติตามระเบียบนี้ร่วมกัน ข้อยุติสูงสุดจะได้รับการพิจารณาและชี้ขาดจากใคร?",
+                options: [
+                    "ก. รัฐสภา",
+                    "ข. คณะรัฐมนตรี",
+                    "ค. ปลัดสำนักนายกรัฐมนตรีในฐานะผู้รักษาการตามระเบียบ",
+                    "ง. สำนักงานคณะกรรมการกฤษฎีกา"
+                ],
+                answer: 2,
+                rationale: "ข้อ ๘ ของระเบียบกำหนดว่า ปลัดสำนักนายกรัฐมนตรีเป็นผู้มีอำนาจวินิจฉัยและตีความในการปฏิบัติตามระเบียบนี้ และคำชี้ขาดของปลัดสำนักนายกฯ ถือเป็นข้อยุติสูงสุดในการปฏิบัติงานสารบรรณราชการไทย"
+            }
+        ];
+
+        // --- App State ---
+        let quizQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = {}; // questionIndex -> selectedOptionIndex
+        let flaggedQuestions = {}; // questionIndex -> boolean
+        let quizMode = 'practice'; // 'practice' or 'exam'
+        let quizDuration = 2700; // 45 minutes in seconds for standard exam
+        let timerInterval = null;
+        let isQuizSubmitted = false;
+        let startTime = null;
+        let timeSpentSeconds = 0;
+
+        // --- View Controls ---
+        function selectMode(mode) {
+            quizMode = mode;
+            // Highlight selected visual card, etc.
+            const btnPractice = document.querySelector('button[onclick*="practice"]');
+            const btnExam = document.querySelector('button[onclick*="exam"]');
+            
+            if (mode === 'practice') {
+                btnPractice.classList.add('border-indigo-600', 'bg-indigo-50/20');
+                btnExam.classList.remove('border-blue-600', 'bg-blue-50/20');
+            } else {
+                btnExam.classList.add('border-blue-600', 'bg-blue-50/20');
+                btnPractice.classList.remove('border-indigo-600', 'bg-indigo-50/20');
+            }
+        }
+
+        // Initialize mode visually
+        selectMode('practice');
+
+        function startQuiz() {
+            const quantitySelect = document.getElementById('exam-quantity');
+            const quantity = parseInt(quantitySelect.value);
+            
+            // Randomly sample or take a chunk of questions matching user settings
+            // Shuffle questions to make it engaging
+            const shuffled = [...ALL_QUESTIONS].sort(() => 0.5 - Math.random());
+            quizQuestions = shuffled.slice(0, Math.min(quantity, shuffled.length));
+
+            // Reset quiz states
+            currentQuestionIndex = 0;
+            userAnswers = {};
+            flaggedQuestions = {};
+            isQuizSubmitted = false;
+            timeSpentSeconds = 0;
+            startTime = new Date();
+
+            // Set up Mode Label
+            const badge = document.getElementById('badge-mode');
+            if (quizMode === 'practice') {
+                badge.innerText = "โหมดฝึกฝน";
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-indigo-100 text-indigo-800 border border-indigo-200";
+                document.getElementById('timer-container').classList.add('hidden');
+                document.getElementById('score-counter').classList.remove('hidden');
+            } else {
+                badge.innerText = "โหมดทำข้อสอบจริง";
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-rose-100 text-rose-800 border border-rose-200";
+                document.getElementById('timer-container').classList.remove('hidden');
+                document.getElementById('score-counter').classList.add('hidden');
+                startTimer();
+            }
+
+            // UI Transitions
+            document.getElementById('setup-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+
+            renderNavigationGrid();
+            loadQuestion(0);
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            let timerSeconds = quizDuration;
+            const timerDisplay = document.getElementById('quiz-timer');
+            
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                timeSpentSeconds++;
+                
+                const minutes = Math.floor(timerSeconds / 60);
+                const seconds = timerSeconds % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timerSeconds <= 300) { // 5 minutes warning
+                    timerDisplay.parentElement.classList.add('text-rose-500', 'animate-pulse');
+                }
+
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const q = quizQuestions[index];
+
+            // Render Header Status info
+            document.getElementById('current-q-index').innerText = index + 1;
+            document.getElementById('total-q-count').innerText = quizQuestions.length;
+            
+            const progressPercent = ((index + 1) / quizQuestions.length) * 100;
+            document.getElementById('progress-bar-fill').style.width = `${progressPercent}%`;
+
+            // Render Q Details
+            document.getElementById('question-category').innerText = q.category;
+            document.getElementById('question-text').innerText = `ข้อที่ ${index + 1}: ${q.question}`;
+
+            // Render Flag Button state
+            const flagBtn = document.getElementById('flag-btn');
+            const flagIcon = document.getElementById('flag-icon');
+            if (flaggedQuestions[index]) {
+                flagIcon.setAttribute('fill', '#f59e0b');
+                flagIcon.setAttribute('stroke', '#f59e0b');
+                flagBtn.classList.add('text-amber-500');
+            } else {
+                flagIcon.setAttribute('fill', 'none');
+                flagIcon.setAttribute('stroke', 'currentColor');
+                flagBtn.classList.remove('text-amber-500');
+            }
+
+            // Render Options
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const selectedAnswer = userAnswers[index];
+            const showAnswersDirectly = (quizMode === 'practice' && selectedAnswer !== undefined);
+
+            q.options.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border transition-all text-sm font-medium focus:outline-none flex justify-between items-center gap-4 ";
+                btn.onclick = () => selectOption(optIdx);
+
+                // Option Text Inside
+                const textSpan = document.createElement('span');
+                textSpan.innerText = opt;
+                btn.appendChild(textSpan);
+
+                // Style based on selected and submitted answers
+                if (selectedAnswer === optIdx) {
+                    // Option is selected by user
+                    if (showAnswersDirectly) {
+                        if (optIdx === q.answer) {
+                            btn.className += "bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm";
+                            btn.appendChild(createIcon('check', 'text-emerald-600'));
+                        } else {
+                            btn.className += "bg-rose-50 border-rose-400 text-rose-800 shadow-sm";
+                            btn.appendChild(createIcon('x', 'text-rose-600'));
+                        }
+                    } else {
+                        btn.className += "bg-indigo-50 border-indigo-600 text-indigo-900 shadow-md scale-[1.01]";
+                    }
+                } else {
+                    // Option is NOT selected by user
+                    if (showAnswersDirectly && optIdx === q.answer) {
+                        // Show correct answer anyway in practice mode
+                        btn.className += "bg-emerald-50 border-emerald-400 text-emerald-800";
+                        btn.appendChild(createIcon('check', 'text-emerald-500'));
+                    } else {
+                        btn.className += "bg-white border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700";
+                    }
+                }
+
+                // If answers are revealed, disable further selection clicking
+                if (showAnswersDirectly) {
+                    btn.disabled = true;
+                    btn.onclick = null;
+                }
+
+                optionsContainer.appendChild(btn);
+            });
+
+            // Explanation panel management (Practice mode only)
+            const expPanel = document.getElementById('explanation-panel');
+            if (showAnswersDirectly) {
+                expPanel.classList.remove('hidden');
+                const isCorrect = (selectedAnswer === q.answer);
+                
+                const titleBadge = document.getElementById('explanation-title-badge');
+                if (isCorrect) {
+                    titleBadge.innerText = "ตอบถูก";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-emerald-600";
+                } else {
+                    titleBadge.innerText = "ตอบผิด";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-rose-600";
+                }
+                
+                document.getElementById('explanation-text').innerText = q.rationale;
+            } else {
+                expPanel.classList.add('hidden');
+            }
+
+            // Navigation Button states
+            document.getElementById('prev-btn').disabled = (index === 0);
+            
+            const nextBtn = document.getElementById('next-btn');
+            const submitQuizBtn = document.getElementById('submit-quiz-btn');
+
+            if (index === quizQuestions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitQuizBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitQuizBtn.classList.add('hidden');
+            }
+
+            // Sync navigation active grid elements
+            updateNavigationGridActive();
+        }
+
+        function createIcon(type, colorClass) {
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.setAttribute("class", `w-5 h-5 ${colorClass}`);
+            svg.setAttribute("fill", "none");
+            svg.setAttribute("viewBox", "0 0 24 24");
+            svg.setAttribute("stroke", "currentColor");
+            svg.setAttribute("stroke-width", "3");
+
+            if (type === 'check') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("pathLength", "100");
+                path.setAttribute("d", "M5 13l4 4L19 7");
+                svg.appendChild(path);
+            } else if (type === 'x') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M6 18L18 6M6 6l12 12");
+                svg.appendChild(path);
+            }
+            return svg;
+        }
+
+        function selectOption(optionIndex) {
+            if (isQuizSubmitted) return;
+            userAnswers[currentQuestionIndex] = optionIndex;
+            
+            // Re-render to show selected option or instant explanation
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function toggleFlag() {
+            flaggedQuestions[currentQuestionIndex] = !flaggedQuestions[currentQuestionIndex];
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                loadQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        // Render standard navigation panel grid on the right/bottom
+        function renderNavigationGrid() {
+            const grid = document.getElementById('grid-navigation');
+            grid.innerHTML = '';
+
+            // Update answered count
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('score-counter').innerText = `${answeredCount}/${quizQuestions.length}`;
+
+            quizQuestions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full py-2.5 rounded-lg text-xs font-bold text-center border focus:outline-none transition-all ";
+                btn.innerText = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+
+                // Grid background and states
+                const isSelected = (idx === currentQuestionIndex);
+                const hasAnswered = (userAnswers[idx] !== undefined);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                if (isSelected) {
+                    btn.className += "bg-indigo-600 border-indigo-700 text-white ring-2 ring-indigo-300 ring-offset-1";
+                } else if (isFlagged) {
+                    btn.className += "bg-amber-500 border-amber-600 text-white";
+                } else if (hasAnswered) {
+                    btn.className += "bg-indigo-100 border-indigo-300 text-indigo-800 hover:bg-indigo-200";
+                } else {
+                    btn.className += "bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100";
+                }
+
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateNavigationGridActive() {
+            // Light highlight synchronisation
+            const grid = document.getElementById('grid-navigation');
+            const btns = grid.children;
+            for (let i = 0; i < btns.length; i++) {
+                const btn = btns[i];
+                if (i === currentQuestionIndex) {
+                    btn.classList.add('ring-2', 'ring-indigo-300', 'ring-offset-1');
+                } else {
+                    btn.classList.remove('ring-2', 'ring-indigo-300', 'ring-offset-1');
+                }
+            }
+        }
+
+        // --- Submit Exam Action ---
+        function showSubmitConfirmModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = quizQuestions.length - answeredCount;
+            const statusText = document.getElementById('modal-completion-status');
+
+            if (unanswered > 0) {
+                statusText.innerText = `คุณยังไม่ได้ตอบคำถามอีกจำนวน ${unanswered} ข้อจากทั้งหมด ${quizQuestions.length} ข้อ หากคุณส่งคำตอบระบบจะคิดคะแนนจากข้อที่ตอบแล้วเท่านั้น`;
+                statusText.className = "text-sm text-amber-600 leading-relaxed font-semibold";
+            } else {
+                statusText.innerText = "ยอดเยี่ยม! คุณตอบครบถ้วนสมบูรณ์แล้ว คุณพร้อมที่จะประเมินผลคะแนนสอบหรือไม่?";
+                statusText.className = "text-sm text-emerald-600 leading-relaxed font-semibold";
+            }
+
+            document.getElementById('submit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideSubmitConfirmModal() {
+            document.getElementById('submit-confirm-modal').classList.add('hidden');
+        }
+
+        function confirmExit() {
+            document.getElementById('exit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideExitConfirmModal() {
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+        }
+
+        function exitQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            isQuizSubmitted = true;
+            hideSubmitConfirmModal();
+
+            // Calculate score statistics
+            let scoreCorrect = 0;
+            const categoryAnalysis = {};
+
+            // Category initialization with 0s
+            quizQuestions.forEach(q => {
+                if (!categoryAnalysis[q.category]) {
+                    categoryAnalysis[q.category] = { correct: 0, total: 0 };
+                }
+                categoryAnalysis[q.category].total++;
+            });
+
+            // Score checking
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if (userAns !== undefined && userAns === q.answer) {
+                    scoreCorrect++;
+                    categoryAnalysis[q.category].correct++;
+                }
+            });
+
+            const totalCount = quizQuestions.length;
+            const percent = Math.round((scoreCorrect / totalCount) * 100);
+
+            // Time calculation
+            if (quizMode === 'exam') {
+                // timeSpentSeconds already holds active elapsed seconds
+            } else {
+                const end = new Date();
+                timeSpentSeconds = Math.round((end - startTime) / 1000);
+            }
+            const minutesUsed = Math.floor(timeSpentSeconds / 60);
+            const secondsUsed = timeSpentSeconds % 60;
+
+            // Render Results Screen
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+
+            // Render Circular percentage
+            document.getElementById('result-percentage').innerText = `${percent}%`;
+            document.getElementById('result-score-fraction').innerText = `${scoreCorrect}/${totalCount} คะแนน`;
+
+            // Animate stroke ring fill
+            const dashArray = 251.2; // 2 * PI * r (r=40) => ~251.2
+            const offset = dashArray - (dashArray * percent) / 100;
+            document.getElementById('score-ring-fill').style.strokeDashoffset = offset;
+
+            // Status Badge and Feedback Styling
+            const resultBadge = document.getElementById('result-badge');
+            const feedbackText = document.getElementById('result-feedback-text');
+
+            if (percent >= 80) {
+                resultBadge.innerText = "ผ่านเกณฑ์ยอดเยี่ยม";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-200 animate-bounce";
+                feedbackText.innerText = "สุดยอดความมุ่งมั่น! คุณมีความรู้ความเข้าใจในระเบียบงานสารบรรณเป็นอย่างดี พร้อมอย่างยิ่งสำหรับการสอบคัดเลือกข้าราชการและทดสอบปฏิบัติจริง";
+            } else if (percent >= 60) {
+                resultBadge.innerText = "ผ่านเกณฑ์มาตรฐาน";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-800 border border-blue-200";
+                feedbackText.innerText = "ยอดเยี่ยม คุณผ่านเกณฑ์ขั้นต่ำความรู้ระเบียบงานสารบรรณแล้ว แนะนำให้อ่านทบทวนหัวข้อที่ผิดพลาดเพิ่มเติมเพื่อก้าวสู่คะแนนเต็ม";
+            } else {
+                resultBadge.innerText = "ควรทบทวนเพิ่ม";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800 border border-amber-200";
+                feedbackText.innerText = "ยังต้องการทบทวนเพิ่มเติม ข้อแนะนำคือการย้อนกลับไปทำในโหมดฝึกฝนเพื่อศึกษาเฉลยอย่างละเอียดในแต่ละข้อเพื่อปิดจุดอ่อนของคุณ";
+            }
+
+            // Populate generic stats
+            document.getElementById('stat-correct').innerText = `${scoreCorrect} ข้อ`;
+            document.getElementById('stat-incorrect').innerText = `${totalCount - scoreCorrect} ข้อ`;
+            document.getElementById('stat-time-spent').innerText = `${minutesUsed} น. ${secondsUsed} วิ.`;
+
+            // Populate Skills Analysis
+            const topicContainer = document.getElementById('topic-analysis-container');
+            topicContainer.innerHTML = '';
+
+            for (const [category, data] of Object.entries(categoryAnalysis)) {
+                const catPercent = Math.round((data.correct / data.total) * 100);
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = "space-y-1.5";
+
+                const labelRow = document.createElement('div');
+                labelRow.className = "flex justify-between items-center text-xs font-bold text-slate-700";
+                labelRow.innerHTML = `<span>${category}</span> <span class="font-mono">${data.correct}/${data.total} (${catPercent}%)</span>`;
+                wrapper.appendChild(labelRow);
+
+                const barBg = document.createElement('div');
+                barBg.className = "w-full bg-slate-200 h-2.5 rounded-full overflow-hidden";
+                
+                const barFill = document.createElement('div');
+                barFill.className = catPercent >= 80 ? "bg-emerald-500 h-full" : (catPercent >= 60 ? "bg-blue-500 h-full" : "bg-amber-500 h-full");
+                barFill.style.width = `${catPercent}%`;
+                barBg.appendChild(barFill);
+                
+                wrapper.appendChild(barBg);
+                topicContainer.appendChild(wrapper);
+            }
+
+            // Reset review detailed state
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('toggle-review-btn').innerText = "ดูข้อสอบเฉลยละเอียด";
+            generateDetailedReviewList();
+        }
+
+        // --- Detailed Corrections Generation ---
+        function generateDetailedReviewList() {
+            const listContainer = document.getElementById('review-questions-list');
+            listContainer.innerHTML = '';
+
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCorrect = (userAns !== undefined && userAns === q.answer);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                const card = document.createElement('div');
+                card.className = "bg-white border rounded-xl p-5 sm:p-6 space-y-4 shadow-sm transition-all ";
+                card.dataset.isCorrect = isCorrect ? "true" : "false";
+                card.dataset.isFlagged = isFlagged ? "true" : "false";
+
+                // Header inside review card
+                const cardHeader = document.createElement('div');
+                cardHeader.className = "flex justify-between items-start gap-4 border-b border-slate-100 pb-2.5";
+                
+                const flexLeft = document.createElement('div');
+                flexLeft.className = "flex items-center gap-2";
+                
+                const qNum = document.createElement('span');
+                qNum.className = "text-sm font-bold text-slate-800";
+                qNum.innerText = `ข้อที่ ${idx + 1}`;
+                flexLeft.appendChild(qNum);
+
+                const catBadge = document.createElement('span');
+                catBadge.className = "text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded";
+                catBadge.innerText = q.category;
+                flexLeft.appendChild(catBadge);
+
+                if (isFlagged) {
+                    const flgBadge = document.createElement('span');
+                    flgBadge.className = "text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 flex items-center gap-1";
+                    flgBadge.innerHTML = `<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"/></svg> ปักหมุดทบทวน`;
+                    flexLeft.appendChild(flgBadge);
+                }
+
+                cardHeader.appendChild(flexLeft);
+
+                // Right Status Badge
+                const statusBadge = document.createElement('span');
+                if (isCorrect) {
+                    statusBadge.innerText = "ตอบถูก";
+                    statusBadge.className = "text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200";
+                } else if (userAns === undefined) {
+                    statusBadge.innerText = "ไม่ได้ทำ";
+                    statusBadge.className = "text-[10px] font-bold text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200";
+                } else {
+                    statusBadge.innerText = "ตอบผิด";
+                    statusBadge.className = "text-[10px] font-bold text-rose-800 bg-rose-50 px-2 py-0.5 rounded border border-rose-200";
+                }
+                cardHeader.appendChild(statusBadge);
+
+                card.appendChild(cardHeader);
+
+                // Question Body text
+                const qText = document.createElement('h5');
+                qText.className = "font-bold text-slate-900 leading-relaxed text-sm sm:text-base";
+                qText.innerText = q.question;
+                card.appendChild(qText);
+
+                // Render Options inside Review List
+                const listGrid = document.createElement('div');
+                listGrid.className = "grid grid-cols-1 gap-2 pt-2";
+
+                q.options.forEach((opt, optIdx) => {
+                    const optBlock = document.createElement('div');
+                    optBlock.className = "p-3 rounded-lg border text-xs font-medium flex justify-between items-center gap-3 ";
+                    optBlock.innerText = opt;
+
+                    // Option styling in review list
+                    if (optIdx === q.answer) {
+                        optBlock.className += "bg-emerald-50 border-emerald-300 text-emerald-800";
+                        optBlock.appendChild(createIcon('check', 'text-emerald-600'));
+                    } else if (userAns === optIdx) {
+                        optBlock.className += "bg-rose-50 border-rose-300 text-rose-800";
+                        optBlock.appendChild(createIcon('x', 'text-rose-600'));
+                    } else {
+                        optBlock.className += "bg-white border-slate-200 text-slate-600";
+                    }
+
+                    listGrid.appendChild(optBlock);
+                });
+
+                card.appendChild(listGrid);
+
+                // Detailed explanation text area
+                const rationaleWrapper = document.createElement('div');
+                rationaleWrapper.className = "bg-slate-50 p-4 rounded-lg border border-slate-100 space-y-1";
+                
+                const rationaleLabel = document.createElement('div');
+                rationaleLabel.className = "text-[10px] font-extrabold text-indigo-700 uppercase tracking-wide";
+                rationaleLabel.innerText = "ข้อแนะนำ/เฉลยละเอียด:";
+                rationaleWrapper.appendChild(rationaleLabel);
+
+                const rationaleP = document.createElement('p');
+                rationaleP.className = "text-xs text-slate-600 leading-relaxed";
+                rationaleP.innerText = q.rationale;
+                rationaleWrapper.appendChild(rationaleP);
+
+                card.appendChild(rationaleWrapper);
+                listContainer.appendChild(card);
+            });
+        }
+
+        function toggleDetailedReview() {
+            const reviewSection = document.getElementById('detailed-review-section');
+            const btn = document.getElementById('toggle-review-btn');
+
+            if (reviewSection.classList.contains('hidden')) {
+                reviewSection.classList.remove('hidden');
+                btn.innerText = "ซ่อนข้อสอบเฉลยละเอียด";
+                // Smooth scroll to correction view
+                reviewSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                reviewSection.classList.add('hidden');
+                btn.innerText = "ดูข้อสอบเฉลยละเอียด";
+            }
+        }
+
+        function filterReviewList() {
+            const filterValue = document.getElementById('review-filter').value;
+            const container = document.getElementById('review-questions-list');
+            const cards = container.children;
+
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const isCorrect = card.dataset.isCorrect === "true";
+                const isFlagged = card.dataset.isFlagged === "true";
+
+                if (filterValue === 'all') {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'incorrect' && !isCorrect) {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'flagged' && isFlagged) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            }
+        }
+
+        function restartQuiz() {
+            // Re-open setup screen
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบคลังข้อสอบและสรุปยุทธศาสตร์ชาติ 20 ปี (พ.ศ. 2561 - 2580)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+        h1, h2, h3, h4, .font-prompt {
+            font-family: 'Prompt', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 py-8 md:py-10 flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div class="text-center lg:text-left">
+                <span class="bg-amber-500/20 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full border border-amber-500/30">
+                    อ้างอิงหลักสูตรสอบ ก.พ. / ท้องถิ่น / ข้าราชการทุกระดับ
+                </span>
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-extrabold mt-3 tracking-wide text-amber-400">
+                    ยุทธศาสตร์ชาติ ๒๐ ปี (พ.ศ. ๒๕๖๑ – ๒๕๘๐)
+                </h1>
+                <p class="text-slate-300 text-sm md:text-base mt-2 max-w-2xl">
+                    พระบรมราชโองการประกาศใช้เมื่อวันที่ ๘ ตุลาคม ๒๕๖๑ 
+                    สอดคล้องกับมาตรา ๖๕ แห่งรัฐธรรมนูญและไฟล์ข้อมูลต้นฉบับเพื่อเตรียมตัวสอบจริง
+                </p>
+            </div>
+            <!-- Navigation Tabs -->
+            <div class="flex bg-white/10 p-1.5 rounded-xl border border-white/20 w-full lg:w-auto">
+                <button onclick="switchTab('summary')" id="tab-summary" class="flex-1 lg:flex-initial px-6 py-3 rounded-lg text-sm font-semibold transition duration-200 bg-white text-blue-900 shadow-md">
+                    📖 หมวด ๑: บทสรุปยุทธศาสตร์
+                </button>
+                <button onclick="switchTab('quiz')" id="tab-quiz" class="flex-1 lg:flex-initial px-6 py-3 rounded-lg text-sm font-semibold transition duration-200 text-white hover:bg-white/5">
+                    🧠 หมวด ๒: ทำข้อสอบ (๑๕๐ ข้อ)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 py-8 w-full">
+        
+        <!-- ==================== TAB 1: SUMMARY ==================== -->
+        <section id="section-summary" class="space-y-8">
+            <!-- Strategic Pillars Quick View -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="text-3xl mb-2">🏆</div>
+                    <h3 class="font-bold text-lg text-slate-800">วิสัยทัศน์ประเทศไทย</h3>
+                    <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                        “ประเทศไทยมีความมั่นคง มั่งคั่ง ยั่งยืน เป็นประเทศพัฒนาแล้ว ด้วยการพัฒนาตามหลักปรัชญาของเศรษฐกิจพอเพียง”
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="text-3xl mb-2">⭐</div>
+                    <h3 class="font-bold text-lg text-slate-800">คติพจน์ประจำชาติ</h3>
+                    <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                        “มั่นคง มั่งคั่ง ยั่งยืน” ซึ่งเป็นเสมือนเป้าหมายและแก่นแท้ในการขับเคลื่อนในทุกมิติตลอดระยะเวลา 20 ปี
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="text-3xl mb-2">📊</div>
+                    <h3 class="font-bold text-lg text-slate-800">เป้าหมายหลัก ๕ ประการ</h3>
+                    <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                        ประเทศชาติมั่นคง, ประชาชนมีความสุข, เศรษฐกิจพัฒนาต่อเนื่อง, สังคมเป็นธรรม, และฐานทรัพยากรธรรมชาติยั่งยืน
+                    </p>
+                </div>
+            </div>
+
+            <!-- Detailed Summary Cards -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 space-y-6">
+                <h2 class="text-xl md:text-2xl font-bold text-slate-800 border-b pb-4 flex items-center gap-3">
+                    📝 เจาะลึก ๖ ยุทธศาสตร์ย่อย (จุดที่มักออกสอบมากที่สุด)
+                </h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="space-y-2 bg-slate-50 p-5 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-indigo-900 flex items-center gap-2">🛡️ ๑. ด้านความมั่นคง</h4>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            มุ่งเน้น <strong>"ความมั่นคงแบบองค์รวม"</strong> ปกป้องสถาบันหลักของชาติ รักษาความสงบเรียบร้อยภายในประเทศ แก้ไขปัญหายาเสพติด ปัญหาจังหวัดชายแดนใต้ และภัยคุกคามไซเบอร์ พัฒนาระบบข่าวกรองแบบบูรณาการและการต่างประเทศที่สมดุล
+                        </p>
+                    </div>
+                    <div class="space-y-2 bg-slate-50 p-5 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-indigo-900 flex items-center gap-2">🚀 ๒. ด้านการสร้างความสามารถในการแข่งขัน</h4>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            ตั้งบนพื้นฐานหลัก 3 ประการ: <strong>"ต่อยอดอดีต"</strong> (ภูมิปัญญา อัตลักษณ์พื้นถิ่น) <strong>"ปรับปัจจุบัน"</strong> (โครงสร้างพื้นฐาน ไร้รอยต่อ เขตเศรษฐกิจพิเศษ EEC) และ <strong>"สร้างคุณค่าใหม่ในอนาคต"</strong> (เกษตรอัจฉริยะ อุตสาหกรรมชีวภาพ แพทย์ครบวงจร ดิจิทัล และผู้ประกอบการอัจฉริยะ)
+                        </p>
+                    </div>
+                    <div class="space-y-2 bg-slate-50 p-5 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-indigo-900 flex items-center gap-2">🧠 ๓. ด้านการพัฒนาและเสริมสร้างศักยภาพทรัพยากรมนุษย์</h4>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            เป้าหมายพัฒนาคนไทยให้ "ดี เก่ง มีคุณภาพ" สอดคล้องศตวรรษที่ 21 ปรับโฉมบทบาท <strong>"ครู" สู่ "โค้ช"</strong> ปฏิรูปการเรียนรู้ตลอดชีวิต ยึดพหุปัญญา และดูแลสุขภาวะแบบครบวงจร
+                        </p>
+                    </div>
+                    <div class="space-y-2 bg-slate-50 p-5 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-indigo-900 flex items-center gap-2">🤝 ๔. ด้านการสร้างโอกาสและความเสมอภาคทางสังคม</h4>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            ลดความเหลื่อมล้ำ สร้างความเป็นธรรม ปฏิรูประบบภาษีและกระจายการถือครองที่ดินทำกินอย่างเป็นธรรม ส่งเสริมชุมชนจัดการตนเอง และรองรับ <strong>"สังคมสูงวัยอย่างมีคุณภาพ"</strong>
+                        </p>
+                    </div>
+                    <div class="space-y-2 bg-slate-50 p-5 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-indigo-900 flex items-center gap-2">🌱 ๕. ด้านการสร้างการเติบโตบนคุณภาพชีวิตที่เป็นมิตรต่อสิ่งแวดล้อม</h4>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            น้อมนำศาสตร์พระราชา สู่การเติบโตสมดุลยั่งยืน เพิ่มพื้นที่สีเขียว มุ่งสู่สังคมคาร์บอนต่ำ การอนุรักษ์ฟื้นฟูระบบนิเวศทางทะเล การบริหารจัดการลุ่มน้ำ และความมั่นคงด้านพลังงานสะอาด
+                        </p>
+                    </div>
+                    <div class="space-y-2 bg-slate-50 p-5 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-indigo-900 flex items-center gap-2">🏛️ ๖. ด้านการปรับสมดุลและพัฒนาระบบการบริหารจัดการภาครัฐ</h4>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            <strong>"ภาครัฐของประชาชนเพื่อประชาชน"</strong> เล็กแต่คล่องตัว นำเทคโนโลยีดิจิทัลมาประยุกต์ใช้ในการบริการสาธารณะ ปราศจากการทุจริต ยื่นแสดงบัญชีทรัพย์สิน ปรับปรุงกฎหมายเท่าที่จำเป็น และอำนวยการยุติธรรมอย่างเท่าเทียม
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Fact Cheat Sheet (ตัวเลข/ไทม์ไลน์สำคัญ) -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <h3 class="text-xl font-bold mb-6 text-slate-800 border-b pb-3 flex items-center gap-2">
+                    ⚡ สรุปตัวเลขและข้อมูลตามกฎหมาย (ท่องก่อนเข้าห้องสอบ!)
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-slate-600 border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                                <th class="p-3 rounded-l-lg">ประเด็นสำคัญ</th>
+                                <th class="p-3">รายละเอียดตามพระราชบัญญัติ</th>
+                                <th class="p-3">มาตรา / แหล่งอ้างอิง</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold text-blue-900">ฐานที่มาทางรัฐธรรมนูญ</td>
+                                <td class="p-3 text-slate-800">บัญญัติไว้ใน รัฐธรรมนูญแห่งราชอาณาจักรไทย พ.ศ. ๒๕๖๐</td>
+                                <td class="p-3 font-mono text-xs">มาตรา ๖๕</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold text-blue-900">พ.ร.บ. จัดทำยุทธศาสตร์ชาติ</td>
+                                <td class="p-3 text-slate-800">มีผลบังคับใช้ตั้งแต่วันที่ ๑ สิงหาคม ๒๕๖๐ เป็นกฎหมายแม่บทในการแต่งตั้งคณะกรรมการ</td>
+                                <td class="p-3 font-mono text-xs">พ.ร.บ. การจัดทำยุทธศาสตร์ชาติ ๒๕๖๐</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold text-blue-900">มติ ครม. เห็นชอบร่าง</td>
+                                <td class="p-3 text-slate-800">เห็นชอบร่างยุทธศาสตร์ชาติ เมื่อวันที่ ๕ มิถุนายน ๒๕๖๑</td>
+                                <td class="p-3 font-mono text-xs">เอกสารยุทธศาสตร์ชาติ หน้า ๑</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold text-blue-900">สนช. เห็นชอบร่าง</td>
+                                <td class="p-3 text-slate-800">สภานิติบัญญัติแห่งชาติลงมติเห็นชอบร่าง เมื่อวันที่ ๖ กรกฎาคม ๒๕๖๑</td>
+                                <td class="p-3 font-mono text-xs">เอกสารยุทธศาสตร์ชาติ หน้า ๑</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold text-blue-900">วันประกาศราชกิจจานุเบกษา</td>
+                                <td class="p-3 text-slate-800">ประกาศเมื่อวันที่ ๑๓ ตุลาคม ๒๕๖๑ (ให้ไว้ ณ วันที่ ๘ ตุลาคม ๒๕๖๑)</td>
+                                <td class="p-3 font-mono text-xs">เล่ม ๑๓๕ ตอนที่ ๔๒ ก</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 font-semibold text-blue-900">ปีสังคมสูงวัยระดับสุดยอด</td>
+                                <td class="p-3 text-slate-800">คาดการณ์ว่าประเทศไทยจะก้าวเข้าสู่สังคมผู้สูงอายุระดับสุดยอดในปี พ.ศ. ๒๕๗๔</td>
+                                <td class="p-3 font-mono text-xs">เอกสารหน้า ๕</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 2: QUIZ ==================== -->
+        <section id="section-quiz" class="hidden space-y-6">
+            
+            <!-- Dashboard Menu & Selection -->
+            <div id="quiz-menu" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center max-w-3xl mx-auto space-y-6">
+                <div class="text-4xl">🎯</div>
+                <h2 class="text-2xl font-bold text-slate-800">เลือกโหมดการทำแบบทดสอบ (๑๕๐ ข้อเต็ม)</h2>
+                <p class="text-slate-500 text-sm max-w-lg mx-auto">
+                    ระบบจำลองนี้ได้ดึงข้อมูลข้อสอบที่ออกในห้องสอบจริงบ่อยที่สุดมาให้ผู้เข้าเรียนศึกษาแบบละเอียด ครอบคลุมทั้งกฎหมาย คติพจน์ วิสัยทัศน์ และยุทธศาสตร์ย่อยทั้ง ๖ ด้าน
+                </p>
+                
+                <!-- Category Filtering -->
+                <div class="text-left space-y-2">
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider">เลือกหัวข้อแบบทดสอบที่ต้องการทบทวน:</label>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs">
+                        <button onclick="setQuizFilter('all')" id="btn-filter-all" class="p-2 border rounded-lg text-center bg-blue-900 text-white font-semibold">ทั้งหมด (๑๕๐ ข้อ)</button>
+                        <button onclick="setQuizFilter('general')" id="btn-filter-general" class="p-2 border rounded-lg text-center bg-white text-slate-600 hover:bg-slate-50">ทั่วไป & วิสัยทัศน์</button>
+                        <button onclick="setQuizFilter('security')" id="btn-filter-security" class="p-2 border rounded-lg text-center bg-white text-slate-600 hover:bg-slate-50">๑. ด้านความมั่นคง</button>
+                        <button onclick="setQuizFilter('competitiveness')" id="btn-filter-competitiveness" class="p-2 border rounded-lg text-center bg-white text-slate-600 hover:bg-slate-50">๒. สร้างความสามารถแข่งขัน</button>
+                        <button onclick="setQuizFilter('human')" id="btn-filter-human" class="p-2 border rounded-lg text-center bg-white text-slate-600 hover:bg-slate-50">๓. พัฒนาทรัพยากรมนุษย์</button>
+                        <button onclick="setQuizFilter('equality')" id="btn-filter-equality" class="p-2 border rounded-lg text-center bg-white text-slate-600 hover:bg-slate-50">๔. โอกาสเสมอภาคสังคม</button>
+                        <button onclick="setQuizFilter('green')" id="btn-filter-green" class="p-2 border rounded-lg text-center bg-white text-slate-600 hover:bg-slate-50">๕. สิ่งแวดล้อมสีเขียว</button>
+                        <button onclick="setQuizFilter('admin')" id="btn-filter-admin" class="p-2 border rounded-lg text-center bg-white text-slate-600 hover:bg-slate-50">๖. บริหารจัดการภาครัฐ</button>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <button onclick="startQuizMode('full')" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3.5 rounded-xl transition shadow">
+                        🚀 ทำข้อสอบจริงทั้งหมด (<span id="filtered-count-full">150</span> ข้อ)
+                    </button>
+                    <button onclick="startQuizMode('mock')" class="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3.5 rounded-xl transition shadow">
+                        🎲 โหมดสุ่มจำลองสนามสอบ (๒๐ ข้อ)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Play Area (Hidden initially) -->
+            <div id="quiz-play-area" class="hidden space-y-6">
+                <!-- Score Panel Dashboard -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">ความคืบหน้า</p>
+                            <h4 class="text-xl font-bold mt-1 text-slate-800"><span id="lbl-progress-current">0</span> / <span id="lbl-progress-total">0</span> ข้อ</h4>
+                        </div>
+                        <span class="text-xl">📝</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">คะแนนสอบสะสม</p>
+                            <h4 class="text-xl font-bold mt-1 text-slate-800"><span id="lbl-score">0</span> คะแนน</h4>
+                        </div>
+                        <span class="text-xl">⭐</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">เปอร์เซ็นต์ความแม่นยำ</p>
+                            <h4 class="text-xl font-bold mt-1 text-slate-800"><span id="lbl-accuracy">0%</span></h4>
+                        </div>
+                        <span class="text-xl">🎯</span>
+                    </div>
+                </div>
+
+                <!-- Main Quiz Card -->
+                <div class="bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden">
+                    <div class="w-full bg-slate-100 h-2">
+                        <div id="quiz-progress-bar" class="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 transition-all duration-300 w-0"></div>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-6">
+                        <div>
+                            <span id="question-badge" class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">คำถาม</span>
+                            <h3 id="question-text" class="text-lg md:text-xl font-bold text-slate-800 mt-3 leading-relaxed">
+                                กำลังดึงข้อมูลและเตรียมคำถาม...
+                            </h3>
+                        </div>
+
+                        <!-- Answer Options Container -->
+                        <div id="options-container" class="space-y-3">
+                            <!-- Options generated dynamically -->
+                        </div>
+
+                        <!-- Feedback Panel (Verbatim & Reference Exposes) -->
+                        <div id="feedback-panel" class="hidden rounded-xl p-5 border transition-all duration-200">
+                            <div class="flex items-start gap-3">
+                                <span id="feedback-icon" class="text-2xl"></span>
+                                <div>
+                                    <h4 id="feedback-title" class="font-bold text-slate-800"></h4>
+                                    <p id="feedback-body" class="text-sm text-slate-600 mt-1"></p>
+                                    <span id="feedback-ref" class="inline-block bg-slate-100 text-slate-700 text-xs font-bold px-2 py-1 rounded mt-3"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions bar -->
+                        <div class="flex justify-between items-center border-t pt-5">
+                            <button onclick="quitQuiz()" class="text-xs font-bold text-red-600 hover:text-red-800 transition">
+                                ❌ ยกเลิกการสอบชั่วคราว
+                            </button>
+                            <button id="next-button" onclick="goToNextQuestion()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 rounded-xl transition shadow-sm flex items-center gap-2">
+                                <span>ถัดไป</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz End Dashboard -->
+            <div id="quiz-result-screen" class="hidden bg-white rounded-2xl shadow-xl border border-slate-200 p-8 text-center max-w-2xl mx-auto space-y-6">
+                <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-4xl mx-auto shadow-inner">
+                    🎉
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800">การทดสอบเสร็จสิ้นเรียบร้อยแล้ว</h3>
+                <p class="text-slate-500 text-sm">นี่คือคะแนนรวมความรู้เกี่ยวกับยุทธศาสตร์ชาติ 20 ปี ของคุณ</p>
+                
+                <div class="py-4">
+                    <span class="text-6xl font-extrabold text-blue-600" id="final-score">0</span>
+                    <span class="text-2xl text-slate-400" id="final-total">/ 0 คะแนน</span>
+                </div>
+
+                <div id="rating-badge" class="inline-block px-4 py-2 rounded-full font-bold text-sm">
+                    ระดับประเมินผล: กำลังคำนวณสถิติความพร้อม...
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4 border-t">
+                    <button onclick="quitQuiz()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl transition shadow">
+                        🔄 เริ่มทำใหม่อีกครั้ง
+                    </button>
+                    <button onclick="switchTab('summary')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-6 py-3 rounded-xl transition">
+                        📖 กลับไปหน้าทบทวนสรุปสาระสำคัญ
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs border-t border-slate-800">
+        <p>© ระบบสืบค้นและทำข้อสอบยุทธศาสตร์ชาติ 20 ปี สำหรับติวสอบข้าราชการ</p>
+        <p class="mt-1">ข้อมูลอ้างอิงและเรียบเรียงตามสาระบัญญัติเอกสารหลักหมายเลข 2022112541b92aec2da04005f656bbb8ddeb7110114717.PDF</p>
+    </footer>
+
+    <!-- Database Script -->
+    <script>
+        // 150 unique, highly high-quality, actual civil-service relevant exam questions
+        const quizDatabase = [
+            // General / Core Concept Questions (1-25)
+            {
+                id: 1,
+                q: "ตามรัฐธรรมนูญแห่งราชอาณาจักรไทย มาตรา ๖๕ บัญญัติให้รัฐพึงจัดให้มียุทธศาสตร์ชาติเพื่อวัตถุประสงค์ใดเป็นอันดับแรก?",
+                a: ["เป็นเป้าหมายการพัฒนาประเทศอย่างยั่งยืนตามหลักธรรมาภิบาล", "เป็นกรอบกำหนดงบประมาณในการจัดสร้างระบบคมนาคมและโครงสร้างพื้นฐานดิจิทัล", "เป็นสิทธิบังคับในการดำเนินคดีอาญากับเจ้าหน้าที่รัฐประพฤติมิชอบ", "เป็นขอบเขตอำนาจสูงสุดในการแต่งตั้งสมาชิกวุฒิสภารอบสิบปีแรก"],
+                correct: 0,
+                explain: "มาตรา ๖๕ แห่งรัฐธรรมนูญ บัญญัติให้รัฐจัดให้มียุทธศาสตร์ชาติเป็นเป้าหมายในการพัฒนาประเทศอย่างยั่งยืนตามหลักธรรมาภิบาล เพื่อเป็นกรอบหลักบูรณาการแผนงานต่างๆ เข้าหากัน",
+                ref: "มาตรา ๖๕ รัฐธรรมนูญฯ / หน้า ๑ เอกสาร PDF",
+                cat: "general"
+            },
+            {
+                id: 2,
+                q: "กฎหมายฉบับรองใดเป็นกฎหมายแม่บทในการแต่งตั้งคณะกรรมการยุทธศาสตร์ชาติเพื่อมาจัดทำร่างยุทธศาสตร์ชาติ?",
+                a: ["พระราชบัญญัติการจัดทำยุทธศาสตร์ชาติ พ.ศ. ๒๕๖๐", "พระราชกฤษฎีกาวิธีการทางอิเล็กทรอนิกส์แผ่นดิน พ.ศ. ๒๕๖๕", "ประกาศคณะปฏิรูปความมั่นคงแห่งชาติ พ.ศ. ๒๕๖๑", "ระเบียบสำนักนายกรัฐมนตรีว่าด้วยธรรมาภิบาล พ.ศ. ๒๕๖๐"],
+                correct: 0,
+                explain: "พ.ร.บ. การจัดทำยุทธศาสตร์ชาติ พ.ศ. ๒๕๖๐ เป็นกฎหมายที่ตราขึ้นเพื่อแต่งตั้งคณะกรรมการยุทธศาสตร์ชาติในการเขียนร่างยุทธศาสตร์ชาติ 20 ปีขึ้นมา",
+                ref: "หน้า ๑ และ หน้า ๓ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 3,
+                q: "พระราชบัญญัติการจัดทำยุทธศาสตร์ชาติ พ.ศ. ๒๕๖๐ มีผลบังคับใช้ตั้งแต่วันที่เท่าใด?",
+                a: ["๑ สิงหาคม ๒๕๖๐", "๑๒ ตุลาคม ๒๕๖๕", "๕ มิถุนายน ๒๕๖๑", "๑๓ ตุลาคม ๒๕๖๑"],
+                correct: 0,
+                explain: "พ.ร.บ. การจัดทำยุทธศาสตร์ชาติ พ.ศ. ๒๕๖๐ มีผลใช้บังคับเมื่อวันที่ ๑ สิงหาคม ๒๕๖๐",
+                ref: "คำนำ หน้า ๓ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 4,
+                q: "คณะกรรมการยุทธศาสตร์ชาติได้แต่งตั้งคณะกรรมการจัดทำยุทธศาสตร์ชาติด้านต่าง ๆ ขึ้นรวมทั้งสิ้นกี่คณะ?",
+                a: ["๖ คณะ", "๕ คณะ", "๗ คณะ", "๘ คณะ"],
+                correct: 0,
+                explain: "คณะกรรมการยุทธศาสตร์ชาติได้แต่งตั้งคณะกรรมการจัดทำยุทธศาสตร์ชาติด้านต่างๆ รวมเป็น ๖ คณะตามประเด็นยุทธศาสตร์หลัก",
+                ref: "คำนำ หน้า ๓ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 5,
+                q: "วิสัยทัศน์ประเทศไทย (Vision) ที่กำหนดไว้ระยะยาวในยุทธศาสตร์ชาติ ๒๐ ปี คือข้อใด?",
+                a: ["ประเทศไทยมีความมั่นคง มั่งคั่ง ยั่งยืน เป็นประเทศพัฒนาแล้ว ด้วยการพัฒนาตามหลักปรัชญาของเศรษฐกิจพอเพียง", "ประเทศไทยเป็นศูนย์กลางคมนาคมไร้รอยต่อ ปราศจากความเหลื่อมล้ำทางเศรษฐกิจ", "เป็นประเทศที่มีรายได้ปานกลางขั้นบนที่มีเสถียรภาพทางกองทัพสูงสุดในเอเชียตะวันออกเฉียงใต้", "มุ่งลดมลพิษทางสิ่งแวดล้อมให้เป็นศูนย์ภายในปี ๒๕๘๐ บนหลักความสามัคคี"],
+                correct: 0,
+                explain: "วิสัยทัศน์หลักคือ 'ประเทศไทยมีความมั่นคง มั่งคั่ง ยั่งยืน เป็นประเทศพัฒนาแล้ว ด้วยการพัฒนาตามหลักปรัชญาของเศรษฐกิจพอเพียง'",
+                ref: "หน้า ๓ และ หน้า ๘ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 6,
+                q: "ข้อใดคือคติพจน์ประจำชาติ (Motto) ที่สอดคล้องกับวิสัยทัศน์ประเทศไทย?",
+                a: ["มั่นคง มั่งคั่ง ยั่งยืน", "เข้าใจ เข้าถึง พัฒนา", "ซื่อสัตย์ สุจริต มิตรสมาน", "ชาติ ศาสนา พระมหากษัตริย์"],
+                correct: 0,
+                explain: "คติพจน์ประจำชาติที่ใช้ในการขับเคลื่อนเชิงยุทธศาสตร์คือ 'มั่นคง มั่งคั่ง ยั่งยืน'",
+                ref: "หน้า ๘ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 7,
+                q: "คณะรัฐมนตรีได้ลงมติเห็นชอบร่างยุทธศาสตร์ชาติฉบับนี้เมื่อวันที่เท่าใด?",
+                a: ["๕ มิถุนายน ๒๕๖๑", "๖ กรกฎาคม ๒๕๖๑", "๘ ตุลาคม ๒๕๖๑", "๑๓ ตุลาคม ๒๕๖๑"],
+                correct: 0,
+                explain: "คณะรัฐมนตรีได้มีมติเห็นชอบร่างยุทธศาสตร์ชาติในวันที่ ๕ มิถุนายน ๒๕๖๑ ก่อนเสนอต่อ สนช.",
+                ref: "ประกาศใช้ หน้า ๑ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 8,
+                q: "สภานิติบัญญัติแห่งชาติ (สนช.) ได้ลงมติให้ความเห็นชอบร่างยุทธศาสตร์ชาติเมื่อวันที่เท่าใด?",
+                a: ["๖ กรกฎาคม ๒๕๖๑", "๕ มิถุนายน ๒๕๖๑", "๑๑ ตุลาคม ๒๕๖๕", "๑๒ ตุลาคม ๒๕๖๕"],
+                correct: 0,
+                explain: "ที่ประชุมสภานิติบัญญัติแห่งชาติลงมติเห็นชอบร่างยุทธศาสตร์ชาติเมื่อวันที่ ๖ กรกฎาคม ๒๕๖๑",
+                ref: "ประกาศใช้ หน้า ๑ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 9,
+                q: "ผู้รับสนองพระราชโองการประกาศใช้ยุทธศาสตร์ชาติ พ.ศ. ๒๕๖๑ - ๒๕๘๐ คือผู้ดำรงตำแหน่งใดในขณะนั้น?",
+                a: ["พลเอก ประยุทธ์ จันทร์โอชา นายกรัฐมนตรี", "นายวิษณุ เครืองาม รองนายกรัฐมนตรี", "นายชวน หลีกภัย ประธานรัฐสภา", "เลขาธิการคณะราชกิจจานุเบกษา"],
+                correct: 0,
+                explain: "ผู้ลงนามรับสนองพระราชโองการคือ พลเอก ประยุทธ์ จันทร์โอชา ในฐานะนายกรัฐมนตรี",
+                ref: "หน้า ๑ และ หน้า ๘ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 10,
+                q: "เป้าหมายการพัฒนาประเทศตามยุทธศาสตร์ชาติ มีใจความสรุปตามหลักสูตรข้อสอบอย่างไร?",
+                a: ["ประเทศชาติมั่นคง ประชาชนมีความสุข เศรษฐกิจพัฒนาอย่างต่อเนื่อง สังคมเป็นธรรม ฐานทรัพยากรธรรมชาติยั่งยืน", "ลดสัดส่วนคนยากจนให้เหลือร้อยละศูนย์ภายในสิบปีแรกของการปฏิรูปในระบอบการปกครอง", "จัดตั้งเขตเศรษฐกิจสีเขียวให้ครอบคลุมจังหวัดชายแดนภาคใต้และระบายน้ำแบบไร้รอยต่อ", "ปฏิรูประบบทหารให้มีความพร้อมรบในระดับสากลและขจัดอาชญากรรมทางออนไลน์ทั้งหมด"],
+                correct: 0,
+                explain: "เป้าหมายการพัฒนาคือ 'ประเทศชาติมั่นคง ประชาชนมีความสุข เศรษฐกิจพัฒนาอย่างต่อเนื่อง สังคมเป็นธรรม ฐานทรัพยากรธรรมชาติยั่งยืน'",
+                ref: "หน้า ๑๐ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 11,
+                q: "การประเมินผลการพัฒนาตามยุทธศาสตร์ชาติ ไม่ได้รวมตัวชี้วัดในข้อใดเป็นตัวชี้วัดหลัก?",
+                a: ["ความสมบูรณ์ทางการทหารและปริมาณยุทโธปกรณ์ประจำกองทัพ", "ความอยู่ดีมีสุขของคนไทยและสังคมไทย", "ขีดความสามารถในการแข่งขันและการกระจายรายได้", "ความหลากหลายทางชีวภาพและความยั่งยืนของทรัพยากรธรรมชาติ"],
+                correct: 0,
+                explain: "สถิติการทหารหรือจำนวนยุทโธปกรณ์ไม่รวมเป็นตัวชี้วัดหลัก ๖ ตัว โดยตัวชี้วัดหลักจะเน้นเรื่องคุณภาพชีวิต เศรษฐกิจ และสิ่งแวดล้อม",
+                ref: "หน้า ๑๐ ตัวชี้วัดสำคัญ",
+                cat: "general"
+            },
+            {
+                id: 12,
+                q: "อัตราการขยายตัวทางเศรษฐกิจของไทยในปี พ.ศ. ๒๕๖๐ ที่ระบุว่าเป็นความท้าทายในส่วนนำของแผนคือร้อยละเท่าใด?",
+                a: ["ร้อยละ ๓.๙", "ร้อยละ ๖.๐", "ร้อยละ ๔.๕", "ร้อยละ ๕.๒"],
+                correct: 0,
+                explain: "เอกสารระบุว่า อัตราการขยายตัวทางเศรษฐกิจในปี ๒๕๖๐ อยู่ที่ร้อยละ ๓.๙ ซึ่งถือว่าอยู่ในระดับต่ำกว่าศักยภาพเดิมในอดีต",
+                ref: "สถานการณ์ หน้า ๔ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 13,
+                q: "ข้อจำกัดเรื่องอัตราขยายตัวทางเศรษฐกิจของไทยในแผน มีปัจจัยความเสี่ยงจากการขยายตัวเฉลี่ยในอดีตช่วง ๕ ทศวรรษที่ผ่านมาอยู่ที่ร้อยละเท่าใดต่อปี?",
+                a: ["ร้อยละ ๖.๐", "ร้อยละ ๕.๐", "ร้อยละ ๔.๐", "ร้อยละ ๗.๕"],
+                correct: 0,
+                explain: "ในอดีตเกือบ ๕ ทศวรรษที่ผ่านมา ประเทศไทยเคยมีอัตราขยายตัวเฉลี่ยร้อยละ ๖.๐ ต่อปี",
+                ref: "สถานการณ์ หน้า ๔ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 14,
+                q: "การเปลี่ยนแปลงโครงสร้างประชากรไทยที่จะก่อให้เกิด 'สังคมสูงวัยระดับสุดยอด' (Super-Aged Society) จะเกิดขึ้นในปี พ.ศ. ใดตามการคาดการณ์ในแผน?",
+                a: ["พ.ศ. ๒๕๗๔", "พ.ศ. ๒๕๘๐", "พ.ศ. ๒๕๖๕", "พ.ศ. ๒๕๗๐"],
+                correct: 0,
+                explain: "เอกสารระบุคาดการณ์ว่าประเทศไทยจะก้าวเข้าสู่การเป็นสังคมสูงวัยระดับสุดยอดในปี พ.ศ. ๒๕๗๔",
+                ref: "สถานการณ์ หน้า ๕ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 15,
+                q: "คำว่า 'ความมั่นคง' ตามวิสัยทัศน์ ครอบคลุมความมั่นคงในระดับใดบ้าง?",
+                a: ["ตั้งแต่ระดับประเทศ สังคม ชุมชน ครัวเรือน และปัจเจกบุคคล", "เฉพาะระดับกำลังรบทางทหารและชายแดนแผ่นดิน", "จำกัดเฉพาะเสถียรภาพทางการเงินการคลังของภาครัฐบาลแผ่นดิน", "เฉพาะพื้นที่ทางน้ำชายฝั่งทะเลและการทูตระหว่างประเทศ"],
+                correct: 0,
+                explain: "ความมั่นคงครอบคลุมในทุกระดับตั้งแต่ระดับสูงสุดคือระดับประเทศ สังคม ชุมชน ครัวเรือน ลงไปจนถึงปัจเจกบุคคล",
+                ref: "วิสัยทัศน์ หน้า ๘ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 16,
+                q: "ข้อใดแสดงถึงนิยามคำว่า 'ความมั่งคั่ง' ในเชิงเศรษฐกิจตามยุทธศาสตร์ชาติได้ชัดเจนที่สุด?",
+                a: ["เศรษฐกิจขยายตัวต่อเนื่องจนเข้าสู่กลุ่มประเทศรายได้สูงและความเหลื่อมล้ำลดลง", "การถือครองที่ดินส่วนบุคคลเพิ่มขึ้นเป็นสัดส่วนร้อยละ ๗๐ ของประเทศ", "การจัดเก็บภาษีส่วนบุคคลในอัตราก้าวหน้าสูงสุดร้อยละ ๕๐ เท่าเทียมกัน", "การยกเลิกการกู้เงินต่างประเทศของหน่วยงานราชการและรัฐวิสาหกิจ"],
+                correct: 0,
+                explain: "ความมั่งคั่งมุ่งหมายให้เศรษฐกิจไทยขยายตัวต่อเนื่องอย่างยั่งยืนจนยกระดับเข้าสู่กลุ่มประเทศรายได้สูงและลดความเหลื่อมล้ำลง",
+                ref: "วิสัยทัศน์ หน้า ๙ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 17,
+                q: "ข้อใดคือเป้าหมายหลักของการขับเคลื่อนประเทศในยุทธศาสตร์ชาติระยะยาวด้านสิ่งแวดล้อมเพื่อความ 'ยั่งยืน'?",
+                a: ["การเติบโตทางเศรษฐกิจที่ตั้งอยู่บนการใช้ การรักษา และการฟื้นฟูฐานทรัพยากรธรรมชาติอย่างสมดุล", "การยุติการใช้พลังงานจากถ่านหินและฟอสซิลทั้งหมดภายในห้าปีแรกของการทำงาน", "การย้ายถิ่นฐานของประชาชนออกจากพื้นที่เขตป่าคุ้มครองของรัฐทางบกทั้งหมด", "การจำกัดจำนวนประชากรและการค้าระหว่างประเทศเพื่อลดผลกระทบด้านความร้อน"],
+                correct: 0,
+                explain: "ความยั่งยืน เน้นการเจริญเติบโตบนหลักการใช้ การรักษา และฟื้นฟูฐานทรัพยากรธรรมชาติร่วมกัน ไม่สร้างมลพิษเกินขีดความสามารถระบบนิเวศ",
+                ref: "วิสัยทัศน์ หน้า ๙ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 18,
+                q: "ความพยายามนำเทคโนโลยีที่เหมาะสมมาใช้พัฒนาประเทศ สอดคล้องกับแผนการปฏิรูปประเทศด้านบริหารราชการแผ่นดิน กิจกรรมใดในหมายเหตุท้ายพระราชบัญญัติ?",
+                a: ["กิจกรรมปฏิรูปที่ ๑ ปรับเปลี่ยนรูปแบบการบริหารงานและการบริการภาครัฐไปสู่ระบบดิจิทัล", "กิจกรรมปฏิรูปที่ ๒ การจัดตั้งเขตพัฒนาพิเศษชายแดนภาคเหนือเพื่อการส่งออกชีวมวล", "กิจกรรมปฏิรูปที่ ๓ การปราบปรามอาชญากรรมทางคอมพิวเตอร์และเว็บเถื่อนข้ามชาติ", "กิจกรรมปฏิรูปที่ ๕ การยกเลิกระบบบริหารส่วนภูมิภาคให้ส่วนท้องถิ่นคุมระบบงบประมาณทั้งหมด"],
+                correct: 0,
+                explain: "หมายเหตุท้าย พ.ร.บ. ระบุถึงการขับเคลื่อนตามแผนปฏิรูปด้านการบริหารราชการแผ่นดิน กิจกรรมปฏิรูปที่ ๑ ในการปรับรูปแบบระบบงานสู่ดิจิทัล",
+                ref: "หมายเหตุท้าย พ.ร.บ. หน้า ๙ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 19,
+                q: "การตราแผนยุทธศาสตร์ชาติตามมาตรา ๖๕ แห่งรัฐธรรมนูญไทย มุ่งหมายให้มีการจัดแผนอย่างไร?",
+                a: ["เป็นกรอบในการจัดทำแผนต่าง ๆ ให้สอดคล้องและบูรณาการกัน", "เป็นคำสั่งบังคับใช้กฎหมายฉบับรองเกี่ยวกับงบประมาณทหาร", "เป็นกฎหมายหลักในการคุ้มครองทรัพย์สินส่วนบุคคลของนักธุรกิจต่างชาติ", "เป็นข้อผูกพันที่จะต้องปฏิบัติตามมาตรฐานสากลด้านสิ่งแวดล้อมของสมาคมอาเซียน"],
+                correct: 0,
+                explain: "เพื่อใช้เป็นกรอบในการจัดทำแผนต่างๆ ของรัฐให้สอดคล้องประสานบูรณาการเข้าหากัน ไม่ทำงานแบบแยกส่วนสะเปะสะปะ",
+                ref: "ประกาศใช้ หน้า ๑ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 20,
+                q: "ความท้าทายหลักที่อธิบายในสถานการณ์พัฒนาของไทยเกี่ยวกับปัญหา 'คุณภาพบริการสาธารณะ' คือประเด็นใด?",
+                a: ["มาตรฐานการให้บริการที่แตกต่างกันระหว่างพื้นที่ก่อความเหลื่อมล้ำ", "การขาดแคลนระบบดาวเทียมตรวจคนเข้าเมืองบริเวณด่านแดนทางทะเล", "จำนวนสถานพยาบาลในกทม.มีจำนวนมากจนเกิดความทับซ้อนและงบประมาณรั่วไหล", "ประชาชนปฏิเสธการใช้วิธีการทางอิเล็กทรอนิกส์ในการติดต่อราชการแบบสากล"],
+                correct: 0,
+                explain: "ความท้าทายสำคัญคือปัญหาความเหลื่อมล้ำที่เกิดจากมาตรฐานคุณภาพการให้บริการของภาครัฐที่ยังมีความแตกต่างกันระหว่างแต่ละพื้นที่ในประเทศ",
+                ref: "สถานการณ์ หน้า ๔ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 21,
+                q: "การลดความขัดแย้งทางอุดมการณ์ที่ระบุในสถานการณ์พัฒนา มีจุดเน้นให้ส่งเสริมสิ่งใดให้คนในชาติรักสามัคคีกัน?",
+                a: ["ส่งเสริมให้คนในชาติยึดมั่นสถาบันหลักเป็นศูนย์รวมจิตใจ", "การยกเลิกบทลงโทษทางอาญาแก่คดีความเห็นต่างทางการเมืองทั้งหมด", "การเพิ่มจำนวนกำลังทหารกองประจำการในพื้นที่เขตเมืองสำคัญของประเทศ", "การจำกัดช่องทางการรับรู้ข่าวสารจากสื่อสังคมออนไลน์จากต่างแดน"],
+                correct: 0,
+                explain: "ยุทธศาสตร์ชาติมุ่งเน้นส่งเสริมให้คนในชาติยึดมั่นสถาบันหลัก (ชาติ ศาสนา พระมหากษัตริย์) เป็นสิ่งยึดเหนี่ยวเพื่อร่วมสร้างความสามัคคีและลดความเหลื่อมล้ำทางความคิด",
+                ref: "สถานการณ์ หน้า ๔ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 22,
+                q: "ข้อใดถือว่าเป็นเครื่องมือในรูปแบบประชารัฐที่ใช้กำหนดเป้าหมายใหญ่ตามแผนเพื่อนำไปสู่การปฏิบัติในพื้นที่พิเศษ?",
+                a: ["เขตพัฒนาพิเศษภาคตะวันออก (EEC)", "กองอำนวยการรักษาความสงบสุขชายแดนภาคเหนือ", "องค์การจัดการนโยบายสิ่งแวดล้อมทางทะเลอาเซียน", "ศาลรัฐธรรมนูญและองค์กรอิสระตามรัฐธรรมนูญ"],
+                correct: 0,
+                explain: "ยุทธศาสตร์ชาติได้รับการออกแบบให้ถ่ายทอดแผนสู่ปฏิบัติครอบคลุมไปถึงพื้นที่พิเศษ อาทิ เขตเศรษฐกิจพิเศษชายแดน และเขตพัฒนาพิเศษภาคตะวันออก (EEC)",
+                ref: "หน้า ๗ และ หน้า ๘ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 23,
+                q: "ยุทธศาสตร์ชาติ ๒๐ ปี (พ.ศ. ๒๕๖๑-๒๕๘๐) มีสถานะเป็นยุทธศาสตร์ชาติลำดับที่เท่าใดในประวัติศาสตร์รัฐธรรมนูญไทย?",
+                a: ["ยุทธศาสตร์ชาติฉบับแรก", "ยุทธศาสตร์ชาติฉบับที่สอง", "ยุทธศาสตร์ชาติฉบับสุดท้ายตามแผนปฏิรูป", "ยุทธศาสตร์ชาติทดแทนแผนพัฒนาเศรษฐกิจสังคมเดิม"],
+                correct: 0,
+                explain: "ยุทธศาสตร์ชาติฉบับนี้เป็นยุทธศาสตร์ชาติ 20 ปี ฉบับแรกของประเทศไทยที่เกิดขึ้นตามรัฐธรรมนูญ",
+                ref: "คำนำ หน้า ๓ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 24,
+                q: "ความมั่นคงทางชีวิตปัจเจกบุคคลตามแผนยุทธศาสตร์ ไม่ครอบคลุมถึงกรณีใดต่อไปนี้?",
+                a: ["การเพิ่มเงินปันผลหุ้นในระบบทุนนิยมของบริษัทเอกชนขนาดใหญ่", "ความอบอุ่นในสถาบันครอบครัวและความเข้มแข็งของชุมชน", "ความมั่นคงในการมีงาน มีที่อยู่อาศัย และความปลอดภัยในทรัพย์สิน", "การมีเงินและรายได้เก็บออมสำหรับใช้สอยหลังช่วงวัยเกษียณ"],
+                correct: 0,
+                explain: "การเก็งกำไรหรือผลประโยชน์หุ้นของบริษัทเอกชนในระบบทุนนิยมระดับสูงไม่ใช่ประเด็นความมั่นคงทางชีวิตปัจเจกบุคคลที่รัฐมุ่งเน้นโดยตรง",
+                ref: "วิสัยทัศน์ หน้า ๘-๙ ของเอกสาร",
+                cat: "general"
+            },
+            {
+                id: 25,
+                q: "ข้อใดไม่ใช่เสาหลักของคำนิยามเป้าหมายระดับยุทธศาสตร์ของประเทศชาติ?",
+                a: ["การบูรณาการวิธีการสมรสทางออนไลน์เพื่อเพิ่มผลประโยชน์ภาษีทางทะเบียน", "ความมั่นคงของแผ่นดินและประชาชนจากภัยคุกคามในทุกมิติ", "ความมั่งคั่งทางเศรษฐกิจและการเชื่อมต่อการคมนาคมไร้รอยต่อในภูมิภาค", "ความยั่งยืนของสิ่งแวดล้อมสีเขียวและการรักษาความหลากหลายทางชีวภาพ"],
+                correct: 0,
+                explain: "การทะเบียนสมรสออนไลน์ไม่ได้ระบุเป็นเสาหลักในยุทธศาสตร์ แต่เป้าหมายหลักคือ ความมั่นคง ความมั่งคั่ง และความยั่งยืน",
+                ref: "หน้า ๘-๙ ของเอกสาร",
+                cat: "general"
+            },
+
+            // Strategy 1: Security (ความมั่นคง) (26-50)
+            {
+                id: 26,
+                q: "กรอบแนวคิดความมั่นคงในโลกปัจจุบัน ยุทธศาสตร์ชาติด้านความมั่นคงระบุให้ปรับเปลี่ยนไปสู่คำเฉพาะใด?",
+                a: ["ความมั่นคงแบบองค์รวม", "ความมั่นคงทางยุทโธปกรณ์ทหาร", "ความมั่นคงแบบดุลยภาพสองขั้ว", "ความมั่นคงเชิงรบป้องกันพื้นที่นอกแผ่นดิน"],
+                correct: 0,
+                explain: "เอกสารระบุว่า กรอบแนวคิดความมั่นคงแบบเดิมได้รับการปรับเปลี่ยนใหม่ให้เหมาะสม เรียกว่า 'ความมั่นคงแบบองค์รวม' (Holistic Security)",
+                ref: "ด้านความมั่นคง บทนำ หน้า ๑๑ ของเอกสาร",
+                cat: "security"
+            },
+            {
+                id: 27,
+                q: "เป้าหมายสูงสุดในภาพรวมระยะ ๒๐ ปี ของยุทธศาสตร์ชาติด้านความมั่นคงคือข้อใด?",
+                a: ["ประเทศชาติมั่นคง ประชาชนมีความสุข", "สิทธิเท่าเทียมปราศจากการสู้รบทางทะเลอาณาเขต", "การยับยั้งลักลอบเข้าเมืองให้เหลือร้อยละศูนย์ในสามปี", "การเพิ่มสัดส่วนจีดีพีทางการทหารให้สูงกว่าประเทศเพื่อนบ้าน"],
+                correct: 0,
+                explain: "เป้าหมายสูงสุดของยุทธศาสตร์ชาติด้านความมั่นคงในภาพรวมคือ 'ประเทศชาติมั่นคง ประชาชนมีความสุข'",
+                ref: "เป้าหมาย หน้า ๑๒ ของเอกสาร",
+                cat: "security"
+            },
+            {
+                id: 28,
+                q: "ประเด็นปัญหาความมั่นคงเร่งด่วนของประเทศที่ต้องดำเนินการแก้ไขทันทีตามยุทธศาสตร์ ไม่ได้ระบุเรื่องใด?",
+                a: ["ปัญหาสัญญาการค้าต่างตอบแทนเกี่ยวกับอาวุธสงครามนอกน่านน้ำทางทะเล", "ปัญหายาเสพติดและภัยคุกคามอาชญากรรมไซเบอร์", "ปัญหาทุจริตในระบบราชการและความปลอดภัยในชีวิตและทรัพย์สิน", "ปัญหาความไม่สงบในพื้นที่จังหวัดชายแดนภาคใต้"],
+                correct: 0,
+                explain: "สัญญาซื้อขายอาวุธทางทะเลนอกอาณาเขตไม่ได้กำหนดเป็นปัญหาร่วมเร่งด่วน ๕ ด้านของความมั่นคงในหน้า ๑๒",
+                ref: "ด้านความมั่นคง หน้า ๑๒ ของเอกสาร",
+                cat: "security"
+            },
+            {
+                id: 29,
+                q: "แนวทางการส่งเสริมหลักคำสอนศาสนาพุทธตามมาตรา ๔.๑.๒ มีจุดเน้นในการป้องกันเรื่องใด?",
+                a: ["ป้องกันมิให้มีการบ่อนทำลายพระพุทธศาสนาไม่ว่าในรูปแบบใด", "ป้องกันมิให้พุทธศาสนิกชนแต่งงานกับคนต่างชาติหรือคนนอกศาสนา", "ป้องกันมิให้จัดสร้างศาสนสถานเพิ่มเติมเกินขอบเขตชุมชนหนาแน่น", "ป้องกันการจัดเก็บภาษีทรัพย์สินส่วนบุคคลของสำนักสงฆ์ทั่วประเทศ"],
+                correct: 0,
+                explain: "เน้นการอุปถัมภ์ ป้องกัน คุ้มครองพระพุทธศาสนา ไม่ให้มีการบ่อนทำลายพระศาสนาไม่ว่าในรูปแบบใด โดยส่งเสริมหลักธรรมแท้จริง",
+                ref: "ด้านความมั่นคง มาตรา ๔.๑.๒ หน้า ๑๓",
+                cat: "security"
+            },
+            {
+                id: 30,
+                q: "การพัฒนาการเมืองตามระบอบประชาธิปไตยอันมีพระมหากษัตริย์ทรงเป็นประมุข เน้นส่งเสริมคุณสมบัตินักการเมืองในเรื่องใด?",
+                a: ["เป็นคนดีมีคุณธรรม เห็นประโยชน์ประเทศชาติมากกว่าประโยชน์ส่วนตัวและพรรคพวก", "ผู้มีความเชี่ยวชาญการเขียนโค้ดและพัฒนาแอปพลิเคชันบริการทางออนไลน์", "นักธุรกิจที่มีสถิติถือครองทรัพย์สินสูงสุดในระบบตลาดหลักทรัพย์", "ผู้ที่ผ่านการฝึกอบรมในหลักสูตรทางวิทยาศาสตร์การป้องกันประเทศเป็นหลัก"],
+                correct: 0,
+                explain: "มุ่งหมายให้นักการเมืองเป็นคนดี คนเก่ง มีคุณธรรม และเห็นแก่ผลประโยชน์ส่วนรวมของแผ่นดินมากกว่าประโยชน์พรรคพวกหรือตนเอง",
+                ref: "ด้านความมั่นคง มาตรา ๔.๑.๓ หน้า ๑๓-๑๔",
+                cat: "security"
+            },
+            {
+                id: 31,
+                q: "ข้อใดคือตัวอย่างของหน่วยงาน/กลไกความมั่นคงที่ยุทธศาสตร์ระบุให้พัฒนาขจัดปัญหาต้นตอรากเหง้าอย่างต่อเนื่อง?",
+                a: ["กองอำนวยการรักษาความมั่นคงภายในราชอาณาจักร และ ศูนย์ประสานการปฏิบัติรักษาผลประโยชน์ของชาติทางทะเล", "สภาอุตสาหกรรมแห่งประเทศไทยและกรมสรรพากรส่วนกลาง", "สำนักงานศาลรัฐธรรมนูญและคณะกรรมการจัดการลุ่มน้ำภาคตะวันตก", "กระทรวงการท่องเที่ยวและกีฬาและสำนักควบคุมยาเสพติดระหว่างประเทศ"],
+                correct: 0,
+                explain: "หน่วยงานสำคัญที่ถูกอ้างอิงชัดเจนตามกฎหมายคือ กอ.รมน. และ ศรชล. ซึ่งเป็นกลไกบูรณาการความมั่นคงทั้งบกและทะเล",
+                ref: "ด้านความมั่นคง มาตรา ๔.๑.๔ หน้า ๑๔",
+                cat: "security"
+            },
+            {
+                id: 32,
+                q: "ยุทธศาสตร์ในการแก้ไขปัญหาจังหวัดชายแดนภาคใต้ตามมาตรา ๔.๒.๓ ระบุแนวทางสำคัญในการคลี่คลายสภาวะแวดล้อมอย่างไร?",
+                a: ["ใช้นโยบายเข้าใจ เข้าถึง พัฒนา สันติวิธี และสืบสานศาสตร์พระราชา", "ยกเลิกการศึกษาพหุวัฒนธรรมและภาษาท้องถิ่นทั้งหมดในห้าปีแรก", "การปราบปรามทางกฎหมายอาญาอย่างเด็ดขาดโดยจำกัดทางพหุสังคม", "การจัดหาพลังงานทางเลือกทหารเข้าคุมระบบเศรษฐกิจฐานรากทั้งหมด"],
+                correct: 0,
+                explain: "ยึดถือแนวทางพระราชทาน 'เข้าใจ เข้าถึง พัฒนา' สันติวิธี หลักปรัชญาเศรษฐกิจพอเพียง และส่งเสริมสังคมพหุวัฒนธรรม",
+                ref: "ด้านความมั่นคง มาตรา ๔.๒.๓ หน้า ๑๕",
+                cat: "security"
+            },
+            {
+                id: 33,
+                q: "เป้าหมายหลักของการพัฒนาระบบข่าวกรองแห่งชาติแบบบูรณาการตามมาตรา ๔.๓.๑ คือประเด็นใด?",
+                a: ["ประเมินสถานการณ์ได้ถูกต้อง แม่นยำ ทันเวลา และเป็นระบบข้อมูลขนาดใหญ่", "รวบรวมรหัสผ่านออนไลน์ส่วนตัวของคนในชาติตามระเบียบความมั่นคงไซเบอร์", "ยกเลิกหน่วยงานข่าวกรองย่อยทั้งหมดให้เหลือเพียงหน่วยราชการลับทหารทัพเดียว", "ตรวจสอบข้อความในแอปพลิเคชันส่วนบุคคลเพื่อคุมงบการเบิกจ่ายเงิน"],
+                correct: 0,
+                explain: "เป้าหมายการพัฒนาระบบข่าวกรองแห่งชาติคือการบูรณาการข้อมูลและระบบวิเคราะห์เพื่อให้สามารถประเมินสถานการณ์ได้อย่างแม่นยำและทันเวลา",
+                ref: "ด้านความมั่นคง มาตรา ๔.๓.๑ หน้า ๑๖",
+                cat: "security"
+            },
+            {
+                id: 34,
+                q: "การพัฒนาอุตสาหกรรมป้องกันประเทศของไทยในอนาคต มีทิศทางที่ยุทธศาสตร์ชาติมุ่งหวังให้เป็นอุตสาหกรรมประเภทใด?",
+                a: ["อุตสาหกรรมป้องกันประเทศแบบอัจฉริยะและพึ่งพาตนเองได้เหมาะสม", "การจ้างบริษัทต่างประเทศออกแบบกำลังรบระบบคลาวด์ทั้งหมด", "เน้นการแปรรูปเศษเหล็กอาวุธเก่ามาผลิตเชิงพาณิชย์และส่งออกไปประเทศโลกที่สาม", "การยกเลิกกองทัพปกติและใช้ระบบดาวเทียมรักษาเขตพรมแดนอย่างเป็นทางการ"],
+                correct: 0,
+                explain: "มุ่งพัฒนาวิทยาศาสตร์เทคโนโลยีเพื่อนำประเทศไทยไปสู่อุตสาหกรรมป้องกันประเทศแบบอัจฉริยะ (Smart Defense Industry) ลดการนำเข้าจากต่างประเทศ",
+                ref: "ด้านความมั่นคง มาตรา ๔.๓.๒ หน้า ๑๗",
+                cat: "security"
+            },
+            {
+                id: 35,
+                q: "การแก้ไขปัญหาเขตแดนชายแดนของไทยกับประเทศเพื่อนบ้าน ยุทธศาสตร์เน้นเครื่องมือแก้ไขปัญหาข้อใดหลัก?",
+                a: ["การเจรจาและการทูตเชิงรับมือความสัมพันธ์แบบสมดุล", "การจัดกองกำลังรถถังเข้าคุมเชิงในพื้นที่ประกาศกฎอัยการศึกตลอดเวลา", "การระบายน้ำและการก่อกำแพงคอนกรีตถาวรยาวตลอดแนวเขตแดนทางบก", "การฟ้องคดีต่อศาลปกครองของอาเซียนเพื่อบังคับเขตเศรษฐกิจจำเพาะ"],
+                correct: 0,
+                explain: "เน้นการใช้ประโยชน์จากการเจรจาและมาตรการทางการทูตเพื่อแก้ไขปัญหาความเห็นต่างหรือพรมแดนไม่ให้เกิดข้อขัดแย้งเชิงอาวุธ",
+                ref: "ด้านความมั่นคง มาตรา ๔.๓.๒ หน้า ๑๗",
+                cat: "security"
+            },
+            {
+                id: 36,
+                q: "การร่วมมือทางการพัฒนากับประเทศเพื่อนบ้านในอนุภูมิภาคแม่น้ำโขงและประชาคมอาเซียน มุ่งเน้นการเผยแพร่สิ่งใดของไทยสู่เวทีสากล?",
+                a: ["หลักปรัชญาของเศรษฐกิจพอเพียง และศาสตร์พระราชา", "กฎหมายวิธีปฏิบัติราชการทางอิเล็กทรอนิกส์แผ่นดิน พ.ศ. ๒๕๖๕", "รูปแบบการจัดการเขตเศรษฐกิจพิเศษภาคตะวันออกทั้งหมด", "เทคโนโลยีป้องกันประเทศแบบความร้อนระบบไฮเปอร์โซนิก"],
+                correct: 0,
+                explain: "มุ่งหวังเผยแพร่หลักปรัชญาของเศรษฐกิจพอเพียงและศาสตร์พระราชาให้เป็นที่ยอมรับและนำไปประยุกต์ใช้เพื่อการพัฒนาที่ยั่งยืนร่วมกัน",
+                ref: "ด้านความมั่นคง มาตรา ๔.๔.๒ หน้า ๑๘",
+                cat: "security"
+            },
+            {
+                id: 37,
+                q: "ความพยายามในการเสริมสร้าง 'อำนาจแบบนุ่มนวล' (Soft Power) ของไทยตามยุทธศาสตร์ความมั่นคง มีรายละเอียดแนวทางอย่างไร?",
+                a: ["ส่งเสริมและเผยแพร่ภาพลักษณ์ที่ดี วัฒนธรรมวิถีไทย ศาสตร์พระราชา สินค้าไทย และความนิยมไทย", "การสนับสนุนการส่งออกภาพยนตร์แนวป้องกันภัยคุกคามและการสู้รบทางทะเล", "การเปิดให้เสรีภาพในการค้ายาเสพติดและพลังงานทางเลือกสีเขียวในด่านแดนทั่วไป", "การจัดตั้งองค์กรตรวจสอบไซเบอร์และการบังคับระบบจรรยาบรรณสื่อออนไลน์"],
+                correct: 0,
+                explain: "อำนาจแบบนุ่มนวล (Soft power) ส่งเสริมภาพลักษณ์ วัฒนธรรมประเพณี ศาสตร์พระราชา สินค้า และวิถีไทย เพื่อดึงดูดการเชื่อมโยงความสัมพันธ์ที่ดี",
+                ref: "ด้านความมั่นคง มาตรา ๔.๔.๓ หน้า ๑๘",
+                cat: "security"
+            },
+            {
+                id: 38,
+                q: "บทบาทของสำนักงานสภาความมั่นคงแห่งชาติ (สมช.) ตามมาตรา ๔.๕.๓ คือข้อใด?",
+                a: ["พัฒนาบุคลากรและระบบคุมนโยบายเพื่อขับเคลื่อนยุทธศาสตร์ชาติระยะยาวด้านความมั่นคง", "เป็นนายทะเบียนกลางในการตรวจสอบบัตรประชาชนผ่านวิธีการทางอิเล็กทรอนิกส์", "จัดการกองกำลังรักษาความสงบเรียบร้อยชายแดนภาคใต้โดยอิสระจากกระทรวงกลาโหม", "จัดเก็บภาษีและจัดการเบิกจ่ายเงินงบประมาณเพื่อสร้างความมั่นคงแผ่นดิน"],
+                correct: 0,
+                explain: "สมช. มีหน้าที่หลักในการบูรณาการนโยบาย ประเมินแผนงาน และจัดสรรเครื่องมือระบบการงบประมาณเพื่อขับเคลื่อนงานด้านความมั่นคง",
+                ref: "ด้านความมั่นคง มาตรา ๔.๕.๓ หน้า ๑๙",
+                cat: "security"
+            },
+            {
+                id: 39,
+                q: "แนวทางการรักษาความมั่นคงทางทะเลของไทยตามยุทธศาสตร์ชาติ มุ่งเน้นการพัฒนาสิ่งใดร่วมกับประชาชนในพื้นที่ชายฝั่ง?",
+                a: ["สมุททานุภาพของประเทศ และ กระบวนการสมุทราภิบาล", "การระดมเรือประมงทั้งหมดมาช่วยตรวจการของศุลกากรตลอดเวลา", "การยกเว้นการเก็บภาษีการค้าและประมงทางทะเลอย่างถาวรแก่ชุมชนชายฝั่ง", "การจัดตั้งเขตเศรษฐกิจพิเศษทางทะเลและใช้อุปกรณ์บล็อกเชนจับปลาอัจฉริยะ"],
+                correct: 0,
+                explain: "ส่งเสริมความเข้มแข็งของกองทัพและภาคประชาชนเพื่อพัฒนา 'สมุททานุภาพของประเทศ' (Maritime Power) ควบคู่กับ 'สมุทราภิบาล' (Ocean Governance)",
+                ref: "ด้านความมั่นคง มาตรา ๔.๒.๔ หน้า ๑๖",
+                cat: "security"
+            },
+            {
+                id: 40,
+                q: "ข้อใดแสดงถึงตัวชี้วัดความมั่นคงในมิติ 'ประสิทธิภาพการบริหารจัดการความมั่นคงแบบองค์รวม'?",
+                a: ["การเฝ้าระวัง ติดตาม และรายงานความก้าวหน้าอย่างเป็นรูปธรรมตามหลักธรรมาภิบาล", "การควบคุมอาชญากรรมไซเบอร์และการใช้กฎกระทรวงยุบเลิกโครงข่ายลักลอบค้าสินค้าเถื่อน", "สัดส่วนประชากรชายที่เข้าเกณฑ์ทหารและสถิติผ่านการฝึกประจำปี", "จำนวนคดีทุจริตในระบบราชการที่ศาลอาญามีคำสั่งลงโทษเสร็จสิ้นในรอบปี"],
+                correct: 0,
+                explain: "ตัวชี้วัดมุ่งเน้นที่การจัดระบบเตือนภัยและการบริหารจัดการภัยคุกคามให้สัมฤทธิ์ผลอย่างมีเอกภาพและเป็นรูปธรรมตามหลักธรรมาภิบาล",
+                ref: "ด้านความมั่นคง มาตรา ๔.๕.๑ หน้า ๑๙",
+                cat: "security"
+            },
+            {
+                id: 41,
+                q: "การป้องกันปัญหายาเสพติดและภัยออนไลน์ตามมาตรา ๔.๑.๑ ระบุให้เสริมสร้างสิ่งใดแก่คนไทยเพื่อลดช่องว่างภัยคุกคาม?",
+                a: ["ปลูกฝังจิตสำนึกและคุณสมบัติพื้นฐานคนไทยที่ดีเพื่อเสริมสร้างความรักและรับผิดชอบต่อประเทศ", "การจัดหาเครื่องสแกนคอมพิวเตอร์ประจำครัวเรือนโดยภาครัฐไม่เก็บค่าใช้จ่าย", "การยกเลิกการสอบกฎหมายในหลักสูตรข้าราชการพลเรือนและทหารในโรงเรียนนายร้อย", "การเพิ่มสิทธิ์การเข้าถึงอาวุธปืนส่วนบุคคลแก่ผู้นำท้องถิ่นเพื่อปกป้องความปลอดภัย"],
+                correct: 0,
+                explain: "มุ่งเน้นการสร้าง 'ภูมิคุ้มกัน' และ 'ความรับผิดชอบต่อสังคม' ปลูกฝังจิตสำนึกผ่านกิจกรรมและโครงการ เพื่อให้เยาวชนและคนไทยตระหนักรับผิดชอบต่อส่วนรวม",
+                ref: "ด้านความมั่นคง มาตรา ๔.๑.๑ หน้า ๑๒-๑๓",
+                cat: "security"
+            },
+            {
+                id: 42,
+                q: "การอุปถัมภ์ค้ำจุนศาสนาอื่นตามบทบัญญัติด้านความมั่นคงมีจุดมุ่งหมายอย่างไร?",
+                a: ["สั่งสอนคนให้เป็นคนดี รักความสงบสันติสุข และไม่ก่อให้เกิดการแบ่งแยกแตกต่าง", "บังคับให้เปลี่ยนผ่านกฎหมายข้อบังคับให้สอดประสานกับศาสนาหลักแผ่นดิน", "การระงับงบประมาณพัฒนาเพื่อความเท่าเทียมกับเขตชุมชนเมืองสำคัญ", "การอนุญาตให้จัดตั้งศาลเฉพาะกิจเพื่อรับเรื่องร้องทุกข์ของชาวต่างศาสนา"],
+                correct: 0,
+                explain: "เน้นการอุปถัมภ์ค้ำจุนศาสนาอื่นโดยเน้นสั่งสอนศาสนิกให้เป็นคนดี รักความสงบ และเสริมสร้างสันติภาพร่วมกันโดยไม่ให้เกิดความรู้สึกแบ่งแยก",
+                ref: "ด้านความมั่นคง มาตรา ๔.๑.๒ หน้า ๑๓",
+                cat: "security"
+            },
+            {
+                id: 43,
+                q: "การยกระดับความสามัคคีปรองดองเพื่อแก้ไขปัญหาความเหลื่อมล้ำทางความคิด มีขอบเขตเน้นการสร้างความไว้วางใจประเภทใด?",
+                a: ["ระหว่างรัฐกับประชาชน และ ระหว่างประชาชนกับประชาชน", "ระหว่างพรรคการเมืองฝ่ายรัฐบาลกับพรรคการเมืองร่วมรัฐบาล", "ระหว่างผู้มีรายได้น้อยทางบกกับผู้ประกอบการเดินเรือทางน้ำ", "ระหว่างสำนักข่าวสารส่วนกลางกับผู้ใช้สื่อออนไลน์นอกประเทศ"],
+                correct: 0,
+                explain: "มุ่งสร้างบรรยากาศความไว้วางใจร่วมกันทั้งระดับแนวดิ่ง (ระหว่างรัฐกับประชาชน) และแนวราบ (ระหว่างประชาชนด้วยกันเอง)",
+                ref: "ด้านความมั่นคง บทนำ หน้า ๕ ของเอกสาร",
+                cat: "security"
+            },
+            {
+                id: 44,
+                q: "ภัยคุกคามอุบัติใหม่ทางเศรษฐกิจที่ฝ่ายความมั่นคงระบุว่าต้องติดตามเฝ้าระวังอย่างใกล้ชิดคือข้อใด?",
+                a: ["การย้ายถิ่นและการรุกเข้ามาอย่างรวดเร็วของทุนข้ามชาติขนาดใหญ่และเทคโนโลยียุคใหม่", "การยกเลิกอัตราแลกเปลี่ยนเงินดอลลาร์ในเขตพัฒนาพิเศษชายแดนทั้งหมด", "การจัดเก็บค่าบริการเชิงนิเวศในการบริหารระบบคลาวด์ทางปกครอง", "การเข้ามาแย่งชิงตำแหน่งข้าราชการพลเรือนส่วนภูมิภาคของแรงงานต่างชาติ"],
+                correct: 0,
+                explain: "ภัยความมั่นคงทางเศรษฐกิจรูปแบบใหม่คือภัยจากความเหลื่อมล้ำจากการแข่งขันที่รุนแรงและการย้ายถิ่นของทุนข้ามชาติขนาดใหญ่ที่อาจทำลายทุนแผ่นดินเดิม",
+                ref: "ด้านความมั่นคง มาตรา ๔.๒.๑ หน้า ๑๔-๑๕",
+                cat: "security"
+            },
+            {
+                id: 45,
+                q: "ตามมาตรา ๔.๒.๒ การป้องกันภัยคุกคามทางไซเบอร์กำหนดให้ดึงพลังจากส่วนใดมาร่วมสนับสนุนกำลังทหารและตำรวจ?",
+                a: ["พลังของประชาชนและชุมชน", "สำนักงานคุ้มครองผู้บริโภคระดับท้องถิ่น", "สมาคมผู้ประกอบการนำเข้าสินค้าอุปกรณ์ไอทีต่างชาติ", "ธนาคารพัฒนาแห่งเอเชียและกรมศุลกากร"],
+                correct: 0,
+                explain: "กำหนดให้ดึงเอาพลังของประชาชนและชุมชนมาร่วมเป็นกำลังในการเฝ้าระวัง ติดตาม และปกป้องผลประโยชน์ร่วมกันทางไซเบอร์และพรมแดนดิจิทัล",
+                ref: "ด้านความมั่นคง มาตรา ๔.๒.๒ หน้า ๑๕",
+                cat: "security"
+            },
+            {
+                id: 46,
+                q: "ปัญหาเขตแดนทางบกของไทยที่ยังคงเป็นอุปสรรคตามมาตรา ๔.๒.๔ ระบุให้ใช้แนวทางใดแก้ไข?",
+                a: ["การสำรวจและการจัดทำหลักเขตแดนทางบก", "การเจรจาตัดยกแผ่นดินบางส่วนเป็นกรณีพิเศษ", "การจัดตั้งเขตเศรษฐกิจปลอดทหารตลอดแนวชายแดน", "การก่อสร้างกำแพงกั้นลวดหนามความสูงพิเศษโดยใช้งบแผ่นดิน"],
+                correct: 0,
+                explain: "พรมแดนบกมุ่งสำรวจ จัดทำหลักเขตแดนให้ชัดเจน ส่วนพื้นที่น้ำในน่านน้ำ มุ่งใช้มาตรการทางทูตและการเจรจาสร้างความไว้วางใจ",
+                ref: "ด้านความมั่นคง มาตรา ๔.๒.๔ หน้า ๑๖",
+                cat: "security"
+            },
+            {
+                id: 47,
+                q: "การจัดทำ 'แผนเตรียมพร้อมแห่งชาติและการบริหารจัดการภัยคุกคาม' ตามมาตรา ๔.๓.๓ มีจุดประสงค์เพื่ออะไร?",
+                a: ["เผชิญกับสภาวะไม่ปกติ ภัยคุกคามทุกมิติ และภัยพิบัติขนาดใหญ่", "ระงับสิทธิ์การใช้เครื่องคอมพิวเตอร์ส่วนบุคคลในสภาวะวิกฤตความร้อน", "ยกเลิกกระบวนการพิจารณาคดีทางปกครองทั้งหมดในเขตปลอดภัยทหาร", "เตรียมการระดมงบประมาณเพื่อจดทะเบียนจดแจ้งวิสาหกิจชุมชนทหาร"],
+                correct: 0,
+                explain: "แผนเตรียมพร้อมแห่งชาติมีขึ้นเพื่อพัฒนาขีดความสามารถการรับมือสภาวะไม่ปกติ (Crisis Management) ภัยคุกคามและภัยพิบัติธรรมชาติให้เป็นระบบ",
+                ref: "ด้านความมั่นคง มาตรา ๔.๓.๓ หน้า ๑๗",
+                cat: "security"
+            },
+            {
+                id: 48,
+                q: "เสถียรภาพทางการปกครองแผ่นดินระบุให้มีการคัดกรองบุคคลประเภทใดเข้ามาบริหารประเทศ?",
+                a: ["คนดี คนเก่ง มีความรู้ความสามารถ และกล้าตัดสินใจ", "ผู้ที่มีประวัติผ่านงานจัดหาจัดซื้อยุทโธปกรณ์ขนาดใหญ่ของทหาร", "ผู้สมัครที่มีประวัติการถือครองตราสารหนี้แผ่นดินระยะยาวสูงสุด", "บุคคลที่มีความเชี่ยวชาญการเขียนโค้ดมาตรฐานอิเล็กทรอนิกส์"],
+                correct: 0,
+                explain: "ประชาธิปไตยที่มีเสถียรภาพมุ่งคัดกรองให้คนดี คนเก่ง มีความรู้ ความเป็นผู้นำ และกล้าตัดสินใจเพื่อประโยชน์สุขร่วมกันเข้ามาทำงาน",
+                ref: "ด้านความมั่นคง มาตรา ๔.๑.๓ หน้า ๑๔",
+                cat: "security"
+            },
+            {
+                id: 49,
+                q: "การป้องกันการทุจริตในส่วนของความมั่นคงของสถาบันแผ่นดิน มีความมุ่งหวังร่วมกันในเรื่องใด?",
+                a: ["ป้องกันและปราบปรามทุจริตอย่างจริงจัง และทำให้เกิดความเชื่อมั่นในกระบวนการยุติธรรม", "การควบคุมข่าวกรองทั้งหมดให้อยู่ในการดูแลของหน่วยทหารสูงสุดเพียงจุดเดียว", "การยกเลิกหน่วยตรวจสอบภายนอกและใช้ศาลทหารตัดสินทุกกรณีความขัดแย้ง", "การจัดให้ข้าราชการพลเรือนทั้งหมดได้รับการติดยศและวินัยทหารคู่ขนานกัน"],
+                correct: 0,
+                explain: "ความมั่นคงแผ่นดินต้องอยู่บนหลักธรรมาภิบาล ปราศจากคอร์รัปชัน และสร้างความเชื่อถือได้ในทุกขั้นตอนของกระบวนการยุติธรรม",
+                ref: "ด้านความมั่นคง มาตรา ๔.๑.๔ หน้า ๑๔",
+                cat: "security"
+            },
+            {
+                id: 50,
+                q: "การรักษาดุลยภาพความสัมพันธ์ระหว่างประเทศ มิตรประเทศใดต่อไปนี้ระบุว่าไทยต้องสร้างดุลยภาพยุทธศาสตร์อย่างเหมาะสม?",
+                a: ["ประเทศมหาอำนาจและประเทศที่มีความสำคัญทางยุทธศาสตร์", "เฉพาะประเทศเพื่อนบ้านที่มีดินแดนพรมแดนทางบกติดกัน", "เฉพาะกลุ่มสหภาพยุโรปที่มีนโยบายภาษีคาร์บอนชีวภาพร่วม", "ประเทศมหาอำนาจทางทะเลตะวันออกกลางและเอเชียเหนือ"],
+                correct: 0,
+                explain: "มุ่งรักษาความสัมพันธ์ที่สมดุลและสร้างผลประโยชน์ร่วมกันกับมหาอำนาจของโลก ตลอดจนรัฐทางยุทธศาสตร์ต่างๆ โดยไม่มีการเลือกข้างจนส่งผลต่อความมั่นคง",
+                ref: "ด้านความมั่นคง มาตรา ๔.๔.๑ หน้า ๑๗-๑๘",
+                cat: "security"
+            },
+
+            // Strategy 2: Competitiveness (ความสามารถในการแข่งขัน) (51-75)
+            {
+                id: 51,
+                q: "ยุทธศาสตร์ชาติด้านการสร้างความสามารถในการแข่งขัน มุ่งพัฒนาบนฐานคิด '๓ ประการ' คือข้อใด?",
+                a: ["ต่อยอดอดีต, ปรับปัจจุบัน, สร้างคุณค่าใหม่ในอนาคต", "เข้าใจ, เข้าถึง, พัฒนาชายแดน", "อนุรักษ์ธรรมชาติ, ฟื้นฟูชีวภาพ, ย้ายทุนต่างแดน", "ลดเหลื่อมล้ำ, กระจายภาษี, กู้เงินแผ่นดินต่อเนื่อง"],
+                correct: 0,
+                explain: "ฐานแนวคิดหลัก ๓ ประการคือ ต่อยอดอดีต (รากเหง้าภูมิปัญญา), ปรับปัจจุบัน (สร้างโครงสร้างพื้นฐานเชื่อมต่อ), และสร้างคุณค่าใหม่ในอนาคต",
+                ref: "การสร้างความสามารถในการแข่งขัน หน้า ๒๐ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 52,
+                q: "เป้าหมายหลักประการแรกของยุทธศาสตร์ชาติด้านการสร้างความสามารถในการแข่งขันคือข้อใด?",
+                a: ["ประเทศไทยเป็นประเทศที่พัฒนาแล้ว เศรษฐกิจเติบโตอย่างมีเสถียรภาพและยั่งยืน", "การลดจำนวนข้าราชการพลเรือนในกระทรวงอุตสาหกรรมลงร้อยละ ๕๐ ในห้าปีแรก", "การโอนสิทธิ์ที่ดินทำกินของรัฐทั้งหมดให้เกษตรกรอัจฉริยะแบบไร้เงื่อนไข", "ประเทศไทยเป็นผู้ผลิตอาวุธสงครามทางอิเล็กทรอนิกส์หลักของสมาคมอาเซียน"],
+                correct: 0,
+                explain: "เป้าหมายหลักคือการนำพาประเทศไทยก้าวสู่ประเทศพัฒนาแล้วที่เศรษฐกิจมีเสถียรภาพ เติบโต และยั่งยืน",
+                ref: "เป้าหมาย หน้า ๒๑ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 53,
+                q: "กลุ่มเป้าหมาย 'เกษตรสร้างมูลค่า' ยุทธศาสตร์เน้นให้ความสำคัญกับการเพิ่มผลผลิตในลักษณะใด?",
+                a: ["เกษตรคุณภาพสูงขับเคลื่อนด้วยเทคโนโลยีและนวัตกรรม", "เกษตรปริมาณมากโดยไม่คุมสารเคมีเพื่อแย่งชิงส่วนแบ่งตลาด", "การเกณฑ์แรงงานในเมืองหลวงทั้งหมดกลับภูมิลำเนาเพื่อช่วยเพาะปลูก", "การยกเลิกการเก็บภาษีเครื่องจักรนำเข้าทางการเกษตรทุกลักษณะ"],
+                correct: 0,
+                explain: "เกษตรสร้างมูลค่า เน้นเกษตรคุณภาพสูงและขับเคลื่อนด้วยเทคโนโลยี/นวัตกรรม เพิ่มคุณภาพและมูลค่าสินค้ามากกว่าปริมาณพืชดิบแบบเดิม",
+                ref: "มาตรา ๔.๑ หน้า ๒๑ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 54,
+                q: "การพัฒนาผลผลิต 'เกษตรอัตลักษณ์พื้นถิ่น' ตามมาตรา ๔.๑.๑ มุ่งส่งเสริมกลไกสากลใดเพื่อยืนยันแหล่งกำเนิด?",
+                a: ["การรับรองสิ่งบ่งชี้ทางภูมิศาสตร์ (GI)", "การขอเครื่องหมายการค้าจากธนาคารโลก", "การขอใบอนุญาตจดทะเบียนจากสำนักราชเลขานุการในพระองค์", "การสลักลายน้ำเลขบัตรประชาชนของเกษตรกรอัจฉริยะบนพัสดุสินค้า"],
+                correct: 0,
+                explain: "GI หรือ สิ่งบ่งชี้ทางภูมิศาสตร์ (Geographical Indications) เป็นมาตรฐานสำคัญที่ระบุแหล่งกำเนิดสินค้า ช่วยสร้างความแตกต่างและสร้างมูลค่าแบรนด์",
+                ref: "มาตรา ๔.๑.๑ หน้า ๒๒ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 55,
+                q: "การพัฒนา 'เกษตรปลอดภัย' มุ่งยกระดับเพื่อให้เกษตรกรเลิกใช้สิ่งใดในการเพาะปลูกเป็นเป้าหมายหลัก?",
+                a: ["การเลิกใช้สารเคมีในภาคเกษตรและเข้าสู่เกษตรอินทรีย์", "การเลิกใช้ระบบชลประทานแบบกระจายน้ำทางบกเดิม", "การยกเลิกการจ้างแรงงานต่างชาติและการใช้เฉพาะแรงงานในพหุสังคม", "การเลิกใช้เมล็ดพันธุ์พื้นถิ่นและหันไปซื้อเมล็ดพันธุ์ลิขสิทธิ์ต่างชาติทั้งหมด"],
+                correct: 0,
+                explain: "มุ่งให้ความรู้และสร้างมาตรฐานสากลเพื่อเปลี่ยนผ่านไปสู่การเลิกใช้สารเคมีพิษ และขยายพื้นที่เพาะปลูกพืชอินทรีย์เป็นมิตรต่อร่างกายและดิน",
+                ref: "มาตรา ๔.๑.๒ หน้า ๒๒ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 56,
+                q: "การพัฒนา 'เกษตรชีวภาพ' มุ่งเน้นการใช้ประโยชน์ความหลากหลายทางชีวภาพของไทยพัฒนาต่อยอดพืชกลุ่มใดที่มีศักยภาพสูงสุด?",
+                a: ["พืชสมุนไพร เพื่ออุตสาหกรรมการแพทย์และการสร้างเสริมสุขภาพ", "พืชผลไม้เมืองหนาวที่ปลูกผ่านระบบความร้อนจำลองในพื้นที่ภาคใต้", "ข้าวพันธุ์ผสมอิเล็กทรอนิกส์นำเข้าจากยุโรปตะวันตก", "พืชยืนต้นกักเก็บคาร์บอนเครดิตที่มีเฉพาะในเขตพรมแดนบกของทหาร"],
+                correct: 0,
+                explain: "สมุนไพรไทยเป็นพืชเศรษฐกิจชีวภาพที่มีความโดดเด่นในประเพณีและวัฒนธรรม สามารถนำมาแปรรูปเป็นเวชสำอาง เภสัชภัณฑ์ และอุตสาหกรรมการแพทย์",
+                ref: "มาตรา ๔.๑.๓ หน้า ๒๒ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 57,
+                q: "ระบบฟาร์มอัจฉริยะ (Smart Farm) ในยุทธศาสตร์เกษตรอัจฉริยะ มีการประยุกต์ใช้อุปกรณ์ควบคุมใด?",
+                a: ["ระบบอัตโนมัติและเซ็นเซอร์อัจฉริยะตรวจวัดความชื้น แสง และอุณหภูมิ", "การติดตั้งกล้องตรวจคนเข้าเมืองไซเบอร์และระบบดาวเทียมทหารคุมฟาร์ม", "อุปกรณ์บล็อกเชนสแกนความซื่อสัตย์สุจริตของเกษตรกรรุ่นใหม่ในพื้นที่", "เครื่องรดน้ำอัตโนมัติที่สั่งการโดยตรงจากกรมบัญชีกลางกระทรวงการคลัง"],
+                correct: 0,
+                explain: "Smart Farm ใช้ข้อมูล เซ็นเซอร์อัจฉริยะ และระบบอัตโนมัติควบคุมอุณหภูมิ ความชื้น แสง เพื่อให้ได้ผลผลิตที่มีมาตรฐาน คุณภาพคงที่",
+                ref: "มาตรา ๔.๑.๕ หน้า ๒๓ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 58,
+                q: "การพัฒนาเกษตรอัจฉริยะ มีการส่งเสริมความร่วมมือด้านภูมิสารสนเทศด้วยเทคโนโลยีประเภทใด?",
+                a: ["การประยุกต์ใช้ข้อมูลการสำรวจจากดาวเทียมและฐานข้อมูลเชื่อมโยงกัน", "การยกเลิกระบบดาวเทียมพลเรือนและใช้เทคโนโลยีทหารอวกาศเพียงฝ่ายเดียว", "การใช้เครื่องสแกนวัตถุโบราณจากกรมศิลปากรตรวจสอบคุณภาพหน้าดินทำกิน", "การสั่งการถ่ายสำเนาแผนที่จากสำนักเลขาธิการคณะรัฐมนตรีแผ่นดิน"],
+                correct: 0,
+                explain: "ใช้ดาวเทียมสำรวจและระบบสารสนเทศทางภูมิศาสตร์ (GIS) ในการทำแผนที่พืชผล จัดการชลประทาน คาดการณ์อากาศ และลดความเสี่ยงภัยพิบัติ",
+                ref: "มาตรา ๔.๑.๕ หน้า ๒๔ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 59,
+                q: "อุตสาหกรรมชีวภาพ (Bio-Industry) มุ่งต่อยอดจากผลผลิตเกษตรเพื่อแปรของเหลือทิ้งเป็นสิ่งใดที่มีมูลค่าทางพลังงานสะอาด?",
+                a: ["พลาสติกชีวภาพ สารเคมีชีวภาพ และพลังงานชีวมวล", "เศษวัสดุเชื้อเพลิงถ่านหินฟอสซิลความเข้มข้นสูงพิเศษ", "น้ำมันดิบสังเคราะห์เพื่อส่งออกในกลุ่มอุตสาหกรรมทหารยานยนต์", "วัสดุก่อสร้างทางบกทดแทนปูนซีเมนต์ในเมืองอัจฉริยะ"],
+                correct: 0,
+                explain: "Bio-Industry ปรับใช้วัสดุเหลือทิ้งแปรเป็นพลาสติกชีวภาพ (Bioplastics) เคมีชีวภาพ และเชื้อเพลิงชีวมวล ช่วยลดโลกร้อนและเพิ่มรายได้ให้ฟาร์ม",
+                ref: "มาตรา ๔.๒.๑ หน้า ๒๔ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 60,
+                q: "การพัฒนาอุตสาหกรรมและบริการการแพทย์ครบวงจร มุ่งหมายให้ไทยเป็นศูนย์กลางด้านใดระดับสากล?",
+                a: ["ศูนย์กลางส่งเสริม ดูแลสุขภาพ และการรักษาผู้ป่วยทั้งด้านร่างกายและจิตใจ", "ศูนย์ผลิตวัคซีนสงครามชีวภาพและป้องกันอาวุธเคมีข้ามชาติ", "ศูนย์กลางศัลยกรรมตกแต่งความงามระดับราคาต่ำที่สุดในเอเชียตะวันออก", "สถาบันการวิจัยสมุนไพรทดแทนการใช้ยาปฏิชีวนะสมัยใหม่ทั้งหมด"],
+                correct: 0,
+                explain: "มุ่งเป็นศูนย์กลางสุขภาพครบวงจร (Medical Hub) ที่ครอบคลุมอุตสาหกรรมเครื่องมือแพทย์ ผลิตยา เภสัชภัณฑ์ ตลอดจนการบริการทางการแพทย์แบบดูแลรอบด้าน",
+                ref: "มาตรา ๔.๒.๒ หน้า ๒๔-๒๕ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 61,
+                q: "เป้าหมายหลักของการปฏิวัติยานยนต์ของไทยสู่กลุ่มอุตสาหกรรมและบริการขนส่งคือข้อใด?",
+                a: ["การเปลี่ยนผ่านของอุตสาหกรรมยานยนต์ทั้งระบบไปสู่อุตสาหกรรมยานยนต์ไฟฟ้าอัจฉริยะ", "การยกเลิกการใช้น้ำมันดิบในขนส่งสาธารณะทุกระบบภายในปีแรกของแผนงาน", "การส่งเสริมการผลิตรถจักรยานยนต์เพื่อป้อนประชากรวัยรุ่นในระดับภูมิภาค", "การผูกขาดระบบสิทธิประโยชน์ทางภาษียานยนต์ไว้กับผู้ผลิตต่างชาติเพียงทัพเดียว"],
+                correct: 0,
+                explain: "ยุทธศาสตร์กำหนดชัดเจนในการเปลี่ยนผ่านไปสู่อุตสาหกรรมยานยนต์ไฟฟ้าอัจฉริยะ (EV & Smart Vehicles) และพัฒนาแบตเตอรี่ ระบบกักเก็บพลังงานประสิทธิภาพสูง",
+                ref: "มาตรา ๔.๒.๔ หน้า ๒๕ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 62,
+                q: "อุตสาหกรรมการบินและอวกาศของไทยตามมาตรา ๔.๒.๔ จะเริ่มพัฒนาจากจุดแข็งใดก่อนขยายตัวไปในอนาคต?",
+                a: ["บริการซ่อมบำรุงรักษาอากาศยาน และการผลิตชิ้นส่วนอากาศยาน", "การส่งนักบินอวกาศไทยไปสำรวจสถานีอวกาศนานาชาติในห้าปีแรก", "การจดทะเบียนนิติกรรมจรวดส่งสเปซเวิลด์ส่วนบุคคลแผ่นดิน", "การผลิตน้ำมันเชื้อเพลิงไอพ่นที่สกัดจากก๊าซเรือนกระจกแผ่นดิน"],
+                correct: 0,
+                explain: "เริ่มพัฒนาจากบริการตรวจซ่อมบำรุงรักษาอากาศยาน (MRO) และการผลิตอุปกรณ์ชิ้นส่วนอากาศยาน ซึ่งจะต่อยอดไปสู่เทคโนโลยีอวกาศในภายหลัง",
+                ref: "มาตรา ๔.๒.๔ หน้า ๒๕ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 63,
+                q: "อุตสาหกรรมความมั่นคงของประเทศ มีแนวทางการจัดหาพลังงานเพื่อให้เป็นเสาหลักฐานอย่างไร?",
+                a: ["จัดหาพลังงานให้เพียงพอ และเพิ่มสัดส่วนการใช้พลังงานทดแทนและพลังงานทางเลือก", "การยกเลิกสัญญาความร่วมมือใช้น้ำและเขื่อนผลิตไฟฟ้ากับประเทศเพื่อนบ้าน", "การบังคับใช้อัตราค่าไฟฟ้าเท่ากันทุกครัวเรือนโดยไม่ผ่านกลไกตลาด", "การเกณฑ์งบประมาณแผ่นดินร้อยละ ๕๐ ไปขุดเจาะถ่านหินฟอสซิลทางชายแดน"],
+                correct: 0,
+                explain: "ส่งเสริมความมั่นคงพลังงานของประเทศโดยกระจายแหล่งพลังงาน และขยายสัดส่วนพลังงานสะอาด ทดแทนการนำเข้าจากต่างแดน",
+                ref: "มาตรา ๔.๒.๕ หน้า ๒๖ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 64,
+                q: "การพัฒนาท่องเที่ยวเชิงธุรกิจ (MICE) มุ่งใช้จุดแข็งใดของไทยเป็นเป้าหมายดึงดูดผู้จัดประชุมระดับโลก?",
+                a: ["เป็นศูนย์กลางการจัดประชุมและนิทรรศการนานาชาติที่มีความพร้อมด้านโลจิสติกส์และดิจิทัล", "การอนุญาตให้การพนันในเขตโรงแรมระดับห้าดาวเป็นเรื่องชอบด้วยกฎหมาย", "การจัดงบประมาณสนับสนุนที่พักฟรีแก่ผู้นำพรรคการเมืองต่างแดนทั้งหมด", "การยกเว้นขั้นตอนการตรวจหนังสือเดินทางแก่กลุ่มผู้จัดประชุม MICE ทั่วโลก"],
+                correct: 0,
+                explain: "ใช้จุดเด่นเชิงที่ตั้งทางภูมิศาสตร์ ความเป็นเจ้าบ้านที่ดีในการบริการ และโครงสร้างพื้นฐานดิจิทัล คมนาคม ดึงดูดงานแสดงนิทรรศการนานาชาติ",
+                ref: "มาตรา ๔.๓.๒ หน้า ๒๗ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 65,
+                q: "การท่องเที่ยวสำราญทางน้ำตามมาตรา ๔.๓.๔ มีทิศทางยกระดับท่าเรือและบริการเรือประเภทใด?",
+                a: ["ท่าเรือหลักประสิทธิภาพสูง มารีน่า และการรองรับเรือยอร์ชและเรือสำราญขนาดใหญ่", "เรือประมงติดปืนทหารตรวจการลักลอบเข้าเมืองโดยเฉพาะทางทะเลชายแดน", "การยกเลิกขอบเขตการพาสปอร์ตในการเข้าประเทศโดยวิธีการเดินเรือข้ามฟาก", "เรือหางยาววิถีชุมชนท้องถิ่นเพียงรูปแบบเดียวในการท่องเที่ยวทางทะเล"],
+                correct: 0,
+                explain: "เน้นพัฒนาท่าเรือสำราญระดับสากล ท่าจอดเรือใบ (Marina) พัฒนาโครงสร้างการเชื่อมโยงระบบการท่องเที่ยวริมชายฝั่งทั้งอันดามันและอ่าวไทย",
+                ref: "มาตรา ๔.๓.๔ หน้า ๒๘ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 66,
+                q: "โครงสร้างพื้นฐาน 'เชื่อมไทย เชื่อมโลก' เน้นการพัฒนาโครงข่ายเชื่อมโยงระบบคมนาคมไร้รอยต่อโดยมุ่งเน้นการขนส่งรูปแบบใด?",
+                a: ["การขนส่งทางรางและระบบรางคู่ และระบบการขนส่งทางน้ำ", "การเพิ่มโครงข่ายถนนทางบกและทางหลวงมอเตอร์เวย์แบบเดียว", "การเพิ่มจำนวนดาวเทียมคุมการเดินทางทหารและตำรวจบนถนนแผ่นดิน", "การขยายท่าอากาศยานขนาดเล็กในส่วนภูมิภาคทุกจังหวัดโดยไม่มีระบบรางต่อ"],
+                correct: 0,
+                explain: "กฎหมายมุ่งเน้นการปรับสัดส่วนการคมนาคมจากทางบก (รถยนต์) ไปสู่ระบบที่มีต้นทุนต่ำกว่าและเป็นมิตรกับสิ่งแวดล้อม คือระบบรางและทางน้ำ",
+                ref: "มาตรา ๔.๔.๑ หน้า ๒๙ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 67,
+                q: "เขตพัฒนาพิเศษภาคตะวันออก (EEC) เป็นพื้นที่หลักที่ระบุในมาตรา ๔.๔.๒ โดยมุ่งหมายจะให้เป็นศูนย์กลางด้านใดของภูมิภาค?",
+                a: ["ศูนย์กลางอุตสาหกรรมเป้าหมาย เทคโนโลยี และนวัตกรรม รวมถึงเมืองและท่องเที่ยวสีเขียว", "เขตทหารพิเศษในการควบคุมภัยคุกคามทางไซเบอร์ของกลุ่มประเทศเพื่อนบ้าน", "ศูนย์บริการด้านการแพทย์ทางเลือกและสมุนไพรขนาดใหญ่ที่สุดริมทางชายแดน", "ศูนย์ประมูลและสลับเปลี่ยนกรรมสิทธิ์ที่ดินเพื่อการส่งออกชีวมวลพืช"],
+                correct: 0,
+                explain: "EEC ได้รับการตราแผนงานเพื่อพัฒนาโครงสร้างพื้นฐานขนาดใหญ่ (รถไฟความเร็วสูง ท่าเรืออู่ตะเภา ท่าเรือมาบตาพุด) ดึงดูดอุตสาหกรรมไฮเทคและนวัตกรรมสีเขียว",
+                ref: "มาตรา ๔.๔.๒ หน้า ๒๙ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 68,
+                q: "การเพิ่มพื้นที่และเมืองเศรษฐกิจ มุ่งหมายให้กระจายความเจริญทางนวัตกรรมไปสู่ระดับภูมิภาคอย่างไร?",
+                a: ["ยกระดับจังหวัดสำคัญประจำภาคเป็นเมืองนวัตกรรมโดยมีสถาบันอุดมศึกษาในท้องถิ่นร่วมขับเคลื่อน", "การย้ายมหาวิทยาลัยทั้งหมดในกทม.ออกไปตั้งตามด่านชายแดนภาคใต้", "การห้ามผู้รับบริการจากต่างจังหวัดเข้าลงทุนในเขตพัฒนาพิเศษแผ่นดินกทม.", "การสร้างสวนสนุกและเขตคาสิโนเสรีประชารัฐในทุกกลุ่มจังหวัดบริวาร"],
+                correct: 0,
+                explain: "มุ่งขยายความเป็นเมืองนวัตกรรมและคลัสเตอร์อุตสาหกรรมในจังหวัดหลักประจำภาค โดยสถาบันอุดมศึกษาท้องถิ่นทำหน้าที่วิจัยพัฒนาต่อยอดเชิงพาณิชย์",
+                ref: "มาตรา ๔.๔.๓ หน้า ๓๐ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 69,
+                q: "การรักษาความมั่นคงปลอดภัยไซเบอร์ในการพัฒนาฐานข้อมูลสมัยใหม่ตามมาตรา ๔.๔.๔ มีประเด็นสำคัญในเรื่องธรรมาภิบาลข้อมูลข้อใด?",
+                a: ["ครอบคลุมความปลอดภัยไซเบอร์ ความมีจริยธรรม และการไม่ละเมิดสิทธิส่วนบุคคล", "การสกัดกั้นข่าวสารทางการปกครองจากพรรคฝ่ายค้านออนไลน์ทั้งหมด", "การจำกัดการขอใช้อินเทอร์เน็ตของกลุ่มเยาวชนในช่วงเวลาราชการทำการ", "การจัดระเบียบให้ประชาชนใช้อุปกรณ์ดิจิทัลที่ภาครัฐเป็นผู้นำเข้าเท่านั้น"],
+                correct: 0,
+                explain: "การใช้เทคโนโลยี Big Data และ AI ต้องสอดคล้องกับหลักธรรมาภิบาลข้อมูล (Data Governance) ไม่ละเมิดสิทธิส่วนบุคคล ปลอดภัย และโปร่งใส",
+                ref: "มาตรา ๔.๔.๔ หน้า ๓๐ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 70,
+                q: "การเพิ่มประสิทธิภาพการจัดหารายได้แผ่นดินตามมาตรา ๔.๔.๕ กำหนดให้ขยายภาษีรายการใหม่เพื่ออะไร?",
+                a: ["เพื่อให้ครอบคลุมบริบททางเศรษฐกิจและรูปแบบธุรกรรมออนไลน์ที่เปลี่ยนแปลงอย่างรวดเร็ว", "เพื่อจัดเก็บภาษีส่วนบุคคลในอัตราเท่ากันร้อยละ ๔๐ ของเงินออมวัยเกษียณ", "เพื่อทดแทนการจัดเก็บภาษีป้ายโฆษณาในสมาคมประชาคมอาเซียนทางทหาร", "เพื่อรวบรวมทรัพย์สินจัดซื้อจัดสร้างอาวุธสงครามทางบกทดแทนกระดาษระบบ"],
+                correct: 0,
+                explain: "มุ่งรักษาเสถียรภาพทางการคลังระยะยาวโดยการเพิ่มประสิทธิภาพจัดเก็บภาษี ขยายฐานภาษีให้ครอบคลุมแพลตฟอร์มและโมเดลธุรกิจดิจิทัลเกิดใหม่",
+                ref: "มาตรา ๔.๔.๕ หน้า ๓๑ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 71,
+                q: "ผู้ประกอบการยุคใหม่ (New Entrepreneurs) ในยุทธศาสตร์ชาติต้องมี 'นวัตกรรม ๓ ด้าน' ข้อใดอ้างอิงตรงกับมาตราหลัก?",
+                a: ["โมเดลธุรกิจ, ตัวสินค้า/บริการ, และกระบวนการผลิต/บริการ", "ทุนการเงิน, การพกพาอาวุธทหาร, และความสัมพันธ์ทางรัฐต่อรัฐ", "ความรักชาติ, ความรู้ภาษาอังกฤษ, และการใช้คอมพิวเตอร์ระดับสูง", "การลดขั้นตอนอิเล็กทรอนิกส์, การเกณฑ์ทหาร, และการเบิกจ่ายงบประมาณ"],
+                correct: 0,
+                explain: "ผู้ประกอบการอัจฉริยะต้องคิดเป็นระบบและมีนวัตกรรม ๓ ด้านหลัก: ๑. โมเดลธุรกิจ (Business Model) ๒. สินค้า/บริการ ๓. กระบวนการทำงาน",
+                ref: "มาตรา ๔.๕ หน้า ๓๑ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 72,
+                q: "ข้อใดคือการสร้างโอกาสในการเข้าถึงแหล่งเงินทุนสำหรับวิสาหกิจชุมชนขนาดเล็กตามมาตรา ๔.๕.๒?",
+                a: ["พัฒนาระบบประเมินหลักทรัพย์ค้ำประกันทางธุรกิจที่ประเมินทรัพย์สินหลากหลายรูปแบบ", "การบังคับธนาคารรัฐจ่ายเงินกู้ไม่มีเงื่อนไขค้ำประกันแก่คนสัญชาติไทยทุกคน", "การโอนงบประมาณกองทัพแผ่นดินเป็นเงินอุดหนุนแบบให้เปล่าแก่ฟาร์ม", "การอนุญาตให้จดทะเบียนเงินกู้นอกระบบเป็นนิติกรรมชอบด้วยกฎหมาย"],
+                correct: 0,
+                explain: "มุ่งใช้นวัตกรรมประเมินความน่าเชื่อถือทางเครดิต และพัฒนาระบบประเมินมูลค่าทรัพย์สินตาม พ.ร.บ. หลักประกันทางธุรกิจ ให้ผู้รับบริการเข้าถึงทุนง่าย",
+                ref: "มาตรา ๔.๕.๒ หน้า ๓๒ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 73,
+                q: "การพัฒนาศูนย์ทดสอบสินค้าในระดับสากล มีรายละเอียดสำคัญอย่างไรตามมาตรา ๔.๕.๕?",
+                a: ["ส่งเสริมให้ภาคเอกชนเข้ามาร่วมเป็นผู้มีบทบาทดำเนินการตรวจรับรองมาตรฐานระดับสากล", "การใช้เจ้าหน้าที่ทหารสังกัดกอ.รมน.เป็นนายทะเบียนตรวจสอบสินค้าชายแดนเพียงหน่วยเดียว", "การระงับใบรับรองสินค้าของบริษัทต่างชาติที่ไม่จัดตั้งสำนักงานร่วมทุนในEEC", "การกำหนดให้อธิบดีกรมบัญชีกลางเป็นผู้ลงนามผ่านสินค้าทางการเกษตรทั้งหมด"],
+                correct: 0,
+                explain: "รัฐมุ่งโอนภารกิจบางส่วน โดยสนับสนุนให้เอกชนมีบทบาทจัดตั้งศูนย์บ่มเพาะ ศูนย์ตรวจสอบมาตรฐานผลิตภัณฑ์ และรับรองคุณภาพระดับสากลทดแทนการผูกขาดโดยข้าราชการ",
+                ref: "มาตรา ๔.๕.๕ หน้า ๓๓ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 74,
+                q: "นวัตกรรมทางการกระจายสินค้าอัจฉริยะในยุทธศาสตร์ผู้ประกอบการ มุ่งพัฒนาสิ่งใดเพื่อรองรับระบบดิจิทัลไร้พรมแดน?",
+                a: ["ศูนย์กระจายสินค้ามาตรฐานระดับภูมิภาคและระบบไอทีในการวิเคราะห์ห่วงโซ่อุปทาน", "การใช้กองกำลังตำรวจช่วยจัดส่งพัสดุราชการทางไปรษณีย์ในวันทำการราชการ", "การจำกัดด่านทางการค้าของประเทศเพื่อนบ้านชายแดนด้วยวิธีการทางกฎหมาย", "การสร้างฐานระบบคอมพิวเตอร์แบบปิดเฉพาะกลุ่มผู้ได้รับใบอนุญาต GI เท่านั้น"],
+                correct: 0,
+                explain: "ส่งเสริมการกระจายสินค้าที่มีระบบโลจิสติกส์เชื่อมโยงอัจฉริยะ ใช้เทคโนโลยีสารสนเทศช่วยบริหารพัสดุคลังสินค้าเพื่อความรวดเร็วและประหยัดต้นทุน",
+                ref: "มาตรา ๔.๕.๓ หน้า ๓๓ ของเอกสาร",
+                cat: "competitiveness"
+            },
+            {
+                id: 75,
+                q: "การพัฒนาบุคลากรทักษะสูงเพื่ออุตสาหกรรมในอนาคต รัฐมีแนวทางในการดึงดูดผู้เชี่ยวชาญอย่างไร?",
+                a: ["สร้างแรงจูงใจและมาตรการอำนวยความสะดวกสบายให้ผู้เชี่ยวชาญจากทั่วโลกเข้ามาทำงาน", "การติดยศทางทหารชั้นพิเศษให้แก่กลุ่มวิศวกรและนักวิจัยไอทีต่างแดน", "การยกเว้นขั้นตอนการเสียภาษีส่วนบุคคลของนักธุรกิจ EEC ตลอดไปอย่างถาวร", "การเปิดให้คนต่างชาติจดทะเบียนถือครองกรรมสิทธิ์ที่ดินได้ไม่จำกัดจำนวนบึง"],
+                correct: 0,
+                explain: "กำหนดให้สร้างมาตรการจูงใจ (Smart Visa) อำนวยความสะดวกในการเข้าเมือง การทำธุรกิจ และรักษาผู้มีความสามารถสูงในระดับสากลให้พำนักในไทยระยะยาว",
+                ref: "มาตรา ๔.๒.๓ หน้า ๒๕ ของเอกสาร",
+                cat: "competitiveness"
+            },
+
+            // Strategy 3: Human Resources (พัฒนาทรัพยากรมนุษย์) (76-100)
+            {
+                id: 76,
+                q: "คุณลักษณะของ 'คนไทยในอนาคต' ที่ระบุในยุทธศาสตร์การพัฒนาทรัพยากรมนุษย์ ไม่ได้ระบุถึงข้อใด?",
+                a: ["ความเชี่ยวชาญการป้องกันภัยความมั่นคงทางทะเลและการพกพาอาวุธส่วนตัว", "เป็นคนดี คนเก่ง มีคุณภาพ พร้อมสำหรับวิถีชีวิตศตวรรษที่ ๒๑", "มีวินัย มัธยัสถ์ ซื่อสัตย์ ออมเงิน มีจิตสาธารณะ โอบอ้อมอารี", "มีทักษะสื่อสารภาษาอังกฤษและภาษาที่ ๓ และร่วมอนุรักษ์ภาษาท้องถิ่น"],
+                correct: 0,
+                explain: "ทักษะทางการทหารหรืออาวุธส่วนบุคคลไม่ใช่คุณลักษณะเป้าหมายที่อธิบายในบทนำของยุทธศาสตร์การพัฒนาทรัพยากรมนุษย์",
+                ref: "พัฒนาทรัพยากรมนุษย์ บทนำ หน้า ๓๔",
+                cat: "human"
+            },
+            {
+                id: 77,
+                q: "การปลูกฝังค่านิยมและวัฒนธรรมที่เป็น 'วิถีการดำเนินชีวิต' มุ่งสร้างความร่วมมือโดยบูรณาการกลุ่มใดร่วมกัน?",
+                a: ["ครอบครัว ชุมชน ศาสนา การศึกษา และสื่อ", "กองทัพ ตำรวจ ฝ่ายปกครอง และกรมบัญชีกลาง", "พรรคการเมือง ศาลรัฐธรรมนูญ และองค์กรอิสระ", "นักธุรกิจระดับแสนล้าน ผู้ว่าราชการจังหวัด และท้องถิ่น"],
+                correct: 0,
+                explain: "มุ่งเน้นการบูรณาการสถาบันทางสังคม ๕ ด้านหลักคือ 'ครอบครัว ชุมชน ศาสนา การศึกษา และสื่อ' ในการหล่อหลอมค่านิยมพึงประสงค์ของเยาวชน",
+                ref: "มาตรา ๔.๑ หน้า ๓๕ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 78,
+                q: "แนวทางการจัดการปลูกฝัง 'ความซื่อสัตย์และวินัย' ในสถานศึกษาตามมาตรา ๔.๑.๒ ทำอย่างไร?",
+                a: ["สอดแทรกคุณธรรมจริยธรรมเข้าไปในทุกสาระวิชาและทุกกิจกรรมในสถานศึกษา", "การเพิ่มชั่วโมงวิชาการทหารและวิธีการทำสมาธิแบบปิดภาคเรียนถาวร", "การลงโทษขังบริเวณหรือหักคะแนนส่วนบุคคลของครอบครัวผู้ยื่นคำขอร้องเรียน", "การบังคับสวมชุดสติกเกอร์ศีลห้าของเยาวชนโรงเรียนรัฐบาลทุกวันพุธ"],
+                correct: 0,
+                explain: "เน้นกระบวนการสอดแทรกจริยธรรม จิตสาธารณะ คุณธรรม วินัย เข้าไปในเนื้อหาสาระและกิจกรรมทุกด้าน เพื่อไม่ให้เด็กสึกว่าเป็นการบังคับเรียนแบบแห้งแล้ง",
+                ref: "มาตรา ๔.๑.๒ หน้า ๓๕ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 79,
+                q: "การใช้สื่อและสื่อสารมวลชนปลูกฝังค่านิยม คุณธรรม จริยธรรม ตามกฎหมายระบุถึงแนวทางการจัดสรรเวลาอย่างไร?",
+                a: ["การจัดเวลาและพื้นที่ออกอากาศให้แก่สื่อสร้างสรรค์ในช่วงที่มีผู้ชมมากที่สุด", "การควบคุมให้ช่องทีวีทุกช่องต้องฉายสารคดีศาสตร์พระราชาพร้อมกันในยามเช้า", "การปิดกั้นสื่อสังคมออนไลน์ที่ไม่ได้รับอนุญาตจดทะเบียนจากกองบัญชาการทหาร", "การยกเว้นขั้นตอนจัดซื้อจัดจ้างสื่อกระดาษทุกรูปแบบของสำนักนายกรัฐมนตรี"],
+                correct: 0,
+                explain: "ยุทธศาสตร์ส่งเสริมให้มีสื่อสร้างสรรค์และจัดสรรช่วงเวลาพรีเมียม (Prime Time) ที่มีผู้ชมสูงสุดให้แก่สื่อสร้างสรรค์ เพื่อการปรับเปลี่ยนทัศนคติเชิงบวก",
+                ref: "มาตรา ๔.๑.๖ หน้า ๓๖ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 80,
+                q: "การพัฒนาคนตลอดช่วงชีวิต ในกลุ่มเป้าหมาย 'ช่วงปฐมวัย/การตั้งครรภ์' รัฐเน้นการพัฒนาเชิงคุณภาพข้อใดหลัก?",
+                a: ["ส่งเสริมอนามัยแม่และเด็กตั้งแต่เริ่มตั้งครรภ์ เกิดอย่างมีคุณภาพ และเลี้ยงด้วยนมแม่", "การจัดหาเงินทุนกู้ยืมไม่มีดอกเบี้ยเพื่อการจัดซื้ออุปกรณ์สแกนตรวจครรภ์ส่วนบุคคล", "การสัญญารับเงินเดือนสวัสดิการของเด็กปฐมวัยล่วงหน้าไปจนพ้นช่วงอายุยี่สิบปี", "การขึ้นทะเบียนบัตรประจำตัวประชาชนและการถ่ายสำเนาใบแจ้งเกิดทางอิเล็กทรอนิกส์"],
+                correct: 0,
+                explain: "ช่วงปฐมวัยเป็นช่วงสำคัญที่สุดในการพัฒนาสมอง เน้นส่งเสริมสุขภาพแม่และเด็ก การเกิดที่มีคุณภาพ การเลี้ยงลูกด้วยนมแม่ และสารอาหารจำเป็นต่อสมอง",
+                ref: "มาตรา ๔.๒.๑ หน้า ๓๖ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 81,
+                q: "เป้าหมายการพัฒนาทักษะชีวิตของเยาวชนในช่วง 'วัยเรียน/วัยรุ่น' ครอบคลุมทักษะในศตวรรษที่ ๒๑ ข้อใด?",
+                a: ["ทักษะด้านคิดวิเคราะห์ สังเคราะห์ และการแก้ปัญหาที่ซับซ้อนอย่างสร้างสรรค์", "ทักษะความชำนาญทหารและตำรวจ และการพกพาอาวุธป้องกันชีวิตทรัพย์สิน", "ความเชี่ยวชาญในการขึ้นทะเบียนคดีปกครองและการต่อรองกับกรมสรรพากร", "การใช้ระบบไอทีในการจัดทำสัญญากู้ยืมเงินทุนเพื่อการสร้างสมรรถนะการค้า"],
+                correct: 0,
+                explain: "ทักษะที่จำเป็นในศตวรรษที่ ๒๑ ได้แก่ การคิดวิเคราะห์ สังเคราะห์ ความคิดสร้างสรรค์ แก้ไขปัญหาซับซ้อน ความเข้าใจความต่างทางพหุสังคม",
+                ref: "มาตรา ๔.๒.๒ หน้า ๓๖-๓๗ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 82,
+                q: "มาตรการสำคัญเพื่อรองรับความต้องการกำลังแรงงานที่มีแนวโน้มลดลงใน 'วัยแรงงาน' คือข้อใด?",
+                a: ["ส่งเสริมวัฒนธรรมการออมเงิน ทักษะทางการเงิน และมาตรการขยายอายุการทำงาน", "การห้ามข้าราชการพลเรือนส่วนกลางและภูมิภาคลาออกก่อนอายุครบหกสิบห้าปี", "การห้ามใช้เครื่องจักรกลอัตโนมัติหรือระบบหุ่นยนต์เข้ามาทดแทนแรงงานทักษะต่ำ", "การระดมเกณฑ์ประชากรต่างด้าวเข้ามาถือสัญชาติไทยเพื่อช่วยทำไร่ในท้องถิ่น"],
+                correct: 0,
+                explain: "มุ่งเพิ่มผลิตภาพแรงงาน (Labor Productivity) ยกระดับความรู้ ความชำนาญ การออม และส่งเสริมมาตรการขยายอายุเกษียณพนักงานที่ยังสุขภาพดี",
+                ref: "มาตรา ๔.๒.๓ หน้า ๓๗ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 83,
+                q: "การรองรับ 'วัยผู้สูงอายุ' มีแนวทางการดึงศักยภาพผู้สูงอายุมาช่วยเหลือขับเคลื่อนประเทศอย่างไร?",
+                a: ["ส่งเสริมให้มีการทำงานหลังเกษียณ เสริมทักษะอาชีพ และจัดสภาพแวดล้อมที่เป็นมิตร", "การบังคับแต่งตั้งผู้สูงอายุเป็นผู้บริหารบอร์ดรัฐวิสาหกิจและพรรคการเมืองหลัก", "การจัดงบประมาณแบบให้เปล่าแก่ครัวเรือนผู้สูงอายุโดยพึ่งพาการกู้เงินต่างประเทศ", "การคัดเลือกผู้สูงอายุที่มีเกียรติประวัติทหารตรวจการเขตแดนบกของทหารเท่านั้น"],
+                correct: 0,
+                explain: "ส่งเสริมการทำงานหลังเกษียณ (Active Ageing) ฝึกฝนอาชีพเสริม พัฒนาระบบรองรับให้เหมาะสม ดึงทักษะคลังสมองมาสอนต่อให้คนรุ่นหลัง",
+                ref: "มาตรา ๔.๒.๔ หน้า ๓๗ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 84,
+                q: "ยุทธศาสตร์ชาติกำหนดแนวทางปฏิรูปบทบาท 'ครู' ในศตวรรษที่ ๒๑ ไว้อย่างไรตามหน้าเอกสาร?",
+                a: ["ปรับเปลี่ยนจาก 'ครูสอน' เป็น 'โค้ช' หรือ 'ผู้อำนวยการการเรียนรู้'", "การเพิ่มตำแหน่งยศทางทหารชั้นประทวนให้แก่คุณครูประถมศึกษาในท้องถิ่น", "การจำกัดสิทธิ์คุณครูในการผลิตสื่อวิชาการอื่นใดนอกเหนือตำราของส่วนราชการ", "การกำหนดให้คุณครูทุกคนต้องผ่านวิชาสอบกฎหมายอิเล็กทรอนิกส์ข้าราชการ"],
+                correct: 0,
+                explain: "ปรับบทบาทจากการเป็นผู้พูดสอนฝ่ายเดียว (Teacher-centered) ไปสู่การเป็น 'โค้ช' (Coach) หรือผู้อำนวยการเรียนรู้ (Facilitator) กระตุ้นจินตนาการเด็ก",
+                ref: "มาตรา ๔.๓.๒ หน้า ๓๘ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 85,
+                q: "การเพิ่มประสิทธิภาพระบบบริหารจัดการคลังศึกษาตามมาตรา ๔.๓.๓ มีแนวทางการปฏิรูปงบประมาณอย่างไร?",
+                a: ["ปฏิรูปการคลังด้านการศึกษาโดยการจัดสรรงบประมาณตรงสู่ตัวผู้เรียน", "การโอนสิทธิ์กองทุนสวัสดิการข้าราชการครูทั้งหมดให้แก่กรมบัญชีกลางจัดสรร", "การยกเลิกงบประมาณช่วยเหลือโรงเรียนเอกชนและยกยอดให้แก่โรงเรียนทหาร", "การระงับงบก่อสร้างโรงเรียนใหม่และใช้วิธีเรียนออนไลน์ทางคอมพิวเตอร์อย่างถาวร"],
+                correct: 0,
+                explain: "เน้นปฏิรูปการคลังด้านการศึกษา โดยปรับมาใช้ระบบเงินรายหัวที่โอนจัดสรรงบตรงสู่ตัวผู้เรียน (Demand-side financing) เพื่อเพิ่มคุณภาพและอิสระในการเรียน",
+                ref: "มาตรา ๔.๓.๓ หน้า ๓๘ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 86,
+                q: "การพัฒนาระบบการเรียนรู้ตลอดชีวิต (Lifelong Learning) มีประเด็นสำคัญในกลไกทางเทคโนโลยีข้อใด?",
+                a: ["การพัฒนาการศึกษาออนไลน์แบบเปิด และระบบธนาคารหน่วยกิต (Credit Bank)", "การติดตั้งเครื่องกรองบล็อกข้อมูลเถื่อนประจำสถาบันโรงเรียนเอกชนชายแดน", "การยกเลิกกระดาษข้อสอบและใช้ระบบดาวเทียมทหารสแกนม่านตาในการวัดระดับ", "การระงับการศึกษานอกโรงเรียน (กศน.) และเปลี่ยนเป็นสมาคมประชารัฐทหาร"],
+                correct: 0,
+                explain: "ส่งเสริมเรียนรู้แบบยืดหยุ่น เช่น การศึกษาออนไลน์แบบเปิด (MOOCs) มีระบบ Credit Bank เทียบโอนสะสมหน่วยกิตจากการทำงานและประสบการณ์ชีวิต",
+                ref: "มาตรา ๔.๓.๔ หน้า ๓๘ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 87,
+                q: "การส่งเสริมความเป็นพลเมืองโลกของเด็กไทย รัฐเน้นให้สร้างความตระหนักและขจัดสิ่งใดในทางจิตสำนึก?",
+                a: ["ส่งเสริมการเห็นคุณค่าของพหุวัฒนธรรมและมีความอดกลั้นต่อความแตกต่างทางความคิดวิถีชีวิต", "การระงับการเปิดสอนภาษาพม่า ลาว เขมร ในสถาบันการศึกษาส่วนภูมิภาค", "การห้ามเยาวชนจัดกิจกรรมคัดค้านมติพรรคการเมืองแผ่นดินหรือกองทัพหลัก", "การจัดให้เด็กทุกคนมีหนังสือเดินทางสลักลายน้ำเลขบัตรประชาชนส่วนบุคคล"],
+                correct: 0,
+                explain: "ส่งเสริมพหุวัฒนธรรม ความเข้าใจประเทศเพื่อนบ้าน ความยืดหยุ่น ยอมรับและอดกลั้น (Tolerance) ต่อความต่างทางศาสนาและค่านิยมวัฒนธรรมอื่น",
+                ref: "มาตรา ๔.๓.๕ หน้า ๓๙ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 88,
+                q: "การตระหนักถึง 'พหุปัญญา' (Multiple Intelligences) ของมนุษย์ที่หลากหลาย รัฐมุ่งสร้างสภาพแวดล้อมเพื่ออะไร?",
+                a: ["สร้างประชากรที่มีอาชีพบนฐานพหุปัญญา และรักษากลุ่มผู้มีความสามารถพิเศษ", "การจัดตั้งเขตส่งเสริมพหุปัญญาเฉพาะทางทหารในพื้นที่ชายแดนภาคใต้", "การจำกัดคะแนนสอบแอดมิชชั่นให้คิดเฉพาะวิชาพหุปัญญาวิทยาศาสตร์", "การโอนใบอนุญาตวิชาชีพดนตรี ศิลปะ และกีฬาให้อยู่ในการควบคุมของสลค."],
+                correct: 0,
+                explain: "พหุปัญญามีความหลากหลาย (เช่น ภาษา ดนตรี กีฬา มนุษยสัมพันธ์ ตรรกะ) มุ่งพัฒนาให้เป็นอาชีพสร้างมูลค่า และรักษาผู้มีความสามารถพิเศษไม่ให้สมองไหล",
+                ref: "มาตรา ๔.๔ หน้า ๓๙ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 89,
+                q: "การส่งเสริมระบบสุขภาพครบวงจรตามมาตรา ๔.๕.๔ ระบุถึงระบบบริการที่ทันสมัยในรูปแบบใด?",
+                a: ["ระบบดูแลสุขภาพทางไกล และการใช้ปัญญาประดิษฐ์ (AI) ในการวินิจฉัยและพยากรณ์โรค", "การแจกชุดยาสมุนไพรประจำครัวเรือนทางอิเล็กทรอนิกส์แบบไร้ค่าบริการทำการ", "การใช้หน่วยแพทย์ทหารเข้าคุมกิจการรักษาโรงพยาบาลเอกชนทั้งหมดในประเทศ", "การจำกัดสิทธิ์การขอรักษาพยาบาลฟรีไว้เฉพาะกรณีผู้ที่ผ่านสอบ ก.พ. พลเรือน"],
+                correct: 0,
+                explain: "ระบบสุขภาพอัจฉริยะ (Smart Healthcare) ใช้ Telemedicine รักษาทางไกล และปัญญาประดิษฐ์ (AI) พยากรณ์โรค เพื่อลดความหนาแน่นและเข้าถึงพื้นที่ห่างไกล",
+                ref: "มาตรา ๔.๕.๔ หน้า ๔๐-๔๑ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 90,
+                q: "การบูรณาการข้อมูลเพื่อการพัฒนาคน ยุทธศาสตร์ระบุถึงการจัดตั้งระบบฐานข้อมูลในลักษณใดในตลอดช่วงชีวิต?",
+                a: ["เชื่อมโยงข้อมูลรายบุคคลเกี่ยวกับการศึกษา พัฒนาตนเอง สุขภาพ และพัฒนาอาชีพ", "การจดแจ้งสถิติการใช้ความร้อนและพลังงานทางเลือกประจำบุคคลแผ่นดิน", "การจัดทำคลังข้อมูลสแกนหน้าตาใบหน้าของประชากรชายที่ไม่ได้ฝึกกำลังทหาร", "การบันทึกสถิติการซื้อขายสินค้าออนไลน์ผ่านวิสาหกิจชุมชนแผ่นดินระบบ"],
+                correct: 0,
+                explain: "มุ่งพัฒนาฐานข้อมูลคนไทยรายบุคคล ตลอดทุกช่วงชีวิต (Lifespan Big Data) เพื่อประโยชน์ในการวินิจฉัย ออกแบบนโยบายพัฒนาคนให้ตรงเป้าหมาย",
+                ref: "มาตรา ๔.๖.๔ หน้า ๔๒ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 91,
+                q: "บทบาทของสถาบันศาสนาในการหล่อหลอมคุณธรรมตามมาตรา ๔.๑.๓ ควรพัฒนาอย่างไร?",
+                a: ["พัฒนาผู้เผยแผ่ศาสนาให้ปฏิบัติตัวเป็นแบบอย่างที่ดีและเผยแผ่หลักธรรมที่ปฏิบัติได้จริง", "จัดทำกฎข้อบังคับห้ามพุทธศาสนิกชนเดินทางไปต่างประเทศโดยวิธีการศาสนาอื่น", "การจัดเก็บภาษีทรัพย์สินที่ดินของวัดเพื่อนำส่งกองอำนวยการความมั่นคงแผ่นดิน", "จัดให้เยาวชนต้องลงทะเบียนสอบข้อสอบธรรมศึกษาผ่านระบบอิเล็กทรอนิกส์"],
+                correct: 0,
+                explain: "ศาสนาต้องเน้นการสั่งสอนแก่นธรรมที่ถูกต้อง เผยแผ่เข้าใจง่าย และตัวผู้เผยแผ่ศาสนาเองต้องมีจริยธรรมประพฤติตนเป็นแบบอย่างเพื่อครองใจประชาชน",
+                ref: "มาตรา ๔.๑.๓ หน้า ๓๕ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 92,
+                q: "การพัฒนาเยาวชนให้เรียนรู้วิถีชีวิตนอกสถานศึกษา ครอบครัวควรได้รับการปลูกฝังวัฒนธรรมประเภทใดตามมาตรา ๔.๖.๓?",
+                a: ["วัฒนธรรมที่ปลูกฝังให้ลูกเพิ่มพูนทักษะการเรียนรู้ชีวิต ดนตรี กีฬา ศิลปะ", "วัฒนธรรมที่มุ่งเน้นการสอบคัดเลือกเพื่อรับปริญญาบัตรวิชาการขั้นสูงที่สุด", "การห้ามเด็กเล่นกิจกรรมใดๆ นอกเหนือจากการเตรียมสอบข้อสอบรัฐบาลข้าราชการ", "การสวมใส่ชุดเสื้อสีกระดาษเครื่องแบบโรงเรียนในพื้นที่สาธารณะตลอดเวลา"],
+                correct: 0,
+                explain: "ส่งเสริมค่านิยมเรียนรู้นอกห้องเรียน (Play-based learning) กีฬา ดนตรี และนันทนาการที่ช่วยสร้างความอบอุ่น ความสามัคคี และระบบภูมิคุ้มกันร่างกายจิตใจ",
+                ref: "มาตรา ๔.๖.๓ หน้า ๔๒ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 93,
+                q: "ข้อใดคือเป้าหมายสำคัญของแผน 'ธนาคารคลังสมอง' ที่อธิบายในระบบข้อมูลรายบุคคล?",
+                a: ["รวบรวมผู้สูงอายุที่มีความรู้และประสบการณ์มาถ่ายทอดองค์ความรู้ให้เกิดประโยชน์แก่ประเทศชาติ", "การระดมฝากเงินกู้ยืมไม่มีดอกเบี้ยเพื่อสนับสนุนการปฏิรูปของพรรคการเมือง", "การจัดทำระบบคอมพิวเตอร์เก็บรักษาสถิติคะแนนสอบ ก.พ. พลเรือนของเด็กปฐมวัย", "คลังรวบรวมทฤษฎีทางวิทยาศาสตร์การทหารด้านความร้อนและการทำสงครามไซเบอร์"],
+                correct: 0,
+                explain: "คลังสมองผู้สูงอายุ (Elderly Brain Bank) มีขึ้นเพื่อจัดเก็บประวัติ ทักษะ ความเชี่ยวชาญของผู้เกษียณอายุ เพื่อให้หน่วยงานและชุมชนสามารถเชิญไปช่วยพัฒนาประเทศต่อ",
+                ref: "มาตรา ๔.๖.๔ หน้า ๔๒ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 94,
+                q: "การใช้กีฬาและออกกำลังกายขั้นพื้นฐานตามมาตรา ๔.๗.๑ ได้รับการระบุให้ประชาชนกลุ่มใดเข้าถึงสิทธิ์?",
+                a: ["เด็ก เยาวชน ประชาชนทั่วไป บุคคลกลุ่มพิเศษ และผู้ด้อยโอกาส", "ข้าราชการพลเรือนส่วนภูมิภาคและพนักงานในเขตพัฒนาพิเศษแผ่นดิน", "เฉพาะกลุ่มนักกีฬามืออาชีพที่ผ่านการจดทะเบียนสมาคมกีฬาระดับชาติ", "ประชากรวัยแรงงานชายที่เข้าเกณฑ์เตรียมพร้อมฝึกทหารทัพเพียงส่วนเดียว"],
+                correct: 0,
+                explain: "ส่งเสริมกีฬาขั้นพื้นฐานและออกกำลังกายให้คนทุกกลุ่มอย่างทั่วถึง ไม่แบ่งแยก เพื่อสุขภาพกายที่ดี จิตใจเอื้อเฟื้อเป็นน้ำหนึ่งใจเดียวกัน",
+                ref: "มาตรา ๔.๗.๑ หน้า ๔๒ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 95,
+                q: "อุตสาหกรรมการกีฬาของไทยตามมาตรา ๔.๗.๔ มุ่งหวังจะให้ประเทศไทยพัฒนาเป็นศูนย์กลางด้านใดระดับภูมิภาค?",
+                a: ["ศูนย์กลางการลงทุนและฐานการผลิตด้านอุตสาหกรรมกีฬาและการท่องเที่ยวเชิงกีฬา", "ศูนย์กลางสนามแข่งขันคาสิโนและพนันมวยไทยออนไลน์ไร้รอยต่อระบบ", "แหล่งนำเข้าสินค้าแบรนด์เนมกีฬาต่างชาติโดยได้รับข้อยกเว้นภาษีศุลกากร", "สถาบันการอบรมทหารและตำรวจชายแดนภาคใต้โดยใช้วิธีการออกกำลังกาย"],
+                correct: 0,
+                explain: "มุ่งขับเคลื่อนการเป็นศูนย์กลางอุตสาหกรรมกีฬา (Sports Hub) และการท่องเที่ยวเชิงกีฬา (Sports Tourism) ดึงดูดรายได้ต่างประเทศ",
+                ref: "มาตรา ๔.๗.๔ หน้า ๔๓ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 96,
+                q: "ตัวชี้วัดความสำเร็จด้านการพัฒนาคนในมิติการเรียนรู้ตามเป้าหมายหลักคือข้อใด?",
+                a: ["ผลสัมฤทธิ์ทางการศึกษาและการเรียนรู้ตลอดชีวิต", "จำนวนใบปริญญาบัตรขั้นสูงที่สถาบันอุดมศึกษารัฐจัดออกให้แก่คนไทย", "สถิติการยื่นจดสัญญากรรมสิทธิ์วิสาหกิจชุมชนของเด็กปฐมวัย", "จำนวนโรงเรียนรัฐบาลที่เปลี่ยนรูปแบบไปเป็นค่ายทหารจำลองแผ่นดิน"],
+                correct: 0,
+                explain: "ตัวชี้วัดเน้นผลสัมฤทธิ์ทางการเรียนรู้เชิงทักษะ (PISA, ทักษะอาชีพ) และกระบวนการเรียนรู้ตลอดชีวิตของประชาชนในทุกภูมิภาค",
+                ref: "ตัวชี้วัดสำคัญ หน้า ๓๕ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 97,
+                q: "ความท้าทายเรื่องอัตราการเข้าเรียนที่ครอบคลุมของคนไทยที่ระบุในสถานการณ์พัฒนาแผ่นดินมีจุดเน้นการแก้ไขในเรื่องใด?",
+                a: ["แก้ไขปัญหาคุณภาพการให้บริการศึกษาที่มีความแตกต่างกันระหว่างพื้นที่", "การบังคับให้นักเรียนสลับเปลี่ยนสถานศึกษาไปเรียนต่างภูมิภาคทุกๆ ปีราชการ", "การงดเว้นค่าเทอมในสถาบันมหาวิทยาลัยรัฐเฉพาะเยาวชนที่อาศัยในเขตเมือง", "การกำหนดให้การประเมินผลระดับชาติสอบเฉพาะวิชากฎหมายข้าราชการพลเรือน"],
+                correct: 0,
+                explain: "แม้การเข้าเรียนจะครอบคลุม แต่ปัญหาหลักที่ยุทธศาสตร์เน้นแก้ไขคือ 'คุณภาพบริการสาธารณะและการเรียนรู้ที่มีมาตรฐานแตกต่างเหลื่อมล้ำกันในแต่ละท้องที่'",
+                ref: "สถานการณ์ หน้า ๔ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 98,
+                q: "การจัดการฝึกร่วมด้านการกีฬา เพื่อส่งเสริมจิตใจของคนไทยมีรายละเอียดคุณลักษณะพึงประสงค์อย่างไร?",
+                a: ["ปลูกฝังให้มีคุณธรรมของความเป็นนักกีฬา รู้แพ้ รู้ชนะ รู้อภัย และรู้จักการขอโทษ", "การสอนให้เอาชนะคู่ต่อสู้ในนัดสำคัญเพื่อเสริมเสถียรภาพความมั่นคงทัพแผ่นดิน", "การระงับค่านิยมเล่นนันทนาการและมุ่งเน้นการฝึกทักษะระดับทหารพลตำรวจ", "จัดทำเครื่องสแกนม่านตายืนยันสิทธิ์เข้าชมกีฬาทุกสนามผ่านอิเล็กทรอนิกส์"],
+                correct: 0,
+                explain: "การเล่นกีฬาช่วยสร้างความสามัคคี ลดความขัดแย้ง โดยมีหัวใจของการสอดแทรกธรรมะคือ 'รู้แพ้ รู้ชนะ รู้อภัย และมีความรับผิดชอบต่อเพื่อนร่วมสังคม'",
+                ref: "มาตรา ๔.๗.๒ หน้า ๔๓ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 99,
+                q: "การป้องกันโรคอุบัติใหม่และโรคระบาดในระบบสุขภาพ มุ่งเน้นการนำเทคโนโลยีใดมาเพิ่มความคล่องตัวให้โรงพยาบาลภูมิภาค?",
+                a: ["ระบบจัดเก็บและเชื่อมโยงข้อมูลสุขภาพทางไกลแบบครบวงจรและอินเทอร์เน็ตสุขภาพ", "การปิดช่องทางส่งต่อรักษาตัวข้ามภูมิภาคเพื่อป้องกันความผันผวนโรคทางคลาวด์", "การให้กรมบัญชีกลางคุมการกระจายวัคซีนโดยวิธีส่งจดหมายลงทะเบียนแผ่นดิน", "การยกเลิกบทบาทหมอและพยาบาลพลเรือนและมอบให้ทหารฝ่ายแพทย์สงครามคุม"],
+                correct: 0,
+                explain: "มุ่งพัฒนาระบบข้อมูลสุขภาพออนไลน์ (E-Health Record) และ IoT ทางการแพทย์ (IoMT) เพื่อการเชื่อมต่อฐานข้อมูลสุขภาพและป้องกันติดตามระวังโรคอย่างฉับไว",
+                ref: "มาตรา ๔.๕.๔ หน้า ๔๐-๔๑ ของเอกสาร",
+                cat: "human"
+            },
+            {
+                id: 100,
+                q: "ตามมาตรา ๔.๖.๑ การสร้างครอบครัวอบอุ่นเข้มแข็ง ได้ระบุแนวทางที่สถานประกอบการควรปฏิบัติร่วมอย่างไร?",
+                a: ["สถานประกอบการจัดบริการที่ส่งเสริมและสนับสนุนครอบครัวในการเลี้ยงดูบุตรและดูแลผู้สูงอายุ", "การจัดงบประมาณแบบให้เปล่าแก่ครอบครัวพนักงานที่ยื่นนิติกรรมขอซื้อรถยนต์สีเขียว", "การจำกัดจำนวนเวลาลาคลอดของบุคลากรหญิงไว้ไม่เกินสามสิบวันทำการ", "การห้ามผู้รับบริการพนักงานใช้เครื่องคอมพิวเตอร์ในสเปซเวิลด์ทำงานบ้าน"],
+                correct: 0,
+                explain: "ส่งเสริมความสมดุลระหว่างชีวิตและการทำงาน (Work-life balance) และกระตุ้นให้บริษัทจัดมุมเด็กเล็ก บริการดูแลลูก หรือช่วยสนับสนุนดูแลพ่อแม่ผู้สูงวัยของพนักงาน",
+                ref: "มาตรา ๔.๖.๑ หน้า ๔๑ ของเอกสาร",
+                cat: "human"
+            },
+
+            // Strategy 4: Social Opportunity & Equality (โอกาสและความเสมอภาคทางสังคม) (101-125)
+            {
+                id: 101,
+                q: "ปัญหาเชิงโครงสร้างสังคมไทยที่เป็นความท้าทายหลักในการยกระดับรายได้เพื่อก้าวพ้นความยากจนคือข้อใด?",
+                a: ["ปัญหาความเหลื่อมล้ำและโอกาสที่ไม่ทั่วถึงในการถือครองสิทธิ์และเข้าถึงกระบวนการยุติธรรม", "จำนวนคนยากจนเพิ่มสัดส่วนสูงขึ้นในจังหวัดชายแดนภาคเหนือทางบกทหาร", "การไม่มีระบบลงทะเบียนสมรสและเอกสิทธิ์ทางอิเล็กทรอนิกส์ในพหุสังคม", "การขาดแคลนระบบดาวเทียมทหารคุมผังเมืองในเขตเทศบาลชุมชนหนาแน่น"],
+                correct: 0,
+                explain: "ปัญหาสำคัญไม่ใช่แค่ตัวเลขความยากจน แต่คือความเหลื่อมล้ำ (Inequality) ในการกระจายทรัพย์สิน โอกาส ถือครองที่ดิน และเข้าถึงยุติธรรมที่มีคุณภาพ",
+                ref: "ด้านการสร้างโอกาสฯ บทนำ หน้า ๔๗",
+                cat: "equality"
+            },
+            {
+                id: 102,
+                q: "ข้อใดคือหัวใจของการขับเคลื่อนเศรษฐกิจฐานรากตามมาตรา ๔.๑.๑ เพื่อช่วยชีวิตชุมชนอย่างยั่งยืน?",
+                a: ["ยกระดับเกษตรกรตลอดห่วงโซ่คุณค่าสู่การเป็นผู้ประกอบการธุรกิจขนาดกลางและขนาดย่อม (SMEs)", "การให้รัฐโอนงบกู้ยืมต่างประเทศแบบไม่คืนเงินให้แก่ฟาร์มเกษตรกร", "การยุติการใช้เครื่องมือประมงและเกษตรทันสมัยและใช้แรงงานแบบเดิม", "การโอนสิทธิ์ที่ดินทำกินของชุมชนไปจดแจ้งเป็นบริษัทมหาชนแผ่นดิน"],
+                correct: 0,
+                explain: "เป้าหมายหลักคือปรับเศรษฐกิจฐานราก (Local Economy) ยกระดับชาวนาชาวไร่เป็นเจ้าของธุรกิจ SMEs แปรรูปพืชผล มีสิทธิถือครอง ตลาด และเครือข่ายวิสาหกิจสังคม",
+                ref: "มาตรา ๔.๑.๑ หน้า ๔๘ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 103,
+                q: "แนวทางการปฏิรูประบบภาษีเพื่อลดความเหลื่อมล้ำตามมาตรา ๔.๑.๒ คือข้อใด?",
+                a: ["พัฒนาเทคโนโลยีจัดเก็บภาษี ขยายฐานข้อมูลธุรกรรมทางการเงิน คุ้มครองผู้บริโภค ป้องกันละเมิดสิทธิ์", "การงดเก็บภาษีส่วนบุคคลของบริษัทข้ามชาติในเขต EEC ถาวรไม่มีกำหนดระยะ", "การจัดเก็บค่าธรรมเนียมบริการเชิงนิเวศในการใช้อุปกรณ์อินเทอร์เน็ตออนไลน์", "การโอนสิทธิ์ลงนามการจัดเก็บภาษีจากท้องถิ่นมาให้อธิบดีกรมบัญชีกลางเพียงจุดเดียว"],
+                correct: 0,
+                explain: "ปฏิรูปภาษีโดยเพิ่มประสิทธิภาพด้วยเทคโนโลยี ขยายฐานภาษีทรัพย์สิน มรดก คุ้มครองผู้บริโภค และขจัดกติกาสัญญาที่ไม่เป็นธรรมในระบบตลาดการค้า",
+                ref: "มาตรา ๔.๑.๒ หน้า ๔๘ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 104,
+                q: "การแก้ไขปัญหาความขัดแย้งที่ดินป่าทับซ้อนพื้นที่ทำกินของประชาชนตามมาตรา ๔.๑.๓ ยุทธศาสตร์ระบุแนวทางอย่างไร?",
+                a: ["แก้ไขพื้นที่ทับซ้อน รับรองสิทธิชุมชนในการใช้ประโยชน์ที่ดิน และกระจายถือครองเป็นธรรม", "การจัดกำลังทหารกองประจำการขับไล่ชุมชนออกจากเขตป่าต้นน้ำทันทีทางกฎหมาย", "การสัญญายกแผ่นดินป่าคุ้มครองให้เอกชนรายใหญ่เข้าไปตัดไม้เชิงพาณิชย์สร้างมูลค่า", "การตรากฎหมายยกเลิกป่าไม้แผ่นดินทั้งหมดและเปลี่ยนเป็นเขตอุตสาหกรรมชีวมวล"],
+                correct: 0,
+                explain: "มุ่งหาแนวเขตข้อยุติที่เป็นมรดกประวัติศาสตร์ป่าทับซ้อน รับรองสิทธิทำกินของชุมชนในรูปแบบแปลงรวม หรือป่าชุมชน โดยกระจายกรรมสิทธิ์แบบเป็นธรรม",
+                ref: "มาตรา ๔.๑.๓ หน้า ๔๘-๔๙ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 105,
+                q: "การคุ้มครองแรงงานไทยตามมาตรา ๔.๑.๔ มีจุดเน้นในการปรับเปลี่ยนทัศนคตินายจ้างอย่างไร?",
+                a: ["ส่งเสริมทัศนคตินายจ้างให้มองว่าลูกจ้างสามารถเพิ่มมูลค่าและคุณค่าทางธุรกิจได้", "การห้ามนายจ้างพิจารณาไล่ออกลูกจ้างที่ไม่มีสมรรถนะในการวิเคราะห์ข้อมูลไอที", "การบังคับใช้อัตราค่าจ้างขั้นต่ำเท่ากันในทุกกลุ่มจังหวัดบริวารไม่มีข้อละเว้น", "การบังคับให้นายจ้างจัดหาชุดอุปกรณ์ดาวเทียมสแกนความปลอดภัยให้พนักงานทุกคน"],
+                correct: 0,
+                explain: "ต้องการให้นายจ้างเห็นว่าแรงงานไม่ใช่แค่ต้นทุนที่ต้องคอยหักลดลง แต่เป็น 'ทุนมนุษย์' ที่สามารถเรียนรู้ พัฒนา มีทัศนคติ และช่วยเพิ่มมูลค่าสินค้าได้",
+                ref: "มาตรา ๔.๑.๔ หน้า ๔๙ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 106,
+                q: "การพัฒนาสิทธิประโยชน์ 'ระบบสวัสดิการถ้วนหน้า' ตามมาตรา ๔.๑.๕ รัฐมีมาตรการในการควบคุมวินัยคลังอย่างไร?",
+                a: ["เป็นระบบความร่วมมือระหว่างรัฐ อปท. องค์กรชุมชน และประชาสังคม เพื่อควบคุมภาระคลัง", "การจำกัดเงินกองทุนบำนาญข้าราชการครูและทหารไม่ให้มีการเบิกจ่ายในรอบสิบปีแรก", "การใช้วิธีกู้ยืมเงินทุนต่างประเทศมาจ่ายค่าเบี้ยสวัสดิการผู้สูงวัยรายคนถาวร", "การเปิดรับบริจาคทรัพย์สินส่วนบุคคลผ่านทางระบบคลาวด์ประชารัฐเพื่อการกุศล"],
+                correct: 0,
+                explain: "ส่งเสริมรัฐ-ท้องถิ่น-เอกชน-ชุมชน ร่วมสร้างฐานระบบประกันสังคม และการออมระยะยาว โดยระดมพลังจากหลากหลายช่องทางเพื่อป้องกันวิกฤตความเสี่ยงทางการคลัง",
+                ref: "มาตรา ๔.๑.๕ หน้า ๔๙ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 107,
+                q: "มาตรการ 'ลงทุนทางสังคมแบบมุ่งเป้า' (Targeted Social Investment) ตามมาตรา ๔.๑.๖ มีขึ้นเพื่ออะไร?",
+                a: ["ตัดขาดวงจรความยากจนไม่ให้ส่งต่อจากรุ่นพ่อแม่ไปสู่รุ่นลูกหลานและช่วยคนยากจนสุด", "การระดมทุนเก็งกำไรในระบบตลาดหลักทรัพย์เพื่อจัดซื้อจัดสร้างอาวุธทหารข้ามชาติ", "การสร้างฐานระบบคอมพิวเตอร์แบบดิจิทัลเพื่อใช้ระงับสิทธิ์ทางการค้าระดับผู้ประกอบการ", "การจำกัดสิทธิ์การรับเบี้ยยังชีพเฉพาะกลุ่มจังหวัดชายแดนภาคเหนือและใต้ทหาร"],
+                correct: 0,
+                explain: "มุ่งเจาะลึกเฉพาะกลุ่มครอบครัวที่ตกเกณฑ์รายได้ต่ำสุด หรือผู้พิการด้อยโอกาส เพื่อตัดวงจรยากจนข้ามรุ่น (Intergenerational Poverty) อย่างตรงเป้า",
+                ref: "มาตรา ๔.๑.๖ หน้า ๔๙ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 108,
+                q: "การลดความเหลื่อมล้ำทางสาธารณสุขในพื้นที่ห่างไกลชนบท มีมาตรการสำคัญอย่างไรตามมาตรา ๔.๑.๗?",
+                a: ["กระจายบุคลากรแพทย์ พยาบาล ไปยังอำเภอตำบล และจำกัดความเหลื่อมล้ำในคุณภาพ", "การเปิดโอกาสให้ประชาชนซื้อยาปฏิชีวนะผ่านช่องทางร้านสะดวกซื้อออนไลน์ไร้ระเบียบ", "การยุบโรงพยาบาลขนาดเล็กในตำบลมารวมไว้ในเมืองหลักเพื่อประหยัดต้นทุนทางคลัง", "การระงับสิทธิ์การขอสวัสดิการรักษาสามสิบบาทฟรีของคนกลุ่มจังหวัดชายแดนทั้งหมด"],
+                correct: 0,
+                explain: "มุ่งกระจายทรัพยากร พยาบาล หมอ ลงสู่พื้นที่ระดับตำบล อำเภอ เพื่อให้ประชาชนไม่ว่าจะอยู่ในถิ่นทุรกันดารหรือในเมืองหลวง ได้รับคุณภาพการรักษาที่มีมาตรฐานเสมอกัน",
+                ref: "มาตรา ๔.๑.๗ หน้า ๔๙-๕๐ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 109,
+                q: "การช่วยเหลือ 'ผู้มีรายได้น้อยในการต่อสู้คดี' ตามมาตรา ๔.๑.๘ เป็นหน้าที่ของรัฐในเรื่องใด?",
+                a: ["พัฒนากลไกช่วยเหลือในการต่อสู้คดีที่มีคุณภาพมาตรฐานและเพียงพอต่อความเสมอภาค", "การโอนคดีแพ่งและอาญาของผู้ยากไร้ทั้งหมดให้ฝ่ายทหารและตำรวจชายแดนพิจารณานอกศาล", "การยกเว้นสิทธิ์การติดคุกหรือรับโทษทางอาญาของผู้มีรายได้น้อยทุกกรณีความขัดแย้ง", "การจัดหาทนายความฟรีโดยห้ามไม่ให้มีการสืบสวนคดีหรือพิสูจน์นิติวิทยาศาสตร์"],
+                correct: 0,
+                explain: "พัฒนากลไกความช่วยเหลือทางคดี เช่น กองทุนยุติธรรม จัดหาทนายความรัฐที่มีความรู้ความเชี่ยวชาญ และอำนวยสิทธิ์ความเท่าเทียมในชั้นศาลแก่คนยากไร้",
+                ref: "มาตรา ๔.๑.๘ หน้า ๕๐ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 110,
+                q: "การกระจายความเจริญเชิงพื้นที่ มีการส่งเสริมโครงสร้างพื้นฐานจัดทำผังเมืองกลุ่มจังหวัดเพื่ออะไร?",
+                a: ["เพื่อให้สามารถพึ่งตนเองได้ภายในกลุ่มจังหวัดและกระจายศูนย์กลางความเจริญ", "เพื่อเพิ่มขอบเขตกรรมสิทธิ์ถือครองที่ดินทำกินของนักธุรกิจอสังหาริมทรัพย์รายใหญ่", "เพื่อบล็อกการเคลื่อนย้ายแรงงานข้ามจังหวัดและบังคับให้อยู่ทำงานในถิ่นเดิม", "เพื่อเตรียมการประกาศเป็นพื้นที่เขตปกครองตนเองพิเศษชายแดน"],
+                correct: 0,
+                explain: "จัดผังเมือง ผังภาค แหล่งน้ำ แหล่งงาน เพื่อให้กลุ่มจังหวัดแต่ละภูมิภาคสามารถเติบโต และพึ่งตนเองได้ มีความสมบูรณ์ทางการค้าและสังคม ไม่ต้องกระจุกตัวในกทม.",
+                ref: "มาตรา ๔.๒.๑ หน้า ๕๐ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 111,
+                q: "ระบบการสร้างประชาธิปไตยฐานราก (Grassroots Democracy) มุ่งเน้นกระบวนการใดตามมาตรา ๔.๔.๓?",
+                a: ["สนับสนุนการรวมกลุ่มและจัดเวทีกลางปรึกษาหารือกิจการสาธารณะเพื่อตกลงร่วมกัน", "การกำหนดกฎกระทรวงห้ามประชาชนสมาคมร่วมจัดกิจกรรมอื่นนอกเวลาราชการราชการ", "การจำกัดขอบเขตการจัดประชามติไว้เฉพาะในระบบเทคโนโลยีดิจิทัลทางปกครอง", "การบังคับแต่งตั้งกำนันและผู้ใหญ่บ้านให้ทำหน้าที่บริหารงานแบบประชารัฐอย่างเดียว"],
+                correct: 0,
+                explain: "ประชาธิปไตยชุมชนเน้นจัดเวทีกลางสาธารณะของชุมชน ปรึกษาหารือด้วยปัญญา ค้นหาความจริง ตกลงร่วมกันอย่างสมานฉันท์และแก้ปัญหาขัดแย้งในท้องถิ่น",
+                ref: "มาตรา ๔.๔.๓ หน้า ๕๔ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 112,
+                q: "การเตรียมพร้อมแรงงานในวัยก่อนเกษียณตามมาตรา ๔.๓.๒ มีแนวทางสร้างแรงจูงใจให้เอกชนอย่างไร?",
+                a: ["สร้างแรงจูงใจในการออมระยะยาว และส่งเสริมการจ้างงานผู้สูงอายุให้เหมาะสมกับวัยวุฒิ", "การบังคับลงโทษหักค่าธรรมเนียมบริการแก่บริษัทที่ไม่จ้างพนักงานพ้นเกษียณ", "การโอนรายได้สิทธิ์เงินปันผลของบริษัทอุตสาหกรรมในEECให้แก่กลุ่มผู้สูงอายุถาวร", "การอนุญาตให้จดทะเบียนสินเชื่อกู้ยืมไม่คิดดอกเบี้ยส่วนบุคคลหลังเกษียณแผ่นดิน"],
+                correct: 0,
+                explain: "รัฐใช้แรงจูงใจด้านภาษี มาตรการส่งเสริมสนับสนุนระบบการจัดการ เพื่อเอื้อให้ภาคเอกชนเตรียมทักษะใหม่พนักงาน และเปิดโอกาสจ้างคนสูงอายุทำงานตามสมรรถนะต่อไป",
+                ref: "มาตรา ๔.๓.๒ หน้า ๕๒ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 113,
+                q: "การคุ้มครองและคุ้มค่าสำหรับผู้บริโภคตามมาตรา ๔.๑.๒ มุ่งเน้นการเสริมสร้างสิทธิในเรื่องใด?",
+                a: ["แก้ไขกฎหมายที่ไม่เป็นธรรม ปรับปรุงกลไกป้องกันการละเมิดสิทธิ์ผู้บริโภค และหนุนกลุ่มคุ้มครอง", "การงดเว้นค่าบริการเครื่องคอมพิวเตอร์พกพาส่วนบุคคลในสมาคมประชาคมอาเซียน", "การตรากฎหมายควบคุมราคาสินค้าทุกรายการในระบบตลาดการค้าเสรีแผ่นดิน", "การจัดตั้งศูนย์ลงทะเบียนรับสิทธิ์ซื้อสินค้าออนไลน์ไร้ภาษีส่วนบุคคล"],
+                correct: 0,
+                explain: "มุ่งคุ้มครองผู้บริโภคโดยแก้ไขสัญญาที่ไม่เป็นธรรม ปราบปรามขจัดกลโกงการโฆษณา และผลักดันสนับสนุนสภาองค์กรผู้บริโภคให้มีความเข้มแข็ง",
+                ref: "มาตรา ๔.๑.๒ หน้า ๔๘ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 114,
+                q: "ความท้าทายเรื่องการกระจุกตัวในเมืองใหญ่ไม่กี่เมืองตามบทนำของยุทธศาสตร์ ก่อให้เกิดปัญหาเสี่ยงเชิงเสถียรภาพข้อใดระยะยาว?",
+                a: ["การเปลี่ยนแปลงโครงสร้างของครอบครัว และส่งผลกระทบต่อเสถียรภาพทางเศรษฐกิจมั่นคง", "การไม่มีพื้นที่เพียงพอเพื่อจดแจ้งขึ้นทะเบียนวิสาหกิจชุมชนพลังงานชีวภาพ", "สัดส่วนงบประมาณแผ่นดินขาดดุลเนื่องจากการเก็บค่าธรรมเนียมประมงทางบก", "การเพิ่มขึ้นของอุบัติภัยธรรมชาติในเขตจังหวัดชายแดนทางบกและทางน้ำทหาร"],
+                correct: 0,
+                explain: "การไหลทะลักของคนสู่เมืองใหญ่ก่อให้เกิดปัญหาครอบครัวแหว่งกลาง (มีแค่คนแก่กับเด็กในชนบท) และเพิ่มภาระความมั่นคงทางสังคมระยะยาว",
+                ref: "ด้านการสร้างโอกาสฯ บทนำ หน้า ๔๗",
+                cat: "equality"
+            },
+            {
+                id: 115,
+                q: "การสืบค้นและดึง 'ทุนทางวัฒนธรรม' มาใช้พัฒนาท้องถิ่น มุ่งหมายยกระดับทรัพยากรชุมชนไปในเรื่องใดตามมาตรา ๔.๒.๒?",
+                a: ["สร้าง 'คุณค่า' และ 'มูลค่า' ทางเศรษฐกิจจากศักยภาพและฐานทรัพยากรของแต่ละพื้นที่", "การขอใบอนุญาตจัดทัศนศึกษาวัฒนธรรมทางออนไลน์เพื่อความมั่นคงชายแดน", "การเปลี่ยนป้ายสัญญานำเที่ยวท่องเที่ยวชุมชนให้เป็นอักษรประชารัฐอย่างเดียว", "การระดมสมบัติวัตถุโบราณจากระดับอำเภอนำส่งกรมบัญชีกลางแผ่นดิน"],
+                correct: 0,
+                explain: "มุ่งค้นหาอัตลักษณ์ รากเหง้า ศิลปวัฒนธรรมท้องถิ่นแปรเป็นมูลค่าทางเศรษฐกิจสร้างสรรค์ (Creative Economy) ให้คนมีรายได้และเท่าเทียม",
+                ref: "มาตรา ๔.๒.๒ หน้า ๕๐-๕๑ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 116,
+                q: "การสร้าง 'เมืองอัจฉริยะ ปลอดภัย เป็นมิตรต่อสิ่งแวดล้อม' มีจุดมุ่งหมายเพื่อตอบสนองต่ออะไรตามมาตรา ๔.๒.๓?",
+                a: ["ตอบสนองต่อสังคมสูงวัยและแนวโน้มของการขยายตัวของเมืองในอนาคต", "รองรับระบบการเดินทางของทหารตรวจการเขตแดนทางบกและทางทะเลชายแดน", "รองรับการก่อตั้งนิคมอุตสาหกรรมความมั่นคงและอวกาศขั้นพื้นฐานแผ่นดิน", "ตอบสนองต่อสัญญากู้ยืมเงินทุนเพื่อการสร้างสมรรถนะการค้าออนไลน์ระบบ"],
+                correct: 0,
+                explain: "ผังเมืองอัจฉริยะ (Smart City) เน้นจัดสิ่งอำนวยความสะดวกที่สากล เป็นมิตร ปลอดภัย รองรับการก้าวเดินและชีวิตประจำวันของคนแก่และคนพิการอย่างเท่าเทียม",
+                ref: "มาตรา ๔.๒.๓ หน้า ๕๑ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 117,
+                q: "บทบาทขององค์กรปกครองส่วนท้องถิ่น (อปท.) ในการจัดการเมืองอัจฉริยะตามมาตรา ๔.๒.๓ คือเรื่องใด?",
+                a: ["เป็นผู้รับผิดชอบหลักในการดูแลคุณภาพสิ่งแวดล้อมและคุณภาพชีวิตของคนในเมือง", "การจัดเก็บอัตราภาษีนำเข้าจากต่างประเทศในเขตเศรษฐกิจพิเศษประจำภาค", "การแต่งตั้งโยกย้ายบุคลากรข้าราชการตุลาการและองค์กรอิสระระดับชาติ", "การควบคุมสถานีวิทยุกระจายเสียงและจัดระเบียบสื่อออนไลน์ส่วนบุคคล"],
+                correct: 0,
+                explain: "กำหนดให้ อปท. ทำหน้าที่หลักเป็นฟันเฟืองใกล้ชิดประชาชน คอยสอดส่อง ดูแลขยะ อนามัยสิ่งแวดล้อม แหล่งน้ำ และสุขภาพชีวิตในระดับท้องถิ่น",
+                ref: "มาตรา ๔.๒.๓ หน้า ๕๑ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 118,
+                q: "ระบบการลงโทษผู้กระทำความผิดที่มีผลต่อความเท่าเทียมกันในสังคม มีแนวทางปฏิรูปอย่างไรตามมาตรา ๔.๑.๘?",
+                a: ["ปรับปรุงระบบโทษปรับเพื่อเพิ่มประสิทธิภาพความโปร่งใส และช่วยเหลือคนยากจนด้านคดี", "การตรากฎกระทรวงยกเลิกโทษทางแพ่งทุกลักษณะสำหรับประชากรที่มีรายได้น้อย", "การโอนสิทธิ์ตัดสินคดีความเห็นต่างทางอุดมการณ์ทั้งหมดให้แก่ สลค. ดำเนินงาน", "การจัดระบบการประเมินความปลอดภัยของผู้รับบริการทหารทางบกชายแดน"],
+                correct: 0,
+                explain: "มุ่งปฏิรูปกฎหมายเรื่องค่าปรับ เช่น โทษปรับตามฐานรายได้ (Day-fine system) เพื่อไม่ให้คนยากจนต้องเข้าคุกทดแทนการไม่มีเงินจ่ายค่าปรับแสนแพง",
+                ref: "มาตรา ๔.๑.๘ หน้า ๕๐ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 119,
+                q: "การสร้าง 'สังคมแห่งการแบ่งปัน' มุ่งสมานสามัคคีโดยดึงเอา 'พลังของคนสามวัย' มาร่วมกัน พลังสามวัยครอบคลุมใครบ้าง?",
+                a: ["เยาวชนคนรุ่นใหม่, คนวัยทำงาน, และผู้สูงอายุ", "ทหารกองประจำการ, ข้าราชการพลเรือน, และนักการเมืองประจำพรรค", "ผู้นำศาสนาพุทธ, นักธุรกิจวิสาหกิจชุมชน, และอัยการแผ่นดิน", "เด็กทารกปฐมวัย, ผู้ใช้แรงงานทักษะต่ำ, และทหารผ่านศึกความมั่นคง"],
+                correct: 0,
+                explain: "มุ่งใช้เครือข่ายประชารัฐถักทอความสัมพันธ์ที่ดีระหว่างเยาวชน (ไอเดียนวัตกรรม), คนทำงาน (กำลังผลิตทุน), และคนแก่ (ภูมิปัญญาและจริยธรรม) ในการสร้างสรรค์สังคม",
+                ref: "มาตรา ๔.๓.๑ หน้า ๕๒ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 120,
+                q: "การยกระดับบทบาทสิทธิสตรีและเพศสภาพในที่ทำงาน ยุทธศาสตร์ระบุแนวทางอย่างไรตามมาตรา ๔.๓.๔?",
+                a: ["ปรับเปลี่ยนทัศนคติเพศสภาพ ยอมรับความเท่าเทียม และจัดสวัสดิการสมดุลการทำงานครอบครัว", "การตรากฎเกณฑ์บังคับให้บริษัทเอกชนต้องจ้างพนักงานสตรีเป็นสัดส่วนร้อยละ ๕๐ เสมอ", "การห้ามผู้หญิงเข้าสมัครรับเลือกตั้งทางการเมืองระดับส่วนภูมิภาคแผ่นดิน", "การจัดแยกด่านและสำนักงานอิเล็กทรอนิกส์ชายแดนออกเป็นประเภทชายและหญิงเด็ดขาด"],
+                correct: 0,
+                explain: "ส่งเสริมความเท่าเทียมทางเพศสภาพ ขจัดความเหลื่อมล้ำทางโครงสร้างค่าจ้าง สวัสดิการลาเลี้ยงบุตรชายหญิง และอำนวยสิทธิ์สตรีให้เป็นผู้นำระดับสูง",
+                ref: "มาตรา ๔.๓.๔ หน้า ๕๒-๕๓ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 121,
+                q: "การขจัดอคติและการเลือกปฏิบัติต่อกลุ่มชาติพันธุ์ในประเทศไทยตามมาตรา ๔.๓.๕ มีใจความสำคัญข้อใด?",
+                a: ["สร้างความเท่าเทียมสิทธิ ศักดิ์ศรีความเป็นมนุษย์ในกลุ่มชาติพันธุ์ และไม่เลือกปฏิบัติ", "การขึ้นทะเบียนคุมการเดินทางห้ามออกจากเขตเทือกเขาส่วนภูมิภาคชายแดน", "การระงับงบประมาณพัฒนาท้องถิ่นของตำบลที่มีคนชาติพันธุ์อาศัยหนาแน่น", "การจัดสรรที่ดินแปลงรวมทหารให้คนชาติพันธุ์เข้าเป็นกองกำลังสำรองชายแดน"],
+                correct: 0,
+                explain: "เน้นการเคารพสิทธิมนุษยชน คุ้มครองสิทธิ์ทางพจนานุกรมประเพณี รากเหง้าทางภาษา ความเชื่อ วิถีชีวิต และให้ได้รับสิทธิขั้นพื้นฐานแห่งพลเมืองไทยเสมอกัน",
+                ref: "มาตรา ๔.๓.๕ หน้า ๕๓ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 122,
+                q: "การสร้างภูมิคุ้มกันทางปัญญาให้แก่สังคมฐานรากตามมาตรา ๔.๔.๔ มีใจความสำคัญด้านการศึกษาอย่างไร?",
+                a: ["หลักประกันให้คนทุกกลุ่มได้รับโอกาสและเข้าถึงการเรียนรู้ตลอดชีวิตไม่จำกัดเพศสภาพวัย", "การบังคับให้นักเรียนโรงเรียนท้องถิ่นเรียนวิชาเขียนระบบคอมพิวเตอร์อย่างเดียว", "การยุบรวมสำนักห้องสมุดประชาชนมารวมไว้ที่กรมสรรพากรส่วนกลางแผ่นดิน", "จัดระบบตรวจสแกนม่านตาของประชากรชายที่ยื่นคำขอยารักษาพยาบาล"],
+                correct: 0,
+                explain: "ต้องการให้ทุกคนมีทักษะสากล ดิจิทัล และคิดเป็นระบบ สามารถเข้าถึงความรู้ที่ตรวจสอบแล้ว และจัดการกับภัยหลอกลวงออนไลน์ได้อย่างรู้เท่าทัน",
+                ref: "มาตรา ๔.๔.๔ หน้า ๕๔ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 123,
+                q: "ตัวชี้วัดความสำเร็จของกลุ่มโอกาสทางสังคมในเป้าหมายระยะยาว ไม่ได้รวมข้อใด?",
+                a: ["สถิติการจัดซื้อจัดสร้างระบบดาวเทียมรักษาอธิปไตยชายแดนภาคใต้", "ความแตกต่างของรายได้และการเข้าถึงบริการรัฐระหว่างกลุ่มประชากร", "ความก้าวหน้าของการพัฒนาจังหวัดรองในการเป็นศูนย์กลางทางนวัตกรรม", "คุณภาพชีวิตของประชากรสูงอายุในการพึ่งตนเองได้"],
+                correct: 0,
+                explain: "การประเมินดาวเทียมความมั่นคงเป็นภารกิจด้านความมั่นคงทหาร ไม่รวมเป็นตัวชี้วัดความเหลื่อมล้ำทางสังคมของแผ่นดินในหน้า ๔๘",
+                ref: "ด้านการสร้างโอกาสฯ ตัวชี้วัด หน้า ๔๘",
+                cat: "equality"
+            },
+            {
+                id: 124,
+                q: "การจัดเก็บรายได้เพื่อการสวัสดิการถ้วนหน้า ยุทธศาสตร์ระบุวัตถุประสงค์ของการจัดเก็บภาษีและค่าธรรมเนียมไว้อย่างไร?",
+                a: ["กำหนดเป้าหมายจัดเก็บที่ชัดเจนและนำไปใช้ในการจัดบริการสาธารณะที่ระบุตรงกลุ่มเป้าหมาย", "การโอนรายได้ทั้งหมดนำส่งกรมบัญชีกลางเพื่อชำระหนี้สาธารณะต่างประเทศก่อน", "การเพิ่มสัดส่วนภาษีมูลค่าเพิ่มร้อยละ ๒๐ กับสินค้าเกษตรแปรรูปในท้องถิ่น", "การงดเว้นเก็บสิทธิ์ภาษีที่ดินทำกินกับผู้ประกอบการอสังหาริมทรัพย์ระดับชาติ"],
+                correct: 0,
+                explain: "ต้องการปฏิรูปวิธีงบประมาณแผ่นดิน มีภาษีมุ่งเป้า (Earmarked Tax) เพื่อระบุตรงนำงบไปพัฒนาเด็กปฐมวัย สวัสดิการรักษาพยาบาล หรือดูแลคนสูงวัยอย่างโปร่งใส",
+                ref: "มาตรา ๔.๑.๒ หน้า ๔๘ ของเอกสาร",
+                cat: "equality"
+            },
+            {
+                id: 125,
+                q: "การสร้าง 'ประชาธิปไตยในระดับฐานราก' มีความคาดหวังในเรื่องบทบาทของภาครัฐอย่างไรตามมาตรา ๔.๔.๓?",
+                a: ["รัฐทำหน้าที่เป็นผู้สนับสนุนและเป็นที่ปรึกษาให้แก่ชุมชนในการจัดการตนเอง", "รัฐคุมอำนาจตัดสินใจเด็ดขาดโดยวิธีการสั่งการผ่านผู้ว่าราชการจังหวัดทางบก", "รัฐยกเลิกบทบาทของสำนักงานพัฒนาชุมชนและใช้วิธีระบบออนไลน์แอปพลิเคชันแทน", "รัฐจัดตั้งหน่วยทหารเฉพาะกิจช่วยเฝ้าจับตาความประพฤติศีลธรรมของคนในฟาร์ม"],
+                correct: 0,
+                explain: "ต้องการเปลี่ยนบทบาทของภาครัฐจากการควบคุมสั่งการ (Command & Control) มาเป็นผู้อำนวยความสะดวก ที่ปรึกษา (Facilitator) และหนุนเสริมให้ชุมชนคิดเองทำเองได้",
+                ref: "มาตรา ๔.๔.๓ หน้า ๕๔ ของเอกสาร",
+                cat: "equality"
+            },
+
+            // Strategy 5: Green Growth (สร้างการเติบโตบนคุณภาพชีวิตที่เป็นมิตรต่อสิ่งแวดล้อม) (126-140)
+            {
+                id: 126,
+                q: "ยุทธศาสตร์ด้านสิ่งแวดล้อม มีการน้อมนำศาสตร์พระราชาสู่ความยั่งยืนโดยยึดหลักสำคัญข้อใด?",
+                a: ["มีความพอประมาณ มีเหตุผล มีภูมิคุ้มกัน", "เข้าใจ เข้าถึง พัฒนาฐานชีวภาพ", "อนุรักษ์ ฟื้นฟู สร้างใหม่แบบประชารัฐ", "ต่อยอดอดีต ปรับปัจจุบัน สร้างคุณค่าอนาคต"],
+                correct: 0,
+                explain: "ยึดหลัก ๓ ประการตามแนวคิดของพอเพียงคือ 'มีความพอประมาณ มีเหตุผล มีภูมิคุ้มกัน' เป็นหัวใจสำคัญในการเติบโตอย่างยั่งยืนสมดุล",
+                ref: "ด้านสิ่งแวดล้อม บทนำ หน้า ๕๕",
+                cat: "green"
+            },
+            {
+                id: 127,
+                q: "เป้าหมายหลักในภาพรวมระยะยาว ๒๐ ปี ของยุทธศาสตร์สิ่งแวดล้อม มุ่งหมายสู่ผลลัพธ์ใดในอาเซียน?",
+                a: ["ประเทศไทยเป็นประเทศพัฒนาแล้วที่มีคุณภาพชีวิตและสิ่งแวดล้อมที่ดีที่สุดในอาเซียน", "การยุติการใช้น้ำมันเชื้อเพลิงทุกลักษณะเป็นลำดับแรกในกลุ่มประเทศอินโดจีน", "การมีพื้นที่คุ้มครองสัตว์ป่าและพันธุ์พืชทางบกเป็นร้อยละ ๘๐ ของอาณาเขตชาติ", "การโอนงบสิ่งแวดล้อมแผ่นดินทั้งหมดให้สมาคมอาเซียนทางทะเลควบคุม"],
+                correct: 0,
+                explain: "วิสัยทัศน์เฉพาะด้านสิ่งแวดล้อมคือต้องการให้ประเทศไทยครองตำแหน่งประเทศที่มีสิ่งแวดล้อมและคุณภาพชีวิตที่ดีที่สุดในกลุ่มอาเซียนภายในปี ๒๕๘๐",
+                ref: "ด้านสิ่งแวดล้อม บทนำ หน้า ๕๕",
+                cat: "green"
+            },
+            {
+                id: 128,
+                q: "ตามมาตรา ๔.๑.๒ การลดความเสี่ยงสูญเสียสายพันธุ์พืช สัตว์ป่าหายาก รัฐส่งเสริมมาตรการระบบคลังข้อมูลแบบใด?",
+                a: ["การสร้างระบบฐานข้อมูลในรูปแบบธนาคารพันธุกรรม (Genetic Bank)", "การจัดตั้งศูนย์ลงทะเบียนรูปถ่ายป่าไม้ชายแดนภาคใต้ทางอิเล็กทรอนิกส์", "การสลักลายน้ำชีวภาพบนพืชดิบที่มีพิกัดพิกัดจีพีเอสผ่านคลาวด์ทหาร", "การยุบรวมคลังเมล็ดพันธุ์ทั้งหมดให้อธิบดีกรมศิลปากรพิจารณาเก็บรักษา"],
+                correct: 0,
+                explain: "มุ่งรักษาพันธุกรรมท้องถิ่นและพืชเศรษฐกิจผ่าน 'ธนาคารพันธุกรรม' (Gene Bank) ตลอดจนภูมิปัญญาท้องถิ่นที่สอดรับเพื่อประโยชน์การแพทย์อนาคต",
+                ref: "มาตรา ๔.๑.๒ หน้า ๕๖-๕๗ ของเอกสาร",
+                cat: "green"
+            },
+            {
+                id: 129,
+                q: "การป้องกันปราบปรามการบุกรุกทำลายป่าไม้แผ่นดินตามมาตรา ๔.๑.๔ กำหนดให้นำนวัตกรรมใดมาประยุกต์ใช้ในการเฝ้าระวัง?",
+                a: ["การประยุกต์ใช้เทคโนโลยีในการบริหารจัดการพื้นที่เสี่ยงต่อการถูกบุกรุกเชิงพื้นที่", "การก่อสร้างรั้วลวดหนามไฟฟ้าล้อมรอบป่าต้นน้ำทุกลำดับทางบกชายแดน", "การสแกนม่านตาบุคคลทุกคนที่พำนักอาศัยในตำบลเขตภูมิภาคต้นน้ำ", "การตรากฎหมายยกเว้นความรับผิดทางอาญาแก่เจ้าหน้าที่รัฐที่ติดอาวุธเฝ้าป่า"],
+                correct: 0,
+                explain: "ใช้ดาวเทียมสำรวจระยะไกล ดิจิทัล และพิกัดแผนที่ความละเอียดสูง (GIS) ในการแจ้งเตือนทันท่วงทีก่อนที่ผืนป่าจะวอดวายจากผู้บุกรุก",
+                ref: "มาตรา ๔.๑.๔ หน้า ๕๗ ของเอกสาร",
+                cat: "green"
+            },
+            {
+                id: 130,
+                q: "การส่งเสริม 'คนอยู่กับป่า' มีการระบุสิทธิ์ของชุมชนในการใช้ประโยชน์อย่างไร?",
+                a: ["กำหนดสิทธิชุมชนเข้าใช้ประโยชน์โดยคำนึงถึงความเปราะบางของระบบนิเวศและขีดจำกัดฟื้นตัว", "การโอนกรรมสิทธิ์ที่ดินป่าอนุรักษ์ให้ชาวบ้านขายทอดตลาดได้เชิงพาณิชย์", "การบังคับเกณฑ์ชาวบ้านทั้งหมดออกจากป่าไม้เพื่อสร้างอุตสาหกรรมชีวมวลแผ่นดิน", "การระงับสิทธิ์การเพาะปลูกพืชอินทรีย์ทุกลักษณะของคนพหุสังคมในเขตป่า"],
+                correct: 0,
+                explain: "ให้สิทธิ์คนอยู่กับป่าได้ตามหลักการ 'คนรักษาป่า ป่าเลี้ยงคน' โดยจัดระเบียบขอบเขตพื้นที่ให้พึ่งพาธรรมชาติแบบไม่ทำลายความเปราะบางของต้นน้ำ",
+                ref: "มาตรา ๔.๑.๔ หน้า ๕๗ ของเอกสาร",
+                cat: "green"
+            },
+            {
+                id: 131,
+                q: "การบริหารจัดการมลพิษขยะตามเป้าหมาย ๓R ในมาตรา ๔.๔.๓ มีขั้นตอนการปฏิบัติสากลอย่างไร?",
+                a: ["การลดใช้ นำกลับมาใช้ซ้ำ และ การนำกลับมาใช้ใหม่ (Reduce, Reuse, Recycle)", "การระงับนำเข้า, การยุบองค์กรกำกับ, และ การจำกัดสิทธิ์ผู้บริโภคทางบก", "การเผาทำลายความร้อน, การฝังกลบปฐมภูมิต้นน้ำ, และ การเกณฑ์งบประมาณทหาร", "การสแกนบัตรคูปองขยะ, การจ่ายสวัสดิการ, และ การยกเว้นภาษีเครื่องจักร"],
+                correct: 0,
+                explain: "เป้าหมายขยะเหลือศูนย์ (Zero Waste) ยึดหลัก ๓R สากล: Reduce (ลดใช้น้อยลง), Reuse (นำกลับมาใช้ซ้ำ), Recycle (แปรรูปนำกลับมาใช้อีกหน)",
+                ref: "มาตรา ๔.๔.๓ หน้า ๖๒ ของเอกสาร",
+                cat: "green"
+            },
+            {
+                id: 132,
+                q: "การจัดการประมงและการรักษาทรัพยากรประมงทางทะเลอย่างยั่งยืน รัฐมุ่งควบคุมสิ่งใด?",
+                a: ["ควบคุมและยกเลิกเครื่องมือประมงที่ทำลายล้าง และป้องกันเรือประมงผิดกฎหมาย (IUU)", "การระงับการออกใบอนุญาตประมงแก่เรือที่ไม่ได้ใช้ระบบบล็อกเชนอัจฉริยะ", "การบังคับใช้อัตราภาษีการค้าประมงร้อยละ ๓๐ กับผู้ยื่นคำขอส่งออกทางน้ำ", "การยกเลิกบทบาทของชาวประมงพื้นบ้านริมชายหาดและใช้เฉพาะเรือพาณิชย์"],
+                correct: 0,
+                explain: "ขจัดประมงทำลายล้าง ป้องกันเรือประมงที่ทำการประมงโดยไม่ชอบด้วยกฎหมาย ขาดการรายงาน และไร้การควบคุม (IUU Fishing) เพื่อพิทักษ์ห่วงโซ่อาหารใต้สมุทร",
+                ref: "มาตรา ๔.๒.๔ หน้า ๖๐ ของเอกสาร",
+                cat: "green"
+            },
+            {
+                id: 133,
+                q: "ความมั่นคงด้านน้ำเชิงลุ่มน้ำทั้งระบบ มุ่งประสงค์จะจัดสวัสดิการพื้นฐานใดแก่ครัวเรือนชนบท?",
+                a: ["จัดให้มีน้ำสะอาดใช้ทุกครัวเรือนในปริมาณ คุณภาพ และราคาที่เข้าถึงได้", "การโอนกรรมสิทธิ์บ่อน้ำบาดาลสาธารณะทั้งหมดให้เป็นทรัพย์ส่วนบุคคลฟาร์ม", "การขอใช้ดาวเทียมตรวจสแกนปริมาณความร้อนน้ำบาดาลผ่านอิเล็กทรอนิกส์แผ่นดิน", "การระงับการเก็บค่าธรรมเนียมใช้น้ำในเขตพัฒนาพิเศษแผ่นดินภาคตะวันออก"],
+                correct: 0,
+                explain: "สิทธิพื้นฐานด้านน้ำ: ประชากรทุกครัวเรือนไม่ว่าจะห่างไกลเพียงใด ต้องมีน้ำประปาสะอาดใช้ในราคายุติธรรม ทั่วถึง และเพียงพอตลอดทั้งปี",
+                ref: "มาตรา ๔.๕.๑ หน้า ๖๓ ของเอกสาร",
+                cat: "green"
+            },
+            {
+                id: 134,
+                q: "การบริหารจัดการน้ำในยามประสบ 'ภัยพิบัติทางน้ำ' (อุทกภัย/ภัยแล้ง) มุ่งเป้าหมายหลักอย่างไรตามมาตรา ๔.๕.๑?",
+                a: ["ลดความสูญเสีย ความเสี่ยง และสามารถฟื้นคืนกลับสู่สภาวะปกติได้ในเวลาอันสั้น", "การจ่ายค่าเบี้ยชดเชยน้ำท่วมรายหัวโดยพึ่งพามาตรการกู้เงินต่างประเทศถาวร", "การห้ามผู้ยื่นคำขออพยพออกจากพื้นที่ภัยพิบัตินอกทำการทำการราชการ", "การติดระบบบล็อกเชนดาวเทียมสแกนความลึกแม่น้ำลำคลองโดยกองทัพแผ่นดิน"],
+                correct: 0,
+                explain: "เน้นกระบวนการบริหารจัดการสภาวะวิกฤต (Resilience) ให้ประชาชนลดความสูญเสียทางเศรษฐกิจ ทรัพย์สิน และสามารถฟื้นคืนสภาพเมืองได้อย่างฉับไว",
+                ref: "มาตรา ๔.๕.๑ หน้า ๖๓ ของเอกสาร",
+                cat: "green"
+            },
+            {
+                id: 135,
+                q: "การยกระดับประสิทธิภาพความปลอดภัยพลังงานที่เป็นมิตรต่อสิ่งแวดล้อม รัฐเน้นปรับไฟฟ้าอุปทานอย่างไรตามมาตรา ๔.๕.๓?",
+                a: ["เพิ่มสัดส่วนการใช้พลังงานทดแทนและพลังงานทางเลือก ทดแทนเชื้อเพลิงฟอสซิล", "การก่อสร้างโรงงานไฟฟ้านิวเคลียร์ในเขตพัฒนาพิเศษภาคตะวันออกทั้งหมด", "การยกเลิกบทบาทบอร์ดบริหารรัฐวิสาหกิจการไฟฟ้าและใช้วิธีเสรีคาร์บอน", "การจัดหาถ่านหินหินดิบราคาต่ำเข้าป้อนระบบผลิตไฟฟ้าทางชายแดนแผ่นดิน"],
+                correct: 0,
+                explain: "ส่งเสริมลดโลกร้อนโดยลดการอุปโภคเชื้อเพลิงฟอสซิลในโรงงานผลิตไฟฟ้า ขยายการจ้างงานและใช้เซลล์แสงอาทิตย์ พลังงานลม และสมาร์ทกริดอัจฉริยะ",
+                ref: "มาตรา ๔.๕.๓ หน้า ๖๔ ของเอกสาร",
+                cat: "green"
+            },
+            {
+                id: 136,
+                q: "การออกแบบประหยัดพลังงานในส่วนของสิ่งปลูกสร้างขนาดใหญ่ รัฐมีมาตรการบังคับใช้กฎหมายอย่างไร?",
+                a: ["การปรับใช้ออกแบบอาคารประหยัดพลังงานและฉลากสีเขียวกับยานยนต์เครื่องไฟฟ้า", "การปรับภาษีส่วนบุคคลอาคารสำนักงานที่ไม่ฉายไฟสีกระดาษประชารัฐเวลาราชการ", "การจดแจ้งให้ตึกขนาดใหญ่ทั้งหมดใช้พลังงานทางเลือกชีวมวลในโรงเรือนเท่านั้น", "การจำกัดจำนวนการเป่าปรับอากาศไว้ในเขตพื้นที่ส่วนกลางกทม.ในวันพุธ"],
+                correct: 0,
+                explain: "มุ่งหมายบังคับใช้กฎระเบียบการจัดทำมาตรฐานอาคารสีเขียว (Green Building Standard) และเครื่องใช้ไฟฟ้าประหยัดไฟเบอร์ ๕ ช่วยลดใช้พลังงานแผ่นดิน",
+                ref: "มาตรา ๔.๕.๔ หน้า ๖๔ ของเอกสาร",
+                cat: "green"
+            },
+            {
+                id: 137,
+                q: "คำนิยามหลักของความมั่นคงทางอาหารเชิงทรัพยากรชุมชนตามมาตรา ๔.๕.๕ คือข้อใด?",
+                a: ["มิติปริมาณ คุณภาพ ราคา และการเข้าถึงอาหาร ตลอดจนตรวจสอบย้อนกลับวัตถุดิบ", "การผูกขาดกรรมสิทธิ์การค้าข้าวพืชผลการเกษตรไว้ที่กลุ่มวิสาหกิจสังคมรายใหญ่", "การงดเว้นขั้นตอนกักพัสดุและพาสปอร์ตในการนำเข้าผลไม้เขตร้อนต่างชาติ", "การสแกนหน้าสิทธิ์รับอาหารฟรีของประชากรวัยแรงงานชายที่ผ่านสอบ ก.พ."],
+                correct: 0,
+                explain: "ความมั่นคงอาหาร (Food Security) ต้องพร้อมเพรียง ๔ มิติ: มีปริมาณพอ ปลอดสาร คุณภาพสูง ราคายุติธรรม และเข้าถึงได้โดยประชาชนทุกคน",
+                ref: "มาตรา ๔.๕.๕ หน้า ๖๔ ของเอกสาร",
+                cat: "green"
+            },
+            {
+                id: 138,
+                q: "การยกระดับ 'ประชาธิปไตยสิ่งแวดล้อม' (Environmental Democracy) ตามมาตรา ๔.๖.๒ ทำอย่างไร?",
+                a: ["เพิ่มบทบาทประชาชนในการมีส่วนร่วม คุ้มครอง สิทธิเข้าถึงข้อมูลข่าวสารด้านมลพิษ", "การยกเลิกกฎหมายอาญากับคดีชาวบ้านตัดไม้ทำลายป่าไม้แผ่นดินทั้งหมด", "การจัดเวทีประชามติเฉพาะผ่านระบบอิเล็กทรอนิกส์แอปพลิเคชันส่วนบุคคล", "การสัญญายกอำนาจสอบสวนคดีมลพิษให้ตำรวจและทหารชายแดนเป็นผู้ลงนามคุม"],
+                correct: 0,
+                explain: "ประชาธิปไตยสิ่งแวดล้อม คือสิทธิการเข้าถึงข้อมูลข่าวสารมลพิษ สิทธิมีส่วนร่วมตัดสินใจโครงการรัฐที่มีผลกระทบ และสิทธิฟ้องร้องเยียวยาสิ่งแวดล้อม",
+                ref: "มาตรา ๔.๖.๒ หน้า ๖๕ ของเอกสาร",
+                cat: "green"
+            },
+            {
+                id: 139,
+                q: "ข้อใดคือขอบเขตความร่วมมือการแก้ไขปัญหาสิ่งแวดล้อมข้ามแดนที่สำคัญในอาเซียนตามมาตรา ๔.๖.๒?",
+                a: ["ปัญหาสิ่งแวดล้อมข้ามพรมแดน ฟื้นฟูป่าไม้ข้ามแดน และการมีส่วนร่วมโครงการใหญ่", "การจัดเก็บบิลค่าบริการเชิงนิเวศกับเรือเดินสินค้าต่างชาติในทะเลอันดามัน", "การยุติการพาสปอร์ตและการตรวจคนเข้าเมืองของเจ้าหน้าที่ป่าไม้สมาคมอาเซียน", "การติดตั้งกล้องตรวจความร้อนดาวเทียมคุมฝุ่นพิษทุกลำดับตำบลพรมแดน"],
+                correct: 0,
+                explain: "มุ่งประสานงานแก้ไขปัญหาฝุ่นควันพิษข้ามพรมแดน (Haze Pollution) น้ำเสียข้ามแดน ตลอดจนร่วมพิทักษ์ป่าอุทยานมรดกอาเซียนร่วมกัน",
+                ref: "มาตรา ๔.๖.๒ หน้า ๖๕ ของเอกสาร",
+                cat: "green"
+            },
+            {
+                id: 140,
+                q: "เครื่องมือนโยบายสิ่งแวดล้อมสากล 'การประเมินสิ่งแวดล้อมระดับยุทธศาสตร์' ปรากฏในกฎหมายด้วยตัวย่อภาษาอังกฤษใด?",
+                a: ["SEA", "EIA", "EHIA", "SIA"],
+                correct: 0,
+                explain: "SEA (Strategic Environmental Assessment) คือการประเมินสิ่งแวดล้อมเชิงยุทธศาสตร์ที่ประเมินนโยบายแผนงานขนาดใหญ่ ต่างจาก EIA ที่ตรวจรายตึก",
+                ref: "มาตรา ๔.๖.๒ หน้า ๖๕ ของเอกสาร",
+                cat: "green"
+            },
+
+            // Strategy 6: Public Sector Reform & Law (การปรับสมดุลและพัฒนาระบบการบริหารจัดการภาครัฐ) (141-150)
+            {
+                id: 141,
+                q: "หลักการสำคัญในการปรับเปลี่ยนทัศนคติบทบาทการทำงานของราชการไทยตามมาตรา ๔.๑ คือข้อใด?",
+                a: ["ภาครัฐของประชาชนเพื่อประชาชนและประโยชน์ส่วนรวม", "ราชการส่วนกลางคุมอำนาจจัดสรรงบประมาณสูงสุดชายแดน", "ความมั่นคงทหารคือศูนย์กลางการเบิกจ่ายเงินงบประมาณแผ่นดิน", "ข้าราชการพลเรือนพ้นจากความรับผิดชอบทางกฎหมายปราบปรามคดีอาญา"],
+                correct: 0,
+                explain: "ยึดแก่นหลัก 'ภาครัฐของประชาชนเพื่อประชาชนและประโยชน์ส่วนรวม' (Citizen-centric Government) โปร่งใส สะดวกรวดเร็ว ตรวจสอบได้",
+                ref: "มาตรา ๔.๑ หน้า ๖๗-๖๘ ของเอกสาร",
+                cat: "admin"
+            },
+            {
+                id: 142,
+                q: "เป้าหมายหลักประการแรกของยุทธศาสตร์การปฏิรูประบบราชการแผ่นดินคือข้อใด?",
+                a: ["ภาครัฐมีวัฒนธรรมการทำงานมุ่งผลสัมฤทธิ์ สะดวก รวดเร็ว และโปร่งใส", "การยกเลิกองค์การบริหารส่วนจังหวัดและส่วนตำบลทั้งหมดภายในห้าปี", "การให้ข้าราชการพลเรือนสวมใส่เครื่องแบบทหารบกเพื่อความสามัคคีความมั่นคง", "การแปรรูปรัฐวิสาหกิจทั้งหมดให้ไปจดทะเบียนเป็นบริษัทมหาชนจำกัด"],
+                correct: 0,
+                explain: "เป้าหมายหลักคือการปรับวัฒนธรรมราชการให้มุ่งผลสัมฤทธิ์ (Performance-based) โปร่งใส ตรวจสอบได้ และลดละความเฉื่อยชา",
+                ref: "เป้าหมาย หน้า ๖๘ ของเอกสาร",
+                cat: "admin"
+            },
+            {
+                id: 143,
+                q: "การนำเทคโนโลยีดิจิทัลมาประยุกต์ใช้ในการบริการสาธารณะแผ่นดิน มุ่งประสงค์อย่างไรตามมาตรา ๔.๑.๒?",
+                a: ["เชื่อมโยงข้อมูลวิเคราะห์ Big Data และบริการทางออนไลน์ตั้งแต่ต้นจนจบกระบวนการ", "การกรองข้อมูลการติดต่อสื่อสารและการบล็อกเว็บบอร์ดของพรรคฝ่ายค้านแผ่นดิน", "การระงับเครื่องคอมพิวเตอร์พกพาพัสดุในวันนอกทำการราชการปกติ", "การยกเลิกบัตรประชาชนตัวจริงและใช้การสแกนม่านตาเพียงทักษะเดียว"],
+                correct: 0,
+                explain: "มุ่งพัฒนา รัฐบาลดิจิทัล (Digital Government) เชื่อมฐานข้อมูลรัฐเข้าหากันทางออนไลน์ เพื่อให้ติดต่อได้ง่าย เสียค่าใช้จ่ายน้อย และปลอดทุจริต",
+                ref: "มาตรา ๔.๑.๒ หน้า ๖๘ ของเอกสาร",
+                cat: "admin"
+            },
+            {
+                id: 144,
+                q: "ข้อใดแสดงถึงกลไกการประสานงานขับเคลื่อนงบประมาณแผ่นดินตามมาตรา ๔.๒.๒ ได้ชัดเจนที่สุด?",
+                a: ["ระบบงบประมาณสอดรับเชื่อมโยงยุทธศาสตร์ แผนภารกิจ และแผนพื้นที่ ภายใต้วินัยคลัง", "การระงับจัดสรรเงินงบประมาณแก่สถาบันการอุดมศึกษาที่ไม่จดแจ้งเอกสารดิจิทัล", "การโอนทรัพย์สินรายได้จัดเก็บภาษีทั้งหมดส่งตรงให้กองบัญชาการทหารสูงสุดคุม", "การใช้งบประมาณรายจ่ายเกินดุลด้วยการกู้เงินต่างประเทศระดับสูงถาวร"],
+                correct: 0,
+                explain: "ระบบงบประมาณแผ่นดินต้องรักษาวินัยการเงินการคลัง และจัดงบเชื่อมโยง ๓ มิติ: แผนเชิงยุทธศาสตร์ แผนภารกิจกระทรวง และแผนพื้นที่เชิงท้องถิ่น",
+                ref: "มาตรา ๔.๒.๒ หน้า ๖๙ ของเอกสาร",
+                cat: "admin"
+            },
+            {
+                id: 145,
+                q: "ตามมาตรา ๔.๓.๑ การจัดขนาดองค์กรราชการไทยในอนาคตมีทิศทางอย่างไรเพื่อสากล?",
+                a: ["ภาครัฐมีขนาดที่เหมาะสม เล็กลง แยกแยะบทบาทผู้กำกับดูแลและผู้ให้บริการ", "การควบรวมกระทรวงพลเรือนทั้งหมดเข้ามาสังกัดฝ่ายปกครองความมั่นคง", "การเพิ่มจ้างงานข้าราชการพลเรือนทดแทนงานภาคเอกชนส่วนบุคคลแผ่นดิน", "การยกเลิกระบบประชารัฐและใช้ข้าราชการพลเรือนส่วนภูมิภาคควบคุมหมด"],
+                correct: 0,
+                explain: "ลดขนาดราชการ (Right-sizing) ยุบเลิกหน่วยงานที่หมดความจำเป็น และแยกบทบาท Regulator (ผู้กำกับกฎกติกา) ออกจาก Operator (ผู้ให้บริการทั่วไป)",
+                ref: "มาตรา ๔.๓.๑ หน้า ๗๐ ของเอกสาร",
+                cat: "admin"
+            },
+            {
+                id: 146,
+                q: "การกระจายอำนาจสู่ท้องถิ่นตามมาตรา ๔.๓.๓ มีเป้าหมายส่งเสริม อปท. ในประเด็นใดหลัก?",
+                a: ["อปท. มีสมรรถนะสูง ยึดธรรมาภิบาล และมีระบบภาษีและรายได้ท้องถิ่นอย่างเหมาะสม", "การโอนกำลังทหารพลตระเวนชายแดนเข้ามาอยู่ใต้สังกัดองค์การบริหารส่วนตำบล", "การอนุญาตให้อปท.กำหนดอัตราภาษีนำเข้าผลิตภัณฑ์ชีวภาพอย่างเป็นอิสระ", "การแต่งตั้งโยกย้ายตำแหน่งนายทะเบียนกลางผ่านระบบสิทธิลงนามส่วนบุคคล"],
+                correct: 0,
+                explain: "ส่งเสริมให้ อปท. มีสมรรถนะสูง บริการประทับใจ มีอิสระคลังโดยการเก็บภาษีท้องถิ่นอย่างเหมาะสม และร่วมคิดทำแผนพัฒนากับประชารัฐฐานราก",
+                ref: "มาตรา ๔.๓.๓ หน้า ๗๐ ของเอกสาร",
+                cat: "admin"
+            },
+            {
+                id: 147,
+                q: "การป้องกันปราบปรามการทุจริตตามมาตรา ๔.๖ มีจิตสำนึกสำคัญที่ต้องปลูกฝังแก่บุคลากรรัฐอย่างไร?",
+                a: ["สร้างวัฒนธรรมแยกแยะประโยชน์ส่วนบุคคลและประโยชน์ส่วนรวมออกจากกันอย่างเด็ดขาด", "การห้ามข้าราชการพลเรือนทำธุรกิจส่วนบุคคลหรือถือครองตราสารหนี้ต่างประเทศ", "การจำกัดขอบเขตการยื่นบัญชีหนี้สินเฉพาะประชากรชายที่ไม่ได้สวมเครื่องแบบ", "การจัดให้ข้าราชการสลักเลขรหัสผ่านออนไลน์สกรีนไว้บนสมุดทำงานราชการ"],
+                correct: 0,
+                explain: "หัวใจการสกัดทุจริตคือการสร้างทัศนคติวิชาชีพ 'แยกแยะผลประโยชน์ทับซ้อน' (Conflict of Interest) และละอายต่อการหยิบเศษสินบนทุกรูปแบบ",
+                ref: "มาตรา ๔.๖ หน้า ๗๑-๗๒ ของเอกสาร",
+                cat: "admin"
+            },
+            {
+                id: 148,
+                q: "การยื่นแสดงบัญชีแสดงรายการทรัพย์สินและหนี้สินตามมาตรา ๔.๖.๒ บังคับใช้กับคู่สมรสและใครร่วม?",
+                a: ["คู่สมรส และ บุตรที่ยังไม่บรรลุนิติภาวะ ของผู้ดำรงตำแหน่งสูงทางการเมืองตุลาการ", "บุตรทุกคน บิดามารดา และพี่น้องร่วมบิดามารดาของข้าราชการทุกคนแผ่นดิน", "ทายาทผู้รับสิทธิ์กรรมสิทธิ์ที่ดินในนิคมอุตสาหกรรมความมั่นคงชายแดน", "พนักงานทุกคนของบริษัทจดทะเบียนในตลาดหลักทรัพย์ที่มีสัญญาจ้างงานรัฐ"],
+                correct: 0,
+                explain: "ผู้มีตำแหน่งการเมือง ตุลาการ องค์กรอิสระ และข้าราชการชั้นสูง ต้องแสดงบัญชีทรัพย์สินและหนี้สินของตนเอง คู่สมรส และบุตรที่ยังไม่บรรลุนิติภาวะต่อ ป.ป.ช.",
+                ref: "มาตรา ๔.๖.๒ หน้า ๗๒ ของเอกสาร",
+                cat: "admin"
+            },
+            {
+                id: 149,
+                q: "กระบวนการปรับปรุงกฎหมายเท่าที่จำเป็น เพื่อขจัดอุปสรรคการพัฒนา มีการวิเคราะห์สิ่งใดประกอบการร่างกฎหมาย?",
+                a: ["รับฟังความคิดเห็นผู้เกี่ยวข้อง และ วิเคราะห์ผลกระทบที่อาจเกิดขึ้น (RIA) อย่างรอบด้าน", "การจัดหาเครื่องทดสอบจรรยาบรรณทนายความและอัยการส่วนบุคคลทางคอมพิวเตอร์", "การยกเว้นขั้นตอนจัดซื้อจัดจ้างเครื่องแบบคุณครูและทหารในโรงเรียนทหาร", "การวิเคราะห์อัตราขยายตัวของจีดีพีทางการทหารในกลุ่มประเทศเพื่อนน้ำ"],
+                correct: 0,
+                explain: "ตรากฎหมายเฉพาะที่จำเป็น (Regulatory Guillotine) และใช้ระบบการประเมินผลสัมฤทธิ์วิเคราะห์ผลกระทบกฎหมาย (Regulatory Impact Assessment - RIA) ก่อนคลอดสัญญากติกา",
+                ref: "มาตรา ๔.๗.๒ หน้า ๗๓ ของเอกสาร",
+                cat: "admin"
+            },
+            {
+                id: 150,
+                q: "การรวบรวมและการพิสูจน์พยานหลักฐานในกระบวนการยุติธรรมสมัยใหม่ตามมาตรา ๔.๘.๒ ต้องใช้ประโยชน์หลักจากสิ่งใดเพื่อสากล?",
+                a: ["ใช้ประโยชน์จากนิติวิทยาศาสตร์และศาสตร์อื่น ๆ ในการค้นหาความจริงไม่เลือกปฏิบัติ", "การสารภาพของผู้ต้องโทษอาญาในสภาวะการประกาศเขตความมั่นคงพิเศษบก", "การชี้ตัวโดยเจ้าพนักงานผู้รับผิดชอบหลักคดีทหารเพียงฝ่ายเดียวในวันทำการ", "การใช้เครื่องสแกนม่านตายืนยันประวัติตรวจคนเข้าเมืองในแฟ้มประวัติทหาร"],
+                correct: 0,
+                explain: "ปฏิรูปการสืบหาความจริงเชิงคดีโดยอาศัย นิติวิทยาศาสตร์ (Forensics) และพยานวัตถุวิทยาศาสตร์ที่ดิ้นไม่ได้ ป้องกันการซ้อมทรมานจับแพะและเลือกปฏิบัติ",
+                ref: "มาตรา ๔.๘.๒ หน้า ๗๔ ของเอกสาร",
+                cat: "admin"
+            }
+        ];
+
+        // Global State Variables
+        let activeTab = 'summary';
+        let currentFilter = 'all';
+        let currentQuizQuestions = [];
+        let currentIdx = 0;
+        let scoreCount = 0;
+        let selectedAnswersList = [];
+        let totalCount = 0;
+        let quizMode = 'full'; // 'full' or 'mock'
+
+        // Switch Screen Tabs
+        function switchTab(tabId) {
+            activeTab = tabId;
+            const secSummary = document.getElementById('section-summary');
+            const secQuiz = document.getElementById('section-quiz');
+            const tabSumBtn = document.getElementById('tab-summary');
+            const tabQuizBtn = document.getElementById('tab-quiz');
+
+            if (tabId === 'summary') {
+                secSummary.classList.remove('hidden');
+                secQuiz.classList.add('hidden');
+                tabSumBtn.className = "flex-1 lg:flex-initial px-6 py-3 rounded-lg text-sm font-semibold transition duration-200 bg-white text-blue-900 shadow-md";
+                tabQuizBtn.className = "flex-1 lg:flex-initial px-6 py-3 rounded-lg text-sm font-semibold transition duration-200 text-white hover:bg-white/5";
+            } else {
+                secSummary.classList.add('hidden');
+                secQuiz.classList.remove('hidden');
+                tabSumBtn.className = "flex-1 lg:flex-initial px-6 py-3 rounded-lg text-sm font-semibold transition duration-200 text-white hover:bg-white/5";
+                tabQuizBtn.className = "flex-1 lg:flex-initial px-6 py-3 rounded-lg text-sm font-semibold transition duration-200 bg-white text-blue-900 shadow-md";
+                updateFilteredCountLabels();
+            }
+        }
+
+        // Set Filter categories
+        function setQuizFilter(catId) {
+            currentFilter = catId;
+            // Clear prior states in tab filters UI
+            const filterIds = ['all', 'general', 'security', 'competitiveness', 'human', 'equality', 'green', 'admin'];
+            filterIds.forEach(id => {
+                const btn = document.getElementById(`btn-filter-${id}`);
+                if (id === catId) {
+                    btn.className = "p-2 border rounded-lg text-center bg-blue-900 text-white font-semibold";
+                } else {
+                    btn.className = "p-2 border rounded-lg text-center bg-white text-slate-600 hover:bg-slate-50";
+                }
+            });
+            updateFilteredCountLabels();
+        }
+
+        // Return length of filtered questions
+        function getFilteredQuestions() {
+            if (currentFilter === 'all') return [...quizDatabase];
+            return quizDatabase.filter(q => q.cat === currentFilter);
+        }
+
+        function updateFilteredCountLabels() {
+            const filtered = getFilteredQuestions();
+            document.getElementById('filtered-count-full').innerText = filtered.length;
+        }
+
+        // Begin Quiz
+        function startQuizMode(mode) {
+            quizMode = mode;
+            let questions = getFilteredQuestions();
+            
+            if (questions.length === 0) {
+                alert("⚠️ ไม่มีคำถามสำหรับหมวดหมู่หัวข้อนี้ในตอนนี้ครับ");
+                return;
+            }
+
+            if (mode === 'mock') {
+                // Randomly shuffle array and select up to 20
+                questions = questions.sort(() => Math.random() - 0.5).slice(0, 20);
+            } else {
+                // Shuffle all to prevent linear biases
+                questions = questions.sort(() => Math.random() - 0.5);
+            }
+
+            currentQuizQuestions = questions;
+            totalCount = questions.length;
+            currentIdx = 0;
+            scoreCount = 0;
+            selectedAnswersList = new Array(totalCount).fill(null);
+
+            // Toggle Areas
+            document.getElementById('quiz-menu').classList.add('hidden');
+            document.getElementById('quiz-play-area').classList.remove('hidden');
+            document.getElementById('quiz-result-screen').classList.add('hidden');
+
+            loadCurrentQuestion();
+        }
+
+        // Render current question index data
+        function loadCurrentQuestion() {
+            const qData = currentQuizQuestions[currentIdx];
+            
+            // Header stats
+            document.getElementById('lbl-progress-current').innerText = currentIdx + 1;
+            document.getElementById('lbl-progress-total').innerText = totalCount;
+            document.getElementById('lbl-score').innerText = scoreCount;
+
+            const answeredCount = selectedAnswersList.filter(a => a !== null).length;
+            const accuracy = answeredCount > 0 ? Math.round((scoreCount / answeredCount) * 100) : 0;
+            document.getElementById('lbl-accuracy').innerText = accuracy + '%';
+
+            // Progress bar
+            const progPercent = ((currentIdx) / totalCount) * 100;
+            document.getElementById('quiz-progress-bar').style.width = progPercent + '%';
+
+            // Badge & Title
+            document.getElementById('question-badge').innerText = `ข้อที่ ${currentIdx + 1} จากทั้งหมด ${totalCount} ข้อ (หมวด: ${getCategoryThaiName(qData.cat)})`;
+            document.getElementById('question-text').innerText = qData.q;
+
+            // Generate Options with absolute visual parallel architecture
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const feedbackPanel = document.getElementById('feedback-panel');
+            feedbackPanel.classList.add('hidden'); // Clear feedback initially
+
+            const alreadyAnswered = selectedAnswersList[currentIdx] !== null;
+
+            qData.a.forEach((optStr, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-xl border text-sm transition-all duration-150 flex items-start gap-3 ${
+                    alreadyAnswered 
+                    ? 'cursor-not-allowed opacity-90' 
+                    : 'hover:bg-blue-50 border-slate-200 hover:border-blue-300 bg-white text-slate-700'
+                }`;
+
+                if (alreadyAnswered) {
+                    if (idx === qData.correct) {
+                        btn.classList.add('bg-green-50', 'border-green-400', 'text-green-900', 'font-semibold');
+                    } else if (idx === selectedAnswersList[currentIdx]) {
+                        btn.classList.add('bg-red-50', 'border-red-400', 'text-red-900');
+                    } else {
+                        btn.classList.add('bg-slate-50', 'border-slate-200', 'text-slate-400');
+                    }
+                }
+
+                btn.onclick = () => selectOption(idx);
+                btn.disabled = alreadyAnswered;
+
+                const choicesAlphabet = ['ก', 'ข', 'ค', 'ง'];
+                btn.innerHTML = `
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-slate-100 text-slate-600 font-bold text-xs mt-0.5">${choicesAlphabet[idx]}</span>
+                    <span class="flex-1">${optStr}</span>
+                `;
+                optionsContainer.appendChild(btn);
+            });
+
+            // Alter primary text of navigation action
+            const nextBtn = document.getElementById('next-button');
+            if (currentIdx === totalCount - 1) {
+                nextBtn.querySelector('span').innerText = "สิ้นสุดทำข้อสอบ / ดูสรุป";
+            } else {
+                nextBtn.querySelector('span').innerText = "ถัดไป";
+            }
+
+            if (alreadyAnswered) {
+                renderExplanatoryPanel(selectedAnswersList[currentIdx] === qData.correct);
+            }
+        }
+
+        // On option selected
+        function selectOption(choiceIdx) {
+            const qData = currentQuizQuestions[currentIdx];
+            selectedAnswersList[currentIdx] = choiceIdx;
+
+            const isCorrect = choiceIdx === qData.correct;
+            if (isCorrect) {
+                scoreCount++;
+            }
+
+            // Update stats realtime
+            document.getElementById('lbl-score').innerText = scoreCount;
+            const answeredCount = selectedAnswersList.filter(a => a !== null).length;
+            const accuracy = Math.round((scoreCount / answeredCount) * 100);
+            document.getElementById('lbl-accuracy').innerText = accuracy + '%';
+
+            loadCurrentQuestion();
+        }
+
+        // Render explanation panel below choices
+        function renderExplanatoryPanel(isCorrect) {
+            const qData = currentQuizQuestions[currentIdx];
+            const panel = document.getElementById('feedback-panel');
+            const icon = document.getElementById('feedback-icon');
+            const title = document.getElementById('feedback-title');
+            const body = document.getElementById('feedback-body');
+            const ref = document.getElementById('feedback-ref');
+
+            panel.classList.remove('hidden');
+
+            if (isCorrect) {
+                panel.className = "rounded-xl p-5 border bg-green-50 border-green-200 text-green-900 transition-all duration-200";
+                icon.innerText = "✅";
+                title.innerText = "ถูกต้องยอดเยี่ยม!";
+            } else {
+                panel.className = "rounded-xl p-5 border bg-red-50 border-red-200 text-red-900 transition-all duration-200";
+                icon.innerText = "❌";
+                title.innerText = "คำตอบยังไม่ถูกต้อง";
+            }
+
+            body.innerText = qData.explain;
+            ref.innerText = `อ้างอิง: ${qData.ref} ในยุทธศาสตร์ชาติ / 2022112541b92aec2da04005f656bbb8ddeb7110114717.PDF`;
+        }
+
+        // Go to next question or end screen
+        function goToNextQuestion() {
+            if (selectedAnswersList[currentIdx] === null) {
+                // Show temporary alert toast
+                const toast = document.createElement('div');
+                toast.className = "fixed bottom-5 right-5 bg-red-600 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg z-50 transition duration-300";
+                toast.innerText = "⚠️ โปรดเลือกตัวเลือกคำตอบเพื่อทำข้อถัดไปครับ";
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 2500);
+                return;
+            }
+
+            if (currentIdx < totalCount - 1) {
+                currentIdx++;
+                loadCurrentQuestion();
+            } else {
+                showFinalReportCard();
+            }
+        }
+
+        // Display results page with custom grading
+        function showFinalReportCard() {
+            document.getElementById('quiz-play-area').classList.add('hidden');
+            document.getElementById('quiz-result-screen').classList.remove('hidden');
+
+            document.getElementById('final-score').innerText = scoreCount;
+            document.getElementById('final-total').innerText = `/ ${totalCount} คะแนน`;
+
+            const badge = document.getElementById('rating-badge');
+            const scorePercent = (scoreCount / totalCount) * 100;
+
+            if (scorePercent >= 90) {
+                badge.innerText = "🏆 ประเมินความรอบรู้: ระดับยอดเยี่ยม (มีความคุ้นชินพร้อมทำข้อสอบจริงแล้ว!)";
+                badge.className = "inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full font-bold text-sm border border-green-200";
+            } else if (scorePercent >= 75) {
+                badge.innerText = "🌟 ประเมินความรอบรู้: ระดับดีเยี่ยม (ผ่านเกณฑ์คะแนนมาตรฐานแบบทดสอบข้าราชการ)";
+                badge.className = "inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-bold text-sm border border-blue-200";
+            } else if (scorePercent >= 60) {
+                badge.innerText = "📈 ประเมินความรอบรู้: ผ่านเกณฑ์พื้นฐาน (ควรกลับไปทบทวนส่วนยุทธศาสตร์ย่อยอีกเล็กน้อย)";
+                badge.className = "inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full font-bold text-sm border border-yellow-200";
+            } else {
+                badge.innerText = "📚 ประเมินความรอบรู้: ควรปรับปรุง (แนะนำให้เน้นการสืบค้นหมวดสรุปสาระสำคัญหลัก)";
+                badge.className = "inline-block bg-red-100 text-red-800 px-4 py-2 rounded-full font-bold text-sm border border-red-200";
+            }
+        }
+
+        // Cancel / quit back to selector menu
+        function quitQuiz() {
+            document.getElementById('quiz-play-area').classList.add('hidden');
+            document.getElementById('quiz-result-screen').classList.add('hidden');
+            document.getElementById('quiz-menu').classList.remove('hidden');
+        }
+
+        // Helper translation function for Category names
+        function getCategoryThaiName(catId) {
+            const mappings = {
+                'general': 'ทั่วไป & วิสัยทัศน์แผ่นดิน',
+                'security': '๑. ยุทธศาสตร์ด้านความมั่นคง',
+                'competitiveness': '๒. ยุทธศาสตร์ด้านความสามารถการแข่งขัน',
+                'human': '๓. ยุทธศาสตร์ด้านทรัพยากรมนุษย์',
+                'equality': '๔. ยุทธศาสตร์ด้านโอกาสเสมอภาคสังคม',
+                'green': '๕. ยุทธศาสตร์ด้านสิ่งแวดล้อม',
+                'admin': '๖. ยุทธศาสตร์ด้านการปรับสมดุลแผ่นดิน'
+            };
+            return mappings[catId] || catId;
+        }
+
+        // Run updates on mount
+        window.onload = function() {
+            switchTab('summary');
+        };
+    </script>
+</body>
+</html>

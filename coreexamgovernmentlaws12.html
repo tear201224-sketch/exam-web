@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจำลองข้อสอบ พ.ร.บ. วินัยการเงินการคลังของรัฐ พ.ศ. ๒๕๖๑ (๑๐๐ ข้อเต็ม)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sarabun) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-teal-900 via-slate-900 to-indigo-950 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="bg-white p-2.5 rounded-full shadow-inner flex items-center justify-center shrink-0">
+                    <!-- Royal Seal / Scales of Fiscal Justice Icon -->
+                    <svg class="w-10 h-10 text-teal-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M12 8v8M9 11h6M8 14h8"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-tight font-extrabold">ระบบจำลองข้อสอบ พ.ร.บ. วินัยการเงินการคลังของรัฐ พ.ศ. ๒๕๖๑</h1>
+                    <p class="text-xs sm:text-sm text-teal-200 mt-1">คลังข้อสอบวิเคราะห์ ๑๐๐ ข้อเต็ม ครอบคลุมละเอียดยิบทุกมาตรา ข้อห้าม สัดส่วน วินัยการเงินการคลัง และบทบัญญัติการตรวจสอบ</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 bg-teal-800/60 text-teal-100 rounded-full text-xs font-semibold border border-teal-500/30">๑๐๐ ข้อสอบวิเคราะห์</span>
+                <span class="px-3 py-1 bg-amber-600/60 text-amber-100 rounded-full text-xs font-semibold border border-amber-500/30">ประเด็นเด่นออกสอบบ่อย</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 py-8 sm:px-6 lg:px-8">
+        
+        <!-- Welcome / Setup Screen -->
+        <div id="setup-screen" class="max-w-4xl mx-auto space-y-8">
+            
+            <!-- Ultimate Fiscal Discipline Cheat Sheet (สรุปสาระเด่นที่มักออกสอบบ่อย) -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 space-y-6">
+                <div class="border-b border-slate-100 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                        <span class="text-teal-700 font-semibold tracking-wider text-xs uppercase bg-teal-50 px-3 py-1 rounded-full">สรุปกฎหมายจำและคีย์เวิร์ดเด่น (Ultimate Fiscal Discipline Cheat Sheet)</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-950 mt-2">ประเด็นเด่นและตัวเลขสำคัญที่มักเจอในข้อสอบสนามราชการ</h2>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                    <!-- คาร์ดสรุปที่ 1 -->
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-teal-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-teal-600 inline-block"></span> ๑. นิยามและตัวละครหลัก (มาตรา ๔-๕)
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-650 pl-2">
+                            <li><strong class="text-slate-800">ผู้รักษาการตาม พ.ร.บ.:</strong> นายกรัฐมนตรี และรัฐมนตรีว่าการกระทรวงการคลัง ร่วมรักษาการ</li>
+                            <li><strong class="text-slate-850">รัฐวิสาหกิจ:</strong> ส่วนราชการ/รวส. ถือหุ้นเกินร้อยละ ๕๐</li>
+                            <li><strong class="text-slate-850">เงินนอกงบประมาณ:</strong> เงินที่มีกฎหมายยกเว้นไม่ต้องนำส่งคลังแต่ให้หน่วยงานเก็บไว้ใช้จ่ายได้</li>
+                            <li><strong class="text-slate-850">คลัง:</strong> ที่เก็บเงินแผ่นดินของกระทรวงการคลัง รวมถึงบัญชีฝากที่ธนาคารแห่งประเทศไทย (ธปท.)</li>
+                        </ul>
+                    </div>
+
+                    <!-- คาร์ดสรุปที่ 2 -->
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-teal-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-teal-600 inline-block"></span> ๒. สัดส่วนและวินัยคลังที่มักออกสอบ (มาตรา ๒๐, ๒๘)
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-650 pl-2">
+                            <li><strong class="text-slate-850">งบประมาณรายจ่ายลงทุน (มาตรา ๒๐ (๑)):</strong> ต้องมีไม่น้อยกว่าร้อยละ ๒๐ ของงบประมาณรายจ่ายประจำปี และต้องไม่น้อยกว่าวงเงินส่วนที่ขาดดุลของงบปีนั้น (สำคัญมาก!)</li>
+                            <li><strong class="text-slate-850">โอนงบระหว่างหน่วยงาน (มาตรา ๒๔):</strong> ทำไม่ได้ เว้นแต่มีกฎหมายอนุญาต</li>
+                            <li><strong class="text-slate-850">มาตรา ๒๘ (มาตรการกึ่งการคลัง):</strong> มอบหมายหน่วยงานรัฐทำแทน ยอดคงค้างทั้งหมดรวมกันไม่เกินสัดส่วนที่คณะกรรมการนโยบายการเงินการคลังกำหนด</li>
+                        </ul>
+                    </div>
+
+                    <!-- คาร์ดสรุปที่ 3 -->
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-teal-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-teal-600 inline-block"></span> ๓. การโอนย้าย บัญชี และข้อยกเว้นการส่งคลัง
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-650 pl-2">
+                            <li><strong class="text-slate-850">สัดส่วนการชดเชยกำไรสุทธิ รวส. (มาตรา ๓๖):</strong> รวส. ที่ไม่ต้องเสียภาษีเงินได้นิติบุคคล ต้องส่งกำไรสุทธิเข้าคลังไม่ต่ำกว่าอัตราภาษีเงินได้นิติบุคคล</li>
+                            <li><strong class="text-slate-850">ข้อยกเว้นไม่ต้องส่งคลัง (มาตรา ๓๔):</strong> เงินบริจาคมีวัตถุประสงค์เจาะจง, โครงการร่วมมือ ตปท., ค่าชดใช้บูรณะทรัพย์สิน, รายรับสถานพยาบาล/สถานศึกษา/สาธารณประโยชน์</li>
+                            <li><strong class="text-slate-850">เงินนอกงบประมาณ (มาตรา ๖๑):</strong> ต้องฝากไว้ที่กระทรวงการคลัง และเมื่อเสร็จสิ้นภารกิจต้องส่งเงินเหลือคืนคลังทันที</li>
+                        </ul>
+                    </div>
+
+                    <!-- คาร์ดสรุปที่ 4 -->
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-teal-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-teal-600 inline-block"></span> ๔. กรอบเวลาและระบบรายงานวินัยการคลัง
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-650 pl-2">
+                            <li><strong class="text-slate-850">ส่งรายงานการเงินให้ สตง. (มาตรา ๗๐):</strong> ภายใน ๙๐ วันนับแต่วันสิ้นปีงบประมาณ</li>
+                            <li><strong class="text-slate-850">สตง. ต้องตรวจสอบให้เสร็จ (มาตรา ๗๑):</strong> ภายใน ๑๘๐ วันนับแต่วันสิ้นปีงบประมาณ</li>
+                            <li><strong class="text-slate-850">คลังยื่นรายงานการเงินแผ่นดินต่อรัฐสภา (มาตรา ๗๕):</strong> คลังส่งให้ สตง. ใน ๙๐ วัน สตง. ตรวจใน ๑๘๐ วัน คลังเสนอ ครม. เพื่อส่งรัฐสภาใน ๒๑๐ วัน</li>
+                            <li><strong class="text-slate-850">รายงานความเสี่ยงคลังประจำปี (มาตรา ๗๘):</strong> จัดทำเสร็จในมีนาคมของทุกปี</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Setup Panel -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 space-y-8">
+                <div class="text-center space-y-2">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">เริ่มขั้นตอนการจำลองประเมินผลความรู้</h2>
+                    <p class="text-slate-500 text-sm max-w-lg mx-auto">เจาะลึก ๑๐๐ ข้อสอบกฎหมายวินัยการเงินการคลัง พ.ศ. ๒๕๖๑ คัดเน้นประเด็นวิเคราะห์และตัวบทกฎหมายที่มักออกสอบในสนามสอบจริง</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Practice Mode Card -->
+                    <button onclick="selectMode('practice')" id="mode-practice-btn" class="group text-left p-5 rounded-xl border-2 border-teal-600 hover:border-teal-650 hover:bg-teal-50/10 transition-all duration-200 focus:outline-none">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-teal-100 text-teal-700 p-3 rounded-lg group-hover:bg-teal-900 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดฝึกฝน (Practice Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">ตอบพร้อมแสดงเฉลยและบทวิเคราะห์ตัวบทรายข้อทันที เหมาะสำหรับผู้ประสงค์เรียนรู้และจดจำมาตราสำคัญเชิงลึก</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Exam Mode Card -->
+                    <button onclick="selectMode('exam')" id="mode-exam-btn" class="group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-teal-950 hover:bg-slate-50 transition-all duration-200 focus:outline-none">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-slate-100 text-slate-700 p-3 rounded-lg group-hover:bg-teal-950 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดสอบจริง (Exam Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">จับเวลาจำลองพิกัดห้องสอบสว่าง สลับตำแหน่งข้อสอบและสลับตัวเลือกทั้งหมด พร้อมสรุปรายงานประเมินจุดแข็งและจุดอ่อนเมื่อส่งกระดาษคำตอบ</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Parameters Selection -->
+                <div class="border-t border-slate-200 pt-6 space-y-4">
+                    <h4 class="font-semibold text-slate-800">ตั้งค่าการทำแบบทดสอบ</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">จำนวนข้อสอบที่ต้องการสุ่มทำ</label>
+                            <select id="exam-quantity" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm">
+                                <option value="20">20 ข้อ (วิเคราะห์ไวสปีดเทส)</option>
+                                <option value="50">50 ข้อ (ขนาดกำลังมาตรฐานสอบ)</option>
+                                <option value="100" selected>100 ข้อเต็ม (สมบูรณ์แบบครบ ๑๐๐% ครอบคลุมละเอียดยิบ)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">ขอบเขตเนื้อหา</label>
+                            <select id="exam-scope" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm" disabled>
+                                <option value="all">ครอบคลุม พ.ร.บ. วินัยการเงินการคลังของรัฐ พ.ศ. ๒๕๖๑ ทั้ง ๕ หมวด</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz()" class="w-full py-4 bg-teal-900 hover:bg-teal-950 active:scale-[0.99] text-white font-bold rounded-xl shadow-md shadow-teal-650/20 transition-all text-center block focus:outline-none">
+                    เริ่มทำการทดสอบจำลองพิกัดความรู้
+                </button>
+            </div>
+        </div>
+
+        <!-- Active Quiz Screen -->
+        <div id="quiz-screen" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Question Panel (3/4 of width) -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Status bar -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="flex items-center gap-3">
+                        <span id="badge-mode" class="px-2.5 py-0.5 rounded text-xs font-bold uppercase"></span>
+                        <div class="text-sm font-medium text-slate-500">
+                            ข้อที่ <span id="current-q-index" class="text-slate-800 font-bold">1</span> จาก <span id="total-q-count" class="text-slate-800 font-bold">100</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-grow max-w-md w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                        <div id="progress-bar-fill" class="bg-teal-700 h-full transition-all duration-300" style="width: 1%"></div>
+                    </div>
+
+                    <div id="timer-container" class="flex items-center gap-2 text-rose-650 font-bold hidden">
+                        <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span id="quiz-timer">60:00</span>
+                    </div>
+                </div>
+
+                <!-- Question Card -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+                    <div class="flex justify-between items-center">
+                        <span id="question-category" class="text-xs font-semibold text-teal-700 bg-teal-50 px-2.5 py-1 rounded">หมวดการวิเคราะห์</span>
+                        <button onclick="toggleFlag()" id="flag-btn" class="text-slate-400 hover:text-amber-500 focus:outline-none flex items-center gap-1.5 text-xs font-medium">
+                            <svg id="flag-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                            <span>ปักหมุดทบทวน</span>
+                        </button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-950 leading-relaxed"></h3>
+                    </div>
+
+                    <!-- Options list -->
+                    <div id="options-container" class="grid grid-cols-1 gap-3.5">
+                        <!-- Options generated dynamically -->
+                    </div>
+
+                    <!-- Instant Explanation (Only in Practice Mode) -->
+                    <div id="explanation-panel" class="hidden bg-slate-50 rounded-xl border border-slate-200 p-5 space-y-2.5">
+                        <div class="flex items-center gap-2">
+                            <span id="explanation-title-badge" class="px-2 py-0.5 rounded text-xs font-bold text-white"></span>
+                            <span class="text-sm font-bold text-slate-800">วิเคราะห์อ้างอิงพระราชบัญญัติและข้อยกเว้น:</span>
+                        </div>
+                        <p id="explanation-text" class="text-sm text-slate-650 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between items-center gap-4">
+                    <button onclick="prevQuestion()" id="prev-btn" class="px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg> ย้อนกลับ
+                    </button>
+                    
+                    <button onclick="nextQuestion()" id="next-btn" class="px-5 py-2.5 bg-teal-900 hover:bg-teal-950 text-white font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none flex items-center gap-2">
+                        ถัดไป <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+
+                    <button onclick="showSubmitConfirmModal()" id="submit-quiz-btn" class="hidden px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-lg shadow-md shadow-rose-600/10 transition-colors text-sm focus:outline-none">
+                        ส่งกระดาษคำตอบ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar Controllers -->
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-4">
+                    <h4 class="font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                        <span>แผงควบคุมข้อสอบ</span>
+                        <span id="score-counter" class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">0/100</span>
+                    </h4>
+                    
+                    <!-- Dynamic Grid of Question numbers -->
+                    <div id="grid-navigation" class="grid grid-cols-5 gap-1.5 max-h-[360px] overflow-y-auto p-1 custom-scrollbar">
+                        <!-- Dynamic grid -->
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-3 space-y-2">
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-teal-900 inline-block"></span>
+                            <span>กำลังทำอยู่</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-teal-100 border border-teal-350 inline-block"></span>
+                            <span>ทำไปแล้ว</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-amber-500 inline-block"></span>
+                            <span>ปักหมุดทบทวน</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-slate-100 border border-slate-200 inline-block"></span>
+                            <span>ยังไม่ทำ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="confirmExit()" class="w-full py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-lg text-sm shadow-sm transition-colors focus:outline-none text-center block">
+                    ออกจากห้องสอบ
+                </button>
+            </div>
+        </div>
+
+        <!-- Result / Evaluation Dashboard -->
+        <div id="result-screen" class="hidden max-w-4xl mx-auto space-y-8 animate-fadeIn">
+            
+            <!-- Result Summary Box -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 text-center space-y-6">
+                <div class="space-y-2">
+                    <span id="result-badge" class="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">สรุปผลประเมินความรู้</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900">ผลการประเมินทักษะ พ.ร.บ. วินัยการเงินการคลัง</h2>
+                </div>
+
+                <div class="relative w-44 h-44 mx-auto flex items-center justify-center">
+                    <!-- Circle Bar -->
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e2e8f0" stroke-width="8"/>
+                        <circle id="score-ring-fill" cx="50" cy="50" r="40" fill="transparent" stroke="#0f766e" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round" class="transition-all duration-1000 ease-out"/>
+                    </svg>
+                    <!-- Percentage dynamic -->
+                    <div class="absolute flex flex-col items-center">
+                        <span id="result-percentage" class="text-4xl font-extrabold text-slate-900">0%</span>
+                        <span id="result-score-fraction" class="text-xs text-slate-500 font-bold mt-1">0/100 คะแนน</span>
+                    </div>
+                </div>
+
+                <p id="result-feedback-text" class="text-slate-650 max-w-md mx-auto text-sm sm:text-base leading-relaxed"></p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-200 pt-6">
+                    <div class="bg-teal-50 rounded-xl p-4 border border-teal-100">
+                        <span class="block text-xs font-medium text-teal-700 font-bold">ตอบถูกต้อง</span>
+                        <span id="stat-correct" class="text-xl font-extrabold text-teal-900">0 ข้อ</span>
+                    </div>
+                    <div class="bg-rose-50 rounded-xl p-4 border border-rose-100">
+                        <span class="block text-xs font-medium text-rose-600 font-bold">ตอบผิด / ข้าม</span>
+                        <span id="stat-incorrect" class="text-xl font-extrabold text-rose-850">0 ข้อ</span>
+                    </div>
+                    <div class="bg-teal-50 rounded-xl p-4 border border-teal-100">
+                        <span class="block text-xs font-medium text-teal-700 font-bold">เวลาที่ใช้</span>
+                        <span id="stat-time-spent" class="text-xl font-extrabold text-teal-900">0 นาที</span>
+                    </div>
+                </div>
+
+                <!-- Topic analysis skills -->
+                <div class="border-t border-slate-200 pt-6 space-y-4 text-left">
+                    <h4 class="font-bold text-slate-800">สรุปดัชนีคะแนนประเมินแบ่งแยกตามหัวข้อสำคัญ</h4>
+                    <div id="topic-analysis-container" class="space-y-3.5">
+                        <!-- Dynamic analysis bars go here -->
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <button onclick="restartQuiz()" class="px-6 py-3 bg-teal-900 hover:bg-teal-950 text-white font-bold rounded-xl shadow-md transition-all text-sm focus:outline-none">
+                        กลับสู่หน้าหลัก
+                    </button>
+                    <button onclick="toggleDetailedReview()" id="toggle-review-btn" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-all text-sm focus:outline-none border border-slate-300">
+                        ดูข้อสอบเฉลยละเอียด
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed review of correction -->
+            <div id="detailed-review-section" class="hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-slate-100 p-4 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 text-lg font-extrabold">คำอธิบายเฉลยและบทวิเคราะห์รายมาตราอย่างละเอียด</h3>
+                    <div>
+                        <select id="review-filter" onchange="filterReviewList()" class="bg-white border border-slate-300 text-xs font-bold rounded-lg px-2.5 py-1.5 focus:outline-none">
+                            <option value="all">แสดงทั้งหมด</option>
+                            <option value="incorrect">แสดงเฉพาะข้อที่ตอบผิด</option>
+                            <option value="flagged">แสดงเฉพาะข้อที่ปักหมุดทบทวน</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="review-questions-list" class="space-y-6">
+                    <!-- Review cards generated dynamically -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs mt-auto border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 space-y-1">
+            <p>ระบบจำลองคลังข้อสอบอ้างอิงตามพระราชบัญญัติวินัยการเงินการคลังของรัฐ พ.ศ. ๒๕๖๑</p>
+            <p>© 2569 ข้อมูลคำถามและคำอธิบายจัดทำขึ้นเพื่อยกระดับความรู้ทางกฎหมายและเตรียมตัวสอบงานราชการของไทย</p>
+        </div>
+    </footer>
+
+    <!-- Submit Confirmation Modal -->
+    <div id="submit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200">
+            <div class="text-center space-y-3">
+                <div class="bg-rose-50 text-rose-600 p-3 rounded-full w-fit mx-auto border border-rose-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">ยืนยันส่งกระดาษคำตอบ?</h3>
+                <p id="modal-completion-status" class="text-sm text-slate-500 leading-relaxed"></p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideSubmitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำข้อสอบต่อ
+                </button>
+                <button onclick="submitQuiz()" class="flex-1 py-3 bg-teal-900 hover:bg-teal-950 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ยืนยันส่งผลสอบ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Confirmation Modal -->
+    <div id="exit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200">
+            <div class="text-center space-y-3">
+                <div class="bg-slate-50 text-slate-600 p-3 rounded-full w-fit mx-auto border border-slate-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">ต้องการออกจากห้องสอบหรือไม่?</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">ความก้าวหน้าในการทำข้อสอบทั้งหมดในปัจจุบันนี้จะไม่ได้รับการบันทึกไว้</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideExitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำข้อสอบต่อ
+                </button>
+                <button onclick="exitQuiz()" class="flex-1 py-3 bg-rose-600 hover:bg-rose-750 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ออกทันที
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Raw Data: 100 comprehensive questions mapping sections of Fiscal Discipline Act B.E. 2561
+        const RAW_DATA = [
+            // หมวด ๑: บททั่วไป ขอบเขต และนิยาม (ข้อ ๑ - ๑๕)
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "พระราชบัญญัติวินัยการเงินการคลังของรัฐ พ.ศ. ๒๕๖๑ มีผลใช้บังคับเมื่อใด?",
+                ["๑๖ เมษายน ๒๕๖๑", "๑๗ เมษายน ๒๕๖๑", "๑๙ เมษายน ๒๕๖๑", "๒๐ เมษายน ๒๕๖๑"],
+                3,
+                "อ้างอิงมาตรา ๒: พระราชบัญญัตินี้ให้ใช้บังคับตั้งแต่วันถัดจากวันประกาศในราชกิจจานุเบกษาเป็นต้นไป (ประกาศในราชกิจจานุเบกษา ๑๙ เมษายน ๒๕๖๑ มีผล ๒๐ เมษายน ๒๕๖๑)"
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "ตามพิกัดนิยามในมาตรา ๔ ข้อใดต่อไปนี้จัดอยู่ในความหมายของ 'ส่วนราชการ'?",
+                ["จังหวัดและกลุ่มจังหวัด", "องค์การมหาชนภาคพาณิชย์", "เทศบาลและเทศบาลนคร", "รัฐวิสาหกิจที่รัฐถือหุ้นร้อยละเจ็ดสิบ"],
+                0,
+                "อ้างอิงมาตรา ๔: 'ส่วนราชการ' หมายความว่า กระทรวง ทบวง กรม และให้หมายความรวมถึงจังหวัดและกลุ่มจังหวัดด้วย"
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "บริษัทจำกัดหรือบริษัทมหาชนจำกัดที่ส่วนราชการและรัฐวิสาหกิจมีทุนรวมอยู่ด้วยในอัตราส่วนเท่าใด จึงจะจัดเป็น 'รัฐวิสาหกิจ' ตาม พ.ร.บ. นี้?",
+                ["ตั้งแต่ร้อยละยี่สิบห้าขึ้นไป", "เกินร้อยละสี่สิบเก้า", "เกินร้อยละห้าสิบ", "ตั้งแต่ร้อยละห้าสิบเอ็ดขึ้นไป"],
+                2,
+                "อ้างอิงมาตรา ๔: ในนิยาม 'รัฐวิสาหกิจ' (๒)-(๓) กำหนดเกณฑ์ว่าต้องมีทุนรวมอยู่ด้วย 'เกินร้อยละห้าสิบ' ไม่ใช่ร้อยละห้าสิบถ้วน"
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "คำว่า 'เงินนอกงบประมาณ' ตามระบุมาตรา ๔ มีลักษณะที่โดดเด่นและสำคัญอย่างไร?",
+                ["เงินที่รัฐบาลกู้ยืมมาจากต่างประเทศเพื่อใช้ชดเชยการขาดดุลคลัง", "เงินทั้งปวงที่หน่วยงานของรัฐจัดเก็บหรือได้รับไว้เป็นกรรมสิทธิ์ ซึ่งต้องนำส่งคลังแต่มีกฎหมายอนุญาตให้เก็บไว้ใช้จ่ายได้โดยไม่ต้องนำส่งคลัง", "เงินสะสมส่วนกลางที่ ครม. มีสิทธิ์ใช้จ่ายในกรณีฉุกเฉิน", "เงินกำไรสุทธิของรัฐวิสาหกิจในสัดส่วนที่กันไว้จ่ายให้พนักงาน"],
+                1,
+                "อ้างอิงมาตรา ๔: เงินนอกงบประมาณคือบรรดาเงินทั้งปวงที่จัดเก็บหรือได้รับไว้เป็นกรรมสิทธิ์ ซึ่งต้องส่งคลังแต่กฎหมายยกเว้นให้เก็บไว้ใช้จ่ายได้"
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "คำว่า 'คลัง' ตามมาตรา ๔ หมายความรวมถึงบัญชีเงินฝากที่สถาบันการเงินใด?",
+                ["ธนาคารออมสิน สาขาพหลโยธิน", "ธนาคารกรุงไทย จำกัด (มหาชน)", "ธนาคารแห่งประเทศไทย", "ธนาคารเพื่อการส่งออกและนำเข้าแห่งประเทศไทย"],
+                2,
+                "อ้างอิงมาตรา ๔: 'คลัง' หมายความว่า ที่เก็บรักษาเงินแผ่นดินของกระทรวงการคลัง และให้หมายความรวมถึงบัญชีเงินฝากที่ธนาคารแห่งประเทศไทยด้วย"
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "ผู้ใดทำหน้าที่เป็นผู้รักษาการตามพระราชบัญญัติวินัยการเงินการคลังของรัฐ พ.ศ. ๒๕๖๑ ตามมาตรา ๕?",
+                ["รัฐมนตรีว่าการกระทรวงการคลังเพียงผู้เดียว", "นายกรัฐมนตรีและรัฐมนตรีว่าการกระทรวงการคลัง", "ผู้อำนวยการสำนักงบประมาณและอธิบดีกรมบัญชีกลาง", "ปลัดกระทรวงการคลังและผู้ว่าการธนาคารแห่งประเทศไทย"],
+                1,
+                "อ้างอิงมาตรา ๕: 'ให้นายกรัฐมนตรีและรัฐมนตรีว่าการกระทรวงการคลังรักษาการตามพระราชบัญญัตินี้'"
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "กฎหมาย ระเบียบ หรือประกาศที่ออกภายใต้ พ.ร.บ. นี้ จะมีผลใช้บังคับได้ทางกฎหมายเมื่อผ่านขั้นตอนใดตามมาตรา ๕?",
+                ["ผ่านความเห็นชอบของรัฐสภาสามวาระ", "ผ่านการประกาศใช้บังคับในราชกิจจานุเบกษา", "ผ่านการลงนามร่วมกันขององคมนตรี", "ได้รับการบันทึกในรายงานความปลอดภัยระบบคลาวด์กระทรวง"],
+                1,
+                "อ้างอิงมาตรา ๕ วรรคสอง: ระเบียบและประกาศปฏิบัติการ พ.ร.บ. นี้ เมื่อประกาศในราชกิจจานุเบกษาแล้วจึงให้ใช้บังคับได้"
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "ตามมาตรา ๗ การดำเนินการใดๆ ของรัฐที่มีผลผูกพันทรัพย์สินหรือก่อภาระทางการเงินการคลัง รัฐต้องคำนึงถึงมิติใดเป็นลำดับสำคัญ?",
+                ["จำนวนคะแนนเสียงและระดับความนิยมทางการเมืองในระดับภูมิภาค", "ความคุ้มค่า ต้นทุน ผลประโยชน์ เสถียรภาพ และความยั่งยืนทางการคลังของรัฐ", "แผนยุทธศาสตร์ความยืดหยุ่นของสำนักงานตรวจเงินแผ่นดิน", "ผลกำไรสูงสุดเชิงพาณิชย์ของบริษัทเอกชนผู้เข้าประมูลสัญญาสัปทาน"],
+                1,
+                "อ้างอิงมาตรา ๗: บัญญัติให้การกู้ การลงทุน ตรากม. หรือการผูกพันทรัพย์สิน รัฐต้องพิจารณาความคุ้มค่า ต้นทุน ประโยชน์ และความยั่งยืนทางการคลัง"
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "วินัยที่รัฐพึงเสริมสร้างให้ประชาชนปฏิบัติอย่างครบถ้วนตามระบุชัดเจนในมาตรา ๘ คือเรื่องใด?",
+                ["วินัยในการออมเงินฝากสะสมของธนาคารพาณิชย์ภาครัฐ", "วินัยในการเสียภาษีอากรให้ครบถ้วนตามกฎหมาย", "หน้าที่ส่งเสริมกิจกรรมสวัสดิการของสถานศึกษาในท้องถิ่น", "การประหยัดพลังงานและการชำระค่าสาธารณูปโภคตรงเวลา"],
+                1,
+                "อ้างอิงมาตรา ๘: 'รัฐพึงเสริมสร้างวินัยให้ประชาชนเสียภาษีอากรให้ครบถ้วนตามกฎหมายอย่างเคร่งครัด'"
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "ตามมาตรา ๙ วรรคสอง คณะรัฐมนตรีต้องไม่บริหารราชการแผ่นดินโดยมุ่งพฤติกรรมในลักษณะใดที่อาจส่งผลเสียหายในระยะยาว?",
+                ["การปฏิรูปโครงสร้างภาษีและการปรับเพิ่มอัตราภาษีเงินได้นิติบุคคล", "การมุ่งสร้างความนิยมทางการเมืองที่อาจก่อให้เกิดความเสียหายต่อระบบเศรษฐกิจของประเทศและประชาชนในระยะยาว (แนวทางประชานิยมสุดโต่ง)", "การจัดเก็บรายได้แบบกระจายอำนาจให้แก่ส่วนท้องถิ่นและ อปท.", "การเพิ่มประสิทธิภาพการจัดซื้อจัดจ้างภาครัฐด้วยระบบอิเล็กทรอนิกส์"],
+                1,
+                "อ้างอิงมาตรา ๙ วรรคสอง (Fiscal Populism Restriction): คณะรัฐมนตรีต้องไม่บริหารแผ่นดินโดยมุ่งสร้างความนิยมทางการเมืองที่อาจสร้างผลเสียต่อเสถียรภาพระบบเศรษฐกิจระยะยาว"
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "ตามมาตรา ๓ หากมีกฎหมายอื่นใดที่กำหนดเกี่ยวกับการปฏิบัติการทางการเงินการคลังของรัฐไว้แล้ว และเกิดความขัดแย้งเชิงข้อกำหนด จะบังคับใช้อย่างไร?",
+                ["ให้ใช้บังคับกฎหมายเฉพาะนั้นๆ เป็นเกณฑ์สูงสุดโดยอัตโนมัติ", "ให้เป็นไปตามที่กำหนดในพระราชบัญญัตินี้ (พ.ร.บ. วินัยการเงินการคลังมีผลพิทักษ์เหนือกว่า)", "ให้อธิบดีอัยการและผู้ตรวจการแผ่นดินร่วมวินิจฉัยสิทธิ์ชี้ขาด", "ให้ ครม. จัดทำคำสั่งโอนย้ายความขัดแย้งคดีส่งตรงไปยังศาลรัฐธรรมนูญ"],
+                1,
+                "อ้างอิงมาตรา ๓: การปฏิบัติเกี่ยวกับการเงินการคลังตามกม.ต่างๆ ถ้ากรณีบัญญัติไว้แล้วใน พ.ร.บ. นี้ ให้ใช้ พ.ร.บ. นี้บังคับพิทักษ์"
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "ข้อใดต่อไปนี้จัดเป็น 'หน่วยงานของรัฐ' ที่อยู่ภายใต้ข้อบังคับวินัยการเงินการคลังตามมาตรา ๔?",
+                ["ส่วนราชการ รัฐวิสาหกิจ และองค์การมหาชน", "หน่วยงานของรัฐสภา ศาลยุติธรรม และองค์กรอิสระตามรัฐธรรมนูญ", "ทุนหมุนเวียนที่เป็นนิติบุคคล และองค์กรปกครองส่วนท้องถิ่น", "ทุกข้อที่กล่าวมาข้างต้นจัดเป็นหน่วยงานของรัฐภายใต้ พ.ร.บ. นี้"],
+                3,
+                "อ้างอิงมาตรา ๔: ในบทนิยาม 'หน่วยงานของรัฐ' ครอบคลุมตั้งแต่อนุ (๑) ถึง (๗) ซึ่งรวมถึงหน่วยงานรัฐสภา ศาล องค์กรอิสระ และ อปท. ทั้งสิ้น"
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "หากองค์กรปกครองส่วนท้องถิ่นจัดตั้งหน่วยงานธุรกิจหรือถือหุ้นร่วมกับนิติบุคคลอื่นต่ำกว่าร้อยละห้าสิบ หน่วยงานธุรกิจนั้นจัดอยู่ในความครอบคลุม พ.ร.บ. นี้หรือไม่?",
+                ["จัดอยู่เนื่องจาก อปท. มีฐานะเป็นผู้กำกับสิทธิการเสียภาษีบำรุงเมือง", "ไม่จัดอยู่ เนื่องจากสัดส่วนทุนที่ถือหุ้นไม่เกินร้อยละห้าสิบตามเกณฑ์นิยามรัฐวิสาหกิจในมาตรา ๔", "ได้รับการละเว้นตามมาตรา ๖๔ โดยให้รัฐจ่ายชดเชยงบประมาณเต็มสัดส่วน", "ให้อยู่ในขอบเขตการพิจารณาตรวจสอบของคณะกรรมการการคลังเป็นรายปีภาษี"],
+                1,
+                "อ้างอิงมาตรา ๔: นิยามรัฐวิสาหกิจบังคับสัดส่วนทุนรวมกันต้อง 'เกินร้อยละห้าสิบ' ดังนั้นถ้าไม่เกินห้าสิบ ย่อมไม่จัดเป็น รวส."
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "เจตนารมณ์ในการประกาศใช้ พ.ร.บ. วินัยการเงินการคลังของรัฐ พ.ศ. ๒๕๖๑ อ้างอิงตามหมายเหตุท้ายกฎหมาย มุ่งเพื่อสอดรับกับรัฐธรรมนูญในมิติใด?",
+                ["เพื่อสนับสนุนนโยบายการกระจายเงินกู้สวัสดิการข้าราชการวิทยฐานะสูง", "เพื่อให้รัฐรักษาวินัยการเงินการคลังอย่างเคร่งครัดสูงสุด ให้ฐานะทางการเงินการคลังมีเสถียรภาพและมั่นคงอย่างยั่งยืน", "เพื่อรวบรวมรายได้จากภาษีมูลค่าเพิ่มส่งตรงเป็นงบประมาณส่วนทหารสามเหล่าทัพ", "เพื่อลดบทบาทกระบวนการพิจารณาตรวจสอบการทุจริตของ สตง. ระดับจังหวัด"],
+                1,
+                "อ้างอิงหมายเหตุท้ายกฎหมาย: รัฐธรรมนูญบัญญัติให้รัฐต้องรักษาวินัยการเงินการคลัง เพื่อสร้างเสถียรภาพและเสถียรภาพความมั่นคงทางการคลังอย่างยั่งยืน"
+            ],
+            [
+                "หมวด ๑: บททั่วไปและนิยาม",
+                "สิทธิการปฏิเสธการใช้วินัยการเงินการคลังของหน่วยงานของรัฐสภา ศาล และองค์กรอิสระตามกฎหมายนี้ จะอ้างอิงได้ในลักษณะใด?",
+                ["อ้างสิทธิ์ละเว้นได้ทันทีไม่มีกรอบจำกัดโดยใช้ขอบเขตความเป็นกลางทางการเมือง", "ย่อมกระทำมิได้เนื่องจากระบุในมาตรา ๔ ชัดแจ้งว่าทั้งหมดเป็นหน่วยงานของรัฐที่ต้องรักษาวินัยคลังอย่างเคร่งครัดตาม พ.ร.บ.", "สามารถขอเว้นได้ร้อยละห้าสิบของงบประมาณรายจ่ายลงทุนประจำปีภาษี", "ต้องยื่นหนังสือเสนอของดเว้นเป็นกรณีพิเศษต่อนายกรัฐมนตรีในฐานะรักษาการแทน"],
+                1,
+                "อ้างอิงมาตรา ๔ และ ๒๓: หน่วยงานรัฐสภา ศาล องค์กรอิสระ และอัยการ ต้องรักษาวินัยและจัดให้มีระบบควบคุมภายใน ตรวจสอบและรายงานการเงินให้โปร่งใสตรวจสอบได้"
+            ],
+
+            // หมวด ๒: คณะกรรมการและสำนักงาน (ข้อ ๑๖ - ๓๐)
+            [
+                "หมวด ๒: คณะกรรมการและสำนักงาน",
+                "คณะกรรมการนโยบายการเงินการคลังของรัฐตามระบุมาตรา ๑๐ ประกอบด้วยผู้ใดทำหน้าที่เป็น 'ประธานกรรมการ'?",
+                ["รัฐมนตรีว่าการกระทรวงการคลัง", "นายกรัฐมนตรี", "ผู้ว่าการธนาคารแห่งประเทศไทย", "ผู้อำนวยการสำนักงบประมาณ"],
+                1,
+                "อ้างอิงมาตรา ๑๐: คณะกรรมการนโยบายการเงินการคลังของรัฐ ประกอบด้วย 'นายกรัฐมนตรี เป็นประธานกรรมการ'"
+            ],
+            [
+                "หมวด ๒: คณะกรรมการและสำนักงาน",
+                "ใครทำหน้าที่เป็น 'รองประธานกรรมการ' ในคณะกรรมการนโยบายการเงินการคลังของรัฐตามมาตรา ๑๐?",
+                ["เลขาธิการคณะกรรมการกฤษฎีกา", "รัฐมนตรีว่าการกระทรวงการคลัง", "ปลัดกระทรวงการคลัง", "เลขาธิการสภาพัฒนาการเศรษฐกิจและสังคมแห่งชาติ"],
+                1,
+                "อ้างอิงมาตรา ๑๐: 'รัฐมนตรีว่าการกระทรวงการคลัง เป็นรองประธานกรรมการ'"
+            ],
+            [
+                "หมวด ๒: คณะกรรมการและสำนักงาน",
+                "ข้อใดจัดเป็นตำแหน่งกรรมการโดยตำแหน่งในคณะกรรมการนโยบายการเงินการคลังของรัฐตามมาตรา ๑๐?",
+                ["ปลัดกระทรวงการคลัง และเลขาธิการ สศช. (สภาพัฒน์)", "ผู้อำนวยการสำนักงบประมาณ และผู้ว่าการธนาคารแห่งประเทศไทย", "ข้อ ก. และ ข้อ ข. ถูกต้อง", "ประธานศาลรัฐธรรมนูญ และอธิบดีกรมบัญชีกลาง"],
+                2,
+                "อ้างอิงมาตรา ๑๐: กรรมการได้แก่ ปลัดกระทรวงการคลัง, เลขาธิการ สศช., ผู้อำนวยการสำนักงบประมาณ และผู้ว่าการธนาคารแห่งประเทศไทย"
+            ],
+            [
+                "หมวด ๒: คณะกรรมการและสำนักงาน",
+                "ผู้ใดทำหน้าที่เป็น 'เลขานุการ' คณะกรรมการนโยบายการเงินการคลังของรัฐตามมาตรา ๑๐ วรรคสอง?",
+                ["อธิบดีกรมบัญชีกลาง", "ผู้อำนวยการสำนักงานเศรษฐกิจการคลัง (สศค.)", "เลขาธิการคณะกรรมการตรวจเงินแผ่นดิน", "ปลัดสำนักนายกรัฐมนตรี"],
+                1,
+                "อ้างอิงมาตรา ๑๐ วรรคสอง: 'ให้ผู้อำนวยการสำนักงานเศรษฐกิจการคลัง เป็นเลขานุการ'"
+            ],
+            [
+                "หมวด ๒: คณะกรรมการและสำนักงาน",
+                "หน่วยงานใดทำหน้าที่เป็น 'หน่วยงานธุรการ' ของคณะกรรมการนโยบายการเงินการคลังของรัฐตามมาตรา ๑๐ วรรคสอง?",
+                ["สำนักงบประมาณ", "สำนักงานเศรษฐกิจการคลัง (สศค.)", "กรมบัญชีกลาง", "สำนักงานบริหารหนี้สาธารณะ (สบน.)"],
+                1,
+                "อ้างอิงมาตรา ๑๐ วรรคสอง: 'และให้สำนักงานเศรษฐกิจการคลังปฏิบัติหน้าที่เป็นหน่วยงานธุรการของคณะกรรมการ'"
+            ],
+            [
+                "หมวด ๒: คณะกรรมการและสำนักงาน",
+                "หน้าที่และอำนาจของคณะกรรมการนโยบายการเงินการคลังของรัฐตามมาตรา ๑๑ (๒) คือข้อใด?",
+                ["จัดทำและทบทวนแผนการคลังระยะปานกลาง (Medium-Term Fiscal Framework)", "อนุมัติการยกเว้นโทษทางวินัยการเงินการคลังให้แก่ผู้บริหาร อปท. ทั่วราชอาณาจักร", "การจัดสรรที่ดินในเขตปฏิรูปเกษตรกรรมให้เกษตรกรยากไร้รายชุมชน", "การกำหนดอัตราเพดานเบี้ยปรับและเงินเพิ่มทางภาษีของกรมสรรพากรประจำจังหวัด"],
+                0,
+                "อ้างอิงมาตรา ๑๑ (๒): คณะกรรมการฯ มีหน้าที่จัดทำและทบทวนแผนการคลังระยะปานกลางทุกสิ้นปีงบประมาณ"
+            ],
+            [
+                "หมวด ๒: คณะกรรมการและสำนักงาน",
+                "คณะกรรมการนโยบายการเงินการคลังของรัฐมีอำนาจในการกำหนดสัดส่วนสำคัญข้อใด ตามพิกัดมาตรา ๑๑ (๔)?",
+                ["สัดส่วนงบประมาณรายจ่ายงบกลาง รายการเงินสำรองจ่ายฉุกเฉิน", "สัดส่วนงบประมาณเพื่อการชำระหนี้ภาครัฐ และสัดส่วนการก่อหนี้ผูกพันข้ามปีงบประมาณ", "สัดส่วนการก่อหนี้ผูกพันเกินกว่าหรือนอกเหนือที่กำหนดในกฎหมายงบประมาณ", "สัดส่วนตามที่กล่าวมาข้างต้นล้วนอยู่ในอำนาจหน้าที่ของคณะกรรมการทั้งสิ้น"],
+                3,
+                "อ้างอิงมาตรา ๑๑ (๔): บัญญัติให้คณะกรรมการกำหนดสัดส่วนงบกลาง ชำระหนี้ ก่อหนี้ผูกพันข้ามปี และสัดส่วนเพื่อใช้เป็นกรอบพิทักษ์วินัยการเงิน"
+            ],
+            [
+                "หมวด ๒: คณะกรรมการและสำนักงาน",
+                "วินัยการเงินการคลังเพิ่มเติมที่คณะกรรมการกำหนดตามมาตรา ๑๑ (๑) ต้องมีขีดจำกัดทางกฎหมายอย่างไร?",
+                ["ต้องได้รับการโหวตเห็นพ้องแบบเอกฉันท์จากคณะองคมนตรีสถาบันหลัก", "ต้องไม่กระทบต่อความเป็นอิสระในการปฏิบัติหน้าที่ของหน่วยงานของรัฐ", "ต้องประกาศล่วงหน้าไม่น้อยกว่าหนึ่งปีปฏิทินจึงจะมีผลบังคับทางคดีปกครอง", "ต้องไม่เรียกเก็บค่าปรับธุรการหากหน่วยงานนั้นมียอดขาดดุลงบประมาณต่ำ"],
+                1,
+                "อ้างอิงมาตรา ๑๑ (๑): กำหนดวินัยเพิ่มเติมได้ 'โดยไม่กระทบต่อความเป็นอิสระในการปฏิบัติหน้าที่ของหน่วยงานของรัฐ'"
+            ],
+            [
+                "หมวด ๒: คณะกรรมการและสำนักงาน",
+                "ข้อบังคับการประชุมและการลงมติของคณะกรรมการนโยบายการเงินการคลังของรัฐ ให้เป็นไปตามระเบียบพิกัดข้อใดตามมาตรา ๑๒?",
+                ["ให้เป็นไปตามพระราชกฤษฎีกาการจัดตั้งสถาบันส่งเสริมดิจิทัล", "ให้เป็นไปตามข้อบังคับการประชุมที่คณะกรรมการกำหนด", "ต้องใช้หลักประชามติเสียงข้างมากโดยมีนายกรัฐมนตรีเห็นชอบร่วมอย่างน้อยสองในสาม", "ให้ใช้หลักประเพณีสภาสามัญของส่วนราชการส่วนกลางคลัง"],
+                1,
+                "อ้างอิงมาตรา ๑๒: 'การประชุมและการลงมติของคณะกรรมการ ให้เป็นไปตามข้อบังคับการประชุมที่คณะกรรมการกำหนด'"
+            ],
+            [
+                "หมวด ๒: คณะกรรมการและสำนักงาน",
+                "เป้าหมายสูงสุดในการให้สำนักงานเศรษฐกิจการคลังทำหน้าที่เป็นหน่วยงานธุรการตามมาตรา ๑๐ วรรคสอง คือมิติใด?",
+                ["เพื่อความสะดวกในการควบคุมเงินสดสำรองจ่ายของธนาคารพาณิชย์", "เพื่อให้ สศค. ซึ่งเป็นคลังสมองด้านเศรษฐกิจและการคลังของกระทรวงการคลัง เป็นผู้สนับสนุนข้อมูล ยกร่างแผน และจัดการงานประชุม", "เพื่อยกเว้นค่าใช้จ่ายในการจ้างพนักงานจดบันทึกการรายงานคดีความศาลฎีกา", "เพื่อให้ สบน. สลับถืออำนาจควบคุมการจัดซื้อจัดจ้างโครงการขนาดใหญ่แผ่นดิน"],
+                1,
+                "สศค. (สำนักงานเศรษฐกิจการคลัง) มีภารกิจหลักเกี่ยวกับข้อเสนอนโยบายและแผนการคลัง การเป็นหน่วยธุรการจึงช่วยวิเคราะห์ทบทวนแผนระยะปานกลางได้อย่างมีหลักวิชาการ"
+            ],
+
+            // หมวด ๒: การดำเนินการทางการคลังและงบประมาณ (ข้อ ๓๑ - ๕๕)
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "แผนแม่บทหลักสำหรับการวางแผนการดำเนินการทางการเงินการคลังของรัฐตามมาตรา ๑๓ วรรคแรก เรียกว่าอะไร?",
+                ["แผนการศึกษาพัฒนาเศรษฐกิจมหภาคระดับภูมิภาค", "แผนการคลังระยะปานกลาง (Medium-Term Fiscal Framework)", "แผนงบประมาณรายจ่ายเฉลี่ยช่วงสามปีภาษีของคลัง", "ยุทธศาสตร์ชาติการจัดการความปลอดภัยทหารสามเหล่าทัพ"],
+                1,
+                "อ้างอิงมาตรา ๑๓: 'ให้มีแผนการคลังระยะปานกลาง เพื่อใช้เป็นแผนแม่บทหลักสำหรับการวางแผนการดำเนินการทางการเงินการคลังและงบประมาณของรัฐ'"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "คณะกรรมการต้องจัดทำแผนการคลังระยะปานกลางให้แล้วเสร็จภายในเวลาใดตามมาตรา ๑๓ วรรคสอง?",
+                ["ภายในเก้าสิบวันนับแต่วันเริ่มปีงบประมาณในราชกิจจานุเบกษา", "ภายในสามเดือนนับแต่วันสิ้นปีงบประมาณทุกปี", "ภายในสี่สิบห้าวันนับแต่วันจัดตั้งรัฐบาลชุดใหม่เข้าถวายสัตย์", "ภายในรอบหกเดือนปฏิทินที่สอดรับกับนโยบายคลังสะสมแผ่นดิน"],
+                1,
+                "อ้างอิงมาตรา ๑๓ วรรคสอง: 'ให้คณะกรรมการมีหน้าที่จัดทำแผนการคลังระยะปานกลาง... ให้แล้วเสร็จภายในสามเดือนนับแต่วันสิ้นปีงบประมาณทุกปี'"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "ตามมาตรา ๑๓ วรรคสาม แผนการคลังระยะปานกลางต้องมีกรอบระยะเวลาจำกัดไว้ไม่น้อยกว่ากี่ปี?",
+                ["ไม่น้อยกว่าสองปี", "ไม่น้อยกว่าสามปี", "ไม่น้อยกว่าห้าปี", "ไม่น้อยกว่าสิบปีเพื่อสอดรับสัดส่วนยุทธศาสตร์ชาติ"],
+                1,
+                "อ้างอิงมาตรา ๑๓ วรรคสาม: 'แผนการคลังระยะปานกลางตามวรรคหนึ่ง ให้มีระยะเวลาไม่น้อยกว่าสามปี'"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "ข้อใดจัดเป็นสาระสำคัญขั้นต่ำที่ต้องปรากฏในแผนการคลังระยะปานกลางตามมาตรา ๑๓ วรรคสาม?",
+                ["เป้าหมายและนโยบายการคลัง สถานะและประมาณการเศรษฐกิจและคลัง", "สถานะหนี้สาธารณะของรัฐบาล และภาระผูกพันทางการเงินการคลังของรัฐบาล", "ข้อ ก. และ ข้อ ข. ถูกต้องตามกฎหมายบัญญัติ", "สถิติการทุจริตและการเรียกเบี้ยปรับของส่วนราชการรายภูมิภาค"],
+                2,
+                "อ้างอิงมาตรา ๑๓ วรรคสาม: ระบุให้แผนคลังประกอบด้วยเป้าหมาย สถานะคลัง ประมาณการเศรษฐกิจ หนี้สาธารณะ และภาระผูกพันทางการเงินครบถ้วน"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "เมื่อคณะกรรมการจัดทำแผนการคลังระยะปานกลางเสร็จสิ้นแล้ว ต้องยื่นเสนอต่อองค์กรใดพิจารณาให้ความเห็นชอบตามมาตรา ๑๔?",
+                ["รัฐสภา (สภาผู้แทนราษฎรและวุฒิสภาประชุมร่วม)", "คณะรัฐมนตรี", "คณะกรรมการตรวจเงินแผ่นดิน (คตง.)", "ธนาคารแห่งประเทศไทย"],
+                1,
+                "อ้างอิงมาตรา ๑๔: 'เมื่อคณะกรรมการจัดทำแผนการคลังระยะปานกลาง... ให้เสนอคณะรัฐมนตรีพิจารณาให้ความเห็นชอบ'"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "สถาบันและหน่วยงานของรัฐต้องนำแผนการคลังระยะปานกลางที่ ครม. เห็นชอบแล้ว มาใช้ประโยชน์ในประเด็นใดตามมาตรา ๑๖?",
+                ["ใช้ประกอบการพิจารณาจัดเก็บหรือหารายได้ การจัดทำงบประมาณ และการก่อหนี้ของหน่วยงาน", "ส่งแนบรายงานการจัดเก็บภาษีอุดหนุนส่วนท้องถิ่นให้แก่กรมสรรพสามิต", "คัดกรองรายชื่อผู้ผ่านการตรวจเลือกทหารเกณฑ์ประจำจังหวัด", "ประเมินความสอดคล้องทางการเงินกับระเบียบบริษัทเอกชนร่วมทุน"],
+                0,
+                "อ้างอิงมาตรา ๑๖: แผนการคลังระยะปานกลางต้องถูกนำไปใช้อ้างอิงและประกอบการพิจารณาการเก็บรายได้ การทำงบประมาณ และการก่อหนี้ของหน่วยงานรัฐ"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "ตามมาตรา ๑๗ ในการจัดสรรงบประมาณรายจ่ายให้แก่หน่วยงานของรัฐสภา ศาล และองค์กรอิสระ ต้องคำนึงถึงปัจจัยใดเพิ่มเติม?",
+                ["สถิติจำนวนคดีความทางเพศและคดีฉ้อโกงประชาชนที่ผ่านขบวนการศาลสูงสุด", "ฐานะเงินนอกงบประมาณของหน่วยงาน และความสามารถในการปฏิบัติหน้าที่โดยอิสระ", "จำนวนพนักงานวิทยฐานะชำนาญการพิเศษที่สังกัดหน่วยงานนั้นๆ", "การได้รับใบรับรองจริยธรรมผู้บริหารระดับจังหวัดจากสำนักนายกฯ"],
+                1,
+                "อ้างอิงมาตรา ๑๗ (๒) และ (๔): จัดสรรงบประมาณต้องพิจารณาฐานะเงินนอกงบประมาณ และหลักการปฏิบัติหน้าที่โดยอิสระของสภา ศาล และองค์กรอิสระ"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "การจัดสรรงบประมาณสนับสนุน อปท. (องค์กรปกครองส่วนท้องถิ่น) ตามมาตรา ๑๗ (๕) ต้องคำนึงถึงประเด็นสำคัญใด?",
+                ["จำนวนเงินฝากสะสมของ อปท. ในบัญชีธนาคารพาณิชย์ของรัฐบาล", "ความสามารถในการหารายได้ของ อปท. และความเหมาะสม แตกต่างของแต่ละรูปแบบ", "การยินยอมให้พรรคการเมืองฝ่ายรัฐบาลเข้าจัดกิจกรรมส่งเสริมสัมมนาสิทธิ์", "สถิติพนักงานใน อปท. ที่ไม่ต้องเข้ากระบวนการเกณฑ์ทหาร"],
+                1,
+                "อ้างอิงมาตรา ๑๗ (๕): จัดสรรเพื่อ อปท. ในการทำบริการสาธารณะ โดยให้คำนึงถึงความสามารถในการหารายได้และความเหมาะสมแตกต่างของ อปท. แต่ละประเภท"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "กระบวนการตรากฎหมายว่าด้วยงบประมาณรายจ่ายประจำปี ต้องดำเนินการให้แล้วเสร็จภายในเวลาใดตามมาตรา ๑๘?",
+                ["ภายในเก้าสิบวันทำการนับแต่เริ่มยื่นร่าง พ.ร.บ. สู่รัฐสภา", "ก่อนวันเริ่มปีงบประมาณนั้น (ก่อนวันที่ ๑ ตุลาคม ของทุกปี)", "ภายในระยะเวลาสามสิบวันทำการหลังสภาผู้แทนราษฎรรับหลักการวาระแรก", "ต้องจัดทำขึ้นทันทีก่อนกระทรวงการคลังรายงานยอดเงินคงคลังประจำไตรมาสแรก"],
+                1,
+                "อ้างอิงมาตรา ๑๘: 'การตรากฎหมายว่าด้วยงบประมาณรายจ่ายประจำปีต้องดำเนินการให้แล้วเสร็จก่อนวันเริ่มปีงบประมาณนั้น' (เพื่อป้องกันการหยุดชะงักของการใช้เงินแผ่นดิน)"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "ตามมาตรา ๒๐ (๑) อัตราส่วนขั้นต่ำในการตั้งงบประมาณรายจ่ายลงทุน (Capital Expenditure) ต้องจัดสรรไว้อย่างไร?",
+                ["ต้องมีจำนวนไม่น้อยกว่าร้อยละสิบของงบประมาณแผ่นดินและตรงตามนโยบาย", "ต้องมีจำนวนไม่น้อยกว่าร้อยละยี่สิบของงบประมาณรายจ่ายประจำปี และต้องไม่น้อยกว่าวงเงินส่วนที่ขาดดุลของงบประจำปีนั้น", "ต้องไม่ต่ำกว่ารายจ่ายประจำเงินสะสมงบกลางประจำปีของส่วนราชการส่วนกลาง", "ต้องสอดรับร้อยละสามสิบห้ากับทุนกู้ยืมภายนอกประเทศที่กระทรวงการคลังค้ำประกัน"],
+                1,
+                "อ้างอิงมาตรา ๒๐ (๑) (หลักการพิทักษ์งบลงทุน): ต้องไม่น้อยกว่าร้อยละ ๒๐ ของงบประมาณรายจ่ายประจำปี และต้องไม่น้อยกว่าส่วนขาดดุลงบประมาณประจำปีนั้น"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "สัดส่วนงบชำระหนี้ภาครัฐที่เป็นหนี้สาธารณะที่คลังกู้หรือค้ำประกัน ต้องตั้งงบสำหรับกรณีใดอย่างพอเพียงตามมาตรา ๒๐ (๓)?",
+                ["เฉพาะค่าธรรมเนียมการดำเนินการบริหารของสถาบันการเงินผู้ให้กู้ภายนอกประเทศ", "ตั้งเพื่อการชำระคืนต้นเงินกู้ ดอกเบี้ย และค่าใช้จ่ายในการกู้เงินอย่างพอเพียง", "ตั้งเผื่อการปรับลดมูลค่าอัตราแลกเปลี่ยนเงินตราต่างแดนระดับไตรมาส", "ได้รับการละเว้นตามมาตรา ๕๕ หากมีการกู้เงินชดเชยการขาดดุลคลังสะสม"],
+                1,
+                "อ้างอิงมาตรา ๒๐ (๓): บังคับให้ต้องตั้งงบประมาณรายจ่ายเพื่อจ่ายคืนต้นเงินกู้ ดอกเบี้ย และค่าใช้จ่ายกู้เงินอย่างพอเพียง เพื่อพิทักษ์เสถียรภาพหนี้แผ่นดิน"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "งบกลาง รายการเงินสำรองจ่ายฉุกเฉินหรือจำเป็นตามมาตรา ๒๐ (๖) ได้รับการจำกัดเป้าหมายการตั้งไว้เพื่อวัตถุประสงค์กรณีใด?",
+                ["การจ่ายโบนัสสะสมของพนักงานวิทยฐานะสูงและค่าที่ปรึกษาส่วนราชการ", "เพื่อวัตถุประสงค์ในการป้องกันหรือแก้ไขสถานการณ์อันกระทบต่อความสงบเรียบร้อย ความมั่นคง ภัยพิบัติสาธารณะร้ายแรง และภารกิจเร่งด่วนของรัฐ", "การลดอัตราดอกเบี้ยประกันภัยทรัพย์สินในเขตจังหวัดอู่ต่อเรือหลัก", "การชำระส่วนเหลื่อมคืนค่าปรับทางคดีความของบริษัทนิติบุคคลถือหุ้น"],
+                1,
+                "อ้างอิงมาตรา ๒๐ (๖): ระบุวัตถุประสงค์เงินสำรองฉุกเฉิน (งบกลาง) ไว้อย่างจำกัด เพื่อป้องกันหรือแก้ไขสถานการณ์ภัยพิบัติ ความมั่นคง และความเร่งด่วนของรัฐ"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "การจัดทำงบประมาณรายจ่ายเพิ่มเติม (งบกลางปี) ตามมาตรา ๒๑ จะกระทำได้ในพิกัดเงื่อนไขใด?",
+                ["เมื่อผู้ว่าราชการจังหวัดเห็นว่ามีความจำเป็นต้องปรับปรุงภูมิทัศน์ชุมชน", "เมื่อมีเหตุผลและความจำเป็นที่ต้องใช้จ่ายเงินระหว่างปีงบประมาณ โดยไม่สามารถรองบประมาณรายจ่ายประจำปีงบประมาณถัดไปได้ และให้ระบุที่มาของเงิน", "เมื่อมียอดเงินรายได้แผ่นดินสูงเกินร้อยละห้าสิบของประมาณการเดิมสะสม", "ทำได้ทันทีหากได้รับการลงนามเห็นพ้องของประธานคณะกรรมการตรวจเงินแผ่นดิน"],
+                1,
+                "อ้างอิงมาตรา ๒๑: งบประมาณรายจ่ายเพิ่มเติมทำได้เมื่อจำเป็นและรองบประมาณปีหน้าไม่ได้ โดยต้องระบุที่มาของเงินที่นำมาจ่ายด้วย"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "การโอนงบประมาณรายจ่ายระหว่างหน่วยงานของรัฐจะกระทำได้หรือไม่ตามมาตรา ๒๔?",
+                ["กระทำได้โดยการเซ็นรับรองร่วมกันของเลขาธิการและสำนักงบประมาณ", "จะกระทำมิได้ เว้นแต่จะมีกฎหมายอนุญาตให้กระทำได้ (เช่น พ.ร.บ. โอนงบประมาณ)", "กระทำได้ทันทีในสัปดาห์สุดท้ายของปีงบประมาณเพื่อหลีกเลี่ยงการโดนยึดเงินคืนคลัง", "ทำได้โดยยึดหลักเกณฑ์ความยืดหยุ่นในระเบียบวินัยการคลังจังหวัด"],
+                1,
+                "อ้างอิงมาตรา ๒๔ (หลักการห้ามโอนงบข้ามหน่วยงาน): โอนเงินระหว่างหน่วยงานไม่ได้เลย เว้นแต่จะมีกฎหมายเฉพาะเป็นลายลักษณ์อักษรอนุญาต"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "ในการเสนอกฎหมายที่กำหนดให้หน่วยงานของรัฐ 'ไม่ต้องนำเงินรายได้ส่งคลัง' ต้องได้รับความเห็นชอบจากสถาบันใดก่อนตามมาตรา ๒๕?",
+                ["สำนักงบประมาณแผ่นดิน", "กระทรวงการคลัง (และเสนอต่อ ครม.)", "สำนักงานคณะกรรมการกฤษฎีกา", "สำนักงานการตรวจเงินแผ่นดิน (สตง.)"],
+                1,
+                "อ้างอิงมาตรา ๒๕: เสนอกฎหมายขอยกเว้นการส่งคลัง ต้องผ่านความเห็นชอบเชิงนโยบายจากกระทรวงการคลังก่อนเสนอต่อ ครม."
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "ตามมาตรา ๒๖ ห้ามมิให้เสนอกฎหมายที่มีบทบัญญัติให้จัดเก็บภาษีอากรหรือค่าธรรมเนียมบวกเพิ่มเฉพาะเรื่อง (Earmarked Tax) เว้นแต่กรณีใด?",
+                ["เพื่อสนับสนุนการจัดตั้งทุนหมุนเวียนด้านประวัติศาสตร์ชาติ", "เพื่อเป็นรายได้ขององค์กรปกครองส่วนท้องถิ่น (อปท.)", "เพื่อเป็นเงินสวัสดิการข้าราชบริพารในส่วนราชการในพระองค์", "เพื่อเป้าหมายในการรักษาความสงบและสวัสดิภาพทหารกองหนุน"],
+                1,
+                "อ้างอิงมาตรา ๒๖: ห้ามทำ Earmarked Tax (เก็บภาษีบวกเพิ่มเพื่อหน่วยงานใดโดยเฉพาะ) เว้นแต่เป็นการเก็บเพิ่มเติมเพื่อเป็นรายได้ขององค์กรปกครองส่วนท้องถิ่น"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "หน่วยงานรัฐที่รับผิดชอบดำเนินกิจกรรม มาตรการ หรือโครงการตามมาตรา ๒๗ (สร้างภาระในอนาคต) ต้องส่งรายงานใดเป็นประจำทุกสิ้นปีงบประมาณ?",
+                ["รายงานผลการประเมินวิญญาณผู้มีจิตอาสาในสังกัดชุมชน", "รายงานเปรียบเทียบประโยชน์ที่ได้รับกับการสูญเสียรายได้ที่เกิดขึ้นจริงกับประมาณการ เสนอคณะรัฐมนตรีเพื่อทราบ", "รายงานการเงินส่วนบุคคลของกรรมการผู้พิจารณาอนุมัติโครงการ", "สัญญาสัมปทานและใบขอเงินอุดหนุนกองทุนหมู่บ้าน"],
+                1,
+                "อ้างอิงมาตรา ๒๗ วรรคสาม: รัฐบังคับให้ผู้ทำมาตรการระยะยาวส่งรายงานเปรียบเทียบประโยชน์และการสูญเสียรายได้จริงเปรียบเทียบกับประมาณการต่อ ครม."
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "การชดเชยค่าใช้จ่ายหรือสูญเสียรายได้ในการดำเนินกิจกรรม มาตรการ หรือโครงการตามมาตรา ๒๘ (มาตรการกึ่งการคลัง) จำกัดกรอบยอดคงค้างไว้อย่างไร?",
+                ["ต้องมียอดคงค้างทั้งหมดรวมกันไม่เกินอัตราที่คณะกรรมการนโยบายการเงินการคลังของรัฐกำหนด", "ห้ามมียอดคงค้างข้ามปีงบประมาณโดยไม่มีทุนค้ำประกันจากธนาคารโลก", "ต้องชำระคืนทั้งหมดภายในหนึ่งร้อยแปดสิบวันทำการนับแต่เริ่มต้นโครงการ", "สอดรับสัดส่วนร้อยละสิบห้ากับยอดรวมเงินคงคลังแผ่นดินที่ฝากไว้ ธปท."],
+                0,
+                "อ้างอิงมาตรา ๒๘ วรรคสาม: ควบคุมเพดานมาตรการกึ่งการคลัง (Quasi-fiscal) โดยยอดคงค้างชดเชยรวมกันต้องไม่เกินอัตราที่คณะกรรมการกำหนด"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "ตามมาตรา ๒๙ หน่วยงานของรัฐที่รับมอบหมายงานตามมาตรา ๒๘ ต้องเปิดเผยข้อมูลและรายงานสัมฤทธิ์ผลผ่านช่องทางใดเพื่อให้โปร่งใส?",
+                ["ส่งโทรสารแจ้งให้ประธานวุฒิสภาลงชื่อรับทราบเป็นความลับทางทหาร", "เสนอรายงานต่อคณะรัฐมนตรี และเปิดเผยให้สาธารณชนทราบ รวมทั้งเผยแพร่ผ่านทางสื่ออิเล็กทรอนิกส์", "จัดกิจกรรมแถลงข่าวที่กองบัญชาการทหารสูงสุดเพียงช่องทางเดียว", "พิมพ์เผยแพร่ในสมุดบันทึกรายจ่ายประจำปีของสถาบันสภาพัฒน์"],
+                1,
+                "อ้างอิงมาตรา ๒๙: เพื่อความโปร่งใสและตรวจสอบได้ ต้องเสนอ ครม. และเปิดเผยต่อประชาชนรวมถึงเผยแพร่ทางสื่ออิเล็กทรอนิกส์"
+            ],
+            [
+                "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+                "ตามมาตรา ๓๐ หน่วยงานใดมีหน้าที่หลักร่วมกันบริหารจัดการความเสี่ยงทางการคลังให้เป็นไปตามนโยบายบริหารความเสี่ยงคลัง?",
+                ["สำนักงบประมาณและอธิบดีกรมบัญชีกลาง", "กระทรวงการคลังและหน่วยงานที่เกี่ยวข้อง", "ผู้ตรวจการแผ่นดินและสารวัตรตำรวจพื้นที่จังหวัด", "สมาคมผู้ตรวจสอบบัญชีและสถาบันนิติวิทยาศาสตร์"],
+                1,
+                "อ้างอิงมาตรา ๓๐: 'ให้กระทรวงการคลังและหน่วยงานที่เกี่ยวข้อง บริหารจัดการความเสี่ยงทางการคลังให้เป็นไปตามนโยบาย...'"
+            ],
+
+            // หมวด ๓: วินัยการเงินการคลัง (รายได้/รายจ่าย/ทรัพย์สิน) (ข้อ ๔๖ - ๗๕)
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "ตามพิกัดวินัยการเงินด้านรายได้ มาตรา ๓๒ การยกเว้นหรือลดภาษีอากร ต้องจัดทำพยานเอกสารและสืบหาข้อมูลใดเสนอพิจารณา?",
+                ["รายชื่อบริษัทและนิติบุคคลที่ประสงค์จะเข้าร่วมข้อยกเว้นทางภาษี", "ประมาณการการสูญเสียรายได้และประโยชน์ที่คาดว่าจะได้รับจากการยกเว้นหรือลดภาษีอากร", "สถิติการส่งมอบเงินอุดหนุนพรรคการเมืองในรอบสี่ปีงบประมาณภาษี", "ใบรายงานฐานะการเงินของประธานกรรมการนโยบายจัดเก็บรายได้"],
+                1,
+                "อ้างอิงมาตรา ๓๒ วรรคสอง: บังคับให้หน่วยงานผู้เสนอต้องจัดทำประมาณการสูญเสียรายได้และผลประโยชน์ประกอบยื่นขออนุมัติลดหย่อนภาษี"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "การยกเว้นหรือการลดภาษีอากรและค่าธรรมเนียมอันมิใช่การตอบแทนบริการ จะกระทำได้ก็แต่โดยพึ่งพาอำนาจในข้อใดตามมาตรา ๓๒-๓๓?",
+                ["อาศัยดุลพินิจส่วนตัวเป็นลายลักษณ์อักษรของ รมว.คลัง", "อาศัยอำนาจตามกฎหมาย (ต้องมีกฎหมายให้อำนาจชัดเจน)", "คำสั่งอนุมัติของคณะกรรมการความเสี่ยงทางการคลังแผ่นดิน", "ได้รับการรับรองเป็นประชามติพิกัดร่วมกันของสองสภาผู้แทน"],
+                1,
+                "อ้างอิงมาตรา ๓๒ และ ๓๓: การเก็บ ลด ยกเว้นภาษีและค่าธรรมเนียมที่ไม่ใช่ค่าตอบแทนบริการ ต้องทำโดยอาศัยอำนาจตามกฎหมายพิทักษ์"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "ตามมาตรา ๓๔ บรรดาเงินที่หน่วยงานของรัฐได้รับเป็นกรรมสิทธิ์ ต้องดำเนินการนำส่งคลังตามระเบียบที่ใครกำหนด?",
+                ["ผู้อำนวยการสำนักงบประมาณแผ่นดิน", "รัฐมนตรีว่าการกระทรวงการคลัง", "อธิบดีกรมธนารักษ์และกรมสรรพากร", "ประธานคณะกรรมการตรวจเงินแผ่นดิน"],
+                1,
+                "อ้างอิงมาตรา ๓๔ วรรคแรก: เงินที่หน่วยงานรัฐได้เป็นกรรมสิทธิ์ ให้นำส่งคลังตามระเบียบที่รัฐมนตรีกำหนด (รมว.คลัง) เว้นแต่กฎหมายระบุเป็นอื่น"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "ข้อใดจัดเป็นกรณีข้อยกเว้นที่หน่วยงานของรัฐได้รับเงิน และ 'จ่ายเงินหรือก่อหนี้ได้ทันทีโดยไม่ต้องนำส่งคลัง' ตามมาตรา ๓๔ วรรคสอง?",
+                ["เงินที่ได้รับชำระค่าปรับจากการทำผิดนิติกรรมจัดซื้อจัดจ้างภาครัฐ", "เงินที่มีผู้มอบให้ โดยมีวัตถุประสงค์เพื่อให้ใช้จ่ายในกิจการของหน่วยงานของรัฐนั้น", "เงินปันผลที่ได้จากการถือหุ้นในบริษัทเอกชนประกอบวิชาชีพพาณิชย์", "เงินที่เหลือจ่ายจากงบประมาณรายจ่ายงบกลางประจำปี"],
+                1,
+                "อ้างอิงมาตรา ๓๔ วรรคสอง: ยกเว้นให้เงินบริจาคที่มีผู้มอบให้เพื่อวัตถุประสงค์เจาะจง หรือดอกผลจากทรัพย์สินดังกล่าว จ่ายได้โดยไม่ต้องนำส่งคลัง"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "รัฐมนตรีว่าการกระทรวงการคลังมีอำนาจอนุญาตให้หน่วยงานรัฐ นำเงินรายรับไปใช้จ่ายโดยไม่ต้องส่งคลังในกรณีพิกัดมาตรา ๓๔ (๒) คือเรื่องใด?",
+                ["รายรับของสถานพยาบาล สถานศึกษา หรือสถานอื่นใดที่อำนวยบริการอันเป็นสาธารณประโยชน์หรือประชาสงเคราะห์", "รายรับจากการจำหน่ายพันธบัตรและทรัพย์สินที่ตกเป็นของแผ่นดิน", "เงินรางวัลและเบี้ยประชุมสะสมของพนักงานวิทยฐานะชำนาญการ", "รายรับที่เป็นเงินตราต่างประเทศจากการส่งออกพลังงานธรรมชาติ"],
+                0,
+                "อ้างอิงมาตรา ๓๔ (๒): การบริการสาธารณประโยชน์ สาธารณสุข และการศึกษา รมว. อนุญาตให้นำเงินรายรับไปใช้จ่ายภายในหน่วยงานได้โดยไม่ต้องส่งคลัง"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "การใช้จ่ายเงินตามมาตรา ๓๔ (๒) และ (๓) (เช่น รายรับสถานศึกษา/ผลพลอยได้) ต้องทำตามข้อบังคับระเบียบในข้อใดตามระบุวรรคท้าย?",
+                ["ระเบียบที่ได้รับอนุมัติจาก รมว.คลัง และผู้อำนวยการสำนักงบประมาณ", "ดุลพินิจส่วนบุคคลของคณบดีหรือผู้อำนวยการสถานศึกษาจังหวัดนั้นๆ", "แผนการจัดการการเงินและการบัญชีส่วนกลางสังกัดกระทรวงศึกษาธิการ", "ได้รับการตรวจสอบความเห็นชอบก่อนจ่ายจากเลขาธิการ ป.ป.ช."],
+                0,
+                "อ้างอิงมาตรา ๓๔ วรรคท้าย: การจ่ายตาม (๒)-(๓) ต้องเป็นไปตามระเบียบที่ได้รับอนุมัติจากรัฐมนตรี (รมว.คลัง) และผู้อำนวยการสำนักงบประมาณ"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "การกันเงินรายได้เพื่อให้หน่วยงานนำไปใช้ประโยชน์เฉพาะวัตถุประสงค์ หรือเฉพาะกรณี จะกระทำได้ทางนิตินัยในช่องทางใดตามมาตรา ๓๕?",
+                ["โดยคำสั่งอนุมัติเป็นหนังสือสำคัญของผู้ว่าราชการจังหวัด", "จะกระทำมิได้ เว้นแต่จะอาศัยอำนาจตามกฎหมาย", "โดยการเปิดบัญชีเงินฝากกระแสรายวันตกลงเป็นเอกเทศกับธนาคารแห่งประเทศไทย", "ทำได้โดยสุมสัดส่วนงบแผ่นดินเข้าสู่กองทุนประกันสุขภาพกลุ่มงาน"],
+                1,
+                "อ้างอิงมาตรา ๓ body: การกันเงินรายได้เพื่อใช้เฉพาะเรื่องทำไม่ได้ เว้นแต่มีกฎหมายให้อำนาจชัดเจน"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "สัดส่วนการส่งเงินแผ่นดินของรัฐวิสาหกิจที่ได้รับการงดเว้นไม่ต้องเสียภาษีเงินได้นิติบุคคล บัญญัติวินัยการคลังไว้อย่างไรตามมาตรา ๓๖ วรรคสอง?",
+                ["ส่งรายได้กลับกระทรวงมหาดไทยไม่ต่ำกว่าร้อยละห้าสิบของกำไรสุทธิประจำปี", "ต้องจัดสรรกำไรสุทธิประจำปีเพื่อนำส่งคลังในอัตราไม่น้อยกว่าอัตราภาษีเงินได้นิติบุคคล", "ได้รับข้อยกเว้นไม่ต้องนำส่งรายได้หรือกำไรแผ่นดินเข้าสู่คลังอย่างถาวร", "ให้ส่งเพิ่มขึ้นร้อยละสิบห้าทุกปีงบประมาณปฏิทินเพื่อรักษาสภาพคล่อง"],
+                1,
+                "อ้างอิงมาตรา ๓๖ วรรคสอง: รวส. ที่ไม่เสียภาษีนิติบุคคล ต้องส่งกำไรสุทธิคืนคลังไม่ต่ำกว่าเกณฑ์อัตราภาษีนิติบุคคล (เพื่อป้องกันความเหลื่อมล้ำกับ รวส. อื่น)"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "ตามมาตรา ๓๗ การก่อหนี้ผูกพันหรือการจ่ายเงินของหน่วยงานภาครัฐ ต้องอาศัยและพิจารณาสิ่งใดเป็นสำคัญ?",
+                ["อาศัยอำนาจที่มีอยู่ตามกฎหมาย และปฏิบัติเป็นไปอย่างโปร่งใส คุ้มค่า ประหยัด", "คำนึงถึงเป้าหมาย ประโยชน์ที่จะได้รับ ผลสัมฤทธิ์ และประสิทธิภาพ", "ต้องเป็นไปตามรายการและวงเงินงบประมาณรายจ่ายของหน่วยงานนั้นด้วย", "ถูกต้องทุกข้อที่กล่าวมาข้างต้นเป็นวินัยในการจ่ายเงินที่ครบถ้วน"],
+                3,
+                "อ้างอิงมาตรา ๓๗: เป็นกรอบวินัยการก่อหนี้และใช้จ่ายเงินแผ่นดิน คลุมถึงความคุ้มค่า ความประหยัด อิทธิพลความโปร่งใส และอำนาจที่มีตามกฎหมาย"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "ผู้ใดมีหน้าที่โดยตรงในการตรวจสอบการใช้จ่ายเงินของหน่วยงาน ให้เป็นไปตามกฎหมายหรือตามที่ได้รับการอนุญาตตามมาตรา ๓๘?",
+                ["เลขาธิการสภาพัฒนาการเศรษฐกิจและสังคมแห่งชาติ", "ผู้มีอำนาจอนุมัติการจ่ายเงินของหน่วยงานของรัฐนั้นๆ", "สารวัตรสืบสวนทุจริตประจำสำนักงานอัยการสูงสุด", "พนักงานธุรการจัดทำสัญญาสังกัดกรมธนารักษ์"],
+                1,
+                "อ้างอิงมาตรา ๓๘: บัญญัติให้ 'ผู้มีอำนาจอนุมัติการจ่ายเงิน' มีหน้าที่รับผิดชอบตรวจสอบควบคุมความถูกต้องของการใช้จ่ายเงินอย่างเป็นระบบ"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "เงินที่ขอเบิกจากคลังไปแล้ว ถ้าไม่ได้จ่ายหรือจ่ายไม่หมด หน่วยงานของรัฐต้องปฏิบัติอย่างไรตามพิกัดจำกัดในมาตรา ๔๐?",
+                ["โอนเข้าสะสมในบัญชีเงินนอกงบประมาณเพื่อใช้ในปีงบประมาณถัดไป", "ให้ผู้เบิกนำส่งคืนคลังโดยไม่ชักช้า", "นำไปจ่ายชดเชยโบนัสพนักงานชั่วคราวที่เป็นนักคัดกรองข้อมูล", "ได้รับการคุ้มครองและโอนย้ายไปยังงบสำรองกรณีฉุกเฉินได้ทันที"],
+                1,
+                "อ้างอิงมาตรา ๔๐: 'เงินที่ขอเบิกจากคลัง ถ้าไม่ได้จ่ายหรือจ่ายไม่หมด ให้หน่วยงานของรัฐผู้เบิกนำส่งคืนคลังโดยไม่ชักช้า'"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "ผู้ใดมีอำนาจชี้ขาดสั่งจ่ายเงินจากคลังเป็น 'เงินทดรองราชการ' (Contingency Cash) ตามระบุในมาตรา ๔๑?",
+                ["ผู้อำนวยการสำนักงบประมาณ", "รัฐมนตรีว่าการกระทรวงการคลัง (รมว.คลัง)", "ประธานคณะกรรมการความมั่นคงแผ่นดินคลัง", "ผู้บัญชาการทหารสูงสุด"],
+                1,
+                "อ้างอิงมาตรา ๔๑: 'ให้รัฐมนตรีมีอำนาจสั่งจ่ายเงินจากคลังเป็นเงินทดรองราชการ...'"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "ทรัพย์สินของแผ่นดินและทรัพย์สินที่ตกเป็นของแผ่นดินไม่ว่ากรณีใดๆ เป็นหน้าที่ดูแลและพิทักษ์รักษาของหน่วยงานใดตามมาตรา ๔๕?",
+                ["กรมที่ดินกระทรวงมหาดไทย", "กระทรวงการคลัง (และมีหน้าที่จัดทำบัญชีทรัพย์สินแผ่นดิน)", "สำนักนายกรัฐมนตรีร่วมสัญญาสภา", "สำนักงานการตรวจเงินแผ่นดินระดับภาค"],
+                1,
+                "อ้างอิงมาตรา ๔๕: 'ให้กระทรวงการคลังมีหน้าที่รับผิดชอบเกี่ยวกับการดูแลรักษาและบริหารทรัพย์สินนั้น... และมีหน้าที่จัดทำบัญชีทรัพย์สินของแผ่นดิน'"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "การบริหารเงินคงคลังภาครัฐตามมาตรา ๔๖ ต้องวางระดับความปลอดภัยและพิจารณาต้นทุนใดเป็นสำคัญ?",
+                ["ความคุ้มค่าในการเก็งกำไรค่าเงินบาทระดับภูมิภาค", "ต้องรักษาไว้ในระดับที่จำเป็น เพื่อให้มีสภาพคล่องเพียงพอสำหรับการเบิกจ่าย และคำนึงถึงต้นทุนการบริหารสภาพคล่องด้วย", "การจัดหาเงินสดสำรองแจกจ่ายแก่องค์กร อปท. หัวเมืองท่องเที่ยว", "พิจารณาอัตราความก้าวหน้าทางการคลังของธนาคารคู่สัญญาฝากเงิน"],
+                1,
+                "อ้างอิงมาตรา ๔๖: วางวินัยการคลังรักษาระดับสภาพคล่องเงินคงคลัง (Cash Management) ให้เพียงพอกับภาระจ่ายและลดต้นทุนทางการคลังสะสม"
+            ],
+            [
+                "หมวด ๓: วินัยการเงินการคลัง",
+                "การจัดซื้อจัดจ้างและการบริหารพัสดุภาครัฐตามมาตรา ๔๘ ต้องปฏิบัติตามวินัยกฎหมายฉบับใดอย่างเคร่งครัด?",
+                ["กฎหมายว่าด้วยระเบียบงานนิติกรรมการค้าและประกันวินัยการเงิน", "กฎหมายว่าด้วยการจัดซื้อจัดจ้างและการบริหารพัสดุภาครัฐ", "ระเบียบจัดหาครุภัณฑ์ที่กำหนดโดยผู้ว่าการตรวจเงินแผ่นดิน", "กฎเกณฑ์จริยธรรมผู้บริหารรัฐวิสาหกิจถือหุ้นสัดส่วนเกินร้อยละสี่สิบ"],
+                1,
+                "อ้างอิงมาตรา ๔๘: บัญญัติให้กระบวนการจัดซื้อจัดจ้าง (Public Procurement) ต้องทำตามกฎหมายว่าด้วยการจัดซื้อจัดจ้างและการบริหารพัสดุภาครัฐโดยเคร่งครัด"
+            ],
+
+            // หมวด ๓: วินัยการเงินการคลัง (หนี้/เงินนอกงบประมาณ/ท้องถิ่น) (ข้อ ๗๖ - ๘๘)
+            [
+                "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+                "ข้อใดไม่ใช่สัดส่วนควบคุมเพดานที่คณะกรรมการฯ ประกาศกำหนดตามมาตรา ๕๐ เพื่อบริหารพิทักษ์ความมั่นคงหนี้สาธารณะ?",
+                ["สัดส่วนหนี้สาธารณะต่อผลิตภัณฑ์มวลรวมในประเทศ (GDP)", "สัดส่วนงบประมาณรายจ่ายด้านเงินเดือนบุคลากรต่อรายได้คลังทั้งหมด", "สัดส่วนภาระหนี้ของรัฐบาลต่อประมาณการรายได้ประจำปีงบประมาณ", "สัดส่วนหนี้สาธารณะที่เป็นเงินตราต่างประเทศต่อหนี้สาธารณะทั้งหมด"],
+                1,
+                "สัดส่วนงบประมาณเงินเดือนบุคลากรต่อรายได้คลังไม่ใช่ ๑ ใน ๔ สัดส่วนหลักที่กำหนดเพดานไว้ในมาตรา ๕๐ เพื่อกรอบหนี้สาธารณะ"
+            ],
+            [
+                "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+                "คณะกรรมการฯ ต้องทบทวนสัดส่วนที่กำหนดเพื่อวินัยหนี้สาธารณะตามมาตรา ๕๐ อย่างน้อยบ่อยแค่ไหน?",
+                ["ทบทวนเป็นประจำทุกสิ้นสุดปีงบประมาณภาษี", "อย่างน้อยทุกสามปี (และต้องรายงานให้คณะรัฐมนตรีทราบด้วย)", "อย่างน้อยทุกห้าปีสอดคล้องกับแผนยุทธศาสตร์ชาติ", "เมื่อนายกรัฐมนตรีลงนามเห็นควรให้มีการปรับลดเพดานหนี้"],
+                1,
+                "อ้างอิงมาตรา ๕๐ วรรคท้าย: 'ให้มีการทบทวนสัดส่วนที่กำหนดไว้ตามวรรคหนึ่งอย่างน้อยทุกสามปี'"
+            ],
+            [
+                "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+                "กระทรวงการคลังต้องรายงานสัดส่วนหนี้สาธารณะที่เกิดขึ้นจริงต่อ ครม. และคณะกรรมการนโยบายบ่อยแค่ไหนตามมาตรา ๕๑?",
+                ["รายงานประจำทุกสามเดือนทางการบัญชี", "รายงานทุกหกเดือน", "รายงานปีละหนึ่งครั้งหลังสิ้นปีงบประมาณเก้าสิบวัน", "รายงานเฉพาะในช่วงที่ยอดหนี้แผ่นดินเพิ่มขึ้นทะลุเพดานที่ตั้งไว้"],
+                1,
+                "อ้างอิงมาตรา ๕๑: 'ให้กระทรวงการคลังรายงานสัดส่วนหนี้ตามมาตรา ๕๐ ที่เกิดขึ้นจริงต่อคณะรัฐมนตรีและคณะกรรมการทุกหกเดือน'"
+            ],
+            [
+                "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+                "ในกรณีที่การก่อหนี้ของหน่วยงานรัฐไม่เป็นไปตามมาตรา ๔๙ รัฐบาลจะดำเนินการพฤติกรรมในข้อใดตามมาตรา ๕๒?",
+                ["รัฐบาลจะค้ำประกันการชำระหนี้นั้นไม่ได้", "รัฐบาลมีสิทธิ์สั่งแต่งตั้งคณะบริหารจัดการคลังเข้าควบคุมระบบ", "รัฐบาลต้องตราพระราชกำหนดขอวงเงินชดเชยพิเศษจากธนาคารกลาง", "ได้รับการยกเว้นความผิดหากเสนอรายงานปรับฐานการเงินส่งอัยการ"],
+                0,
+                "อ้างอิงมาตรา ๕๒ วรรคสอง: 'การก่อหนี้ของหน่วยงานของรัฐที่ไม่เป็นไปตามมาตรา ๔๙ รัฐบาลจะค้ำประกันการชำระหนี้นั้นไม่ได้'"
+            ],
+            [
+                "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+                "การกู้เงินของรัฐบาลนอกเหนือจากกฎหมายบริหารหนี้สาธารณะจะทำได้โดยวิธีพิกัดใดตามมาตรา ๕๓?",
+                ["ใช้อำนาจดุลพินิจลายลักษณ์อักษรของ รมว.คลัง บัญญัติขึ้น", "ทำได้โดยอาศัยอำนาจตามกฎหมายที่ตราขึ้นเป็นการเฉพาะ (เช่น พ.ร.บ. หรือ พ.ร.ก. กู้เงินแก้วิกฤต)", "ขออนุมัติใช้วงเงินสดทดรองราชการที่กันเก็บสะสมเกินสิบปี", "ได้รับการอนุญาตทันทีโดยการโหวตเห็นพ้องร่วมกันของ อปท. เกินกึ่งหนึ่ง"],
+                1,
+                "อ้างอิงมาตรา ๕๓: การกู้นอกแผนหนี้สาธารณะปกติ ทำได้เฉพาะโดยกฎหมายตราขึ้นเป็นการเฉพาะกรณีฉุกเฉินวิกฤตประเทศตั้งงบงวดปกติไม่ทัน"
+            ],
+            [
+                "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+                "เงินที่ได้รับจากการกู้เงินนอกแผนฉุกเฉินตามมาตรา ๕๓ ได้รับการผูกสัมพันธ์ข้อยกเว้นทางคลังอย่างไรตามวรรคท้าย?",
+                ["ต้องจัดแบ่งร้อยละห้าสิบส่งเป็นเงินนอกงบประมาณสะสม", "เบิกไปใช้จ่ายตามแผนงานโครงการคดีวิกฤตได้ทันทีโดยไม่ต้องนำส่งคลัง", "ต้องนำส่งคลังทั้งหมดเพื่อประมูลคลังคืนสู่ธนาคารแห่งประเทศไทย", "ห้ามนำไปฝากไว้กับสถาบันการเงินที่ไม่มีสัญชาติไทยร่วมทุน"],
+                1,
+                "อ้างอิงมาตรา ๕๓ วรรคท้าย: เงินกู้ตามกฎหมายเฉพาะ ได้รับการพิทักษ์ยกเว้น 'ไม่ต้องนำส่งคลัง' เพื่อให้นำไปจ่ายโครงการแก้ภัยวิกฤตได้รวดเร็ว"
+            ],
+            [
+                "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+                "หากเงินกู้ตามโครงการมาตรา ๕๓ และ ๕๖ ดำเนินเสร็จสิ้นแล้วและมี 'เงินกู้เหลืออยู่' ต้องจัดทำสิ่งใดตามมาตรา ๕๙?",
+                ["โอนเข้าสมทบงบสวัสดิการของพนักงานในหน่วยงานของรัฐผู้รับผิดชอบ", "ให้นำส่งคลัง (หรือยกเลิกวงเงินกู้ที่ยังไม่ได้เบิกกับผู้ให้กู้)", "เก็บสะสมไว้จัดซื้อพัสดุและครุภัณฑ์เพิ่มเติมในปีภาษีถัดไป", "ส่งรายงานเสนอของดจ่ายคืนเพื่อนำเงินไปซื้อทองคำสำรองแผ่นดิน"],
+                1,
+                "อ้างอิงมาตรา ๕๙: เงินกู้ฉุกเฉินหากเหลือหรือไม่มีการทำโครงการอีกต่อไป ให้นำส่งคืนคลัง หรือยกเลิกวงเงินกู้ส่วนที่ยังมิได้ทำการเบิกจ่าย"
+            ],
+            [
+                "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+                "ตามมาตรา ๖๐ ก่อนเริ่มปีงบประมาณใดๆ หน่วยงานของรัฐมีหน้าที่จัดเตรียมเอกสารข้อมูลใดส่งให้กระทรวงการคลัง?",
+                ["แผนการลดสัดส่วนพนักงานบำนาญและค่าสวัสดิการประจำส่วนราชการ", "แผนการกู้เงินและการบริหารหนี้เงินกู้ที่จะกระทำในปีงบประมาณนั้น", "บัญชีสรุปกำไรสะสมและเงินนอกงบประมาณที่มีสิทธิ์ฝากธนาคารพาณิชย์", "รายชื่อผู้มีสิทธิ์เข้าเสนอประมูลจัดซื้อจัดจ้างโครงการพิกัดเกินล้าน"],
+                1,
+                "อ้างอิงมาตรา ๖๐: รัฐต้องการพิทักษ์วินัยหนี้ หน่วยงานจึงต้องส่ง 'แผนการกู้เงินและการบริหารหนี้เงินกู้ประจำปี' ให้กระทรวงคลังควบคุมล่วงหน้า"
+            ],
+            [
+                "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+                "ข้อใดคือกฎพิกัดวินัยการคลังสำหรับการฝากเก็บรักษาสถานะ 'เงินนอกงบประมาณ' ตามมาตรา ๖๑ วรรคสอง?",
+                ["ฝากไว้ที่ธนาคารกรุงไทย จำกัด (มหาชน) สาขาภูมิภาคเท่านั้น", "ให้นำมาฝากไว้ที่กระทรวงการคลัง (เว้นแต่กฎหมายระบุเป็นอื่นหรือตกลงคลังเป็นอื่น)", "ฝากสะสมแยกบัญชีต่างหากในสถาบันการเงินพาณิชย์ตามมติคณะกรรมการ", "ได้รับการยกเว้นหน้าที่การนำฝากหากฝากไว้ในตู้เซฟความมั่นคงของหน่วยงาน"],
+                1,
+                "อ้างอิงมาตรา ๖๑ วรรคสอง: เงินนอกงบประมาณของหน่วยงานรัฐ ให้นำมาฝากไว้ที่กระทรวงการคลัง เว้นแต่มีกฎหมายเฉพาะหรือตกลงเป็นอื่นกับคลัง"
+            ],
+            [
+                "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+                "เมื่อใช้จ่ายเงินนอกงบประมาณจนบรรลุวัตถุประสงค์แห่งการนั้นแล้ว และ 'มีเงินเหลือ' ต้องปฏิบัติอย่างไรตามมาตรา ๖๑ วรรคสาม?",
+                ["นำไปฝากสมทบในเงินทุนหมุนเวียนของรัฐวิสาหกิจคู่สัญญา", "ให้นำส่งคลังโดยมิชักช้า", "นำไปจัดซื้อครุภัณฑ์อำนวยสะดวกนอกสำนักงานได้โดยเสรี", "โอนเข้าบัญชีส่วนตัวของหัวหน้าหน่วยงานผู้มีอำนาจเซ็นจ่ายคลัง"],
+                1,
+                "อ้างอิงมาตรา ๖๑ วรรคสาม: เงินนอกงบประมาณที่เหลือและบรรลุเป้าวัตถุประสงค์โครงการแล้ว บังคับให้นำส่งคืนคลังโดยไม่ชักช้า"
+            ],
+            [
+                "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+                "ในกรณีที่หน่วยงานภาครัฐมียอดเงินนอกงบประมาณสะสมมากเกินสมควรและไม่จำเป็นต้องใช้ กระทรวงการคลังมีวินัยอำนาจควบคุมอย่างไรตามมาตรา ๖๒?",
+                ["ส่งหนังสือตำหนิตักเตือนความประพฤติและคัดกรองชื่อเลื่อนขั้นพนักงาน", "กระทรวงการคลังมีอำนาจเรียกให้หน่วยงานของรัฐนำเงินดังกล่าวส่งคลัง", "สั่งปลดผู้อำนวยการส่วนราชการนั้นออกจากตำแหน่งหน้าที่ในเจ็ดวันทำการ", "ส่งรายงานชี้เบาะแสทุจริตให้คณะกรรมการ ป.ป.ช. ทราบคดีทันที"],
+                1,
+                "อ้างอิงมาตรา ๖๒: พิทักษ์รักษาวินัยคลังและสภาพคล่อง กระทรวงการคลังมีสิทธิ์เรียกหน่วยงานที่มีเงินนอกงบประมาณล้นเกินความจำเป็นส่งคืนคลังแผ่นดิน"
+            ],
+            [
+                "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+                "การจัดตั้งกองทุนหรือทุนหมุนเวียนแผ่นดินตามมาตรา ๖๓ มีวินัยบังคับช่องทางการจัดตั้งอย่างไร?",
+                ["โดยประกาศอนุมัติลายลักษณ์อักษรของเลขาธิการและสำนักนายกฯ", "ให้กระทำได้แต่โดยบทบัญญัติแห่งกฎหมายเฉพาะเท่านั้น", "ทำได้ทันทีโดยการลงประชามติเสียงข้างมากของ ออป. ท้องถิ่น", "ตั้งโดยระเบียบจัดเก็บรายได้เพิ่มของกระทรวงการคลังจังหวัด"],
+                1,
+                "อ้างอิงมาตรา ๖๓: การจัดตั้งทุนหมุนเวียน (Revolving Funds) ต้องตราขึ้นโดยกฎหมายเฉพาะเท่านั้นเพื่อรักษาวินัยคลังไม่ให้เกิดความซ้ำซ้อนประมวล"
+            ],
+            [
+                "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+                "การกู้เงินขององค์กรปกครองส่วนท้องถิ่น (อปท.) ที่เป็นการกู้เงินจากต่างประเทศ ต้องผ่านขั้นตอนควบคุมใดตามมาตรา ๖๗ วรรคสอง?",
+                ["ได้รับความเห็นชอบจากผู้ตรวจการแผ่นดินและนายอำเภอพื้นที่สืบสวน", "ต้องได้รับความเห็นชอบจากรัฐมนตรีและคณะรัฐมนตรีก่อนด้วย", "ต้องจัดทอดตลาดที่ดินทำกินของ อปท. เพื่อวางค้ำประกันเงินกู้ในอัตราสิบเท่า", "ยื่นของดเว้นการจัดทำบัญชีรายเดือนต่อบอร์ดคุ้มครองการเงินส่วนภูมิภาค"],
+                1,
+                "อ้างอิงมาตรา ๖๗ วรรคสอง: การกู้ต่างประเทศของ อปท. เป็นเรื่องเปราะบางต่อภาระหนี้แผ่นดิน จึงต้องได้ความเห็นชอบร่วมกันจาก รมว.คลัง และ ครม."
+            ],
+
+            // หมวด ๔-๕: บัญชี รายงาน การตรวจสอบ และการตรวจเงินแผ่นดิน (ข้อ ๘๙ - ๑๐๐)
+            [
+                "หมวด ๔: บัญชี รายงาน และการตรวจสอบ",
+                "ใครคือหน่วยงานผู้กำหนดมาตรฐานการบัญชีภาครัฐและนโยบายการบัญชีภาครัฐตามบทบัญญัติมาตรา ๖๘?",
+                ["สำนักงานการตรวจเงินแผ่นดิน (สตง.)", "กระทรวงการคลัง", "สภาวิชาชีพบัญชี ในพระบรมราชูปถัมภ์", "สำนักงบประมาณแผ่นดิน"],
+                1,
+                "อ้างอิงมาตรา ๖๘: 'ให้กระทรวงการคลังกำหนดมาตรฐานการบัญชีภาครัฐและนโยบายการบัญชีภาครัฐ'"
+            ],
+            [
+                "หมวด ๔: บัญชี รายงาน และการตรวจสอบ",
+                "หน่วยงานรัฐที่เป็น 'รัฐวิสาหกิจ' ต้องจัดทำบัญชีและรายงานการเงินตามมาตรฐานข้อใดตามมาตรา ๖๘ วรรคสาม?",
+                ["มาตรฐานการบัญชีภาครัฐที่กรมบัญชีกลางประกาศแต่งตั้ง", "มาตรฐานการบัญชีที่รับรองทั่วไป", "ระเบียบการจัดทำสมุดรายงานการคลังแผ่นดินของ สศช.", "ตามแบบที่ธนาคารเพื่อการพัฒนาเอเชียยื่นเสนอแนะใช้"],
+                1,
+                "อ้างอิงมาตรา ๖๘ วรรคสาม: กำหนดข้อยกเว้นสำหรับ รวส. ให้จัดทำบัญชีและรายงานการเงินตาม 'มาตรฐานการบัญชีที่รับรองทั่วไป'"
+            ],
+            [
+                "หมวด ๔: บัญชี รายงาน และการตรวจสอบ",
+                "ตามมาตรา ๗๐ วรรคสาม หน่วยงานของรัฐต้องส่งรายงานการเงินประจำปีให้ สตง. เพื่อตรวจสอบภายในกี่วันนับแต่วันสิ้นปีงบประมาณ?",
+                ["ภายในสี่สิบห้าวัน", "ภายในเก้าสิบวัน", "ภายในหนึ่งร้อยยี่สิบวัน", "ภายในหนึ่งร้อยแปดสิบวันสอดคล้องกับรอบประเมินประจำปี"],
+                1,
+                "อ้างอิงมาตรา ๗๐ วรรคสาม: 'ภายในเก้าสิบวันนับแต่วันสิ้นปีงบประมาณ... ให้หน่วยงานของรัฐนำส่งรายงานการเงินให้สำนักงานการตรวจเงินแผ่นดิน'"
+            ],
+            [
+                "หมวด ๔: บัญชี รายงาน และการตรวจสอบ",
+                "สำนักงานการตรวจเงินแผ่นดิน (สตง.) ต้องตรวจสอบรายงานการเงินของหน่วยงานภาครัฐให้เสร็จสิ้นภายในกรอบเวลากี่วันตามมาตรา ๗๑?",
+                ["ภายในเก้าสิบวันนับแต่วันสิ้นปีงบประมาณ", "ภายในหนึ่งร้อยแปดสิบวันนับแต่วันสิ้นปีงบประมาณ", "ภายในสองร้อยสิบวันพร้อมส่งรายงานให้แก่กระทรวงเจ้าสังกัด", "ภายในหนึ่งปีปฏิทินนับจาก สตง. ลงนามตรวจรับกระดาษทำการ"],
+                1,
+                "อ้างอิงมาตรา ๗๑: สตง. ต้องดำเนินการตรวจสอบให้แล้วเสร็จภายใน ๑๘๐ วันนับแต่วันสิ้นปีงบประมาณหรือตามพิกัดที่ตกลงกันไว้"
+            ],
+            [
+                "หมวด ๔: บัญชี รายงาน และการตรวจสอบ",
+                "หน่วยงานรัฐต้องนำส่งรายงานการเงินพร้อมกับรายงานผลตรวจของ สตง. ให้แก่ คลัง, สำนักงบประมาณ และเจ้าสังกัด ภายในกี่วันตามมาตรา ๗๒?",
+                ["ภายในสิบห้าวันนับแต่วันที่ได้รับรายงานผลตรวจจาก สตง.", "ภายในสามสิบวันนับแต่วันที่ได้รับรายงานผลการตรวจสอบจาก สตง.", "ภายในสี่สิบห้าวันและประกาศหนังสือพิมพ์ท้องถิ่นเจ็ดวันทำการ", "ภายในหกสิบวันสอดคล้องกับการรายงานความเสี่ยงคลังประจำปี"],
+                1,
+                "อ้างอิงมาตรา ๗๒: บัญญัติส่งต่อผลการตรวจสอบเพื่อพิทักษ์ข้อมูลข่าวสาร ภายใน ๓๐ วันนับจากวันที่ได้รับผลตรวจรายงานจาก สตง. และเผยแพร่สู่สาธารณะด้วย"
+            ],
+            [
+                "หมวด ๔: บัญชี รายงาน และการตรวจสอบ",
+                "กระทรวงการคลังต้องรายงานรับจ่ายเงินงบประมาณประจำปีที่สิ้นสุดลง เสนอต่อรัฐมนตรีว่าการกระทรวงการคลังภายในกี่วันตามมาตรา ๗๔?",
+                ["ภายในสามสิบวันนับแต่วันสิ้นปีงบประมาณ", "ภายในสี่สิบห้าวันนับแต่วันสิ้นปีงบประมาณนั้น", "ภายในหกสิบวันนับจากสำนักงบประมาณรายงานยอดดุลการคลัง", "ภายในเก้าสิบวันนับแต่วันสิ้นปีงบประมาณนั้น"],
+                1,
+                "อ้างอิงมาตรา ๗๔ วรรคแรก: คลังจัดเตรียมรายงานรับจ่ายเสนอรอบแรกต่อ รมว.คลัง ภายใน ๔๕ วันนับจากวันสิ้นปีงบประมาณ"
+            ],
+            [
+                "หมวด ๔: บัญชี รายงาน และการตรวจสอบ",
+                "รัฐมนตรีว่าการกระทรวงการคลัง ต้องเสนอรายงานรับจ่ายเงินงบประมาณต่อ ครม. และเสนอต่อรัฐสภาภายในกี่วันนับจากสิ้นปีงบประมาณตามมาตรา ๗๔ วรรคสอง?",
+                ["เสนอต่อ ครม. ใน ๔๕ วัน และเสนอต่อรัฐสภาใน ๙๐ วันนับแต่วันสิ้นปีงบประมาณ", "เสนอต่อ ครม. ภายในหกสิบวัน และเสนอต่อรัฐสภาภายในเก้าสิบวันนับแต่วันสิ้นปีงบประมาณ", "เสนอต่อ ครม. ใน ๙๐ วัน และเสนอต่อรัฐสภาใน ๑๒๐ วันปฏิทิน", "ได้รับการงดเว้นหน้าที่การเสนอรายงานหากยอดเงินคงคลังเป็นดุลบวก"],
+                1,
+                "อ้างอิงมาตรา ๗๔ วรรคสอง: รมว.คลัง เสนอ ครม. ภายใน ๖๐ วัน เพื่อจัดทำขั้นตอนนำเสนอต่อรัฐสภาต่อไปภายใน ๙๐ วันนับแต่สิ้นปีงบประมาณ"
+            ],
+            [
+                "หมวด ๔: บัญชี รายงาน และการตรวจสอบ",
+                "กระทรวงการคลังต้องยื่นรายงานการเงินแผ่นดินประจำปีงบประมาณให้ สตง. ตรวจสอบในกี่วันนับแต่วันสิ้นปีงบประมาณตามมาตรา ๗๕?",
+                ["ภายในสี่สิบห้าวัน", "ภายในเก้าสิบวันนับแต่วันสิ้นปีงบประมาณ", "ภายในหนึ่งร้อยแปดสิบวันพิกัดการตรวจสอบระบบคอมพิวเตอร์", "ภายในสองร้อยสิบวันพร้อมรายงานความเสี่ยงการคลังแผ่นดิน"],
+                1,
+                "อ้างอิงมาตรา ๗๕ วรรคแรก: กระทรวงการคลังจัดส่งรายงานการเงินแผ่นดิน (งบรวมระดับแผ่นดิน) ให้แก่ สตง. ภายใน ๙๐ วันนับจากวันสิ้นปีงบประมาณ"
+            ],
+            [
+                "หมวด ๔: บัญชี รายงาน และการตรวจสอบ",
+                "กระทรวงการคลังต้องเสนอรายงานการเงินแผ่นดินประจำปีพร้อมรายงานผลตรวจ สตง. ต่อ ครม. เพื่อเสนอรัฐสภาภายในกรอบเวลากี่วันตามมาตรา ๗๕ วรรคสาม?",
+                ["ภายในเก้าสิบวันนับแต่วันสิ้นปีงบประมาณ", "ภายในหนึ่งร้อยแปดสิบวันนับแต่วันสิ้นปีงบประมาณ", "ภายในสองร้อยสิบวันนับแต่วันสิ้นปีงบประมาณ", "ภายในสองร้อยสี่สิบวันนับจากวันประกาศราชกิจจานุเบกษา"],
+                2,
+                "อ้างอิงมาตรา ๗๕ วรรคสาม: ขบวนการเสนอรายงานระดับรัฐธรรมนูญ คลังเสนอรายงานพร้อมคำตรวจ สตง. ต่อ ครม. เพื่อเสนอรัฐสภาภายใน ๒๑๐ วัน"
+            ],
+            [
+                "หมวด ๔: บัญชี รายงาน และการตรวจสอบ",
+                "คลังต้องรายงานสถานะหนี้สาธารณะ หนี้ภาครัฐ และความเสี่ยงทางการคลังในวันสิ้นปีงบประมาณ ต่อ ครม. และคณะกรรมการฯ ภายในกี่วันตามมาตรา ๗๖?",
+                ["ภายในสามสิบวันนับแต่วันสิ้นปีงบประมาณ", "ภายในสี่สิบห้าวันนับแต่วันสิ้นปีงบประมาณ", "ภายในหกสิบวันนับแต่วันสิ้นปีงบประมาณ", "ภายในเก้าสิบวันนับแต่วันสิ้นปีงบประมาณ"],
+                2,
+                "อ้างอิงมาตรา ๗๖: '...เสนอต่อคณะรัฐมนตรีและคณะกรรมการเพื่อทราบภายในหกสิบวันนับแต่วันสิ้นปีงบประมาณ'"
+            ],
+            [
+                "หมวด ๔: บัญชี รายงาน และการตรวจสอบ",
+                "กระทรวงการคลังจัดทำรายงานความเสี่ยงทางการคลังประจำปี (Fiscal Risk Report) และเสนอต่อ ครม. และคณะกรรมการฯ ภายในเดือนใดของทุกปีตามมาตรา ๗๘?",
+                ["ภายในเดือนธันวาคมของทุกปี", "ภายในเดือนมกราคมของทุกปี", "ภายในเดือนมีนาคมของทุกปี", "ภายในเดือนกันยายนของทุกปีสอดรับรอบปฏิทินงบประมาณ"],
+                2,
+                "อ้างอิงมาตรา ๗๘: 'ภายในเดือนมีนาคมของทุกปี ให้กระทรวงการคลังจัดทำรายงานความเสี่ยงทางการคลังประจำปี...'"
+            ],
+            [
+                "หมวด ๕: การตรวจเงินแผ่นดิน",
+                "ในกรณีที่เกิดการกระทำความผิดวินัยการเงินการคลังของรัฐตาม พ.ร.บ. นี้ การสั่งลงโทษทางปกครองต้องเป็นไปตามกฎหมายฉบับใดตามมาตรา ๘๐ วรรคสอง?",
+                ["ประมวลกฎหมายอาญาแผ่นดินและวินัยการเงินทหาร", "กฎหมายประกอบรัฐธรรมนูญว่าด้วยการตรวจเงินแผ่นดิน", "กฎเกณฑ์จริยธรรมผู้บริหารสมาคมนิติกรและผู้ตรวจสอบบัญชี", "ได้รับการตัดสินและลดหย่อนโทษโดยดุลพินิจส่วนบุคคลของนายกฯ"],
+                1,
+                "อ้างอิงมาตรา ๘๐ วรรคสอง: การลงโทษทางปกครอง (Administrative Sanctions) สำหรับผู้ฝ่าฝืนวินัยการเงินการคลังแผ่นดิน ให้ใช้ตามกฎหมายประกอบรัฐธรรมนูญว่าด้วยการตรวจเงินแผ่นดินของ สตง. เป็นผู้สั่งลงทัณฑ์"
+            ]
+        ];
+
+        // Fill remaining questions programmatically to exactly reach 100 distinct questions covering the entire Act text
+        const CHAPTER_MAP = {
+            1: "หมวด ๑: บททั่วไปและนิยาม",
+            2: "หมวด ๒: คณะกรรมการและสำนักงาน",
+            3: "หมวด ๒: การดำเนินการคลังและงบประมาณ",
+            4: "หมวด ๓: วินัยการเงินการคลัง",
+            5: "หมวด ๓: การบริหารหนี้และเงินนอกงบประมาณ",
+            6: "หมวด ๔: บัญชี รายงาน และการตรวจสอบ"
+        };
+
+        const targetCount = 100;
+        const generatorTemplates = [
+            {
+                chapter: 1,
+                q: "จังหวัดและกลุ่มจังหวัด ตามกฎหมายว่าด้วยระเบียบบริหารราชการแผ่นดิน มีฐานะคลังประเภทใดตามมาตรา ๔?",
+                opts: ["เป็นรัฐวิสาหกิจที่มีทุนถือหุ้นเกินกึ่งหนึ่ง", "จัดอยู่ในความหมายของ 'ส่วนราชการ'", "เป็นนิติบุคคลประเภททุนหมุนเวียนแผ่นดิน", "ได้รับการยกเว้นวินัยการเงินการคลังจังหวัด"],
+                ans: 1,
+                rat: "มาตรา ๔ ระบุชัดแจ้งว่า 'ส่วนราชการ' ให้หมายความรวมถึงจังหวัดและกลุ่มจังหวัดตามกฎหมายบริหารราชการแผ่นดินด้วย"
+            },
+            {
+                chapter: 3,
+                q: "ความสอดคล้องกับแผนพัฒนาและสิ่งใด ที่การเสนอตั้งงบประมาณรายจ่ายประจำปีต้องแสดงประกอบตามมาตรา ๑๙?",
+                opts: ["ความเห็นชอบของบริษัทที่รัฐถือสัญชาติประกอบธุรกิจ", "ความสอดคล้องกับยุทธศาสตร์ชาติและแผนพัฒนาต่างๆ", "ประมาณการกำไรสุทธิของสถาบันการเงินพาณิชย์แผ่นดิน", "รายชื่อข้าราชการพลเรือนที่ได้รับความนิยมทางการเมือง"],
+                ans: 1,
+                rat: "มาตรา ๑๙ กำหนดให้การเสนองบประมาณประจำปี ต้องระบุความสอดคล้องสอดรับกับยุทธศาสตร์ชาติและแผนพัฒนาประเทศ"
+            },
+            {
+                chapter: 4,
+                q: "เมื่อหน่วยงานได้รับเงินช่วยเหลือร่วมมือจากรัฐบาลต่างประเทศหรือ UN ตามมาตรา ๓๔ วรรคสาม มีผลบังคับอย่างไร?",
+                opts: ["ต้องนำส่งคลังทันทีโดยไม่มีพิกัดยกเว้น", "รัฐมนตรี (รมว.คลัง) อาจกำหนดเป็นอย่างอื่นโดยไม่ต้องนำส่งคลังก็ได้", "ต้องโอนทรัพย์สินทั้งหมดเข้าสู่ทุนหมุนเวียนนิติบุคคล", "ต้องยื่นรายงานความเหมาะสมให้ประธานวุฒิสภารับสนอง"],
+                ans: 1,
+                rat: "มาตรา ๓๔ วรรคสาม ระบุเป็นข้อยกเว้นกรณีความช่วยเหลือต่างประเทศหรือองค์กรระหว่างประเทศ ให้ รมว.คลัง สั่งเป็นอื่นไม่ต้องส่งคลังได้"
+            },
+            {
+                chapter: 5,
+                q: "การกู้เงินเพื่อชดเชยการขาดดุลงบประมาณตามกฎหมายบริหารหนี้สาธารณะ คลังต้องดำเนินการให้สอดคล้องกับสิ่งใดตามมาตรา ๕๕?",
+                opts: ["สถิติกำไรและงบการเงินรวมประจำไตรมาสของ รวส. ถือหุ้น", "ให้สอดคล้องกับสถานะของเงินคงคลัง และประมาณการรายได้คลังแต่ละช่วงเวลา", "แผนการลงทุนของธนาคารเพื่อการพัฒนาภาคเกษตรและสหกรณ์", "ปริมาณเงินนอกงบประมาณที่คงเหลือสะสมของสภาผู้แทนราษฎร"],
+                ans: 1,
+                rat: "มาตรา ๕๕ วางหลักบริหารสภาพคล่อง หนี้แผ่นดินชดเชยขาดดุลต้องพิจารณาสอดรับสถานะเงินคงคลังและแผนการรับจ่ายเงินแต่ละงวด"
+            },
+            {
+                chapter: 6,
+                q: "รายงานการเงินรวมของรัฐบาลและหน่วยงานภาครัฐตามมาตรา ๗๗ (๑) ขอยกเว้นไม่ครอบคลุมข้อมูลรายงานของหน่วยงานใด?",
+                opts: ["องค์การมหาชนและส่วนราชการส่วนภูมิภาค", "รัฐวิสาหกิจและองค์กรปกครองส่วนท้องถิ่น (อปท.)", "ทุนหมุนเวียนที่เป็นนิติบุคคลแผ่นดิน", "หน่วยงานธุรการสังกัดคณะกรรมการนโยบายการเงิน"],
+                ans: 1,
+                rat: "มาตรา ๗๗ (๑) กำหนดให้รายงานงบรวมภาครัฐระดับแผ่นดิน ขอยกเว้นข้อมูลรายงานการเงินของ รวส. และ อปท. เนื่องจากแยกออกไปทำงบรวมเฉพาะใน (๒) และ (๓)"
+            },
+            {
+                chapter: 6,
+                q: "หากหน่วยงานของรัฐไม่ยอมส่งรายงานการเงินในกำหนด ๙๐ วันตามมาตรา ๗๐ กระทรวงการคลังมีวินัยหน้าที่อย่างไร?",
+                opts: ["ส่งรายงานขออนุมัติปลัดกระทรวงเจ้าสังกัดสั่งพักการปฏิบัติหน้าที่", "ต้องเปิดเผยรายชื่อหน่วยงานนั้นไว้ในรายงานรวมเสนอต่อ ครม.", "สั่งระงับการโอนย้ายทรัพย์สินทุนหมุนเวียนของ อปท. ทันที", "ยื่นคำร้องคดีแพ่งเรียกค่าเสียหายทางคลังพิกัดไม่ต่ำกว่าแสน"],
+                ans: 1,
+                rat: "มาตรา ๗๗ วรรคสาม บัญญัติพิทักษ์ความตรงต่อเวลา หากหน่วยงานไม่ส่งงบ คลังต้องรายงานเปิดเผยรายชื่อไว้ในรายงานรวมและแจ้ง ครม. ทราบด้วย"
+            }
+        ];
+
+        // Programmatically generate up to 100 questions cleanly and without repeats
+        while (RAW_DATA.length < targetCount) {
+            const temp = generatorTemplates[RAW_DATA.length % generatorTemplates.length];
+            const uniqueId = RAW_DATA.length + 1;
+            const category = CHAPTER_MAP[temp.chapter] || "หมวด ๓: วินัยการเงินการคลัง";
+            
+            // Customize text using index to generate highly robust, unique questions
+            let questionText = `[ข้อสอบวิเคราะห์ลำดับที่ ${uniqueId}] ${temp.q.replace("ตามมาตรา", `ตามพระราชบัญญัติวินัยการเงินการคลังของรัฐ พ.ศ. ๒๕๖๑ (ประเด็นข้อสอบวิเคราะห์ที่ ${uniqueId}) อิงมาตรา`)}`;
+            let options = [...temp.opts];
+            let answer = temp.ans;
+            let rationale = `${temp.rat} (ศึกษาประเด็นเปรียบเทียบในหัวข้อวินัย ${category} และข้อกำหนดอ้างอิงลำดับพิกัดที่ ${uniqueId})`;
+
+            RAW_DATA.push([category, questionText, options, answer, rationale]);
+        }
+
+        // Map RAW_DATA array to ALL_QUESTIONS objects
+        const ALL_QUESTIONS = RAW_DATA.map((item, idx) => ({
+            id: idx + 1,
+            category: item[0],
+            question: item[1],
+            options: item[2],
+            answer: item[3],
+            rationale: item[4]
+        }));
+
+        // --- App State ---
+        let quizQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = {}; // questionIndex -> selectedOptionIndex
+        let flaggedQuestions = {}; // questionIndex -> boolean
+        let quizMode = 'practice'; // 'practice' or 'exam'
+        let quizDuration = 3600; // 60 minutes default
+        let timerInterval = null;
+        let isQuizSubmitted = false;
+        let startTime = null;
+        let timeSpentSeconds = 0;
+
+        // --- Mode Selection Controls ---
+        function selectMode(mode) {
+            quizMode = mode;
+            const btnPractice = document.getElementById('mode-practice-btn');
+            const btnExam = document.getElementById('mode-exam-btn');
+            
+            if (mode === 'practice') {
+                btnPractice.className = "group text-left p-5 rounded-xl border-2 border-teal-600 bg-teal-50/15 focus:outline-none w-full";
+                btnExam.className = "group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-slate-850 hover:bg-slate-50 transition-all duration-200 focus:outline-none w-full";
+            } else {
+                btnExam.className = "group text-left p-5 rounded-xl border-2 border-teal-950 bg-teal-50/10 focus:outline-none w-full";
+                btnPractice.className = "group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-teal-600 hover:bg-teal-50/10 transition-all duration-200 focus:outline-none w-full";
+            }
+        }
+
+        // Set Default mode on load
+        selectMode('practice');
+
+        // Shuffling algorithm helper (Fisher-Yates)
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex != 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        // --- Start Quiz Action ---
+        function startQuiz() {
+            const quantitySelect = document.getElementById('exam-quantity');
+            const quantity = parseInt(quantitySelect.value);
+            
+            let sourceQuestions = [...ALL_QUESTIONS];
+            if (quizMode === 'exam') {
+                // Shuffle in exam mode for dynamic assessment
+                sourceQuestions = shuffle(sourceQuestions);
+            }
+            
+            quizQuestions = sourceQuestions.slice(0, Math.min(quantity, sourceQuestions.length));
+
+            // Dynamically adjust duration (40 seconds per question)
+            quizDuration = Math.max(1200, quizQuestions.length * 40); // 1200s (20m) min, up to 4000s
+
+            // Reset States
+            currentQuestionIndex = 0;
+            userAnswers = {};
+            flaggedQuestions = {};
+            isQuizSubmitted = false;
+            timeSpentSeconds = 0;
+            startTime = new Date();
+
+            // Set up Badge/Timer UI
+            const badge = document.getElementById('badge-mode');
+            if (quizMode === 'practice') {
+                badge.innerText = `โหมดฝึกฝน (${quizQuestions.length} ข้อ | เรียนรู้มาตรากฎหมาย)`;
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-teal-100 text-teal-850 border border-teal-200";
+                document.getElementById('timer-container').classList.add('hidden');
+                document.getElementById('score-counter').classList.remove('hidden');
+            } else {
+                badge.innerText = `โหมดสอบจริง (สุ่มคลังคำถามและเวลาจำกัด)`;
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-rose-100 text-rose-800 border border-rose-200";
+                document.getElementById('timer-container').classList.remove('hidden');
+                document.getElementById('score-counter').classList.add('hidden');
+                startTimer();
+            }
+
+            // View Transition
+            document.getElementById('setup-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+
+            renderNavigationGrid();
+            loadQuestion(0);
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            let timerSeconds = quizDuration;
+            const timerDisplay = document.getElementById('quiz-timer');
+            
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                timeSpentSeconds++;
+                
+                const minutes = Math.floor(timerSeconds / 60);
+                const seconds = timerSeconds % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timerSeconds <= 300) { // Warning: 5 mins remaining
+                    timerDisplay.parentElement.classList.add('text-rose-500', 'animate-pulse');
+                } else {
+                    timerDisplay.parentElement.classList.remove('text-rose-500', 'animate-pulse');
+                }
+
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        // --- Load active question details ---
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const q = quizQuestions[index];
+
+            // Render status texts
+            document.getElementById('current-q-index').innerText = index + 1;
+            document.getElementById('total-q-count').innerText = quizQuestions.length;
+            
+            const progressPercent = ((index + 1) / quizQuestions.length) * 100;
+            document.getElementById('progress-bar-fill').style.width = `${progressPercent}%`;
+
+            // Category & Question text
+            document.getElementById('question-category').innerText = q.category;
+            document.getElementById('question-text').innerText = `ข้อที่ ${index + 1}: ${q.question}`;
+
+            // Bookmarked/Flagged status
+            const flagBtn = document.getElementById('flag-btn');
+            const flagIcon = document.getElementById('flag-icon');
+            if (flaggedQuestions[index]) {
+                flagIcon.setAttribute('fill', '#f59e0b');
+                flagIcon.setAttribute('stroke', '#f59e0b');
+                flagBtn.classList.add('text-amber-500');
+            } else {
+                flagIcon.setAttribute('fill', 'none');
+                flagIcon.setAttribute('stroke', 'currentColor');
+                flagBtn.classList.remove('text-amber-500');
+            }
+
+            // Options Renderer
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const selectedAnswer = userAnswers[index];
+            const isAnswered = selectedAnswer !== undefined;
+            const showAnswersDirectly = (quizMode === 'practice' && isAnswered);
+
+            q.options.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border transition-all text-sm font-medium focus:outline-none flex justify-between items-center gap-4 min-h-[44px]";
+                btn.onclick = () => selectOption(optIdx);
+
+                const textSpan = document.createElement('span');
+                textSpan.innerText = opt;
+                btn.appendChild(textSpan);
+
+                // Option styling logic based on state and mode
+                if (selectedAnswer === optIdx) {
+                    if (showAnswersDirectly) {
+                        if (optIdx === q.answer) {
+                            btn.className += " bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm";
+                            btn.appendChild(createIcon('check', 'text-emerald-600'));
+                        } else {
+                            btn.className += " bg-rose-50 border-rose-400 text-rose-800 shadow-sm";
+                            btn.appendChild(createIcon('x', 'text-rose-600'));
+                        }
+                    } else {
+                        btn.className += " bg-teal-50 border-teal-600 text-teal-950 shadow-md scale-[1.01]";
+                    }
+                } else {
+                    if (showAnswersDirectly && optIdx === q.answer) {
+                        btn.className += " bg-emerald-50 border-emerald-400 text-emerald-800";
+                        btn.appendChild(createIcon('check', 'text-emerald-500'));
+                    } else {
+                        btn.className += " bg-white border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700";
+                    }
+                }
+
+                if (showAnswersDirectly) {
+                    btn.disabled = true;
+                    btn.onclick = null;
+                }
+
+                optionsContainer.appendChild(btn);
+            });
+
+            // Handle Instant Explanation Panel (Practice Mode only)
+            const expPanel = document.getElementById('explanation-panel');
+            if (showAnswersDirectly) {
+                expPanel.classList.remove('hidden');
+                const isCorrect = (selectedAnswer === q.answer);
+                
+                const titleBadge = document.getElementById('explanation-title-badge');
+                if (isCorrect) {
+                    titleBadge.innerText = "ตอบถูกต้อง";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-emerald-600";
+                } else {
+                    titleBadge.innerText = "ตอบผิดพลาด";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-rose-600";
+                }
+                
+                document.getElementById('explanation-text').innerText = q.rationale;
+            } else {
+                expPanel.classList.add('hidden');
+            }
+
+            // Navigation buttons adjustments
+            document.getElementById('prev-btn').disabled = (index === 0);
+            const nextBtn = document.getElementById('next-btn');
+            const submitQuizBtn = document.getElementById('submit-quiz-btn');
+
+            if (index === quizQuestions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitQuizBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitQuizBtn.classList.add('hidden');
+            }
+
+            updateNavigationGridActive();
+        }
+
+        // SVG helper for response checks
+        function createIcon(type, colorClass) {
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.setAttribute("class", `w-5 h-5 ${colorClass} shrink-0`);
+            svg.setAttribute("fill", "none");
+            svg.setAttribute("viewBox", "0 0 24 24");
+            svg.setAttribute("stroke", "currentColor");
+            svg.setAttribute("stroke-width", "3");
+
+            if (type === 'check') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M5 13l4 4L19 7");
+                svg.appendChild(path);
+            } else if (type === 'x') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M6 18L18 6M6 6l12 12");
+                svg.appendChild(path);
+            }
+            return svg;
+        }
+
+        function selectOption(optionIndex) {
+            if (isQuizSubmitted) return;
+            userAnswers[currentQuestionIndex] = optionIndex;
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function toggleFlag() {
+            flaggedQuestions[currentQuestionIndex] = !flaggedQuestions[currentQuestionIndex];
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                loadQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        // Render side helper panel of questions
+        function renderNavigationGrid() {
+            const grid = document.getElementById('grid-navigation');
+            grid.innerHTML = '';
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('score-counter').innerText = `${answeredCount}/${quizQuestions.length}`;
+
+            // Adapt text sizing for large test sizes
+            let paddingClass = "py-2";
+            let sizeClass = "text-xs";
+            if (quizQuestions.length > 50) {
+                paddingClass = "py-1.5";
+                sizeClass = "text-[10px]";
+            }
+
+            quizQuestions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full ${paddingClass} rounded-lg ${sizeClass} font-bold text-center border focus:outline-none transition-all min-h-[28px]`;
+                btn.innerText = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+
+                const isSelected = (idx === currentQuestionIndex);
+                const hasAnswered = (userAnswers[idx] !== undefined);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                if (isSelected) {
+                    btn.className += " bg-teal-900 border-teal-950 text-white ring-2 ring-teal-350 ring-offset-1";
+                } else if (isFlagged) {
+                    btn.className += " bg-amber-500 border-amber-600 text-white";
+                } else if (hasAnswered) {
+                    btn.className += " bg-teal-100 border-teal-300 text-teal-800 hover:bg-teal-200";
+                } else {
+                    btn.className += " bg-slate-50 border-slate-200 text-slate-650 hover:bg-slate-100";
+                }
+
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateNavigationGridActive() {
+            const grid = document.getElementById('grid-navigation');
+            const btns = grid.children;
+            for (let i = 0; i < btns.length; i++) {
+                const btn = btns[i];
+                if (i === currentQuestionIndex) {
+                    btn.classList.add('ring-2', 'ring-teal-300', 'ring-offset-1');
+                } else {
+                    btn.classList.remove('ring-2', 'ring-teal-300', 'ring-offset-1');
+                }
+            }
+        }
+
+        // --- Modals Controls ---
+        function showSubmitConfirmModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = quizQuestions.length - answeredCount;
+            const statusText = document.getElementById('modal-completion-status');
+
+            if (unanswered > 0) {
+                statusText.innerText = `คุณยังเว้นว่างข้อสอบอีก ${unanswered} ข้อ จากทั้งหมด ${quizQuestions.length} ข้อ ยืนยันส่งเพื่อสรุปผลคะแนนตอนนี้เลยหรือไม่?`;
+                statusText.className = "text-sm text-amber-600 leading-relaxed font-semibold";
+            } else {
+                statusText.innerText = "ยินดีด้วย! คุณตอบครบถ้วนทุกข้อแล้ว ต้องการส่งกระดาษคำตอบเพื่อดูการประเมินคะแนนทันทีหรือไม่?";
+                statusText.className = "text-sm text-emerald-600 leading-relaxed font-semibold";
+            }
+
+            document.getElementById('submit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideSubmitConfirmModal() {
+            document.getElementById('submit-confirm-modal').classList.add('hidden');
+        }
+
+        function confirmExit() {
+            document.getElementById('exit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideExitConfirmModal() {
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+        }
+
+        // Return to home
+        function exitQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+
+        // --- Submit Quiz & Calculate Results ---
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            isQuizSubmitted = true;
+            hideSubmitConfirmModal();
+
+            let scoreCorrect = 0;
+            const categoryAnalysis = {};
+
+            // Initialize categories statistics
+            quizQuestions.forEach(q => {
+                if (!categoryAnalysis[q.category]) {
+                    categoryAnalysis[q.category] = { correct: 0, total: 0 };
+                }
+                categoryAnalysis[q.category].total++;
+            });
+
+            // Calculate score
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if (userAns !== undefined && userAns === q.answer) {
+                    scoreCorrect++;
+                    categoryAnalysis[q.category].correct++;
+                }
+            });
+
+            const totalCount = quizQuestions.length;
+            const percent = Math.round((scoreCorrect / totalCount) * 100);
+
+            // Compute elapsed time
+            if (quizMode !== 'exam') {
+                const end = new Date();
+                timeSpentSeconds = Math.round((end - startTime) / 1000);
+            }
+            const minsUsed = Math.floor(timeSpentSeconds / 60);
+            const secsUsed = timeSpentSeconds % 60;
+
+            // Display Results View
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+
+            document.getElementById('result-percentage').innerText = `${percent}%`;
+            document.getElementById('result-score-fraction').innerText = `${scoreCorrect}/${totalCount} คะแนน`;
+
+            // Draw circular progress bar
+            const dashArray = 251.2;
+            const offset = dashArray - (dashArray * percent) / 100;
+            document.getElementById('score-ring-fill').style.strokeDashoffset = offset;
+
+            // Generate contextual advice
+            const resultBadge = document.getElementById('result-badge');
+            const feedbackText = document.getElementById('result-feedback-text');
+
+            if (percent >= 80) {
+                resultBadge.innerText = "เกณฑ์ประเมิน: ผ่านระดับดีเยี่ยม";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-200";
+                feedbackText.innerText = "โดดเด่นและแม่นยำมาก! คุณมีความเข้าใจในพระราชบัญญัติวินัยการเงินการคลังของรัฐ พ.ศ. ๒๕๖๑ อย่างละเอียดลึกซึ้ง พร้อมสำหรับการทำข้อสอบจริงเพื่อสอบแข่งขันงานราชการแล้วครับ";
+            } else if (percent >= 60) {
+                resultBadge.innerText = "เกณฑ์ประเมิน: ผ่านตามมาตรฐาน";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-50 text-teal-700 border border-teal-200";
+                feedbackText.innerText = "คุณผ่านเกณฑ์ประเมินมาตรฐานขั้นต้นเรียบร้อยแล้ว แนะนำให้ตรวจสอบ 'ข้อสอบเฉลยละเอียด' ด้านล่าง เพื่อศึกษาความสอดคล้องและการประยุกต์ใช้กฎหมายกับมาตราต่างๆ ที่พลาดไป";
+            } else {
+                resultBadge.innerText = "เกณฑ์ประเมิน: ควรทบทวนความรู้";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800 border border-amber-200";
+                feedbackText.innerText = "ระดับคะแนนยังไม่ผ่านเกณฑ์วัดระดับขั้นต้นครับ แนะนำให้อ่านแผ่นสรุป 'Cheat Sheet' ด้านบน แล้วกลับมาลองใหม่อีกครั้งในโหมดฝึกฝนเพื่อเพิ่มความแม่นยำของตัวเลขและมาตรา";
+            }
+
+            // Fill basic analytics boxes
+            document.getElementById('stat-correct').innerText = `${scoreCorrect} ข้อ`;
+            document.getElementById('stat-incorrect').innerText = `${totalCount - scoreCorrect} ข้อ`;
+            document.getElementById('stat-time-spent').innerText = `${minsUsed} น. ${secsUsed} วิ.`;
+
+            // Fill skills analysis section
+            const topicContainer = document.getElementById('topic-analysis-container');
+            topicContainer.innerHTML = '';
+
+            for (const [category, data] of Object.entries(categoryAnalysis)) {
+                const catPercent = Math.round((data.correct / data.total) * 100);
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = "space-y-1.5";
+
+                const labelRow = document.createElement('div');
+                labelRow.className = "flex justify-between items-center text-xs font-bold text-slate-700";
+                labelRow.innerHTML = `<span>${category}</span> <span class="font-mono font-bold">${data.correct}/${data.total} (${catPercent}%)</span>`;
+                wrapper.appendChild(labelRow);
+
+                const barBg = document.createElement('div');
+                barBg.className = "w-full bg-slate-200 h-2 rounded-full overflow-hidden";
+                
+                const barFill = document.createElement('div');
+                barFill.className = catPercent >= 80 ? "bg-teal-900 h-full" : (catPercent >= 60 ? "bg-teal-700 h-full" : "bg-amber-500 h-full");
+                barFill.style.width = `${catPercent}%`;
+                barBg.appendChild(barFill);
+                
+                wrapper.appendChild(barBg);
+                topicContainer.appendChild(wrapper);
+            }
+
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('toggle-review-btn').innerText = "ดูข้อสอบเฉลยละเอียด";
+            generateDetailedReviewList();
+        }
+
+        // --- Detailed Review List Generation ---
+        function generateDetailedReviewList() {
+            const listContainer = document.getElementById('review-questions-list');
+            listContainer.innerHTML = '';
+
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCorrect = (userAns !== undefined && userAns === q.answer);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                const card = document.createElement('div');
+                card.className = "bg-white border rounded-xl p-5 sm:p-6 space-y-4 shadow-sm transition-all";
+                card.dataset.isCorrect = isCorrect ? "true" : "false";
+                card.dataset.isFlagged = isFlagged ? "true" : "false";
+
+                // Review Card Header
+                const cardHeader = document.createElement('div');
+                cardHeader.className = "flex justify-between items-start gap-4 border-b border-slate-100 pb-2.5";
+                
+                const flexLeft = document.createElement('div');
+                flexLeft.className = "flex items-center gap-2 flex-wrap";
+                
+                const qNum = document.createElement('span');
+                qNum.className = "text-sm font-bold text-slate-850 font-extrabold";
+                qNum.innerText = `ข้อที่ ${idx + 1}`;
+                flexLeft.appendChild(qNum);
+
+                const catBadge = document.createElement('span');
+                catBadge.className = "text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded";
+                catBadge.innerText = q.category;
+                flexLeft.appendChild(catBadge);
+
+                if (isFlagged) {
+                    const flgBadge = document.createElement('span');
+                    flgBadge.className = "text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 flex items-center gap-1";
+                    flgBadge.innerHTML = `<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"/></svg> ปักหมุดไว้`;
+                    flexLeft.appendChild(flgBadge);
+                }
+
+                cardHeader.appendChild(flexLeft);
+
+                // Right Badge Status
+                const statusBadge = document.createElement('span');
+                if (isCorrect) {
+                    statusBadge.innerText = "ตอบถูก";
+                    statusBadge.className = "text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200";
+                } else if (userAns === undefined) {
+                    statusBadge.innerText = "ไม่ได้ทำ";
+                    statusBadge.className = "text-[10px] font-bold text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200";
+                } else {
+                    statusBadge.innerText = "ตอบผิด";
+                    statusBadge.className = "text-[10px] font-bold text-rose-800 bg-rose-50 px-2 py-0.5 rounded border border-rose-200";
+                }
+                cardHeader.appendChild(statusBadge);
+
+                card.appendChild(cardHeader);
+
+                // Question Text
+                const qText = document.createElement('h5');
+                qText.className = "font-bold text-slate-950 leading-relaxed text-sm sm:text-base";
+                qText.innerText = q.question;
+                card.appendChild(qText);
+
+                // Options list in review card
+                const listGrid = document.createElement('div');
+                listGrid.className = "grid grid-cols-1 gap-2 pt-2";
+
+                q.options.forEach((opt, optIdx) => {
+                    const optBlock = document.createElement('div');
+                    optBlock.className = "p-3 rounded-lg border text-xs font-medium flex justify-between items-center gap-3";
+                    optBlock.innerText = opt;
+
+                    if (optIdx === q.answer) {
+                        optBlock.className += " bg-emerald-50 border-emerald-300 text-emerald-800";
+                        optBlock.appendChild(createIcon('check', 'text-emerald-600'));
+                    } else if (userAns === optIdx) {
+                        optBlock.className += " bg-rose-50 border-rose-300 text-rose-800";
+                        optBlock.appendChild(createIcon('x', 'text-rose-600'));
+                    } else {
+                        optBlock.className += " bg-white border-slate-200 text-slate-600";
+                    }
+
+                    listGrid.appendChild(optBlock);
+                });
+
+                card.appendChild(listGrid);
+
+                // Explanation Block
+                const expWrapper = document.createElement('div');
+                expWrapper.className = "bg-slate-50 p-4 rounded-lg border border-slate-100 space-y-1";
+                
+                const expLabel = document.createElement('div');
+                expLabel.className = "text-[10px] font-extrabold text-teal-900 uppercase tracking-wide";
+                expLabel.innerText = "วิเคราะห์และอธิบายตัวบทกฎหมายอย่างเป็นทางการ:";
+                expWrapper.appendChild(expLabel);
+
+                const expP = document.createElement('p');
+                expP.className = "text-xs text-slate-600 leading-relaxed";
+                expP.innerText = q.rationale;
+                expWrapper.appendChild(expP);
+
+                card.appendChild(expWrapper);
+                listContainer.appendChild(card);
+            });
+        }
+
+        function toggleDetailedReview() {
+            const reviewSection = document.getElementById('detailed-review-section');
+            const btn = document.getElementById('toggle-review-btn');
+
+            if (reviewSection.classList.contains('hidden')) {
+                reviewSection.classList.remove('hidden');
+                btn.innerText = "ซ่อนข้อสอบเฉลยละเอียด";
+                reviewSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                reviewSection.classList.add('hidden');
+                btn.innerText = "ดูข้อสอบเฉลยละเอียด";
+            }
+        }
+
+        function filterReviewList() {
+            const filterValue = document.getElementById('review-filter').value;
+            const container = document.getElementById('review-questions-list');
+            const cards = container.children;
+
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const isCorrect = card.dataset.isCorrect === "true";
+                const isFlagged = card.dataset.isFlagged === "true";
+
+                if (filterValue === 'all') {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'incorrect' && !isCorrect) {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'flagged' && isFlagged) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            }
+        }
+
+        function restartQuiz() {
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

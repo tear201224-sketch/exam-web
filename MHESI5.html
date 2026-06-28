@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจำลองข้อสอบ พ.ร.บ. สถาบันอุดมศึกษาเอกชน พ.ศ. ๒๕๔๖ และแก้ไขเพิ่มเติม (๑๐๐ ข้อเต็ม)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sarabun) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-violet-950 via-purple-900 to-indigo-950 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="bg-white p-2.5 rounded-full shadow-inner flex items-center justify-center shrink-0">
+                    <svg class="w-10 h-10 text-violet-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-tight font-extrabold">ระบบจำลองข้อสอบ พ.ร.บ. สถาบันอุดมศึกษาเอกชน พ.ศ. ๒๕๔๖</h1>
+                    <p class="text-xs sm:text-sm text-purple-200 mt-1">คลังข้อสอบวิเคราะห์ ๑๐๐ ข้อเต็ม ครอบคลุมพิกัดมาตรา สัญญา ที่ดิน สภาสถาบัน และบทกำหนดโทษทางอาญา</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 bg-violet-850 text-purple-100 rounded-full text-xs font-semibold border border-purple-500/30">๑๐๐ ข้อสอบวิเคราะห์</span>
+                <span class="px-3 py-1 bg-amber-600/60 text-amber-100 rounded-full text-xs font-semibold border border-amber-500/30">เน้นประเด็นออกบ่อย</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 py-8 sm:px-6 lg:px-8">
+        
+        <!-- Welcome / Setup Screen -->
+        <div id="setup-screen" class="max-w-4xl mx-auto space-y-8">
+            
+            <!-- Super Higher Education Act Cheat Sheet -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 space-y-6">
+                <div class="border-b border-slate-100 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                        <span class="text-violet-700 font-semibold tracking-wider text-xs uppercase bg-purple-50 px-3 py-1 rounded-full">สรุปข้อมูลจำและคีย์เวิร์ดเด่น (Ultimate Private Higher Education Act Cheat Sheet)</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-950 mt-2">ประเด็นเด่นและจุดหลอกที่พบบ่อยในการสอบราชการ</h2>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                    <!-- คาร์ดสรุปที่ 1 -->
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-violet-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-violet-600 inline-block"></span> ๑. นิยามและข้อมูลการตรากฎหมาย
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-650 pl-2">
+                            <li><strong class="text-slate-800">วันประกาศราชกิจจานุเบกษา:</strong> ๓๐ ตุลาคม ๒๕๔๖ และมีผลบังคับใช้ <strong class="text-violet-900">๓๑ ตุลาคม ๒๕๔๖</strong> (วันถัดจากวันประกาศ)</li>
+                            <li><strong class="text-slate-800">ผู้รักษาการตาม พ.ร.บ.:</strong> รัฐมนตรีว่าการกระทรวงศึกษาธิการ</li>
+                            <li><strong class="text-slate-800">ประเภทสถาบัน (ม.๙):</strong> มหาวิทยาลัย, สถาบัน, วิทยาลัย (ต้องใช้อักษรไทยนำหน้าชื่อเสมอ)</li>
+                            <li><strong class="text-slate-850">ความเป็นนิติบุคคล:</strong> เริ่มมีสภาพเป็นนิติบุคคลตั้งแต่วันที่ได้รับใบอนุญาต</li>
+                        </ul>
+                    </div>
+
+                    <!-- คาร์ดสรุปที่ 2 -->
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-violet-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-violet-600 inline-block"></span> ๒. สิทธิ์และเงื่อนไขเรื่องที่ดิน (ม.๑๖)
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-650 pl-2">
+                            <li><strong class="text-slate-800">โอนกรรมสิทธิ์ที่ดิน (มีกรรมสิทธิ์):</strong> ต้องโอนให้สถาบันภายใน <strong class="text-violet-900">๖๐ วัน</strong> (ขยายได้ไม่เกิน ๓๐ วัน)</li>
+                            <li><strong class="text-slate-800">โอนกรรมสิทธิ์ (มีหลักฐานสัญญาโอน):</strong> ต้องโอนภายใน <strong class="text-violet-900">๙๐ วัน</strong> (ขยายได้ไม่เกิน ๖๐ วัน)</li>
+                            <li><strong class="text-slate-800">โอนสิทธิสัญญาเช่า (ที่ดินรัฐ):</strong> ต้องโอนภายใน <strong class="text-violet-900">๖๐ วัน</strong> (ขยายได้ไม่เกิน ๓๐ วัน)</li>
+                            <li><strong class="text-slate-850">สิทธิประโยชน์ (ม.๑๗):</strong> การโอนที่ดินหรือบริจาคให้สถาบันอุดมศึกษาเอกชน ได้รับยกเว้นภาษีอากรและค่าธรรมเนียมจดทะเบียนทั้งหมด</li>
+                        </ul>
+                    </div>
+
+                    <!-- คาร์ดสรุปที่ 3 -->
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-violet-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-violet-600 inline-block"></span> ๓. สภาสถาบันและคณาจารย์
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-650 pl-2">
+                            <li><strong class="text-slate-800">โครงสร้างสภาสถาบัน (ม.๒๘):</strong> นายกสภา, อธิการบดี, ทรงคุณวุฒิผู้รับใบอนุญาตเสนอ (๗-๑๔ คน), ทรงคุณวุฒิ รมต. เลือก (ไม่เกิน ๓ คน)</li>
+                            <li><strong class="text-slate-800">สัญชาติและวุฒิ (ม.๓๐):</strong> กรรมการไม่น้อยกว่ากึ่งหนึ่งต้องมีสัญชาติไทย สำเร็จการศึกษาไม่ต่ำกว่า ป.ตรี</li>
+                            <li><strong class="text-slate-800">วาระและจำนวนการประชุม:</strong> วาระดำรงตำแหน่ง ๔ ปี ประชุมอย่างน้อย <strong class="text-violet-900">ปีละ ๔ ครั้ง</strong></li>
+                            <li><strong class="text-slate-850">ตำแหน่งวิชาการ (ม.๔๕):</strong> ศาสตราจารย์, รองศาสตราจารย์, ผู้ช่วยศาสตราจารย์ และอาจารย์ (เป็นอาจารย์ประจำเกิน ๑ แห่งไม่ได้)</li>
+                        </ul>
+                    </div>
+
+                    <!-- คาร์ดสรุปที่ 4 -->
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-violet-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-violet-600 inline-block"></span> ๔. ทรัพย์สินและการบัญชี (ม.๖๖)
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-650 pl-2">
+                            <li><strong class="text-slate-800">กองทุนแบ่งเป็น ๗ ประเภท:</strong> ทั่วไป, ทรัพย์สินถาวร, วิจัย, ห้องสมุดและเทคโนโลยี, พัฒนาบุคลากร, สงเคราะห์, คงเงินต้นหรือกองทุนอื่น</li>
+                            <li><strong class="text-slate-800">สูตรการจัดสรรกำไรสุทธิ (ม.๖๖):</strong> ชดใช้กองทุนติดลบก่อน -> ส่วนที่เหลือเข้ากองทุนต่างๆ <strong class="text-violet-900">ไม่น้อยกว่าร้อยละ ๖๐</strong> -> จ่ายผลประโยชน์ให้ผู้รับใบอนุญาต <strong class="text-violet-900">ไม่เกินร้อยละ ๓๐</strong> -> คงเหลือในกองทุนทั่วไป <strong class="text-violet-900">ไม่น้อยกว่าร้อยละ ๑๐</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Setup Panel -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 space-y-8">
+                <div class="text-center space-y-2">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">เริ่มระบบจำลองสอบประเมินความรู้</h2>
+                    <p class="text-slate-500 text-sm max-w-lg mx-auto">แบบทดสอบจำลอง ๑๐๐ ข้อเต็ม วิเคราะห์สถานการณ์จริง สอดคล้องตามเกณฑ์มาตรฐานการสอบแข่งขันพนักงานส่วนท้องถิ่นและข้าราชการพลเรือน</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Practice Mode Card -->
+                    <button onclick="selectMode('practice')" id="mode-practice-btn" class="group text-left p-5 rounded-xl border-2 border-purple-600 bg-purple-50/10 focus:outline-none w-full">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-purple-100 text-purple-800 p-3 rounded-lg group-hover:bg-purple-900 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดฝึกฝน (Practice Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">ตอบคำถามพร้อมแสดงผลคำอธิบายวิเคราะห์ตัวบทกฎหมายและข้อยกเว้นทันที ช่วยสร้างความจำและความแม่นยำรายมาตรา</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Exam Mode Card -->
+                    <button onclick="selectMode('exam')" id="mode-exam-btn" class="group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-purple-950 hover:bg-slate-50 transition-all duration-200 focus:outline-none w-full">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-slate-100 text-slate-700 p-3 rounded-lg group-hover:bg-purple-950 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดสอบจริง (Exam Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">จำลองบรรยากาศเข้าสอบในเวลาจำกัด สลับคำถาม-คำตอบเพื่อป้องกันการจำตำแหน่งปุ่ม สรุปสถิติคะแนนวิเคราะห์รายด้านอย่างละเอียด</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Parameters Selection -->
+                <div class="border-t border-slate-200 pt-6 space-y-4">
+                    <h4 class="font-semibold text-slate-800">ตั้งค่าการสุ่มข้อสอบ</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">จำนวนข้อสอบที่ต้องการทดสอบ</label>
+                            <select id="exam-quantity" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm">
+                                <option value="20">20 ข้อ (สปีดเทสวิเคราะห์ความรู้พื้นฐาน)</option>
+                                <option value="50">50 ข้อ (ขนาดสอบจริงมาตรฐานคัดเลือก)</option>
+                                <option value="100" selected>100 ข้อเต็ม (ทดสอบเต็มคลัง วัดครอบคลุมครบทุกมิติโครงสร้าง พ.ร.บ.)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">ขอบเขตเนื้อหาอ้างอิง</label>
+                            <select id="exam-scope" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm" disabled>
+                                <option value="all">พ.ร.บ. สถาบันอุดมศึกษาเอกชน พ.ศ. ๒๕๔๖ และแก้ไขเพิ่มเติม (ฉบับที่ ๒) พ.ศ. ๒๕๕๐</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz()" class="w-full py-4 bg-purple-905 bg-purple-950 hover:bg-purple-900 active:scale-[0.99] text-white font-bold rounded-xl shadow-md shadow-purple-650/20 transition-all text-center block focus:outline-none">
+                    เข้าสู่ห้องสอบจำลองทันที
+                </button>
+            </div>
+        </div>
+
+        <!-- Active Quiz Screen -->
+        <div id="quiz-screen" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Question Panel (3/4 of width) -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Status bar -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="flex items-center gap-3">
+                        <span id="badge-mode" class="px-2.5 py-0.5 rounded text-xs font-bold uppercase"></span>
+                        <div class="text-sm font-medium text-slate-500">
+                            ข้อที่ <span id="current-q-index" class="text-slate-800 font-bold">1</span> จาก <span id="total-q-count" class="text-slate-800 font-bold">100</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-grow max-w-md w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                        <div id="progress-bar-fill" class="bg-purple-700 h-full transition-all duration-300" style="width: 1%"></div>
+                    </div>
+
+                    <div id="timer-container" class="flex items-center gap-2 text-rose-650 font-bold hidden">
+                        <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span id="quiz-timer">75:00</span>
+                    </div>
+                </div>
+
+                <!-- Question Card -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+                    <div class="flex justify-between items-center">
+                        <span id="question-category" class="text-xs font-semibold text-purple-750 bg-purple-50 px-2.5 py-1 rounded">หมวดการปฏิรูป</span>
+                        <button onclick="toggleFlag()" id="flag-btn" class="text-slate-400 hover:text-amber-500 focus:outline-none flex items-center gap-1.5 text-xs font-medium">
+                            <svg id="flag-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                            <span>ปักหมุดไว้สำหรับทบทวน</span>
+                        </button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-950 leading-relaxed"></h3>
+                    </div>
+
+                    <!-- Options list -->
+                    <div id="options-container" class="grid grid-cols-1 gap-3.5">
+                        <!-- Dynamic choices -->
+                    </div>
+
+                    <!-- Instant Explanation (Only in Practice Mode) -->
+                    <div id="explanation-panel" class="hidden bg-slate-50 rounded-xl border border-slate-200 p-5 space-y-2.5 animate-fadeIn">
+                        <div class="flex items-center gap-2">
+                            <span id="explanation-title-badge" class="px-2 py-0.5 rounded text-xs font-bold text-white"></span>
+                            <span class="text-sm font-bold text-slate-800">วิเคราะห์อ้างอิงตามบทบัญญัติมาตรา:</span>
+                        </div>
+                        <p id="explanation-text" class="text-sm text-slate-600 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between items-center gap-4">
+                    <button onclick="prevQuestion()" id="prev-btn" class="px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg> ย้อนกลับ
+                    </button>
+                    
+                    <button onclick="nextQuestion()" id="next-btn" class="px-5 py-2.5 bg-purple-900 hover:bg-purple-950 text-white font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none flex items-center gap-2">
+                        ถัดไป <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+
+                    <button onclick="showSubmitConfirmModal()" id="submit-quiz-btn" class="hidden px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-lg shadow-md shadow-rose-600/10 transition-colors text-sm focus:outline-none">
+                        ส่งกระดาษคำตอบ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar Controllers -->
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-4">
+                    <h4 class="font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                        <span>แผงควบคุมข้อสอบ</span>
+                        <span id="score-counter" class="text-xs bg-slate-100 text-slate-650 px-2 py-0.5 rounded font-mono">0/100</span>
+                    </h4>
+                    
+                    <!-- Dynamic Grid of Question numbers -->
+                    <div id="grid-navigation" class="grid grid-cols-5 gap-1.5 max-h-[360px] overflow-y-auto p-1 custom-scrollbar">
+                        <!-- Dynamic grid elements -->
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-3 space-y-2">
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-purple-900 inline-block"></span>
+                            <span>กำลังทำปัจจุบัน</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-purple-100 border border-purple-350 inline-block"></span>
+                            <span>ตอบไปแล้ว</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-amber-500 inline-block"></span>
+                            <span>ปักหมุดทบทวน</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-slate-100 border border-slate-200 inline-block"></span>
+                            <span>ยังไม่เลือกตอบ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="confirmExit()" class="w-full py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-lg text-sm shadow-sm transition-colors focus:outline-none text-center block">
+                    ออกจากห้องสอบ
+                </button>
+            </div>
+        </div>
+
+        <!-- Result / Evaluation Dashboard -->
+        <div id="result-screen" class="hidden max-w-4xl mx-auto space-y-8 animate-fadeIn">
+            
+            <!-- Result Summary Box -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 text-center space-y-6">
+                <div class="space-y-2">
+                    <span id="result-badge" class="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">ผลสัมฤทธิ์ประเมินความรู้</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900">สรุปดัชนีผลการทดสอบเชิงลึก</h2>
+                </div>
+
+                <div class="relative w-44 h-44 mx-auto flex items-center justify-center">
+                    <!-- Circular Gauge -->
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e2e8f0" stroke-width="8"/>
+                        <circle id="score-ring-fill" cx="50" cy="50" r="40" fill="transparent" stroke="#581c87" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round" class="transition-all duration-1000 ease-out"/>
+                    </svg>
+                    <!-- Percentage dynamic display -->
+                    <div class="absolute flex flex-col items-center">
+                        <span id="result-percentage" class="text-4xl font-extrabold text-slate-900">0%</span>
+                        <span id="result-score-fraction" class="text-xs text-slate-500 font-bold mt-1">0/100 คะแนน</span>
+                    </div>
+                </div>
+
+                <p id="result-feedback-text" class="text-slate-650 max-w-md mx-auto text-sm sm:text-base leading-relaxed"></p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-200 pt-6">
+                    <div class="bg-purple-50 rounded-xl p-4 border border-purple-100">
+                        <span class="block text-xs font-medium text-purple-700 font-bold">ตอบถูกต้อง</span>
+                        <span id="stat-correct" class="text-xl font-extrabold text-purple-900">0 ข้อ</span>
+                    </div>
+                    <div class="bg-rose-50 rounded-xl p-4 border border-rose-100">
+                        <span class="block text-xs font-medium text-rose-600 font-bold">ตอบผิด / ข้าม</span>
+                        <span id="stat-incorrect" class="text-xl font-extrabold text-rose-850">0 ข้อ</span>
+                    </div>
+                    <div class="bg-purple-50 rounded-xl p-4 border border-purple-100">
+                        <span class="block text-xs font-medium text-purple-700 font-bold">เวลาที่ใช้</span>
+                        <span id="stat-time-spent" class="text-xl font-extrabold text-purple-900">0 นาที</span>
+                    </div>
+                </div>
+
+                <!-- Topic analysis skills -->
+                <div class="border-t border-slate-200 pt-6 space-y-4 text-left">
+                    <h4 class="font-bold text-slate-800">สรุปคะแนนประเมินแบ่งตามหมวดหมู่โครงสร้างกฎหมาย</h4>
+                    <div id="topic-analysis-container" class="space-y-3.5">
+                        <!-- Dynamic analysis bars -->
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <button onclick="restartQuiz()" class="px-6 py-3 bg-purple-900 hover:bg-purple-950 text-white font-bold rounded-xl shadow-md transition-all text-sm focus:outline-none">
+                        กลับสู่หน้าหลักเพื่อตั้งค่าใหม่
+                    </button>
+                    <button onclick="toggleDetailedReview()" id="toggle-review-btn" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-all text-sm focus:outline-none border border-slate-300">
+                        ดูข้อสอบเฉลยละเอียดรายข้อ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed review of correction -->
+            <div id="detailed-review-section" class="hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-slate-100 p-4 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 text-lg font-extrabold">กระดาษคำตอบวิเคราะห์เฉลยรายข้อ</h3>
+                    <div>
+                        <select id="review-filter" onchange="filterReviewList()" class="bg-white border border-slate-300 text-xs font-bold rounded-lg px-2.5 py-1.5 focus:outline-none">
+                            <option value="all">แสดงผลทั้งหมด</option>
+                            <option value="incorrect">แสดงเฉพาะที่ตอบผิด</option>
+                            <option value="flagged">แสดงเฉพาะข้อปักหมุด</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="review-questions-list" class="space-y-6">
+                    <!-- Review cards dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs mt-auto border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 space-y-1">
+            <p>ระบบคลังข้อสอบอ้างอิงตามพระราชบัญญัติสถาบันอุดมศึกษาเอกชน พ.ศ. ๒๕๔๖ และที่แก้ไขเพิ่มเติม</p>
+            <p>© 2569 ข้อมูลเฉลยจัดทำและพัฒนาขึ้นเพื่อเตรียมความพร้อมสำหรับการสอบแข่งขันข้าราชการส่วนท้องถิ่นและพลเรือน</p>
+        </div>
+    </footer>
+
+    <!-- Submit Confirmation Modal -->
+    <div id="submit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200">
+            <div class="text-center space-y-3">
+                <div class="bg-rose-50 text-rose-600 p-3 rounded-full w-fit mx-auto border border-rose-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 font-extrabold">ยืนยันส่งกระดาษคำตอบ?</h3>
+                <p id="modal-completion-status" class="text-sm text-slate-500 leading-relaxed"></p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideSubmitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำข้อสอบต่อ
+                </button>
+                <button onclick="submitQuiz()" class="flex-1 py-3 bg-purple-900 hover:bg-purple-950 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none shadow-md">
+                    ยืนยันส่งผลสอบ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Confirmation Modal -->
+    <div id="exit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200">
+            <div class="text-center space-y-3">
+                <div class="bg-slate-50 text-slate-600 p-3 rounded-full w-fit mx-auto border border-slate-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 font-extrabold">ต้องการออกจากห้องสอบหรือไม่?</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">ข้อมูลความก้าวหน้าและการทำข้อสอบในรอบปัจจุบันทั้งหมดนี้จะไม่ได้รับการบันทึกเก็บไว้</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideExitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำข้อสอบต่อ
+                </button>
+                <button onclick="exitQuiz()" class="flex-1 py-3 bg-rose-650 hover:bg-rose-750 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ออกทันที
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Core 100-Question Legal Database for Private HEI Act B.E. 2546/2550 ---
+        const ALL_QUESTIONS_RAW = [
+            // 1. บททั่วไปและนิยามศัพท์ (1-10)
+            {
+                cat: "บททั่วไปและนิยามศัพท์",
+                q: "พระราชบัญญัติสถาบันอุดมศึกษาเอกชน พ.ศ. ๒๕๔๖ ประกาศในราชกิจจานุเบกษาและเริ่มมีผลบังคับใช้อย่างไร?",
+                opts: ["ประกาศ ๓๐ ตุลาคม ๒๕๔๖ มีผล ๓๐ ตุลาคม ๒๕๔๖", "ประกาศ ๓๐ ตุลาคม ๒๕๔๖ มีผล ๓๑ ตุลาคม ๒๕๔๖", "ประกาศ ๓๐ ตุลาคม ๒๕๔๖ มีผล ๑ มกราคม ๒๕๔๗", "ประกาศ ๓๐ ตุลาคม ๒๕๔๖ มีผลหลังพ้นเก้าสิบวัน"],
+                ans: 1,
+                rat: "มาตรา ๒ กำหนดให้ใช้บังคับตั้งแต่วันถัดจากวันประกาศในราชกิจจานุเบกษาเป็นต้นไป ประกาศราชกิจจานุเบกษาเมื่อวันที่ ๓๐ ตุลาคม ๒๕๔๖ จึงบังคับใช้ ๓๑ ตุลาคม ๒๕๔๖"
+            },
+            {
+                cat: "บททั่วไปและนิยามศัพท์",
+                q: "พระราชบัญญัตินี้ให้ยกเลิกกฎหมายฉบับใดบ้าง?",
+                opts: ["พ.ร.บ. สถาบันอุดมศึกษาเอกชน พ.ศ. ๒๕๒๒ เพียงฉบับเดียว", "พ.ร.บ. สถาบันอุดมศึกษาเอกชน พ.ศ. ๒๕๒๒ และฉบับที่ ๒ พ.ศ. ๒๕๓๕", "พ.ร.บ. สถาบันอุดมศึกษาเอกชน พ.ศ. ๒๕๑๒ และ ๒๕๒๒", "พ.ร.บ. มหาวิทยาลัยเอกชน พ.ศ. ๒๕๑๒ เพียงฉบับเดียว"],
+                ans: 1,
+                rat: "มาตรา ๓ บัญญัติให้ยกเลิก (๑) พ.ร.บ. สถาบันอุดมศึกษาเอกชน พ.ศ. ๒๕๒๒ และ (๒) พ.ร.บ. สถาบันอุดมศึกษาเอกชน (ฉบับที่ ๒) พ.ศ. ๒๕๓๕"
+            },
+            {
+                cat: "บททั่วไปและนิยามศัพท์",
+                q: "ตามมาตรา ๕ คำว่า 'สถาบันอุดมศึกษาเอกชน' มีนิยามตรงกับข้อใดที่สุด?",
+                opts: ["สถานศึกษาเอกชนที่จัดการศึกษาระดับปริญญาแก่บุคคลตั้งแต่หนึ่งคนขึ้นไป", "มหาวิทยาลัยและวิทยาลัยของเอกชนที่ขึ้นทะเบียนกับ สกอ.", "สถาบันเอกชนที่ให้การศึกษาระดับอุดมศึกษาเพื่อการพาณิชย์", "สถานศึกษาเอกชนระดับปริญญาตรีที่มีนักศึกษาเกินห้าสิบคน"],
+                ans: 0,
+                rat: "มาตรา ๕ นิยามว่า 'สถานศึกษาของเอกชนที่ให้การศึกษาระดับปริญญาแก่บุคคลตั้งแต่หนึ่งคนขึ้นไป'"
+            },
+            {
+                cat: "บททั่วไปและนิยามศัพท์",
+                q: "นิยามของ 'ผู้รับใบอนุญาต' ตามพระราชบัญญัติมีรายละเอียดครอบคลุมข้อใด?",
+                opts: ["ผู้ซึ่งได้นำทุนมาจัดตั้งสถาบันอุดมศึกษาเอกชนและได้รับใบอนุญาต", "ผู้ซึ่งทำหน้าที่แทนผู้แทนสถาบันของรัฐที่จดทะเบียนนิติบุคคล", "ผู้ซึ่งกระทรวงศึกษาธิการแต่งตั้งให้ทำหน้าที่รักษากระทรวง", "ผู้ซึ่งได้รับสัมปทานในที่ดินเพื่อก่อตั้งอาคารเรียนทางวิชาการ"],
+                ans: 0,
+                rat: "มาตรา ๕ กำหนดว่า 'ผู้รับใบอนุญาต' หมายความว่า ผู้ซึ่งได้นำทุนมาจัดตั้งสถาบันอุดมศึกษาเอกชนและได้รับใบอนุญาตจัดตั้ง และหมายความรวมถึงผู้รับโอนใบอนุญาตด้วย"
+            },
+            {
+                cat: "บททั่วไปและนิยามศัพท์",
+                q: "ตำแหน่งคณาจารย์ในนิยามของ พ.ร.บ. นี้ทำหน้าที่หลักด้านใด?",
+                opts: ["การสอนและการบริหาร", "การวิจัยและการบริหาร", "การสอนและการวิจัย", "การบริการสังคมและศิลปวัฒนธรรม"],
+                ans: 2,
+                rat: "มาตรา ๕ นิยามว่า 'คณาจารย์' ทำหน้าที่หลักทางด้านการสอนและการวิจัยในสถาบันอุดมศึกษาเอกชน"
+            },
+            {
+                cat: "บททั่วไปและนิยามศัพท์",
+                q: "ข้อใดกล่าวถูกต้องเกี่ยวกับคำนิยามของ 'นักศึกษา'?",
+                opts: ["ผู้สำเร็จการศึกษาไม่ต่ำกว่าขั้นพื้นฐานของ ศธ. หรือเทียบเท่า", "ผู้สำเร็จการศึกษาที่ผ่านระบบคัดเลือกของมหาวิทยาลัยรัฐ", "ผู้ซึ่งจ่ายค่าธรรมเนียมบำรุงการศึกษาเรียบร้อยครบถ้วน", "เยาวชนที่ได้รับการรับรองพฤติกรรมจากผู้รับใบอนุญาต"],
+                ans: 0,
+                rat: "มาตรา ๕ นิยามว่า 'นักศึกษา' หมายความว่า ผู้ซึ่งเข้ารับการศึกษาในสถาบันอุดมศึกษาเอกชน ซึ่งสำเร็จการศึกษาไม่ต่ำกว่าขั้นพื้นฐานตามหลักสูตรของกระทรวงศึกษาธิการ หรือเทียบเท่า หรือผู้ซึ่งสภาสถาบันอนุมัติให้เข้าศึกษาได้ตามหลักเกณฑ์ที่คณะกรรมการกำหนด"
+            },
+            {
+                cat: "บททั่วไปและนิยามศัพท์",
+                q: "ผู้ใดดำรงตำแหน่งเป็นผู้รักษาการตามพระราชบัญญัตินี้?",
+                opts: ["รัฐมนตรีว่าการกระทรวงศึกษาธิการ", "ปลัดกระทรวงศึกษาธิการ", "เลขาธิการคณะกรรมการการอุดมศึกษา", "ประธานคณะกรรมการการอุดมศึกษา"],
+                ans: 0,
+                rat: "มาตรา ๗ บัญญัติให้รัฐมนตรีว่าการกระทรวงศึกษาธิการรักษาการตามพระราชบัญญัตินี้"
+            },
+            {
+                cat: "บททั่วไปและนิยามศัพท์",
+                q: "กฎกระทรวงและประกาศจะมีผลบังคับใช้ต่อเมื่อผ่านกระบวนการใดตามมาตรา ๗ วรรคสอง?",
+                opts: ["เมื่อนายกรัฐมนตรีลงนามแต่งตั้ง", "เมื่อประกาศในราชกิจจานุเบกษาแล้ว", "เมื่อสภาสถาบันเห็นชอบเป็นเอกฉันท์", "เมื่อผ่านความเห็นชอบของกฤษฎีกา"],
+                ans: 1,
+                rat: "มาตรา ๗ วรรคสอง กำหนดว่า กฎกระทรวงและประกาศนั้น เมื่อได้ประกาศในราชกิจจานุเบกษาแล้วให้ใช้บังคับได้"
+            },
+            {
+                cat: "บททั่วไปและนิยามศัพท์",
+                q: "ข้อใด 'ไม่ใช่' วัตถุประสงค์หลักของสถาบันอุดมศึกษาเอกชนตามมาตรา ๘?",
+                opts: ["ให้บริการทางวิชาการแก่สังคม", "ทำนุบำรุงศิลปะและวัฒนธรรม", "การจัดเกณฑ์จัดสรรจัดหาที่อยู่อาศัยแก่คนยากไร้", "ทำการสอนและทำการวิจัย"],
+                ans: 2,
+                rat: "มาตรา ๘ ระบุวัตถุประสงค์ ๕ ด้าน: ให้การศึกษา ส่งเสริมวิชาการและวิชาชีพชั้นสูง สอน วิจัย บริการวิชาการแก่สังคม และทำนุบำรุงศิลปะและวัฒนธรรมของชาติ (ไม่มีเรื่องจัดหาที่อยู่อาศัย)"
+            },
+            {
+                cat: "บททั่วไปและนิยามศัพท์",
+                q: "สถานศึกษาระดับปริญญาของเอกชนในข้อใดที่ได้รับการยกเว้นไม่ใช้บังคับตามพระราชบัญญัตินี้?",
+                opts: ["สถาบันเอกชนที่เปิดสอนเฉพาะด้านนิติศาสตร์และการทหาร", "สถานศึกษาที่จัดตั้งขึ้นตามสนธิสัญญากับทบวงการชำนัญพิเศษแห่งสหประชาชาติ", "วิทยาลัยเอกชนที่มีเป้าหมายไม่แสวงผลกำไรทางบัญชี", "มหาวิทยาลัยเอกชนที่จดทะเบียนถือหุ้นของคนต่างด้าวเกินร้อยละสี่สิบ"],
+                ans: 1,
+                rat: "มาตรา ๖ กำหนดข้อยกเว้นการใช้บังคับสำหรับสถานศึกษาที่จัดตั้งขึ้นตามสนธิสัญญาหรือความตกลงระหว่างรัฐบาลไทยกับทบวงการชำนัญพิเศษแห่งสหประชาชาติ"
+            },
+
+            // 2. หมวด 1 การจัดตั้งและเปิดดำเนินการ (11-25)
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "สถาบันอุดมศึกษาเอกชนตามมาตรา ๙ แบ่งออกเป็นกี่ประเภท?",
+                opts: ["สองประเภท", "สามประเภท", "สี่ประเภท", "ห้าประเภท"],
+                ans: 1,
+                rat: "มาตรา ๙ บัญญัติว่า สถาบันอุดมศึกษาเอกชนมีสามประเภท คือ (๑) มหาวิทยาลัย (๒) สถาบัน (๓) วิทยาลัย"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "การจัดตั้งสถาบันอุดมศึกษาเอกชนต้องได้รับใบอนุญาตจากผู้ใดและผ่านทางแนะนำจากใคร?",
+                opts: ["ได้รับจากรัฐมนตรีโดยคำแนะนำของคณะกรรมการ", "ได้รับจากประธานคณะกรรมการโดยคำแนะนำของ สกอ.", "ได้รับจากเลขาธิการโดยคำแนะนำของสภาสถาบัน", "ได้รับจากปลัดกระทรวงโดยคำแนะนำของกฤษฎีกา"],
+                ans: 0,
+                rat: "มาตรา ๑๐ บัญญัติให้การจัดตั้งต้องได้รับใบอนุญาตจากรัฐมนตรีโดยคำแนะนำของคณะกรรมการ"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "เอกสารสำคัญชุดใดที่ผู้ขอรับใบอนุญาตต้องยื่นมาพร้อมกับคำขอตามมาตรา ๑๑?",
+                opts: ["โครงการจัดตั้ง ข้อกำหนด และสาขาวิชาที่จะเปิดสอน", "ทะเบียนทรัพย์สิน สัญญาเช่าที่ดิน และงบดุลเงินสำรอง", "รายชื่อผู้ประสงค์เข้าเรียน วุฒิการศึกษา และประวัติอธิการบดี", "ระเบียบจัดหาพัสดุ สัญญาร่วมทุน และสมุดบัญชีธนาคาร"],
+                ans: 0,
+                rat: "มาตรา ๑๑ วรรคหนึ่ง กำหนดให้ต้องเสนอโครงการจัดตั้ง ข้อกำหนด และสาขาวิชาที่จะเปิดสอนมาพร้อมกับคำขอ"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "การแก้ไขข้อกำหนดสถาบันรายการใดต่อไปนี้ที่ต้องได้รับความเห็นชอบจาก 'คณะกรรมการ' เท่านั้น?",
+                opts: ["หลักสูตร การสอน และการวัดผลการศึกษา", "อัตราค่าเล่าเรียนและค่าธรรมเนียมต่างๆ", "ชื่อและประเภทของสถาบันอุดมศึกษาเอกชน", "เครื่องแบบนักศึกษาหรือการแต่งกาย"],
+                ans: 2,
+                rat: "มาตรา ๑๑ วรรคสาม กำหนดว่าการแก้ไขข้อกำหนดทั่วไปต้องได้รับความเห็นชอบจากคณะกรรมการ เว้นแต่บางวงเล็บ (เช่น หลักสูตร ค่าเล่าเรียน วิธีรับนักศึกษา เครื่องแบบ อัตราเงินเดือน) ให้ได้รับความเห็นชอบจากสภาสถาบันแล้วแจ้งคณะกรรมการทราบใน ๓๐ วัน"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "การแก้ไขข้อกำหนดที่อยู่ในอำนาจอนุมัติของ 'สภาสถาบัน' ต้องแจ้งให้คณะกรรมการทราบภายในกี่วัน?",
+                opts: ["ภายในสิบห้าวัน", "ภายในสามสิบวัน", "ภายในสี่สิบห้าวัน", "ภายในหกสิบวัน"],
+                ans: 1,
+                rat: "มาตรา ๑๑ วรรคสาม บัญญัติว่าข้อกำหนดส่วนที่สภาสถาบันให้ความเห็นชอบ ต้องแจ้งให้คณะกรรมการทราบภายในสามสิบวันนับแต่วันที่สภาสถาบันให้ความเห็นชอบ"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "ผู้ขอรับใบอนุญาตจัดตั้งสถาบันอุดมศึกษาเอกชนต้องมีเงื่อนไขเกี่ยวกับที่ดินอย่างไร?",
+                opts: ["ต้องเป็นกรรมสิทธิ์ของตน หรือเช่าจากส่วนราชการ/หน่วยงานของรัฐที่สามารถโอนสิทธิเช่าได้", "ต้องเป็นที่ธรณีสงฆ์หรือป่าสงวนที่คณะรัฐมนตรีอนุมัติพิเศษ", "ต้องเป็นที่ดินเช่าจากเอกชนทั่วไปที่มีระยะสัญญาเกินห้าสิบปี", "ต้องเป็นที่ราชพัสดุที่ประธานสภาผู้แทนฯ ลงนามยินยอมให้ใช้"],
+                ans: 0,
+                rat: "มาตรา ๑๒ กำหนดคุณสมบัติที่ดินเป็น ๓ กรณี: เป็นผู้มีกรรมสิทธิ์, มีหลักฐานสัญญาจะโอนให้, หรือเป็นผู้เช่าจากส่วนราชการหรือหน่วยงานของรัฐซึ่งสามารถโอนสิทธิเช่าได้"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "สถานะ 'นิติบุคคล' ของสถาบันอุดมศึกษาเอกชนเกิดขึ้นนับแต่เมื่อใด?",
+                opts: ["นับแต่วันที่ยื่นคำขอรับใบอนุญาต", "นับแต่วันที่ได้รับใบอนุญาตจัดตั้ง", "นับแต่วันที่อธิการบดีได้รับการโปรดเกล้าฯ แต่งตั้ง", "นับแต่วันที่สภาสถาบันจัดการประชุมครั้งแรกเสร็จสิ้น"],
+                ans: 1,
+                rat: "มาตรา ๑๓ กำหนดชัดเจนว่า 'ให้สถาบันอุดมศึกษาเอกชนเป็นนิติบุคคลนับแต่วันที่ได้รับใบอนุญาต'"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "ใครเป็นผู้แทนสถาบันอุดมศึกษาเอกชนนับจากได้รับใบอนุญาต จนกว่าจะได้มีการแต่งตั้งอธิการบดี?",
+                opts: ["ประธานคณะกรรมการการอุดมศึกษา", "ผู้รับใบอนุญาต", "นายกสภาสถาบัน", "รัฐมนตรีว่าการกระทรวงศึกษาธิการ"],
+                ans: 1,
+                rat: "มาตรา ๑๓ วรรคท้าย บัญญัติให้ 'ผู้รับใบอนุญาตเป็นผู้แทนสถาบันอุดมศึกษาเอกชนนั้นจนกว่าจะได้มีการแต่งตั้งอธิการบดี'"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "การเปลี่ยนชื่อหรือเปลี่ยนประเภทสถาบันอุดมศึกษาเอกชนที่ได้รับใบอนุญาตแล้ว ต้องดำเนินการอย่างไร?",
+                opts: ["ต้องได้รับอนุญาตเป็นหนังสือจากรัฐมนตรีโดยคำแนะนำของคณะกรรมการ", "ต้องยื่นจดทะเบียนต่อกรมพัฒนาธุรกิจการค้ากระทรวงพาณิชย์", "ต้องแจ้งเป็นหนังสือลับต่อนายกสภาอภิบาลวิจัยภายในเจ็ดวัน", "สามารถเปลี่ยนชื่อได้ทันทีเมื่อผ่านมติเห็นชอบของสภาสถาบัน"],
+                ans: 0,
+                rat: "มาตรา ๑๔ บัญญัติว่าการเปลี่ยนชื่อหรือประเภท ต้องได้รับอนุญาตเป็นหนังสือจากรัฐมนตรีโดยคำแนะนำของคณะกรรมการ"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "ขั้นตอนสำคัญใดที่ต้องดำเนินการเมื่อมีการอนุญาต เพิกถอน เปลี่ยนชื่อ หรือเปลี่ยนประเภทสถาบัน?",
+                opts: ["ต้องเผยแพร่ลงในหนังสือพิมพ์รายวันสามฉบับติดต่อกัน", "ต้องแจ้งเป็นหนังสือเวียนถึงมหาวิทยาลัยของรัฐทุกแห่ง", "ต้องประกาศในราชกิจจานุเบกษา", "ต้องรายงานต่อที่ประชุมวุฒิสภาเพื่อรับทราบกระบวนการ"],
+                ans: 2,
+                rat: "มาตรา ๑๕ กำหนดว่า 'การอนุญาต การเพิกถอนการอนุญาต การเปลี่ยนชื่อ และการเปลี่ยนประเภทสถาบันอุดมศึกษาเอกชน ให้ประกาศในราชกิจจานุเบกษา'"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "กรณีผู้รับใบอนุญาตเป็นผู้มีกรรมสิทธิ์ในที่ดิน ต้องโอนกรรมสิทธิ์ปลอดภาระผูกพันให้สถาบันภายในกี่วันนับแต่วันรับใบอนุญาต?",
+                opts: ["ภายในสามสิบวัน", "ภายในหกสิบวัน", "ภายในเก้าสิบวัน", "ภายในหนึ่งร้อยยี่สิบวัน"],
+                ans: 1,
+                rat: "มาตรา ๑๖ (๑) บัญญัติว่า ต้องโอนกรรมสิทธิ์ในที่ดินดังกล่าวปลอดจากภาระผูกพันให้สถาบันภายในหกสิบวันนับแต่วันที่ได้รับใบอนุญาต"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "กรณีมีกรรมสิทธิ์ในที่ดินและจำเป็นต้องขอขยายระยะเวลาโอนที่ดิน รัฐมนตรีอนุญาตให้ขยายได้อีกไม่เกินกี่วัน?",
+                opts: ["ไม่เกินสิบห้าวัน", "ไม่เกินสามสิบวัน", "ไม่เกินสี่สิบห้าวัน", "ไม่เกินหกสิบวัน"],
+                ans: 1,
+                rat: "มาตรา ๑๖ (๑) ระบุว่า รัฐมนตรีอาจอนุญาตให้ขยายเวลาออกไปได้แต่ต้องไม่เกินสามสิบวัน"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "กรณีผู้รับใบอนุญาตเช่าที่ดินจากส่วนราชการ ต้องโอนสิทธิเช่าปลอดภาระผูกพันให้สถาบันภายในกี่วัน?",
+                opts: ["ภายในสามสิบวัน", "ภายในหกสิบวัน", "ภายในเก้าสิบวัน", "ภายในหนึ่งร้อยยี่สิบวัน"],
+                ans: 1,
+                rat: "มาตรา ๑๖ (๓) ระบุว่า กรณีผู้รับใบอนุญาตเป็นผู้เช่าที่ดิน ต้องโอนสิทธิเช่าภายในหกสิบวัน"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "ผู้รับใบอนุญาตต้องโอนเงินและทรัพย์สินอื่นซึ่งเป็นทุนนอกจากที่ดินให้สถาบันอุดมศึกษาเอกชนภายในกี่วัน?",
+                opts: ["ภายในสามสิบวัน", "ภายในสี่สิบห้าวัน", "ภายในหกสิบวัน", "ภายในเก้าสิบวัน"],
+                ans: 2,
+                rat: "มาตรา ๑๖ (๔) บัญญัติให้โอนเงินและทรัพย์สินอื่นที่เป็นทุนนอกจากที่ดินให้แก่สถาบันภายในหกสิบวัน"
+            },
+            {
+                cat: "การจัดตั้งและเปิดดำเนินการ",
+                q: "สิทธิประโยชน์ทางกฎหมายสำหรับการโอนกรรมสิทธิ์ที่ดินหรือบริจาคอสังหาริมทรัพย์ให้สถาบันอุดมศึกษาเอกชนคือข้อใด?",
+                opts: ["ได้รับสิทธิ์ลดราคาค่าไฟฟ้าและน้ำประปาครึ่งราคา", "ได้รับยกเว้นภาษีอากรและค่าธรรมเนียมจดทะเบียนสิทธิและนิติกรรมเกี่ยวกับอสังหาริมทรัพย์", "ได้รับอนุมัติกรรมสิทธิ์การเปลี่ยนทางหลวงผ่านหน้าที่ดินฟรี", "ได้รับสิทธิ์เข้าจดทะเบียนในตลาดหลักทรัพย์ได้ทันที"],
+                ans: 1,
+                rat: "มาตรา ๑๗ กำหนดว่า การโอนกรรมสิทธิ์หรือบริจาคอสังหาริมทรัพย์ให้สถาบัน ให้ได้รับยกเว้นภาษีอากรตามประมวลรัษฎากร และได้รับยกเว้นค่าธรรมเนียมจดทะเบียนนิติกรรมอสังหาริมทรัพย์"
+            },
+
+            // 3. หมวด 2 คณะกรรมการ (26-30)
+            {
+                cat: "คณะกรรมการ",
+                q: "ตามมาตรา ๒๔ (ฉบับแก้ไข ๒๕๕๐) หน้าที่ใดตกเป็นของ 'คณะกรรมการการอุดมศึกษา'?",
+                opts: ["รับรองวิทยฐานะสถาบันอุดมศึกษาเอกชนตามมาตรฐานที่กระทรวงกำหนด", "ออกคำสั่งลงโทษคดีอาญาแก่ผู้แอบอ้างตำแหน่งวิชาการ", "อนุมัติจัดงบประมาณแผ่นดินร้อยละยี่สิบสมทบเป็นทุนหมุนเวียน", "แต่งตั้งเลขาธิการสภานโยบายวิจัยอุตสาหกรรมในสังกัดกระทรวงศึกษาธิการ"],
+                ans: 0,
+                rat: "มาตรา ๒๔ (๓) ที่แก้ไขเพิ่มเติมกำหนดให้คณะกรรมการมีอำนาจหน้าที่ 'รับรองวิทยฐานะสถาบันอุดมศึกษาเอกชนตามมาตรฐานการศึกษาที่กระทรวงกำหนด'"
+            },
+            {
+                cat: "คณะกรรมการ",
+                q: "หน่วยงานใดทำหน้าที่เกี่ยวกับงานสารบรรณและการดำเนินงานทั่วไปของคณะกรรมการตาม พ.ร.บ. นี้?",
+                opts: ["สำนักงานคณะกรรมการการศึกษาขั้นพื้นฐาน", "สำนักงานคณะกรรมการการอุดมศึกษา", "กรมพัฒนาฝีมือแรงงานและกลุ่มวิทยบัณฑิต", "สถาบันคุณวุฒิวิชาชีพ (องค์การมหาชน)"],
+                ans: 1,
+                rat: "มาตรา ๒๕ กำหนดชัดว่า 'ให้สำนักงานคณะกรรมการการอุดมศึกษาทำหน้าที่เกี่ยวกับการดำเนินงานของคณะกรรมการตามพระราชบัญญัตินี้'"
+            },
+            {
+                cat: "คณะกรรมการ",
+                q: "การออกระเบียบและข้อบังคับเพื่อปฏิบัติการตามพระราชบัญญัติสถาบันอุดมศึกษาเอกชนเป็นอำนาจของหน่วยงานใด?",
+                opts: ["สภาสถาบันแต่ละแห่ง", "คณะกรรมการการอุดมศึกษา", "กรมบัญชีกลางกระทรวงการคลัง", "สภาผู้แทนราษฎรฝ่ายกฎหมายการศึกษา"],
+                ans: 1,
+                rat: "มาตรา ๒๔ (๔) บัญญัติให้คณะกรรมการการอุดมศึกษามีอำนาจหน้าที่ 'ออกระเบียบและข้อบังคับเพื่อปฏิบัติการตามพระราชบัญญัตินี้'"
+            },
+            {
+                cat: "คณะกรรมการ",
+                q: "คณะกรรมการมีสิทธิ์เผยแพร่ข้อมูลเกี่ยวกับสถาบันอุดมศึกษาเอกชนที่มีความบกพร่องตามมาตรา ๒๔ (๕) ได้อย่างไร?",
+                opts: ["เผยแพร่ข้อมูลข่าวสารโดยระบุชื่อสถาบันเพื่อประโยชน์สาธารณะและป้องกันความเสียหายได้", "เผยแพร่ข้อมูลแบบไม่ระบุชื่อเพื่อรักษาสิทธิ์ความน่าเชื่อถือทางพาณิชย์", "ต้องได้รับความยินยอมเป็นลายลักษณ์อักษรของสภาสถาบันก่อนเผยแพร่", "เผยแพร่ได้เฉพาะข้อมูลเชิงบวกด้านรางวัลเกียรติยศเท่านั้น"],
+                ans: 0,
+                rat: "มาตรา ๒๔ (๕) บัญญัติว่า คณะกรรมการมีหน้าที่เผยแพร่ข้อมูลข่าวสารเพื่อประโยชน์สาธารณะหรือป้องกันความเสียหายแก่สิทธิ์บุคคลทั่วไป โดยระบุชื่อสถาบันด้วยก็ได้"
+            },
+            {
+                cat: "คณะกรรมการ",
+                q: "อำนาจของคณะกรรมการ คณะกรรมการอื่น และคณะอนุกรรมการในการเรียกพยานมาให้ปากคำระบุไว้ตามมาตราใด?",
+                opts: ["มาตรา ๒๐", "มาตรา ๒๔", "มาตรา ๒๗", "มาตรา ๓๐"],
+                ans: 2,
+                rat: "มาตรา ๒๗ บัญญัติว่า คณะกรรมการ คณะกรรมการอื่น และคณะอนุกรรมการ มีอำนาจเรียกบุคคลใดๆ มาให้ถ้อยคำหรือแจ้งให้ส่งเอกสารหรือหลักฐานได้"
+            },
+
+            // 4. หมวด 3 การดำเนินงานและสภาสถาบัน (31-50)
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "สภาสถาบันอุดมศึกษาเอกชนแต่ละแห่งต้องมีองค์ประกอบใดเป็น 'กรรมการสภาสถาบันโดยตำแหน่ง'?",
+                opts: ["นายกสภาสถาบัน", "อธิการบดี", "ผู้แทนคณาจารย์ประจำ", "ผู้รับใบอนุญาต"],
+                ans: 1,
+                rat: "มาตรา ๒๘ (๒) กำหนดให้ 'อธิการบดี เป็นกรรมการสภาสถาบันโดยตำแหน่ง'"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "กรรมการสภาสถาบันผู้ทรงคุณวุฒิที่แต่งตั้งจากบัญชีรายชื่อที่คณะกรรมการเห็นชอบ รัฐมนตรีเลือกตั้งได้จำนวนไม่เกินกี่คน?",
+                opts: ["ไม่เกินหนึ่งคน", "ไม่เกินสามคน", "ไม่เกินห้าคน", "ไม่เกินเจ็ดคน"],
+                ans: 1,
+                rat: "มาตรา ๒๘ (๔) กำหนดให้มีกรรมการผู้ทรงคุณวุฒิที่รัฐมนตรีเลือกจากบัญชีรายชื่อที่คณะกรรมการเห็นชอบจำนวนไม่เกินสามคน"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "ตามมาตรา ๒๘ (๓) ที่แก้ไขเพิ่มเติมปี ๒๕๕๐ กำหนดจำนวนกรรมการสภาสถาบันผู้ทรงคุณวุฒิซึ่งผู้รับใบอนุญาตเสนอชื่อไว้อย่างไร?",
+                opts: ["ไม่น้อยกว่าห้าคนแต่ไม่เกินสิบคน", "ไม่น้อยกว่าเจ็ดคนแต่ไม่เกินสิบสี่คน", "ไม่น้อยกว่าเก้าคนแต่ไม่เกินสิบแปดคน", "มีจำนวนกี่คนก็ได้ตามแต่ขนาดสถาบัน"],
+                ans: 1,
+                rat: "มาตรา ๒๘ (๓) ฉบับแก้ไขเพิ่มเติมปี ๒๕๕๐ ระบุให้มี 'กรรมการสภาสถาบันผู้ทรงคุณวุฒิจำนวนไม่น้อยกว่าเจ็ดคนแต่ไม่เกินสิบสี่คน... ทั้งนี้ ให้มีคณาจารย์ประจำอย่างน้อยหนึ่งคน'"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "อธิการบดีจะเสนอแนะให้สภาสถาบันแต่งตั้งผู้บริหารของสถาบันคนใดเป็นเลขานุการสภาสถาบัน?",
+                opts: ["ผู้แทนคณาจารย์ประจำคนหนึ่ง", "ผู้บริหารของสถาบันคนหนึ่ง", "กรรมการสภาสถาบันผู้ทรงคุณวุฒิคนหนึ่ง", "ผู้รับใบอนุญาตจดทะเบียนนิติบุคคล"],
+                ans: 1,
+                rat: "มาตรา ๒๘ วรรคท้าย ระบุให้ 'สภาสถาบันแต่งตั้งผู้บริหารของสถาบันอุดมศึกษาเอกชนคนหนึ่งเป็นเลขานุการโดยคำแนะนำของอธิการบดี'"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "การประชุมเพื่อแต่งตั้งอธิการบดีเป็นหน้าที่ของการประชุมกรรมการสภาสถาบันครั้งแรก ซึ่งต้องประชุมในกี่วันนับแต่วันแจ้งแต่งตั้งสภา?",
+                opts: ["ภายในสิบห้าวัน", "ภายในสามสิบวัน", "ภายในสี่สิบห้าวัน", "ภายในหกสิบวัน"],
+                ans: 1,
+                rat: "มาตรา ๒๙ วรรคสอง กำหนดว่าการประชุมกรรมการสภาสถาบันครั้งแรกเพื่อแต่งตั้งอธิการบดีให้ดำเนินการภายในสามสิบวัน"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "พิกัดสัญชาติของกรรมการสภาสถาบันอุดมศึกษาเอกชนต้องเป็นอย่างไรตามมาตรา ๓๐?",
+                opts: ["ต้องมีสัญชาติไทยทั้งหมดทุกคน", "ต้องมีสัญชาติไทยจำนวนไม่น้อยกว่ากึ่งหนึ่ง", "ต้องมีสัญชาติไทยจำนวนไม่น้อยกว่าสองในสาม", "มีสัญชาติใดก็ได้ที่พ้นเงื่อนไขต้องห้าม"],
+                ans: 1,
+                rat: "มาตรา ๓๐ บัญญัติชัดเจนว่า 'กรรมการสภาสถาบันจำนวนไม่น้อยกว่ากึ่งหนึ่งต้องมีสัญชาติไทย'"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "ระดับการศึกษาขั้นต่ำของกรรมการสภาสถาบันอุดมศึกษาเอกชนกำหนดไว้ระดับใด?",
+                opts: ["สำเร็จการศึกษาไม่ต่ำกว่ามัธยมศึกษาตอนปลาย", "สำเร็จการศึกษาไม่ต่ำกว่าอนุปริญญา", "สำเร็จการศึกษาไม่ต่ำกว่าระดับปริญญาตรี", "สำเร็จการศึกษาไม่ต่ำกว่าระดับปริญญาโท"],
+                ans: 2,
+                rat: "มาตรา ๓๐ วรรคสอง ระบุว่า 'กรรมการสภาสถาบันต้องสำเร็จการศึกษาไม่ต่ำกว่าระดับปริญญาตรี'"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "นายกสภาสถาบันและกรรมการสภาสถาบันผู้ทรงคุณวุฒิมีวาระการดำรงตำแหน่งคราวละกี่ปี?",
+                opts: ["คราวละสองปี", "คราวละสามปี", "คราวละสี่ปี", "คราวละห้าปี"],
+                ans: 2,
+                rat: "มาตรา ๓๑ บัญญัติว่า 'นายกสภาสถาบันและกรรมการสภาสถาบัน... มีวาระการดำรงตำแหน่งสี่ปี และอาจได้รับแต่งตั้งอีกได้'"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "กรณีที่กรรมการสภาสถาบันพ้นจากตำแหน่งตามวาระแต่ยังไม่มีการแต่งตั้งคนใหม่ กรรมการที่พ้นจากตำแหน่งต้องทำอย่างไร?",
+                opts: ["พ้นจากหน้าที่และยุติการปฏิบัติงานทันที", "ให้ปฏิบัติหน้าที่ต่อไปจนกว่าจะมีการแต่งตั้งกรรมการสภาสถาบันขึ้นใหม่", "ให้นายกสภาจัดหาผู้รักษาการเข้าทำหน้าที่แทนในเจ็ดวัน", "ให้เว้นตำแหน่งว่างไว้ชั่วคราวจนกว่าจะครบไตรมาสภาษี"],
+                ans: 1,
+                rat: "มาตรา ๓๒ วรรคท้าย บัญญัติว่า กรณีที่กรรมการสภาสถาบันพ้นจากตำแหน่งตามวาระ แต่ยังมิได้แต่งตั้งกรรมการสภาสถาบันขึ้นใหม่ ให้กรรมการปฏิบัติหน้าที่ต่อไปจนกว่าจะมีคนใหม่"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "ข้อใดเป็นองค์ประชุมขั้นต่ำสำหรับการประชุมคณะกรรมการสภาสถาบันตามมาตรา ๓๓?",
+                opts: ["ต้องมีกรรมการสภาสถาบันมาประชุมไม่น้อยกว่าหนึ่งในสาม", "ต้องมีกรรมการสภาสถาบันมาประชุมไม่น้อยกว่ากึ่งหนึ่ง", "ต้องมีกรรมการสภาสถาบันมาประชุมไม่น้อยกว่าสองในสาม", "ต้องมีกรรมการสภาสถาบันมาประชุมครบทุกคน"],
+                ans: 1,
+                rat: "มาตรา ๓๓ วรรคสอง บัญญัติว่า 'การประชุมกรรมการสภาสถาบันต้องมีกรรมการสภาสถาบันมาประชุมไม่น้อยกว่ากึ่งหนึ่ง'"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "การประชุมกรรมการสภาสถาบันตามกฎหมายต้องจัดให้มีการประชุมอย่างน้อยปีละกี่ครั้ง?",
+                opts: ["อย่างน้อยปีละหนึ่งครั้ง", "อย่างน้อยปีละสองครั้ง", "อย่างน้อยปีละสามครั้ง", "อย่างน้อยปีละสี่ครั้ง"],
+                ans: 3,
+                rat: "มาตรา ๓๓ วรรคเจ็ด กำหนดบังคับว่า 'ให้มีการประชุมกรรมการสภาสถาบันอย่างน้อยปีละสี่ครั้ง'"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "ตามมาตรา ๓๔ การอนุมัติแผนพัฒนา งบดุล แผนการเงิน และการโอนเงินของกองทุนต่างๆ เป็นอำนาจหน้าที่ของใคร?",
+                opts: ["รัฐมนตรีว่าการกระทรวงศึกษาธิการ", "สภาสถาบัน", "อธิการบดี", "ผู้สอบบัญชีรับอนุญาต"],
+                ans: 1,
+                rat: "มาตรา ๓๔ บัญญัติให้อำนาจสภาสถาบันในการควบคุมทั่วไป อนุมัติแผนพัฒนา แผนการเงิน งบดุล โอนงบประมาณของกองทุนต่างๆ"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "ตาม พ.ร.บ. แก้ไขเพิ่มเติม พ.ศ. ๒๕๕๐ อำนาจการอนุมัติหลักสูตรและการปรับปรุงหลักสูตรตกเป็นขององค์กรใด?",
+                opts: ["เลขาธิการคณะกรรมการการอุดมศึกษา", "คณะกรรมการมาตรฐานการอุดมศึกษา", "สภาสถาบัน", "อธิการบดี"],
+                ans: 2,
+                rat: "มาตรา ๓๔ (๖) ที่แก้ไขเพิ่มเติมปี ๒๕๕๐ บัญญัติให้สภาสถาบันมีอำนาจ 'อนุมัติหลักสูตรและการปรับปรุงหลักสูตรตามหลักเกณฑ์ที่คณะกรรมการกำหนด'"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "ตาม พ.ร.บ. แก้ไขเพิ่มเติม พ.ศ. ๒๕๕๐ สภาสถาบันมีสิทธิ์อนุมัติสอดรับนโยบายด้านทรัพยากรและการลงทุนข้อใด?",
+                opts: ["การร่วมลงทุนกับนิติบุคคลหรือหน่วยงานอื่นเพื่อหาประโยชน์มาเป็นรายได้ของสถาบัน", "การซื้อขายหลักทรัพย์เก็งกำไรในต่างประเทศโดยปลอดภาษีผ่านตลาดหุ้น", "การอนุมัติโอนกรรมสิทธิ์ที่ดินสถาบันให้แก่ทายาทของผู้รับใบอนุญาต", "การนำเงินกองทุนสงเคราะห์ไปปล่อยกู้เชิงพาณิชย์แก่พนักงาน"],
+                ans: 0,
+                rat: "มาตรา ๓๔ (๑๐/๑) ที่เพิ่มเข้ามาใหม่ในฉบับที่ ๒ พ.ศ. ๒๕๕๐ บัญญัติให้สภาสถาบันอนุมัติการลงทุนหรือร่วมลงทุนเพื่อนำผลวิจัยไปหาประโยชน์หรือสร้างรายได้ได้"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "ระบบประกันคุณภาพภายในสถาบันอุดมศึกษาเอกชนตามมาตรา ๓๔ (๒๓) กำหนดเงื่อนไขการมีส่วนร่วมของใคร?",
+                opts: ["กำหนดให้นักศึกษามีส่วนร่วมในการประเมินคุณภาพสถาบัน", "กำหนดให้ผู้แทนกระทรวงสาธารณสุขร่วมตรวจประเมินสุขอนามัย", "กำหนดให้กรมสรรพากรส่งเจ้าหน้าที่ร่วมประเมินดัชนีคลัง", "กำหนดให้นายกเทศมนตรีเป็นประธานกรรมการตรวจประกันภาพร่วม"],
+                ans: 0,
+                rat: "มาตรา ๓๔ (๒๓) ระบุให้จัดให้มีระบบประกันคุณภาพภายใน 'โดยให้นักศึกษามีส่วนร่วมในการประเมินคุณภาพสถาบันอุดมศึกษาเอกชน'"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "คณะกรรมการพิจารณาตำแหน่งทางวิชาการประจำสถาบัน (กพว.) ประกอบด้วยกรรมการผู้ทรงคุณวุฒิภายนอกจำนวนเท่าใด?",
+                opts: ["ไม่น้อยกว่าสามคนแต่ไม่เกินหกคน", "ไม่น้อยกว่าหกคนแต่ไม่เกินสิบสองคน", "ไม่น้อยกว่าเก้าคนแต่ไม่เกินสิบแปดคน", "มีจำนวนกี่คนก็ได้ตามแต่ประเภทวิทยฐานะ"],
+                ans: 1,
+                rat: "มาตรา ๓๖ (๒) กำหนดให้ กพว. ประกอบด้วย 'กรรมการผู้ทรงคุณวุฒิจากภายนอกสถาบันอุดมศึกษาเอกชนนั้น จำนวนไม่น้อยกว่าหกคนแต่ไม่เกินสิบสองคน'"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "กรรมการพิจารณาตำแหน่งทางวิชาการประจำสถาบัน (กพว.) มีวาระดำรงตำแหน่งกี่ปี?",
+                opts: ["วาระดำรงตำแหน่งสองปี", "วาระดำรงตำแหน่งสามปี", "วาระดำรงตำแหน่งสี่ปี", "วาระดำรงตำแหน่งห้าปี"],
+                ans: 1,
+                rat: "มาตรา ๓๗ บัญญัติชัดแจ้งว่า 'กรรมการพิจารณาตำแหน่งทางวิชาการประจำสถาบันอุดมศึกษาเอกชน... มีวาระการดำรงตำแหน่งสามปี'"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "ข้อใดเป็นอำนาจหน้าที่ของคณะกรรมการพิจารณาตำแหน่งทางวิชาการประจำสถาบัน (กพว.)?",
+                opts: ["พิจารณาตำแหน่งวิชาการ วินิจฉัยอุทธรณ์ และเทียบตำแหน่งวิชาการจากสถาบันอื่น", "แต่งตั้งและถอดถอนอธิการบดีและรองอธิการบดีที่มีการบริหารงานผิดพลาด", "สืบสวนและลงโทษทางวินัยคณาจารย์ที่มีความผิดด้านการเงินคลัง", "อนุมัติหลักสูตรสาขาวิชาชีพชั้นสูงเพิ่มเติมก่อนแจ้งคณะกรรมการ"],
+                ans: 0,
+                rat: "มาตรา ๓๘ บัญญัติอำนาจหน้าที่ กพว. ไว้ ๓ ด้านหลัก: พิจารณาตำแหน่ง, พิจารณาวินิจฉัยอุทธรณ์, และเทียบตำแหน่งเข้าสู่ระบบ"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "ใครเป็นผู้บังคับบัญชาและรับผิดชอบการบริหารงานสูงสุดของสถาบันอุดมศึกษาเอกชนตามมาตรา ๓๙?",
+                opts: ["ผู้รับใบอนุญาต", "นายกสภาสถาบัน", "อธิการบดี", "รัฐมนตรีว่าการกระทรวงศึกษาธิการ"],
+                ans: 2,
+                rat: "มาตรา ๓๙ บัญญัติว่า 'ให้สถาบันอุดมศึกษาเอกชนมีอธิการบดีคนหนึ่งเป็นผู้บังคับบัญชาและรับผิดชอบการบริหารงานของสถาบันอุดมศึกษาเอกชน'"
+            },
+            {
+                cat: "การดำเนินงานและสภาสถาบัน",
+                q: "เมื่อสภาสถาบันแต่งตั้งอธิการบดีแล้ว ต้องแจ้งให้สำนักงานคณะกรรมการการอุดมศึกษาทราบภายในกี่วัน?",
+                opts: ["ภายในเจ็ดวัน", "ภายในสิบห้าวัน", "ภายในสามสิบวัน", "ภายในสี่สิบห้าวัน"],
+                ans: 1,
+                rat: "มาตรา ๔๐ กำหนดให้แจ้งสำนักงานคณะกรรมการการอุดมศึกษาทราบภายในสิบห้าวันนับแต่วันแต่งตั้ง"
+            },
+
+            // 5. หมวด 3 อธิการบดี คณาจารย์ และบุคลากร (51-65)
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "อธิการบดีที่สำเร็จการศึกษาระดับ 'ปริญญาตรี' ต้องมีประสบการณ์สอนหรือบริหารสถาบันระดับปริญญาตรีขึ้นไปมาแล้วไม่น้อยกว่ากี่ปี?",
+                opts: ["ไม่น้อยกว่าสามปี", "ไม่น้อยกว่าห้าปี", "ไม่น้อยกว่าเจ็ดปี", "ไม่น้อยกว่าสิบปี"],
+                ans: 1,
+                rat: "มาตรา ๔๑ (๑) กำหนดคุณสมบัติอธิการบดีกรณีจบปริญญาตรี ต้องมีประสบการณ์สอนหรือบริหาร 'มาแล้วไม่น้อยกว่าห้าปี'"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "อธิการบดีที่สำเร็จการศึกษาระดับ 'ปริญญาโท' ต้องมีประสบการณ์สอนหรือบริหารสถาบันระดับปริญญาตรีขึ้นไปมาแล้วไม่น้อยกว่ากี่ปี?",
+                opts: ["ไม่น้อยกว่าหนึ่งปี", "ไม่น้อยกว่าสองปี", "ไม่น้อยกว่าสามปี", "ไม่น้อยกว่าห้าปี"],
+                ans: 2,
+                rat: "มาตรา ๔๑ (๑) กำหนดคุณสมบัติอธิการบดีกรณีจบปริญญาโท ต้องมีประสบการณ์สอนหรือบริหาร 'มาแล้วไม่น้อยกว่าสามปี'"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "อธิการบดีที่สำเร็จการศึกษาระดับ 'ปริญญาเอก' ต้องมีประสบการณ์สอนหรือบริหารสถาบันระดับปริญญาตรีขึ้นไปมาแล้วไม่น้อยกว่ากี่ปี?",
+                opts: ["ไม่น้อยกว่าหนึ่งปี", "ไม่น้อยกว่าสองปี", "ไม่น้อยกว่าสามปี", "ไม่น้อยกว่าห้าปี"],
+                ans: 0,
+                rat: "มาตรา ๔๑ (๑) กำหนดคุณสมบัติอธิการบดีกรณีจบปริญญาเอก ต้องมีประสบการณ์สอนหรือบริหาร 'มาแล้วไม่น้อยกว่าหนึ่งปี'"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "เมื่ออธิการบดีพ้นจากตำแหน่ง รองอธิการบดีจะมีสถานะอย่างไรตามมาตรา ๓๙ วรรคสาม?",
+                opts: ["ให้รักษาราชการแทนในตำแหน่งอธิการบดีต่อไป", "ให้รองอธิการบดีพ้นจากตำแหน่งด้วย", "ให้สภาสถาบันพิจารณาสัญญาจ้างงานใหม่", "ให้ปฏิบัติหน้าที่เดิมจนกว่าจะครบวาระปีการศึกษา"],
+                ans: 1,
+                rat: "มาตรา ๓๙ วรรคสาม บัญญัติเด็ดขาดว่า 'เมื่ออธิการบดีพ้นจากตำแหน่งให้รองอธิการบดีพ้นจากตำแหน่งด้วย'"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "เมื่ออธิการบดีพ้นจากตำแหน่ง สภาสถาบันต้องแจ้งให้สำนักงานคณะกรรมการการอุดมศึกษาทราบภายในกี่วัน?",
+                opts: ["ภายในเจ็ดวัน", "ภายในสิบห้าวัน", "ภายในสามสิบวัน", "ภายในหกสิบวัน"],
+                ans: 1,
+                rat: "มาตรา ๔๔ กำหนดว่า 'เมื่ออธิการบดีพ้นจากตำแหน่ง ให้สภาสถาบันแจ้งให้สำนักงานคณะกรรมการการอุดมศึกษาทราบภายในสิบห้าวันนับแต่วันพ้นจากตำแหน่ง'"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "ตำแหน่งทางวิชาการของคณาจารย์ตามมาตรา ๔๕ ข้อใดเรียงลำดับจากสูงไปต่ำได้ถูกต้อง?",
+                opts: ["ศาสตราจารย์, รองศาสตราจารย์, ผู้ช่วยศาสตราจารย์, อาจารย์", "ศาสตราจารย์, ผู้ช่วยศาสตราจารย์, รองศาสตราจารย์, อาจารย์", "รองศาสตราจารย์, ศาสตราจารย์, ผู้ช่วยศาสตราจารย์, อาจารย์", "ผู้ช่วยศาสตราจารย์, รองศาสตราจารย์, ศาสตราจารย์, อาจารย์"],
+                ans: 0,
+                rat: "มาตรา ๔๕ บัญญัติเรียงตำแหน่งวิชาการจากสูงสุดคือ (๑) ศาสตราจารย์ (๒) รองศาสตราจารย์ (๓) ผู้ช่วยศาสตราจารย์ และ (๔) อาจารย์"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "คณาจารย์ประจำต้องมีคุณสมบัติขั้นต่ำในข้อใดตามมาตรา ๔๖?",
+                opts: ["สำเร็จการศึกษาไม่ต่ำกว่าปริญญาตรีหรือเทียบเท่า หรือมีความรู้ชำนาญพิเศษ", "สำเร็จการศึกษาไม่ต่ำกว่าปริญญาโทในทุกสาขาวิชา", "ต้องสอบผ่านเกณฑ์วัดระดับผลภาษาอังกฤษที่ สกอ. รับรอง", "ต้องเคยปฏิบัติหน้าที่ข้าราชการพลเรือนในมหาวิทยาลัยของรัฐ"],
+                ans: 0,
+                rat: "มาตรา ๔๖ (๑) บัญญัติให้คณาจารย์ประจำต้อง 'สำเร็จการศึกษาไม่ต่ำกว่าปริญญาตรีหรือเทียบเท่า หรือมีความรู้ความชำนาญพิเศษในวิชาใดวิชาหนึ่ง'"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "ตำแหน่ง 'ศาสตราจารย์' และ 'ศาสตราจารย์พิเศษ' ได้รับการแต่งตั้งด้วยวิธีใด?",
+                opts: ["แต่งตั้งโดยนายกสภาสถาบันโดยความเห็นชอบของบอร์ดวิจัย", "แต่งตั้งโดยอธิการบดีโดยความเห็นชอบของสภาสถาบัน", "ทรงพระกรุณาโปรดเกล้าฯ แต่งตั้งโดยคำแนะนำของคณะกรรมการ", "แต่งตั้งโดยเลขาธิการ สกอ. โดยคำแนะนำของสภาข้าราชการ"],
+                ans: 2,
+                rat: "มาตรา ๔๗ วรรคหนึ่ง บัญญัติว่า 'ศาสตราจารย์และศาสตราจารย์พิเศษนั้น จะได้ทรงพระกรุณาโปรดเกล้าฯ แต่งตั้งโดยคำแนะนำของคณะกรรมการ'"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "ตำแหน่ง 'รองศาสตราจารย์' และ 'ผู้ช่วยศาสตราจารย์' ได้รับการแต่งตั้งด้วยวิธีใด?",
+                opts: ["แต่งตั้งโดยนายกสภาสถาบันโดยความเห็นชอบของบอร์ดวิจัย", "แต่งตั้งโดยอธิการบดีโดยความเห็นชอบของสภาสถาบัน", "ทรงพระกรุณาโปรดเกล้าฯ แต่งตั้งโดยคำแนะนำของคณะกรรมการ", "แต่งตั้งโดยเลขาธิการ สกอ. โดยคำแนะนำของสภาข้าราชการ"],
+                ans: 1,
+                rat: "มาตรา ๔๗ วรรคสอง บัญญัติว่า 'รองศาสตราจารย์ รองศาสตราจารย์พิเศษ ผู้ช่วยศาสตราจารย์ และผู้ช่วยศาสตราจารย์พิเศษนั้น ให้อธิการบดีแต่งตั้งโดยความเห็นชอบของสภาสถาบัน'"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "ตำแหน่งศาสตราจารย์เกียรติคุณแต่งตั้งเพื่อเป็นเกียรติยศแก่ผู้มีลักษณะอย่างไร?",
+                opts: ["ศาสตราจารย์ซึ่งมีความรู้สามารถชำนาญพิเศษ และพ้นตำแหน่งโดยไม่มีความผิด", "ผู้ทรงคุณวุฒิภายนอกสถาบันที่บริจาคที่ดินและทรัพย์สินเกินเก้าสิบล้าน", "นายกสภาสถาบันที่ดำรงตำแหน่งบริหารยาวนานเกินสิบสองปีติดต่อกัน", "รองศาสตราจารย์ที่มีผลงานวิจัยจดลิขสิทธิ์สร้างรายได้สูงสุดแก่สถาบัน"],
+                ans: 0,
+                rat: "มาตรา ๔๙ กำหนดให้ สภาสถาบันอาจแต่งตั้งศาสตราจารย์ซึ่งมีความเชี่ยวชาญพิเศษและพ้นจากตำแหน่งโดยไม่มีความผิดให้ดำรงตำแหน่งศาสตราจารย์เกียรติคุณ"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "อักษรย่อสำหรับ 'ผู้ช่วยศาสตราจารย์พิเศษ' ตามมาตรา ๕๐ กำหนดให้ใช้ข้อใด?",
+                opts: ["ผศ.(พิเศษ)", "ผศ.พ.", "ผศ.สป.", "ผศ.(พ)"],
+                ans: 0,
+                rat: "มาตรา ๕๐ วรรคสอง ระบุอักษรย่อของ ผู้ช่วยศาสตราจารย์พิเศษ คือ 'ผศ.(พิเศษ)'"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "เมื่ออธิการบดีแต่งตั้งผู้ดำรงตำแหน่งวิชาการ (รศ., ผศ., อาจารย์) ต้องแจ้งให้ สกอ. ทราบในกี่วัน?",
+                opts: ["ภายในสิบห้าวัน", "ภายในสามสิบวัน", "ภายในสี่สิบห้าวัน", "ภายในหกสิบวัน"],
+                ans: 1,
+                rat: "มาตรา ๕๑ บัญญัติว่า 'เมื่ออธิการบดีแต่งตั้งผู้ใดให้ดำรงตำแหน่งทางวิชาการ... ให้อธิการบดีแจ้งให้สำนักงานคณะกรรมการการอุดมศึกษาทราบภายในสามสิบวันนับแต่วันแต่งตั้ง'"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "พระราชบัญญัติตามมาตรา ๕๒ ได้บัญญัติข้อจำกัดการเป็นคณาจารย์ประจำไว้อย่างไร?",
+                opts: ["จะเป็นคณาจารย์ประจำในสถาบันอุดมศึกษาเอกชนเกินหนึ่งแห่งไม่ได้", "ห้ามดำรงตำแหน่งกรรมการบริหารบริษัทเอกชนเชิงพาณิชย์ควบคู่กัน", "ห้ามรับเงินสอนพิเศษในสถานศึกษาอื่นนอกเวลาทำงานเกินสี่สิบชั่วโมง", "สามารถเป็นอาจารย์ประจำได้ไม่จำกัดจำนวนตามแต่สภาสถาบันอนุมัติ"],
+                ans: 0,
+                rat: "มาตรา ๕๒ บัญญัติเป็นข้อจำกัดชัดเจนว่า 'บุคคลใดจะเป็นคณาจารย์ประจำในสถาบันอุดมศึกษาเอกชนเกินหนึ่งแห่งไม่ได้'"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "ข้อใดกล่าวถูกต้องเกี่ยวกับการมี 'ผู้ช่วยอาจารย์' ตามมาตรา ๕๓?",
+                opts: ["มีผู้ช่วยอาจารย์ได้และต้องมีคุณสมบัติตามข้อกำหนดของสถาบัน", "ห้ามมีผู้ช่วยอาจารย์ในมหาวิทยาลัยประเภทมหาวิทยาลัยเอกชนเด็ดขาด", "ผู้ช่วยอาจารย์ต้องเป็นพนักงานประจำที่มีวุฒิไม่ต่ำกว่าระดับโท", "ได้รับการระเว้นไม่ต้องจัดทำทะเบียนประวัติส่งสำนักงาน สกอ."],
+                ans: 0,
+                rat: "มาตรา ๕๓ ระบุว่าในกรณีที่มีความจำเป็น สถาบันอาจมีผู้ช่วยอาจารย์ได้ โดยต้องมีคุณสมบัติและไม่มีลักษณะต้องห้ามตามข้อกำหนดของสถาบัน"
+            },
+            {
+                cat: "อธิการบดี คณาจารย์ และบุคลากร",
+                q: "การรักษาวินัยของนักศึกษาในสถาบันอุดมศึกษาเอกชนเป็นหน้าที่ของใครโดยตรงตามมาตรา ๔๓?",
+                opts: ["ผู้รับใบอนุญาต", "นายกสภาสถาบัน", "อธิการบดี", "ผู้แทนคณาจารย์ประจำ"],
+                ans: 2,
+                rat: "มาตรา ๔๓ (๑๐) บัญญัติให้อธิการบดีมีอำนาจหน้าที่ 'รักษาวินัยของนักศึกษา'"
+            },
+
+            // 6. หมวด 4 ปริญญาและเครื่องหมายวิทยฐานะ (66-75)
+            {
+                cat: "ปริญญาและเครื่องหมายวิทยฐานะ",
+                q: "ชั้นปริญญาข้อใดที่ พ.ร.บ. บัญญัติชื่อและตัวย่อไว้ถูกต้องตามมาตรา ๕๔?",
+                opts: ["ปริญญาโท เรียกว่า มหาบัณฑิต ใช้อักษรย่อ ม.", "ปริญญาเอก เรียกว่า ดร.บัณฑิต ใช้อักษรย่อ ดร.", "ปริญญาตรี เรียกว่า บัณฑิต ใช้อักษรย่อ บต.", "ปริญญาโท เรียกว่า มหาบัณฑิต ใช้อักษรย่อ มบ."],
+                ans: 0,
+                rat: "มาตรา ๕๔ ระบุชั้นปริญญา ๓ ชั้น คือ เอก (ดุษฎีบัณฑิต - ด.), โท (มหาบัณฑิต - ม.), ตรี (บัณฑิต - บ.)"
+            },
+            {
+                cat: "ปริญญาและเครื่องหมายวิทยฐานะ",
+                q: "สถาบันอุดมศึกษาเอกชนจะทำการสอนเพื่อให้ปริญญาชั้นใดและในสาขาวิชาใดได้ต่อเมื่อผ่านขั้นตอนใด?",
+                opts: ["ผ่านความเห็นชอบของที่ประชุมสภาอธิการบดีมหาวิทยาลัยรัฐ", "ได้รับความพึงพอใจการโหวตจากเยาวชนลงทะเบียนรุ่นแรก", "รัฐมนตรีโดยคำแนะนำของคณะกรรมการได้รับรองวิทยฐานะสถาบันอุดมศึกษาเอกชนนั้นแล้ว", "สถาบันผ่านเกณฑ์ประเมินภาษีสรรพากรเรียบร้อยและได้รับสิทธิ์จดสัญญารับนักศึกษา"],
+                ans: 2,
+                rat: "มาตรา ๕๔ วรรคสอง บัญญัติให้สถาบันทำการสอนให้ปริญญาในสาขาวิชาใดได้ เมื่อรัฐมนตรีโดยคำแนะนำของคณะกรรมการได้รับรองวิทยฐานะแล้ว"
+            },
+            {
+                cat: "ปริญญาและเครื่องหมายวิทยฐานะ",
+                q: "ตามมาตรา ๕๕ (ฉบับแก้ไข ๒๕๕๐) สถาบันมีอำนาจให้ประกาศนียบัตร อนุปริญญา ปริญญา หรือประกาศนียบัตรบัณฑิตตามเกณฑ์ข้อใด?",
+                opts: ["ให้ใช้เกณฑ์ความเสมอภาคและเสรีภาพทางวิชาการตามประเภทสถาบัน", "ให้เป็นไปตามระเบียบที่คณะกรรมการกำหนดสำหรับแต่ละชั้นสาขาวิชา", "ให้เป็นไปตามดุลพินิจส่วนตัวของนายกสภาสถาบันประสานงาน สกอ.", "สามารถมอบวุฒิปริญญาในสาขาใดก็ได้ที่มีการจัดการสอนโดยไม่มีเกณฑ์จำกัด"],
+                ans: 1,
+                rat: "มาตรา ๕๕ (ฉบับแก้ไขปี ๒๕๕๐) ระบุให้สถาบันอุดมศึกษาเอกชนมีอำนาจให้ปริญญา วุฒิ โดยการกำหนดอักษรย่อและชั้นปริญญาในสาขาวิชาให้เป็นไปตามระเบียบที่คณะกรรมการกำหนด"
+            },
+            {
+                cat: "ปริญญาและเครื่องหมายวิทยฐานะ",
+                q: "สภาสถาบันสามารถอนุมัติ 'ปริญญาตรีเกียรตินิยม' ได้ต่อเมื่อปฏิบัติการผ่านขั้นตอนข้อใดตามมาตรา ๕๖?",
+                opts: ["ได้รับความเห็นชอบของคณะกรรมการและออกข้อบังคับกำหนดขึ้น", "นักศึกษามีผลการเรียนเฉลี่ยสะสมเกินสามจุดเก้าศูนย์ขึ้นไป", "ได้รับหนังสือยินยอมแต่งตั้งสิทธิ์จากผู้ว่าราชการจังหวัด", "ผ่านการอนุมัติพิกัดของเลขาธิการกระทรวงศึกษาธิการ"],
+                ans: 0,
+                rat: "มาตรา ๕๖ บัญญัติว่า 'สภาสถาบันโดยความเห็นชอบของคณะกรรมการอาจออกข้อบังคับกำหนดให้ผู้สำเร็จการศึกษาได้รับปริญญาตรีเกียรตินิยมอันดับหนึ่งหรือสองได้'"
+            },
+            {
+                cat: "ปริญญาและเครื่องหมายวิทยฐานะ",
+                q: "อนุปริญญาตามมาตรา ๕๗ (๒) ออกให้แก่ผู้สำเร็จการศึกษาในลักษณะใด?",
+                opts: ["ผู้สำเร็จการศึกษาตามหลักสูตรสาขาใดสาขาหนึ่งก่อนถึงขั้นได้รับปริญญาตรี", "ผู้สอบไล่ได้ครบตามหลักสูตรปริญญาตรีแต่เฉลี่ยต่ำกว่าเกณฑ์สำเร็จปริญญาตรีแต่ไม่ต่ำกว่าเกณฑ์ในกฎกระทรวง", "ข้อ ก. และ ข้อ ข. ถูกต้องตามกฎหมาย", "เยาวชนที่หยุดเรียนวิทยฐานะสอนกลางคันโดยไม่มีความผิดทางวินัยสถาบัน"],
+                ans: 2,
+                rat: "มาตรา ๕๗ (๒) บัญญัติว่า อนุปริญญาออกให้แก่ผู้สำเร็จตามหลักสูตรก่อนปริญญาตรี หรือผู้ที่สอบครบแต่คะแนนเฉลี่ยสะสมต่ำกว่าเกณฑ์การสำเร็จปริญญาตรี แต่ไม่ต่ำกว่าเกณฑ์ที่กำหนดในกฎกระทรวง"
+            },
+            {
+                cat: "ปริญญาและเครื่องหมายวิทยฐานะ",
+                q: "สิทธิในการออกปริญญากิตติมศักดิ์มีข้อจำกัดที่สำคัญข้อใดตามมาตรา ๕๘?",
+                opts: ["จะให้ปริญญาดังกล่าวแก่กรรมการสภาสถาบัน คณาจารย์ประจำ หรือเจ้าหน้าที่ของสถาบันนั้นไม่ได้", "จะมอบให้คนต่างชาติที่ไม่มีใบอนุญาตพำนักถาวรในราชอาณาจักรไม่ได้", "ห้ามส่งปริญญากิตติมศักดิ์ให้ผู้ทรงคุณวุฒิที่มีประวัติเสียภาษีย้อนหลัง", "จะแจกให้บุคคลทั่วไปได้ไม่เกินห้าคนในแต่ละปีการศึกษาตามกฎหมายคลัง"],
+                ans: 0,
+                rat: "มาตรา ๕๘ วรรคแรก บัญญัติว่า 'แต่จะให้ปริญญาดังกล่าวแก่กรรมการสภาสถาบัน คณาจารย์ประจำ หรือเจ้าหน้าที่ของสถาบันอุดมศึกษาเอกชนนั้นไม่ได้'"
+            },
+            {
+                cat: "ปริญญาและเครื่องหมายวิทยฐานะ",
+                q: "เอกสารทางกฎหมายใดที่ใช้ประกาศและกำหนดลักษณะ ชนิด ประเภท ของครุยวิทยฐานะและเข็มวิทยฐานะ?",
+                opts: ["กฎกระทรวง", "ข้อบังคับของสภาสถาบัน", "ประกาศสำนักงานคณะกรรมการการอุดมศึกษา", "พระราชกฤษฎีกาสถาบันอุดมศึกษาเอกชน"],
+                ans: 0,
+                rat: "มาตรา ๕๙ วรรคสอง กำหนดว่า 'การกำหนดลักษณะ ชนิด ประเภท และส่วนประกอบของครุยวิทยฐานะและเข็มวิทยฐานะ ให้เป็นไปตามที่กำหนดในกฎกระทรวง'"
+            },
+            {
+                cat: "ปริญญาและเครื่องหมายวิทยฐานะ",
+                q: "การกำหนดลักษณะครุยประจำตำแหน่งสภาสถาบัน ครุยตำแหน่งผู้บริหาร และครุยประจำตำแหน่งคณาจารย์ ต้องออกเป็นกฎหมายระดับใด?",
+                opts: ["กฎกระทรวง", "ข้อบังคับของสถาบันอุดมศึกษาเอกชน", "ระเบียบสำนักงานปลัดกระทรวง", "ประกาศสำนักนายกรัฐมนตรีด้านสัญลักษณ์วิทยฐานะ"],
+                ans: 1,
+                rat: "มาตรา ๕๙ วรรคสาม กำหนดความแตกต่างไว้ชัดแจ้งว่า 'การกำหนดลักษณะ ชนิด ประเภท และส่วนประกอบของครุยประจำตำแหน่ง ให้เป็นไปตามข้อบังคับของสถาบันอุดมศึกษาเอกชน'"
+            },
+            {
+                cat: "ปริญญาและเครื่องหมายวิทยฐานะ",
+                q: "สถาบันจะใช้ครุยวิทยฐานะ เข็มวิทยฐานะ และครุยประจำตำแหน่งในโอกาสและเงื่อนไขใด ให้เป็นไปตามข้อใด?",
+                opts: ["ให้เป็นไปตามมติโหวตเห็นชอบร่วมสภาวิชาชีพ", "ให้เป็นไปตามข้อบังคับของสถาบันอุดมศึกษาเอกชน", "ให้เป็นไปตามการแจ้งหนังสืออนุมัติของเลขาธิการ สกอ.", "ให้เป็นไปตามกฎกระทรวงเรื่องสิทธิ์ความมั่นคงสถาบัน"],
+                ans: 1,
+                rat: "มาตรา ๕๙ วรรคท้าย กำหนดว่า 'ครุยวิทยฐานะ เข็มวิทยฐานะ และครุยประจำตำแหน่ง จะใช้ในโอกาสใดโดยมีเงื่อนไขอย่างใด ให้เป็นไปตามข้อบังคับของสถาบันอุดมศึกษาเอกชน'"
+            },
+            {
+                cat: "ปริญญาและเครื่องหมายวิทยฐานะ",
+                q: "ประกาศนียบัตรบัณฑิตตามมาตรา ๕๗ (๓) ออกให้แก่ผู้สำเร็จการศึกษาในลักษณะใด?",
+                opts: ["ผู้สำเร็จการศึกษาในสาขาวิชาหนึ่งสาขาวิชาใดภายหลังที่ได้ปริญญาแล้ว", "ผู้เรียนที่สอบผ่านการอบรมทักษะวิชาชีพชั้นสูงระยะยาวหนึ่งปี", "ผู้เข้าศึกษาที่ได้วุฒิเทียบเท่าปริญญาโทจากต่างประเทศและผ่านคัดเลือกสภา", "นักศึกษาที่สำเร็จการศึกษาระดับปริญญาเอกแต่ไม่ยื่นสอบวิทยนิพนธ์"],
+                ans: 0,
+                rat: "มาตรา ๕๗ (๓) ระบุว่า 'ประกาศนียบัตรบัณฑิต ออกให้แก่ผู้สำเร็จการศึกษาในสาขาวิชาหนึ่งสาขาวิชาใดภายหลังที่ได้ปริญญาแล้ว'"
+            },
+
+            // 7. หมวด 5 ทรัพย์สินและการบัญชี (76-85)
+            {
+                cat: "ทรัพย์สินและการบัญชี",
+                q: "ที่มาของทุนอุดมศึกษาเอกชนตามมาตรา ๖๐ (๒) ประกอบด้วยเงินและทรัพย์สินที่มีผู้บริจาคให้โดยมีเงื่อนไขอย่างไร?",
+                opts: ["โดยมีเงื่อนไขระบุให้ใช้ได้เฉพาะแต่ดอกผล", "โดยผู้บริจาคสามารถทวงทรัพย์คืนได้หากผลกำไรต่ำกว่าเกณฑ์คลัง", "โดยต้องนำไปฝากรวมไว้ในระบบคลังรวมกลางของกระทรวงการคลัง", "โดยไม่มีข้อกำหนดควบคุมการเงินใดๆ ปล่อยให้อธิการบดีใช้สิทธิ์ถาวร"],
+                ans: 0,
+                rat: "มาตรา ๖๐ (๒) กำหนดให้ 'ทุนจากการได้รับบริจาค ซึ่งประกอบด้วยเงินและทรัพย์สินอื่นที่มีผู้บริจาคหรืออุทิศให้... โดยระบุเงื่อนไขให้ใช้ได้เฉพาะแต่ดอกผล'"
+            },
+            {
+                cat: "ทรัพย์สินและการบัญชี",
+                q: "สถาบันอุดมศึกษาเอกชนต้องจัดสรรทุนแบ่งออกเป็นกองทุนประเภทต่างๆ ตามมาตรา ๖๑ จำนวนกี่กองทุนหลัก?",
+                opts: ["ห้าประเภทกองทุน", "เจ็ดประเภทกองทุน", "เก้าประเภทกองทุน", "สิบสองประเภทกองทุน"],
+                ans: 1,
+                rat: "มาตรา ๖๑ บัญญัติให้จัดสรรทุนเป็นกองทุนต่างๆ ๗ ประเภท ได้แก่ กองทุนทั่วไป, ทรัพย์สินถาวร, วิจัย, ห้องสมุดและเทคโนโลยี, พัฒนาบุคลากร, สงเคราะห์, คงเงินต้นหรือกองทุนอื่น"
+            },
+            {
+                cat: "ทรัพย์สินและการบัญชี",
+                q: "เงินที่จัดสรรไว้ใช้ซื้ออุปกรณ์ เครื่องมือ เทคโนโลยี และทรัพย์สินห้องสมุด จัดเข้ากองทุนประเภทใดตามมาตรา ๖๑?",
+                opts: ["กองทุนทรัพย์สินถาวร", "กองทุนวิจัย", "กองทุนห้องสมุดและเทคโนโลยี", "กองทุนคงเงินต้น"],
+                ans: 2,
+                rat: "มาตรา ๖๑ (๔) กำหนดชัดแจ้งว่า 'กองทุนห้องสมุดและเทคโนโลยี ได้แก่ เงินและทรัพย์สินอื่นที่จัดสรรไว้เพื่อใช้ซื้อหนังสือ วารสาร... อุปกรณ์ เครื่องมือ เทคโนโลยี และทรัพย์สินอื่นที่ใช้ในห้องสมุด'"
+            },
+            {
+                cat: "ทรัพย์สินและการบัญชี",
+                q: "การอุดหนุนทุนการศึกษาและการสงเคราะห์ ตลอดจนการให้สวัสดิการแก่คณาจารย์และเจ้าหน้าที่ จัดเข้ากองทุนใดตามมาตรา ๖๑?",
+                opts: ["กองทุนทั่วไป", "กองทุนพัฒนาบุคลากร", "กองทุนสงเคราะห์", "กองทุนออมทรัพย์เพื่อสังคม"],
+                ans: 2,
+                rat: "มาตรา ๖๑ (๖) กำหนดให้ 'กองทุนสงเคราะห์' ครอบคลุมเงินให้ทุนแก่นักศึกษา สวัสดิการคณาจารย์และเจ้าหน้าที่ และการสงเคราะห์อื่นๆ"
+            },
+            {
+                cat: "ทรัพย์สินและการบัญชี",
+                q: "รายได้ของสถาบันอุดมศึกษาเอกชนจากค่าธรรมเนียมและดอกผล ให้ถือเป็นรายได้ของกองทุนใดเป็นหลักตามมาตรา ๖๒?",
+                opts: ["รายได้ของกองทุนทั่วไป เว้นแต่เป็นรายได้ที่เกิดจากกองทุนใดโดยเฉพาะ", "รายได้สะสมของผู้รับใบอนุญาตจดทะเบียนคลังนิติบุคคล", "ต้องฝากรวมกันจัดเก็บในกองทุนวิจัยและนวัตกรรม", "รายได้แผ่นดินที่ต้องโอนส่งตรงกระทรวงศึกษาธิการรักษาการ"],
+                ans: 0,
+                rat: "มาตรา ๖๒ วรรคสอง กำหนดว่า 'รายได้ของสถาบันอุดมศึกษาเอกชนให้ถือเป็นรายได้ของกองทุนทั่วไป นอกจากรายได้ที่เกิดจากกองทุนใดโดยเฉพาะให้ถือเป็นรายได้ของกองทุนนั้น'"
+            },
+            {
+                cat: "ทรัพย์สินและการบัญชี",
+                q: "กรณีเงินในกองทุนใดกองทุนหนึ่งตามมาตรา ๖๔ มีจำนวนไม่เพียงพอที่จะดำเนินงานได้ในต้นปีการศึกษา จะต้องทำอย่างไร?",
+                opts: ["ให้ยุติการเรียนการสอนในสาขาวิชาชีพนั้นทันที", "ให้โอนเงินในกองทุนทั่วไปไปสมทบให้มีจำนวนเพียงพอ", "ให้ขอกู้ยืมเงินทุนหมุนเวียนแบบไม่มีดอกเบี้ยจากกระทรวงการคลัง", "ให้เรียกเก็บบัญชีอัตราค่าบำรุงศึกษาจากนักศึกษาเพิ่มกึ่งหนึ่งทางบัญชี"],
+                ans: 1,
+                rat: "มาตรา ๖๔ วรรคหนึ่ง บัญญัติว่า 'ถ้ากองทุนใดมีจำนวนเงินไม่เพียงพอให้โอนเงินในกองทุนทั่วไปไปให้มีจำนวนเพียงพอ'"
+            },
+            {
+                cat: "ทรัพย์สินและการบัญชี",
+                q: "หากเงินในกองทุนทั่วไปยังคงมีจำนวนไม่เพียงพอที่จะโอนไปสมทบให้พอ ใครมีหน้าที่ต้องจัดหามาเพิ่มเติมตามมาตรา ๖๔ วรรคสอง?",
+                opts: ["อธิการบดี", "สภาสถาบัน", "ผู้รับใบอนุญาต", "คณะกรรมการการอุดมศึกษา"],
+                ans: 2,
+                rat: "มาตรา ๖๔ วรรคสอง บัญญัติว่า 'กรณีที่เงินในกองทุนทั่วไปมีจำนวนไม่เพียงพอ... ผู้รับใบอนุญาตต้องจัดหามาเพิ่มเติมให้เพียงพอแก่การดำเนินงาน'"
+            },
+            {
+                cat: "ทรัพย์สินและการบัญชี",
+                q: "เมื่อกองทุนทั่วไปมีรายได้สูงกว่าค่าใช้จ่าย สถาบันต้องจัดสรรเงินส่วนที่เหลือให้กองทุนประเภทต่างๆ รวมกันไม่น้อยกว่าร้อยละเท่าใด?",
+                opts: ["ไม่น้อยกว่าร้อยละสามสิบ", "ไม่น้อยกว่าร้อยละสี่สิบ", "ไม่น้อยกว่าร้อยละหกสิบ", "ไม่น้อยกว่าร้อยละแปดสิบ"],
+                ans: 2,
+                rat: "มาตรา ๖๖ (๒) บัญญัติให้จัดสรรเงินส่วนที่เหลือให้กองทุนประเภทต่างๆ รวมกันไม่น้อยกว่าร้อยละหกสิบ"
+            },
+            {
+                cat: "ทรัพย์สินและการบัญชี",
+                q: "สัดส่วนผลประโยชน์สูงสุดที่สถาบันสามารถจัดสรรให้ผู้รับใบอนุญาตจากกำไรสุทธิกองทุนทั่วไปกำหนดไว้เท่าใดตามมาตรา ๖๖ (๒)?",
+                opts: ["ไม่เกินร้อยละสิบ", "ไม่เกินร้อยละยี่สิบ", "ไม่เกินร้อยละสามสิบ", "ไม่เกินร้อยละห้าสิบ"],
+                ans: 2,
+                rat: "มาตรา ๖๖ (๒) บัญญัติชัดเจนว่า 'จัดสรรผลประโยชน์ให้ผู้รับใบอนุญาตไม่เกินร้อยละสามสิบ'"
+            },
+            {
+                cat: "ทรัพย์สินและการบัญชี",
+                q: "ยอดเงินคงเหลือสะสมไว้เป็นทุนดำเนินงานของกองทุนทั่วไปตามมาตรา ๖๖ (๒) กำหนดไว้เท่าใด?",
+                opts: ["ไม่น้อยกว่าร้อยละห้า", "ไม่น้อยกว่าร้อยละสิบ", "ไม่น้อยกว่าร้อยละสิบห้า", "ไม่น้อยกว่าร้อยละยี่สิบ"],
+                ans: 1,
+                rat: "มาตรา ๖๖ (๒) บัญญัติให้ 'มียอดคงเหลืออยู่เป็นทุนดำเนินงานของกองทุนทั่วไปไม่น้อยกว่าร้อยละสิบ'"
+            },
+
+            // 8. หมวด 6 และ 7 การอุดหนุน ส่งเสริม และการกำกับควบคุม (86-90)
+            {
+                cat: "การส่งเสริมการกำกับควบคุม",
+                q: "เมื่อสภาสถาบันได้อนุมัติงบการเงินประจำปีแล้ว อธิการบดีต้องส่งงบการเงินพร้อมรายงานผู้สอบบัญชีไปยัง สกอ. ภายในกี่วันนับแต่วันสิ้นรอบระยะบัญชี?",
+                opts: ["ภายในหกสิบวัน", "ภายในเก้าสิบวัน", "ภายในหนึ่งร้อยยี่สิบวัน", "ภายในหนึ่งร้อยแปดสิบวัน"],
+                ans: 2,
+                rat: "มาตรา ๖๗ วรรคสอง กำหนดให้อธิการบดีส่งงบการเงินและรายงานการสอบบัญชีไปยังสำนักงานคณะกรรมการการอุดมศึกษาภายในหนึ่งร้อยยี่สิบวันนับแต่วันสิ้นรอบระยะบัญชี"
+            },
+            {
+                cat: "การส่งเสริมการกำกับควบคุม",
+                q: "ใครเป็นผู้มีอำนาจแต่งตั้งผู้สอบบัญชีรับอนุญาตของสถาบันอุดมศึกษาเอกชนประจำปีตามมาตรา ๖๘?",
+                opts: ["อธิการบดี", "สภาสถาบัน", "เลขาธิการคณะกรรมการการอุดมศึกษา", "ผู้กำกับดูแลด้านการบัญชีของสมาคมคลัง"],
+                ans: 1,
+                rat: "มาตรา ๖๘ บัญญัติว่า 'ให้สภาสถาบันแต่งตั้งผู้สอบบัญชีรับอนุญาตเป็นผู้สอบบัญชีสถาบันอุดมศึกษาเอกชนประจำปีทุกปี'"
+            },
+            {
+                cat: "การส่งเสริมการกำกับควบคุม",
+                q: "ข้อใด 'ไม่ใช่' มาตรการส่งเสริมและอุดหนุนสถาบันอุดมศึกษาเอกชนจากรัฐบาลตามมาตรา ๗๐?",
+                opts: ["ให้ข้าราชการและพนักงานของรัฐไปปฏิบัติงานร่วมสอนในสถาบันได้โดยได้เงินเดือนรัฐ", "จัดตั้งกองทุนพัฒนาสถาบันอุดมศึกษาเอกชนในด้านต่างๆ", "ส่งเสริมนโยบายขีดจำกัดสิทธิ์และการแต่งแต่งผู้ตรวจภาษีแผ่นดินไปประจำสถาบัน", "ยกเว้นอากรขาเข้าสินค้าประเภทครุภัณฑ์และอุปกรณ์เพื่อการสอนและการวิจัย"],
+                ans: 2,
+                rat: "มาตรา ๗๐ ระบุมาตรการรัฐสนับสนุน: ข้าราชการช่วยปฏิบัติงาน, ตั้งกองทุนพัฒนา, ยกเว้นอากรขาเข้าครุภัณฑ์วิจัย, และใช้ทรัพยากรร่วมกันระหว่างรัฐกับเอกชน (ไม่มีเรื่องส่งคนคุมภาษีประจำสถาบัน)"
+            },
+            {
+                cat: "การส่งเสริมการกำกับควบคุม",
+                q: "อัตราส่วนการกู้ยืมเงินที่สถาบันต้องได้รับความเห็นชอบจาก 'คณะกรรมการ' กำหนดไว้อย่างไรตามมาตรา ๗๔ (๒)?",
+                opts: ["เมื่อมีการกู้เงินสะสมเกินร้อยละสิบห้าของทรัพย์สิน", "เมื่อมีการกู้เงินครั้งเดียวหรือรวมกันเกินร้อยละยี่สิบห้าของมูลค่าทรัพย์สินของสถาบันในขณะนั้น", "เมื่อยื่นขอกู้ยืมเงินทุนต่างประเทศมูลค่าสูงกว่าห้าสิบล้าน", "การกู้เงินทุกกรณีและทุกวงเงินต้องส่งพิจารณาผ่านคณะกรรมการความมั่นคงแผ่นดิน"],
+                ans: 1,
+                rat: "มาตรา ๗๔ (๒) ระบุชัดแจ้งว่า ต้องได้รับความเห็นชอบจากคณะกรรมการเมื่อ 'การกู้เงินครั้งเดียวหรือหลายครั้งรวมกันเกินร้อยละยี่สิบห้าของมูลค่าทรัพย์สินที่สถาบันมีอยู่ขณะนั้น'"
+            },
+            {
+                cat: "การส่งเสริมการกำกับควบคุม",
+                q: "มาตรา ๗๕ ห้ามมิให้สถาบันอุดมศึกษาเอกชนรับเงิน ทรัพย์สิน หรือประโยชน์อื่นใดที่มีลักษณะอย่างไร?",
+                opts: ["เงินทุนที่มีอัตราดอกเบี้ยผันผวนสูงกว่าร้อยละแปดต่อปีการคลัง", "การรับที่อาจเป็นภัยต่อความมั่นคง ความปลอดภัย ขัดวัฒนธรรม หรือศีลธรรมดีของประชาชน", "เงินบริจาคช่วยเหลือจากบริษัทจดทะเบียนถือหุ้นของคนต่างด้าว", "การรับครุภัณฑ์ทางการแพทย์ที่มีอายุใช้งานค้างมาเกินสิบปี"],
+                ans: 1,
+                rat: "มาตรา ๗๕ ระบุข้อห้ามชัดแจ้ง: 'ห้ามมิให้สถาบันอุดมศึกษาเอกชนรับเงิน ทรัพย์สิน หรือประโยชน์อื่นใด... ซึ่งการรับนั้นอาจเป็นภัยต่อความมั่นคง... หรือขัดต่อวัฒนธรรม... หรือศีลธรรมอันดี...'"
+            },
+            {
+                cat: "การส่งเสริมการกำกับควบคุม",
+                q: "กรณีที่สถาบันมีความจำเป็นต้องหยุดสอนติดต่อกันเกินกว่ากี่วันนอกจากการหยุดปกติ อธิการบดีต้องแจ้ง สกอ.?",
+                opts: ["หยุดสอนติดต่อกันเกินกว่าสามวัน", "หยุดสอนติดต่อกันเกินกว่าห้าวัน", "หยุดสอนติดต่อกันเกินกว่าเจ็ดวัน", "หยุดสอนติดต่อกันเกินกว่าสิบวัน"],
+                ans: 0,
+                rat: "มาตรา ๗๖ บัญญัติว่า 'ในกรณีที่สถาบันอุดมศึกษาเอกชนต้องหยุดสอนติดต่อกันเกินกว่าสามวัน... อธิการบดีต้องแจ้งเป็นหนังสือให้สำนักงานคณะกรรมการการอุดมศึกษาทราบในสามวัน'"
+            },
+            {
+                cat: "การส่งเสริมการกำกับควบคุม",
+                q: "ในกรณีที่คณาจารย์ประจำคนใดพ้นสภาพ อธิการบดีต้องส่งหนังสือแจ้ง สกอ. ทราบภายในกี่วัน?",
+                opts: ["ภายในเจ็ดวัน", "ภายในสิบห้าวัน", "ภายในสามสิบวัน", "ภายในหกสิบวัน"],
+                ans: 2,
+                rat: "มาตรา ๗๗ บัญญัติว่า 'ให้อธิการบดีแจ้งให้สำนักงานคณะกรรมการการอุดมศึกษาทราบภายในสามสิบวันนับแต่วันที่คณาจารย์ประจำผู้นั้นพ้นสภาพ'"
+            },
+            {
+                cat: "การส่งเสริมการกำกับควบคุม",
+                q: "ใครมีอำนาจสั่งเป็นหนังสือให้อธิการบดีแก้ไขปรับปรุงอาคารสถานที่ที่ไม่มั่นคงหรือมีสภาพเป็นอันตรายต่อนักศึกษาตามมาตรา ๗๘?",
+                opts: ["เลขาธิการคณะกรรมการการอุดมศึกษา", "รัฐมนตรีว่าการกระทรวงศึกษาธิการ", "นายแพทย์สาธารณสุขประจำเขตจังหวัด", "วิศวกรโยธาธิการผู้ตรวจสอบความปลอดภัย"],
+                ans: 1,
+                rat: "มาตรา ๗๘ กำหนดว่า 'ให้รัฐมนตรีมีอำนาจสั่งเป็นหนังสือให้อธิการบดีดำเนินการแก้ไขปรับปรุงให้เสร็จภายในกำหนดเวลาอันสมควร... หรือสั่งให้หยุดสอนชั่วคราว'"
+            },
+            {
+                cat: "การส่งเสริมการกำกับควบคุม",
+                q: "ตามมาตรา ๘๐ (ฉบับแก้ไข ๒๕๕๐) หากได้รับใบอนุญาตแล้ว แต่สถาบันไม่ดำเนินการสิ่งที่จำเป็นในการจัดการศึกษาในกี่ปี รัฐมนตรีจะเพิกถอนใบอนุญาต?",
+                opts: ["ภายในกำหนดหกเดือน", "ภายในกำหนดหนึ่งปี", "ภายในกำหนดสองปี", "ภายในกำหนดสามปี"],
+                ans: 1,
+                rat: "มาตรา ๘๐ ที่แก้ไขปี ๒๕๕๐ ระบุว่า 'เมื่อปรากฏว่าสถาบันอุดมศึกษาเอกชนใดไม่ดำเนินการในสิ่งที่จำเป็น... ภายในกำหนดหนึ่งปีนับแต่วันที่ได้รับใบอนุญาต ให้รัฐมนตรีโดยคำแนะนำของคณะกรรมการเพิกถอนใบอนุญาต'"
+            },
+            {
+                cat: "การส่งเสริมการกำกับควบคุม",
+                q: "มาตรา ๘๒ บัญญัติห้ามสถาบันดำเนินการโฆษณาลักษณะใดสู่สาธารณชน?",
+                opts: ["ห้ามการโฆษณาข้อมูลเกี่ยวกับการจ้างงานและอัตราเงินเดือนเริ่มต้นของบัณฑิต", "ห้ามใช้ข้อความอันเป็นเท็จ หรือไม่ตรงกับข้อเท็จจริงตามที่ได้รับใบอนุญาต หรือเป็นภัยต่อสังคม", "ห้ามใช้ภาพสีและเครื่องหมายของส่วนราชการอื่นในโบรชัวร์ประชาสัมพันธ์สาขา", "ต้องโฆษณาเป็นภาษาต่างประเทศควบคู่กับภาษาไทยเสมอตามกฎกระทรวง"],
+                ans: 1,
+                rat: "มาตรา ๘๒ บัญญัติว่า 'การโฆษณาของสถาบันอุดมศึกษาเอกชนต้องไม่ใช้ข้อความอันเป็นเท็จ หรือไม่ตรงกับข้อเท็จจริงตามที่ได้รับใบอนุญาต... หรืออาจก่อให้เกิดผลเสียต่อสังคม'"
+            },
+
+            // 9. หมวด 8 การเลิกและการโอนกิจการ (91-95)
+            {
+                cat: "การเลิกและการโอนกิจการ",
+                q: "หากคณะกรรมการพบว่าการโฆษณาใดของสถาบันฝ่าฝืนมาตรา ๘๒ คณะกรรมการมีอำนาจออกคำสั่งใดตามมาตรา ๘๓?",
+                opts: ["สั่งแก้ไขข้อความ, ห้ามโฆษณา, หรือให้โฆษณาเพื่อแก้ไขความเข้าใจผิดของประชาชน", "สั่งปรับเงินผู้รับผิดชอบโฆษณาเป็นเงินสองแสนบาทต่อวันที่แชร์ลงระบบคอมพิวเตอร์", "สั่งให้อธิการบดีและนายกสภาพ้นสภาพตำแหน่งบริหารพิกัดในสามวัน", "ยกเลิกกระบวนการเปิดรับสมัครนักศึกษาของสาขาวิชานั้นถาวร"],
+                ans: 0,
+                rat: "มาตรา ๘๓ บัญญัติให้อำนาจคณะกรรมการออกคำสั่ง (๑) ให้แก้ไข (๒) ห้ามใช้ (๓) ห้ามโฆษณา หรือ (๔) ให้โฆษณาแก้ไขความเข้าใจผิด"
+            },
+            {
+                cat: "การเลิกและการโอนกิจการ",
+                q: "ตามมาตรา ๘๔ (ฉบับแก้ไข ๒๕๕๐) กรณีสถาบันเพิกเฉยต่อหนังสือเตือนของคณะกรรมการ รัฐมนตรีมีอำนาจสั่งการตามข้อใด?",
+                opts: ["สั่งงดรับนักศึกษา, เพิกถอนการรับรองวิทยฐานะ, หรือเพิกถอนใบอนุญาต", "สั่งโอนย้ายที่ดินและอาคารสถานที่ทั้งหมดให้แก่กระทรวงการคลัง", "สั่งให้สำนักงานตรวจเงินแผ่นดินเข้ายึดสมุดบัญชีเงินรายได้ส่วนบุคคล", "แต่งตั้งพนักงานของรัฐเข้าเป็นกรรมการสภาสถานศึกษาสัดส่วนผู้แทนรัฐสภา"],
+                ans: 0,
+                rat: "มาตรา ๘๔ ที่แก้ไขเพิ่มเติมปี ๒๕๕๐ บัญญัติให้รัฐมนตรีสั่งการได้ ๓ กรณีตามควรแก่เหตุ คือ (๑) สั่งงดรับนักศึกษา (๒) เพิกถอนรับรองวิทยฐานะ หรือ (๓) เพิกถอนใบอนุญาต"
+            },
+            {
+                cat: "การเลิกและการโอนกิจการ",
+                q: "เหตุใดต่อไปนี้ตามมาตรา ๘๖ ที่ทำให้รัฐมนตรีมีอำนาจสั่งให้สถาบันอุดมศึกษาเอกชนตกอยู่ภายใต้การควบคุมของ สกอ.?",
+                opts: ["ไม่มีทุนพอจะดำเนินการต่อไป หรือมีหนี้สินล้นพ้นตัว หรือหยุดสอนเกินสองเดือนติดต่อกันโดยไม่มีเหตุสมควร", "จำนวนนักศึกษารับใหม่ต่ำกว่าเป้าหมายของโครงการจัดตั้งสัดส่วนร้อยละสิบ", "การเปลี่ยนตำแหน่งอธิการบดีและรองอธิการบดีโดยไม่ได้รับความเห็นชอบจากบอร์ด กพว.", "ยอดผลประโยชน์ค่าเล่าเรียนและผลกำไรสะสมไม่มีสัดส่วนโอนชดใช้กองทุนวิจัย"],
+                ans: 0,
+                rat: "มาตรา ๘๖ ระบุเหตุควบคุมสถาบัน: ไม่มีทุนพอ, หนี้สินเกินทรัพย์สิน, ฝ่าฝืน พ.ร.บ. ร้ายแรง, หยุดสอนเกินสองเดือนติดต่อกัน หรือดำเนินการเป็นภัยร้ายแรงความมั่นคง"
+            },
+            {
+                cat: "การเลิกและการโอนกิจการ",
+                q: "เมื่อสั่งควบคุมสถาบันแล้ว รัฐมนตรีจะแต่งตั้ง 'คณะกรรมการควบคุมสถาบัน' ทำหน้าที่แทนสภาสถาบันมีจำนวนกรรมการกี่คน?",
+                opts: ["ไม่น้อยกว่าสามคนแต่ไม่เกินเก้าคน", "ไม่น้อยกว่าห้าคนแต่ไม่เกินสิบห้าคน", "ไม่น้อยกว่าสิบคนแต่ไม่เกินยี่สิบคน", "แต่งตั้งกรรมการกี่คนก็ได้ตามแต่ประเภทวิทยาลัยเอกชน"],
+                ans: 1,
+                rat: "มาตรา ๘๖ วรรคสอง บัญญัติให้ 'รัฐมนตรีแต่งตั้งคณะกรรมการควบคุมสถาบันอุดมศึกษาเอกชนขึ้นคณะหนึ่ง ประกอบด้วยกรรมการไม่น้อยกว่าห้าคนแต่ไม่เกินสิบห้าคน ทำหน้าที่แทนสภาสถาบัน'"
+            },
+            {
+                cat: "การเลิกและการโอนกิจการ",
+                q: "คำสั่งควบคุมสถาบันอุดมศึกษาเอกชนต้องประกาศในสิ่งพิมพ์ชนิดใดและต่อเนื่องกันไม่น้อยกว่ากี่วัน?",
+                opts: ["ประกาศในราชกิจจานุเบกษาเป็นเวลาสองสัปดาห์ติดต่อกัน", "ประกาศในหนังสือพิมพ์รายวันภาษาไทยมีกำหนดติดต่อกันไม่น้อยกว่าสามวัน", "ติดประกาศประชาสัมพันธ์หน้าสถานศึกษาเป็นเวลาเจ็ดวันทำการ", "ส่งรายงานชี้แจงให้แก่ผู้ว่าราชการจังหวัดทางหนังสือราชการถาวร"],
+                ans: 1,
+                rat: "มาตรา ๘ ๖ วรรคสอง บัญญัติว่า 'ให้ประกาศคำสั่งควบคุมสถาบันอุดมศึกษาเอกชนในหนังสือพิมพ์รายวันภาษาไทยมีกำหนดเวลาติดต่อกันไม่น้อยกว่าสามวัน'"
+            },
+            {
+                cat: "การเลิกและการโอนกิจการ",
+                q: "เมื่อรัฐมนตรีมีคำสั่งควบคุมสถาบันแล้ว บุคคลใดถูกห้ามมิให้ปฏิบัติหน้าที่ในสถาบันนั้นต่อไป เว้นแต่จะได้มอบหมาย?",
+                opts: ["อธิการบดี คณาจารย์ประจำ และเจ้าหน้าที่ของสถาบันอุดมศึกษาเอกชนนั้น", "นักศึกษาและสโมสรเยาวชนประจำสาขาวิชาศึกษาชีพ", "ผู้แทนสำนักงานคณะกรรมการการอุดมศึกษา", "ผู้ว่าราชการจังหวัดและสรรพากรเขต"],
+                ans: 0,
+                rat: "มาตรา ๘๗ วรรคแรก บัญญัติว่า 'ห้ามมิให้อธิการบดี คณาจารย์ประจำ และเจ้าหน้าที่... ปฏิบัติหน้าที่ในสถาบันอุดมศึกษาเอกชนนั้นต่อไป'"
+            },
+            {
+                cat: "การเลิกและการโอนกิจการ",
+                q: "รัฐมนตรีมีอำนาจสั่งให้ข้าราชการในสังกัดกระทรวงศึกษาธิการเข้าไปช่วยปฏิบัติงานในระหว่างควบคุมสถาบันได้ โดยถือเป็นลักษณะการทำงานอย่างไร?",
+                opts: ["ถือเป็นพฤติกรรมการลาพักร้อนเชิงบูรณาการโดยไม่ได้รับเบี้ยหวัด", "ถือเป็นการปฏิบัติราชการตามปกติ", "ถือเป็นพฤติกรรมการร่วมค้าเสรีและได้รับเงินเดือนจากผู้รับใบอนุญาต", "ห้ามสั่งข้าราชการเข้าช่วยปฏิบัติงานโดยเด็ดขาดเพื่อรักษาสิทธิ์อิสระ"],
+                ans: 1,
+                rat: "มาตรา ๘๘ บัญญัติว่า 'ให้ถือว่าเป็นการปฏิบัติราชการตามปกติ' สำหรับข้าราชการ ศธ. ที่ได้รับคำสั่งให้เข้าช่วยงานสถาบันระหว่างคุมตัว"
+            },
+            {
+                cat: "การเลิกและการโอนกิจการ",
+                q: "สถาบันอุดมศึกษาเอกชนอาจยื่นอุทธรณ์คำสั่งควบคุมต่อรัฐมนตรีได้ภายในกี่วันนับแต่วันรับแจ้งคำสั่ง?",
+                opts: ["ภายในสิบห้าวัน", "ภายในสามสิบวัน", "ภายในสี่สิบห้าวัน", "ภายในหกสิบวัน"],
+                ans: 1,
+                rat: "มาตรา ๘๙ บัญญัติว่า 'สถาบันอุดมศึกษาเอกชนอาจอุทธรณ์คำสั่งควบคุมต่อรัฐมนตรีได้ภายในสามสิบวันนับแต่วันได้รับแจ้งคำสั่ง'"
+            },
+            {
+                cat: "การเลิกและการโอนกิจการ",
+                q: "องค์ประกอบของคณะกรรมการพิจารณาอุทธรณ์คำสั่งควบคุมตามมาตรา ๘๙ มีจำนวนกี่คนและจัดสรรสัดส่วนอย่างไร?",
+                opts: ["เก้าคน (ผู้แทนสถาบันเอกชน ๓, ผู้แทน สกอ. ๓, ผู้ทรงคุณวุฒิ ๓)", "เจ็ดคน (ผู้แทนรัฐสภา ๓, คณาจารย์รัฐ ๓, สรรพากร ๑)", "ห้าคน (อธิการบดีสถาบันอื่น ๒, กฤษฎีกา ๒, ตัวแทนนักศึกษา ๑)", "สิบสองคน (แต่งตั้งจากข้าราชการ สกอ. ทั้งหมดเพื่อสืบสวนคดี)"],
+                ans: 0,
+                rat: "มาตรา ๘๙ บัญญัติให้ตั้งคณะกรรมการอุทธรณ์ ๙ คน ประกอบด้วย ผู้แทนสถาบันเอกชน ๓ คน, ผู้แทน สกอ. ๓ คน, และผู้ทรงคุณวุฒิ ๓ คน"
+            },
+            {
+                cat: "การเลิกและการโอนกิจการ",
+                q: "เมื่อมีความเห็นสมควรเพิกถอนใบอนุญาต คณะกรรมการควบคุมสถาบันต้องสั่งให้สถาบันดำเนินการข้อใดตามมาตรา ๙๒?",
+                opts: ["ส่งมอบเอกสารเกี่ยวกับผลการศึกษาของนักศึกษาทั้งหมดให้แก่ สกอ.", "โอนเงินทั้งหมดในคลังส่งมอบคืนแก่ผู้รับใบอนุญาตโดยไม่ชักช้า", "สั่งพักงานพนักงานสอบบัญชีและพนักงานรวบรวมประวัติคณาจารย์", "ยื่นเรื่องเสนอคัดค้านมติชี้ขาดต่อเขตอำนาจศาลปกครองสูงสุด"],
+                ans: 0,
+                rat: "มาตรา ๙๒ บัญญัติให้สถาบันส่งมอบเอกสารประวัติผลการเรียน (Transcript) ของนักเรียนทุกคนให้ สกอ. เพื่อพิทักษ์และเยียวยาดูแลผู้เรียน"
+            },
+
+            // 10. หมวด 9 บทกำหนดโทษและบทเฉพาะกาล (96-100)
+            {
+                cat: "บทกำหนดโทษและบทเฉพาะกาล",
+                q: "ทรัพย์สินส่วนที่ได้รับบริจาคตามมาตรา ๑๗ หลังผ่านขั้นตอนชำระบัญชีเพิกถอนนิติบุคคลเสร็จสิ้นแล้ว จะตกอยู่แก่พิกัดใด?",
+                opts: ["ให้ผู้ชำระบัญชีโอนคืนให้แก่ทายาทของผู้บริจาคอสังหาริมทรัพย์รายเดิม", "โอนให้แก่องค์การสาธารณกุศลส่งเสริมการศึกษาที่ระบุไว้ในข้อกำหนด (หากไม่ระบุให้ตกเป็นของรัฐ)", "โอนสะสมไว้เป็นเงินรายได้แผ่นดินขององค์การส่วนท้องถิ่นประจำภูมิภาค", "ให้เป็นกรรมสิทธิ์ของผู้รับใบอนุญาตเพื่อใช้ชดเชยค่าหุ้นส่วนสูญเสีย"],
+                ans: 1,
+                rat: "มาตรา ๙๓ วรรคสอง บัญญัติให้ ทรัพย์สินที่ได้รับบริจาคตามมาตรา ๑๗ ต้องโอนให้องค์การกุศลตามข้อกำหนดระบุไว้ หากไม่ได้ระบุให้ตกเป็นของรัฐ"
+            },
+            {
+                cat: "บทกำหนดโทษและบทเฉพาะกาล",
+                q: "หากสภาสถาบันละเลยไม่ดำเนินการถอดถอนอธิการบดีที่ไม่มีคุณภาพใน ๓๐ วัน ใครมีอำนาจดำเนินการถอดถอนอธิการบดีออกจากตำแหน่ง?",
+                opts: ["ประธานคณะกรรมการ กพว. โดยมติเสียงเอกฉันท์", "รัฐมนตรีโดยคำแนะนำของคณะกรรมการการอุดมศึกษา", "เลขาธิการสำนักงาน สกอ. โดยคำสั่งราชการเป็นหนังสือ", "ประธานที่ประชุมสภาผู้แทนราษฎรโดยข้อเสนอของเยาวชน"],
+                ans: 1,
+                rat: "มาตรา ๙๖ วรรคสาม บัญญัติว่า 'ถ้าสภาสถาบันไม่ดำเนินการถอดถอน ให้รัฐมนตรีโดยคำแนะนำของคณะกรรมการดำเนินการถอดถอนอธิการบดีจากตำแหน่งได้'"
+            },
+            {
+                cat: "บทกำหนดโทษและบทเฉพาะกาล",
+                q: "ผู้ซึ่งถูกถอดถอนตามมาตรา ๙๖ หรือ ๙๗ จะสามารถได้รับการแต่งตั้งเป็นอธิการบดีหรือคณาจารย์ในเอกชนอีกได้เมื่อใด?",
+                opts: ["พ้นกำหนดหนึ่งปีนับแต่วันที่ถูกถอดถอน และได้รับอนุญาตจากรัฐมนตรีโดยคำแนะนำคณะกรรมการ", "พ้นกำหนดสามปีนับแต่วันที่คดีอาญาสิ้นสุดผลบังคับตามนิตินัย", "สามารถได้รับการแต่งตั้งกลับเข้าสถาบันอื่นได้ทันทีโดยไม่มีข้อห้าม", "ห้ามกลับเข้าดำรงตำแหน่งคณาจารย์และผู้บริหารตลอดชีวิตถาวร"],
+                ans: 0,
+                rat: "มาตรา ๙๙ บัญญัติว่า จะได้รับแต่งตั้งอีกได้เมื่อพ้นกำหนดหนึ่งปีนับแต่วันที่ถูกถอดถอน และได้รับอนุญาตจากรัฐมนตรีโดยคำแนะนำของคณะกรรมการ"
+            },
+            {
+                cat: "บทกำหนดโทษและบทเฉพาะกาล",
+                q: "ผู้รับใบอนุญาตผู้ใดประสงค์จะ 'เลิกกิจการ' ต้องยื่นแจ้งเป็นหนังสือต่อคณะกรรมการก่อนสิ้นปีการศึกษาไม่น้อยกว่ากี่เดือน?",
+                opts: ["ไม่น้อยกว่าหนึ่งเดือน", "ไม่น้อยกว่าสามเดือน", "ไม่น้อยกว่าหกเดือน", "ไม่น้อยกว่าหนึ่งปีปฏิทิน"],
+                ans: 1,
+                rat: "มาตรา ๑๐๐ บัญญัติว่าความประสงค์เลิกกิจการสถาบันอุดมศึกษาเอกชนต้องแจ้งเป็นหนังสือ 'ต่อคณะกรรมการก่อนสิ้นปีการศึกษาไม่น้อยกว่าสามเดือน'"
+            },
+            {
+                cat: "บทกำหนดโทษและบทเฉพาะกาล",
+                q: "ผู้ใดจัดตั้งหรือดำเนินการสถาบันอุดมศึกษาเอกชนโดยไม่ได้รับใบอนุญาตจัดตั้ง ต้องระวางโทษอาญาสูงสุดอย่างไรตามมาตรา ๑๐๔?",
+                opts: ["ระวางโทษปรับไม่เกินหนึ่งแสนบาท คดีโทษปรับสถานเดียว", "ระวางโทษจำคุกไม่เกินหกเดือน หรือปรับไม่เกินสามแสนบาท หรือทั้งจำทั้งปรับ", "ระวางโทษจำคุกไม่เกินหนึ่งปี หรือปรับไม่เกินห้าแสนบาท หรือทั้งจำทั้งปรับ", "ระวางโทษจำคุกตั้งแต่สามปีขึ้นไปและยึดทรัพย์สินเข้าคลังแผ่นดิน"],
+                ans: 2,
+                rat: "มาตรา ๑๐๔ กำหนดโทษอาญารุนแรงสำหรับการจัดตั้งเถื่อน: 'ต้องระวางโทษจำคุกไม่เกินหนึ่งปี หรือปรับไม่เกินห้าแสนบาท หรือทั้งจำทั้งปรับ'"
+            },
+            {
+                cat: "บทกำหนดโทษและบทเฉพาะกาล",
+                q: "สถาบันอุดมศึกษาเอกชนใดจัดการศึกษานอกสถานที่ตั้งโดยฝ่าฝืนมาตรา ๒๐ ต้องระวางโทษอย่างไรตามมาตรา ๑๐๗?",
+                opts: ["ระวางโทษปรับไม่เกินห้าหมื่นบาท คดีโทษปรับทางปกครอง", "ระวางโทษจำคุกไม่เกินหกเดือน หรือปรับไม่เกินสามแสนบาท หรือทั้งจำทั้งปรับ", "ระวางโทษจำคุกไม่เกินหนึ่งปี หรือปรับไม่เกินห้าแสนบาท หรือทั้งจำทั้งปรับ", "ให้ระวางโทษคุกสูงสุดสองปีไม่มีข้อยกเว้นโทษทางอาญา"],
+                ans: 1,
+                rat: "มาตรา ๑๐๗ กำหนดอัตราโทษ: 'ต้องระวางโทษจำคุกไม่เกินหกเดือน หรือปรับไม่เกินสามแสนบาท หรือทั้งจำทั้งปรับ'"
+            },
+            {
+                cat: "บทกำหนดโทษและบทเฉพาะกาล",
+                q: "ผู้ใดฝ่าฝืนมาตรา ๒๒ (ใช้คำว่ามหาวิทยาลัย/สถาบัน/วิทยาลัยประกอบชื่อโดยไม่มีสิทธิ์) ต้องระวางโทษปรับรายวันอย่างไร?",
+                opts: ["ปรับอีกวันละห้าพันบาทตลอดระยะเวลาที่ยังฝ่าฝืน", "ปรับอีกวันละหนึ่งหมื่นบาทสัดส่วนจดทะเบียนนิติบุคคล", "ปรับอีกวันละห้าร้อยบาทตามดัชนีเงินเฟ้อคลังรายปี", "ปรับปรับเพิ่มสะสมเป็นสัดส่วนก้าวหน้าร้อยละสิบรายวัน"],
+                ans: 0,
+                rat: "มาตรา ๑๐๙ กำหนดบทปรับรายวันดุดัน: 'ต้องระวางโทษปรับไม่เกินหนึ่งแสนบาท และปรับอีกวันละห้าพันบาทตลอดระยะเวลาที่ยังฝ่าฝืน'"
+            },
+            {
+                cat: "บทกำหนดโทษและบทเฉพาะกาล",
+                q: "อธิการบดีผู้ใดฝ่าฝืนไม่จัดทำทะเบียนคณาจารย์ประจำและนักศึกษา หรือไม่ส่งงบการเงินประเมินคลัง สกอ. ต้องระวางโทษปรับตามมาตรา ๑๑๒ เท่าใด?",
+                opts: ["ระวางโทษปรับไม่เกินสองหมื่นบาท", "ระวางโทษปรับไม่เกินห้าหมื่นบาท", "ระวางโทษปรับไม่เกินหนึ่งแสนบาท", "ระวางโทษปรับไม่เกินสามแสนบาท"],
+                ans: 2,
+                rat: "มาตรา ๑๑๒ กำหนดอัตราโทษปรับอธิการบดีละเลยหน้าที่สำคัญ: 'ต้องระวางโทษปรับไม่เกินหนึ่งแสนบาท'"
+            },
+            {
+                cat: "บทกำหนดโทษและบทเฉพาะกาล",
+                q: "ผู้ใดสวมใส่ครุยวิทยฐานะ เข็มวิทยฐานะ หรือใช้คำนำหน้านามวิทยฐานะโดยที่ตนไม่มีสิทธิ์เพื่อให้คนอื่นหลงเชื่อ ต้องระวางโทษอาญาอย่างไร?",
+                opts: ["ระวางโทษปรับไม่เกินหนึ่งหมื่นบาท คดีโทษปรับสถานเดียว", "ระวางโทษจำคุกไม่เกินหกเดือน หรือปรับไม่เกินสามแสนบาท หรือทั้งจำทั้งปรับ", "ระวางโทษจำคุกไม่เกินหนึ่งปี หรือปรับไม่เกินห้าแสนบาท หรือทั้งจำทั้งปรับ", "ให้ลงโทษปรับทางสังคมด้วยการกักตัวทำงานบริการสาธารณะสิบวัน"],
+                ans: 1,
+                rat: "มาตรา ๑๑๙ กำหนดพฤติกรรมแอบอ้างสิทธิ์: 'ต้องระวางโทษจำคุกไม่เกินหกเดือน หรือปรับไม่เกินสามแสนบาท หรือทั้งจำทั้งปรับ'"
+            },
+            {
+                cat: "บทกำหนดโทษและบทเฉพาะกาล",
+                q: "บรรดาความผิดที่มี 'โทษปรับสถานเดียว' ใครมีอำนาจในการเปรียบเทียบปรับตาม พ.ร.บ. สถาบันอุดมศึกษาเอกชน?",
+                opts: ["รัฐมนตรีว่าการกระทรวงศึกษาธิการ", "เลขาธิการคณะกรรมการการอุดมศึกษาโดยความเห็นชอบของคณะกรรมการ", "ประธานสภากรรมการบอร์ดนิติกรรมกฤษฎีกา", "อธิบดีกรมธนารักษ์ประจำพิกัดจังหวัด"],
+                ans: 1,
+                rat: "มาตรา ๑๒๓ บัญญัติมอบอำนาจเปรียบเทียบปรับสำหรับคดีโทษปรับสถานเดียวแก่ 'เลขาธิการคณะกรรมการการอุดมศึกษาโดยความเห็นชอบของคณะกรรมการ'"
+            }
+        ];
+
+        // Ensure we load and structure exactly 100 questions smoothly
+        const ALL_QUESTIONS = ALL_QUESTIONS_RAW.map((q, idx) => ({
+            questionNumber: idx + 1,
+            category: q.cat,
+            question: q.q,
+            answerOptions: q.opts.map((opt, optIdx) => ({
+                text: opt,
+                isCorrect: optIdx === q.ans,
+                rationale: q.rat
+            })),
+            hint: "อ้างอิงบทบัญญัติมาตราเด่นของ พ.ร.บ. สถาบันอุดมศึกษาเอกชน ลองวิเคราะห์พิกัดอำนาจและกรอบตัวเลขสำคัญ"
+        }));
+
+        // App States
+        let quizQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = {}; // questionIndex -> selectedOptionIndex
+        let flaggedQuestions = {}; // questionIndex -> boolean
+        let quizMode = 'practice'; // 'practice' or 'exam'
+        let quizDuration = 4500; // default 75 minutes (100 questions * 45s)
+        let timerInterval = null;
+        let isQuizSubmitted = false;
+        let startTime = null;
+        let timeSpentSeconds = 0;
+
+        // --- Controls ---
+        function selectMode(mode) {
+            quizMode = mode;
+            const btnPractice = document.getElementById('mode-practice-btn');
+            const btnExam = document.getElementById('mode-exam-btn');
+            
+            if (mode === 'practice') {
+                btnPractice.className = "group text-left p-5 rounded-xl border-2 border-purple-650 bg-purple-50/10 focus:outline-none w-full";
+                btnExam.className = "group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-purple-950 hover:bg-slate-50 transition-all duration-200 focus:outline-none w-full";
+            } else {
+                btnExam.className = "group text-left p-5 rounded-xl border-2 border-purple-950 bg-purple-50/10 focus:outline-none w-full";
+                btnPractice.className = "group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-purple-650 hover:bg-purple-50/10 transition-all duration-200 focus:outline-none w-full";
+            }
+        }
+
+        // Shuffle algorithm (Fisher-Yates)
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex != 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        function startQuiz() {
+            const quantitySelect = document.getElementById('exam-quantity');
+            const quantity = parseInt(quantitySelect.value);
+            
+            let sourceQuestions = [...ALL_QUESTIONS];
+            if (quizMode === 'exam') {
+                // Shuffle in exam mode for dynamic assessment
+                sourceQuestions = shuffle(sourceQuestions);
+                // Shuffle options of each question as well
+                sourceQuestions.forEach(q => {
+                    const originalOptions = q.answerOptions.map((opt, idx) => ({ ...opt, origIdx: idx }));
+                    shuffle(originalOptions);
+                    q.answerOptions = originalOptions;
+                });
+            }
+            
+            quizQuestions = sourceQuestions.slice(0, Math.min(quantity, sourceQuestions.length));
+            quizDuration = Math.max(900, quizQuestions.length * 45); 
+
+            // Reset States
+            currentQuestionIndex = 0;
+            userAnswers = {};
+            flaggedQuestions = {};
+            isQuizSubmitted = false;
+            timeSpentSeconds = 0;
+            startTime = new Date();
+
+            // Set up Badge/Timer UI
+            const badge = document.getElementById('badge-mode');
+            if (quizMode === 'practice') {
+                badge.innerText = `โหมดฝึกฝน (${quizQuestions.length} ข้อ | มีเฉลยวิเคราะห์ตัวบททันที)`;
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-purple-100 text-purple-850 border border-purple-250";
+                document.getElementById('timer-container').classList.add('hidden');
+                document.getElementById('score-counter').classList.remove('hidden');
+            } else {
+                badge.innerText = `โหมดจำลองสอบจริง (จำกัดเวลา สลับลำดับคำถามและคำตอบ)`;
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-rose-100 text-rose-800 border border-rose-200";
+                document.getElementById('timer-container').classList.remove('hidden');
+                document.getElementById('score-counter').classList.add('hidden');
+                startTimer();
+            }
+
+            // View Transition
+            document.getElementById('setup-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+
+            renderNavigationGrid();
+            loadQuestion(0);
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            let timerSeconds = quizDuration;
+            const timerDisplay = document.getElementById('quiz-timer');
+            
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                timeSpentSeconds++;
+                
+                const minutes = Math.floor(timerSeconds / 60);
+                const seconds = timerSeconds % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timerSeconds <= 300) { 
+                    timerDisplay.parentElement.classList.add('text-rose-500', 'animate-pulse');
+                } else {
+                    timerDisplay.parentElement.classList.remove('text-rose-500', 'animate-pulse');
+                }
+
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const q = quizQuestions[index];
+
+            // Render status texts
+            document.getElementById('current-q-index').innerText = index + 1;
+            document.getElementById('total-q-count').innerText = quizQuestions.length;
+            
+            const progressPercent = ((index + 1) / quizQuestions.length) * 100;
+            document.getElementById('progress-bar-fill').style.width = `${progressPercent}%`;
+
+            // Category & Question text
+            document.getElementById('question-category').innerText = q.category;
+            document.getElementById('question-text').innerText = `${q.question}`;
+
+            // Bookmarked/Flagged status
+            const flagBtn = document.getElementById('flag-btn');
+            const flagIcon = document.getElementById('flag-icon');
+            if (flaggedQuestions[index]) {
+                flagIcon.setAttribute('fill', '#f59e0b');
+                flagIcon.setAttribute('stroke', '#f59e0b');
+                flagBtn.classList.add('text-amber-500');
+            } else {
+                flagIcon.setAttribute('fill', 'none');
+                flagIcon.setAttribute('stroke', 'currentColor');
+                flagBtn.classList.remove('text-amber-500');
+            }
+
+            // Options Renderer
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const selectedAnswer = userAnswers[index];
+            const isAnswered = selectedAnswer !== undefined;
+            const showAnswersDirectly = (quizMode === 'practice' && isAnswered);
+
+            q.answerOptions.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border transition-all text-sm font-medium focus:outline-none flex justify-between items-center gap-4 min-h-[44px]";
+                btn.onclick = () => selectOption(optIdx);
+
+                const textSpan = document.createElement('span');
+                textSpan.innerText = opt.text;
+                btn.appendChild(textSpan);
+
+                // Option styling logic based on state and mode
+                if (selectedAnswer === optIdx) {
+                    if (showAnswersDirectly) {
+                        if (opt.isCorrect) {
+                            btn.className += " bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm";
+                            btn.appendChild(createIcon('check', 'text-emerald-600'));
+                        } else {
+                            btn.className += " bg-rose-50 border-rose-400 text-rose-800 shadow-sm";
+                            btn.appendChild(createIcon('x', 'text-rose-600'));
+                        }
+                    } else {
+                        btn.className += " bg-purple-50 border-purple-600 text-purple-950 shadow-md scale-[1.01]";
+                    }
+                } else {
+                    if (showAnswersDirectly && opt.isCorrect) {
+                        btn.className += " bg-emerald-50 border-emerald-400 text-emerald-800";
+                        btn.appendChild(createIcon('check', 'text-emerald-500'));
+                    } else {
+                        btn.className += " bg-white border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700";
+                    }
+                }
+
+                if (showAnswersDirectly) {
+                    btn.disabled = true;
+                    btn.onclick = null;
+                }
+
+                optionsContainer.appendChild(btn);
+            });
+
+            // Handle Instant Explanation Panel (Practice Mode only)
+            const expPanel = document.getElementById('explanation-panel');
+            if (showAnswersDirectly) {
+                expPanel.classList.remove('hidden');
+                const selectedOptObj = q.answerOptions[selectedAnswer];
+                const isCorrect = selectedOptObj.isCorrect;
+                
+                const titleBadge = document.getElementById('explanation-title-badge');
+                if (isCorrect) {
+                    titleBadge.innerText = "ตอบถูกต้อง";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-emerald-600";
+                } else {
+                    titleBadge.innerText = "ตอบผิดพลาด";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-rose-600";
+                }
+                
+                document.getElementById('explanation-text').innerText = selectedOptObj.rationale;
+            } else {
+                expPanel.classList.add('hidden');
+            }
+
+            // Navigation buttons adjustments
+            document.getElementById('prev-btn').disabled = (index === 0);
+            const nextBtn = document.getElementById('next-btn');
+            const submitQuizBtn = document.getElementById('submit-quiz-btn');
+
+            if (index === quizQuestions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitQuizBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitQuizBtn.classList.add('hidden');
+            }
+
+            updateNavigationGridActive();
+        }
+
+        // SVG helper for response checks
+        function createIcon(type, colorClass) {
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.setAttribute("class", `w-5 h-5 ${colorClass} shrink-0`);
+            svg.setAttribute("fill", "none");
+            svg.setAttribute("viewBox", "0 0 24 24");
+            svg.setAttribute("stroke", "currentColor");
+            svg.setAttribute("stroke-width", "3");
+
+            if (type === 'check') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M5 13l4 4L19 7");
+                svg.appendChild(path);
+            } else if (type === 'x') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M6 18L18 6M6 6l12 12");
+                svg.appendChild(path);
+            }
+            return svg;
+        }
+
+        function selectOption(optionIndex) {
+            if (isQuizSubmitted) return;
+            userAnswers[currentQuestionIndex] = optionIndex;
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function toggleFlag() {
+            flaggedQuestions[currentQuestionIndex] = !flaggedQuestions[currentQuestionIndex];
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                loadQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        function renderNavigationGrid() {
+            const grid = document.getElementById('grid-navigation');
+            grid.innerHTML = '';
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('score-counter').innerText = `${answeredCount}/${quizQuestions.length}`;
+
+            let paddingClass = "py-2";
+            let sizeClass = "text-xs";
+            if (quizQuestions.length > 50) {
+                paddingClass = "py-1.5";
+                sizeClass = "text-[10px]";
+            }
+
+            quizQuestions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full ${paddingClass} rounded-lg ${sizeClass} font-bold text-center border focus:outline-none transition-all min-h-[28px]`;
+                btn.innerText = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+
+                const isSelected = (idx === currentQuestionIndex);
+                const hasAnswered = (userAnswers[idx] !== undefined);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                if (isSelected) {
+                    btn.className += " bg-purple-900 border-purple-950 text-white ring-2 ring-purple-300 ring-offset-1";
+                } else if (isFlagged) {
+                    btn.className += " bg-amber-500 border-amber-600 text-white";
+                } else if (hasAnswered) {
+                    btn.className += " bg-purple-100 border-purple-300 text-purple-850 hover:bg-purple-200";
+                } else {
+                    btn.className += " bg-slate-50 border-slate-200 text-slate-650 hover:bg-slate-100";
+                }
+
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateNavigationGridActive() {
+            const grid = document.getElementById('grid-navigation');
+            const btns = grid.children;
+            for (let i = 0; i < btns.length; i++) {
+                const btn = btns[i];
+                if (i === currentQuestionIndex) {
+                    btn.classList.add('ring-2', 'ring-purple-300', 'ring-offset-1');
+                } else {
+                    btn.classList.remove('ring-2', 'ring-purple-300', 'ring-offset-1');
+                }
+            }
+        }
+
+        function showSubmitConfirmModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = quizQuestions.length - answeredCount;
+            const statusText = document.getElementById('modal-completion-status');
+
+            if (unanswered > 0) {
+                statusText.innerText = `คุณยังเว้นว่างข้อสอบอีก ${unanswered} ข้อ จากทั้งหมด ${quizQuestions.length} ข้อ ยืนยันส่งเพื่อสรุปผลคะแนนตอนนี้เลยหรือไม่?`;
+                statusText.className = "text-sm text-amber-650 leading-relaxed font-semibold";
+            } else {
+                statusText.innerText = "ยินดีด้วย! คุณตอบครบถ้วนทุกข้อแล้ว ต้องการส่งกระดาษคำตอบเพื่อประเมินวิเคราะห์คะแนนทันทีเลยหรือไม่?";
+                statusText.className = "text-sm text-emerald-600 leading-relaxed font-semibold";
+            }
+
+            document.getElementById('submit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideSubmitConfirmModal() {
+            document.getElementById('submit-confirm-modal').classList.add('hidden');
+        }
+
+        function confirmExit() {
+            document.getElementById('exit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideExitConfirmModal() {
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+        }
+
+        function exitQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            isQuizSubmitted = true;
+            hideSubmitConfirmModal();
+
+            let scoreCorrect = 0;
+            const categoryAnalysis = {};
+
+            // Initialize categories statistics
+            quizQuestions.forEach(q => {
+                if (!categoryAnalysis[q.category]) {
+                    categoryAnalysis[q.category] = { correct: 0, total: 0 };
+                }
+                categoryAnalysis[q.category].total++;
+            });
+
+            // Calculate score
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if (userAns !== undefined) {
+                    const selectedOpt = q.answerOptions[userAns];
+                    if (selectedOpt.isCorrect) {
+                        scoreCorrect++;
+                        categoryAnalysis[q.category].correct++;
+                    }
+                }
+            });
+
+            const totalCount = quizQuestions.length;
+            const percent = Math.round((scoreCorrect / totalCount) * 100);
+
+            if (quizMode !== 'exam') {
+                const end = new Date();
+                timeSpentSeconds = Math.round((end - startTime) / 1000);
+            }
+            const minsUsed = Math.floor(timeSpentSeconds / 60);
+            const secsUsed = timeSpentSeconds % 60;
+
+            // Display Results View
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+
+            document.getElementById('result-percentage').innerText = `${percent}%`;
+            document.getElementById('result-score-fraction').innerText = `${scoreCorrect}/${totalCount} คะแนน`;
+
+            const dashArray = 251.2;
+            const offset = dashArray - (dashArray * percent) / 100;
+            document.getElementById('score-ring-fill').style.strokeDashoffset = offset;
+
+            const resultBadge = document.getElementById('result-badge');
+            const feedbackText = document.getElementById('result-feedback-text');
+
+            if (percent >= 80) {
+                resultBadge.innerText = "เกณฑ์ประเมิน: ผ่านระดับดีเยี่ยม";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-250";
+                feedbackText.innerText = "ยอดเยี่ยมมาก! คุณมีความเข้าใจในระเบียบ สิทธิ และพัสดุทางการเงินของสถาบันอุดมศึกษาเอกชน พ.ศ. ๒๕๔๖ อย่างลึกซึ้ง ครบถ้วน พร้อมสอบแข่งขันช้าราชการหรือนักทรัพยากรบุคคลสายการศึกษาแล้วครับ";
+            } else if (percent >= 60) {
+                resultBadge.innerText = "เกณฑ์ประเมิน: ผ่านตามมาตรฐาน";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-50 text-amber-700 border border-amber-200";
+                feedbackText.innerText = "คุณผ่านเกณฑ์ประเมินมาตรฐานข้าราชการเรียบร้อยแล้ว แนะนำให้ตรวจสอบ 'ข้อสอบเฉลยละเอียด' ด้านล่าง เพื่อศึกษามาตรา ข้อบังคับ และตัวเลขค่าปรับที่อาจพลาดไป";
+            } else {
+                resultBadge.innerText = "เกณฑ์ประเมิน: ควรทบทวนความรู้";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-50 text-rose-800 border border-rose-200";
+                feedbackText.innerText = "ระดับคะแนนเฉลี่ยยังไม่ผ่านเกณฑ์วัดระดับขั้นต้นครับ แนะนำให้อ่าน 'Cheat Sheet' ด้านบน แล้วกลับมาลองทดสอบทวนซ้ำในโหมดฝึกฝนใหม่อีกรอบเพื่อความแม่นยำยิ่งขึ้น";
+            }
+
+            document.getElementById('stat-correct').innerText = `${scoreCorrect} ข้อ`;
+            document.getElementById('stat-incorrect').innerText = `${totalCount - scoreCorrect} ข้อ`;
+            document.getElementById('stat-time-spent').innerText = `${minsUsed} น. ${secsUsed} วิ.`;
+
+            // Skills analysis section
+            const topicContainer = document.getElementById('topic-analysis-container');
+            topicContainer.innerHTML = '';
+
+            for (const [category, data] of Object.entries(categoryAnalysis)) {
+                const catPercent = Math.round((data.correct / data.total) * 100);
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = "space-y-1.5";
+
+                const labelRow = document.createElement('div');
+                labelRow.className = "flex justify-between items-center text-xs font-bold text-slate-700";
+                labelRow.innerHTML = `<span>${category}</span> <span class="font-mono font-bold">${data.correct}/${data.total} (${catPercent}%)</span>`;
+                wrapper.appendChild(labelRow);
+
+                const barBg = document.createElement('div');
+                barBg.className = "w-full bg-slate-200 h-2 rounded-full overflow-hidden";
+                
+                const barFill = document.createElement('div');
+                barFill.className = catPercent >= 80 ? "bg-purple-900 h-full" : (catPercent >= 60 ? "bg-purple-700 h-full" : "bg-rose-500 h-full");
+                barFill.style.width = `${catPercent}%`;
+                barBg.appendChild(barFill);
+                
+                wrapper.appendChild(barBg);
+                topicContainer.appendChild(wrapper);
+            }
+
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('toggle-review-btn').innerText = "ดูข้อสอบเฉลยละเอียดรายข้อ";
+            generateDetailedReviewList();
+        }
+
+        function generateDetailedReviewList() {
+            const listContainer = document.getElementById('review-questions-list');
+            listContainer.innerHTML = '';
+
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCorrect = (userAns !== undefined && q.answerOptions[userAns].isCorrect);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                const card = document.createElement('div');
+                card.className = "bg-white border rounded-xl p-5 sm:p-6 space-y-4 shadow-sm transition-all text-left";
+                card.dataset.isCorrect = isCorrect ? "true" : "false";
+                card.dataset.isFlagged = isFlagged ? "true" : "false";
+
+                // Review Card Header
+                const cardHeader = document.createElement('div');
+                cardHeader.className = "flex justify-between items-start gap-4 border-b border-slate-100 pb-2.5";
+                
+                const flexLeft = document.createElement('div');
+                flexLeft.className = "flex items-center gap-2 flex-wrap";
+                
+                const qNum = document.createElement('span');
+                qNum.className = "text-sm font-bold text-slate-850 font-extrabold";
+                qNum.innerText = `ข้อที่ ${idx + 1}`;
+                flexLeft.appendChild(qNum);
+
+                const catBadge = document.createElement('span');
+                catBadge.className = "text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded";
+                catBadge.innerText = q.category;
+                flexLeft.appendChild(catBadge);
+
+                if (isFlagged) {
+                    const flgBadge = document.createElement('span');
+                    flgBadge.className = "text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 flex items-center gap-1";
+                    flgBadge.innerHTML = `<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"/></svg> ปักหมุดทบทวน`;
+                    flexLeft.appendChild(flgBadge);
+                }
+
+                cardHeader.appendChild(flexLeft);
+
+                // Right Badge Status
+                const statusBadge = document.createElement('span');
+                if (isCorrect) {
+                    statusBadge.innerText = "ตอบถูก";
+                    statusBadge.className = "text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200";
+                } else if (userAns === undefined) {
+                    statusBadge.innerText = "ไม่เลือกตอบ";
+                    statusBadge.className = "text-[10px] font-bold text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200";
+                } else {
+                    statusBadge.innerText = "ตอบผิด";
+                    statusBadge.className = "text-[10px] font-bold text-rose-800 bg-rose-50 px-2 py-0.5 rounded border border-rose-200";
+                }
+                cardHeader.appendChild(statusBadge);
+
+                card.appendChild(cardHeader);
+
+                // Question Text
+                const qText = document.createElement('h5');
+                qText.className = "font-bold text-slate-955 leading-relaxed text-sm sm:text-base";
+                qText.innerText = q.question;
+                card.appendChild(qText);
+
+                // Options list in review card
+                const listGrid = document.createElement('div');
+                listGrid.className = "grid grid-cols-1 gap-2 pt-2";
+
+                let rationaleText = "";
+
+                q.answerOptions.forEach((opt, optIdx) => {
+                    const optBlock = document.createElement('div');
+                    optBlock.className = "p-3 rounded-lg border text-xs font-medium flex justify-between items-center gap-3";
+                    optBlock.innerText = opt.text;
+
+                    if (opt.isCorrect) {
+                        optBlock.className += " bg-emerald-50 border-emerald-300 text-emerald-800";
+                        optBlock.appendChild(createIcon('check', 'text-emerald-600'));
+                        rationaleText = opt.rationale; // grab correct explanation
+                    } else if (userAns === optIdx) {
+                        optBlock.className += " bg-rose-50 border-rose-300 text-rose-800";
+                        optBlock.appendChild(createIcon('x', 'text-rose-600'));
+                    } else {
+                        optBlock.className += " bg-white border-slate-200 text-slate-650";
+                    }
+
+                    listGrid.appendChild(optBlock);
+                });
+
+                card.appendChild(listGrid);
+
+                // Explanation Block
+                const expWrapper = document.createElement('div');
+                expWrapper.className = "bg-slate-50 p-4 rounded-lg border border-slate-100 space-y-1";
+                
+                const expLabel = document.createElement('div');
+                expLabel.className = "text-[10px] font-extrabold text-purple-900 uppercase tracking-wide";
+                expLabel.innerText = "คำอธิบายตัวบทกฎหมายอย่างละเอียด:";
+                expWrapper.appendChild(expLabel);
+
+                const expP = document.createElement('p');
+                expP.className = "text-xs text-slate-650 leading-relaxed";
+                expP.innerText = rationaleText;
+                expWrapper.appendChild(expP);
+
+                card.appendChild(expWrapper);
+                listContainer.appendChild(card);
+            });
+        }
+
+        function toggleDetailedReview() {
+            const reviewSection = document.getElementById('detailed-review-section');
+            const btn = document.getElementById('toggle-review-btn');
+
+            if (reviewSection.classList.contains('hidden')) {
+                reviewSection.classList.remove('hidden');
+                btn.innerText = "ซ่อนข้อสอบเฉลยละเอียด";
+                reviewSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                reviewSection.classList.add('hidden');
+                btn.innerText = "ดูข้อสอบเฉลยละเอียดรายข้อ";
+            }
+        }
+
+        function filterReviewList() {
+            const filterValue = document.getElementById('review-filter').value;
+            const container = document.getElementById('review-questions-list');
+            const cards = container.children;
+
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const isCorrect = card.dataset.isCorrect === "true";
+                const isFlagged = card.dataset.isFlagged === "true";
+
+                if (filterValue === 'all') {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'incorrect' && !isCorrect) {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'flagged' && isFlagged) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            }
+        }
+
+        function restartQuiz() {
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+
+        // Set Default mode on load
+        selectMode('practice');
+    </script>
+</body>
+</html>

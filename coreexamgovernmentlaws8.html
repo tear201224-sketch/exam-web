@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจำลองข้อสอบ แผนงาน โครงการ การบริหารจัดการ และงบประมาณ</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sarabun) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+        /* Custom scrollbar for question grid navigation */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-emerald-800 via-teal-950 to-emerald-900 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="bg-white p-2.5 rounded-full shadow-inner flex items-center justify-center shrink-0">
+                    <!-- Governance & Finance Emblem Shield Icon -->
+                    <svg class="w-10 h-10 text-emerald-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M12 8v8M9 11h6"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-tight">ระบบจำลองข้อสอบ นโยบาย แผนงาน โครงการ และงบประมาณ</h1>
+                    <p class="text-xs sm:text-sm text-emerald-200 mt-1">อ้างอิงหลักเกณฑ์การวิเคราะห์ SWOT, McKinsey 7S, แผน ๓ ระดับ และการงบประมาณภาครัฐ</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 bg-emerald-700/60 text-emerald-100 rounded-full text-xs font-semibold border border-emerald-500/30">๑๐๐ ข้อเต็ม</span>
+                <span class="px-3 py-1 bg-amber-600/60 text-amber-100 rounded-full text-xs font-semibold border border-amber-500/30">วิเคราะห์ทักษะละเอียด</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 py-8 sm:px-6 lg:px-8">
+        
+        <!-- Welcome / Setup / Summary Screen -->
+        <div id="setup-screen" class="max-w-4xl mx-auto space-y-8">
+            
+            <!-- Cheat Sheet (สรุปสาระสำคัญที่มักออกข้อสอบบ่อย) -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 space-y-6">
+                <div class="border-b border-slate-100 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                        <span class="text-emerald-600 font-semibold tracking-wider text-xs uppercase bg-emerald-50 px-3 py-1 rounded-full">สรุปใจความสำคัญเพื่อเตรียมสอบ (Cheat Sheet)</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-950 mt-2">สรุปประเด็นแผนงาน โครงการ และการงบประมาณภาครัฐ</h2>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-emerald-900 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block"></span> ๑. การวิเคราะห์สภาพแวดล้อม
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-slate-800">SWOT Analysis:</strong> อักษร <strong class="text-emerald-700">S</strong> (Strength: จุดแข็ง), <strong class="text-emerald-700">W</strong> (Weakness: จุดอ่อน), <strong class="text-emerald-700">O</strong> (Opportunity: โอกาส), <strong class="text-emerald-700">T</strong> (Threat: อุปสรรค)</li>
+                            <li><strong class="text-slate-800">McKinsey's 7S:</strong> วิเคราะห์สภาพแวดล้อมภายใน ๗ ด้าน ได้แก่ กลยุทธ์ (Strategy), โครงสร้าง (Structure), ระบบดำเนินงาน (System), บุคลากร (Staff), ทักษะความรู้ (Skill), แบบแผนบริหาร (Style), ค่านิยมร่วม (Shared Values)</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-emerald-900 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block"></span> ๒. แผน ๓ ระดับของชาติ
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-slate-800">แผนระดับ ๑:</strong> <span class="font-bold text-emerald-700">ยุทธศาสตร์ชาติ ๒๐ ปี</span> (เป้าหมายพัฒนาประเทศยั่งยืน)</li>
+                            <li><strong class="text-slate-800">แผนระดับ ๒:</strong> แผนแม่บทภายใต้ยุทธศาสตร์ชาติ, แผนปฏิรูปประเทศ, แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ, แผนความมั่นคง</li>
+                            <li><strong class="text-slate-800">แผนระดับ ๓:</strong> แผนแม่บทด้านเฉพาะ, แผนปฏิบัติราชการของส่วนราชการต่าง ๆ</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-emerald-900 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block"></span> ๓. การจัดสรรงบประมาณภาครัฐ
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-slate-800">๕ ประเภทงบประมาณ:</strong> ๑. งบพื้นฐาน, ๒. งบยุทธศาสตร์, ๓. งบบูรณาการ, ๔. งบกลาง, ๕. งบอื่นๆ</li>
+                            <li><strong class="text-slate-800">งบบุคลากร:</strong> ได้แก่ เงินเดือน, ค่าจ้างประจำ, ค่าจ้างชั่วคราว, ค่าตอบแทนพนักงานราชการ</li>
+                            <li><strong class="text-slate-800">งบดำเนินงาน:</strong> ค่าตอบแทน, ค่าใช้สอย, ค่าวัสดุ, ค่าสาธารณูปโภค</li>
+                            <li><strong class="text-slate-800">ปีงบประมาณ:</strong> เริ่มตั้งแต่วันที่ <span class="font-bold text-amber-700">๑ ตุลาคม ของปี</span> ถึงวันที่ <span class="font-bold text-amber-700">๓๐ กันยายน ของปีถัดไป</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-emerald-900 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block"></span> ๔. โครงสร้างแผนงานและตัวชี้วัด (SMART)
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-slate-800">SMART KPIs:</strong> <strong class="text-emerald-700">S</strong>pecific (เจาะจง), <strong class="text-emerald-700">M</strong>easurable (วัดผลได้), <strong class="text-emerald-700">A</strong>greed Upon (เห็นชอบร่วมกัน), <strong class="text-emerald-700">R</strong>ealistic (เป็นจริงได้), <strong class="text-emerald-700">T</strong>ime Bound (กรอบเวลาชัดเจน)</li>
+                            <li><strong class="text-slate-800">ประเภทกิจกรรม:</strong> แบ่งเป็น กิจกรรมหลัก, กิจกรรมย่อย, กิจกรรมรอง, กิจกรรมสนับสนุน</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Setup Panel -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 space-y-8">
+                <div class="text-center space-y-2">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">เตรียมตัวสอบ แผนงาน โครงการ และงบประมาณ</h2>
+                    <p class="text-slate-500 text-sm max-w-lg mx-auto">ศึกษาชุดข้อสอบจำลองคุณภาพสูง ๑๐๐ ข้อเต็ม ถอดแบบคำถามตรงตามแนวข้อสอบจริงและวิเคราะห์ผลลัพธ์รายบทอย่างละเอียด</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Practice Mode Card -->
+                    <button onclick="selectMode('practice')" id="mode-practice-btn" class="group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-emerald-600 hover:bg-emerald-50/10 transition-all duration-200 focus:outline-none">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-emerald-100 text-emerald-700 p-3 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดฝึกฝน (Practice Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">เรียนรู้พร้อมเฉลยและหลักเกณฑ์วิเคราะห์ทันที แสดงอ้างอิงมาตราและเหตุผลอ้างอิงหลังตอบเสร็จรายข้อ</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Exam Mode Card -->
+                    <button onclick="selectMode('exam')" id="mode-exam-btn" class="group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-emerald-800 hover:bg-slate-50 transition-all duration-200 focus:outline-none">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-slate-100 text-slate-700 p-3 rounded-lg group-hover:bg-slate-800 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดสอบจริง (Exam Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">จำลองเวลาจำกัด ๔๕ นาที สลับสุ่มคำถามและปิดเฉลย เพื่อใช้วัดระดับทักษะประเมินผลหลังส่งข้อสอบเสร็จ</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Parameters Selection -->
+                <div class="border-t border-slate-200 pt-6 space-y-4">
+                    <h4 class="font-semibold text-slate-800">ตั้งค่าการประเมิน</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">จำนวนข้อสอบที่ต้องการทำ</label>
+                            <select id="exam-quantity" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm">
+                                <option value="20">20 ข้อ (ทบทวนด่วน)</option>
+                                <option value="50">50 ข้อ (ขนาดมาตรฐาน)</option>
+                                <option value="100" selected>100 ข้อเต็ม (สมบูรณ์แบบครบถ้วนตามเอกสาร)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">ขอบเขตหัวข้อประเมิน</label>
+                            <select id="exam-scope" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm" disabled>
+                                <option value="all">ครอบคลุม แผนงาน โครงการ และงบประมาณทั้งหมด</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz()" class="w-full py-4 bg-emerald-700 hover:bg-emerald-800 active:scale-[0.99] text-white font-bold rounded-xl shadow-md shadow-emerald-600/20 transition-all text-center block focus:outline-none">
+                    เริ่มทำข้อสอบประเมินตนเอง
+                </button>
+            </div>
+        </div>
+
+        <!-- Active Quiz Screen -->
+        <div id="quiz-screen" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Question Panel (3/4 of width) -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Status bar -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="flex items-center gap-3">
+                        <span id="badge-mode" class="px-2.5 py-0.5 rounded text-xs font-bold uppercase"></span>
+                        <div class="text-sm font-medium text-slate-500">
+                            ข้อที่ <span id="current-q-index" class="text-slate-800 font-bold">1</span> จาก <span id="total-q-count" class="text-slate-800 font-bold">100</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-grow max-w-md w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                        <div id="progress-bar-fill" class="bg-emerald-600 h-full transition-all duration-300" style="width: 1%"></div>
+                    </div>
+
+                    <div id="timer-container" class="flex items-center gap-2 text-rose-600 font-bold hidden">
+                        <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span id="quiz-timer">45:00</span>
+                    </div>
+                </div>
+
+                <!-- Question Card -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+                    <div class="flex justify-between items-center">
+                        <span id="question-category" class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded">หมวดการวิเคราะห์</span>
+                        <button onclick="toggleFlag()" id="flag-btn" class="text-slate-400 hover:text-amber-500 focus:outline-none flex items-center gap-1.5 text-xs font-medium">
+                            <svg id="flag-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                            <span>ปักหมุดทบทวน</span>
+                        </button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-950 leading-relaxed"></h3>
+                    </div>
+
+                    <!-- Options list -->
+                    <div id="options-container" class="grid grid-cols-1 gap-3.5">
+                        <!-- Options generated dynamically -->
+                    </div>
+
+                    <!-- Instant Explanation (Only in Practice Mode) -->
+                    <div id="explanation-panel" class="hidden bg-slate-50 rounded-xl border border-slate-200 p-5 space-y-2.5">
+                        <div class="flex items-center gap-2">
+                            <span id="explanation-title-badge" class="px-2 py-0.5 rounded text-xs font-bold text-white"></span>
+                            <span class="text-sm font-bold text-slate-800">เหตุผลอ้างอิงและอรรถาธิบายหลักสูตร:</span>
+                        </div>
+                        <p id="explanation-text" class="text-sm text-slate-600 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between items-center gap-4">
+                    <button onclick="prevQuestion()" id="prev-btn" class="px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg> ย้อนกลับ
+                    </button>
+                    
+                    <button onclick="nextQuestion()" id="next-btn" class="px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none flex items-center gap-2">
+                        ถัดไป <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+
+                    <button onclick="showSubmitConfirmModal()" id="submit-quiz-btn" class="hidden px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-lg shadow-md shadow-rose-600/10 transition-colors text-sm focus:outline-none">
+                        ส่งกระดาษคำตอบ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar Controllers -->
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-4">
+                    <h4 class="font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                        <span>แผงควบคุมข้อสอบ</span>
+                        <span id="score-counter" class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">0/100</span>
+                    </h4>
+                    
+                    <div id="grid-navigation" class="grid grid-cols-5 gap-2 max-h-72 overflow-y-auto p-1 custom-scrollbar">
+                        <!-- Dynamic Grid of Questions numbers -->
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-3 space-y-2">
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-emerald-700 inline-block"></span>
+                            <span>กำลังทำอยู่</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-emerald-100 border border-emerald-300 inline-block"></span>
+                            <span>ทำไปแล้ว</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-amber-500 inline-block"></span>
+                            <span>ปักหมุดทบทวน</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-slate-100 border border-slate-200 inline-block"></span>
+                            <span>ยังไม่ทำ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="confirmExit()" class="w-full py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-lg text-sm shadow-sm transition-colors focus:outline-none text-center block">
+                    ออกจากห้องสอบ
+                </button>
+            </div>
+        </div>
+
+        <!-- Result / Evaluation Dashboard -->
+        <div id="result-screen" class="hidden max-w-4xl mx-auto space-y-8 animate-fadeIn">
+            
+            <!-- Result Summary Box -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 text-center space-y-6">
+                <div class="space-y-2">
+                    <span id="result-badge" class="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">ผ่านเกณฑ์ระดับดีเลิศ</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900">ผลการประเมินความรู้และความเข้าใจ</h2>
+                </div>
+
+                <div class="relative w-44 h-44 mx-auto flex items-center justify-center">
+                    <!-- Circle Bar -->
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e2e8f0" stroke-width="8"/>
+                        <circle id="score-ring-fill" cx="50" cy="50" r="40" fill="transparent" stroke="#047857" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round" class="transition-all duration-1000 ease-out"/>
+                    </svg>
+                    <!-- Percentage dynamic -->
+                    <div class="absolute flex flex-col items-center">
+                        <span id="result-percentage" class="text-4xl font-extrabold text-slate-900">0%</span>
+                        <span id="result-score-fraction" class="text-xs text-slate-500 font-bold mt-1">0/100 คะแนน</span>
+                    </div>
+                </div>
+
+                <p id="result-feedback-text" class="text-slate-600 max-w-md mx-auto text-sm sm:text-base leading-relaxed"></p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-200 pt-6">
+                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                        <span class="block text-xs font-medium text-emerald-600">ตอบถูกต้อง</span>
+                        <span id="stat-correct" class="text-xl font-extrabold text-emerald-800">0 ข้อ</span>
+                    </div>
+                    <div class="bg-rose-50 rounded-xl p-4 border border-rose-100">
+                        <span class="block text-xs font-medium text-rose-600">ตอบผิด / ข้าม</span>
+                        <span id="stat-incorrect" class="text-xl font-extrabold text-rose-800">0 ข้อ</span>
+                    </div>
+                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                        <span class="block text-xs font-medium text-emerald-600">เวลาที่ใช้</span>
+                        <span id="stat-time-spent" class="text-xl font-extrabold text-emerald-800">0 นาที</span>
+                    </div>
+                </div>
+
+                <!-- Topic analysis skills -->
+                <div class="border-t border-slate-200 pt-6 space-y-4 text-left">
+                    <h4 class="font-bold text-slate-800">วิเคราะห์ทักษะความรู้ความเชี่ยวชาญแยกรายหมวด</h4>
+                    <div id="topic-analysis-container" class="space-y-3.5">
+                        <!-- Dynamic analysis bars go here -->
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <button onclick="restartQuiz()" class="px-6 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl shadow-md transition-all text-sm focus:outline-none">
+                        กลับสู่หน้าหลัก
+                    </button>
+                    <button onclick="toggleDetailedReview()" id="toggle-review-btn" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-all text-sm focus:outline-none border border-slate-300">
+                        ดูข้อสอบเฉลยละเอียด
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed review of correction -->
+            <div id="detailed-review-section" class="hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-slate-100 p-4 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 text-lg">คำเฉลยและบทวิเคราะห์เชิงวิชาการแบบรายข้อ</h3>
+                    <div>
+                        <select id="review-filter" onchange="filterReviewList()" class="bg-white border border-slate-300 text-xs font-bold rounded-lg px-2.5 py-1.5 focus:outline-none">
+                            <option value="all">แสดงทั้งหมด</option>
+                            <option value="incorrect">แสดงเฉพาะข้อที่ตอบผิด</option>
+                            <option value="flagged">แสดงเฉพาะข้อที่ปักหมุดทบทวน</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="review-questions-list" class="space-y-6">
+                    <!-- Review cards generated dynamically -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs mt-auto border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 space-y-1">
+            <p>ระบบจำลองข้อสอบสร้างตามเอกสารเนื้อหาหลักสูตรการจัดทำแผนงาน โครงการ การติดตามและประเมินผล และงบประมาณ</p>
+            <p>© 2569 จำลองเพื่อส่งเสริมความพร้อมและทักษะความเชี่ยวชาญก่อนเข้าสู่ตำแหน่งข้าราชการ</p>
+        </div>
+    </footer>
+
+    <!-- Submit Confirmation Modal -->
+    <div id="submit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200">
+            <div class="text-center space-y-3">
+                <div class="bg-rose-50 text-rose-600 p-3 rounded-full w-fit mx-auto border border-rose-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">ยืนยันการส่งกระดาษคำตอบ?</h3>
+                <p id="modal-completion-status" class="text-sm text-slate-500 leading-relaxed"></p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideSubmitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำแบบทดสอบต่อ
+                </button>
+                <button onclick="submitQuiz()" class="flex-1 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none shadow-md shadow-emerald-600/10">
+                    ยืนยันส่งคำตอบ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Confirmation Modal -->
+    <div id="exit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200">
+            <div class="text-center space-y-3">
+                <div class="bg-slate-50 text-slate-600 p-3 rounded-full w-fit mx-auto border border-slate-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">ต้องการออกจากห้องสอบหรือไม่?</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">ความก้าวหน้าและการบันทึกการทำแบบทดสอบรอบนี้จะไม่ได้รับการบันทึกไว้</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideExitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำต่อ
+                </button>
+                <button onclick="exitQuiz()" class="flex-1 py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ออกจากห้องสอบ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DB Array containing exactly 100 questions from the PDF content -->
+    <script>
+        const ALL_QUESTIONS = [
+            {
+                id: 1,
+                category: "การวิเคราะห์สภาพแวดล้อม",
+                question: "ข้อใด เป็นการวิเคราะห์สภาพแวดล้อม?",
+                options: ["ก. การวิเคราะห์สภาพแวดล้อมภายนอก", "ข. การวิเคราะห์สภาพแวดล้อมภายใน", "ค. ข้อ ก. และข้อ ข.", "ง. การวิเคราะห์ปัจจัย"],
+                answer: 2,
+                rationale: "การวิเคราะห์สภาพแวดล้อมประกอบด้วย ๒ ส่วนสำคัญ คือ ๑. การวิเคราะห์สภาพแวดล้อมภายนอก และ ๒. การวิเคราะห์สภาพแวดล้อมภายใน"
+            },
+            {
+                id: 2,
+                category: "การวิเคราะห์สภาพแวดล้อม",
+                question: "การวิเคราะห์สภาพแวดล้อมภายใน (Internal Environment) เป็นการกระทำเพื่ออะไร?",
+                options: ["ก. หาจุดแข็ง (Strength)", "ข. หาจุดอ่อน (Weakness)", "ค. หาโอกาส (Opportunity)", "ง. ข้อ ก. และข้อ ข. ถูกต้อง"],
+                answer: 3,
+                rationale: "การวิเคราะห์สภาพแวดล้อมภายใน (Internal Environment) มีเป้าหมายสำคัญเพื่อค้นหา จุดแข็ง (Strength) และ จุดอ่อน (Weakness) ขององค์กร"
+            },
+            {
+                id: 3,
+                category: "การวิเคราะห์สภาพแวดล้อม",
+                question: "การวิเคราะห์สภาพแวดล้อมภายใน (Internal Environment) ใช้การวิเคราะห์สภาพแวดล้อมภายในตามแนวคิดใด?",
+                options: ["ก. แนวคิด McKinsey's ๗ S", "ข. แนวคิด PEST Analysis", "ค. จุดแข็ง (Strength)", "ง. จุดอ่อน (Weakness)"],
+                answer: 0,
+                rationale: "ในการวิเคราะห์สภาพแวดล้อมภายใน นิยมใช้กรอบแนวคิด McKinsey's 7S เพื่อวิเคราะห์มิติต่างๆ ในองค์กร"
+            },
+            {
+                id: 4,
+                category: "การวิเคราะห์สภาพแวดล้อม",
+                question: "ข้อใด ไม่ใช่ การวิเคราะห์สภาพแวดล้อมภายในตามแนวคิด McKinsey's ๗ S?",
+                options: ["ก. กลยุทธ์ (Strategy)", "ข. โครงสร้าง (Structure)", "ค. ระบบในการดำเนินงาน (System)", "ง. เทคโนโลยี (Technology)"],
+                answer: 3,
+                rationale: "McKinsey's 7S ประกอบด้วย Strategy, Structure, System, Staff, Skill, Style, Shared Values ดังนั้นเทคโนโลยี (Technology) จึงไม่รวมอยู่ใน 7S"
+            },
+            {
+                id: 5,
+                category: "การวิเคราะห์สภาพแวดล้อม",
+                question: "การวิเคราะห์สภาพแวดล้อมภายในตามแนวคิด McKinsey's ๗ S มีกี่ด้าน?",
+                options: ["ก. ๔ ด้าน", "ข. ๕ ด้าน", "ค. ๗ ด้าน", "ง. ๑๐ ด้าน"],
+                answer: 2,
+                rationale: "ตามแนวคิด McKinsey's 7S กำหนดปัจจัยภายในที่ต้องประเมินและวิเคราะห์ไว้ทั้งหมด ๗ ด้านอย่างชัดเจน"
+            },
+            {
+                id: 6,
+                category: "การวิเคราะห์สภาพแวดล้อม",
+                question: "ถ้าส่วนราชการมีภารกิจหลากหลาย ขาดความชัดเจนในเชิงนโยบาย/ยุทธศาสตร์ และเปลี่ยนแปลงบ่อย มีผลให้องค์กรต้องปรับนโยบายและยุทธศาสตร์ ทำให้ขาดความต่อเนื่องในการดำเนินนโยบาย อยู่ในการวิเคราะห์สภาพแวดล้อมด้านใดตามแนวคิด McKinsey's ๗ S?",
+                options: ["ก. กลยุทธ์ (Strategy)", "ข. โครงสร้าง (Structure)", "ค. ทักษะ ความรู้ ความสามารถ (Skill)", "ง. ค่านิยมร่วม (Shared Values)"],
+                answer: 0,
+                rationale: "ปัญหาความต่อเนื่องและการขาดความชัดเจนเชิงนโยบาย/ยุทธศาสตร์ ถือเป็นข้อจำกัดในด้าน กลยุทธ์ (Strategy) ขององค์กร"
+            },
+            {
+                id: 7,
+                category: "การวิเคราะห์สภาพแวดล้อม",
+                question: "การวิเคราะห์สภาพแวดล้อมตามหลัก SWOT Analysis อักษรตัว S หมายถึงข้อใด?",
+                options: ["ก. จุดแข็ง (Strengths)", "ข. จุดอ่อน (Weaknesses)", "ค. โอกาส (Opportunities)", "ง. อุปสรรค/ภัยคุกคาม (Threats)"],
+                answer: 0,
+                rationale: "ใน SWOT Analysis อักษร S ย่อมาจาก Strengths หมายถึง จุดแข็ง ซึ่งเป็นปัจจัยภายในเชิงบวก"
+            },
+            {
+                id: 8,
+                category: "การวิเคราะห์สภาพแวดล้อม",
+                question: "การวิเคราะห์สภาพแวดล้อมตามหลัก SWOT Analysis อักษรตัว W หมายถึงข้อใด?",
+                options: ["ก. จุดแข็ง (Strengths)", "ข. จุดอ่อน (Weaknesses)", "ค. โอกาส (Opportunities)", "ง. อุปสรรค/ภัยคุกคาม (Threats)"],
+                answer: 1,
+                rationale: "อักษร W ย่อมาจาก Weaknesses หมายถึง จุดอ่อน ซึ่งเป็นปัจจัยภายในเชิงลบ"
+            },
+            {
+                id: 9,
+                category: "การวิเคราะห์สภาพแวดล้อม",
+                question: "การวิเคราะห์สภาพแวดล้อมตามหลัก SWOT Analysis อักษรตัว O หมายถึงข้อใด?",
+                options: ["ก. จุดแข็ง (Strengths)", "ข. จุดอ่อน (Weaknesses)", "ค. โอกาส (Opportunities)", "ง. อุปสรรค/ภัยคุกคาม (Threats)"],
+                answer: 2,
+                rationale: "อักษร O ย่อมาจาก Opportunities หมายถึง โอกาส ซึ่งเป็นปัจจัยภายนอกที่เป็นผลบวกและเอื้อต่อการดำเนินงาน"
+            },
+            {
+                id: 10,
+                category: "การวิเคราะห์สภาพแวดล้อม",
+                question: "การวิเคราะห์สภาพแวดล้อมตามหลัก SWOT Analysis อักษรตัว T หมายถึงข้อใด?",
+                options: ["ก. จุดแข็ง (Strengths)", "ข. จุดอ่อน (Weaknesses)", "ค. โอกาส (Opportunities)", "ง. อุปสรรค/ภัยคุกคาม (Threats)"],
+                answer: 3,
+                rationale: "อักษร T ย่อมาจาก Threats หมายถึง อุปสรรคหรือภัยคุกคาม ซึ่งเป็นปัจจัยภายนอกเชิงลบที่ควบคุมได้ยาก"
+            },
+            {
+                id: 11,
+                category: "การวิเคราะห์สภาพแวดล้อม",
+                question: "การมีกฎหมายหลักมีกฎหมายเฉพาะ มีกรอบทิศทางการทำงาน อำนาจหน้าที่ในการปฏิบัติงานตามกฎหมายที่ชัดเจน อยู่ในหลักการวิเคราะห์ตามหลัก SWOT ข้อใด?",
+                options: ["ก. จุดแข็ง (Strength)", "ข. จุดอ่อน (Weakness)", "ค. โอกาส (Opportunity)", "ง. ภัยคุกคาม (Threat)"],
+                answer: 0,
+                rationale: "การมีกรอบกฎหมาย อำนาจหน้าที่ และทิศทางการทำงานของตนเองที่ชัดเจน จัดอยู่ในกลุ่ม จุดแข็ง (Strength) ซึ่งเป็นปัจจัยภายในที่เป็นระบบและมั่นคง"
+            },
+            {
+                id: 12,
+                category: "การวิเคราะห์สภาพแวดล้อม",
+                question: "การขาดการบูรณาการในจัดการฐานข้อมูล และยังไม่สามารถนำข้อมูลมาใช้ประโยชน์ได้อย่างมีประสิทธิภาพ อยู่ในหลักการวิเคราะห์ตามหลัก SWOT ข้อใด?",
+                options: ["ก. จุดแข็ง (Strength)", "ข. จุดอ่อน (Weakness)", "ค. โอกาส (Opportunity)", "ง. ภัยคุกคาม (Threat)"],
+                answer: 1,
+                rationale: "การที่หน่วยงานขาดการรวมฐานข้อมูลและไม่มีประสิทธิภาพในการดึงข้อมูลมาใช้งาน ถือเป็น จุดอ่อน (Weakness) ภายในองค์กรเอง"
+            },
+            {
+                id: 13,
+                category: "การจัดทำงบประมาณ",
+                question: "งบประมาณ แบ่งเป็นกี่ประเภท?",
+                options: ["ก. ๓ ประเภท", "ข. ๔ ประเภท", "ค. ๕ ประเภท", "ง. ๖ ประเภท"],
+                answer: 2,
+                rationale: "งบประมาณแบ่งออกเป็น ๕ ประเภท ได้แก่ ๑. งบพื้นฐาน ๒. งบยุทธศาสตร์ ๓. งบบูรณาการ ๔. งบกลาง และ ๕. งบอื่น ๆ"
+            },
+            {
+                id: 14,
+                category: "การจัดทำงบประมาณ",
+                question: "ข้อใดมิใช่ประเภทของงบประมาณ?",
+                options: ["ก. งบพื้นฐาน งบยุทธศาสตร์ งบบูรณาการ", "ข. งบบูรณาการ งบกลาง งบอื่น ๆ", "ค. งบพื้นฐาน งบยุทธศาสตร์ งบกลาง", "ง. งบประมาณ งบรายจ่าย งบเพิ่มเติม"],
+                answer: 3,
+                rationale: "งบประมาณ งบรายจ่าย งบเพิ่มเติม ไม่ใช่การจำแนกประเภทงบประมาณระบบหลัก ๕ ประเภทตามระเบียบงบประมาณภาครัฐ"
+            },
+            {
+                id: 15,
+                category: "แผนงานและนโยบาย",
+                question: "แผนงานภาครัฐในปัจจุบัน มีการจำแนกประเภทออกเป็นกี่ระดับ?",
+                options: ["ก. ๒ ระดับ", "ข. ๓ ระดับ", "ค. ๔ ระดับ", "ง. ๕ ระดับ"],
+                answer: 1,
+                rationale: "แผนระดับชาติในปัจจุบันจำแนกออกเป็น ๓ ระดับอย่างชัดเจน ได้แก่ แผนระดับที่ ๑, ๒ และ ๓"
+            },
+            {
+                id: 16,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใดกล่าวผิดเกี่ยวกับระดับของแผน?",
+                options: ["ก. ยุทธศาสตร์ชาติ คือ แผนระดับ ๑", "ข. แผนแม่บทภายใต้ยุทธศาสตร์ชาติ แผนปฏิรูปประเทศ คือ แผนระดับ ๒", "ค. แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ คือ แผนระดับ ๓", "ง. แผนปฏิบัติราชการของส่วนราชการต่าง ๆ คือ แผนระดับ ๓"],
+                answer: 2,
+                rationale: "แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ จัดอยู่ใน แผนระดับที่ ๒ (ร่วมกับแผนแม่บท แผนปฏิรูปประเทศ และแผนความมั่นคง) ไม่ใช่แผนระดับที่ ๓"
+            },
+            {
+                id: 17,
+                category: "แผนงานและนโยบาย",
+                question: "แผนความมั่นคงของชาติ คือแผนในระดับใดตามระบบการจำแนกแผน?",
+                options: ["ก. แผนระดับ ๑", "ข. แผนระดับ ๒", "ค. แผนระดับ ๓", "ง. ไม่ระบุระดับ"],
+                answer: 1,
+                rationale: "แผนความมั่นคงจัดเป็น แผนระดับที่ ๒ ซึ่งเป็นแนวทางในการขับเคลื่อนประเด็นเชิงยุทธศาสตร์เพื่อถ่ายทอดลงสู่แผนปฏิบัติการระดับ ๓"
+            },
+            {
+                id: 18,
+                category: "แผนงานและนโยบาย",
+                question: "การจำแนกแผนงานตามเกณฑ์ระยะเวลา แบ่งออกเป็นกี่ประเภท?",
+                options: ["ก. ๓ ประเภท", "ข. ๔ ประเภท", "ค. ๕ ประเภท", "ง. ๖ ประเภท"],
+                answer: 0,
+                rationale: "จำแนกตามระยะเวลา แบ่งออกเป็น ๓ ประเภท คือ ๑. แผนระยะสั้น ๒. แผนระยะปานกลาง และ ๓. แผนระยะยาว"
+            },
+            {
+                id: 19,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใด จัดเป็น ตัวอย่างของแผนงานระยะสั้น?",
+                options: ["ก. แผนปฏิบัติการประจำปี", "ข. แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ ๑๒", "ค. แผนที่ใช้ระยะเวลาในการดำเนินการมากกว่า ๕ ปีขึ้นไป", "ง. แผนปฏิบัติราชการ ๔ ปี"],
+                answer: 0,
+                rationale: "แผนปฏิบัติการประจำปีจัดเป็นแผนระยะสั้น เนื่องจากได้รับการออกแบบและทบทวนใช้งานเพื่อกรอบเวลาในแต่ละปี"
+            },
+            {
+                id: 20,
+                category: "แผนงานและนโยบาย",
+                question: "แผนงานระยะสั้น คือ แผนที่ใช้ระยะเวลาในการดำเนินงานตามเงื่อนไขข้อใด?",
+                options: ["ก. ประมาณ ๑ ปี แต่ไม่เกิน ๒ ปี", "ข. แผนที่ใช้ระยะเวลาตั้งแต่ ๓-๔ ปี แต่ไม่เกิน ๕ ปี", "ค. แผนที่ใช้ระยะเวลาในการดำเนินการมากกว่า ๕ ปีขึ้นไป", "ง. แผนพัฒนา ๒๐ ปีขึ้นไป"],
+                answer: 0,
+                rationale: "ตามคำจำกัดความ แผนระยะสั้นคือแผนงานที่มีระยะเวลาการดำเนินงานประมาณ ๑ ปี และไม่เกิน ๒ ปีเป็นอย่างสูง"
+            },
+            {
+                id: 21,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใด คือ ตัวอย่างของแผนงานระยะปานกลาง?",
+                options: ["ก. แผนปฏิบัติการประจำปี", "ข. แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ", "ค. แผนปฏิบัติราชการ ๕ ปี", "ง. ถูกทั้งข้อ ข. และข้อ ค."],
+                answer: 3,
+                rationale: "แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ (๕ ปี) และแผนปฏิบัติราชการ (๕ ปี) ล้วนมีกรอบระยะเวลาปานกลาง (๓-๕ ปี แต่ไม่เกิน ๕ ปี)"
+            },
+            {
+                id: 22,
+                category: "แผนงานและนโยบาย",
+                question: "การจำแนกแผนตามระดับการบริหารงานของหน่วยงาน แบ่งออกเป็นกี่ระดับ?",
+                options: ["ก. ๒ ระดับ", "ข. ๓ ระดับ", "ค. ๔ ระดับ", "ง. ๕ ระดับ"],
+                answer: 1,
+                rationale: "จำแนกตามระดับการบริหารงาน แบ่งเป็น ๓ ระดับ ได้แก่ ๑. แผนกลยุทธ์ ๒. แผนยุทธวิธี และ ๓. แผนปฏิบัติการ"
+            },
+            {
+                id: 23,
+                category: "แผนงานและนโยบาย",
+                question: "แผนงานที่ถูกจัดทำขึ้นโดยผู้บริหารระดับสูง เพื่อให้สอดคล้องกับเป้าหมายระดับองค์กรและถ่ายทอดประสานงานลงล่าง คือข้อใด?",
+                options: ["ก. แผนกลยุทธ์", "ข. แผนยุทธวิธี", "ค. แผนปฏิบัติการ", "ง. ถูกทุกข้อ"],
+                answer: 0,
+                rationale: "แผนกลยุทธ์เป็นแผนงานระยะยาวที่ริเริ่มจัดทำขึ้นโดยผู้บริหารระดับสูง เพื่อเป็นทิศทางหลักในการขับเคลื่อนองค์กร"
+            },
+            {
+                id: 24,
+                category: "แผนงานและนโยบาย",
+                question: "แผนที่เกิดจากการทำงานร่วมกันระหว่างผู้บริหารระดับสูงกับผู้บริหารระดับกลาง เพื่อขับเคลื่อนงานไปสู่เป้าหมายคือแผนประเภทใด?",
+                options: ["ก. แผนกลยุทธ์", "ข. แผนยุทธวิธี", "ค. แผนปฏิบัติการ", "ง. แผนเสริมหน่วยงาน"],
+                answer: 1,
+                rationale: "แผนยุทธวิธี (Tactical Plan) เป็นแผนประสานงานและเชื่อมต่อการทำงานระหว่างระดับสูงและระดับกลางเพื่อให้เป้าหมายบรรลุผลสำเร็จ"
+            },
+            {
+                id: 25,
+                category: "แผนงานและนโยบาย",
+                question: "ระดับแผนใดที่ใช้อธิบายเป้าหมายการปฏิบัติงานในลักษณะงานประจำวันต่อวัน (Day-to-Day Operations)?",
+                options: ["ก. แผนกลยุทธ์", "ข. แผนยุทธวิธี", "ค. แผนปฏิบัติการ", "ง. แผนโครงสร้างองค์กร"],
+                answer: 2,
+                rationale: "แผนปฏิบัติการ (Operational Plan) เป็นแผนงานที่บอกรายละเอียดขั้นตอนในระดับปฏิบัติ เพื่อดำเนินภารกิจประจำวันให้บรรลุเป้าหมายย่อย"
+            },
+            {
+                id: 26,
+                category: "แผนงานและนโยบาย",
+                question: "การวางแผนโดยจำแนกตามหน้าที่ในการดำเนินงาน สามารถจำแนกแผนออกได้เป็นกี่ชนิด?",
+                options: ["ก. ๓ ชนิด", "ข. ๔ ชนิด", "ค. ๕ ชนิด", "ง. ๗ ชนิด"],
+                answer: 2,
+                rationale: "จำแนกตามหน้าที่การดำเนินงานได้ ๕ ชนิด ได้แก่ ๑. แผนแม่บท ๒. แผนหน้าที่ ๓. แผนงานโครงการ ๔. แผนสรุป และ ๕. แผนกิจกรรม"
+            },
+            {
+                id: 27,
+                category: "แผนงานและนโยบาย",
+                question: "แผนที่เกิดจากการบูรณาการและรวบรวมแผนงานทั้งหมดภายในหน่วยงานเข้าด้วยกัน เพื่อเป็นแม่แบบในการวางแผนระดับรองลงไป คือแผนชนิดใด?",
+                options: ["ก. แผนแม่บท", "ข. แผนหน้าที่", "ค. แผนงานโครงการ", "ง. แผนสรุป"],
+                answer: 0,
+                rationale: "แผนแม่บท (Master Plan) เป็นแผนภาพรวมหลักขององค์กรที่รวบรวมทุกมิติงานไว้ใช้เป็นต้นแบบอ้างอิงให้แก่แผนงานย่อยอื่น ๆ"
+            },
+            {
+                id: 28,
+                category: "แผนงานและนโยบาย",
+                question: "แผนที่สร้างขึ้นมาโดยมุ่งกำหนดแนวทางการดำเนินงานแบบเฉพาะเจาะจงใช้กับกลุ่มงานเฉพาะด้าน เช่น แผนการตลาด แผนการผลิต คือข้อใด?",
+                options: ["ก. แผนแม่บท", "ข. แผนหน้าที่", "ค. แผนงานโครงการ", "ง. แผนสรุป"],
+                answer: 1,
+                rationale: "แผนหน้าที่ (Functional Plan) มีจุดมุ่งหมายในการกำหนดกรอบการปฏิบัติหน้าที่เฉพาะสายงานหรือเฉพาะแผนก"
+            },
+            {
+                id: 29,
+                category: "แผนงานและนโยบาย",
+                question: "แผนที่หน่วยงานจัดทำขึ้นเพื่อตอบสนองต่อแนวทางกิจกรรมใหญ่ที่มุ่งทำงานให้สำเร็จเป็นกรณีชั่วคราวครั้งต่อครั้ง คือแผนข้อใด?",
+                options: ["ก. แผนแม่บท", "ข. แผนหน้าที่", "ค. แผนงานโครงการ", "ง. แผนสรุป"],
+                answer: 2,
+                rationale: "แผนงานโครงการ (Project Plan) จัดทำขึ้นเพื่อตอบสนองงานเฉพาะกิจที่มีกรอบเวลา วงเงิน และเป้าหมายที่เฉพาะเจาะจงรอบการจัดตั้ง"
+            },
+            {
+                id: 30,
+                category: "แผนงานและนโยบาย",
+                question: "แผนที่จัดทำขึ้นเพื่อสรุปรวมผลการทำงานจากแผนหน้าที่และแผนงานโครงการทั้งหมด เพื่อแสดงผลต่อผู้บริหารคือแผนชนิดใด?",
+                options: ["ก. แผนแม่บท", "ข. แผนหน้าที่", "ค. แผนงานโครงการ", "ง. แผนสรุป"],
+                answer: 3,
+                rationale: "แผนสรุป (Summary Plan) มีหน้าที่รวบรวมข้อมูลแผนงานสำคัญในลักษณะบทสรุปภาพรวมเพื่อนำเสนอต่อผู้บริหาร"
+            },
+            {
+                id: 31,
+                category: "แผนงานและนโยบาย",
+                question: "แผนที่จัดทำขึ้นมาเพื่อแสดงรายละเอียดและตารางเวลา (Schedule) ของแต่ละขั้นตอนปฏิบัติงานอย่างสมบูรณ์คือข้อใด?",
+                options: ["ก. แผนกิจกรรม", "ข. แผนหน้าที่", "ค. แผนงานโครงการ", "ง. แผนสรุป"],
+                answer: 0,
+                rationale: "แผนกิจกรรม (Activity/Action Plan) ระบุรายละเอียดตารางเวลา ขั้นตอน และผู้รับผิดชอบอย่างเจาะจง"
+            },
+            {
+                id: 32,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใดคือองค์ประกอบหรือลักษณะที่สำคัญของ 'แผนยุทธศาสตร์'?",
+                options: ["ก. การมององค์กรในลักษณะภาพรวมทั้งหมด", "ข. การมุ่งเน้นกำหนดทิศทางอนาคต", "ค. การให้ความสำคัญกับปัจจัยสภาพแวดล้อมภายนอกและภายใน", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "แผนยุทธศาสตร์มีลักษณะเด่นในการวิเคราะห์ภาพรวม มุ่งเน้นไปที่อนาคตระยะยาว และให้ความสำคัญกับการเชื่อมต่อสภาพแวดล้อม"
+            },
+            {
+                id: 33,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใดจัดเป็นขั้นตอนหลักในกระบวนการจัดทำแผนยุทธศาสตร์?",
+                options: ["ก. การวิเคราะห์ปัจจัยทางยุทธศาสตร์", "ข. การกำหนดทิศทางของหน่วยงาน (วิสัยทัศน์ พันธกิจ)", "ค. การประเมินเพื่อหาประเด็นความสำคัญที่ต้องมุ่งเน้น", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "การจัดทำแผนยุทธศาสตร์ที่สมบูรณ์ประกอบไปด้วยการวิเคราะห์ปัจจัยสภาพแวดล้อม กำหนดวิสัยทัศน์/พันธกิจ และกำหนดประเด็นยุทธศาสตร์"
+            },
+            {
+                id: 34,
+                category: "แผนงานและนโยบาย",
+                question: "การสังเคราะห์นโยบายและยุทธศาสตร์หลัก และการประเมินวิเคราะห์สภาพแวดล้อม จัดอยู่ในกระบวนการช่วงใดของการจัดทำแผนยุทธศาสตร์?",
+                options: ["ก. ขั้นวิเคราะห์ปัจจัยทางยุทธศาสตร์", "ข. ขั้นกำหนดทิศทางของหน่วยงาน", "ค. ขั้นระบุและวิเคราะห์ประเด็นสำคัญที่ต้องมุ่งเน้น", "ง. ขั้นกำหนดตัวชี้วัดและเป้าหมายเชิงยุทธศาสตร์"],
+                answer: 0,
+                rationale: "การรวบรวมนโยบายและวิเคราะห์สภาพแวดล้อม SWOT จัดอยู่ในขั้นตอนแรก คือ ขั้นการวิเคราะห์ปัจจัยทางยุทธศาสตร์"
+            },
+            {
+                id: 35,
+                category: "แผนงานและนโยบาย",
+                question: "การเขียนประกาศกำหนดวิสัยทัศน์ พันธกิจ และเป้าประสงค์รวมของส่วนราชการ จัดอยู่ในขั้นตอนใดในระบบยุทธศาสตร์?",
+                options: ["ก. ขั้นวิเคราะห์ปัจจัยทางยุทธศาสตร์", "ข. ขั้นการกำหนดทิศทางของหน่วยงาน", "ค. ขั้นระบุประเด็นสำคัญที่ต้องมุ่งเน้น", "ง. ขั้นการวิเคราะห์งบประมาณสนับสนุน"],
+                answer: 1,
+                rationale: "การเขียนวิสัยทัศน์ (Vision) และพันธกิจ (Mission) ถือเป็นการกำหนดทิศทางหลัก (Strategic Direction) ขององค์กร"
+            },
+            {
+                id: 36,
+                category: "แผนงานและนโยบาย",
+                question: "การคัดเลือกและกำหนดประเด็นยุทธศาสตร์ของส่วนราชการ จัดอยู่ในกระบวนการขั้นตอนใด?",
+                options: ["ก. ขั้นวิเคราะห์ปัจจัยทางยุทธศาสตร์", "ข. ขั้นกำหนดทิศทางของหน่วยงาน", "ค. ขั้นวิเคราะห์หาประเด็นสำคัญที่ต้องมุ่งเน้นและให้ความสำคัญ", "ง. ขั้นกำหนดตัวชี้วัดและเป้าหมายของแต่ละประเด็นยุทธศาสตร์"],
+                answer: 2,
+                rationale: "การกำหนดประเด็นยุทธศาสตร์ จัดอยู่ในขั้นการจัดลำดับหาประเด็นสำคัญ (Strategic Themes) ที่องค์กรต้องขับเคลื่อนเพื่อบรรลุวิสัยทัศน์"
+            },
+            {
+                id: 37,
+                category: "แผนงานและนโยบาย",
+                question: "การแปลงประเด็นยุทธศาสตร์มาสู่การวัดผลด้วย ตัวชี้วัด และ ค่าเป้าหมาย จัดอยู่ในขั้นตอนใด?",
+                options: ["ก. ขั้นกำหนดกลยุทธ์", "ข. ขั้นกำหนดทิศทางของหน่วยงาน", "ค. ขั้นระบุความคุ้มค่าของการลงทุนรายจ่ายประจำ", "ง. ขั้นกำหนดตัวชี้วัดและเป้าหมายของเป้าประสงค์เชิงยุทธศาสตร์"],
+                answer: 3,
+                rationale: "การจัดทำค่าเป้าหมายเชิงปริมาณและคุณภาพสำหรับตัวชี้วัด จัดอยู่ในขั้นของการกำหนด KPIs และเป้าหมายวัดผลโดยตรง"
+            },
+            {
+                id: 38,
+                category: "แผนงานและนโยบาย",
+                question: "การคิดค้นหาวิธีการหรือแนวทางปฏิบัติต่าง ๆ เพื่อขับเคลื่อนงานให้บรรลุเป้าประสงค์เชิงยุทธศาสตร์ จัดเป็นกระบวนการใด?",
+                options: ["ก. การกำหนดกลยุทธ์ (Strategy Formulation)", "ข. การวิเคราะห์นโยบายมหภาค", "ค. การควบคุมงบประมาณรายจ่าย", "ง. การจัดทำข้อเสนอโครงการเชิงปริมาณ"],
+                answer: 0,
+                rationale: "การระบุสิ่งที่จะทำหรือวิธีการปฏิบัติงานเพื่อรองรับเป้าประสงค์เชิงยุทธศาสตร์ เรียกว่า การกำหนดกลยุทธ์ (Formulating Strategy)"
+            },
+            {
+                id: 39,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใด ต่อไปนี้ 'มิใช่' หนึ่งในองค์ประกอบของการกำหนดทิศทางของหน่วยงานในแผนยุทธศาสตร์?",
+                options: ["ก. วิสัยทัศน์ (Vision)", "ข. พันธกิจ (Mission)", "ค. เป้าประสงค์รวม (Goal)", "ง. กลยุทธ์รายโครงการ (Project Strategy)"],
+                answer: 3,
+                rationale: "ทิศทางของหน่วยงานประกอบด้วย วิสัยทัศน์ พันธกิจ และเป้าประสงค์รวม ส่วนกลยุทธ์โครงการเป็นส่วนงานย่อยระดับปฏิบัติการ"
+            },
+            {
+                id: 40,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใด ต่อไปนี้ 'ไม่ใช่' ส่วนหนึ่งของการวิเคราะห์ปัจจัยทางยุทธศาสตร์ขององค์กร?",
+                options: ["ก. การสังเคราะห์นโยบายและยุทธศาสตร์หลัก", "ข. การวิเคราะห์สภาพแวดล้อม (SWOT Analysis)", "ค. การประเมินสถานภาพปัจจุบันของระบบการคลัง", "ง. การระบุเกณฑ์ตัวชี้วัดผลงานของเจ้าหน้าที่รายบุคคล"],
+                answer: 3,
+                rationale: "การกำหนดตัวชี้วัดรายบุคคลไม่ใช่ส่วนหนึ่งของการวิเคราะห์ปัจจัยเชิงยุทธศาสตร์ระดับองค์กรในช่วงการเริ่มต้นตั้งแผน"
+            },
+            {
+                id: 41,
+                category: "แผนงานและนโยบาย",
+                question: "องค์ประกอบหลักที่ส่วนราชการให้ความสำคัญและนำมาใช้เป็นแนวทางพัฒนาเพื่อบรรลุผลตามวิสัยทัศน์ เรียกว่าอะไร?",
+                options: ["ก. วิสัยทัศน์ย่อย", "ข. ประเด็นยุทธศาสตร์", "ค. ตัวชี้วัดปริมาณ", "ง. แผนงานโครงการ"],
+                answer: 1,
+                rationale: "ประเด็นยุทธศาสตร์ (Strategic Issues) คือหัวข้อหลักเชิงรุกที่ต้องขับเคลื่อนเพื่อส่งผลกระทบต่อเนื่องไปถึงวิสัยทัศน์สูงสุด"
+            },
+            {
+                id: 42,
+                category: "แผนงานและนโยบาย",
+                question: "เครื่องมือหรือพารามิเตอร์ที่ช่วยบ่งบอกว่าส่วนราชการสามารถปฏิบัติภารกิจได้สำเร็จตามวัตถุประสงค์ยุทธศาสตร์คือข้อใด?",
+                options: ["ก. ประเด็นยุทธศาสตร์", "ข. แผนงานวิชาการ", "ค. ตัวชี้วัด และค่าเป้าหมาย", "ง. สัญญาก่อหนี้ผูกพัน"],
+                answer: 2,
+                rationale: "ตัวชี้วัด (KPIs) และ ค่าเป้าหมาย (Targets) คือสิ่งที่ทำหน้าที่สะท้อนผลสัมฤทธิ์อย่างเป็นรูปธรรม"
+            },
+            {
+                id: 43,
+                category: "แผนงานและนโยบาย",
+                question: "วิธีการ แนวทาง หรือแนวทางปฏิบัติต่าง ๆ เพื่อขับเคลื่อนงานในส่วนงานให้บรรลุตามประเด็นยุทธศาสตร์ที่กำหนดไว้ เรียกว่าอะไร?",
+                options: ["ก. กลยุทธ์", "ข. แผนงานงบประมาณ", "ค. พันธกิจย่อย", "ง. ระเบียบบริหารคลัง"],
+                answer: 0,
+                rationale: "กลยุทธ์ (Strategy) คือวิธีการหลักหรือกลุ่มของการดำเนินงานที่เลือกใช้เพื่อขับเคลื่อนงานสู่ความสำเร็จ"
+            },
+            {
+                id: 44,
+                category: "การวิเคราะห์สภาพแวดล้อม",
+                question: "เครื่องมือการวิเคราะห์สภาพแวดล้อมองค์กรที่ได้รับความนิยมอย่างแพร่หลายอ้างอิงอักษร ๔ ตัวคืออะไร?",
+                options: ["ก. SWOM", "ข. SMART", "ค. SWOT", "ง. SOMT"],
+                answer: 2,
+                rationale: "SWOT Analysis เป็นกรอบการประเมินสภาพแวดล้อมที่ครบถ้วนทั้งมิติภายใน (S, W) และภายนอก (O, T)"
+            },
+            {
+                id: 45,
+                category: "แผนงานและนโยบาย",
+                question: "การกำหนดทิศทางและจุดหมายปลายทางในอนาคตของหน่วยงาน โดยการรวบรวมภารกิจ ค่านิยม และความเชื่อของสมาชิกเข้าด้วยกัน มีพลังและสามารถเป็นไปได้จริง ตรงกับคำใด?",
+                options: ["ก. ยุทธศาสตร์", "ข. วิสัยทัศน์", "ค. พันธกิจ", "ง. เป้าประสงค์"],
+                answer: 1,
+                rationale: "วิสัยทัศน์ (Vision) คือ ภาพสะท้อนจุดหมายปลายทางในอนาคตที่ท้าทาย ชัดเจน และสร้างแรงบันดาลใจ"
+            },
+            {
+                id: 46,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใด กล่าวถึงความสำคัญสูงสุดในการจัดตั้งและกำหนด 'วิสัยทัศน์' ขององค์กรได้ถูกต้อง?",
+                options: ["ก. ช่วยกำหนดเป้าหมายและทิศทางในการดำเนินกิจกรรมร่วมกันอย่างชัดเจน", "ข. ช่วยให้ข้าราชการทราบว่างานที่ตนกระทำส่งผลต่อความสำเร็จของเป้าหมายหลักอย่างไร", "ค. ช่วยเป็นเกณฑ์มาตรฐานชี้นำสู่คุณภาพและความเป็นเลิศรอบด้าน", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "วิสัยทัศน์ที่ดีมีความสำคัญในการรวมศูนย์การทำงาน คุมทิศทาง และเป็นมาตรฐานจูงใจให้เจ้าหน้าที่พัฒนางานสู่ความเป็นเลิศ"
+            },
+            {
+                id: 47,
+                category: "แผนงานและนโยบาย",
+                question: "ลักษณะที่ดีในการกำหนดและยกร่างวิสัยทัศน์ (Vision) ขององค์กร ได้แก่ข้อใด?",
+                options: ["ก. มีมุมมองวิเคราะห์เชื่อมโยงถึงภาพอนาคตที่ชัดเจน", "ข. เปิดโอกาสให้ผู้นำและสมาชิกเข้ามาร่วมคิดและยอมรับร่วมกัน", "ค. มีเนื้อหาข้อความที่กะทัดรัด ครบถ้วน เข้าใจง่าย", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "วิสัยทัศน์ที่ยอดเยี่ยมต้องมองอนาคต สมาชิกมีส่วนร่วม ยึดโยงใจ และมีเนื้อหาที่ชัดเจนเข้าใจตรงกันได้ง่าย"
+            },
+            {
+                id: 48,
+                category: "แผนงานและนโยบาย",
+                question: "ขอบเขตการดำเนินงานและสาเหตุแห่งการดำรงอยู่ของส่วนราชการที่จัดทำขึ้นเพื่อแสดงบทบาทและหน้าที่ขับเคลื่อนวิสัยทัศน์ให้เกิดผลสัมฤทธิ์ คือข้อใด?",
+                options: ["ก. วิสัยทัศน์ (Vision)", "ข. พันธกิจ (Mission)", "ค. ค่านิยมองค์กร", "ง. แผนงานโครงการ"],
+                answer: 1,
+                rationale: "พันธกิจ (Mission) คือ คำชี้แจงถึง ขอบเขต หน้าที่ และวัตถุประสงค์ในการดำรงอยู่ของหน่วยงาน เพื่อตอบสนองวิสัยทัศน์"
+            },
+            {
+                id: 49,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใด กล่าวอธิบายความหมายและขอบเขตของวิสัยทัศน์และพันธกิจได้ถูกต้องสมบูรณ์ที่สุด?",
+                options: ["ก. พันธกิจต้องสอดรับกับอำนาจหน้าที่ตามกฎหมายและมีส่วนผลักดันวิสัยทัศน์", "ข. วิสัยทัศน์ระบุทิศทางที่หน่วยงานต้องการจะเป็นในอนาคตเชิงบวก", "ค. พันธกิจบ่งบอกถึงบทบาทหน้าที่และสาเหตุแห่งการดำรงอยู่ขององค์กร", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "ทั้งข้อ ก, ข และ ค ล้วนเป็นข้อความอธิบายเนื้อหา ความสัมพันธ์ และความสำคัญของวิสัยทัศน์และพันธกิจได้อย่างสมบูรณ์"
+            },
+            {
+                id: 50,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อความที่แสดงผลสัมฤทธิ์ปลายทางที่องค์กรปรารถนาจะบรรลุเมื่อดำเนินงานประสบความสำเร็จตามพันธกิจแต่ละข้อเรียกว่าอะไร?",
+                options: ["ก. ค่านิยมร่วม", "ข. วัฒนธรรมปฏิบัติ", "ค. เป้าประสงค์ (Goal/Objective)", "ง. แผนกิจกรรม"],
+                answer: 2,
+                rationale: "เป้าประสงค์ (Goals) เป็นผลลัพธ์ขั้นสุดท้ายที่บ่งบอกว่าหากทำสำเร็จตามพันธกิจแล้ว ใครจะได้ประโยชน์และได้ประโยชน์อย่างไร"
+            },
+            {
+                id: 51,
+                category: "แผนงานและนโยบาย",
+                question: "หลักเกณฑ์ในการกำหนดและยกร่างเป้าประสงค์ของส่วนราชการ ข้อใดกล่าวได้ถูกต้องตามกระบวนการ?",
+                options: ["ก. ต้องยึดโยงและสอดคล้องกับทิศทางวิสัยทัศน์และพันธกิจขององค์กร", "ข. ให้เขียนข้อความเป้าประสงค์ในลักษณะผลลัพธ์เชิงบวกที่ต้องการจะบรรลุ", "ค. การวิเคราะห์วางกรอบเป้าประสงค์ควรคำนึงถึงมิติการประเมินผล Balanced Scorecard", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "การกำหนดเป้าประสงค์ต้องเชื่อมโยงกับทิศทางหลัก เขียนเน้นสิ่งที่ต้องการบรรลุ และคำนึงถึงมิติต่าง ๆ ให้ครบถ้วนรอบด้าน"
+            },
+            {
+                id: 52,
+                category: "แผนงานและนโยบาย",
+                question: "จุดเน้นเชิงยุทธศาสตร์ที่ส่วนราชการเลือกขึ้นมาเป็นประเด็นหลักเพื่อทุ่มเททรัพยากรและพัฒนาให้บรรลุตามเป้าหมายของแผนเรียกว่าอะไร?",
+                options: ["ก. พันธกิจหลัก", "ข. ตัวชี้วัดผลผลิต", "ค. ประเด็นยุทธศาสตร์ (Strategic Issues)", "ง. ค่านิยมปฏิบัติ"],
+                answer: 2,
+                rationale: "ประเด็นยุทธศาสตร์ คือจุดสำคัญหรือคานงัดเชิงรุกที่ส่วนราชการมุ่งเน้นเป็นพิเศษเพื่อให้บรรลุเป้าหมายตามพันธกิจ"
+            },
+            {
+                id: 53,
+                category: "แผนงานและนโยบาย",
+                question: "แหล่งที่มาและข้อมูลสนับสนุนที่นำมาใช้ประเมินเพื่อกำหนด 'ประเด็นยุทธศาสตร์' ของหน่วยงาน ได้แก่ข้อใด?",
+                options: ["ก. การวิเคราะห์พันธกิจและผลประโยชน์ที่ประชาชนจะได้รับ", "ข. แนวทางหลักเพื่อบรรลุวิสัยทัศน์เชิงพัฒนา", "ค. ผลการวิเคราะห์สภาพแวดล้อมภายในและภายนอกองค์กร", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "ประเด็นยุทธศาสตร์ต้องมาจากการประเมินพันธกิจ แนวทางวิสัยทัศน์ และผลประเมินสภาพแวดล้อม SWOT ร่วมกันอย่างเป็นระบบ"
+            },
+            {
+                id: 54,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใดกล่าวอธิบายหลักเกณฑ์และความสำคัญของการสร้าง 'แผนที่ยุทธศาสตร์' (Strategy Map) ได้ถูกต้อง?",
+                options: ["ก. เป็นการประยุกต์กรอบความคิด Balanced Scorecard มาเขียนแสดงความสัมพันธ์แบบเหตุและผลระหว่างวัตถุประสงค์มิติต่างๆ", "ข. ทำหน้าที่เสมือนคู่มือนำทางในการขับเคลื่อนแผนปฏิบัติราชการให้บรรลุเป้าหมายอย่างเป็นขั้นตอน", "ค. ข้อ ก. และข้อ ข. ถูกต้อง", "ง. เป็นแผนที่แสดงพิกัดที่ตั้งทางกายภาพของส่วนราชการสาขา"],
+                answer: 2,
+                rationale: "แผนที่ยุทธศาสตร์ (Strategy Map) บ่งบอกความสัมพันธ์แบบเหตุและผล (Cause & Effect) ระหว่างวัตถุประสงค์ในมิติต่างๆ ของ Balanced Scorecard"
+            },
+            {
+                id: 55,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใดจัดเป็นขั้นตอนหลักในระบบการจัดทำระบบการประเมินผล Balanced Scorecard ประจำปี?",
+                options: ["ก. การวิเคราะห์จุดแข็ง จุดอ่อน โอกาส และอุปสรรค (SWOT Analysis)", "ข. การประเมินเพื่อยืนยันวิสัยทัศน์และพันธกิจเป้าหมายของหน่วยงาน", "ค. การกำหนดวัตถุประสงค์เชิงยุทธศาสตร์และกลยุทธ์ในมิติต่าง ๆ", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "ขั้นตอนการสร้าง Balanced Scorecard ที่ครบถ้วนเริ่มจากการทำ SWOT, ทบทวนทิศทางวิสัยทัศน์ และกำหนดกลยุทธ์ตามแต่ละมุมมอง"
+            },
+            {
+                id: 56,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อความใดกล่าวอธิบายถึงลักษณะและข้อควรระวังในการจัดทำ 'ตัวชี้วัด' (KPIs) ของส่วนราชการได้ถูกต้อง?",
+                options: ["ก. เป็นตัวบ่งชี้ความก้าวหน้าและการบรรลุผลสำเร็จของวัตถุประสงค์เชิงยุทธศาสตร์", "ข. ต้องใช้ถ้อยคำที่สั้น กะทัดรัด ชัดเจนในนิยามและขอบเขตของการประเมิน", "ค. นำมาใช้เป็นฐานและเครื่องมือหลักในการกำหนดค่าเป้าหมายผลงานถัดไป", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "ตัวชี้วัดที่ยอดเยี่ยมต้องสะท้อนผลสัมฤทธิ์อย่างชัดเจน มีคำจำกัดความที่เข้าใจตรงกัน และใช้กำหนดเป้าหมายเชิงลึกต่อไปได้"
+            },
+            {
+                id: 57,
+                category: "แผนงานและนโยบาย",
+                question: "ตามหลักเกณฑ์การตั้งตัวชี้วัดผลสัมฤทธิ์งานที่ดี (SMART) ข้อใด 'ไม่รวมอยู่' ในหลักการนี้?",
+                options: ["ก. มีขั้นตอนตรวจสอบได้ (Process Verification)", "ข. เจาะจง (Specific) และวัดผลได้ (Measurable)", "ค. ได้รับการเห็นชอบ (Agreed Upon) และเป็นจริงได้ (Realistic)", "ง. มีกรอบระยะเวลาดำเนินงานที่เหมาะสม (Time Bound)"],
+                answer: 0,
+                rationale: "หลัก SMART ประกอบด้วย Specific, Measurable, Agreed-upon, Realistic, และ Time-bound ไม่มีมิติ 'Process Verification'"
+            },
+            {
+                id: 58,
+                category: "แผนงานและนโยบาย",
+                question: "ค่าของตัวชี้วัดผลงาน มักนิยมกำหนดแสดงผลเป็นตัวเลขในลักษณะใดตามมาตรฐานระบบบริหารราชการ?",
+                options: ["ก. ค่าร้อยละ (Percentage) หรืออัตราส่วน (Ratio)", "ข. ค่าเฉลี่ย (Average) หรือสัดส่วน (Proportion)", "ค. จำนวนนับเชิงปริมาณที่แน่นอน (Quantity)", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "การกำหนดค่าตัวชี้วัดสามารถแสดงค่าได้หลากหลายตามธรรมชาติของสิ่งที่จะวัด เช่น ร้อยละ, อัตราส่วน, ค่าเฉลี่ย, จำนวน, สัดส่วน"
+            },
+            {
+                id: 59,
+                category: "แผนงานและนโยบาย",
+                question: "อักษรย่อภาษาอังกฤษที่ใช้เรียก 'ตัวชี้วัดผลงานหลัก' ในระบบการปฏิบัติราชการคือข้อใด?",
+                options: ["ก. KPIs", "ข. KPI", "ค. KPR", "ง. KIPS"],
+                answer: 0,
+                rationale: "KPIs ย่อมาจาก Key Performance Indicators หมายถึง ดัชนีชี้วัดความสำเร็จของงานหลักในส่วนราชการ"
+            },
+            {
+                id: 60,
+                category: "แผนงานและนโยบาย",
+                question: "ตัวชี้วัดผลงานหลักในพิกัดการดำเนินงานต่าง ๆ มีเป้าหมายสูงสุดเพื่อประเด็นใดตามเอกสาร?",
+                options: ["ก. เป็นแนวทางในการสร้างค่านิยมภายในกลุ่มข้าราชการ", "ข. เป็นเกณฑ์ตัดสินความสำเร็จในการดำเนินงานตามเป้าหมายของหน่วยงานในช่วงเวลาที่กำหนด", "ค. เป็นแผนภาพแสดงผังการเดินทางประสานงานของรัฐมนตรี", "ง. เป็นฐานสรุปการกันงบเหลื่อมปี"],
+                answer: 1,
+                rationale: "KPIs จัดทำขึ้นเพื่อเป็นเครื่องมือประเมินระดับความสำเร็จเมื่อเทียบกับระยะเวลาและเกณฑ์เป้าหมายที่ระบุชัดเจน"
+            },
+            {
+                id: 61,
+                category: "แผนงานและนโยบาย",
+                question: "สิ่งที่กำหนดขึ้นในเชิงปริมาณหรือคุณภาพ เพื่อใช้ระบุระดับความสำเร็จในการดำเนินงานตาม KPIs เรียกว่าอะไร?",
+                options: ["ก. ตัวชี้วัด", "ข. แผนงานโครงการ", "ค. แผนภาพแสดงมิติการเงิน", "ง. ค่าเป้าหมาย (Target)"],
+                answer: 3,
+                rationale: "ค่าเป้าหมาย (Target) คือตัวเลขหรือระดับมาตรฐานความต้องการขั้นสุดท้ายที่ใช้สะท้อนว่างานนั้นประสบความสำเร็จหรือไม่เมื่อเทียบกับตัวชี้วัด"
+            },
+            {
+                id: 62,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใด กล่าวข้อมูลที่ 'ผิดพลาดหรือไม่ถูกต้อง' เกี่ยวกับลักษณะและลักษณะที่สำคัญของตัวชี้วัด?",
+                options: ["ก. ตัวชี้วัดเชิงระบบมีลักษณะที่สำคัญทั้งหมด ๕ ประการเด่นชัด", "ข. ตัวชี้วัดมีลักษณะสำคัญ ๒ ด้านในการแสดงค่าและแสดงสถานภาพของข้อมูล", "ค. ตัวชี้วัดจะแสดงค่าได้แม่นยำต้องกำหนดกรอบของเวลาและสถานที่ประกอบการประเมิน", "ง. ข้อมูลจากตัวชี้วัดที่ดีต้องปรับใช้ตีความตามมาตรฐานและเกณฑ์เปรียบเทียบ"],
+                answer: 0,
+                rationale: "ตามเอกสารอ้างอิง ตัวชี้วัดมีคุณลักษณะสำคัญ ๒ ประการหลักที่ต้องคำนึงถึงในการเก็บข้อมูล ไม่ใช่ ๕ ประการตามข้อกล่าวอ้าง"
+            },
+            {
+                id: 63,
+                category: "แผนงานและนโยบาย",
+                question: "หากจำแนกประเภทของตัวชี้วัดอย่างเป็นทางการตามระบบปริมาณและคุณภาพ จะแบ่งได้กี่ประเภท?",
+                options: ["ก. ๒ ประเภท", "ข. ๓ ประเภท", "ค. ๔ ประเภท", "ง. ๕ ประเภท"],
+                answer: 0,
+                rationale: "จำแนกแบบพื้นฐานได้ ๒ ประเภทหลัก ได้แก่ ๑. ตัวชี้วัดเชิงปริมาณ (Quantitative) และ ๒. ตัวชี้วัดเชิงคุณภาพ (Qualitative)"
+            },
+            {
+                id: 64,
+                category: "แผนงานและนโยบาย",
+                question: "ตามกรอบแนวทางการประเมินผลของสำนักงาน ก.พ.ร. ตัวชี้วัดสามารถจัดแยกประเภทออกได้เป็นกี่ประเภท?",
+                options: ["ก. ๒ ประเภท", "ข. ๓ ประเภท", "ค. ๔ ประเภท", "ง. ๕ ประเภท"],
+                answer: 1,
+                rationale: "สำนักงาน ก.พ.ร. แบ่งกลุ่มตัวชี้วัดไว้เป็น ๓ ประเภท คือ ๑. เชิงปริมาณ, ๒. เชิงปริมาณที่ใช้วัดสิ่งที่เป็นนามธรรม และ ๓. เชิงคุณภาพ"
+            },
+            {
+                id: 65,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใด กล่าวระบุเกณฑ์มิติและด้านของการจัดกลุ่มประเภทของตัวชี้วัด (KPIs) ได้อย่างถูกต้อง?",
+                options: ["ก. มิติด้านคุณภาพ (Quality) และด้านปริมาณ (Quantity)", "ข. มิติด้านความทันเวลาหรือการกำหนดเวลา (Timeliness)", "ค. มิติด้านความคุ้มค่าของต้นทุนและค่าใช้จ่าย (Cost-Effectiveness)", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "การจัดหมวดหมู่ KPIs ในพิกัดราชการมักครอบคลุม ๔ มิติหลัก ได้แก่ ปริมาณ, คุณภาพ, ความทันเวลา และความคุ้มค่า"
+            },
+            {
+                id: 66,
+                category: "แผนงานและนโยบาย",
+                question: "การกำหนดระดับหรือค่าเป้าหมาย (Targets) ตามแนวทางปฏิบัติของส่วนราชการ นิยมจำแนกออกเป็นกี่ระดับความยาก?",
+                options: ["ก. ๓ ระดับ", "ข. ๔ ระดับ", "ค. ๕ ระดับ", "ง. ๖ ระดับ"],
+                answer: 2,
+                rationale: "นิยมจำแนกเป้าหมายออกเป็น ๕ ระดับความท้าทาย จากระดับต่ำสุดที่รับได้ ไปจนถึงระดับสูงสุดที่มีความท้าทายสูง"
+            },
+            {
+                id: 67,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใดจัดเป็นคุณลักษณะเด่นหรือปัจจัยสำคัญที่สนับสนุนให้ตัวชี้วัดนั้นเป็น 'ตัวชี้วัดที่ดี'?",
+                options: ["ก. มีความสอดคล้องกับวิสัยทัศน์ พันธกิจ และประเด็นยุทธศาสตร์ของส่วนราชการ", "ข. แสดงผลงานในเรื่องที่สำคัญจริง หากเกิดความผิดพลาดจะส่งผลกระทบสูง", "ค. มีผู้รับผิดชอบที่แน่นอนชัดเจนสำหรับตัวชี้วัดแต่ละตัว", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "ตัวชี้วัดที่ดีต้องสอดคล้องเชื่อมโยงยุทธศาสตร์ วัดสิ่งสำคัญจริง และระบุหน่วยงานหรือเจ้าหน้าที่ผู้รับผิดชอบที่แน่ชัดได้"
+            },
+            {
+                id: 68,
+                category: "การคลังและงบประมาณ",
+                question: "กรอบห้วงระยะเวลาของ 'ปีงบประมาณ' (Fiscal Year) ของประเทศไทย เริ่มต้นและสิ้นสุดในห้วงใด?",
+                options: ["ก. ๑ มกราคม ถึงวันที่ ๓๑ ธันวาคม ของปีเดียวกัน", "ข. ๑ มกราคม ถึงวันที่ ๓๐ กันยายน ของปีถัดไป", "ค. ๑ ตุลาคม ของปีหนึ่ง ไปจนถึงวันที่ ๓๐ กันยายน ของปีถัดไป", "ง. ๓๑ ตุลาคม ของปีหนึ่ง ไปจนถึงวันที่ ๓๐ กันยายน ของปีถัดไป"],
+                answer: 2,
+                rationale: "ปีงบประมาณของประเทศไทยเริ่มต้นตั้งแต่วันที่ ๑ ตุลาคมของทุกปี และไปสิ้นสุดลงในวันที่ ๓๐ กันยายนของปีถัดไป"
+            },
+            {
+                id: 69,
+                category: "การคลังและงบประมาณ",
+                question: "ข้อใดจัดเป็นขั้นตอนหลักใน 'กระบวนการงบประมาณ' (Budget Cycle) ของส่วนราชการ?",
+                options: ["ก. การทบทวนและวางแผนงบประมาณ", "ข. การจัดทำและการพิจารณาอนุมัติงบประมาณ", "ค. การบริหารจัดการงบประมาณและการติดตามประเมินผล", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "กระบวนการงบประมาณของไทยหมุนเวียน ๕ ขั้นตอนหลัก ได้แก่ ๑. ทบทวนและวางแผน, ๒. จัดทำ, ๓. อนุมัติ, ๔. บริหาร และ ๕. ติดตามประเมินผล"
+            },
+            {
+                id: 70,
+                category: "การคลังและงบประมาณ",
+                question: "ในการดำเนินกระบวนงาน 'ทบทวนงบประมาณ' ปัจจัยใดที่ระเบียบ 'ไม่ให้ความสำคัญ' หรือให้ความสำคัญน้อยที่สุด?",
+                options: ["ก. สรุปรายงานผลสัมฤทธิ์การดำเนินงานของรอบปีที่ผ่านมา", "ข. ความพร้อม ศักยภาพ และอัตรากำลังของส่วนราชการในการปฏิบัติงาน", "ค. การจัดให้มีการลงประชามติหรือรับฟังความคิดเห็นจากคนภายนอกทั่วไปในทุกรายการจ่ายย่อย", "ง. ทิศทางแนวโน้มและสถิติเงินงบประมาณย้อนหลังที่ได้รับจัดสรร"],
+                answer: 2,
+                rationale: "การทบทวนภายในจะเน้นไปที่ศักยภาพงาน รายจ่ายจริง ย้อนหลัง และกฎระเบียบที่เกี่ยวข้อง ไม่มีข้อบังคับต้องลงประชามติในทุกรายการจ่ายย่อย"
+            },
+            {
+                id: 71,
+                category: "การคลังและงบประมาณ",
+                question: "ข้อใดคือข้อมูลหลักหรือขั้นตอนสำคัญในการปฏิบัติงานช่วง 'วางแผนงบประมาณ' ของภาครัฐ?",
+                options: ["ก. การคาดการณ์สภาวะทางเศรษฐกิจและการคลังมหภาคโดยความร่วมมือของ ๔ หน่วยงานหลัก", "ข. การประมาณการรายได้ภาครัฐของกระทรวงการคลัง", "ค. การจัดทำข้อเสนอวงเงินและนโยบายงบประมาณประจำปี", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "การวางแผนงบประมาณมหภาคต้องประมาณการหนี้สาธารณะ รายได้ และขีดจำกัดทางเศรษฐกิจ โดยบูรณาการข้อมูลร่วมกันอย่างเข้มข้น"
+            },
+            {
+                id: 72,
+                category: "การคลังและงบประมาณ",
+                question: "ข้อใดกล่าวข้อมูลอธิบายได้ 'ไม่ถูกต้อง' เกี่ยวกับกระบวนการ 'จัดทำงบประมาณประจำปี'?",
+                options: ["ก. กระทรวงการคลังเป็นผู้นำเสนอปฏิทินงบประมาณให้ ครม. เห็นชอบก่อนเป็นหน่วยงานแรก", "ข. สำนักงบประมาณมีหน้าที่แจ้งแนวทางการปฏิบัติและคู่มือการทำคำขอยื่นงบประมาณ", "ค. ส่วนราชการต่าง ๆ จัดเตรียมจัดทำคำขอเสนอต่อสำนักงบประมาณตามปฏิทิน", "ง. ส่วนงานจัดร่าง พ.ร.บ. งบประมาณรายจ่ายประจำปีเพื่อนำเสนอ ครม. พิจารณาและเสนอสภาต่อไป"],
+                answer: 0,
+                rationale: "ผู้มีหน้าที่จัดทำและนำเสนอปฏิทินงบประมาณ (Budget Calendar) เสนอ ครม. คือ 'สำนักงบประมาณ' ไม่ใช่กระทรวงการคลัง"
+            },
+            {
+                id: 73,
+                category: "การคลังและงบประมาณ",
+                question: "ข้อความการอธิบายกระบวนการทางการเงินและการงบประมาณข้อใดกล่าว 'ผิดพลาดหรือไม่ตรงตามกฎเกณฑ์'?",
+                options: ["ก. การอนุมัติงบประมาณ หมายถึง กระบวนการที่รัฐบาลเสนอคำของบประมาณให้กระทรวงการคลังอนุมัติเห็นชอบเพื่อประกาศใช้", "ข. การบริหารงบประมาณเป็นขั้นตอนการใช้จ่ายงบประมาณที่ต้องสอดคล้องกับ พ.ร.บ. งบประมาณที่ประกาศใช้แล้ว", "ค. การบริหารเงินงบประมาณครอบคลุมถึงการจัดสรร การโอนเปลี่ยนแปลงรายการ และการกันเงินเหลื่อมปี", "ง. การติดตามประเมินผลทำหน้าที่ควบคุมตรวจสอบรายจ่ายของส่วนราชการให้โปร่งใสคุ้มค่าตามวัตถุประสงค์"],
+                answer: 0,
+                rationale: "การอนุมัติงบประมาณ (Budget Authorization) เป็นอำนาจหน้าที่ของ 'ฝ่ายนิติบัญญัติ' (สภาผู้แทนราษฎรและรัฐสภา) ในการพิจารณาอนุมัติร่าง พ.ร.บ. งบประมาณ ไม่ใช่เสนอให้กระทรวงการคลังชี้ขาดชงใช้เอง"
+            },
+            {
+                id: 74,
+                category: "การคลังและงบประมาณ",
+                question: "ข้อมูลสำคัญที่หน่วยงานปฏิบัติการในระดับพื้นที่หรือสังกัดกรม จำเป็นต้องทราบและเข้าใจในการจัดทำคำขอตั้งงบประมาณรายจ่าย ได้แก่ข้อใด?",
+                options: ["ก. แผนยุทธศาสตร์ชาติ วิสัยทัศน์ และพันธกิจหน้าที่หลักของกรม", "ข. เป้าหมายการให้บริการของกระทรวง ตัวชี้วัด และกลยุทธ์ที่สำคัญ", "ค. แผนปฏิบัติราชการประจำปีที่สอดรับกับแนวยุทธศาสตร์และแผนแม่บท", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "ผู้จัดทำคำขอต้องมีความเข้าใจสอดประสานตั้งแต่แผนชาติระดับ ๑, ๒ นโยบายกระทรวง ไปจนถึงเป้าหมายการให้บริการจริงของกรม"
+            },
+            {
+                id: 75,
+                category: "การคลังและงบประมาณ",
+                question: "ตามหลักเกณฑ์การจัดทำคำขอตั้งงบประมาณรายจ่ายประจำปี ข้อความใดกล่าวอรรถาธิบายข้อมูลความหมายได้ 'คลาดเคลื่อนหรือผิดพลาด'?",
+                options: ["ก. ก่อนทำคำขอตั้งงบประมาณ ต้องประเมินแนวทางแผนระดับชาติ ยุทธศาสตร์ชาติ ๒๐ ปี", "ข. แผนงานโครงการที่กำหนดขอ ต้องตอบสนองและเชื่อมโยงตัวชี้วัดของยุทธศาสตร์ชาติ", "ค. รายละเอียดในโครงสร้างยุทธศาสตร์ของคำขอส่วนใหญ่เป็นความลับที่ไม่สามารถแสดงผลแก่ประชาชน", "ง. เป้าหมายเชิงยุทธศาสตร์ หมายถึง กรอบนโยบายเชิงกลยุทธ์สูงสุดของรัฐบาลในแต่ละเรื่อง"],
+                answer: 3,
+                rationale: "ตามที่กำหนดไว้ในคู่มือ 'เป้าหมายเชิงยุทธศาสตร์' ในระบบงบประมาณ หมายถึง ผลกระทบหรือผลลัพธ์ (Outcomes) ที่ต้องการให้เกิดต่อประชาชนและประเทศชาติ อันเนื่องมาจากการปฏิบัติงานของรัฐ"
+            },
+            {
+                id: 76,
+                category: "การคลังและงบประมาณ",
+                question: "ในการจัดทำแผนงานโครงสร้างงบประมาณ ข้อความใดกล่าวชี้แจงข้อมูลประเภทแผนงานได้ 'ไม่ถูกต้อง'?",
+                options: ["ก. แผนงานพื้นฐาน มุ่งจัดสรรสนับสนุนภารกิจปกติประจำตามกฎหมายตั้งส่วนราชการเพื่อบริการสาธารณะต่อเนื่อง", "ข. แผนงานบูรณาการ เป็นแผนงานประสานความรับผิดชอบร่วมกันตั้งแต่ ๓ กระทรวงขึ้นไปเพื่อทำโครงการใหญ่", "ค. แผนงานยุทธศาสตร์ มุ่งจัดสรรทรัพยากรเพื่อตอบสนองเป้าหมายพิเศษเฉพาะนโยบายสำคัญหรือประเด็นเร่งด่วน", "ง. แผนงาน หมายถึง แผนงานตามโครงสร้างการงบประมาณตามยุทธศาสตร์ที่สำนักงบประมาณจัดทำขึ้น"],
+                answer: 1,
+                rationale: "ตามเอกสารกำหนดว่า 'แผนงานบูรณาการ' หมายถึงแผนงานที่มีหน่วยรับงบประมาณร่วมมือทำงานรับผิดชอบตั้งแต่ '๒ หน่วยรับงบประมาณขึ้นไป (ต่างกระทรวง)' ไม่ใช่กำหนดจำกัดขั้นต่ำไว้ที่ ๓ กระทรวงขึ้นไป"
+            },
+            {
+                id: 77,
+                category: "การคลังและงบประมาณ",
+                question: "แผนงานที่แสดงค่าใช้จ่ายและรายการเงินที่ส่วนราชการกำหนดไว้เพื่อการบริหารทรัพยากรบุคคลภาครัฐ เรียกว่าอะไร?",
+                options: ["ก. แผนดำเนินงาน", "ข. แผนงานยุทธศาสตร์บุคคล", "ค. แผนการคลังเชิงรุก", "ง. แผนงานบุคลากรภาครัฐ"],
+                answer: 3,
+                rationale: "แผนงานบุคลากรภาครัฐ เป็นส่วนงานแผนหลักที่กำหนดค่าใช้จ่ายบุคลากรภาครัฐไว้เป็นการเฉพาะเพื่อความโปร่งใสในบัญชี"
+            },
+            {
+                id: 78,
+                category: "การคลังและงบประมาณ",
+                question: "รายการรายจ่ายข้อใด ต่อไปนี้ที่จัดเป็นค่าใช้จ่ายบุคลากรภาครัฐตามระเบียบงบประมาณ?",
+                options: ["ก. ลูกจ้างที่จ้างตามแผนโครงการชั่วคราว", "ข. ลูกจ้างประจำและข้าราชการ", "ค. อัตราจ้างที่เหมาทำหน้าที่สนับสนุนงานชั่วคราว", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "ค่าใช้จ่ายเกี่ยวกับการบริหารงานบุคคล ทั้งข้าราชการ พนักงานราชการ และลูกจ้างประเภทต่าง ๆ ล้วนรวมอยู่ในกรอบรายจ่ายนี้"
+            },
+            {
+                id: 79,
+                category: "การคลังและงบประมาณ",
+                question: "ข้อใด ต่อไปนี้ที่ 'ไม่ใช่' รายการย่อยที่จัดกลุ่มจัดสรรอยู่ในหมวด 'งบบุคลากร'?",
+                options: ["ก. เงินเดือนข้าราชการ", "ข. ค่าจ้างประจำของลูกจ้างประจำ", "ค. ค่าตอบแทนพิเศษในการปฏิบัติงานรายโครงการ", "ง. ค่าจ้างชั่วคราว"],
+                answer: 2,
+                rationale: "งบบุคลากรประกอบด้วย เงินเดือน, ค่าจ้างประจำ, ค่าจ้างชั่วคราว, และค่าตอบแทนพนักงานราชการ ส่วนค่าตอบแทนอื่น ๆ หรือเบี้ยประชุมปฏิบัติงานมักรวมอยู่ในงบดำเนินงาน"
+            },
+            {
+                id: 80,
+                category: "การคลังและงบประมาณ",
+                question: "ค่าตอบแทนในการปฏิบัติงานของ 'พนักงานราชการ' จัดกลุ่มประเภทรุ่นงบรายจ่ายอยู่ในหมวดงบประเภทใด?",
+                options: ["ก. งบบุคลากร", "ข. งบดำเนินงาน", "ค. งบเงินอุดหนุน", "ง. งบรายจ่ายอื่น"],
+                answer: 0,
+                rationale: "ตามหลักเกณฑ์การจำแนกงบประมาณ รายจ่ายค่าตอบแทนพนักงานราชการจัดอยู่ในหมวด 'งบบุคลากร'"
+            },
+            {
+                id: 81,
+                category: "การคลังและงบประมาณ",
+                question: "ตามหลักการพิจารณาจำแนกหมวดเงินรายจ่าย ข้อใดต่อไปนี้ที่ 'มิใช่' รายการย่อยในหมวด 'งบดำเนินงาน'?",
+                options: ["ก. ค่ารักษาพยาบาลข้าราชการ", "ข. ค่าช่วยเหลือเล่าเรียนบุตรของข้าราชการ", "ค. เงินสมทบกองทุนประกันสังคม", "ง. ค่าจ้างชั่วคราวพนักงานจ้างเหมาบริการ"],
+                answer: 3,
+                rationale: "ค่าจ้างชั่วคราว จัดอยู่ในกลุ่ม 'งบบุคลากร' ไม่ใช่ 'งบดำเนินงาน'"
+            },
+            {
+                id: 82,
+                category: "แผนงานและนโยบาย",
+                question: "เป้าหมายในอนาคตของหน่วยงานราชการที่ตั้งอยู่บนความเป็นจริง ปัจจุบันขับเคลื่อนตามกรอบพันธกิจ มีระยะเวลาแน่นอน สอดคล้องกับนิยามคำใด?",
+                options: ["ก. วิสัยทัศน์", "ข. พันธกิจ", "ค. ยุทธศาสตร์", "ง. ประเด็นยุทธศาสตร์"],
+                answer: 0,
+                rationale: "ตามคำอธิบายในคู่มือวิสันทัศน์และเป้าหมาย ยึดถือว่า 'วิสัยทัศน์' เป็นเป้าหมายที่หน่วยงานมุ่งหมายในอนาคตตามอำนาจหน้าที่"
+            },
+            {
+                id: 83,
+                category: "แผนงานและนโยบาย",
+                question: "ขอบเขต อำนาจหน้าที่ บทบาท และภารกิจตามกฎหมายของส่วนราชการที่จัดตั้งขึ้นมาเพื่อดำเนินการสนับสนุนให้วิสัยทัศน์บรรลุความสำเร็จเรียกว่าอะไร?",
+                options: ["ก. ค่านิยมองค์กร", "ข. พันธกิจ (Mission)", "ค. แผนงานยุทธศาสตร์", "ง. กลยุทธ์หน่วยงาน"],
+                answer: 1,
+                rationale: "พันธกิจ (Mission) คือพิกัดขอบเขตหน้าที่ความรับผิดชอบตามกฎหมายจัดตั้งหน่วยงานเพื่อทำให้วิสัยทัศน์กลายเป็นความจริง"
+            },
+            {
+                id: 84,
+                category: "แผนงานและนโยบาย",
+                question: "ผลลัพธ์ที่จะเกิดขึ้นจากการดำเนินงานหรือจัดทำผลผลิตโครงการระดับกรมเพื่อมุ่งสนับสนุนความสัมฤทธิ์ของเป้าหมายการให้บริการในระดับกระทรวงเรียกว่าอะไร?",
+                options: ["ก. เป้าหมายการให้บริการหน่วยงาน และตัวชี้วัด", "ข. แผนดำเนินงานบูรณาการ", "ค. ทิศทางพัฒนาของรัฐบาล", "ง. ตัวชี้วัดความสามารถส่วนบุคคล"],
+                answer: 0,
+                rationale: "เป้าหมายการให้บริการหน่วยงานและตัวชี้วัด เป็นผลสำเร็จในระดับกรมที่ประสานขึ้นไปสู่ระดับกระทรวง"
+            },
+            {
+                id: 85,
+                category: "แผนงานและนโยบาย",
+                question: "แนวทาง มาตรการ หรือวิธีปฏิบัติงานเชิงหลักที่ส่วนราชการคัดเลือกขึ้นเพื่อประยุกต์ใช้เป็นคีย์สำคัญสู่เป้าหมายความสำเร็จของการให้บริการ เรียกว่าอะไร?",
+                options: ["ก. ผลสัมฤทธิ์ของงบประมาณ", "ข. พันธกิจองค์กร", "ค. กลยุทธ์หน่วยงาน (Department Strategy)", "ง. ค่านิยมปฏิบัติ"],
+                answer: 2,
+                rationale: "กลยุทธ์หน่วยงาน เป็นวิธีการหลัก (Means) ที่จะนำพากรมหรือส่วนงานนั้นไปสู่เป้าหมายการให้บริการสำเร็จตามตัวชี้วัด"
+            },
+            {
+                id: 86,
+                category: "การคลังและงบประมาณ",
+                question: "แบบรายงานความต้องการคำขอจัดสรรงบประมาณรายจ่ายประจำปีของส่วนราชการ ต้องประกอบไปด้วยข้อมูลระดับใดบ้าง?",
+                options: ["ก. ข้อมูลพื้นฐานระดับหน่วยรับงบประมาณ", "ข. ข้อมูลพื้นฐานระดับผลผลิต / โครงการ", "ค. ข้อมูลลึกในระดับกิจกรรม - รายการ", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "คำของบประมาณที่ถูกต้องตามหลักพัสดุและการคลัง ต้องมีข้อมูลครบทั้ง ๓ มิติ คือ ระดับหน่วยรับงบฯ, ระดับผลผลิต/โครงการ และระดับกิจกรรม-รายการ"
+            },
+            {
+                id: 87,
+                category: "การคลังและงบประมาณ",
+                question: "ข้อใด ต่อไปนี้ที่ 'ไม่ใช่' องค์ประกอบย่อยที่ระบุอยู่ในหมวด 'ข้อมูลพื้นฐานระดับหน่วยรับงบประมาณ'?",
+                options: ["ก. ข้อมูลรายงานผลผลิต / โครงการ", "ข. วิสัยทัศน์ และพันธกิจของหน่วยงาน", "ค. รายงานเป้าหมายบริการของหน่วยงาน และตัวชี้วัดผล", "ง. สรุปผลสัมฤทธิ์และประโยชน์ที่คาดว่าจะได้รับจากการทำงาน"],
+                answer: 1,
+                rationale: "ในข้อมูลพื้นฐานระดับหน่วยรับงบประมาณ จะประกอบไปด้วยวิสัยทัศน์ พันธกิจ เป้าหมายการให้บริการ กลยุทธ์หน่วยงาน และผลสัมฤทธิ์ที่คาดว่าจะได้รับ ส่วน 'ผลผลิต/โครงการ' จัดแยกเป็นข้อมูลอีกระดับหนึ่ง"
+            },
+            {
+                id: 88,
+                category: "แผนงานและนโยบาย",
+                question: "ผลจากการปฏิบัติกิจกรรมของส่วนราชการ ซึ่งอาจปรากฏผลงานในลักษณะของสินค้า ผลผลิต (Product) หรือการให้งานบริการสาธารณะ (Service) เรียกว่าอะไร?",
+                options: ["ก. ผลผลิต (Output)", "ข. โครงการ (Project)", "ค. แผนปฏิบัติงานย่อย", "ง. สรุปแผนกิจกรรม"],
+                answer: 0,
+                rationale: "ผลผลิต (Output) คือสิ่งของหรือบริการที่เป็นผลลัพธ์โดยตรงที่ส่งมอบจากกระบวนการกิจกรรมของส่วนราชการนั้น ๆ"
+            },
+            {
+                id: 89,
+                category: "แผนงานและนโยบาย",
+                question: "กลุ่มของงานที่หน่วยงานจัดทำขึ้นมาโดยมีการกำหนด วงเงินงบประมาณ สถานที่ดำเนินงาน และกรอบเวลาเริ่ม-สิ้นสุดที่แน่นอน มุ่งให้บริการชั่วคราวครั้งคราวเรียกว่าอะไร?",
+                options: ["ก. ผลผลิต (Output)", "ข. ตัวชี้วัดความคุ้มค่า", "ค. โครงการ (Project)", "ง. บันทึกงบประมาณสะสม"],
+                answer: 2,
+                rationale: "โครงการ (Project) มีลักษณะพิเศษที่มีวัตถุประสงค์เจาะจง มีงบประมาณและกรอบเวลาดำเนินงานที่เด่นชัดชั่วคราว"
+            },
+            {
+                id: 90,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อใดจัดเป็นองค์ประกอบหรือโครงสร้างของ 'ข้อมูลพื้นฐานของโครงการ' ที่ต้องกรอกในรายงานคำขอ?",
+                options: ["ก. วัตถุประสงค์และประเภทของโครงการ", "ข. ลักษณะการดำเนินงานและตารางระยะเวลาโครงการ", "ค. พิกัดสถานที่ดำเนินโครงการและระบุผู้รับผิดชอบ", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "ข้อมูลพื้นฐานโครงการในรายงานตั้งคำขอต้องมีองค์ประกอบครบวัตถุประสงค์, ลักษณะงาน, ระยะเวลา, สถานที่ และขีดความสามารถการดำเนินโครงการ"
+            },
+            {
+                id: 91,
+                category: "แผนงานและนโยบาย",
+                question: "ข้อความการระบุและแบ่งแยกประเภท 'กิจกรรม' (Activity) ข้อใดกล่าวให้ข้อมูลได้ 'ไม่ถูกต้องตามระบบการเงินราชการ'?",
+                options: ["ก. กิจกรรมหลัก คือกิจกรรมที่มีความสำคัญสัมพันธ์กับเป้าหมายและกลยุทธ์โดยตรงเพื่อนำส่งผลผลิต", "ข. กิจกรรมย่อย คือการแตกงานจากกิจกรรมหลักเพื่อให้จัดเก็บวิเคราะห์ผลการทำรายแผนกปฏิบัติการได้สะดวก", "ค. กิจกรรมรอง คือการกำหนดกิจกรรมอำนวยการสนับสนุนการทำงานภายในตึกสำนักงานของตนเองโดยตรง", "ง. กิจกรรมสนับสนุน คืองานอำนวยการและจัดการสารบรรณภายในหน่วยงานช่วยเหลือให้กระบวนงานหลักไหลลื่นเป็นทางอ้อม"],
+                answer: 2,
+                rationale: "ตามตำรา 'กิจกรรมรอง' หมายถึง กิจกรรมจัดทำและส่งมอบผลผลิต/บริการระหว่างหน่วยรับงบประมาณภายในเพื่อหนุนความมีประสิทธิภาพของกิจกรรมหลัก ส่วนงานอำนวยการภายในสำนักงาน เรียกว่า 'กิจกรรมสนับสนุน'"
+            },
+            {
+                id: 92,
+                category: "การคลังและงบประมาณ",
+                question: "ข้อใดจัดเป็นข้อมูลหรือประเด็นที่ 'มิใช่' เกณฑ์หัวข้อที่ระบุและดำเนินการในระดับ 'ข้อมูลพิกัดกิจกรรม'?",
+                options: ["ก. ประเภทกิจกรรม และแนวทางระบุนโยบายต่อเนื่อง/นโยบายใหม่", "ข. สรุปรายละเอียดรายการคำชี้แจงครุภัณฑ์ที่ดินสิ่งก่อสร้าง และเหตุผลในการประมูลราคาจัดซื้อ", "ค. แหล่งที่มาของกิจกรรม และรายละเอียดแนวทางการดำเนินกิจกรรม", "ง. การจัดเก็บเสียงข้อมูลและการรับฟังความเห็นของประชาชนต่อกิจกรรมนั้น ๆ"],
+                answer: 1,
+                rationale: "ข้อมูลครุภัณฑ์ ที่ดิน และราคาจัดซื้อสิ่งก่อสร้าง จัดเป็น 'ข้อมูลระดับรายการ' (Itemized list) ไม่ใช่ประเด็นระดับกิจกรรม"
+            },
+            {
+                id: 93,
+                category: "การคลังและงบประมาณ",
+                question: "ในการดำเนินงานจัดทำข้อมูลคำขอตั้งงบประมาณ ข้อมูลหรือหัวข้อใดต่อไปนี้ที่ 'ไม่อยู่' ในกรอบ 'ข้อมูลระดับรายการ'?",
+                options: ["ก. ลักษณะรายจ่าย และประเภทงบรายจ่าย", "ข. รายการเงินนอกงบประมาณประกอบโครงการ", "ค. สรุปตัวชี้วัดความสัมฤทธิ์ในมิติระดับผลผลิต / โครงการหลัก", "ง. สรุปข้อมูลการประมาณการรายจ่ายล่วงหน้าและการทำแผนก่อหนี้ผูกพัน"],
+                answer: 2,
+                rationale: "ตัวชี้วัดระดับผลผลิต/โครงการ จัดอยู่ในมิติด้านผลผลิตและเป้าหมาย ไม่ใช่ประเด็นใน 'ระดับรายการ' ที่เจาะจงพิกัดงบรายจ่าย"
+            },
+            {
+                id: 94,
+                category: "การคลังและงบประมาณ",
+                question: "ตามหลักการประเมินทางบัญชีและการวิเคราะห์ทรัพย์สิน รายการข้อใดจัดเป็น 'ทรัพย์สินที่ไม่มีตัวตน' (Intangible Assets)?",
+                options: ["ก. อุปกรณ์ครุภัณฑ์และคอมพิวเตอร์พกพา", "ข. ที่ดินและสิทธิถือครองทางดิน", "ค. อาคารสำนักงานสาขาย่อย", "ง. สัญญาสัมปทานการดำเนินกิจการ (Concession Agreement)"],
+                answer: 3,
+                rationale: "ทรัพย์สินไม่มีตัวตน คือทรัพย์สินที่ไม่สามารถจับต้องได้ทางกายภาพแต่มีมูลค่าสิทธิ์เด่นชัด เช่น สัญญาสัมปทาน"
+            },
+            {
+                id: 95,
+                category: "การคลังและงบประมาณ",
+                question: "ตัวอย่างข้อใดจัดอยู่ในกลุ่มรายการ 'ทรัพย์สินไม่มีตัวตน' (Intangible Assets) ทั้งหมด?",
+                options: ["ก. สัญญาสัมปทาน และสิทธิบัตร (Patents)", "ข. เครื่องหมายการค้า (Trademarks) และลิขสิทธิ์ (Copyrights)", "ค. ซอฟต์แวร์ระบบคอมพิวเตอร์ที่พัฒนาใช้ในองค์กร", "ง. ถูกทุกข้อที่กล่าวมา"],
+                answer: 3,
+                rationale: "สัมปทาน, สิทธิบัตร, เครื่องหมายการค้า, ลิขสิทธิ์ และลิขสิทธิ์โปรแกรมซอฟต์แวร์ ล้วนเป็นทรัพย์สินไม่มีตัวตนแต่มีมูลค่าทางบัญชี"
+            },
+            {
+                id: 96,
+                category: "การคลังและงบประมาณ",
+                question: "รายการประเภทค่าใช้จ่ายและรายจ่ายของรัฐบาลที่จ่ายเพื่อจัดหาหรือพัฒนาทรัพย์สินประเภททุน เรียกว่าอะไร?",
+                options: ["ก. รายจ่ายลงทุน (Capital Expenditure)", "ข. รายจ่ายประจำ (Current Expenditure)", "ค. รายจ่ายการคลังทั่วไป", "ง. รายจ่ายหนี้สาธารณะ"],
+                answer: 0,
+                rationale: "รายจ่ายลงทุน (Capital Expenditure) มีเป้าหมายสูงสุดในการจัดหาทรัพย์สินหรือเพิ่มมูลค่าทรัพย์สินประเภททุนเพื่ออนาคต"
+            },
+            {
+                id: 97,
+                category: "การคลังและงบประมาณ",
+                question: "ค่าใช้จ่ายที่ส่วนราชการตั้งคำขอเสนอเพื่อประโยชน์ในการจัดหา คอมพิวเตอร์ ยานพาหนะ หรือสิ่งก่อสร้างตึกอาคาร จัดอยู่ในหมวดข้อใด?",
+                options: ["ก. รายจ่ายลงทุน", "ข. รายจ่ายประจำ", "ค. รายจ่ายเพื่อบริการดำเนินงาน", "ง. รายจ่ายเบ็ดเตล็ดประจำวัน"],
+                answer: 0,
+                rationale: "การจัดซื้อครุภัณฑ์ ที่ดิน และก่อสร้างสิ่งปลูกสร้าง จัดเป็นรายจ่ายในการได้มาซึ่งสินทรัพย์ประเภททุน จึงจัดเป็น 'รายจ่ายลงทุน'"
+            },
+            {
+                id: 98,
+                category: "การคลังและงบประมาณ",
+                question: "ตามหลักวิชาและระเบียบการเงินภาครัฐ รายการข้อใดต่อไปนี้ที่จัดเป็นรายจ่ายประจำของส่วนราชการ?",
+                options: ["ก. รายการจัดสรรเงินเดือนและค่าจ้างบุคลากร", "ข. รายจ่ายค่าเช่าอาคารสำนักงานและค่าวัสดุออฟฟิศ", "ค. รายการค่าใช้จ่ายโทรศัพท์ น้ำประปา และไฟฟ้าประจำกระทรวง", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "เงินเดือน, ค่าล่วงเวลา, ค่าวัสดุใช้งาน และค่าสาธารณูปโภค ล้วนเป็นรายจ่ายที่เกิดและหมดไปในรอบปกติ จึงจัดเป็น 'รายจ่ายประจำ'"
+            },
+            {
+                id: 99,
+                category: "การคลังและงบประมาณ",
+                question: "กลุ่มหรือลักษณะรายจ่ายงบประมาณที่จำแนกตามความมุ่งหมายของรายจ่ายงบประมาณแผ่นดิน แบ่งได้กี่หมวดงบรายจ่ายหลัก?",
+                options: ["ก. ๓ ประเภท", "ข. ๔ ประเภท", "ค. ๕ ประเภท", "ง. ๖ ประเภท"],
+                answer: 2,
+                rationale: "งบรายจ่ายแผ่นดินแบ่งเป็น ๕ ประเภท ได้แก่ ๑. งบบุคลากร, ๒. งบดำเนินงาน, ๓. งบลงทุน, ๔. งบเงินอุดหนุน และ ๕. งบรายจ่ายอื่น"
+            },
+            {
+                id: 100,
+                category: "การคลังและงบประมาณ",
+                question: "ข้อใดต่อไปนี้ที่ 'ไม่ใช่' หนึ่งใน ๕ ประเภทงบรายจ่ายหลักตามมาตรฐานระบบบัญชีการจำแนกประเภทรายจ่ายของไทย?",
+                options: ["ก. งบบุคลากร และงบดำเนินงาน", "ข. งบลงทุน และงบเงินอุดหนุน", "ค. งบเหลื่อมปี และงบเงินสำรองจ่ายผูกพันสะสม", "ง. งบรายจ่ายอื่น"],
+                answer: 2,
+                rationale: "งบเหลื่อมปี และงบสำรองจ่าย เป็นเพียงขั้นตอนวิธีการบริหารจัดการทางงบประมาณตามเวลา ไม่ใช่ประเภทหมวดงบรายจ่ายหลักแต่อย่างใด"
+            }
+        ];
+
+        // --- App State ---
+        let quizQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = {}; // questionIndex -> selectedOptionIndex
+        let flaggedQuestions = {}; // questionIndex -> boolean
+        let quizMode = 'practice'; // 'practice' or 'exam'
+        let quizDuration = 2700; // 45 minutes in seconds
+        let timerInterval = null;
+        let isQuizSubmitted = false;
+        let startTime = null;
+        let timeSpentSeconds = 0;
+
+        // --- Mode Selection Controls ---
+        function selectMode(mode) {
+            quizMode = mode;
+            const btnPractice = document.getElementById('mode-practice-btn');
+            const btnExam = document.getElementById('mode-exam-btn');
+            
+            if (mode === 'practice') {
+                btnPractice.className = "group text-left p-5 rounded-xl border-2 border-emerald-600 bg-emerald-50/20 focus:outline-none";
+                btnExam.className = "group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-slate-800 hover:bg-slate-50 transition-all duration-200 focus:outline-none";
+            } else {
+                btnExam.className = "group text-left p-5 rounded-xl border-2 border-slate-850 bg-slate-100 focus:outline-none";
+                btnPractice.className = "group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-emerald-600 hover:bg-emerald-50/10 transition-all duration-200 focus:outline-none";
+            }
+        }
+
+        // Set Default mode on load
+        selectMode('practice');
+
+        // Shuffling algorithm helper (Fisher-Yates)
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex != 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        // --- Start Quiz Action ---
+        function startQuiz() {
+            const quantitySelect = document.getElementById('exam-quantity');
+            const quantity = parseInt(quantitySelect.value);
+            
+            let sourceQuestions = [...ALL_QUESTIONS];
+            if (quizMode === 'exam') {
+                // Completely shuffle in exam mode to simulate unpredictable environment
+                sourceQuestions = shuffle(sourceQuestions);
+            }
+            
+            quizQuestions = sourceQuestions.slice(0, Math.min(quantity, sourceQuestions.length));
+
+            // Reset States
+            currentQuestionIndex = 0;
+            userAnswers = {};
+            flaggedQuestions = {};
+            isQuizSubmitted = false;
+            timeSpentSeconds = 0;
+            startTime = new Date();
+
+            // Set up Badge/Timer UI
+            const badge = document.getElementById('badge-mode');
+            if (quizMode === 'practice') {
+                badge.innerText = "โหมดฝึกฝน (เฉลยละเอียดรายข้อ)";
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-emerald-100 text-emerald-800 border border-emerald-200";
+                document.getElementById('timer-container').classList.add('hidden');
+                document.getElementById('score-counter').classList.remove('hidden');
+            } else {
+                badge.innerText = "โหมดสอบจริง (จำลองห้องสอบมีเวลาจำกัด)";
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-rose-100 text-rose-800 border border-rose-200";
+                document.getElementById('timer-container').classList.remove('hidden');
+                document.getElementById('score-counter').classList.add('hidden');
+                startTimer();
+            }
+
+            // View Transition
+            document.getElementById('setup-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+
+            renderNavigationGrid();
+            loadQuestion(0);
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            let timerSeconds = quizDuration;
+            const timerDisplay = document.getElementById('quiz-timer');
+            
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                timeSpentSeconds++;
+                
+                const minutes = Math.floor(timerSeconds / 60);
+                const seconds = timerSeconds % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timerSeconds <= 300) { // Warning: 5 mins remaining
+                    timerDisplay.parentElement.classList.add('text-rose-500', 'animate-pulse');
+                } else {
+                    timerDisplay.parentElement.classList.remove('text-rose-500', 'animate-pulse');
+                }
+
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        // --- Load active question details ---
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const q = quizQuestions[index];
+
+            // Render status texts
+            document.getElementById('current-q-index').innerText = index + 1;
+            document.getElementById('total-q-count').innerText = quizQuestions.length;
+            
+            const progressPercent = ((index + 1) / quizQuestions.length) * 100;
+            document.getElementById('progress-bar-fill').style.width = `${progressPercent}%`;
+
+            // Category & Question text
+            document.getElementById('question-category').innerText = q.category;
+            document.getElementById('question-text').innerText = `ข้อที่ ${index + 1}: ${q.question}`;
+
+            // Bookmarked/Flagged status
+            const flagBtn = document.getElementById('flag-btn');
+            const flagIcon = document.getElementById('flag-icon');
+            if (flaggedQuestions[index]) {
+                flagIcon.setAttribute('fill', '#f59e0b');
+                flagIcon.setAttribute('stroke', '#f59e0b');
+                flagBtn.classList.add('text-amber-500');
+            } else {
+                flagIcon.setAttribute('fill', 'none');
+                flagIcon.setAttribute('stroke', 'currentColor');
+                flagBtn.classList.remove('text-amber-500');
+            }
+
+            // Options Renderer
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const selectedAnswer = userAnswers[index];
+            const isAnswered = selectedAnswer !== undefined;
+            const showAnswersDirectly = (quizMode === 'practice' && isAnswered);
+
+            q.options.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border transition-all text-sm font-medium focus:outline-none flex justify-between items-center gap-4 min-h-[44px]";
+                btn.onclick = () => selectOption(optIdx);
+
+                const textSpan = document.createElement('span');
+                textSpan.innerText = opt;
+                btn.appendChild(textSpan);
+
+                // Option styling logic based on state and mode
+                if (selectedAnswer === optIdx) {
+                    if (showAnswersDirectly) {
+                        if (optIdx === q.answer) {
+                            btn.className += " bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm";
+                            btn.appendChild(createIcon('check', 'text-emerald-600'));
+                        } else {
+                            btn.className += " bg-rose-50 border-rose-400 text-rose-800 shadow-sm";
+                            btn.appendChild(createIcon('x', 'text-rose-600'));
+                        }
+                    } else {
+                        btn.className += " bg-emerald-50 border-emerald-600 text-emerald-950 shadow-md scale-[1.01]";
+                    }
+                } else {
+                    if (showAnswersDirectly && optIdx === q.answer) {
+                        btn.className += " bg-emerald-50 border-emerald-400 text-emerald-800";
+                        btn.appendChild(createIcon('check', 'text-emerald-500'));
+                    } else {
+                        btn.className += " bg-white border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700";
+                    }
+                }
+
+                if (showAnswersDirectly) {
+                    btn.disabled = true;
+                    btn.onclick = null;
+                }
+
+                optionsContainer.appendChild(btn);
+            });
+
+            // Handle Instant Explanation Panel (Practice Mode only)
+            const expPanel = document.getElementById('explanation-panel');
+            if (showAnswersDirectly) {
+                expPanel.classList.remove('hidden');
+                const isCorrect = (selectedAnswer === q.answer);
+                
+                const titleBadge = document.getElementById('explanation-title-badge');
+                if (isCorrect) {
+                    titleBadge.innerText = "ตอบถูกต้อง";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-emerald-600";
+                } else {
+                    titleBadge.innerText = "ตอบผิดพลาด";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-rose-600";
+                }
+                
+                document.getElementById('explanation-text').innerText = q.rationale;
+            } else {
+                expPanel.classList.add('hidden');
+            }
+
+            // Navigation buttons adjustments
+            document.getElementById('prev-btn').disabled = (index === 0);
+            const nextBtn = document.getElementById('next-btn');
+            const submitQuizBtn = document.getElementById('submit-quiz-btn');
+
+            if (index === quizQuestions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitQuizBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitQuizBtn.classList.add('hidden');
+            }
+
+            updateNavigationGridActive();
+        }
+
+        // SVG helper for response checks
+        function createIcon(type, colorClass) {
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.setAttribute("class", `w-5 h-5 ${colorClass} shrink-0`);
+            svg.setAttribute("fill", "none");
+            svg.setAttribute("viewBox", "0 0 24 24");
+            svg.setAttribute("stroke", "currentColor");
+            svg.setAttribute("stroke-width", "3");
+
+            if (type === 'check') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M5 13l4 4L19 7");
+                svg.appendChild(path);
+            } else if (type === 'x') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M6 18L18 6M6 6l12 12");
+                svg.appendChild(path);
+            }
+            return svg;
+        }
+
+        function selectOption(optionIndex) {
+            if (isQuizSubmitted) return;
+            userAnswers[currentQuestionIndex] = optionIndex;
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function toggleFlag() {
+            flaggedQuestions[currentQuestionIndex] = !flaggedQuestions[currentQuestionIndex];
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                loadQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        // Render side helper panel of questions
+        function renderNavigationGrid() {
+            const grid = document.getElementById('grid-navigation');
+            grid.innerHTML = '';
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('score-counter').innerText = `${answeredCount}/${quizQuestions.length}`;
+
+            quizQuestions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full py-2 rounded-lg text-xs font-bold text-center border focus:outline-none transition-all min-h-[36px]";
+                btn.innerText = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+
+                const isSelected = (idx === currentQuestionIndex);
+                const hasAnswered = (userAnswers[idx] !== undefined);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                if (isSelected) {
+                    btn.className += " bg-emerald-750 border-emerald-800 bg-emerald-600 text-white ring-2 ring-emerald-350 ring-offset-1";
+                } else if (isFlagged) {
+                    btn.className += " bg-amber-500 border-amber-600 text-white";
+                } else if (hasAnswered) {
+                    btn.className += " bg-emerald-100 border-emerald-300 text-emerald-800 hover:bg-emerald-200";
+                } else {
+                    btn.className += " bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100";
+                }
+
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateNavigationGridActive() {
+            const grid = document.getElementById('grid-navigation');
+            const btns = grid.children;
+            for (let i = 0; i < btns.length; i++) {
+                const btn = btns[i];
+                if (i === currentQuestionIndex) {
+                    btn.classList.add('ring-2', 'ring-emerald-350', 'ring-offset-1');
+                } else {
+                    btn.classList.remove('ring-2', 'ring-emerald-350', 'ring-offset-1');
+                }
+            }
+        }
+
+        // --- Modals Controls ---
+        function showSubmitConfirmModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = quizQuestions.length - answeredCount;
+            const statusText = document.getElementById('modal-completion-status');
+
+            if (unanswered > 0) {
+                statusText.innerText = `คุณยังเว้นว่างข้อสอบอีก ${unanswered} ข้อ จากทั้งหมด ${quizQuestions.length} ข้อ หากกดยืนยัน ระบบจะทำความเห็นประเมินเฉพาะข้อที่มีคำตอบเท่านั้น`;
+                statusText.className = "text-sm text-amber-600 leading-relaxed font-semibold";
+            } else {
+                statusText.innerText = "ยอดเยี่ยมมาก! คุณดำเนินการตอบคำถามครบถ้วนครบทุกข้อแล้ว ต้องการส่งกระดาษคำตอบใช่หรือไม่?";
+                statusText.className = "text-sm text-emerald-600 leading-relaxed font-semibold";
+            }
+
+            document.getElementById('submit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideSubmitConfirmModal() {
+            document.getElementById('submit-confirm-modal').classList.add('hidden');
+        }
+
+        function confirmExit() {
+            document.getElementById('exit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideExitConfirmModal() {
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+        }
+
+        function exitQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+
+        // --- Submit Quiz & Calculate Results ---
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            isQuizSubmitted = true;
+            hideSubmitConfirmModal();
+
+            let scoreCorrect = 0;
+            const categoryAnalysis = {};
+
+            // Initialize categories statistics
+            quizQuestions.forEach(q => {
+                if (!categoryAnalysis[q.category]) {
+                    categoryAnalysis[q.category] = { correct: 0, total: 0 };
+                }
+                categoryAnalysis[q.category].total++;
+            });
+
+            // Calculate score
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if (userAns !== undefined && userAns === q.answer) {
+                    scoreCorrect++;
+                    categoryAnalysis[q.category].correct++;
+                }
+            });
+
+            const totalCount = quizQuestions.length;
+            const percent = Math.round((scoreCorrect / totalCount) * 100);
+
+            // Compute elapsed time
+            if (quizMode !== 'exam') {
+                const end = new Date();
+                timeSpentSeconds = Math.round((end - startTime) / 1000);
+            }
+            const minsUsed = Math.floor(timeSpentSeconds / 60);
+            const secsUsed = timeSpentSeconds % 60;
+
+            // Display Results View
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+
+            document.getElementById('result-percentage').innerText = `${percent}%`;
+            document.getElementById('result-score-fraction').innerText = `${scoreCorrect}/${totalCount} คะแนน`;
+
+            // Draw circular progress bar
+            const dashArray = 251.2;
+            const offset = dashArray - (dashArray * percent) / 100;
+            document.getElementById('score-ring-fill').style.strokeDashoffset = offset;
+
+            // Generate contextual advice
+            const resultBadge = document.getElementById('result-badge');
+            const feedbackText = document.getElementById('result-feedback-text');
+
+            if (percent >= 80) {
+                resultBadge.innerText = "ผ่านเกณฑ์ระดับยอดเยี่ยม";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-200";
+                feedbackText.innerText = "ยินดีด้วย! คุณมีความรู้ความเข้าใจในหลักสูตรนโยบาย แผนงาน โครงการ และการงบประมาณเป็นอย่างดีเลิศ พร้อมสำหรับการสอบวัดผลระดับประเทศ";
+            } else if (percent >= 60) {
+                resultBadge.innerText = "ผ่านเกณฑ์มาตรฐาน";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200";
+                feedbackText.innerText = "คุณผ่านเกณฑ์ประเมินเบื้องต้นแล้ว แนะนำให้ทบทวนจุดบกพร่องต่าง ๆ และเกร็ดความรู้ในส่วนข้อสอบเฉลยละเอียดด้านล่างเพื่ออัปเกรดความแม่นยำสู่ระดับคะแนนเต็ม";
+            } else {
+                resultBadge.innerText = "ควรศึกษาทบทวนเพิ่มเติม";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800 border border-amber-200";
+                feedbackText.innerText = "คะแนนของคุณยังไม่ถึงเป้าเกณฑ์ประเมินเบื้องต้น แนะนำให้อ่าน 'Cheat Sheet' และทดลองฝึกฝนซ้ำอีกครั้งในโหมดฝึกฝนเพื่อจดจำรูปแบบข้อมูลเชิงวิชาการ";
+            }
+
+            // Fill basic analytics boxes
+            document.getElementById('stat-correct').innerText = `${scoreCorrect} ข้อ`;
+            document.getElementById('stat-incorrect').innerText = `${totalCount - scoreCorrect} ข้อ`;
+            document.getElementById('stat-time-spent').innerText = `${minsUsed} น. ${secsUsed} วิ.`;
+
+            // Fill skills analysis section
+            const topicContainer = document.getElementById('topic-analysis-container');
+            topicContainer.innerHTML = '';
+
+            for (const [category, data] of Object.entries(categoryAnalysis)) {
+                const catPercent = Math.round((data.correct / data.total) * 100);
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = "space-y-1.5";
+
+                const labelRow = document.createElement('div');
+                labelRow.className = "flex justify-between items-center text-xs font-bold text-slate-700";
+                labelRow.innerHTML = `<span>${category}</span> <span class="font-mono">${data.correct}/${data.total} (${catPercent}%)</span>`;
+                wrapper.appendChild(labelRow);
+
+                const barBg = document.createElement('div');
+                barBg.className = "w-full bg-slate-200 h-2.5 rounded-full overflow-hidden";
+                
+                const barFill = document.createElement('div');
+                barFill.className = catPercent >= 80 ? "bg-emerald-600 h-full" : (catPercent >= 60 ? "bg-emerald-500 h-full" : "bg-amber-500 h-full");
+                barFill.style.width = `${catPercent}%`;
+                barBg.appendChild(barFill);
+                
+                wrapper.appendChild(barBg);
+                topicContainer.appendChild(wrapper);
+            }
+
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('toggle-review-btn').innerText = "ดูข้อสอบเฉลยละเอียด";
+            generateDetailedReviewList();
+        }
+
+        // --- Detailed Review List Generation ---
+        function generateDetailedReviewList() {
+            const listContainer = document.getElementById('review-questions-list');
+            listContainer.innerHTML = '';
+
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCorrect = (userAns !== undefined && userAns === q.answer);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                const card = document.createElement('div');
+                card.className = "bg-white border rounded-xl p-5 sm:p-6 space-y-4 shadow-sm transition-all";
+                card.dataset.isCorrect = isCorrect ? "true" : "false";
+                card.dataset.isFlagged = isFlagged ? "true" : "false";
+
+                // Review Card Header
+                const cardHeader = document.createElement('div');
+                cardHeader.className = "flex justify-between items-start gap-4 border-b border-slate-100 pb-2.5";
+                
+                const flexLeft = document.createElement('div');
+                flexLeft.className = "flex items-center gap-2 flex-wrap";
+                
+                const qNum = document.createElement('span');
+                qNum.className = "text-sm font-bold text-slate-800";
+                qNum.innerText = `ข้อที่ ${idx + 1}`;
+                flexLeft.appendChild(qNum);
+
+                const catBadge = document.createElement('span');
+                catBadge.className = "text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded";
+                catBadge.innerText = q.category;
+                flexLeft.appendChild(catBadge);
+
+                if (isFlagged) {
+                    const flgBadge = document.createElement('span');
+                    flgBadge.className = "text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 flex items-center gap-1";
+                    flgBadge.innerHTML = `<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"/></svg> ปักหมุดไว้`;
+                    flexLeft.appendChild(flgBadge);
+                }
+
+                cardHeader.appendChild(flexLeft);
+
+                // Right Badge Status
+                const statusBadge = document.createElement('span');
+                if (isCorrect) {
+                    statusBadge.innerText = "ตอบถูก";
+                    statusBadge.className = "text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200";
+                } else if (userAns === undefined) {
+                    statusBadge.innerText = "ไม่ได้ทำ";
+                    statusBadge.className = "text-[10px] font-bold text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200";
+                } else {
+                    statusBadge.innerText = "ตอบผิด";
+                    statusBadge.className = "text-[10px] font-bold text-rose-800 bg-rose-50 px-2 py-0.5 rounded border border-rose-200";
+                }
+                cardHeader.appendChild(statusBadge);
+
+                card.appendChild(cardHeader);
+
+                // Question Text
+                const qText = document.createElement('h5');
+                qText.className = "font-bold text-slate-950 leading-relaxed text-sm sm:text-base";
+                qText.innerText = q.question;
+                card.appendChild(qText);
+
+                // Options list in review card
+                const listGrid = document.createElement('div');
+                listGrid.className = "grid grid-cols-1 gap-2 pt-2";
+
+                q.options.forEach((opt, optIdx) => {
+                    const optBlock = document.createElement('div');
+                    optBlock.className = "p-3 rounded-lg border text-xs font-medium flex justify-between items-center gap-3";
+                    optBlock.innerText = opt;
+
+                    if (optIdx === q.answer) {
+                        optBlock.className += " bg-emerald-50 border-emerald-300 text-emerald-800";
+                        optBlock.appendChild(createIcon('check', 'text-emerald-600'));
+                    } else if (userAns === optIdx) {
+                        optBlock.className += " bg-rose-50 border-rose-300 text-rose-800";
+                        optBlock.appendChild(createIcon('x', 'text-rose-600'));
+                    } else {
+                        optBlock.className += " bg-white border-slate-200 text-slate-600";
+                    }
+
+                    listGrid.appendChild(optBlock);
+                });
+
+                card.appendChild(listGrid);
+
+                // Explanation Block
+                const expWrapper = document.createElement('div');
+                expWrapper.className = "bg-slate-50 p-4 rounded-lg border border-slate-100 space-y-1";
+                
+                const expLabel = document.createElement('div');
+                expLabel.className = "text-[10px] font-extrabold text-emerald-700 uppercase tracking-wide";
+                expLabel.innerText = "แนวข้อสอบ คำอธิบาย และเหตุผลประกอบหลักการทางวิชาการ:";
+                expWrapper.appendChild(expLabel);
+
+                const expP = document.createElement('p');
+                expP.className = "text-xs text-slate-600 leading-relaxed";
+                expP.innerText = q.rationale;
+                expWrapper.appendChild(expP);
+
+                card.appendChild(expWrapper);
+                listContainer.appendChild(card);
+            });
+        }
+
+        function toggleDetailedReview() {
+            const reviewSection = document.getElementById('detailed-review-section');
+            const btn = document.getElementById('toggle-review-btn');
+
+            if (reviewSection.classList.contains('hidden')) {
+                reviewSection.classList.remove('hidden');
+                btn.innerText = "ซ่อนข้อสอบเฉลยละเอียด";
+                reviewSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                reviewSection.classList.add('hidden');
+                btn.innerText = "ดูข้อสอบเฉลยละเอียด";
+            }
+        }
+
+        function filterReviewList() {
+            const filterValue = document.getElementById('review-filter').value;
+            const container = document.getElementById('review-questions-list');
+            const cards = container.children;
+
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const isCorrect = card.dataset.isCorrect === "true";
+                const isFlagged = card.dataset.isFlagged === "true";
+
+                if (filterValue === 'all') {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'incorrect' && !isCorrect) {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'flagged' && isFlagged) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            }
+        }
+
+        function restartQuiz() {
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

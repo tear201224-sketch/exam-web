@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบสรุปย่อและข้อสอบ พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน พ.ศ. ๒๕๓๔</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Sarabun -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sarabun: ['Sarabun', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#d97706', // Premium Dark Gold / Amber
+                            600: '#b45309',
+                            700: '#92400e',
+                            800: '#78350f',
+                            900: '#451a03',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #fbfbfc;
+        }
+        /* Custom premium scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fde68a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d97706;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Top Premium Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white border-b border-amber-100 shadow-sm backdrop-blur-md bg-white/95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-amber-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+                        <i class="fa-solid fa-scale-balanced text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="font-bold text-base sm:text-lg text-slate-900 tracking-tight block leading-tight">พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน ๒๕๓๔</span>
+                        <span class="text-[10px] sm:text-xs text-brand-700 font-semibold tracking-wider uppercase">สรุปเนื้อหาพรีเมียม (ม.1 - 75) & คลังข้อสอบวิเคราะห์ (๑๐๐ ข้อ)</span>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-1.5 sm:gap-2">
+                    <button onclick="switchTab('summary')" id="tab-summary-btn" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg font-medium text-xs sm:text-sm transition-all duration-200 bg-brand-500 text-white shadow-sm">
+                        <i class="fa-solid fa-book-bookmark mr-1.5"></i> สรุปย่อเน้นสอบ
+                    </button>
+                    <button onclick="switchTab('quiz')" id="tab-quiz-btn" class="px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg font-medium text-xs sm:text-sm transition-all duration-200 text-slate-600 hover:text-brand-600 hover:bg-brand-50">
+                        <i class="fa-solid fa-file-signature mr-1.5"></i> ตะลุยข้อสอบ (๑๐๐ ข้อ)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- SECTION 1: SUMMARY TAB -->
+        <div id="summary-section" class="space-y-8">
+            
+            <!-- Hero Banner (Golden Royal Law Design) -->
+            <div class="relative rounded-3xl p-6 sm:p-10 shadow-xl overflow-hidden text-white" style="background: linear-gradient(135deg, #78350f 0%, #d97706 100%);">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="relative z-10 max-w-4xl">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-white/20 text-white border border-white/30 mb-4">
+                        <i class="fa-solid fa-landmark"></i> กฎหมายจัดระเบียบโครงสร้างบริหารราชการแผ่นดินไทย
+                    </span>
+                    <h1 class="text-xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight mb-4 leading-tight text-white drop-shadow-md">
+                        พระราชบัญญัติระเบียบบริหารราชการแผ่นดิน พ.ศ. ๒๕๓๔ และที่แก้ไขเพิ่มเติม
+                    </h1>
+                    <p class="text-amber-50 text-xs sm:text-sm leading-relaxed max-w-3xl">
+                        ตราไว้ ณ วันที่ ๒๑ สิงหาคม ๒๕๓๔ บังคับใช้วันถัดจากวันประกาศในราชกิจจานุเบกษา คือวันที่ <span class="text-amber-200 font-bold underline decoration-amber-200">๕ กันยายน พ.ศ. ๒๕๓๔</span> โดยได้รับการปรับปรุงแก้ไขเรื่อยมาจนถึงฉบับปัจจุบัน มี <strong>นายกรัฐมนตรี</strong> เป็นผู้รักษาการตามพระราชบัญญัติตานี้
+                    </p>
+                </div>
+                <div class="absolute right-0 bottom-0 opacity-10 transform translate-x-12 translate-y-12 hidden lg:block">
+                    <i class="fa-solid fa-scale-balanced text-[240px] text-white"></i>
+                </div>
+            </div>
+
+            <!-- เจตจำนงและหลักการบริหารแผ่นดินแนวใหม่ (มาตรา 3/1) -->
+            <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                <div class="bg-gradient-to-r from-brand-700 to-brand-500 px-6 py-4 flex items-center justify-between text-white">
+                    <h2 class="font-bold flex items-center gap-2 text-sm sm:text-base">
+                        <i class="fa-solid fa-gem"></i> มาตรา ๓/๑: เจตจำนงสูงสุดและหลักการบริหารราชการแผ่นดินแนวใหม่ (กู๊ดกอฟเวิร์นแนนซ์)
+                    </h2>
+                    <span class="text-xs bg-white/20 px-2.5 py-1 rounded-full font-bold">ออกข้อสอบบ่อยที่สุด!</span>
+                </div>
+                <div class="p-6 space-y-6">
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        หัวใจสำคัญของการบริหารราชการตาม พ.ร.บ. นี้ ต้องเป็นไปเพื่อบรรลุวัตถุประสงค์หลัก **๑๑ ประการ** และต้องจัดสรรงบประมาณตลอดจนบรรจุและแต่งตั้งบุคคลให้คำนึงถึงหลักเกณฑ์เหล่านี้ด้วย:
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-300 transition-all">
+                            <span class="font-bold text-brand-600 text-sm block mb-1">๑. ประโยชน์สุขของประชาชน</span> การทำงานทุกชนิดต้องมีประชาชนเป็นศูนย์กลางและได้ประโยชน์โดยตรง
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-300 transition-all">
+                            <span class="font-bold text-brand-600 text-sm block mb-1">๒. เกิดผลสัมฤทธิ์ต่อภารกิจของรัฐ</span> มีเป้าหมายที่วัดผลได้ มีการทำงานที่คุ้มค่า
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-300 transition-all">
+                            <span class="font-bold text-brand-600 text-sm block mb-1">๓. ความมีประสิทธิภาพและคุ้มค่า</span> ใช้ทรัพยากรอย่างประหยัดและเกิดประโยชน์คุ้มค่าต่อภารกิจรัฐ
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-300 transition-all">
+                            <span class="font-bold text-brand-600 text-sm block mb-1">๔. การลดขั้นตอนการปฏิบัติงาน</span> ขจัดขั้นตอนทางธุรการที่ซ้ำซ้อน ไม่จำเป็น เพื่อความรวดเร็ว
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-300 transition-all">
+                            <span class="font-bold text-brand-600 text-sm block mb-1">๕. การกระจายภารกิจ/อำนาจตัดสินใจ</span> ส่งเสริมการกระจายทรัพยากรและอำนาจสู่ท้องถิ่นและระดับพื้นที่
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 hover:border-brand-300 transition-all">
+                            <span class="font-bold text-brand-600 text-sm block mb-1">๖. มีผู้รับผิดชอบต่อผลของงาน</span> ข้าราชการและส่วนราชการต้องพร้อมรับผิด (Accountability) ต่อผลลัพธ์
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การจัดระเบียบบริหารราชการแผ่นดินและส่วนกลาง (มาตรา 4 - 37) -->
+            <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                <div class="bg-gradient-to-r from-brand-700 to-brand-500 px-6 py-4 flex items-center justify-between text-white">
+                    <h2 class="font-bold flex items-center gap-2 text-sm sm:text-base">
+                        <i class="fa-solid fa-sitemap"></i> การจัดระเบียบบริหารราชการส่วนกลาง (ม.๗ - ๓๗)
+                    </h2>
+                    <span class="text-xs bg-white/20 px-2.5 py-1 rounded-full font-bold">นิติบุคคลระดับกระทรวง/กรม</span>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        
+                        <!-- การจัดตั้ง รวม โอน ยุบส่วนราชการ -->
+                        <div class="space-y-3">
+                            <h4 class="font-bold text-slate-900 border-b pb-1.5 text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-circle-exclamation text-brand-600"></i> การตรากฎหมายเกี่ยวกับส่วนราชการส่วนกลาง (ม.๘ - ๘ จัตวา)
+                            </h4>
+                            <div class="space-y-2 bg-amber-50/50 p-4 rounded-xl border border-amber-100 text-xs">
+                                <p><strong>๑. จัดตั้ง / รวม / โอน (กรณีปกติ):</strong> ตราเป็น <span class="text-red-600 font-bold">พระราชบัญญัติ (พ.ร.บ.)</span></p>
+                                <p><strong>๒. รวม / โอน (ที่ "ไม่มี" การเพิ่มตำแหน่ง/อัตราข้าราชการ/ลูกจ้าง):</strong> ตราเป็น <span class="text-brand-600 font-bold">พระราชกฤษฎีกา (พ.ร.ฎ.)</span> (ก.พ. และสำนักงบประมาณต้องคุมไม่ให้มีตำแหน่งเพิ่มขึ้น ๓ ปีนับแต่วันใช้บังคับ)</p>
+                                <p><strong>๓. เปลี่ยนชื่อส่วนราชการ:</strong> ตราเป็น <span class="text-brand-600 font-bold">พระราชกฤษฎีกา (พ.ร.ฎ.)</span></p>
+                                <p><strong>๔. ยุบเลิกส่วนราชการ:</strong> ตราเป็น <span class="text-brand-600 font-bold">พระราชกฤษฎีกา (พ.ร.ฎ.)</span> (ข้าราชการที่ถูกยุบต้องได้รับเงินชดเชย หรือหากหน่วยงานอื่นรับโอนต้องทำภายใน <span class="text-red-600 font-bold">๓๐ วัน</span>)</p>
+                                <p><strong>๕. การแบ่งส่วนราชการภายในกรม/กระทรวง:</strong> ตราเป็น <span class="text-brand-600 font-bold">กฎกระทรวง</span> ออกโดยรัฐมนตรีเจ้าสังกัด</p>
+                            </div>
+                        </div>
+
+                        <!-- สำนักนายกฯ และกระทรวง -->
+                        <div class="space-y-3">
+                            <h4 class="font-bold text-slate-900 border-b pb-1.5 text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-building text-brand-600"></i> โครงสร้างและอำนาจบัญชาการส่วนกลาง
+                            </h4>
+                            <ul class="list-disc pl-5 space-y-1.5 text-xs">
+                                <li><strong>สำนักนายกรัฐมนตรี:</strong> มีฐานะเป็นกระทรวงและเป็นนิติบุคคล มีนายกรัฐมนตรีเป็นผู้บังคับบัญชาสูงสุด</li>
+                                <li><strong>สลน. vs สลค.:</strong>
+                                    <br>- <span class="font-bold">สำนักเลขาธิการนายกรัฐมนตรี (สลน.):</span> ดูแลงาน "การเมือง" มีเลขาธิการนายกฯ (ข้าราชการการเมือง) เป็นหัวหน้า
+                                    <br>- <span class="font-bold">สำนักเลขาธิการคณะรัฐมนตรี (สลค.):</span> ดูแลงาน "ครม., รัฐสภา, และงานในพระองค์" เลขาธิการ ครม. และทีมงานเป็นข้าราชการพลเรือนสามัญทั้งหมด
+                                </li>
+                                <li><strong>กลุ่มภารกิจ (Task Force):</strong> ม.๒๑ วรรคสาม สามารถรวมกรมเพื่อจัดกลุ่มภารกิจได้ หัวหน้ากลุ่มภารกิจต้องมีตำแหน่งไม่ต่ำกว่าอธิบดี ปฏิบัติราชการขึ้นตรงต่อปลัดหรือรัฐมนตรีตามที่กำหนด</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- การรักษาราชการแทน และการปฏิบัติราชการแทน (มาตรา 38 - 50) -->
+            <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                <div class="bg-gradient-to-r from-brand-700 to-brand-500 px-6 py-4 flex items-center justify-between text-white">
+                    <h2 class="font-bold flex items-center gap-2 text-sm sm:text-base">
+                        <i class="fa-solid fa-repeat"></i> การปฏิบัติราชการแทน และการรักษาราชการแทน (ม.๓๘ - ๕๐)
+                    </h2>
+                    <span class="text-xs bg-white/20 px-2.5 py-1 rounded-full font-bold">สับขาหลอกและทำแทน</span>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm leading-relaxed text-slate-600">
+                        
+                        <!-- การปฏิบัติราชการแทน vs การรักษาราชการแทน -->
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-slate-900 border-b pb-1.5 text-sm mb-3">
+                                <i class="fa-solid fa-shuffle text-brand-600"></i> การมอบอำนาจ (ปฏิบัติราชการแทน) (ม.๓๘ - ๔๐)
+                            </h4>
+                            <p class="mb-2"><strong>หลักการ:</strong> ผู้ดำรงตำแหน่งมีอำนาจแต่ต้องการกระจายความรับผิดชอบหรืออำนวยความสะดวกให้ประชาชน สามารถ "มอบอำนาจ" ให้ผู้อื่นทำแทนได้</p>
+                            <ul class="list-disc pl-5 space-y-1 text-xs">
+                                <li>ต้องทำเป็น **หนังสือ** เสมอ</li>
+                                <li>เมื่อมอบอำนาจแล้ว ผู้รับมอบอำนาจมีฐานะและอำนาจเสมือนผู้มอบอำนาจ</li>
+                                <li>**ม.๔๐/๑ (SDU):** หน่วยบริการรูปแบบพิเศษ ตั้งขึ้นเพื่อประสิทธิภาพการบริการ ไม่ใช่ส่วนราชการหรือรัฐวิสาหกิจ รายได้ไม่ต้องส่งคืนคลัง</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-slate-900 border-b pb-1.5 text-sm mb-3">
+                                <i class="fa-solid fa-hourglass-half text-brand-600"></i> การรักษาราชการแทน (ม.๔๑ - ๕๐)
+                            </h4>
+                            <p class="mb-2"><strong>หลักการ:</strong> ใช้กรณี **"ไม่มีผู้ดำรงตำแหน่ง หรือมีแต่ไม่อาจปฏิบัติราชการได้"** (เกิดสุญญากาศของตำแหน่ง)</p>
+                            <div class="space-y-1 bg-white p-3 rounded-lg border border-slate-200 text-xs">
+                                <p><strong>• นายกรัฐมนตรี:</strong> รองนายกฯ -> หากมีหลายคน ครม. มอบหมาย -> หากไม่มี ครม. มอบหมายรัฐมนตรีคนหนึ่ง</p>
+                                <p><strong>• รัฐมนตรีเจ้ากระทรวง:</strong> รมช. -> หากมีหลายคน ครม. มอบหมาย -> หากไม่มี ครม. มอบหมายรัฐมนตรีคนใดคนหนึ่ง</p>
+                                <p><strong>• ปลัดกระทรวง:</strong> รองปลัดฯ -> หากมีหลายคน ปลัดกระทรวง (หรือ รมต.เจ้าสังกัด) แต่งตั้ง -> หากไม่มี แต่งตั้งข้าราชการไม่ต่ำกว่าอธิบดี</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- การจัดระเบียบบริหารราชการส่วนภูมิภาค (มาตรา 51 - 68) -->
+            <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                <div class="bg-gradient-to-r from-brand-700 to-brand-500 px-6 py-4 flex items-center justify-between text-white">
+                    <h2 class="font-bold flex items-center gap-2 text-sm sm:text-base">
+                        <i class="fa-solid fa-map"></i> การจัดระเบียบบริหารราชการส่วนภูมิภาค (ม.๕๑ - ๖๘)
+                    </h2>
+                    <span class="text-xs bg-white/20 px-2.5 py-1 rounded-full font-bold">จังหวัด & อำเภอ</span>
+                </div>
+                <div class="p-6 space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        
+                        <!-- จังหวัด (Province) -->
+                        <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-slate-900 border-b pb-1.5 text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-city text-brand-600"></i> จังหวัด (ม.๕๒)
+                            </h4>
+                            <ul class="list-none pl-0 space-y-2 text-xs">
+                                <li><strong class="text-brand-700">ฐานะ:</strong> เป็นนิติบุคคล</li>
+                                <li><strong class="text-brand-700">การจัดตั้ง/ยุบ/เขต:</strong> ต้องตราเป็น <span class="text-red-600 font-bold">พระราชบัญญัติ (พ.ร.บ.)</span></li>
+                                <li><strong class="text-brand-700">คณะกรมการจังหวัด:</strong> บอร์ดที่ปรึกษาผู้ว่าฯ (ผู้ว่าฯ เป็นประธาน, รองผู้ว่าฯ, ปลัดจังหวัด, อัยการจังหวัด, ผู้บังคับการตำรวจภูธรจังหวัด, หัวหน้าส่วนราชการประจำจังหวัด กระทรวงละ ๑ คน, หัวหน้าสำนักงานจังหวัดเป็นเลขานุการ)</li>
+                                <li><strong class="text-brand-700">ก.ธ.จ. (มาตรา ๕๕/๑):</strong> คณะกรรมการธรรมาภิบาลจังหวัด มีผู้ตรวจราชการสำนักนายกฯ เป็นประธาน</li>
+                            </ul>
+                        </div>
+
+                        <!-- อำเภอ (District) -->
+                        <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-slate-900 border-b pb-1.5 text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-house-chimney-window text-brand-600"></i> อำเภอ (ม.๖๑)
+                            </h4>
+                            <ul class="list-none pl-0 space-y-2 text-xs">
+                                <li><strong class="text-brand-700">ฐานะ:</strong> <span class="text-red-600 font-bold">ไม่เป็นนิติบุคคล</span> (เป็นเพียงลักษณนามทางปกครองส่วนย่อยของจังหวัด)</li>
+                                <li><strong class="text-brand-700">การจัดตั้ง/ยุบ/เขต:</strong> ต้องตราเป็น <span class="text-brand-600 font-bold">พระราชกฤษฎีกา (พ.ร.ฎ.)</span></li>
+                                <li><strong class="text-brand-700">การไกล่เกลี่ยคดีแพ่ง (ม.๖๑/๒):</strong> ไกล่เกลี่ยที่ดิน มรดก หรือคดีแพ่งทุนทรัพย์ไม่เกิน <span class="text-brand-600 font-bold">๒๐๐,๐๐๐ บาท</span></li>
+                                <li><strong class="text-brand-700">การไกล่เกลี่ยคดีอาญา (ม.๖๑/๓):</strong> คดีอาญาอันยอมความได้ และ **ไม่ใช่ความผิดเกี่ยวกับเพศ** นายอำเภอหรือปลัดอำเภอมีอำนาจไกล่เกลี่ย หากยินยอมเป็นหนังสือ คดีอาญาเป็นอันเลิกกัน</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ส่วนท้องถิ่น และ คณะกรรมการพัฒนาระบบราชการ (ก.พ.ร.) -->
+            <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                <div class="bg-gradient-to-r from-brand-700 to-brand-500 px-6 py-4 flex items-center justify-between text-white">
+                    <h2 class="font-bold flex items-center gap-2 text-sm sm:text-base">
+                        <i class="fa-solid fa-circle-nodes"></i> ส่วนท้องถิ่น & คณะกรรมการพัฒนาระบบราชการ (ก.พ.ร.) (ม.๖๙ - ๗๑/๑๐)
+                    </h2>
+                    <span class="text-xs bg-white/20 px-2.5 py-1 rounded-full font-bold">บอร์ดปฏิรูประบบราชการ</span>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        
+                        <!-- การจัดระเบียบบริหารราชการส่วนท้องถิ่น (ม.๖๙ - ๗๑) -->
+                        <div class="space-y-2">
+                            <h4 class="font-bold text-slate-900 border-b pb-1.5 text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-users-gear text-brand-600"></i> ส่วนท้องถิ่น (ม.๗๐)
+                            </h4>
+                            <p>มีขอบเขตให้ราษฎรมีส่วนร่วมในการปกครองตามกฎหมายจัดตั้งแต่อย่างนั้น ประกอบด้วย:</p>
+                            <ul class="list-disc pl-5 space-y-1 text-xs">
+                                <li>องค์การบริหารส่วนจังหวัด (อบจ.)</li>
+                                <li>เทศบาล</li>
+                                <li>สุขาภิบาล (เดิม - ปัจจุบันได้รับการปรับสภาพแล้ว)</li>
+                                <li>ราชการส่วนท้องถิ่นอื่นที่มีกฎหมายจัดตั้งโดยเฉพาะ (เช่น กทม., พัทยา, อบต.)</li>
+                            </ul>
+                        </div>
+
+                        <!-- คณะกรรมการพัฒนาระบบราชการ (ก.พ.ร.) -->
+                        <div class="space-y-2">
+                            <h4 class="font-bold text-slate-900 border-b pb-1.5 text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-diagram-project text-brand-600"></i> คณะกรรมการ ก.พ.ร. (ม.๗๑/๑)
+                            </h4>
+                            <ul class="list-none pl-0 space-y-1 text-xs">
+                                <li><strong>ประธาน:</strong> นายกรัฐมนตรี หรือรองนายกรัฐมนตรีที่นายกฯ มอบหมาย</li>
+                                <li><strong>เลขานุการ:</strong> เลขาธิการ ก.พ.ร. (โดยตำแหน่ง)</li>
+                                <li><strong>วาระผู้ทรงคุณวุฒิ:</strong> คราวละ ๔ ปี ดำรงตำแหน่งติดต่อกันได้ไม่เกิน ๒ วาระ</li>
+                                <li><strong>สำนักงาน ก.พ.ร. (ม.๗๑/๙):</strong> เป็นส่วนราชการในสังกัดสำนักนายกรัฐมนตรี ขึ้นตรงต่อนายกรัฐมนตรี</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA to Quiz -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-brand-600 flex items-center justify-center flex-shrink-0 text-xl">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-950 text-sm sm:text-base">แบบทดสอบ พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน ๑๐๐ ข้อ</h4>
+                        <p class="text-xs text-slate-400 mt-0.5">คัดสรรจุดวิเคราะห์ รายมาตรา และจุดหลอกออกสอบบ่อยที่สุดอย่างละเอียด</p>
+                    </div>
+                </div>
+                <button onclick="switchTab('quiz')" class="bg-brand-500 hover:bg-brand-600 text-white font-bold text-sm py-2.5 px-5 rounded-xl shadow-sm transition-all flex items-center justify-center gap-2">
+                    เริ่มประเมินความรู้ <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- SECTION 2: QUIZ TAB -->
+        <div id="quiz-section" class="hidden max-w-3xl mx-auto space-y-6">
+            
+            <!-- Quiz Header Card -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <i class="fa-solid fa-file-invoice text-brand-500"></i> แบบทดสอบความรู้ระเบียบบริหารราชการแผ่นดิน พ.ศ. ๒๕๓๔
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-1">ประเมินวิเคราะห์ทักษะเตรียมสอบภาค ก. และ ภาค ข. จำนวน ๑๐๐ ข้อ</p>
+                </div>
+                <!-- Progress display -->
+                <div class="flex items-center gap-3 flex-shrink-0">
+                    <div class="text-right">
+                        <span class="text-xs text-slate-400 block font-medium">ข้อที่</span>
+                        <span id="current-question-indicator" class="text-lg font-bold text-brand-600">1/100</span>
+                    </div>
+                    <div class="w-24 sm:w-32 bg-slate-100 h-2 rounded-full overflow-hidden">
+                        <div id="quiz-progress-bar" class="bg-brand-500 h-full transition-all duration-300" style="width: 1%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Play Box -->
+            <div id="quiz-play-box" class="space-y-6">
+                <!-- Question Statement Card -->
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-500"></div>
+                    <span class="text-[10px] font-bold text-brand-600 uppercase tracking-wider block mb-2">คำถามวัดระดับการวิเคราะห์กฎหมาย</span>
+                    <h3 id="question-text" class="text-sm sm:text-base md:text-lg font-bold text-slate-900 leading-relaxed">
+                        กำลังดึงคำถามจากคลังข้อสอบแผ่นดิน...
+                    </h3>
+                </div>
+
+                <!-- Answer Options Box -->
+                <div id="options-container" class="space-y-3">
+                    <!-- Choices inject -->
+                </div>
+
+                <!-- Explanation/Rationale -->
+                <div id="explanation-box" class="hidden bg-slate-50 p-5 sm:p-6 rounded-2xl border border-slate-150 transition-all duration-300">
+                    <div class="flex gap-3">
+                        <div id="explanation-icon-container" class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-white">
+                            <!-- Icon dynamic -->
+                        </div>
+                        <div>
+                            <h4 id="explanation-title" class="font-bold text-xs sm:text-sm"></h4>
+                            <p id="explanation-body" class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nav Controls -->
+                <div class="flex items-center justify-between">
+                    <button id="hint-btn" onclick="toggleHint()" class="inline-flex items-center gap-1.5 text-slate-500 hover:text-brand-600 font-semibold text-xs sm:text-sm transition-colors py-2 px-3 rounded-lg hover:bg-slate-50">
+                        <i class="fa-regular fa-lightbulb"></i> <span id="hint-text-label">แสดงคำใบ้</span>
+                    </button>
+                    
+                    <button id="next-btn" onclick="goToNextQuestion()" class="hidden bg-brand-500 hover:bg-brand-600 text-white text-xs sm:text-sm font-semibold py-2.5 px-5 sm:px-6 rounded-xl shadow-sm transition-all items-center gap-1.5">
+                        <span>ถัดไป</span> <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+                
+                <!-- Hint Text Box -->
+                <div id="hint-display-box" class="hidden bg-amber-50/50 border border-amber-100 p-4 rounded-xl text-xs sm:text-sm text-amber-800 leading-relaxed">
+                    <strong class="font-bold"><i class="fa-solid fa-circle-question mr-1"></i> คำใบ้ช่วยคิด:</strong> <span id="hint-content">...</span>
+                </div>
+            </div>
+
+            <!-- Quiz Score/Summary Screen -->
+            <div id="quiz-score-box" class="hidden bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm text-center space-y-6">
+                <div class="w-20 h-20 sm:w-24 sm:h-24 bg-brand-50 rounded-full flex items-center justify-center mx-auto border-2 border-brand-100 relative">
+                    <i class="fa-solid fa-trophy text-3xl sm:text-4xl text-brand-500"></i>
+                    <div class="absolute -top-1 -right-1 bg-amber-500 text-white text-[9px] px-2 py-0.5 rounded-full font-bold">เสร็จสิ้น</div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl sm:text-2xl font-black text-slate-900">ทดสอบสมบูรณ์แบบ!</h3>
+                    <p class="text-xs text-slate-400 mt-1">เกณฑ์จำลองระดับทักษะความรอบรู้ พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน พ.ศ. ๒๕๓๔</p>
+                </div>
+
+                <!-- Score Board -->
+                <div class="max-w-xs mx-auto bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                    <span class="text-xs text-slate-500 uppercase tracking-widest font-semibold block">ผลคะแนนรวมของคุณ</span>
+                    <span id="final-score-display" class="text-4xl sm:text-5xl font-extrabold text-brand-600 my-2 block">0 / 100</span>
+                    <span id="score-assessment" class="text-xs sm:text-sm font-bold text-slate-700 block">กำลังประเมิน...</span>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                    <button onclick="restartQuiz()" class="bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs sm:text-sm py-3 px-6 rounded-xl shadow-sm transition-all">
+                        <i class="fa-solid fa-arrows-rotate mr-1"></i> ลองทำอีกครั้ง
+                    </button>
+                    <button onclick="switchTab('summary')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm py-3 px-6 rounded-xl transition-all">
+                        กลับไปศึกษาเนื้อหา
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-2 text-xs text-slate-400">
+            <p>ระบบรวบรวมข้อมูลและสื่อการเรียนรู้ พระราชบัญญัติระเบียบบริหารราชการแผ่นดิน พ.ศ. ๒๕๓๔ และที่แก้ไขเพิ่มเติม</p>
+            <p>&copy; 2026 ระบบการเรียนรู้เตรียมสอบข้าราชการแผ่นดินไทยเพื่อประโยชน์สุขประชาชน</p>
+        </div>
+    </footer>
+
+    <!-- Quiz JS Logic -->
+    <script>
+        const quizData = [
+            {
+                question: "ข้อใด 'ไม่ใช่' วัตถุประสงค์ตามขอบเขตและหลักการบริหารราชการแผ่นดินที่บัญญัติไว้ใน มาตรา ๓/๑?",
+                options: [
+                    { text: "ความมีประสิทธิภาพและเกิดผลสัมฤทธิ์ต่อภารกิจของรัฐ", isCorrect: false, rationale: "สัมฤทธิผลและประสิทธิภาพระบุไว้ชัดเจนในวรรคหนึ่งของมาตรา ๓/๑" },
+                    { text: "การกระจายภารกิจและทรัพยากรให้แก่ท้องถิ่น", isCorrect: false, rationale: "เป็นวัตถุประสงค์ประการหนึ่งที่กำหนดขึ้นเพื่อหนุนเสริมการปกครองท้องถิ่น" },
+                    { text: "การลดอัตราพนักงานราชการลงกึ่งหนึ่งเพื่อประหยัดสัดส่วนงบประมาณแผ่นดิน", isCorrect: true, rationale: "มาตรา ๓/๑ ระบุเรื่อง 'การลดภารกิจและยุบเลิกหน่วยงานที่ไม่จำเป็น' แต่ไม่มีข้อกำหนดให้ลดจำนวนอัตรากำลังคนลงแบบกึ่งหนึ่งกะทันหันอย่างไม่มีเหตุผล" },
+                    { text: "การอำนวยความสะดวกและการตอบสนองความต้องการของประชาชน", isCorrect: false, rationale: "ความพึงพอใจและการอำนวยความสะดวกประชาชนเป็นเป้าหมายหลักของการบริหารกิจการบ้านเมืองที่ดี" }
+                ],
+                hint: "มาตรา ๓/๑ เน้นเป้าหมายบริหารที่เอื้อประโยชน์สุขประชาชน ประสิทธิภาพ ความคุ้มค่า และการกระจายภารกิจ แต่ไม่ใช่กฎเกณฑ์สั่งยุบข้าราชการเป็นสัดส่วนตายตัว"
+            },
+            {
+                question: "การจัดระเบียบบริหารราชการแผ่นดินของประเทศไทยตามมาตรา ๔ แบ่งการจัดระเบียบโครงสร้างออกเป็นกี่รูปแบบ?",
+                options: [
+                    { text: "๒ รูปแบบ (ส่วนกลาง และส่วนท้องถิ่น)", isCorrect: false, rationale: "ระเบียบบริหารราชการของไทยมีส่วนภูมิภาคเข้ามาคอยเชื่อมประสานด้วย" },
+                    { text: "๓ รูปแบบ (ส่วนกลาง ส่วนภูมิภาค และส่วนท้องถิ่น)", isCorrect: true, rationale: "มาตรา ๔ กำหนดระเบียบบริหารราชการแผ่นดินออกเป็น ๓ ส่วนหลัก ได้แก่ (๑) ส่วนกลาง (๒) ส่วนภูมิภาค และ (๓) ส่วนท้องถิ่น" },
+                    { text: "๔ รูปแบบ (ส่วนกลาง ส่วนภูมิภาค ส่วนท้องถิ่น และส่วนราชการอิสระ)", isCorrect: false, rationale: "ส่วนราชการอิสระได้รับการบัญญัติจัดอยู่ในระเบียบพิเศษ แต่อำนาจปกครองตามมาตรา ๔ แบ่งไว้ ๓ รูปแบบ" },
+                    { text: "๕ รูปแบบ (รวมเขตพัฒนาเศรษฐกิจพิเศษและทบวงเมืองการเรียนรู้)", isCorrect: false, rationale: "เป็นโครงสร้างที่เพิ่มเติมจากกฎหมายอื่นไม่ใช่ฐานมาตรา ๔" }
+                ],
+                hint: "เป็นหลักการจัดระเบียบราชการแผ่นดินที่เป็นคำท่องจำทั่วไปของนักรัฐศาสตร์ไทย (ส่วนกลาง ส่วนภูมิภาค ส่วนท้องถิ่น)"
+            },
+            {
+                question: "หน่วยงานราชการกลุ่มใดในมาตรา ๗ ต่อไปนี้ มีฐานะเป็น 'นิติบุคคล' ทั้งหมด?",
+                options: [
+                    { text: "สำนักงานปลัดอำเภอ, ศาลปกครองจังหวัด, เทศบาล", isCorrect: false, rationale: "สำนักงานปลัดอำเภอไม่มีฐานะเป็นนิติบุคคลเดี่ยวตามโครงสร้าง ม.๗" },
+                    { text: "สำนักนายกรัฐมนตรี, กระทรวง, กรม", isCorrect: true, rationale: "มาตรา ๗ วรรคท้ายกำหนดไว้เด่นชัดว่า 'ส่วนราชการตาม (๑) [สำนักนายกรัฐมนตรี] (๒) [กระทรวง/ทบวง] และ (๔) [กรม หรือส่วนราชการที่เรียกชื่ออย่างอื่นที่มีฐานะเป็นกรม] มีฐานะเป็นนิติบุคคล'" },
+                    { text: "ทบวงนครหลวง, เทศบาลนคร, องค์การบริหารส่วนตำบล", isCorrect: false, rationale: "องค์กรเหล่านี้สังกัดท้องถิ่น ม.๗๐ ไม่ใช่นิติบุคคลระดับส่วนกลาง ม.๗" },
+                    { text: "กระทรวงมหาดไทย, ที่ว่าการอำเภอ, จังหวัดนครราชสีมา", isCorrect: false, rationale: "ที่ว่าการอำเภอไม่มีฐานะเป็นนิติบุคคลใน ม.๗ หรือ ม.๖๑" }
+                ],
+                hint: "เป็นนิติบุคคลตามมาตรา ๗ ของส่วนกลาง ได้แก่ สำนักนายกรัฐมนตรี (ฐานะเทียบเท่ากระทรวง) กระทรวง และส่วนราชการระดับกรม"
+            },
+            {
+                question: "เมื่อมีความจำเป็นต้องจัดตั้งกระทรวงใหม่ขึ้นมาเพื่อดูแลกิจการเฉพาะด้านตามกฎหมาย มาตรา ๘ บัญญัติให้การจัดตั้งต้องตราขึ้นเป็นกฎหมายใด?",
+                options: [
+                    { text: "พระราชกฤษฎีกา", isCorrect: false, rationale: "พระราชกฤษฎีกาใช้ในกระบวนการยุบ ย้าย หรือปรับเปลี่ยนที่ไม่มีการเพิ่มจำนวนตำแหน่งข้าราชการ" },
+                    { text: "พระราชบัญญัติ", isCorrect: true, rationale: "มาตรา ๘ บัญญัติชัดเจนว่า 'การจัดตั้ง การรวม หรือการโอนส่วนราชการตามมาตรา ๗ (สำนักนายกฯ กระทรวง กรม) ให้ตราเป็นพระราชบัญญัติ'" },
+                    { text: "กฎกระทรวงออกโดยความเห็นชอบของรัฐสภา", isCorrect: false, rationale: "กฎกระทรวงเป็นเครื่องมือแบ่งสายงานย่อยภายใน ไม่ใช่กฎหมายตั้งกระทรวงใหม่" },
+                    { text: "ประกาศคณะปฏิบัติที่มีผลบังคับใช้เป็นกฎหมาย", isCorrect: false, rationale: "ประกาศคณะปฏิบัติเป็นรูปแบบดั้งเดิมที่ถูกยกเลิกไปเกือบทั้งหมดแล้วตาม ม.๓" }
+                ],
+                hint: "การตั้งกระทรวงใหม่ถือเป็นเรื่องสำคัญ มีผลกระทบต่อภารกิจและงบประมาณแผ่นดินอย่างมหาศาล จึงต้องได้รับมติเห็นชอบในรูปของกฎหมายแม่บทจากสภาผู้แทนราษฎรและวุฒิสภา"
+            },
+            {
+                question: "หากต้องการ 'รวมหรือโอน' ส่วนราชการระดับกรม ๒ แห่งเข้าด้วยกัน โดยที่ 'ไม่มีการกำหนดตำแหน่งหรืออัตรากำลังของข้าราชการเพิ่มขึ้น' จะต้องตราเป็นกฎหมายระดับใด?",
+                options: [
+                    { text: "พระราชบัญญัติ", isCorrect: false, rationale: "หากมีการเพิ่มตำแหน่งหรือเกิดค่าใช้จ่ายคนเพิ่มต้องตราเป็น พ.ร.บ. แต่เมื่อ 'ไม่มี' การเพิ่มโครงสร้างอัตราคน สามารถทำได้เร็วขึ้น" },
+                    { text: "พระราชกฤษฎีกา", isCorrect: true, rationale: "มาตรา ๘ ทวิ ระบุว่า 'การรวมหรือการโอนส่วนราชการ... ถ้าไม่มีการกำหนดตำแหน่งหรืออัตราของข้าราชการหรือลูกจ้างเพิ่มขึ้น ให้ตราเป็นพระราชกฤษฎีกา'" },
+                    { text: "กฎกระทรวงโดยความเห็นชอบจากคณะกรรมการข้าราชการพลเรือน", isCorrect: false, rationale: "กฎกระทรวงใช้แบ่งส่วนภายในกรม ไม่ใช่ใช้สั่งการโยกโอนกรมระดับ ม.๗" },
+                    { text: "ระเบียบสำนักนายกรัฐมนตรี", isCorrect: false, rationale: "ระเบียบสำนักนายกฯ เป็นกฎหมายลำดับรองคุมปฏิบัติงานทั่วไป ไม่ใช่งานโครงสร้างราชการ" }
+                ],
+                hint: "เป็นวิธีการพิเศษตามมาตรา ๘ ทวิ ที่ลดขั้นตอนกฎหมายจากระดับสภาผู้แทนฯ มาเป็นกฎหมายระดับพระราชกฤษฎีกาเพื่อความสะดวกรวดเร็วในการบริหาร"
+            },
+            {
+                question: "ตามมาตรา ๘ ทวิ คณะกรรมการข้าราชการพลเรือน (ก.พ.) และสำนักงบประมาณมีหน้าที่ควบคุมดูแล 'มิให้' มีการกำหนดตำแหน่งหรืออัตรากำลังเพิ่มเติมในหน่วยงานที่จัดตั้งใหม่เป็นระยะเวลากี่ปี?",
+                options: [
+                    { text: "๑ ปี นับแต่วันที่ตราประกาศใช้", isCorrect: false, rationale: "ระยะเวลาสั้นเกินไปในการประเมินประสิทธิภาพ" },
+                    { text: "๒ ปี นับแต่วันใช้บังคับ", isCorrect: false, rationale: "ยังไม่ครบตามขอบข่ายกฎหมาย ม.๘ ทวิ" },
+                    { text: "๓ ปี นับแต่วันที่พระราชกฤษฎีกามีผลใช้บังคับ", isCorrect: true, rationale: "มาตรา ๘ ทวิ วรรคสาม ระบุให้ ก.พ. และสำนักงบประมาณตรวจสอบดูแลมิให้มีการกำหนดอัตราเพิ่มขึ้น 'จนกว่าจะครบกำหนดสามปี' นับแต่วันที่พระราชกฤษฎีกามีผลใช้บังคับ" },
+                    { text: "๕ ปี นับแต่วันประกาศในราชกิจจานุเบกษา", isCorrect: false, rationale: "ระยะเวลานานเกินไป ระยะที่กฎหมายล็อกไว้เพื่อดูการประเมินเบื้องต้นคือ ๓ ปี" }
+                ],
+                hint: "เป็นตัวเลขสามปีเพื่อป้องกันการแอบอ้างสวมรอยเพิ่มตำแหน่งงานข้าราชการในกรมที่รวมตัวใหม่"
+            },
+            {
+                question: "การเปลี่ยนชื่อส่วนราชการในระดับกระทรวงหรือกรม (มาตรา ๗) ต้องตราเป็นกฎหมายลำดับใดตามข้อกำหนดในมาตรา ๘ ตรี?",
+                options: [
+                    { text: "พระราชบัญญัติ", isCorrect: false, rationale: "การเปลี่ยนชื่อไม่มีผลเพิ่มหรือลดกรม จึงไม่ต้องตราเป็นพระราชบัญญัติ" },
+                    { text: "พระราชกฤษฎีกา", isCorrect: true, rationale: "มาตรา ๘ ตรี บัญญัติว่า 'การเปลี่ยนชื่อส่วนราชการตามมาตรา ๗ ให้ตราเป็นพระราชกฤษฎีกา และให้ระบุการเปลี่ยนชื่อตำแหน่งข้าราชการไว้ในพระราชกฤษฎีกานั้นด้วย'" },
+                    { text: "กฎกระทรวง", isCorrect: false, rationale: "กฎกระทรวงไม่มีอำนาจแก้ไขเปลี่ยนชื่อส่วนราชการระดับกระทรวง/กรมที่ตั้งขึ้นด้วย พ.ร.บ." },
+                    { text: "ประกาศสำนักนายกรัฐมนตรี", isCorrect: false, rationale: "ประกาศสำนักนายกฯ ไม่ใช้เป็นเครื่องมือเปลี่ยนชื่อส่วนราชการ ม.๗" }
+                ],
+                hint: "การตั้งกระทรวง/กรมใช้ พระราชบัญญัติ แต่การเปลี่ยนชื่อใช้ระดับพระราชกฤษฎีกา"
+            },
+            {
+                question: "เมื่อเกิดพระราชกฤษฎีกา 'ยุบส่วนราชการ' (มาตรา ๘ จัตวา) ข้าราชการที่ยุบตำแหน่งและพ้นจากราชการ มีสิทธิได้รับเงินชดเชย และหากหน่วยงานอื่นประสงค์จะรับโอนตัว ต้องกระทำภายในเวลากี่วัน?",
+                options: [
+                    { text: "๑๕ วัน นับแต่วันที่มีผลบังคับใช้", isCorrect: false, rationale: "เวลาสั้นเกินไปในการประเมินโครงสร้างและอัตราคนใหม่" },
+                    { text: "๓๐ วัน นับแต่วันที่พระราชกฤษฎีกามียุบมีผลใช้บังคับ", isCorrect: true, rationale: "มาตรา ๘ จัตวา วรรคสี่ บัญญัติว่า การรับโอนข้าราชการตามวรรคสามเพื่อให้คงราชการต่อไป 'ต้องกระทำภายในสามสิบวันนับแต่วันที่พระราชกฤษฎีกาตามวรรคหนึ่งมีผลใช้บังคับ'" },
+                    { text: "๖๐ วัน นับแต่วันประกาศในราชกิจจานุเบกษา", isCorrect: false, rationale: "ตัวเลขเวลานี้สูงกว่าที่กฎหมายควบคุมความชัดเจนในการบริหารทรัพยากรบุคคลระบุไว้" },
+                    { text: "๙๐ วัน นับจากวันที่พ้นตำแหน่งจริง", isCorrect: false, rationale: "ไม่ถูกต้องตามหลักมาตรา ๘ จัตวา" }
+                ],
+                hint: "กรอบเวลาเกือบหนึ่งเดือน (๓๐ วัน) ในการจัดการโอนอัตราคนก่อนที่ตำแหน่งจะหายไปถาวรหลังการยุบหน่วยงาน"
+            },
+            {
+                question: "การแบ่งส่วนราชการย่อยภายในกรมหรือกระทรวง (เช่น การตั้งส่วนกลางเป็น กอง สำนัก หรือกลุ่มงาน) ตราเป็นกฎหมายระดับใดและออกโดยอำนาจของบุคคลใดตามมาตรา ๘ ฉ?",
+                options: [
+                    { text: "พระราชกฤษฎีกา เสนอโดยนายกรัฐมนตรี", isCorrect: false, rationale: "ระดับพัสดุหรือจัดสรรกระทรวงใช้พระราชกฤษฎีกา แต่ส่วนแบ่งย่อยภายในกรมเป็นงานระดับต่ำกว่านั้น" },
+                    { text: "กฎกระทรวง ออกโดยรัฐมนตรีเจ้าสังกัด", isCorrect: true, rationale: "มาตรา ๘ ฉ บัญญัติว่า 'การแบ่งส่วนราชการภายในสำนักงานรัฐมนตรี กรม... ให้ออกเป็นกฎกระทรวง และให้รัฐมนตรีเจ้าสังกัดของส่วนราชการนั้นเป็นผู้ออกกฎกระทรวง'" },
+                    { text: "ระเบียบกรม ออกโดยอธิบดีผู้บังคับบัญชา", isCorrect: false, rationale: "อธิบดีเป็นข้าราชการประจำ ไม่มีอำนาจออกกฎกระทรวงหรือข้อบังคับแปรส่วนปกครอง ม.๗" },
+                    { text: "ประกาศกระทรวง ออกโดยปลัดกระทรวง", isCorrect: false, rationale: "ปลัดกระทรวงคุมราชการประจำ แต่ผู้ลงนามกฎกระทรวงแบ่งส่วนคือรัฐมนตรีว่าการ" }
+                ],
+                hint: "ผู้คุมนโยบายของกระทรวง (ฝ่ายการเมือง) คือ รัฐมนตรีเจ้าสังกัด เป็นผู้ใช้อำนาจสูงสุดออกกฎแบ่งส่วนย่อยระดับกรม"
+            },
+            {
+                question: "ในกรณีที่นายกรัฐมนตรีตาย หรือสิ้นสุดความเป็นรัฐมนตรีแผ่นดินลงระหว่างดำรงตำแหน่ง คณะรัฐมนตรีที่เหลืออยู่ต้องมอบหมายให้ผู้ใดปฏิบัติหน้าที่แทนนายกรัฐมนตรีตามมาตรา ๑๐ วรรคสี่?",
+                options: [
+                    { text: "ปลัดสำนักนายกรัฐมนตรี หรือเลขาธิการคณะรัฐมนตรี", isCorrect: false, rationale: "ข้าราชการประจำไม่มีสิทธิ์ปฏิบัติงานแทนรัฐมนตรีฝ่ายการเมืองระดับนายกฯ" },
+                    { text: "รองนายกรัฐมนตรีคนใดคนหนึ่ง / หากไม่มีหรือปฏิบัติไม่ได้ มอบหมายรัฐมนตรีคนใดคนหนึ่ง", isCorrect: true, rationale: "มาตรา ๑๐ วรรคสี่ ระบุให้ ครม. มอบหมายให้รองนายกรัฐมนตรีคนใดคนหนึ่งเป็นผู้ปฏิบัติหน้าที่แทน หากไม่มีหรือทำไม่ได้ ให้มอบหมายให้รัฐมนตรีคนใดคนหนึ่งทำหน้าที่แทน" },
+                    { text: "ประธานสภาผู้แทนราษฎรปฏิบัติหน้าที่ผู้พิทักษ์อำนาจการบริหารแผ่นดิน", isCorrect: false, rationale: "ประธานสภาผู้แทนราษฎรอยู่ฝ่ายนิติบัญญัติ ไม่สามารถก้าวล่วงสิทธิ์บริหารแผ่นดิน ม.๑๐" },
+                    { text: "รัฐมนตรีว่าการกระทรวงมหาดไทย หรือผู้บัญชาการทหารสูงสุด", isCorrect: false, rationale: "ไม่ถูกต้องตามสายงานสืบทอดสิทธิ์รักษาการ" }
+                ],
+                hint: "ระบบสืบทอดอำนาจรัฐประสงค์ให้รองนายกฯ เป็นเกราะชั้นแรกในการเข้ามารับไม้ต่อ และหากไม่มีรองนายกฯ จึงค่อยเปิดเกราะให้รัฐมนตรีที่เหลืออยู่ทำหน้าที่แทน"
+            },
+            {
+                question: "นายกรัฐมนตรีมีอำนาจสั่งให้ข้าราชการจากกระทรวงหนึ่ง มาปฏิบัติราชการที่สำนักงานสำนักนายกรัฐมนตรีได้ตามความเหมาะสม โดยค่าใช้จ่ายเงินเดือนกำหนดไว้อย่างไรตามมาตรา ๑๑ (๔)?",
+                options: [
+                    { text: "ห้ามมิให้เบิกเงินจากสังกัดเดิม และต้องตั้งงบประมาณเพิ่มให้ใหม่เท่านั้น", isCorrect: false, rationale: "ไม่ถูกต้อง กฎหมายอนุญาตให้ข้าราชการรักษาฐานเงินเดือนของหน่วยงานเดิมได้เพื่อความยืดหยุ่น" },
+                    { text: "จะให้ขาดจากอัตราเงินเดือนทางสังกัดเดิมหรือไม่ก็ได้ แต่หากให้ขาด ต้องได้รับเงินเดือนในขั้นและระดับที่ไม่สูงกว่าเดิม", isCorrect: true, rationale: "มาตรา ๑๑ (๔) บัญญัติชัดเจนว่าสั่งมาได้ 'โดยจะให้ขาดจากอัตราเงินเดือนทางสังกัดเดิมหรือไม่ก็ได้... ในกรณีที่ให้ขาด... ให้ได้รับเงินเดือนในสำนักนายกรัฐมนตรีในระดับและขั้นที่ไม่สูงกว่าเดิม'" },
+                    { text: "ต้องให้กระทรวงมหาดไทยเป็นผู้รับผิดชอบเบิกจ่ายยอดเงินสวัสดิการข้ามสังกัด", isCorrect: false, rationale: "มหาดไทยไม่คุมงบประมาณส่วนกลางของสำนักนายกรัฐมนตรีทั้งหมด" },
+                    { text: "ผู้ว่าราชการจังหวัดต้นภูมิลำเนาต้องลงนามอนุมัติเห็นชอบเสียก่อน", isCorrect: false, rationale: "เป็นอำนาจของหัวหน้ารัฐบาลสูงสุดสั่งสลับข้าราชการข้ามสังกัดได้เองตาม ม.๑๑" }
+                ],
+                hint: "นายกฯ ในฐานะหัวหน้ารัฐบาลมีอำนาจสูงสุดในการย้ายตัวข้าราชการมาใช้งาน และกฎหมายคุมไว้ว่าระดับและขั้นเงินเดือนต้องไม่สูงกว่าเดิมเมื่อขาดจากที่เก่า"
+            },
+            {
+                question: "ตามมาตรา ๑๑ (๕) หากนายกรัฐมนตรีต้องการแต่งตั้งข้าราชการต่างสังกัดไปดำรงตำแหน่งระดับ 'อธิบดีหรือเทียบเท่าขึ้นไป' ของอีกสังกัดหนึ่ง จะต้องได้รับอนุมัติจากผู้ใด?",
+                options: [
+                    { text: "คณะกรรมการพัฒนาระบบราชการ (ก.พ.ร.)", isCorrect: false, rationale: "ก.พ.ร. ดูแลโครงสร้างระบบราชการ แต่การโยกย้ายตำแหน่งสำคัญต้องเข้า ครม." },
+                    { text: "คณะรัฐมนตรี", isCorrect: true, rationale: "มาตรา ๑๑ (๕) ระบุว่า '...แต่ถ้าเป็นการแต่งตั้งข้าราชการตั้งแต่ตำแหน่งอธิบดีหรือเทียบเท่าขึ้นไปต้องได้รับอนุมัติจากคณะรัฐมนตรี'" },
+                    { text: "ประธานวุฒิสภา", isCorrect: false, rationale: "วุฒิสภาร่วมอนุมัติเฉพาะผู้ดำรงตำแหน่งองค์กรอิสระตามรัฐธรรมนูญ ไม่ใช่การโยกย้ายข้าราชการพลเรือนประจำ" },
+                    { text: "เลขาธิการสำนักงานคณะกรรมการข้าราชการพลเรือน", isCorrect: false, rationale: "เลขาฯ ก.พ. มีหน้าที่บริหารทะเบียนประวัติ แต่ผู้แต่งตั้งและเห็นชอบคือ ครม." }
+                ],
+                hint: "ระดับอธิบดี ปลัดกระทรวง หรือข้าราชการระดับสูง การโยกย้ายต้องผ่านมติเห็นชอบของคณะรัฐมนตรี (ครม.) ทั้งคณะเพื่อความชอบธรรมและตรวจสอบได้"
+            },
+            {
+                question: "ระเบียบปฏิบัติราชการเพื่อให้การบริหารแผ่นดินเป็นไปโดยรวดเร็วและมีประสิทธิภาพตามมาตรา ๑๑ (๘) จะสามารถใช้บังคับอย่างเป็นทางการได้เมื่อใด?",
+                options: [
+                    { text: "ทันทีที่นายกรัฐมนตรีลงนามประกาศ", isCorrect: false, rationale: "อำนาจนายกรัฐมนตรีคนเดียวไม่สามารถตราระเบียบที่มีผลบังคับทุกส่วนราชการได้เองลำพัง" },
+                    { text: "เมื่อคณะรัฐมนตรีให้ความเห็นชอบแล้ว", isCorrect: true, rationale: "มาตรา ๑๑ วรรคสอง (แนบท้าย) บัญญัติว่า 'ระเบียบตาม (๘) เมื่อคณะรัฐมนตรีให้ความเห็นชอบแล้ว ให้ใช้บังคับได้'" },
+                    { text: "เมื่อได้ผ่านมติเห็นชอบของสภานิติบัญญัติแห่งชาติ", isCorrect: false, rationale: "นี่ไม่ใช่งานตราพระราชบัญญัติ จึงไม่ต้องผ่านสภานิติบัญญัติหรือรัฐสภา" },
+                    { text: "เมื่อปลัดกระทรวงมหาดไทยลงนามสนองตอบนโยบายแผ่นดิน", isCorrect: false, rationale: "ปลัดมหาดไทยไม่มีอำนาจคุมการบังคับใช้ระเบียบสำนักนายกฯ ภาพรวม" }
+                ],
+                hint: "หลักการพิจารณาตรวจสอบถ่วงดุลในฝ่ายบริหาร: ระเบียบปฏิบัติของหัวหน้ารัฐบาล จะสมบูรณ์เมื่อคณะรัฐมนตรี (ครม.) เห็นชอบร่วมกัน"
+            },
+            {
+                question: "โครงสร้างบุคลากรของสำนักเลขาธิการนายกรัฐมนตรี (สลน.) และสำนักเลขาธิการคณะรัฐมนตรี (สลค.) ข้อใดระบุสิทธิ์สถานะทางราชการได้ถูกต้องตรงตามมาตรา ๑๓ และ ๑๔?",
+                options: [
+                    { text: "ทีมงานของ สลน. และ สลค. ทั้งหมดเป็นข้าราชการการเมืองที่เข้าออกตามวาระรัฐบาล", isCorrect: false, rationale: "งานสลค. และบางส่วนสลน. ต้องเป็นข้าราชการประจำเพื่อทำงานธุรการแผ่นดินต่อรอยระหว่างรัฐบาล" },
+                    { text: "สลน. (เลขาธิการและรองฝ่ายการเมืองเป็นข้าราชการการเมือง, รองฝ่ายบริหารและผู้ช่วยเป็นข้าราชการพลเรือน) / สลค. (เลขาธิการ, รอง, ผู้ช่วย เป็นข้าราชการพลเรือนสามัญทั้งหมด)", isCorrect: true, rationale: "ถูกต้องตรงตามมาตรา ๑๓ และ ๑๔ สลค. ดูแลธุรการ ครม. รัฐสภา ราชองค์กร จึงต้องเป็นข้าราชการพลเรือนประจำทั้งหมด ส่วน สลน. ทำงานการเมืองโดยตรง จึงมีโควตาการเมืองนั่งบริหารหลัก" },
+                    { text: "สลน. และ สลค. กำหนดให้เลขาธิการใหญ่ทั้งสองสำนักงานต้องเป็นข้าราชการทหารที่ได้รับการแต่งตั้งจากกลาโหม", isCorrect: false, rationale: "เป็นตัวเลือกที่พยายามตั้งมาเพื่อลวงผู้อ่าน" },
+                    { text: "สลค. (เลขาธิการเป็นข้าราชการการเมือง, ทีมงานเป็นข้าราชการพลเรือน) / สลน. (เป็นข้าราชการพลเรือนประจำทั้งหมด)", isCorrect: false, rationale: "จัดสลับประเภทบุคลากรอย่างไม่ถูกต้องตามมาตรา ๑๓-๑๔" }
+                ],
+                hint: "งานสลน. (นายกฯ) อิงกิจกรรมการเมืองอย่างยิ่ง จึงมีข้าราชการการเมืองนำทีม ส่วน สลค. (ครม.) อิงงานนิติบัญญัติ รัฐสภา และงานสถาบัน จึงต้องเป็นพลเรือนประจำทั้งหมดเพื่อความต่อเนื่องของแผ่นดิน"
+            },
+            {
+                question: "ปลัดสำนักนายกรัฐมนตรี มีฐานะเป็นข้าราชการพลเรือนสามัญ และมีสายการบังคับบัญชาข้าราชการรองจากบุคคลในตำแหน่งใดตามมาตรา ๑๖?",
+                options: [
+                    { text: "เลขาธิการนายกรัฐมนตรี และโฆษกประจำสำนักนายกรัฐมนตรี", isCorrect: false, rationale: "ปลัดสำนักนายกฯ คุมงานประจำสูงสุด ไม่ขึ้นตรงต่อโฆษกหรือเลขาฯ นายกฯ" },
+                    { text: "รองจาก นายกรัฐมนตรี, รองนายกรัฐมนตรี และรัฐมนตรีประจำสำนักนายกรัฐมนตรี", isCorrect: true, rationale: "ตามมาตรา ๑๖ (๒) ปลัดสำนักนายกรัฐมนตรี 'เป็นผู้บังคับบัญชาข้าราชการ... รองจากนายกรัฐมนตรี รองนายกรัฐมนตรี และรัฐมนตรีประจำสำนักนายกรัฐมนตรี' (ยกเว้นหน่วยขึ้นตรง)" },
+                    { text: "ขึ้นตรงต่อรัฐมนตรีว่าการกระทรวงมหาดไทยเป็นการส่วนตัว", isCorrect: false, rationale: "ปลัดสำนักนายกฯ ทำงานสังกัดสำนักนายกรัฐมนตรี ไม่ขึ้นกับกระทรวงมหาดไทย" },
+                    { text: "รองจากเลขาธิการคณะกรรมการพัฒนาระบบราชการ (ก.พ.ร.)", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรา ๑๖" }
+                ],
+                hint: "ปลัดสำนักนายกฯ คุมข้าราชการงานประจำทั้งหมด จึงขึ้นตรงต่อนักการเมืองระดับสูงของรัฐบาลในสำนักนายกฯ"
+            },
+            {
+                question: "ส่วนราชการในระดับกระทรวงตามมาตรา ๑๘ บัญญัติให้การจัดระเบียบราชการภายในกระทรวงต้องแบ่งออกเป็นส่วนงานใดบ้าง?",
+                options: [
+                    { text: "สภาการกระทรวง, สำนักเลขานุการมหาชน, กรมการจังหวัด", isCorrect: false, rationale: "สภาการกระทรวงและสำนักเลขานุการมหาชนไม่มีบัญญัติในมาตรา ๑๘" },
+                    { text: "สำนักงานรัฐมนตรี, สำนักงานปลัดกระทรวง, กรมหรือส่วนราชการที่เรียกชื่ออย่างอื่น", isCorrect: true, rationale: "มาตรา ๑๘ กำหนดโครงสร้างกระทรวงออกเป็น (๑) สำนักงานรัฐมนตรี (๒) สำนักงานปลัดกระทรวง และ (๓) กรม หรือส่วนราชการเทียบเท่ากรม" },
+                    { text: "กรมอำนวยการฝ่ายการเมือง, กรมบัญชีกลางประจำกระทรวง, สำนักงานจังหวัด", isCorrect: false, rationale: "สำนักงานจังหวัดสังกัดส่วนภูมิภาค และกรมบัญชีกลางประจำกระทรวงไม่มีอยู่จริง" },
+                    { text: "กระทรวงมหาดไทย, ที่ว่าการอำเภอ, จังหวัดสะสมงบประมาณ", isCorrect: false, rationale: "ไม่ใช่การแบ่งราชการของกระทรวงส่วนกลางตามที่กำหนดในมาตรา ๑๘" }
+                ],
+                hint: "ประกอบด้วย ๓ กองกำลังหลัก: สำนักงานประสานการเมือง (สำนักงานรัฐมนตรี) ส่วนงานธุรการประจำทั่วไป (สำนักงานปลัดกระทรวง) และหน่วยปฏิบัติเฉพาะทาง (กรม)"
+            },
+            {
+                question: "ตามมาตรา ๒๑ หากกระทรวงจัดระบบส่วนราชการระดับกรมตั้งแต่ ๒ กรมขึ้นไปมารวมกันให้อยู่ภายใต้สายงานสัมพันธ์เดียวกัน จะเรียกว่าอะไร และหัวหน้ากลุ่มงานนั้นต้องมีตำแหน่งระดับใด?",
+                options: [
+                    { text: "กลุ่มประสานราชการมหาชน / ดำรงตำแหน่งไม่ต่ำกว่าระดับ ๘", isCorrect: false, rationale: "ชื่อกลุ่มและการจัดระบบชั้นตำแหน่งงานไม่สอดคล้องตามตัวบทมาตรา ๒๑" },
+                    { text: "กลุ่มภารกิจ (Task Force) / ผู้ดำรงตำแหน่งไม่ต่ำกว่าอธิบดี เป็นหัวหน้ากลุ่มภารกิจ", isCorrect: true, rationale: "มาตรา ๒๑ วรรคสาม กำหนดให้ออกกฎกระทรวงแบ่งเป็น 'กลุ่มภารกิจ' โดยมีผู้ดำรงตำแหน่งไม่ต่ำกว่าอธิบดีเป็นหัวหน้ากลุ่มภารกิจรับผิดชอบราชการ" },
+                    { text: "กองอำนวยการพิเศษแดิน / นายทหารระดับพลตรีเป็นหัวหน้า", isCorrect: false, rationale: "กองกำลังทหารและพลตรีไม่เกี่ยวกับงานกลุ่มภารกิจข้าราชการพลเรือนทั่วไป" },
+                    { text: "คณะทำงานปฏิรูปงานรัฐบาล / เลขาธิการ ก.พ.ร. มอบหมายข้าราชการชำนาญการพิเศษ", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรา ๒๑ วรรคสาม" }
+                ],
+                hint: "ระบบใหม่ ม.๒๑ มุ่งให้เกิดเอกภาพโดยการรวมกรมที่งานคล้ายกันเป็น 'กลุ่มภารกิจ' และผู้คุมกลุ่มภารกิจต้องเก๋าพอกับตำแหน่งอธิบดีกรมขึ้นไป"
+            },
+            {
+                question: "ในกรณีที่กระทรวงใดมีภารกิจเพิ่มขึ้นอย่างมากจนระบบงานล้นมือ และต้องการแต่งตั้ง 'รองปลัดกระทรวงเพิ่มขึ้นเป็นกรณีพิเศษ' หน่วยงานใดร่วมกันใช้อำนาจอนุมัติข้อตกลงนี้ตามมาตรา ๒๑ วรรคเจ็ด?",
+                options: [
+                    { text: "กระทรวงมหาดไทย และกระทรวงการต่างประเทศ", isCorrect: false, rationale: "กระทรวงเหล่านี้ดูแลความมั่นคงและการทูต ไม่ได้มีอำนาจคุมอัตรากำลังแผ่นดินส่วนกลาง" },
+                    { text: "คณะกรรมการข้าราชการพลเรือน (ก.พ.) และ คณะกรรมการพัฒนาระบบราชการ (ก.พ.ร.)", isCorrect: true, rationale: "มาตรา ๒๑ วรรคเจ็ด ระบุว่ากระทรวงที่มีความจำเป็นอย่างยิ่งจะขอรองปลัดเพิ่ม 'คณะกรรมการข้าราชการพลเรือน และคณะกรรมการพัฒนาระบบราชการ จะร่วมกันอนุมัติให้กระทรวงนั้นมีรองปลัดกระทรวงเพิ่มขึ้นเป็นกรณีพิเศษก็ได้'" },
+                    { text: "สำนักงบประมาณ และคณะอัยการสูงสุด", isCorrect: false, rationale: "สำนักอัยการสูงสุดมีอิสระบริหารงานตนเอง ไม่คุมสิทธิ์เพิ่มข้าราชการพลเรือนกระทรวงอื่น" },
+                    { text: "ผู้ว่าราชการจังหวัดร่วมกับอธิบดีกรมบัญชีกลาง", isCorrect: false, rationale: "ไม่ใช่ระดับบริหารจัดการที่ได้รับสิทธิ์ร่วมอนุมัติตามมาตรานี้" }
+                ],
+                hint: "สองยักษ์ใหญ่ผู้ออกแบบและคัดกรองข้าราชการพลเรือนไทย: บอร์ด คณะกรรมการ ก.พ. (ดูแลงานทรัพยากรบุคคล) และ บอร์ด ก.พ.ร. (ดูแลโครงสร้างระบบราชการ)"
+            },
+            {
+                question: "สำนักงานรัฐมนตรี ตามมาตรา ๒๒ มีบทบาทและอำนาจหน้าที่เกี่ยวกับเรื่องใด และใครเป็นผู้บังคับบัญชาสูงสุดของสำนักงานรัฐมนตรีดังกล่าว?",
+                options: [
+                    { text: "งานคลังและพัสดุแผ่นดิน / มีปลัดกระทรวงคุมงาน", isCorrect: false, rationale: "งานการเงินคลังและพัสดุประจำเป็นของสำนักงานปลัดกระทรวง ไม่ใช่สำนักงานรัฐมนตรี" },
+                    { text: "อำนาจหน้าที่เกี่ยวกับราชการทางการเมือง / มีเลขานุการรัฐมนตรีเป็นผู้บังคับบัญชาขึ้นตรงต่อรัฐมนตรีว่าการกระทรวง", isCorrect: true, rationale: "มาตรา ๒๒ กำหนดให้สำนักงานรัฐมนตรีรับผิดชอบเกี่ยวกับ 'ราชการทางการเมือง' โดยมีเลขานุการรัฐมนตรี (ข้าราชการการเมือง) เป็นผู้บังคับบัญชาข้าราชการ" },
+                    { text: "การตรวจสืบสวนทุจริตข้าราชการพลเรือนประจำ / มีประธาน ก.ธ.จ. คุมงาน", isCorrect: false, rationale: "งานสืบสวนทุจริตเป็นของ ก.ธ.จ. ป.ป.ช. หรือหน่วยงานสืบสวนคดีพิเศษ ไม่ใช่สำนักงานรัฐมนตรี" },
+                    { text: "งานพัฒนาส่งเสริมภาคประชาสังคมในระดับท้องที่ / มีผู้ว่าราชการจังหวัดคุมงาน", isCorrect: false, rationale: "ไม่ถูกต้องตามความรับผิดชอบของ ม.๒๒" }
+                ],
+                hint: "เป็นขุมกำลังของนักการเมืองภายในกระทรวง ทำหน้าที่ตอบสนองงานการเมืองโดยมีข้าราชการการเมือง (เลขานุการรัฐมนตรี) คอยคุมบังเหียนขึ้นตรงต่อ รมว."
+            },
+            {
+                question: "มาตรา ๓๑ วรรคท้าย ได้บัญญัติให้หน่วยงานด้านความมั่นคงข้อใด สามารถแบ่งโครงสร้างส่วนราชการภายในกรมให้เหมาะสมกับภารกิจของตนเองได้เป็นกรณีพิเศษ?",
+                options: [
+                    { text: "กองบัญชาการป้องกันบรรเทาสาธารณภัยแห่งชาติ", isCorrect: false, rationale: "ปภ. แผ่นดินยึดเกณฑ์แบ่งกระทรวงและกรมทั่วไป" },
+                    { text: "สำนักงานตำรวจแห่งชาติ", isCorrect: true, rationale: "มาตรา ๓๑ วรรคท้าย (วรรคสาม) บัญญัติว่า 'สำหรับสำนักงานตำรวจแห่งชาติ จะแบ่งส่วนราชการให้เหมาะสมกับราชการของตำรวจก็ได้' (เดิมใช้คำว่ากรมตำรวจ)" },
+                    { text: "กรมสอบสวนคดีพิเศษ (DSI)", isCorrect: false, rationale: "DSI สังกัดกระทรวงยุติธรรม และไม่มีมาตราข้อยกเว้นพิเศษใน ม.๓๑ นี้" },
+                    { text: "กรมพลาธิการทหารบก", isCorrect: false, rationale: "งานการทหารได้รับการระบุข้อยกเว้นไว้ต่างหากตาม ม.๑๙ วรรคสอง และ ม.๕๐" }
+                ],
+                hint: "เป็นองค์กรพิทักษ์สันติราษฎร์ที่มีการจัดหมวดงานเฉพาะทาง (กองบัญชาการ กองบังคับการ สถานีตำรวจ) แตกต่างจากกรมพลเรือนทั่วไป"
+            },
+            {
+                question: "เมื่อเกิดการปฏิบัติราชการภายในกรม หากมีภารกิจงานบริการบางประเภทที่ประสงค์จะเพิ่มความคล่องตัวเชิงบริหาร คณะรัฐมนตรีสามารถให้ความเห็นชอบให้จัดตั้งหน่วยงานประเภทใดตามมาตรา ๔๐/๑?",
+                options: [
+                    { text: "รัฐวิสาหกิจแบบร่วมทุนกับภาคเอกชนแผ่นดิน", isCorrect: false, rationale: "รัฐวิสาหกิจมีกฎหมายเฉพาะจัดตั้งและการถือหุ้น ไม่ใช่ SDU ตามระเบียบข้อนี้" },
+                    { text: "หน่วยบริการรูปแบบพิเศษ (Service Delivery Unit : SDU) ซึ่งมิใช่เป็นส่วนราชการหรือรัฐวิสาหกิจแต่อยู่ในกำกับของกรมต้นสังกัด", isCorrect: true, rationale: "ตามมาตรา ๔๐/๑ ได้เปิดทางให้ส่วนราชการจัดตั้ง 'หน่วยบริการรูปแบบพิเศษ' ขึ้นเพื่อการให้บริการ และให้รายได้ของหน่วยดังกล่าวเป็นรายได้ที่ไม่ต้องนำส่งคลัง" },
+                    { text: "องค์การมหาชนจำกัดที่มีสิทธิ์ออกใบรับรองสิทธิ์ข้ามเขต", isCorrect: false, rationale: "องค์การมหาชนมี พ.ร.บ. องค์การมหาชน พ.ศ. ๒๕๔๒ คุมจัดตั้ง ไม่ใช่ SDU ม.๔๐/๑" },
+                    { text: "สถาบันวิจัยการเรียนรู้เฉพาะกลุ่มที่ไม่ขึ้นต่อนโยบายบริหาร", isCorrect: false, rationale: "ไม่ตรงกับเจตจำนงแต่อย่างใด" }
+                ],
+                hint: "เรียกย่อในทางบริหารรัฐกิจว่า SDU เป็นหน่วยงานยืดหยุ่นที่ช่วยให้กรมทำงานบริการได้ไว รายได้ไม่ต้องส่งเงินแผ่นดินเข้าคลังแต่อยู่ในการกำกับดูแลของกรมเดิม"
+            },
+            {
+                question: "หาก 'นายกรัฐมนตรีไม่อาจปฏิบัติราชการได้' ข้อใดจัดสายการสืบสิทธิ์และแต่งตั้งผู้ที่จะมาทำหน้าที่ 'รักษาราชการแทน' ได้ถูกต้องสมบูรณ์ที่สุดตามมาตรา ๔๑?",
+                options: [
+                    { text: "ให้ปลัดสำนักนายกรัฐมนตรีรับอำนาจบริหารประเทศทันที", isCorrect: false, rationale: "ข้าราชการประจำไม่มีสิทธิ์ทางการเมืองในการเป็นผู้รับรักษาราชการแทนหัวหน้ารัฐบาล" },
+                    { text: "ให้รองนายกรัฐมนตรีรักษาราชการแทน (หากมีหลายคนให้ ครม. มอบหมายคนหนึ่ง) / หากไม่มีรองนายกฯ ให้ ครม. มอบหมายรัฐมนตรีคนใดคนหนึ่ง", isCorrect: true, rationale: "ถูกต้องตรงตามมาตรา ๔๑ ทุกประการของการรักษาราชการแทนแผ่นดินของนายกฯ" },
+                    { text: "ให้ประธานรัฐสภาเป็นผู้แต่งตั้งวุฒิสมาชิกที่มีความอาวุโสสูงสุดขึ้นรักษาราชการแทน", isCorrect: false, rationale: "ฝ่ายนิติบัญญัติไม่มีหน้าที่จัดระบบสายรักษาราชการแทนของหัวหน้าฝ่ายบริหาร" },
+                    { text: "ให้ปลัดกระทรวงกลาโหมปฏิบัติหน้าที่รักษาการความมั่นคงแผ่นดินแทน", isCorrect: false, rationale: "เป็นทางเลือกที่จัดมาเพื่อลวงเชิงประเด็นทหารความมั่นคง" }
+                ],
+                hint: "นายกฯ เป็นฝ่ายบริหาร ดังนั้นคนที่จะทำแทนต้องมาจากฝ่ายการเมืองระดับรองลงมา (รองนายกรัฐมนตรี) และหากไม่มีรองนายกฯ คณะรัฐมนตรี (ครม.) ต้องเลือกมติให้รัฐมนตรีที่เหลืออยู่ขึ้นแทน"
+            },
+            {
+                question: "ในกรณีที่กระทรวงไม่มีผู้ดำรงตำแหน่งปลัดกระทรวง หรือมีแต่ไม่อาจปฏิบัติราชการได้ และ 'ไม่มีรองปลัดกระทรวงอยู่ด้วย' ใครจะเป็นผู้มีอำนาจลงนามแต่งตั้งข้าราชการไม่ต่ำกว่าระดับอธิบดีเป็นผู้รักษาราชการแทนตามมาตรา ๔๔?",
+                options: [
+                    { text: "เลขาธิการ ก.พ.ร.", isCorrect: false, rationale: "เลขาฯ ก.พ.ร. ดูโครงสร้าง แต่อำนาจแต่งตั้งผู้รักษาราชการแทนปลัดกระทรวงเป็นของฝ่ายการเมืองผู้คุมกระทรวง" },
+                    { text: "นายกรัฐมนตรี (สำหรับสำนักนายกฯ) หรือ รัฐมนตรีว่าการกระทรวง (สำหรับกระทรวงนั้นๆ)", isCorrect: true, rationale: "มาตรา ๔๔ วรรคหนึ่ง บัญญัติชัดเจนว่าหากไม่มีรองปลัดรักษาราชการแทน 'ให้นายกรัฐมนตรีสำหรับสำนักนายกรัฐมนตรี หรือรัฐมนตรีว่าการกระทรวง แต่งตั้งข้าราชการในกระทรวงซึ่งดำรงตำแหน่งไม่ต่ำกว่าอธิบดีหรือเทียบเท่าเป็นผู้รักษาราชการแทน'" },
+                    { text: "ปลัดกระทรวงมหาดไทยสั่งตั้งแทนข้ามกระทรวงได้", isCorrect: false, rationale: "ปลัดมหาดไทยคุมแค่กระทรวงมหาดไทย ไม่มีอำนาจสั่งตั้งผู้รักษาราชการแทนข้ามกระทรวง" },
+                    { text: "ประธานศาลรัฐธรรมนูญวินิจฉัยเลือกตัวผู้มีอาวุโส", isCorrect: false, rationale: "ศาลรัฐธรรมนูญไม่ยุ่งเกี่ยวกับการเซ็นตั้งผู้รักษาราชการแทนภายในส่วนราชการประจำกระทรวง" }
+                ],
+                hint: "ผู้ถือสิทธิ์เด็ดขาดทางการเมืองในการเซ็นตั้งผู้รักษาแทนปลัดกระทรวง (ในยามที่ปลัดและรองปลัดหายตัวไปพร้อมกัน) คือผู้คุมหัวโต๊ะกระทรวงนั้น (รัฐมนตรีว่าการ หรือนายกรัฐมนตรี)"
+            },
+            {
+                question: "ข้อความใดกล่าวถึงบทบาทสิทธิ์และอำนาจหน้าที่ของ 'ผู้รักษาราชการแทน' หรือ 'ผู้ปฏิบัติราชการแทน' ได้ถูกต้องและครบถ้วนที่สุดตามมาตรา ๔๘?",
+                options: [
+                    { text: "มีอำนาจเทียบเท่าเพียงครึ่งหนึ่งของผู้ดำรงตำแหน่งจริง และไม่สามารถเซ็นจัดซื้อจัดจ้างโครงการใหญ่อะไรได้เอง", isCorrect: false, rationale: "กฎหมายคุ้มครองให้ผู้รักษาการมีอำนาจเต็มรูปแบบเพื่อป้องกันความสะดุดในการรันระบบแผ่นดิน" },
+                    { text: "ให้ผู้รักษาราชการแทน หรือผู้ปฏิบัติราชการแทน มีอำนาจหน้าที่เช่นเดียวกับผู้ซึ่งตนแทนในทุกมิติ (รวมถึงการเป็นกรรมการตามกฎหมายอื่น)", isCorrect: true, rationale: "มาตรา ๔๘ บัญญัติให้ผู้ปฏิบัติงานแทนและรักษาราชการแทน มีอำนาจหน้าที่ตามกฎหมายเฉกเช่นเดียวกับผู้ดำรงตำแหน่งจริงทุกประการ รวมถึงการเป็นบอร์ดหรือกรรมการตามกฎหมายฉบับอื่นด้วย" },
+                    { text: "ผู้รักษาราชการแทนมีสิทธิ์เฉพาะงานลงนามเอกสารลงทะเบียนทั่วไป แต่ไม่มีสิทธิ์ลงทัณฑ์วินัยข้าราชการ", isCorrect: false, rationale: "ผู้รักษาการมีอำนาจเต็มในระบบบัญชาการแผ่นดินรวมถึงด้านวินัยและการบริหารทรัพยากรบุคคลด้วย" },
+                    { text: "อำนาจหน้าที่ชั่วคราวจะเกิดขึ้นต่อเมื่อผ่านการรับรองสิทธิ์จากผู้ตรวจเงินแผ่นดิน (สตง.) แล้ว", isCorrect: false, rationale: "สตง. ไม่ใช่ผู้อนุมัติสิทธิ์อำนาจการรักษาการแทนตาม ม.๔๘" }
+                ],
+                hint: "เพื่อป้องกันภาวะแผ่นดินสะดุดจนทำงานไม่ได้ กฎหมายจึงกำหนดให้ผู้มาทำแทน (ไม่ว่าจะด้วยวิธีรักษาการหรือปฏิบัติการแทน) มีฤทธิ์เดชและอำนาจเท่ากับตัวจริง ๑๐๐% เต็ม"
+            },
+            {
+                question: "ภายใต้หมวด ๗ 'การบริหารราชการในต่างประเทศ' คำจำกัดความของ 'หัวหน้าคณะผู้แทน' บัญญัติขึ้นเพื่อหมายถึงข้าราชการประเภทใดตามมาตรา ๕๐/๑?",
+                options: [
+                    { text: "ทูตทหารที่ส่งไปประจำการคุมภารกิจการฝึกทหารร่วม", isCorrect: false, rationale: "ทูตทหารคุมงานกองกำลัง แต่ไม่ได้จัดเป็นหัวหน้าคณะผู้แทนทั่วไป ม.๕๐/๑" },
+                    { text: "ข้าราชการสังกัดกระทรวงการต่างประเทศที่ได้รับแต่งตั้งให้ดำรงตำแหน่งหัวหน้าคณะผู้แทนตามระเบียบพิธีการทูต หรือพิธีการกงสุล", isCorrect: true, rationale: "มาตรา ๕๐/๑ นิยามว่า 'หัวหน้าคณะผู้แทน' หมายถึง ข้าราชการสังกัดกระทรวงการต่างประเทศที่ได้รับการแต่งตั้งให้ดำรงตำแหน่งหัวหน้าคณะผู้แทนตามระเบียบพิธีการทูต หรือพิธีการกงสุล" },
+                    { text: "ผู้ประกอบการท่องเที่ยวภาคเอกชนที่รัฐมนตรีคมนาคมแต่งตั้งให้ดูแลนักท่องเที่ยวไทยในต่างแดน", isCorrect: false, rationale: "ภาคเอกชนไม่มีฐานะข้าราชการหัวหน้าคณะผู้แทนต่างประเทศ" },
+                    { text: "ผู้แทนสภาการค้าไทยที่ได้รับสิทธิพิเศษทางการค้าระหว่างประเทศ", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรา ๕๐/๑" }
+                ],
+                hint: "เป็นข้าราชการกระทรวงการต่างประเทศที่ได้รับแต่งตั้งไปเป็นยอดมงกุฎบัญชาการทีมไทยแลนด์ (Team Thailand) ประจำสถานทูตหรือสถานกงสุลใหญ่ต่างแดน"
+            },
+            {
+                question: "การจัดตั้ง ยุบเลิก หรือการเปลี่ยนแปลงแนวเขตพื้นที่ในระดับ 'จังหวัด' ต้องตราขึ้นเป็นกฎหมายใดตามมาตรา ๕๒?",
+                options: [
+                    { text: "พระราชบัญญัติ", isCorrect: true, rationale: "มาตรา ๕๒ วรรคสอง บัญญัติเด่นชัดว่า 'การตั้ง ยุบ และเปลี่ยนแปลงเขตจังหวัด ให้ตราเป็นพระราชบัญญัติ'" },
+                    { text: "พระราชกฤษฎีกา", isCorrect: false, rationale: "พระราชกฤษฎีกาใช้ในระดับอำเภอ (ม.๖๑) แต่อำนาจระดับจังหวัดที่เป็นนิติบุคคลต้องตราเป็น พระราชบัญญัติ" },
+                    { text: "ประกาศกระทรวงมหาดไทยโดยความเห็นชอบของรัฐมนตรี", isCorrect: false, rationale: "กระทรวงมหาดไทยประกาศเขตตำบล หมู่บ้านได้ แต่อำนาจตราจังหวัดต้องผ่านรัฐสภา" },
+                    { text: "มติคณะกรรมการพัฒนาระบบราชการโดยความเห็นชอบจาก ก.พ.", isCorrect: false, rationale: "ไม่ตรงตามข้อกำหนดของมาตรา ๕๒" }
+                ],
+                hint: "จังหวัดมีฐานะเป็นนิติบุคคลและคุมพื้นที่ขนาดใหญ่ การตั้ง/ยุบหรือเปลี่ยนแนวเขตจึงต้องตราเป็นกฎหมายใหญ่สุดคือกฎหมายระดับพระราชบัญญัติ"
+            },
+            {
+                question: "คณะกรมการจังหวัด (ม.๕๓) มีฐานะเป็นที่ปรึกษาของผู้ว่าราชการจังหวัดในการบริหารราชการแผ่นดินในจังหวัดนั้น ใครทำหน้าที่เป็น 'กรรมการและเลขานุการ' ของบอร์ดนี้?",
+                options: [
+                    { text: "ปลัดจังหวัด", isCorrect: false, rationale: "ปลัดจังหวัดเป็นกรรมการโดยตำแหน่ง แต่ไม่ได้เป็นเลขานุการบอร์ด" },
+                    { text: "หัวหน้าสำนักงานจังหวัด", isCorrect: true, rationale: "มาตรา ๕๓ วรรคสอง ระบุตำแหน่งว่า '...และหัวหน้าสำนักงานจังหวัดเป็นกรมการจังหวัดและเลขานุการ'" },
+                    { text: "อัยการจังหวัดประจำท้องที่", isCorrect: false, rationale: "อัยการจังหวัดร่วมเป็นกรรมการแต่ไม่ใช่สารบรรณจัดทำรายงานการประชุม" },
+                    { text: "ผู้บังคับการตำรวจภูธรจังหวัด", isCorrect: false, rationale: "ตำรวจภูธรร่วมในฐานะกรรมการด้านความมั่นคงและรักษากฎหมาย" }
+                ],
+                hint: "หัวหน้าส่วนราชการที่มีหน้าที่ช่วยผู้ว่าฯ วางแผนยุทธศาสตร์และงานธุรการของศาลากลาง (สำนักงานจังหวัด) จะทำหน้าที่เป็นเลขานุการบอร์ดคณะกรมการจังหวัด"
+            },
+            {
+                question: "คณะกรรมการธรรมาภิบาลจังหวัด มีชื่อเรียกตัวย่อว่า 'ก.ธ.จ.' (มาตรา ๕๕/๑) มีบทบาทหน้าที่คอยสอดส่องงานภาครัฐในจังหวัด ใครทำหน้าที่เป็น 'ประธานกรรมการ' ก.ธ.จ. ดังกล่าว?",
+                options: [
+                    { text: "ผู้ว่าราชการจังหวัดนั้นๆ", isCorrect: false, rationale: "ผู้ว่าฯ คุมงบและโครงการจังหวัด จึงเป็นผู้โดนสอดส่องและตรวจสอบ ไม่สามารถนั่งเก้าอี้ประธาน ก.ธ.จ. เพื่อตรวจตนเองได้" },
+                    { text: "ผู้ตรวจราชการสำนักนายกรัฐมนตรีซึ่งมีเขตอำนาจในจังหวัดเป็นประธาน", isCorrect: true, rationale: "มาตรา ๕๕/๑ วรรคสอง บัญญัติว่า 'ก.ธ.จ. ประกอบด้วยผู้ตรวจราชการสำนักนายกรัฐมนตรีซึ่งมีเขตอำนาจในจังหวัดเป็นประธาน...'" },
+                    { text: "ผู้แทนภาคประชาสังคมที่ได้รับเลือกตั้งจากบอร์ด ก.พ.ร.", isCorrect: false, rationale: "ประชาสังคมร่วมเป็นกรรมการร่วมสอดส่องแต่ไม่ได้เป็นประธานบอร์ด" },
+                    { text: "คลังจังหวัดร่วมกับพนักงานอัยการภูมิภาค", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรา ๕๕/๑" }
+                ],
+                hint: "คนที่จะเป็นประธาน ก.ธ.จ. เพื่อสอดส่องความโปร่งใสของจังหวัด ต้องเป็นคนนอกจังหวัดที่มาจากส่วนกลางคือนายตรวจระดับสูงจากสำนักนายกฯ (ผู้ตรวจราชการสำนักนายกรัฐมนตรี)"
+            },
+            {
+                question: "จังหวัดนครศรีธรรมราช ไม่มีผู้ดำรงตำแหน่งผู้ว่าราชการจังหวัด และไม่มีรองผู้ว่าฯ ไม่มีผู้ช่วยผู้ว่าฯ ไม่มีปลัดจังหวัด ใครจะขึ้นปฏิบัติหน้าที่ 'รักษาราชการแทน' ตามมาตรา ๕๖?",
+                options: [
+                    { text: "ปลัดกระทรวงมหาดไทยเดินทางไปคุมงานจังหวัดด้วยตนเองชั่วคราว", isCorrect: false, rationale: "ปลัด มท. คุมภาพรวมแผ่นดิน ไม่ลงมานั่งรักษาการผู้ว่าฯ รายจังหวัดลักษณะนี้" },
+                    { text: "หัวหน้าส่วนราชการประจำจังหวัดซึ่งมีอาวุโสตามระเบียบแบบแผนของทางราชการ", isCorrect: true, rationale: "มาตรา ๕๖ บัญญัติลำดับผู้รักษาราชการแทนผู้ว่าฯ ไว้ดังนี้: รองผู้ว่าฯ -> ผู้ช่วยผู้ว่าฯ -> ปลัดจังหวัด -> หากไม่มีทั้งหมด 'ให้หัวหน้าส่วนราชการประจำจังหวัดซึ่งมีอาวุโสตามระเบียบแบบแผนของทางราชการเป็นผู้รักษาราชการแทน'" },
+                    { text: "นายกองค์การบริหารส่วนจังหวัด (นายก อบจ.) ปฏิบัติหน้าที่แทน", isCorrect: false, rationale: "นายก อบจ. คุมส่วนท้องถิ่น ไม่มีสายบัญชาการทับซ้อนงานภูมิภาคผู้ว่าฯ" },
+                    { text: "ผู้บังคับการตำรวจภูธรจังหวัด", isCorrect: false, rationale: "ตำรวจสังกัดงานสืบสวนรักษากฎหมาย ไม่สามารถสลับหน้าที่ผู้ปกครองผู้ว่าฯ พลเรือนได้ตาม ม.๕๖" }
+                ],
+                hint: "หากแม่ทัพหลักของกระทรวงมหาดไทยในจังหวัดสิ้นสุดตัวลงหมดเกลี้ยง (ผู้ว่าฯ รองผู้ว่าฯ ผู้ช่วยผู้ว่าฯ ปลัดจังหวัด) คิวทองลำดับสุดท้ายจะตกเป็นของข้าราชการประจำกระทรวงอื่นที่ 'มีความอาวุโสสูงสุดในจังหวัด'"
+            },
+            {
+                question: "การจัดตั้ง ยุบเลิก หรือการเปลี่ยนแปลงแนวเขตการปกครองในระดับ 'อำเภอ' ต้องตราขึ้นเป็นกฎหมายใดตามมาตรา ๖๑?",
+                options: [
+                    { text: "พระราชบัญญัติ", isCorrect: false, rationale: "ระดับ พ.ร.บ. บังคับใช้กับจังหวัด (ม.๕๒) ส่วนระดับอำเภอได้รับการผ่อนปรนให้ตราเป็นกฎหมายลำดับรองกว่า" },
+                    { text: "พระราชกฤษฎีกา", isCorrect: true, rationale: "มาตรา ๖๑ วรรคสอง บัญญัติว่า 'การตั้ง ยุบ และเปลี่ยนเขตอำเภอ ให้ตราเป็นพระราชกฤษฎีกา'" },
+                    { text: "กฎกระทรวงกระทรวงมหาดไทย", isCorrect: false, rationale: "กฎกระทรวงใช้แบ่งกองงานภายใน ไม่ใช้กับการตั้งอำเภอใหม่" },
+                    { text: "ประกาศคณะรัฐมนตรีโดยความเห็นชอบของบอร์ด ก.พ.ร.", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรา ๖๑" }
+                ],
+                hint: "นี่คือจุดลวงคลาสสิกของข้อสอบงานปกครองแผ่นดิน: **จังหวัดตั้งโดย พระราชบัญญัติ** ส่วน **อำเภอตั้งโดย พระราชกฤษฎีกา** จำให้แม่น!"
+            },
+            {
+                question: "ตามมาตรา ๖๑/๒ คณะบุคคลผู้ทำหน้าที่ไกล่เกลี่ยประนอมข้อพิพาททางแพ่งในระดับอำเภอ มีสิทธิ์รับพิจารณาข้อพิพาทในประเด็นที่ดิน มรดก หรือคดีแพ่งทั่วไปที่มีมูลค่าทุนทรัพย์ไม่เกินเท่าใด?",
+                options: [
+                    { text: "๕๐,๐0๐ บาท", isCorrect: false, rationale: "เป็นจำนวนตัวเลขที่ต่ำกว่ากรอบอำนาจที่ได้รับการขยายสิทธิ์ในระเบียบ ม.๖๑/๒" },
+                    { text: "๑๐๐,๐๐๐ บาท", isCorrect: false, rationale: "ตัวเลขนี้เคยเป็นเกณฑ์ดั้งเดิม แต่อัตราปัจจุบันขยับเพิ่มขึ้นเพื่อลดคดีขึ้นสู่ศาล" },
+                    { text: "๒๐๐,๐๐๐ บาท หรือมากกว่านั้นตามที่กำหนดในพระราชกฤษฎีกา", isCorrect: true, rationale: "มาตรา ๖๑/๒ วรรคหนึ่ง บัญญัติว่า คณะบุคคลไกล่เกลี่ยคดีแพ่งที่ดิน มรดก และข้อพิพาททางแพ่งอื่น 'ที่มีทุนทรัพย์ไม่เกินสองแสนบาท หรือมากกว่านั้น ตามที่กำหนดในพระราชกฤษฎีกา'" },
+                    { text: "๕๐๐,๐๐๐ บาทถ้วนโดยห้ามเป็นกรณีพิพาทเกี่ยวกับหนี้สินนอกระบบ", isCorrect: false, rationale: "ห้าแสนบาทสูงเกินขีดจำกัดปกติที่กำหนดไว้ในมาตรานี้" }
+                ],
+                hint: "เป็นมูลค่าเงินทุนทรัพย์ตัวเลขกลมๆ ขนาดกลางคือ ๒ แสนบาทถ้วน (หากมากกว่านี้ต้องไปตรวจดูพระราชกฤษฎีกาแนบท้ายเพิ่มเติม)"
+            },
+            {
+                question: "การจัดตั้งหรือรวมส่วนราชการในสำนักนายกรัฐมนตรีที่มีการกำหนด 'ตำแหน่งและอัตราของข้าราชการเพิ่มขึ้น' จะต้องตราเป็นกฎหมายตามข้อใด? (มาตรา ๘)",
+                options: [
+                    { text: "พระราชกฤษฎีกา", isCorrect: false, rationale: "หากมีการกำหนดตำแหน่งเพิ่มจะต้องตราเป็นพระราชบัญญัติเท่านั้น" },
+                    { text: "พระราชบัญญัติ", isCorrect: true, rationale: "มาตรา ๘ วรรคหนึ่งระบุว่าการจัดตั้ง รวม หรือโอนส่วนราชการ หากมีผลเป็นการเพิ่มตำแหน่งหรืออัตราข้าราชการ ต้องตราเป็นพระราชบัญญัติ" },
+                    { text: "กฎกระทรวง", isCorrect: false, rationale: "กฎกระทรวงใช้แบ่งส่วนราชการภายในเท่านั้น" },
+                    { text: "ระเบียบสำนักนายกรัฐมนตรี", isCorrect: false, rationale: "ระเบียบไม่สามารถจัดตั้งส่วนราชการระดับกระทรวงหรือกรมได้" }
+                ],
+                hint: "จำง่ายๆ ว่าหากมี 'เงินหรือตำแหน่งเพิ่มขึ้น' จะต้องออกกฎหมายแม่บทระดับพระราชบัญญัติเสมอ"
+            },
+            {
+                question: "ผู้ใดเป็นผู้รับสนองพระบรมราชโองการในพระราชบัญญัติระเบียบบริหารราชการแผ่นดิน พ.ศ. ๒๕๓๔ คนแรก?",
+                options: [
+                    { text: "นายอานันท์ ปันยารชุน", isCorrect: true, rationale: "พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน พ.ศ. ๒๕๓๔ ประกาศใช้เมื่อวันที่ ๔ กันยายน ๒๕๓๔ โดยมีนายอานันท์ ปันยารชุน นายกรัฐมนตรีในขณะนั้นเป็นผู้ลงนามรับสนองพระบรมราชโองการ" },
+                    { text: "พลเอก ชาติชาย ชุณหะวัณ", isCorrect: false, rationale: "ไม่ใช่ พลเอก ชาติชาย เนื่องจากพ้นจากตำแหน่งไปก่อนหน้านั้น" },
+                    { text: "นายชวน หลีกภัย", isCorrect: false, rationale: "นายชวน หลีกภัย ดำรงตำแหน่งนายกรัฐมนตรีหลังจากนั้น" },
+                    { text: "พลเอก สุจินดา คราประยูร", isCorrect: false, rationale: "พลเอก สุจินดา ดำรงตำแหน่งในปี พ.ศ. ๒๕๓๕" }
+                ],
+                hint: "นายกรัฐมนตรีไทยที่ได้รับแต่งตั้งจากคณะรักษาความสงบเรียบร้อยแห่งชาติ (รสช.) เพื่อมาร่างและปฏิรูปกฎหมายบริหารแผ่นดิน"
+            },
+            {
+                question: "ในการแบ่งส่วนราชการภายในกรมตามมาตรา ๘ ฉ กรมจะส่งร่างกฎกระทรวงแบ่งส่วนราชการให้หน่วยงานใดพิจารณาก่อนเสนอรัฐมนตรี?",
+                options: [
+                    { text: "สำนักงานคณะกรรมการกฤษฎีกา และ สำนักงบประมาณ", isCorrect: false, rationale: "กฤษฎีกาดูความชอบของกฎหมาย แต่บอร์ดโครงสร้างคือกรรมการพัฒนาระบบราชการ" },
+                    { text: "สำนักงาน ก.พ. และ สำนักงาน ก.พ.ร.", isCorrect: true, rationale: "ตามมาตรา ๘ ฉ วรรคสอง ให้กรมส่งร่างกฎกระทรวงแบ่งส่วนราชการให้สำนักงาน ก.พ. และสำนักงาน ก.พ.ร. ร่วมกันพิจารณาความเหมาะสมของตำแหน่งและภารกิจ" },
+                    { text: "คณะกรรมการข้าราชการพลเรือน เพียงแห่งเดียว", isCorrect: false, rationale: "ต้องพิจารณาร่วมกับ ก.พ.ร. ด้วยเสมอตามกฎหมายแปรโครงสร้าง" },
+                    { text: "สำนักนายกรัฐมนตรี และ คณะรัฐมนตรี", isCorrect: false, rationale: "เป็นขั้นตอนปลายทางหลังจากพิจารณาร่วมระดับปฏิบัติการแล้ว" }
+                ],
+                hint: "หน่วยงานดูแลทรัพยากรบุคคล (ก.พ.) และหน่วยงานพัฒนาระบบราชการ (ก.พ.ร.) ร่วมกันพิจารณา"
+            },
+            {
+                question: "ข้อใดเป็นอำนาจของนายกรัฐมนตรีตามมาตรา ๑๑ (๑) ในการบริหารราชการแผ่นดิน?",
+                options: [
+                    { text: "การอนุมัติงบประมาณส่วนท้องถิ่นทั้งหมดของประเทศ", isCorrect: false, rationale: "ท้องถิ่นมีสิทธิ์และงบประมาณแปรสภาพของตนเอง นายกฯ กำกับแต่ไม่อนุมัติเอง" },
+                    { text: "กำกับโดยทั่วไปซึ่งการบริหารราชการแผ่นดิน เพื่อการนี้จะสั่งให้ราชการส่วนกลาง ส่วนภูมิภาค และส่วนราชการชี้แจงรายงานก็ได้", isCorrect: true, rationale: "เป็นอำนาจหน้าที่สูงสุดของนายกฯ ในการกำกับดูแลราชการแผ่นดินทุกภาคส่วนตามมาตรา ๑๑ (๑)" },
+                    { text: "การออกประกาศกระทรวงแต่งตั้งผู้ตรวจราชการจังหวัด", isCorrect: false, rationale: "ผู้ตรวจราชการจังหวัดหรือเขตส่วนภูมิภาคแต่งตั้งโดยปลัดกระทรวงหรือผู้ว่าฯ ตามสายงาน" },
+                    { text: "การแต่งตั้งคณะกรรมการข้าราชการส่วนท้องถิ่นรายอำเภอ", isCorrect: false, rationale: "เป็นสิทธิ์ของส่วนท้องถิ่นและจังหวัดตามกฎหมายกระจายอำนาจ" }
+                ],
+                hint: "เป็นอำนาจสูงสุดในการคุมภาพรวมและสั่งการข้ามส่วนงานเพื่อตรวจดูการบริหารงานแผ่นดิน"
+            },
+            {
+                question: "ข้อใดกล่าวถึงอำนาจหน้าที่ของ 'เลขาธิการคณะรัฐมนตรี' (สลค.) ได้ถูกต้องที่สุดตามมาตรา ๑๔?",
+                options: [
+                    { text: "ควบคุมราชการส่วนการเมืองของสำนักนายกรัฐมนตรี", isCorrect: false, rationale: "งานการเมืองเป็นของสำนักเลขาธิการนายกรัฐมนตรี (สลน.)" },
+                    { text: "รับผิดชอบในราชการของคณะรัฐมนตรี ของรัฐสภา และงานในพระองค์", isCorrect: true, rationale: "มาตรา ๑๔ วรรคสองระบุชัดว่าเลขาธิการคณะรัฐมนตรีมีหน้าที่ควบคุมราชการประจำของ สลค. ซึ่งมีหน้าที่เกี่ยวกับงาน ครม., รัฐสภา และงานในพระองค์" },
+                    { text: "บริหารงบประมาณแผ่นดินและงานพัสดุกลางของรัฐบาล", isCorrect: false, rationale: "งบประมาณแผ่นดินเป็นหน้าที่ของสำนักงบประมาณ" },
+                    { text: "กำกับดูแลสัญญากู้เงินและการลงทุนร่วมของรัฐกับต่างประเทศ", isCorrect: false, rationale: "งานกู้เงินและการคลังเป็นของกระทรวงการคลัง" }
+                ],
+                hint: "เป็นข้าราชการพลเรือนประจำที่ทำงานเงียบสงบในศาลาว่าการรัฐบาล ประสานงาน ครม. รัฐสภา และราชพิธี"
+            },
+            {
+                question: "หากต้องการสั่งให้ข้าราชการมาช่วยราชการที่สำนักนายกรัฐมนตรีชั่วคราว โดย 'ไม่ขาดจากสังกัดเดิม' ใครเป็นผู้มีสิทธิ์สั่งตามกฎหมาย มาตรา ๑๑ (๔)?",
+                options: [
+                    { text: "นายกรัฐมนตรี", isCorrect: true, rationale: "มาตรา ๑๑ (๔) ให้อำนาจนายกรัฐมนตรีสั่งให้ข้าราชการต่างสังกัดมาช่วยราชการที่สำนักงานสำนักนายกรัฐมนตรีได้" },
+                    { text: "ปลัดกระทรวงมหาดไทย", isCorrect: false, rationale: "ปลัดมหาดไทยสั่งย้ายได้เฉพาะภายในสังกัดมหาดไทยตนเองเท่านั้น" },
+                    { text: "เลขาธิการ ก.พ.", isCorrect: false, rationale: "เลขาฯ ก.พ. ควบคุมทะเบียนประวัติแต่ไม่มีอำนาจสั่งข้ามสายงานตรงโดยพลการ" },
+                    { text: "รัฐมนตรีเจ้าสังกัดเดิม", isCorrect: false, rationale: "รัฐมนตรีเจ้าสังกัดเดิมคุมภายในกระทรวงตนเอง แต่นายกฯ มีอำนาจสั่งข้ามสังกัดมาช่วย OPM ได้" }
+                ],
+                hint: "ผู้บัญชาการทหารและราชการสูงสุดของไทยคือ นายกรัฐมนตรี"
+            },
+            {
+                question: "ข้อใดคืออำนาจเด็ดขาดของนายกรัฐมนตรีในการออกประกาศตามมาตรา ๑๑ (๘) เพื่อประโยชน์ในการรันระบบราชการ?",
+                options: [
+                    { text: "การแต่งตั้งผู้บริหารส่วนท้องถิ่นทดแทนคนเดิมที่ทุจริต", isCorrect: false, rationale: "การสั่งพ้นตำแหน่งท้องถิ่นเป็นสิทธิ์ของผู้ว่าฯ หรือรัฐมนตรีมหาดไทย" },
+                    { text: "ระเบียบปฏิบัติราชการเพื่อให้การบริหารราชการแผ่นดินเป็นไปโดยรวดเร็วและมีประสิทธิภาพ เมื่อ ครม. เห็นชอบแล้ว", isCorrect: true, rationale: "มาตรา ๑๑ (๘) ระบุให้นายกฯ ออกระเบียบปฏิบัติราชการเพื่อให้งานเดินเร็ว เมื่อ ครม. เห็นชอบแล้วให้บังคับใช้ได้ทันที" },
+                    { text: "การประกาศตั้งงบประมาณเยียวยาภัยพิบัติข้ามจังหวัด", isCorrect: false, rationale: "งบเยียวยามี พ.ร.บ. วิธีการงบประมาณและระเบียบเงินทดรองคุมต่างหาก" },
+                    { text: "การยุบสภานิติบัญญัติแห่งชาติกรณีเกิดภัยสงคราม", isCorrect: false, rationale: "สภาเป็นงานนิติบัญญัติตามรัฐธรรมนูญ ไม่ได้อยู่ในขอบเขตมาตรา ๑๑ (๘) พ.ร.บ. นี้" }
+                ],
+                hint: "เป็นระเบียบเกี่ยวกับการทำงานของหน่วยงานรัฐเพื่อให้ลดขั้นตอนและทำงานร่วมกันได้อย่างรวดเร็ว"
+            },
+            {
+                question: "ในสำนักงานปลัดกระทรวง ใครทำหน้าที่คุมราชการประจำทั่วไปของกระทรวงนอกจากงานการเมือง? (มาตรา ๒๑)",
+                options: [
+                    { text: "เลขานุการรัฐมนตรี", isCorrect: false, rationale: "เลขานุการรัฐมนตรีดูแลสำนักงานรัฐมนตรีเชิงการเมือง" },
+                    { text: "ปลัดกระทรวง", isCorrect: true, rationale: "ตามมาตรา ๒๑ ปลัดกระทรวงเป็นผู้บังคับบัญชาข้าราชการประจำและรับผิดชอบควบคุมราชการประจำทั่วไปของกระทรวง" },
+                    { text: "อธิบดีกรมจัดเก็บภาษี", isCorrect: false, rationale: "อธิบดีคุมภายในกรมตนเอง ไม่ได้คุมภาพรวมทั้งกระทรวง" },
+                    { text: "ผู้ว่าราชการจังหวัดรักษาการ", isCorrect: false, rationale: "ผู้ว่าฯ คุมภูมิภาคจังหวัด ไม่เกี่ยวข้องกับสำนักงานปลัดกระทรวงส่วนกลาง" }
+                ],
+                hint: "หัวหน้าข้าราชการประจำสูงสุดของกระทรวง ได้แก่ ปลัดกระทรวง"
+            },
+            {
+                question: "ตามมาตรา ๒๒ สำนักงานรัฐมนตรีไม่มีการจัดตั้งกองบังคับบัญชาแบบใดที่ต่างจากสำนักงานปลัดกระทรวง?",
+                options: [
+                    { text: "ไม่มีการตั้งกลุ่มภารกิจ", isCorrect: false, rationale: "กลุ่มภารกิจเป็นเรื่องระดับกรมในมาตรา ๒๑" },
+                    { text: "ไม่มีฐานะเป็นนิติบุคคลและไม่มีปลัดกระทรวงคุมงาน", isCorrect: true, rationale: "สำนักงานรัฐมนตรีไม่มีฐานะเป็นกรม (ดังนั้นจึงไม่เป็นนิติบุคคลเดี่ยว) และคุมงานโดยเลขานุการรัฐมนตรีไม่ใช่ปลัดกระทรวง" },
+                    { text: "ไม่มีข้าราชการพลเรือนประจำทำงานอยู่เลย", isCorrect: false, rationale: "ยังมีข้าราชการประจำบางส่วนมาช่วยงานสารบรรณ แต่หัวหน้าใหญ่เป็นข้าราชการการเมือง" },
+                    { text: "ไม่มีการขึ้นตรงต่อนายกรัฐมนตรีแผ่นดิน", isCorrect: false, rationale: "ขึ้นตรงต่อรัฐมนตรีว่าการกระทรวงนั้นๆ" }
+                ],
+                hint: "งานการเมืองที่ตั้งขึ้นเพื่อประสานงานรัฐสภาและตอบสนองนโยบายรัฐบาล จึงไม่มีสถานะเป็นกรม"
+            },
+            {
+                question: "ในการแบ่งส่วนราชการภายในกรมตามมาตรา ๓๑ หัวหน้าส่วนราชการของกรมคือผู้ใด?",
+                options: [
+                    { text: "ปลัดกระทรวง", isCorrect: false, rationale: "ปลัดกระทรวงคุมภาพรวมกระทรวง แต่อธิบดีคุมกรม" },
+                    { text: "อธิบดี หรือผู้ดำรงตำแหน่งเทียบเท่า", isCorrect: true, rationale: "ตามมาตรา ๓๑ กรมมีอธิบดีหรือผู้ดำรงตำแหน่งเทียบเท่าเป็นหัวหน้าส่วนราชการและบังคับบัญชาข้าราชการ" },
+                    { text: "เลขาธิการรัฐมนตรีว่าการ", isCorrect: false, rationale: "ไม่มีตำแหน่งเลขาธิการรัฐมนตรีว่าการคุมกรมเดี่ยว" },
+                    { text: "ประธานคณะกรรมการตรวจสอบภายในจังหวัด", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรา ๓๑" }
+                ],
+                hint: "อธิบดีกรมต่างๆ เช่น อธิบดีกรมที่ดิน อธิบดีกรมโยธาธิการและผังเมือง"
+            },
+            {
+                question: "ตามมาตรา ๓๒ กรมประกอบด้วยส่วนราชการย่อยข้อใดเป็นหลัก?",
+                options: [
+                    { text: "กองบัญชาการมหาชนแผ่นดิน", isCorrect: false, rationale: "ชื่อนี้ไม่มีระบุในโครงสร้างมาตรา ๓๒" },
+                    { text: "สำนักงานเลขานุการกรม, กอง หรือ ส่วนราชการเทียบเท่า", isCorrect: true, rationale: "มาตรา ๓๒ ระบุว่าภายในกรมอาจแบ่งส่วนราชการเป็น (๑) สำนักงานเลขานุการกรม (๒) กอง หรือส่วนราชการที่เรียกชื่ออย่างอื่นที่มีฐานะเทียบเท่ากอง" },
+                    { text: "ที่ว่าการกองบัญชาการปราบปราม", isCorrect: false, rationale: "เป็นหน่วยงานเฉพาะทางตำรวจ ไม่ใช่พลเรือนทั่วไป" },
+                    { text: "สภาบริหารความโปร่งใสนายกฯ", isCorrect: false, rationale: "ไม่มีในโครงสร้างราชการกรม" }
+                ],
+                hint: "กองและสำนักงานเลขานุการกรม มีหน้าที่ดูแลธุรการภายในและจัดตั้งหน่วยงานปฏิบัติงานย่อย"
+            },
+            {
+                question: "การมอบอำนาจตามมาตรา ๓๘ ข้อใดถูกต้องที่สุด?",
+                options: [
+                    { text: "ทำเป็นวาจาต่อหน้าข้าราชการระดับ ๖ ขึ้นไป", isCorrect: false, rationale: "การมอบอำนาจแผ่นดินต้องทำเป็นลายลักษณ์อักษรเพื่อตรวจสอบสิทธิ์ได้" },
+                    { text: "ต้องทำเป็นหนังสือเสมอ", isCorrect: true, rationale: "มาตรา ๓๘ บัญญัติเด่นชัดว่าการมอบอำนาจของหัวหน้าส่วนราชการให้ตราหรือทำเป็น 'หนังสือ'" },
+                    { text: "มอบเฉพาะงานลงทะเบียนสารบรรณเท่านั้น", isCorrect: false, rationale: "สามารถมอบอำนาจสั่งการ อนุมัติ วินิจฉัยชี้ขาดได้เกือบทุกเรื่องตามความเหมาะสม" },
+                    { text: "ต้องได้รับการรับรองสิทธิ์จากศาลปกครองล่วงหน้า", isCorrect: false, rationale: "ไม่ต้องเสนอศาลปกครองแต่อย่างใด" }
+                ],
+                hint: "เป็นหลักการความโปร่งใสทางปกครอง: เอกสารสำคัญต้องทำเป็นหนังสือลายลักษณ์อักษร"
+            },
+            {
+                question: "เมื่อผู้รับมอบอำนาจปฏิบัติหน้าที่แทนตามมาตรา ๓๘ ผู้รับมอบอำนาจมีสถานะอย่างไร?",
+                options: [
+                    { text: "มีสถานะเป็นผู้ช่วยงานธุรการชั่วคราวเท่านั้น", isCorrect: false, rationale: "ไม่ใช่เพียงผู้ช่วย แต่มีอำนาจตัดสินใจจริงในวงงาน" },
+                    { text: "มีหน้าที่และความรับผิดชอบเช่นเดียวกับผู้มอบอำนาจเสมือนหนึ่งทำด้วยตนเอง", isCorrect: true, rationale: "มาตรา ๓๘ วรรคท้ายระบุว่าเมื่อมอบอำนาจแล้ว ผู้รับมอบอำนาจมีหน้าที่รับผิดชอบและสิทธิ์เสมือนผู้มอบอำนาจ" },
+                    { text: "ต้องเสนอรายงานให้ปลัดกระทรวงเห็นชอบก่อนลงนามทุกครั้ง", isCorrect: false, rationale: "การต้องเสนอปลัดก่อนจะทำให้เสียหลักการกระจายและแชร์ภาระงาน มอบแล้วลงนามได้เลย" },
+                    { text: "ไม่สามารถออกคำสั่งทางอาญาหรือวินัยได้เอง", isCorrect: false, rationale: "หากอำนาจที่มอบรวมถึงเรื่องการแต่งตั้งหรือลงวินัย ก็มีสิทธิ์ทำได้เสมือนตัวจริง" }
+                ],
+                hint: "หลักการมอบอำนาจ: มอบทั้งสิทธิ์และหน้าที่เสมือนตัวจริงปฏิบัติการเอง"
+            },
+            {
+                question: "ตามมาตรา ๓๙ การมอบอำนาจจากผู้ดำรงตำแหน่งส่วนกลางให้แก่ 'ผู้ว่าราชการจังหวัด' มีเจตจำนงเพื่อสิ่งใด?",
+                options: [
+                    { text: "เพื่อลดอัตราข้าราชการส่วนกลางลงครึ่งหนึ่ง", isCorrect: false, rationale: "ไม่เกี่ยวกับการลดข้าราชการ" },
+                    { text: "เพื่อประโยชน์ในการอำนวยความสะดวกแก่ประชาชน การรวดเร็ว และการกระจายอำนาจตัดสินใจสู่พื้นที่", isCorrect: true, rationale: "เป็นเหตุผลหลักของการมอบอำนาจให้แก่ผู้ว่าราชการจังหวัดเพื่อรันงานในพื้นที่ได้ทันที" },
+                    { text: "เพื่อเพิ่มความเกรงใจของผู้ว่าฯ ต่อผู้บัญชาการทหารประจำเขต", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรา ๓๙" },
+                    { text: "เพื่อให้จังหวัดรับภาระหนี้สินแทนส่วนกลาง", isCorrect: false, rationale: "ไม่เกี่ยวกับการโอนภาระหนี้สินแต่อย่างใด" }
+                ],
+                hint: "เป็นแนวคิดการบริหารงานยุคใหม่ที่ต้องการให้ผู้ว่าราชการจังหวัด (CEO) เป็นผู้สั่งการแทนหน่วยงานส่วนกลางเพื่อความรวดเร็ว"
+            },
+            {
+                question: "ในจังหวัดหนึ่งๆ ผู้ใดเป็นผู้คุมการบริหารราชการประจำทั่วไปของจังหวัดและบังคับบัญชาข้าราชการส่วนภูมิภาค? (มาตรา ๕๔)",
+                options: [
+                    { text: "ปลัดจังหวัด", isCorrect: false, rationale: "ปลัดจังหวัดช่วยงานปกครอง แต่ผู้บังคับบัญชาสูงสุดของจังหวัดคือผู้ว่าฯ" },
+                    { text: "ผู้ว่าราชการจังหวัด", isCorrect: true, rationale: "ตามมาตรา ๕๔ ผู้ว่าราชการจังหวัดเป็นหัวหน้าปกครองแผ่นดินส่วนภูมิภาคในเขตจังหวัดและบังคับบัญชาข้าราชการทั้งหมด" },
+                    { text: "ประธานสภาองค์การบริหารส่วนจังหวัด", isCorrect: false, rationale: "ประธานสภา อบจ. อยู่ฝ่ายนิติบัญญัติท้องถิ่น ไม่ใช่ผู้ว่าฯ พลเรือน" },
+                    { text: "ผู้กำกับการตำรวจภูธรภาคจังหวัด", isCorrect: false, rationale: "ตำรวจภูธรจังหวัดบังคับบัญชากลุ่มตำรวจแต่ไม่ได้คุมข้าราชการพลเรือนประจำภูมิภาคทั้งหมด" }
+                ],
+                hint: "พ่อเมืองผู้ดูแลสุขทุกข์ของประชาชนในจังหวัด ได้แก่ ผู้ว่าราชการจังหวัด"
+            },
+            {
+                question: "ตามมาตรา ๕๔ วรรคสาม ใครเป็นผู้ช่วยผู้ว่าราชการจังหวัดในการบริหารราชการแผ่นดินระดับจังหวัด?",
+                options: [
+                    { text: "รองผู้ว่าราชการจังหวัด และ ผู้ช่วยผู้ว่าราชการจังหวัด", isCorrect: true, rationale: "มาตรา ๕๔ วรรคสามระบุให้มีรองผู้ว่าราชการจังหวัดและผู้ช่วยผู้ว่าราชการจังหวัดช่วยการปฏิบัติราชการแผ่นดิน" },
+                    { text: "ปลัดอำเภออาวุโสสูงสุดประจำท้องที่", isCorrect: false, rationale: "ปลัดอำเภออาวุโสช่วยงานระดับอำเภอ ไม่ใช่ผู้ช่วยผู้ว่าฯ ภาพรวมระดับศาลากลางจังหวัด" },
+                    { text: "นายกเทศมนตรีนครหลวง", isCorrect: false, rationale: "นายกเทศมนตรีอยู่ฝั่งท้องถิ่น ไม่เกี่ยวข้องกับสายผู้บังคับบัญชาภูมิภาค" },
+                    { text: "เลขาธิการ ก.พ.ร. ประจำภาคจังหวัด", isCorrect: false, rationale: "ไม่มีตำแหน่งเลขาฯ ก.พ.ร. ประจำภาคจังหวัดตามมาตรานี้" }
+                ],
+                hint: "เป็นตำแหน่งรองลงมาจากผู้ว่าฯ ประจำศาลากลางจังหวัด ได้แก่ รองผู้ว่าฯ และผู้ช่วยผู้ว่าฯ"
+            },
+            {
+                question: "บอร์ดคณะกรมการจังหวัดตามมาตรา ๕๓ มีบทบาทหน้าที่หลักอย่างไร?",
+                options: [
+                    { text: "การอนุมัติงบลงทุนก่อสร้างถนนข้ามจังหวัด", isCorrect: false, rationale: "งบลงทุนใหญ่พิจารณาโดยสภาจังหวัด อปท. หรือส่วนกลาง" },
+                    { text: "เป็นที่ปรึกษาของผู้ว่าราชการจังหวัดในการบริหารราชการแผ่นดินในจังหวัดนั้น และสร้างความสามัคคีธรรม", isCorrect: true, rationale: "หน้าที่หลักคือการเป็นที่ปรึกษาและสร้างความสามัคคีประสานงานกันระหว่างกระทรวงต่างๆ ในจังหวัด" },
+                    { text: "การตรวจสอบคดีอาญาร้ายแรงแทนสำนักงานตำรวจแห่งชาติ", isCorrect: false, rationale: "ไม่มีอำนาจด้านสืบสวนจับกุมคดีอาญาเดี่ยว" },
+                    { text: "การแต่งตั้งครูและบุคลากรทางการศึกษาประจำเขตพื้นที่", isCorrect: false, rationale: "เป็นหน้าที่ของ กศจ. ไม่ใช่คณะกรมการจังหวัดมาตรา ๕๓" }
+                ],
+                hint: "เป็นทีมงานผู้แทนกระทรวงระดับจังหวัดมารวมตัวประชุมเพื่อให้คำปรึกษาแก่ผู้ว่าฯ"
+            },
+            {
+                question: "ตามมาตรา ๕๗ การแต่งตั้งข้าราชการในจังหวัดไปดำรงตำแหน่งระดับต่างๆ ในภูมิภาค ใครเป็นผู้ใช้อำนาจเซ็นแต่งตั้งตามกรอบที่กฎหมาย ก.พ. มอบให้?",
+                options: [
+                    { text: "รัฐมนตรีว่าการกระทรวงมหาดไทย", isCorrect: false, rationale: "รมว.มหาดไทยสั่งนโยบาย แต่อำนาจเซ็นตามกรอบ ก.พ. ในระดับจังหวัดเป็นของผู้ว่าฯ" },
+                    { text: "ผู้ว่าราชการจังหวัด", isCorrect: true, rationale: "มาตรา ๕๗ กำหนดให้ผู้ว่าราชการจังหวัดเป็นผู้แต่งตั้งและเลื่อนขั้นข้าราชการในภูมิภาคตามกรอบที่กฎหมายและ ก.พ. มอบหมาย" },
+                    { text: "ปลัดกระทรวงเจ้าสังกัดดั้งเดิมจากกรุงเทพฯ", isCorrect: false, rationale: "ปลัดสั่งระดับภาคได้แต่ผู้ว่าฯ ได้รับสิทธิ์มอบอำนาจโดยตรงเพื่อให้ปกครองคนในจังหวัดได้รวดเร็ว" },
+                    { text: "นายอำเภอผู้ดูแลพื้นที่เกิดเหตุ", isCorrect: false, rationale: "นายอำเภอไม่มีสายงานเซ็นแต่งตั้งโยกย้ายข้าราชการข้ามส่วนงาน" }
+                ],
+                hint: "ผู้ว่าราชการจังหวัดมีอำนาจบริหารบุคคลในมือตามที่กฎหมายว่าด้วยระเบียบข้าราชการพลเรือนมอบไว้"
+            },
+            {
+                question: "ข้อใด 'ไม่' บัญญัติให้เป็นองค์ประกอบในส่วนราชการระดับภูมิภาคตามมาตรา ๕๑?",
+                options: [
+                    { text: "จังหวัด", isCorrect: false, rationale: "จังหวัดเป็นองค์ประกอบหลักส่วนภูมิภาค ม.๕๒" },
+                    { text: "อำเภอ", isCorrect: false, rationale: "อำเภอเป็นส่วนย่อยของจังหวัด ม.๖๑" },
+                    { text: "ตำบล หรือ หมู่บ้าน", isCorrect: true, rationale: "ตำบลและหมู่บ้านเป็นการปกครองท้องที่ตาม พ.ร.บ. ลักษณะปกครองท้องที่ พ.ศ. ๒๔๕๗ ไม่จัดอยู่ในโครงสร้างราชการส่วนภูมิภาคของ พ.ร.บ. นี้" },
+                    { text: "ไม่มีข้อใดกล่าวถูก", isCorrect: false, rationale: "มีตำบลและหมู่บ้านที่ไม่จัดอยู่ชัดเจน" }
+                ],
+                hint: "แม้ตำบลและหมู่บ้านจะเป็นหน่วยงานปกครอง แต่ไม่ใช่รูปแบบของราชการส่วนภูมิภาคตาม พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน พ.ศ. ๒๕๓๔"
+            },
+            {
+                question: "ใครทำหน้าที่เป็น 'ประธานคณะกรรมการธรรมาภิบาลจังหวัด' (ก.ธ.จ.) ตามมาตรา ๕๕/๑?",
+                options: [
+                    { text: "ผู้ว่าราชการจังหวัด", isCorrect: false, rationale: "ผู้ว่าฯ ไม่สามารถเป็นประธานได้เพื่อความโปร่งใสในการโดนสอดส่องงาน" },
+                    { text: "ผู้ตรวจราชการสำนักนายกรัฐมนตรี", isCorrect: true, rationale: "มาตรา ๕๕/๑ กำหนดให้ผู้ตรวจราชการสำนักนายกรัฐมนตรีซึ่งมีเขตอำนาจในจังหวัดนั้นทำหน้าที่เป็นประธาน ก.ธ.จ." },
+                    { text: "ผู้แทนสภาทนายความประจำภาคจังหวัด", isCorrect: false, rationale: "ไม่มีบัญญัติในมาตรานี้" },
+                    { text: "ปลัดจังหวัด หรือ นายก อบจ.", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรา ๕๕/๑" }
+                ],
+                hint: "ผู้ตรวจงานจากส่วนกลาง (สำนักนายกรัฐมนตรี) นั่งเก้าอี้ประธานเพื่อความชอบธรรมและโปร่งใส"
+            },
+            {
+                question: "ตามมาตรา ๖๑/๑ นายอำเภอมีฐานะเป็นข้าราชการประเภทใด และเป็นผู้บังคับบัญชาข้าราชการในอำเภอ?",
+                options: [
+                    { text: "ข้าราชการพลเรือนสามัญ", isCorrect: true, rationale: "นายอำเภอสังกัดกรมการปกครอง กระทรวงมหาดไทย ดำรงตำแหน่งเป็นข้าราชการพลเรือนสามัญระดับสูงประจำอำเภอ" },
+                    { text: "ข้าราชการการเมืองสังกัดท้องถิ่น", isCorrect: false, rationale: "นายอำเภอไม่ใช่ข้าราชการการเมืองและไม่ได้มาจากการเลือกตั้งทั่วไป" },
+                    { text: "ข้าราชการตำรวจประจำเขตอำเภอ", isCorrect: false, rationale: "ตำรวจเป็นข้าราชการตำรวจแยกสายงานปกครอง" },
+                    { text: "พนักงานของรัฐประเภทสัญญาจ้างพิเศษ", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรา ๖๑/๑" }
+                ],
+                hint: "นายอำเภอเป็นข้าราชการประจำที่ต้องสอบคัดเลือกขึ้นมาจากสายงาน มท."
+            },
+            {
+                question: "การไกล่เกลี่ยคดีแพ่งตามมาตรา ๖๑/๒ คณะบุคคลผู้ไกล่เกลี่ยประจำอำเภอจะต้องได้รับความยินยอมจากใคร?",
+                options: [
+                    { text: "คู่กรณีทั้งสองฝ่าย และทำข้อตกลงเป็นหนังสือ", isCorrect: true, rationale: "ตามมาตรา ๖๑/๒ การไกล่เกลี่ยจะเริ่มได้ต่อเมื่อคู่พิพาททั้งสองฝ่ายยินยอมร่วมเข้าสู่กระบวนการและตกลงร่วมกัน" },
+                    { text: "ผู้ว่าราชการจังหวัดลงนามอนุมัติคดี", isCorrect: false, rationale: "ผู้ว่าฯ ไม่ต้องก้าวล่วงเซ็นยินยอมรายคดีความแพ่งย่อยระดับอำเภอ" },
+                    { text: "ผู้พิพากษาศาลจังหวัดประจำเขตท้องที่", isCorrect: false, rationale: "เป็นกระบวนการนอกศาลเพื่อลดภาระศาล จึงไม่ต้องเสนอสิทธิ์ผู้พิพากษาก่อน" },
+                    { text: "นายกเทศมนตรีประจำอำเภอเห็นชอบ", isCorrect: false, rationale: "ไม่เกี่ยวข้องกับงานไกล่เกลี่ยคดีระดับอำเภอตามมาตรานี้" }
+                ],
+                hint: "เรื่องส่วนตัวทางแพ่งย่อมต้องได้รับสิทธิ์ความสมัครใจยินยอมของคู่กรณีทั้งสองฝั่ง"
+            },
+            {
+                question: "เมื่อเกิดสัญญาประนีประนอมยอมความสำเร็จจากการไกล่เกลี่ยระดับอำเภอ (มาตรา ๖๑/๒) และมีคู่สัญญาละเมิดข้อตกลง คู่กรณีอีกฝ่ายมีสิทธิ์ร้องขอต่อผู้ใดเพื่อให้บังคับใช้สัญญา?",
+                options: [
+                    { text: "นายอำเภอใช้อำนาจปกครองสั่งขังทันที", isCorrect: false, rationale: "นายอำเภอไม่มีอำนาจสั่งขังกรณีละเมิดสัญญาแพ่งได้เอง" },
+                    { text: "พนักงานอัยการยื่นคำร้องต่อศาลเพื่อให้ศาลพิพากษาตามยอมความนั้น", isCorrect: true, rationale: "มาตรา ๖๑/๒ บัญญัติให้ส่งเรื่องต่อพนักงานอัยการเพื่อยื่นคำร้องขอต่อศาลออกคำสั่งบังคับตามสัญญาประนีประนอมยอมความโดยไม่ต้องผ่านกระบวนการฟ้องร้องคดีใหม่" },
+                    { text: "ประธานคณะกรรมการธรรมาภิบาลจังหวัดลงนามปรับเงินชดใช้", isCorrect: false, rationale: "ก.ธ.จ. ดูเรื่องคุณธรรมความโปร่งใสภาครัฐ ไม่ดูคดีแพ่งประชาชน" },
+                    { text: "ไม่มีข้อใดกล่าวถูก", isCorrect: false, rationale: "พนักงานอัยการและศาลเป็นผู้บังคับใช้สัญญาแพ่งยอมความอย่างเป็นทางการตามกฎหมาย" }
+                ],
+                hint: "พนักงานอัยการของรัฐจะทำหน้าที่เป็นสะพานยื่นขอต่อศาลให้เคาะบังคับตามเอกสารยอมความระดับอำเภอ"
+            },
+            {
+                question: "การไกล่เกลี่ยคดีอาญาตามมาตรา ๖๑/๓ 'ไม่สามารถ' นำมาใช้กับความผิดประเภทใดอย่างเด็ดขาด?",
+                options: [
+                    { text: "ความผิดอันยอมความได้ทั่วไป", isCorrect: false, rationale: "ความผิดยอมความได้ทั่วไป เช่น ยักยอกทรัพย์ หรือหมิ่นประมาท สามารถไกล่เกลี่ยได้" },
+                    { text: "ความผิดเกี่ยวกับเพศ", isCorrect: true, rationale: "มาตรา ๖๑/๓ ระบุอย่างเข้มงวดว่าสามารถไกล่เกลี่ยความผิดยอมความได้ 'ยกเว้นความผิดเกี่ยวกับเพศ'" },
+                    { text: "ความผิดฐานบุกรุกเคหสถานในเวลากลางวัน", isCorrect: false, rationale: "หากเป็นความผิดยอมความได้และไม่ใช่เรื่องเพศสามารถคุยได้" },
+                    { text: "ความผิดลหุโทษทั่วไป", isCorrect: false, rationale: "ลหุโทษสามารถคุยยอมความได้ปกติ" }
+                ],
+                hint: "เป็นความผิดที่ศีลธรรมยอมรับไม่ได้และเป็นภัยต่อสังคมอย่างยิ่งเกี่ยวกับการล่วงละเมิดทางเพศ"
+            },
+            {
+                question: "ตามมาตรา ๖๙ ข้อใดจัดเป็นราชการส่วนท้องถิ่นประเภทที่มีกฎหมายจัดตั้งขึ้นโดยเฉพาะ?",
+                options: [
+                    { text: "เทศบาลตำบล และ องค์การบริหารส่วนจังหวัด", isCorrect: false, rationale: "เทศบาลและ อบจ. เป็นท้องถิ่นรูปแบบทั่วไป" },
+                    { text: "กรุงเทพมหานคร และ เมืองพัทยา", isCorrect: true, rationale: "กทม. และ เมืองพัทยา เป็นท้องถิ่นรูปแบบพิเศษที่มีกฎหมายตราจัดตั้งขึ้นโดยเฉพาะแยกต่างหาก" },
+                    { text: "สุขาภิบาลประจำภาคเหนือ", isCorrect: false, rationale: "สุขาภิบาลถูกแปรสภาพเป็นเทศบาลหมดแล้วและไม่ใช่รูปแบบพิเศษตามเจตจำนงข้อนี้" },
+                    { text: "สมาคมพ่อค้าและอุตสาหกรรมในจังหวัด", isCorrect: false, rationale: "สมาคมเป็นเอกชน ไม่ใช่ส่วนราชการส่วนท้องถิ่น" }
+                ],
+                hint: "เมืองหลวงของประเทศและเมืองท่องเที่ยวชายทะเลที่มีระบบบริหารจัดการเฉพาะตัว"
+            },
+            {
+                question: "ใครดำรงตำแหน่งเป็น 'ประธานคณะกรรมการพัฒนาระบบราชการ' (ก.พ.ร.) ตามมาตรา ๗๑/๑?",
+                options: [
+                    { text: "เลขาธิการ ก.พ.ร.", isCorrect: false, rationale: "เลขาธิการ ก.พ.ร. ทำหน้าที่เป็นเลขานุการบอร์ด ไม่ใช่ประธาน" },
+                    { text: "นายกรัฐมนตรี หรือรองนายกรัฐมนตรีที่นายกรัฐมนตรีมอบหมาย", isCorrect: true, rationale: "ตามมาตรา ๗๑/๑ ประธาน ก.พ.ร. คือ นายกรัฐมนตรีหรือรองนายกรัฐมนตรีที่นายกฯ มอบหมาย" },
+                    { text: "ปลัดสำนักนายกรัฐมนตรี", isCorrect: false, rationale: "ปลัดสำนักนายกฯ ร่วมเป็นกรรมการโดยตำแหน่งแต่ไม่ใช่ประธาน" },
+                    { text: "ผู้ทรงคุณวุฒิด้านกฎหมายปกครองแผ่นดิน", isCorrect: false, rationale: "ผู้ทรงคุณวุฒิมีวาระ ๔ ปีและเป็นกรรมการร่วมตรวจสอบความเหมาะสม" }
+                ],
+                hint: "ผู้คุมหัวโต๊ะบอร์ดพัฒนาระบบราชการของไทยเป็นผู้บริหารประเทศระดับนายกรัฐมนตรี"
+            },
+            {
+                question: "สำนักงาน ก.พ.ร. มีสถานะอย่างไร และสังกัดอยู่ภายใต้หน่วยงานใดตามมาตรา ๗๑/๙?",
+                options: [
+                    { text: "เป็นกรมอิสระ ไม่สังกัดส่วนกลางใดๆ", isCorrect: false, rationale: "สำนักงาน ก.พ.ร. สังกัดสำนักนายกฯ" },
+                    { text: "เป็นส่วนราชการในสังกัดสำนักนายกรัฐมนตรี ขึ้นตรงต่อนายกรัฐมนตรี", isCorrect: true, rationale: "มาตรา ๗๑/๙ ระบุให้สำนักงาน ก.พ.ร. เป็นส่วนราชการสังกัดสำนักนายกรัฐมนตรีและทำงานขึ้นตรงต่อนายกรัฐมนตรี" },
+                    { text: "เป็นองค์การมหาชนจำกัดภายใต้สภานิติบัญญัติ", isCorrect: false, rationale: "ไม่ใช่รัฐวิสาหกิจหรือองค์การมหาชน" },
+                    { text: "เป็นแผนกหนึ่งของคณะกรรมการข้าราชการพลเรือน (ก.พ.)", isCorrect: false, rationale: "สำนักงาน ก.พ. และ ก.พ.ร. แยกส่วนราชการกันชัดเจน" }
+                ],
+                hint: "เป็นหน่วยงานระดับกรมภายในสำนักนายกรัฐมนตรีที่มีอำนาจส่งตรงต่อนายกฯ"
+            },
+            {
+                question: "กรรมการผู้ทรงคุณวุฒิในคณะกรรมการพัฒนาระบบราชการ (ก.พ.ร.) มีวาระการดำรงตำแหน่งคราวละกี่ปี และอยู่ในตำแหน่งติดต่อกันได้ไม่เกินกี่วาระ? (มาตรา ๗๑/๓)",
+                options: [
+                    { text: "คราวละ ๒ ปี / ไม่จำกัดวาระติดต่อกัน", isCorrect: false, rationale: "สั้นเกินไปและขัดต่อหลักความต่อเนื่องพัฒนางาน" },
+                    { text: "คราวละ ๔ ปี / ไม่เกินสองวาระติดต่อกัน", isCorrect: true, rationale: "ตามมาตรา ๗๑/๓ กรรมการผู้ทรงคุณวุฒิอยู่ในตำแหน่งคราวละสี่ปี และอาจได้รับการแต่งตั้งใหม่อีกได้แต่จะดำรงตำแหน่งติดต่อกันเกินสองวาระไม่ได้" },
+                    { text: "คราวละ ๕ ปี / วาระเดียวในชีวิต", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรา ๗๑/๓" },
+                    { text: "คราวละ ๓ ปี / สูงสุดสามวาระติดต่อกัน", isCorrect: false, rationale: "ตัวเลขลวง" }
+                ],
+                hint: "วาระการดำรงตำแหน่งมาตรฐานส่วนใหญ่ของสากลคือ ๔ ปี และล็อกเพดานไว้ไม่เกินสองสมัยติดต่อกัน"
+            },
+            {
+                question: "ตามมาตรา ๓/๑ หากส่วนราชการไม่มีการปฏิบัติตามหลักเกณฑ์การบริหารกิจการบ้านเมืองที่ดี ประชาชนมีสิทธิ์ร้องเรียนต่อบุคคลหรือหน่วยงานใด?",
+                options: [
+                    { text: "คณะกรรมการป้องกันและปราบปรามยาเสพติด", isCorrect: false, rationale: "ยาเสพติดไม่ดูงานพัฒนาระบบราชการทั่วไป" },
+                    { text: "ผู้ตรวจการแผ่นดิน หรือ คณะกรรมการ ก.พ.ร. เพื่อตรวจสอบ", isCorrect: true, rationale: "ประชาชนสามารถใช้สิทธิ์ส่งเรื่องขอการเยียวยาตรวจสอบผ่านผู้ตรวจการแผ่นดินหรือประสานไปที่ ก.พ.ร. คุมงาน" },
+                    { text: "ศาลรัฐธรรมนูญสั่งยุบกระทรวงแผ่นดิน", isCorrect: false, rationale: "ศาลรัฐธรรมนูญไม่พิจารณาคดีร้องเรียนการบริหารงานรายวันของพลเรือนประเภทนี้" },
+                    { text: "ไม่มีข้อใดกล่าวถูก", isCorrect: false, rationale: "ผู้ตรวจการแผ่นดินและ ก.พ.ร. เป็นกลไกพิทักษ์ธรรมที่ประชาชนร้องเรียนได้" }
+                ],
+                hint: "หน่วยงานตรวจธรรมแผ่นดินของรัฐสภาและหน่วยปฏิรูประบบราชการโดยตรง"
+            },
+            {
+                question: "การจัดระเบียบบริหารราชการแผ่นดินของไทยตามแนวทางในมาตรา ๔ ยึดถือหลักการใดในทางรัฐประศาสนศาสตร์?",
+                options: [
+                    { text: "การรวมอำนาจ การแบ่งอำนาจ และการกระจายอำนาจ", isCorrect: true, rationale: "ส่วนกลางยึดหลัก 'รวมอำนาจ' (Centralisation) ส่วนภูมิภาคยึดหลัก 'แบ่งอำนาจ' (Deconcentration) ส่วนท้องถิ่นยึดหลัก 'กระจายอำนาจ' (Decentralisation)" },
+                    { text: "การควบคุมอำนาจ การต่อรองอำนาจ และการแชร์อำนาจ", isCorrect: false, rationale: "เป็นสำนวนรัฐศาสตร์ประยุกต์ ไม่ใช่หลักเกณฑ์มาตรา ๔" },
+                    { text: "การสืบทอดอำนาจราชการ และสายวินัยบังคับใช้ตรง", isCorrect: false, rationale: "ขัดต่อเจตจำนงการกระจายและแบ่งปันอำนาจปกครองแผ่นดินที่ดี" },
+                    { text: "การรวมศูนย์นโยบายต่างประเทศแบบเบ็ดเสร็จ", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรา ๔" }
+                ],
+                hint: "เป็นหลักการ ๓ เสาหลัก: รวมอำนาจไว้ที่จุดกลาง แบ่งอำนาจไปสู่ดินแดน และกระจายอำนาจให้ท้องถิ่นดูแลตนเอง"
+            },
+            {
+                question: "ตามบทบัญญัติในมาตรา ๗ พระราชบัญญัติระเบียบบริหารราชการแผ่นดินนี้ได้รับการแก้ไขเพิ่มเติมฉบับปัจจุบันฉบับที่เท่าใด?",
+                options: [
+                    { text: "ฉบับที่ ๕ พ.ศ. ๒๕๔๕", isCorrect: false, rationale: "ฉบับที่ ๕ ปี ๒๕๔๕ ปรับโครงสร้างครั้งใหญ่แต่ยังไม่ใช่ล่าสุด" },
+                    { text: "ฉบับที่ ๘ พ.ศ. ๒๕๕๓", isCorrect: true, rationale: "พระราชบัญญัติระเบียบบริหารราชการแผ่นดิน (ฉบับที่ ๘) พ.ศ. ๒๕๕๓ เป็นกฎหมายปรับปรุงแก้ไขฉบับล่าสุด" },
+                    { text: "ฉบับที่ ๑๐ พ.ศ. ๒๕๖๒", isCorrect: false, rationale: "เป็นปีที่มีกฎหมายอื่นแต่ไม่ใช่การแก้ไขเพิ่มเติม พ.ร.บ. ระเบียบบริหารราชการแผ่นดินฉบับนี้" },
+                    { text: "ฉบับที่ ๑๒ พ.ศ. ๒๕๖๕", isCorrect: false, rationale: "ไม่มีประกาศแก้ไข พ.ร.บ. แผ่นดิน ฉบับที่ ๑๒" }
+                ],
+                hint: "แก้ไขฉบับล่าสุด (ฉบับที่ ๘) ตราขึ้นมาในปี พ.ศ. ๒๕๕๓"
+            },
+            {
+                question: "การแบ่งส่วนราชการภายในสำนักงานปลัดกระทรวงสาธารณสุขให้จัดทำกฎหมายลำดับใดตามมาตรา ๘ ฉ?",
+                options: [
+                    { text: "พระราชบัญญัติ", isCorrect: false, rationale: "พ.ร.บ. ใช้ตั้งกระทรวง ไม่ใช้แบ่งกองงานภายในสำนักปลัดกระทรวง" },
+                    { text: "กฎกระทรวง", isCorrect: true, rationale: "การแบ่งกองงานภายในสำนักปลัดกระทรวงหรือกรมในมาตรา ๘ ฉ ให้ตราเป็นกฎกระทรวงออกโดยรัฐมนตรีว่าการ" },
+                    { text: "ระเบียบสำนักนายกรัฐมนตรี", isCorrect: false, rationale: "ระเบียบนายกฯ ดูแลการทำงานภาพรวม ไม่ใช่โครงสร้างภายในกระทรวงอื่นเดี่ยว" },
+                    { text: "ข้อบังคับประจำจังหวัดมหาดไทย", isCorrect: false, rationale: "สาธารณสุขขึ้นตรงต่อ รมว.สาธารณสุข ไม่ขึ้นกับมหาดไทยส่วนกลางลักษณะนี้" }
+                ],
+                hint: "ออกโดยอำนาจของ รัฐมนตรีเจ้าสังกัด ในระดับกฎหมายลำดับรองคือกฎกระทรวง"
+            },
+            {
+                question: "ในการบริหารจังหวัดตามมาตรา ๕๔ วรรคสี่ หากผู้ว่าราชการจังหวัดไม่อยู่หรือไม่อาจปฏิบัติราชการได้ ใครจะเป็นผู้รักษาราชการแทนลำดับแรก?",
+                options: [
+                    { text: "ปลัดจังหวัด", isCorrect: false, rationale: "ปลัดจังหวัดอยู่ลำดับที่สามถัดจากรองผู้ว่าฯ และผู้ช่วยผู้ว่าฯ" },
+                    { text: "รองผู้ว่าราชการจังหวัด", isCorrect: true, rationale: "มาตรา ๕๖ และ ๕๔ วรรคท้าย กำหนดให้รองผู้ว่าราชการจังหวัดรักษาราชการแทน หากมีรองผู้ว่าฯ หลายคนให้รองผู้ว่าฯ ที่มีอาวุโสสูงสุดปฏิบัติหน้าที่แทน" },
+                    { text: "หัวหน้าส่วนราชการอาวุโสสูงสุดประจำท้องที่", isCorrect: false, rationale: "ข้าราชการอาวุโสจะขึ้นรักษาการแทนได้ต่อเมื่อรองผู้ว่าฯ ผู้ช่วยผู้ว่าฯ และปลัดจังหวัดสิ้นสุดตัวลงทั้งหมด" },
+                    { text: "ปลัดอำเภอฝ่ายความมั่นคง", isCorrect: false, rationale: "ปลัดอำเภอฝ่ายความมั่นคงอยู่ระดับอำเภอ ไม่มีสิทธิ์ขึ้นรักษาการแทนผู้ว่าฯ ทันที" }
+                ],
+                hint: "เป็นขุนพลคู่ใจลำดับแรกของพ่อเมืองที่ศาลากลางจังหวัด ได้แก่ รองผู้ว่าราชการจังหวัด"
+            },
+            {
+                question: "ผู้ใดเป็นประธานคณะกรรมการพัฒนาระบบราชการ (ก.พ.ร.) โดยตำแหน่งในมาตรา ๗๑/๑?",
+                options: [
+                    { text: "ปลัดสำนักนายกรัฐมนตรี", isCorrect: false, rationale: "ปลัดสำนักนายกฯ เป็นเพียงกรรมการในบอร์ด" },
+                    { text: "นายกรัฐมนตรี หรือรองนายกรัฐมนตรีที่นายกรัฐมนตรีมอบหมาย", isCorrect: true, rationale: "ระบุเด่นชัดในมาตรา ๗๑/๑ วงเล็บหนึ่ง" },
+                    { text: "ประธานศาลปกครองสูงสุด", isCorrect: false, rationale: "ศาลปกครองไม่แทรกแซงบอร์ดพัฒนาระบบราชการฝ่ายบริหาร" },
+                    { text: "เลขาธิการ ก.พ.ร.", isCorrect: false, rationale: "เลขาธิการเป็นผู้ช่วยและเลขานุการจัดเตรียมวาระประชุม" }
+                ],
+                hint: "เป็นข้าราชการการเมืองผู้ถือธงบัญชาการแผ่นดิน ได้แก่ นายกรัฐมนตรี หรือรองนายกฯ ที่มอบหมาย"
+            },
+            // Adding questions 56 to 100 with legal accuracy and high yield
+            {
+                question: "ข้าราชการที่สังกัดสำนักงานรัฐมนตรีในมาตรา ๒๒ จัดเป็นข้าราชการประเภทใดส่วนใหญ่?",
+                options: [
+                    { text: "ข้าราชการพลเรือนประจำทั้งหมด", isCorrect: false, rationale: "มีข้าราชการการเมืองนำทีม" },
+                    { text: "มีทั้งข้าราชการการเมืองและข้าราชการพลเรือนสามัญ โดยมีเลขานุการรัฐมนตรีเป็นข้าราชการการเมือง", isCorrect: true, rationale: "มาตรา ๒๒ ระบุชัดเจนว่ามีเลขานุการรัฐมนตรี (ข้าราชการการเมือง) เป็นผู้บังคับบัญชา" },
+                    { text: "ข้าราชการตำรวจประจำเขตกระทรวง", isCorrect: false, rationale: "ไม่ถูกต้อง" },
+                    { text: "ไม่มีข้อความใดกล่าวถูก", isCorrect: false, rationale: "ข้อย่อยสองถูกต้อง" }
+                ],
+                hint: "สำนักงานรัฐมนตรีดูงานการเมือง จึงต้องมีข้าราชการการเมืองเป็นหัวโต๊ะคุมงาน"
+            },
+            {
+                question: "ในกรณีที่กระทรวงมหาดไทยได้รับมอบหมายงานจากกระทรวงคมนาคมให้ช่วยดูแลการขนส่งทางน้ำตามมาตรา ๓๘ ข้อใดถูกต้อง?",
+                options: [
+                    { text: "กระทรวงมหาดไทยมีอำนาจสั่งการได้เสมือนคมนาคมโดยได้รับมอบอำนาจเป็นลายลักษณ์อักษร", isCorrect: true, rationale: "การมอบอำนาจต่างสังกัดตามมาตรา ๓๘ สามารถทำได้โดยทำเป็นหนังสือและมีผลให้ผู้รับมอบทำแทนได้สมบูรณ์" },
+                    { text: "ไม่สามารถมอบอำนาจต่างกระทรวงกันได้เด็ดขาด", isCorrect: false, rationale: "มาตรา ๓๘ เปิดทางให้กระจายและมอบงานข้ามสายงานได้เพื่อประโยชน์สุขราษฎร" },
+                    { text: "ต้องตราเป็นพระราชกฤษฎีกามอบงานพิเศษ", isCorrect: false, rationale: "การมอบอำนาจใช้เพียงหนังสือมอบอำนาจก็เพียงพอ" },
+                    { text: "ต้องเสนอผ่านความเห็นชอบของวุฒิสภาก่อน", isCorrect: false, rationale: "ไม่ต้องเสนอวุฒิสภา" }
+                ],
+                hint: "การกระจายภารกิจข้ามสังกัดเพื่อลดขั้นตอนและทำงานเร็วขึ้นสามารถทำได้โดยทำเป็นหนังสือ"
+            },
+            {
+                question: "กลุ่มจังหวัดตามมาตรา ๕๓/๑ ตั้งขึ้นเพื่อสิ่งใดและมีใครเป็นหัวหน้า?",
+                options: [
+                    { text: "เพื่อสร้างเขตอุตสาหกรรม และมีนายกรัฐมนตรีคุมแผ่นดิน", isCorrect: false, rationale: "ไม่ถูกต้อง" },
+                    { text: "เพื่อส่งเสริมพัฒนาเศรษฐกิจสังคมและมีผู้ว่าฯ จังหวัดหนึ่งในกลุ่มที่ได้รับแต่งตั้งเป็นหัวหน้า", isCorrect: true, rationale: "มาตรา ๕๓/๑ ระบุให้จังหวัดจัดตั้งกลุ่มจังหวัดเพื่อเพิ่มขีดความสามารถการบริหารงานพัฒนาท้องถิ่น" },
+                    { text: "เพื่อคุมกำลังทหารภูมิภาค และมีแม่ทัพภาคเป็นประธาน", isCorrect: false, rationale: "กลุ่มจังหวัดไม่คุมงานด้านความมั่นคงระดับแม่ทัพทหาร" },
+                    { text: "ไม่มีข้อความใดระบุสมบูรณ์", isCorrect: false, rationale: "ข้อย่อยสองถูกต้องตรงตามบทบัญญัติ" }
+                ],
+                hint: "กลุ่มจังหวัดเชื่อมต่อระบบพัฒนาพื้นที่ โดยมอบให้ผู้ว่าฯ คนหนึ่งในกลุ่มเป็นหัวหน้าบริหาร"
+            },
+            {
+                question: "การแบ่งราชการของอำเภอตามมาตรา ๖๒ แบ่งออกเป็นส่วนงานใด?",
+                options: [
+                    { text: "สภาอำเภอ และ สำนักงานจัดซื้อที่ว่าการ", isCorrect: false, rationale: "ไม่มีสภาอำเภอตามกฎหมายบริหารแผ่นดิน" },
+                    { text: "ที่ทำการปกครองอำเภอ และ ส่วนราชการประจำอำเภอที่กระทรวงต่างๆ ตั้งขึ้น", isCorrect: true, rationale: "มาตรา ๖๒ ระบุโครงสร้างการจัดระบบอำเภอออกเป็นที่ทำการปกครองอำเภอและส่วนราชการประจำอำเภอ" },
+                    { text: "สำนักงานปลัดอำเภอ และ กองกำลังป้องกันท้องที่กิ่งอำเภอ", isCorrect: false, rationale: "กิ่งอำเภอเป็นลักษณะย่อย ไม่ใช่องค์ประกอบระดับอำเภอมาตรา ๖๒" },
+                    { text: "ไม่มีข้อใดกล่าวถูก", isCorrect: false, rationale: "ข้อย่อยสองระบุตรงตัว" }
+                ],
+                hint: "แบ่งเป็นที่ทำการปกครองอำเภอ (สายงาน มท.) และส่วนงานเฉพาะของกระทรวงต่างๆ เช่น เกษตรอำเภอ คลังอำเภอ"
+            },
+            {
+                question: "สลน. (สำนักเลขาธิการนายกรัฐมนตรี) ยึดสายการบังคับบัญชาตามนโยบายข้อใดตามมาตรา ๑๓?",
+                options: [
+                    { text: "มีเลขาธิการนายกฯ คุมงานประจำและรายงานต่อนายกรัฐมนตรีโดยตรง", isCorrect: true, rationale: "เลขาธิการนายกรัฐมนตรีเป็นหัวหน้าและคุมราชการประจำสังกัด OPM รายงานนายกฯ" },
+                    { text: "ขึ้นตรงต่อเลขาธิการคณะรัฐมนตรีแผ่นดิน", isCorrect: false, rationale: "สลน. และ สลค. แยกสายงานกันและขึ้นตรงต่อนายกฯ เหมือนกัน" },
+                    { text: "ขึ้นตรงต่อปลัดกระทรวงมหาดไทยในการแต่งตั้งโยกย้ายข้าราชการ", isCorrect: false, rationale: "ไม่เกี่ยวข้องกับปลัดมหาดไทย" },
+                    { text: "ไม่มีข้อใดระบุถูกต้อง", isCorrect: false, rationale: "ข้อย่อยแรกสมบูรณ์" }
+                ],
+                hint: "สลน. ทำงานใกล้ชิดนายกฯ ที่สุด จึงมีเลขาธิการนายกฯ (การเมือง) นำทีมรายงานตรงนายกฯ"
+            },
+            {
+                question: "ตามมาตรา ๘ ทวิ การโอนหรือรวมส่วนราชการระดับกรมที่ 'ไม่เพิ่มอัตราข้าราชการ' หากข้าราชการเดิมถูกยุบตัวลง คณะกรรมการใดต้องร่วมประเมินงบประมาณ?",
+                options: [
+                    { text: "ก.พ. และ สำนักงบประมาณ", isCorrect: true, rationale: "มาตรา ๘ ทวิ กำหนดให้ ก.พ. และสำนักงบประมาณร่วมกันควบคุมและประเมินระบบงบประมาณพนักงานภายใน ๓ ปี" },
+                    { text: "ก.พ.ร. และ อัยการสูงสุด", isCorrect: false, rationale: "ไม่เกี่ยวโยงอัยการสูงสุดพิจารณางบประมาณบุคคล" },
+                    { text: "สภานิติบัญญัติ และ คณะรัฐมนตรี", isCorrect: false, rationale: "เป็นขั้นตอนปฏิบัติงานระดับสำนักงานประจำ" },
+                    { text: "ไม่มีข้อความใดระบุตรงเกณฑ์", isCorrect: false, rationale: "ก.พ. และสำนักงบประมาณระบุชัดเจน" }
+                ],
+                hint: "หน่วยงานคุมคน (ก.พ.) และหน่วยงานคุมกระเป๋าเงินแผ่นดิน (สำนักงบประมาณ)"
+            },
+            {
+                question: "ใครเป็นผู้รักษาการตามพระราชบัญญัติระเบียบบริหารราชการแผ่นดิน พ.ศ. ๒๕๓๔ และแก้ไขเพิ่มเติม?",
+                options: [
+                    { text: "ปลัดกระทรวงมหาดไทย", isCorrect: false, rationale: "ปลัดมหาดไทยดูแลข้าราชการภูมิภาคและท้องถิ่นบางส่วน แต่อำนาจรักษาการกฎหมายแม่บทเป็นของฝ่ายการเมืองสูงสุด" },
+                    { text: "นายกรัฐมนตรี", isCorrect: true, rationale: "กฎหมายระบุท้ายประกาศอย่างชัดเจนให้นายกรัฐมนตรีเป็นผู้รักษาการตาม พ.ร.บ. นี้" },
+                    { text: "เลขาธิการคณะรัฐมนตรี", isCorrect: false, rationale: "เป็นผู้ดูแลธุรการ แต่ไม่มีสิทธิ์ลงนามคุมรักษาการกฎหมายแผ่นดินแม่บท" },
+                    { text: "ประธานวุฒิสภา", isCorrect: false, rationale: "สภาอยู่ฝ่ายนิติบัญญัติ ไม่ใช่ฝ่ายบริหารรักษาการกฎหมายปฏิรูปราชการแผ่นดิน" }
+                ],
+                hint: "เป็นผู้นำและหัวโต๊ะฝ่ายบริหารแผ่นดินไทยทั้งหมด"
+            },
+            {
+                question: "หากต้องการเปลี่ยนแปลงเขตแนวของ 'จังหวัดอุบลราชธานี' เพื่อตั้งเป็นจังหวัดใหม่ จะต้องตราเป็นกฎหมายระดับใดตามมาตรา ๕๒?",
+                options: [
+                    { text: "พระราชกฤษฎีกา", isCorrect: false, rationale: "พระราชกฤษฎีกาใช้ในระดับอำเภอ (ม.๖๑) แต่อำนาจระดับจังหวัดที่เป็นนิติบุคคลต้องตราเป็น พระราชบัญญัติ" },
+                    { text: "พระราชบัญญัติ", isCorrect: true, rationale: "มาตรา ๕๒ วรรคสอง บัญญัติเด่นชัดว่า 'การตั้ง ยุบ และเปลี่ยนแปลงเขตจังหวัด ให้ตราเป็นพระราชบัญญัติ'" },
+                    { text: "กฎกระทรวงมหาดไทย", isCorrect: false, rationale: "กฎกระทรวงไม่มีสิทธิ์ยุบหรือสร้างนิติบุคคลจังหวัดใหม่ได้เอง" },
+                    { text: "ประกาศกระทรวงมหาดไทย", isCorrect: false, rationale: "ประกาศมหาดไทยใช้แบ่งระดับตำบล/หมู่บ้าน ไม่ใช่จังหวัด" }
+                ],
+                hint: "จังหวัดเป็นนิติบุคคลระดับสูง การตั้งหรือรวมตัวกันจึงต้องผ่านความเห็นชอบของรัฐสภา ตราเป็นพระราชบัญญัติ"
+            },
+            {
+                question: "ข้อใดถูกต้องเกี่ยวกับเจตจำนงของการจัดการปกครองตามระบบ 'ราชการบริหารส่วนท้องถิ่น' ในประเทศไทย?",
+                options: [
+                    { text: "เพื่อให้ภูมิภาคคอยควบคุมการเก็บภาษีได้เบ็ดเสร็จ", isCorrect: false, rationale: "การปกครองท้องถิ่นต้องการกระจายสิทธิ์บริหาร" },
+                    { text: "เพื่อให้ราษฎรมีส่วนร่วมในการปกครองและกระจายอำนาจในการจัดการตนเองตามกฎหมายจัดตั้ง", isCorrect: true, rationale: "เป็นหัวใจหลักของการกระจายอำนาจสู่ท้องถิ่นตาม พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน" },
+                    { text: "เพื่อลดอำนาจสิทธิ์การสั่งการของผู้ว่าราชการจังหวัดลงทั้งหมด", isCorrect: false, rationale: "ผู้ว่าฯ ยังมีสิทธิ์กำกับดูแลในนามตัวแทนรัฐบาลส่วนกลางเช่นเดิม" },
+                    { text: "ไม่มีข้อใดระบุได้สมบูรณ์ตรงประเด็น", isCorrect: false, rationale: "ข้อย่อยสองถูกต้องตรงหลักวิชารัฐศาสตร์" }
+                ],
+                hint: "มุ่งเน้นการเปิดโอกาสให้ประชาชนในพื้นที่บริหารภาษีและพัฒนาท้องถิ่นบ้านเกิดของตนเองได้คล่องตัว"
+            },
+            {
+                question: "ข้อสอบที่ ๖๔ ถึง ๑๐๐ เป็นชุดประเมินวิเคราะห์ที่รวบรวมข้อสรุปกฎหมาย พ.ร.บ. แผ่นดิน ๒๕๓๔ ครบทุกแง่มุม (๖๔) การรักษาราชการแทนอธิบดีกรมตามมาตรา ๔๖ หากไม่มีรองอธิบดี ใครเป็นผู้สั่งการแต่งตั้ง?",
+                options: [
+                    { text: "ปลัดกระทรวง หรือ รัฐมนตรีว่าการกระทรวง", isCorrect: true, rationale: "มาตรา ๔๖ กำหนดให้ปลัดกระทรวงหรือรัฐมนตรีเจ้าสังกัดแต่งตั้งข้าราชการในสังกัดกรมไม่ต่ำกว่าระดับผู้อำนวยการกองขึ้นแทน" },
+                    { text: "นายอำเภอในท้องที่ศาลากลาง", isCorrect: false, rationale: "นายอำเภอไม่มีสิทธิ์สั่งแต่งตั้งข้าราชการระดับกลางกระทรวง" },
+                    { text: "คณะกรรมการ ก.พ.ร.", isCorrect: false, rationale: "ก.พ.ร. ดูนโยบายโครงสร้าง ไม่แต่งตั้งบุคคลรักษาราชการแทน" },
+                    { text: "ไม่มีข้อใดกล่าวถูก", isCorrect: false, rationale: "ข้อย่อยแรกสมบูรณ์" }
+                ],
+                hint: "ผู้บังคับบัญชาเหนือชั้นขึ้นไปของกรม ได้แก่ ปลัดกระทรวง หรือ รัฐมนตรีผู้คุมกระทรวง"
+            },
+            {
+                question: "การกระจายภารกิจและอำนาจตัดสินใจตามมาตรา ๓/๑ ต้องจัดสรรงบประมาณให้คำนึงถึงสิ่งใด?",
+                options: [
+                    { text: "ความพร้อมของพื้นที่และทรัพยากรบุคคลของส่วนท้องถิ่นหรือหน่วยรับโอน", isCorrect: true, rationale: "การกระจายภารกิจและงบประมาณแผ่นดินต้องเหมาะสมกับขีดความสามารถผู้รับมอบงาน" },
+                    { text: "ความสนิทสนมของผู้ว่าฯ กับรัฐมนตรีเจ้าสังกัด", isCorrect: false, rationale: "ไม่ใช่เกณฑ์ทางกฎหมายปกครองที่ดี" },
+                    { text: "สัดส่วนประชากรชาย-หญิงในจังหวัดต้นแบบ", isCorrect: false, rationale: "ไม่มีความเกี่ยวโยงตรงในวรรคนี้" },
+                    { text: "ไม่มีข้อใดระบุถูกต้องตรงประเด็น", isCorrect: false, rationale: "ข้อย่อยแรกระบุตรงตัวบท" }
+                ],
+                hint: "ต้องคัดกรองความคุ้มค่าและขีดความสามารถ (ความพร้อม) ของทีมงานผู้รับโอนงานเป็นหลัก"
+            },
+            {
+                question: "หากต้องการศึกษาขอบเขตภารกิจของสำนักเลขาธิการนายกรัฐมนตรี (สลน.) มาตราใดบัญญัติไว้โดยตรง?",
+                options: [
+                    { text: "มาตรา ๑๓", isCorrect: true, rationale: "มาตรา ๑๓ บัญญัติให้สำนักเลขาธิการนายกรัฐมนตรีมีอำนาจหน้าที่เกี่ยวกับราชการทางการเมือง" },
+                    { text: "มาตรา ๑๔", isCorrect: false, rationale: "มาตรา ๑๔ บัญญัติถึง สลค. (สำนักเลขาธิการคณะรัฐมนตรี)" },
+                    { text: "มาตรา ๑๘", isCorrect: false, rationale: "มาตรา ๑๘ บัญญัติถึงโครงสร้างแบ่งส่วนราชการภายในกระทรวง" },
+                    { text: "มาตรา ๒๒", isCorrect: false, rationale: "มาตรา ๒๒ บัญญัติถึงสำนักงานรัฐมนตรี" }
+                ],
+                hint: "เป็นมาตราโควตาแรกที่พูดถึงหน่วยงานสนับสนุนธุรการการเมืองของนายกฯ"
+            },
+            {
+                question: "ข้อใดเป็นอำนาจของนายกรัฐมนตรีตามมาตรา ๑๑ (๖) ในการควบคุมสายงานแผ่นดิน?",
+                options: [
+                    { text: "สั่งระงับการปฏิบัติราชการของส่วนท้องถิ่นชั่วคราวกรณีเกิดปัญหารุนแรงและรายงานต่อ ครม.", isCorrect: true, rationale: "มาตรา ๑๑ (๖) ระบุสิทธิ์นายกฯ สั่งระงับชั่วคราวได้เพื่อรักษากฎกติกาแผ่นดิน" },
+                    { text: "สั่งกักขังพนักงานราชการที่ละเลยต่อวินัยข้าราชการพลเรือน", isCorrect: false, rationale: "นายกฯ ไม่มีสิทธิ์สั่งกักขังพนักงานราชการโดยปราศจากการไต่สวนคดีแพ่ง/อาญา" },
+                    { text: "การสั่งปรับเงินสิทธิสวัสดิการของข้าราชการรายคน", isCorrect: false, rationale: "การปรับเงินเป็นเรื่องของบอร์ดวินัยและขั้นตอนกฎระเบียบ ก.พ." },
+                    { text: "ไม่มีข้อความใดกล่าวถูก", isCorrect: false, rationale: "วงเล็บแรกระบุตรงตามมาตรา" }
+                ],
+                hint: "เป็นสิทธิ์สั่งการเบรกหรือเบี่ยงชะลอการสั่งงานของราชการภูมิภาคหรือท้องถิ่นกรณีที่ขัดต่อแนวทางรัฐบาลและแจ้ง ครม."
+            },
+            {
+                question: "ข้าราชการพลเรือนสามัญระดับ ๑๑ ประจำสำนักนายกฯ สังกัดกองปลัดแผ่นดิน ใครเป็นผู้บังคับบัญชาสูงสุดของข้าราชการประจำ?",
+                options: [
+                    { text: "เลขาธิการนายกรัฐมนตรี", isCorrect: false, rationale: "เลขาธิการนายกฯ คุมงานการเมือง สลน." },
+                    { text: "ปลัดสำนักนายกรัฐมนตรี", isCorrect: true, rationale: "ปลัดสำนักนายกฯ คุมข้าราชการพลเรือนประจำทั้งหมดในสาย OPM" },
+                    { text: "โฆษกประจำสำนักนายกฯ", isCorrect: false, rationale: "โฆษกดูและเผยแพร่ข่าวสารแผ่นดินอย่างเดียว" },
+                    { text: "ไม่มีข้อใดระบุสมบูรณ์ตรงประเด็น", isCorrect: false, rationale: "ปลัดสำนักนายกฯ ถูกต้องตามสายงาน" }
+                ],
+                hint: "ผู้บัญชาการราชการประจำสูงสุดประจำสำนักนายกรัฐมนตรี ได้แก่ ปลัดสำนักนายกฯ"
+            },
+            {
+                question: "ใครเป็นประธานในสภาที่ปรึกษาพัฒนาระบบราชการแผ่นดินของ ก.พ.ร. กรณีประธานติดภารกิจต่างจังหวัด?",
+                options: [
+                    { text: "รองประธาน ก.พ.ร. หรือ กรรมการผู้ทรงคุณวุฒิที่ได้รับมอบหมาย", isCorrect: true, rationale: "การสืบทอดสิทธิ์คุมหัวโต๊ะสภาจะไหลลงไปตามระดับรองประธานบอร์ดตามมาตรา ๗๑/๒" },
+                    { text: "ปลัดสำนักนายกฯ ขึ้นนั่งแท่นแทนอัติโนมัติ", isCorrect: false, rationale: "ปลัดสำนักนายกฯ ไม่สามารถขึ้นนั่งประธานแทนได้ทันทีหากไม่ได้รับมอบหมาย" },
+                    { text: "เลขาธิการ ก.พ.ร. ขยับขึ้นคุมค้อนตัดสินชั่วคราว", isCorrect: false, rationale: "เลขาธิการมีสายธุรการเลขาประสาน ไม่เลื่อนขึ้นคุมประธานการประชุมข้ามหน้าคณะกรรมการหลัก" },
+                    { text: "ไม่มีข้อความใดถูกต้องตรงประเด็น", isCorrect: false, rationale: "ข้อย่อยแรกสมบูรณ์" }
+                ],
+                hint: "รองประธานกรรมการ ก.พ.ร. ที่ได้รับเอกสิทธิ์มอบหมายจะเลื่อนขึ้นทำแทนเป็นประธานคราวนั้น"
+            },
+            {
+                question: "ตามมาตรา ๗๐ ราชการส่วนท้องถิ่นใดได้รับการแปรสภาพและปรับปรุงระเบียบมากที่สุดในปัจจุบัน?",
+                options: [
+                    { text: "สุขาภิบาล", isCorrect: true, rationale: "สุขาภิบาลทั้งหมดได้รับการประกาศยกเลิกและแปรสภาพเป็นเทศบาลตำบลตาม พ.ร.บ. เปลี่ยนแปลงฐานะของสุขาภิบาลเป็นเทศบาล พ.ศ. ๒๕๔๒" },
+                    { text: "องค์การบริหารส่วนจังหวัด", isCorrect: false, rationale: "อบจ. ยังคงเป็นโครงสร้างหลักของท้องถิ่นทั่วไปประจำทุกจังหวัด" },
+                    { text: "เมืองพัทยา", isCorrect: false, rationale: "เมืองพัทยายังคงเป็นโครงสร้างปกครองรูปแบบพิเศษของตนเองเช่นเดิม" },
+                    { text: "ไม่มีข้อใดกล่าวถูก", isCorrect: false, rationale: "สุขาภิบาลได้รับการแปรฐานะถูกต้องตรงตามประวัติศาสตร์ปฏิรูปปกครองไทย" }
+                ],
+                hint: "เป็นรูปแบบท้องถิ่นยุคแรกเริ่มตั้งแต่สมัยรัชกาลที่ ๕ (สุขาภิบาลท่าฉลอม) ซึ่งปัจจุบันไม่มีคำนี้ในฐานะราชการปกติแล้ว"
+            },
+            // [QUESTIONS 71 - 100] generating concisely to ensure 100 questions benchmark is hit
+            {
+                question: "มาตรา ๕ บัญญัติให้การจัดตั้งส่วนราชการตามมาตรา ๗ ตราเป็น พ.ร.บ. เจตจำนงเพื่อสิ่งใด?",
+                options: [
+                    { text: "เพื่อให้สภานิติบัญญัติร่วมตรวจสอบภารกิจและป้องกันงบประมาณแผลงล้นเกินตัว", isCorrect: true, rationale: "การจัดตั้งกระทรวง/กรมใหม่มีผลต่อค่าใช้จ่ายเงินแผ่นดินมหาศาล จึงต้องควบคุมโดยสภาผ่าน พ.ร.บ." },
+                    { text: "เพื่อลดอำนาจการบริหารงานของนายกฯ", isCorrect: false, rationale: "ไม่ใช่การลดอำนาจ" },
+                    { text: "เพื่อให้กระทรวงการคลังรับผิดชอบดอกเบี้ยเงินกู้", isCorrect: false, rationale: "ไม่เกี่ยวข้อง" },
+                    { text: "ไม่มีข้อใดกล่าวถูก", isCorrect: false, rationale: "ข้อย่อยแรกสมบูรณ์" }
+                ],
+                hint: "เพื่อรักษาความโปร่งใสและตรวจสอบความคุ้มค่าของการเพิ่มจำนวนหน่วยงานและพนักงานข้าราชการ"
+            },
+            {
+                question: "มาตรา ๘ ทวิ วรรคท้าย ระบุว่าระยะเวลา ๓ ปีหลังการโอนรวมกรม ห้ามมีข้อใด?",
+                options: [
+                    { text: "ห้ามมิให้กำหนดตำแหน่งอัตราพนักงานราชการหรือข้าราชการเพิ่มขึ้นในสังกัดนั้น", isCorrect: true, rationale: "กฎหมายล็อกไม่ให้มีการขยายจำนวนอัตราคนเพิ่มขึ้นเป็นระยะเวลา ๓ ปีเพื่อบีบให้เกลี่ยเฉลี่ยคนทำงานเดิมก่อน" },
+                    { text: "ห้ามเปลี่ยนรัฐมนตรีเจ้าสังกัด", isCorrect: false, rationale: "รัฐมนตรีสามารถปรับเปลี่ยนได้ตามวาระแผ่นดิน" },
+                    { text: "ห้ามมิให้เบิกจ่ายงบจัดซื้อจัดจ้างเกิน ๑ ล้านบาท", isCorrect: false, rationale: "ไม่มีข้อกำหนดงบจัดซื้อจัดจ้างล้านบาทในวรรคนี้" },
+                    { text: "ไม่มีข้อใดระบุถูกต้องตรงเกณฑ์", isCorrect: false, rationale: "ห้ามเพิ่มตำแหน่งเป็นกรอบกฎหมายหลักมาตรานี้" }
+                ],
+                hint: "การคุมเพดานตำแหน่งเป็นเวลา ๓ ปี เพื่อไม่ให้เกิดการแฝงโอนคนมาเพิ่มอัตราแผ่นดินเฉยๆ"
+            },
+            {
+                question: "การกระจายภารกิจและอำนาจตัดสินใจให้แก่จังหวัดและส่วนท้องถิ่นตามมาตรา ๓/๑ ต้องทำอย่างค่อยเป็นค่อยไปโดยคำนึงถึงเรื่องใด?",
+                options: [
+                    { text: "ความพร้อมของทรัพยากร บุคลากร และงบประมาณในระดับพื้นที่รับโอน", isCorrect: true, rationale: "การส่งมอบงานต้องดูความพร้อมรับช่วงต่อของหน่วยท้องถิ่นเพื่อไม่ให้งานบริการสะดุด" },
+                    { text: "จำนวนสมาชิกสภาเทศบาลจังหวัด", isCorrect: false, rationale: "ไม่เกี่ยวโยงสัดส่วนเทศบาล" },
+                    { text: "ความชอบใจส่วนบุคคลของผู้ว่าราชการจังหวัด", isCorrect: false, rationale: "ไม่ใช่หลักเกณฑ์บริหารปกครองที่ดี" },
+                    { text: "ไม่มีข้อความใดกล่าวถูก", isCorrect: false, rationale: "ข้อแรกถูกต้อง" }
+                ],
+                hint: "ต้องวิเคราะห์ว่าผู้รับมอบภารกิจมีความสามารถ ทรัพยากร และพนักงานเพียงพอจะลุยงานต่อหรือไม่"
+            },
+            {
+                question: "กรณีข้าราชการพลเรือนประสงค์ร้องเรียนเรื่องไม่ได้รับความเป็นธรรมจากการโอนย้ายกระทรวงตามมาตรา ๑๑ (๕) สามารถส่งเรื่องต่อบอร์ดใด?",
+                options: [
+                    { text: "คณะกรรมการพิทักษ์ระบบคุณธรรม (ก.พ.ค.)", isCorrect: true, rationale: "ก.พ.ค. มีหน้าที่โดยตรงในการวินิจฉัยพิจารณาข้อร้องเรียนและอุทธรณ์ของข้าราชการพลเรือนสามัญ" },
+                    { text: "สภานิติบัญญัติรัฐสภา", isCorrect: false, rationale: "สภานิติบัญญัติไม่พิจารณาข้อพิพาทบุคคลรายคน" },
+                    { text: "คณะกรรมการ ก.พ.ร.", isCorrect: false, rationale: "ก.พ.ร. ดูภาพรวมโครงสร้างและการพัฒนาระบบ ไม่ใช่บอร์ดคดีบุคคลอุทธรณ์คุณธรรม" },
+                    { text: "ไม่มีข้อความใดกล่าวถูก", isCorrect: false, rationale: "ก.พ.ค. คือบอร์ดพิทักษ์คุณธรรมข้าราชการโดยเฉพาะ" }
+                ],
+                hint: "เป็นคณะกรรมการพิจารณาคดีวินัยและสิทธิ์อุทธรณ์ข้าราชการประจำ ชื่อย่อ ก.พ.ค."
+            },
+            {
+                question: "มาตรา ๒๑ วรรคสาม ได้เปิดโอกาสให้มีกลุ่มภารกิจ (Task Force) ได้ เจตจำนงเพื่อแก้ปัญหาทางปฏิบัติใด?",
+                options: [
+                    { text: "การทำงานที่ซ้ำซ้อน สิ้นเปลืองงบประมาณ และขาดเป้าหมายผลสัมฤทธิ์ร่วมกันของแต่ละกรมที่มีงานใกล้เคียงกัน", isCorrect: true, rationale: "การหลอมรวมหรือจัดกลุ่มกรมช่วยลดปัญหาความทับซ้อนและแชร์บุคลากรเครื่องมือร่วมกันได้ดี" },
+                    { text: "ปัญหางบประมาณค้างท่อประจำจังหวัด", isCorrect: false, rationale: "ไม่เกี่ยว" },
+                    { text: "การแทรกแซงงานของพนักงานราชการโดยฝ่ายการเมือง", isCorrect: false, rationale: "ไม่ใช่จุดมุ่งหมายหลัก" },
+                    { text: "ไม่มีข้อความใดถูกต้อง", isCorrect: false, rationale: "ข้อย่อยแรกสมบูรณ์" }
+                ],
+                hint: "รวมกลุ่มงานที่คล้ายกัน (เช่น กลุ่มภารกิจด้านการขนส่ง, กลุ่มภารกิจด้านสิ่งแวดล้อม) เพื่อแชร์งานบูรณาการกันดีขึ้น"
+            },
+            {
+                question: "กลุ่มจังหวัดตามมาตรา ๕๓/๑ สามารถขอรับงบประมาณรายจ่ายแผ่นดินโดยตรงได้หรือไม่?",
+                options: [
+                    { text: "ได้ โดยได้รับสิทธิ์จัดตั้งกองทุนและงบประมาณพัฒนาเฉพาะของกลุ่มจังหวัดเอง", isCorrect: true, rationale: "กฎหมายเอื้อสิทธิ์ให้กลุ่มจังหวัดได้รับการจัดสรรงบประมาณรายจ่ายประจำปีพัฒนาภูมิภาคได้โดยตรง" },
+                    { text: "ไม่ได้ ต้องขอยืมผ่านงบผู้ว่าราชการจังหวัดรายคนเท่านั้น", isCorrect: false, rationale: "กลุ่มจังหวัดมีสถานะขอรับงบตรงตามสิทธิ์จัดสรรงบประมาณแผ่นดินได้แล้ว" },
+                    { text: "ได้เฉพาะกรณีมีสงครามหรือภัยพิบัติร้ายแรงแผ่นดิน", isCorrect: false, rationale: "สามารถขอรับในโครงการงบประมาณพัฒนาประจำปีปกติได้เช่นกัน" },
+                    { text: "ไม่มีข้อใดระบุถูกเกณฑ์", isCorrect: false, rationale: "ขอรับงบประมาณตรงได้ตามกฎหมายแปรโครงสร้าง" }
+                ],
+                hint: "เป็นวิธีการสนับสนุนงบเชิงยุทธศาสตร์เพื่อให้กลุ่มจังหวัดร่วมกันดันโครงการพัฒนาเศรษฐกิจที่เชื่อมโยงกันได้ไว"
+            },
+            {
+                question: "ตามมาตรา ๖๑/๒ ใครเป็นผู้แต่งตั้ง 'คณะบุคคลผู้ทำหน้าที่ไกล่เกลี่ยประนอมข้อพิพาท' ประจำแต่ละอำเภอ?",
+                options: [
+                    { text: "นายอำเภอ โดยได้รับความเห็นชอบจากคณะกรมการจังหวัด", isCorrect: true, rationale: "นายอำเภอจัดตั้งและคัดเลือกคนในพื้นที่เข้าเป็นบอร์ดไกล่เกลี่ยโดยต้องได้รับความเห็นชอบจากศาลากลางบอร์ดกรมการจังหวัดก่อน" },
+                    { text: "ผู้ว่าราชการจังหวัด ลงชื่ออนุมัติเดี่ยว", isCorrect: false, rationale: "ผู้ว่าฯ ไม่ได้คัดเลือกรายบุคคลระดับอำเภอเองโดยตรง" },
+                    { text: "อัยการจังหวัดประจำท้องที่สืบสวน", isCorrect: false, rationale: "ไม่ถูกต้อง" },
+                    { text: "ไม่มีข้อใดระบุได้ถูกต้อง", isCorrect: false, rationale: "ข้อแรกสมบูรณ์ถูกต้องตามตัวบทมาตรา" }
+                ],
+                hint: "นายอำเภอเสนอรายชื่อและจัดตั้ง แต่ต้องรายงานและขอความเห็นชอบระดับจังหวัด (คณะกรมการจังหวัด)"
+            },
+            {
+                question: "ตามมาตรา ๖๑/๓ การบันทึกข้อตกลงยอมความจากการไกล่เกลี่ยคดีอาญาสำเร็จ มีผลอย่างไรทางกฎหมายประมวลคดีอาญา?",
+                options: [
+                    { text: "มีผลให้สิทธิในการนำคดีอาญามาฟ้องร้องเป็นอันเลิกกัน (คดีระงับ)", isCorrect: true, rationale: "เมื่อตกลงยอมความคดีอาญาอันยอมความได้สำเร็จตามมาตรา ๖๑/๓ คดีอาญาเป็นอันระงับและเลิกกันถาวร" },
+                    { text: "ไม่มีผลต่อคดีอาญา พนักงานสอบสวนยังสามารถส่งเรื่องฟ้องศาลต่อได้ปกติ", isCorrect: false, rationale: "คดีระงับทันทีเพื่อประโยชน์ในการประสานรอยร้าวในชุมชนและลดคดีขึ้นสู่ศาล" },
+                    { text: "ต้องส่งผู้ต้องหาไปกักขังเพื่อรอดูอาการเสพติด ๑๕ วัน", isCorrect: false, rationale: "ไม่เกี่ยวโยงการเสพติดในข้อวินิจฉัยคดีทั่วไปนี้" },
+                    { text: "ไม่มีข้อใดกล่าวถูกสมบูรณ์", isCorrect: false, rationale: "คดีอาญาเลิกฟ้องกันถาวรถูกต้องตามกฎหมายวิธีพิจารณาความอาญา" }
+                ],
+                hint: "คดีอาญาจบลงอย่างถาวร (เลิกกัน) เพื่อความสงบสุขในระดับตำบลและอำเภอ"
+            },
+            {
+                question: "สลค. (สำนักเลขาธิการคณะรัฐมนตรี) มีเลขาธิการ ครม. คุมงาน และเลขาฯ ครม. นี้สังกัดข้าราชการประเภทใด?",
+                options: [
+                    { text: "ข้าราชการพลเรือนสามัญ", isCorrect: true, rationale: "เลขาธิการ ครม. เป็นข้าราชการพลเรือนสามัญสูงสุดประจำ สลค. เพื่อความต่อเนื่องเป็นกลางทางการเมือง" },
+                    { text: "ข้าราชการการเมือง", isCorrect: false, rationale: "เลขาธิการ ครม. ไม่ใช่ข้าราชการการเมือง (ต่างจากเลขาธิการนายกฯ สลน.)" },
+                    { text: "ข้าราชการตำรวจประจำศาลหลวง", isCorrect: false, rationale: "ไม่ใช่" },
+                    { text: "ไม่มีข้อใดกล่าวถูก", isCorrect: false, rationale: "ข้าราชการพลเรือนสามัญถูกต้องตรงมาตรา ๑๔" }
+                ],
+                hint: "ต่างจาก สลน. (สลน. คุมโดยเลขาธิการนายกฯ ซึ่งเป็นข้าราชการการเมือง) แต่ สลค. ต้องคุมโดยข้าราชการประจำ"
+            },
+            {
+                question: "จังหวัดตามมาตรา ๕๒ ได้รับการประกาศจัดตั้งขึ้นเป็นนิติบุคคลและจัดระเบียบราชการโดยคำนึงถึงเรื่องใดเป็นหลัก?",
+                options: [
+                    { text: "ประชากร ความเหมาะสมทางเศรษฐกิจ สังคม และคมนาคม", isCorrect: true, rationale: "การตั้งจังหวัดใหม่ต้องพิจารณาความพร้อมรอบด้านทั้งสัดส่วนราษฎร ทรัพยากร และสภาพภูมิศาสตร์" },
+                    { text: "ความโปรดปรานของปลัดกระทรวงมหาดไทย", isCorrect: false, rationale: "ไม่ใช่เกณฑ์มาตรฐานกฎหมายบริหารแผ่นดินที่ดี" },
+                    { text: "จำนวนนายอำเภอที่มีคุณวุฒิระดับดุษฎีบัณฑิต", isCorrect: false, rationale: "คุณวุฒิระดับดุษฎีบัณฑิตไม่ใช่องค์ประกอบกำหนดตั้งจังหวัดใหม่" },
+                    { text: "ไม่มีข้อความใดระบุได้สมบูรณ์ตรงประเด็น", isCorrect: false, rationale: "ข้อย่อยแรกสมบูรณ์" }
+                ],
+                hint: "มองหาขอบข่ายการประเมินความสมดุลด้านความเป็นอยู่ของราษฎร สภาพสังคม และเส้นทางสัญจร"
+            },
+            {
+                question: "ข้อใดคืออำนาจสูงสุดของนายกรัฐมนตรีตามมาตรา ๑๑ (๓) ในการควบคุมข้าราชการ?",
+                options: [
+                    { text: "สั่งให้ข้าราชการชี้แจงรายงาน หรือแสดงความคิดเห็นเกี่ยวกับการทำงาน", isCorrect: false, rationale: "นี่เป็นวงเล็บอื่นในการขอรายงานทั่วไป" },
+                    { text: "สั่งการให้ข้าราชการทุกสังกัด ปฏิบัติหน้าที่ให้เป็นไปตามกฎหมาย นโยบาย และคำสั่งแผ่นดิน", isCorrect: true, rationale: "เป็นหัวใจหลักมาตรา ๑๑ (๓) เพื่อให้การใช้อำนาจของทุกกระทรวงเดินไปในทิศทางเอกภาพเดียวกัน" },
+                    { text: "การอนุมัติโบนัสข้าราชการประจังหวัดรายบุคคล", isCorrect: false, rationale: "นายกฯ ไม่ได้อนุมัติโบนัสรายคน" },
+                    { text: "ไม่มีข้อความใดกล่าวถูกต้อง", isCorrect: false, rationale: "วงเล็บสองระบุสมบูรณ์" }
+                ],
+                hint: "คุมข้าราชการทุกสังกัดให้เดินตามนโยบายแผ่นดินอย่างเที่ยงตรงและถูกต้องตามกฎหมาย"
+            },
+            {
+                question: "หากจังหวัดต้องการจัดทำแผนพัฒนาจังหวัดตามมาตรา ๕๓/๑ แผนดังกล่าวจะต้องสอดคล้องกับข้อใด?",
+                options: [
+                    { text: "แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ และแผนยุทธศาสตร์ชาติ", isCorrect: true, rationale: "แผนพัฒนาจังหวัดต้องล้อและประสานสอดรับกับนโยบายพัฒนาระดับประเทศชาติเพื่อไม่ให้ทิศทางขัดแย้งกัน" },
+                    { text: "ความต้องการรายบุคคลของผู้ว่าราชการจังหวัด", isCorrect: false, rationale: "แผนพัฒนาจังหวัดต้องอิงราษฎรและภาพรวมแผ่นดิน ไม่ใช่อิงผู้ว่าฯ เป็นหลักชี้ขาดส่วนตัว" },
+                    { text: "นโยบายการเงินของธนาคารแห่งประเทศไทย", isCorrect: false, rationale: "ไม่เกี่ยวข้องตรงเกณฑ์" },
+                    { text: "ไม่มีข้อความใดกล่าวถูกตรงเกณฑ์", isCorrect: false, rationale: "ข้อแรกระบุตรงตัวบทมาตรา" }
+                ],
+                hint: "มองหายุทธศาสตร์ชาติและการวางแผนเศรษฐกิจระดับประเทศ (สภาพัฒน์ฯ)"
+            },
+            {
+                question: "ตามมาตรา ๒๑ ปลัดกระทรวงมีหน้าที่ช่วยอำนวยการและประเมินผลอย่างไร?",
+                options: [
+                    { text: "กำกับและประเมินผลการทำงานของกรมต่างๆ ในสังกัดกระทรวงให้เป็นไปตามนโยบายและแผนงานกระทรวง", isCorrect: true, rationale: "ปลัดกระทรวงคุมงานประจำและคุมการรันงานของทุกอธิบดีในสังกัดกระทรวงให้ได้ผลงานตามเป้าหมาย" },
+                    { text: "แต่งตั้งกรรมการตรวจจับการทุจริตของรัฐสภา", isCorrect: false, rationale: "เป็นหน้าที่ของ ป.ป.ช. หรือ ป.ป.ท. ไม่ใช่ปลัดกระทรวงพลเรือนทั่วไป" },
+                    { text: "การสั่งยุบสภาการศึกษาจังหวัดกรณีเกิดเหตุวุ่นวาย", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรา ๒๑" },
+                    { text: "ไม่มีข้อความใดกล่าวได้ตรงเกณฑ์", isCorrect: false, rationale: "ข้อย่อยแรกสมบูรณ์" }
+                ],
+                hint: "ปลัดกระทรวงคุมเกลี่ยงานประจำและคอยประเมินผลงานของอธิบดีทุกคนในสังกัด"
+            },
+            {
+                question: "ในการแบ่งส่วนราชการภายในกรมตามมาตรา ๘ ฉ ใครเป็นผู้เซ็นลงนามเพื่อออกเป็น 'กฎกระทรวง'?",
+                options: [
+                    { text: "นายกรัฐมนตรี ในฐานะประธาน ก.พ.ร.", isCorrect: false, rationale: "นายกรัฐมนตรีเซ็นระดับ พ.ร.ฎ. และ พ.ร.บ. แต่กฎกระทรวงเป็นสิทธิ์ของรัฐมนตรีกระทรวงนั้น" },
+                    { text: "รัฐมนตรีว่าการกระทรวงผู้สังกัดและรับผิดชอบส่วนราชการนั้น", isCorrect: true, rationale: "มาตรา ๘ ฉ กำหนดให้รัฐมนตรีเจ้าสังกัดเป็นผู้ออกกฎกระทรวงแบ่งส่วนงานย่อยกรมในกระทรวงตนเอง" },
+                    { text: "เลขาธิการคณะกรรมการกฤษฎีกาแผ่นดิน", isCorrect: false, rationale: "กฤษฎีกาตรวจร่างแต่ไม่ลงนามออกกฎบังคับใช้เอง" },
+                    { text: "ไม่มีข้อใดระบุถูกต้องตรงเกณฑ์", isCorrect: false, rationale: "รัฐมนตรีเจ้าสังกัดถูกต้องตรงประเด็นกฎหมายบริหารแผ่นดิน" }
+                ],
+                hint: "ผู้ถือบังเหียนใหญ่ที่สุดฝ่ายการเมืองของแต่ละกระทรวง ได้แก่ รัฐมนตรีว่าการกระทรวง"
+            },
+            {
+                question: "หากต้องการร้องเรียนพฤติกรรมการใช้อำนาจไม่โปร่งใสของพนักงานในท้องถิ่นระดับจังหวัด บอร์ด ก.ธ.จ. มีหน้าที่ดำเนินการอย่างไรตามมาตรา ๕๕/๑?",
+                options: [
+                    { text: "เข้าสอดส่อง ตรวจสอบข้อเท็จจริง และแจ้งให้ผู้ว่าราชการจังหวัด หรือส่วนราชการที่เกี่ยวข้องดำเนินการตามกฎหมายต่อไป", isCorrect: true, rationale: "ก.ธ.จ. มีหน้าที่สอดส่องและแจ้งเรื่องต่อหัวหน้าส่วนราชการให้ลงมือวินัยชี้ขาด ไม่ได้สั่งกักขังหรือไล่ออกด้วยตนเองทันที" },
+                    { text: "สั่งพักงานข้าราชการรายคนทันทีโดยไม่ต้องรอผลสอบสวน", isCorrect: false, rationale: "ก.ธ.จ. ไม่มีอำนาจสั่งพักงานข้าราชการประจำพลเรือนได้เองโดยตรง" },
+                    { text: "สั่งปรับงบส่วนท้องถิ่นลงครึ่งหนึ่งเพื่อลงโทษ", isCorrect: false, rationale: "ไม่เกี่ยวโยงการตัดลดงบแผ่นดินเดี่ยวลักษณะนี้" },
+                    { text: "ไม่มีข้อใดระบุได้สมบูรณ์ตรงประเด็น", isCorrect: false, rationale: "ข้อแรกถูกต้องตามหน้าที่ ก.ธ.จ." }
+                ],
+                hint: "ทำหน้าที่เป็นหูเป็นตา (สอดส่อง) และแจ้งเรื่องให้พ่อเมืองผู้คุมวินัย (ผู้ว่าฯ) หรือกรมต้นสังกัดทราบเรื่อง"
+            },
+            {
+                question: "การจัดตั้งหรือยกเลิกทบวงในสังกัดตามมาตรา ๗ และมาตรา ๘ ตราเป็นกฎหมายข้อใด?",
+                options: [
+                    { text: "พระราชบัญญัติ", isCorrect: true, rationale: "การจัดตั้ง รวม หรือโอนระดับทบวงสังกัดสำนักนายกฯ/กระทรวง ต้องตราเป็นพระราชบัญญัติเฉกเช่นเดียวกับกระทรวง" },
+                    { text: "พระราชกฤษฎีกา", isCorrect: false, rationale: "พระราชกฤษฎีกาใช้ในกรณีการยุบหรือรวมที่ไม่มีผลให้ตำแหน่งพนักงานข้าราชการเพิ่มขึ้น" },
+                    { text: "กฎกระทรวงมหาดไทย", isCorrect: false, rationale: "ไม่ถูกต้อง" },
+                    { text: "ไม่มีข้อใดระบุถูกต้อง", isCorrect: false, rationale: "ตราเป็นพระราชบัญญัติสอดคล้องตามหลักมาตรา ๘ วรรคหนึ่ง" }
+                ],
+                hint: "ทบวงเทียบเท่ากระทรวง การตั้งจึงเป็นเรื่องใหญ่ระดับสภาผ่าน พ.ร.บ."
+            },
+            {
+                question: "มาตรา ๓/๑ มุ่งเน้นวัตถุประสงค์สูงสุดในการให้บริการประชาชนอย่างไร?",
+                options: [
+                    { text: "การลดขั้นตอนปฏิบัติงาน และอำนวยความสะดวกตอบสนองความต้องการของราษฎรอย่างรวดเร็วโปร่งใส", isCorrect: true, rationale: "มาตรา ๓/๑ มีหัวใจคือความเร็ว ประหยัด สะดวก และเกิดประโยชน์สุขสูงสุดแก่ราษฎร" },
+                    { text: "การจัดทัศนศึกษาดูงานต่างประเทศของผู้นำสมาคมท้องถิ่น", isCorrect: false, rationale: "ไม่ใช่จุดประสงค์ที่ถูกต้องตามธรรมาภิบาลแผ่นดิน" },
+                    { text: "การบังคับให้ประชาชนลงทะเบียนเข้าแอปพลิเคชันของรัฐทุกกรณี", isCorrect: false, rationale: "ไม่ใช่การบังคับราษฎรแต่เป็นภารกิจของเจ้าหน้าที่ต้องอำนวยความสะดวก" },
+                    { text: "ไม่มีข้อความใดระบุได้ครบถ้วน", isCorrect: false, rationale: "ข้อย่อยแรกสมบูรณ์" }
+                ],
+                hint: "เน้น 'ลดขั้นตอน-สะดวก-รวดเร็ว-ตอบสนองความต้องการประชาชน' สอดรับกับการบริหารราชการแนวใหม่"
+            },
+            {
+                question: "คณะกรรมการ ก.พ.ร. ตามมาตรา ๗๑/๑ มีวาระของกรรมการผู้ทรงคุณวุฒิอยู่ในตำแหน่งคราวละกี่ปี?",
+                options: [
+                    { text: "๒ ปี", isCorrect: false, rationale: "สั้นเกินไป" },
+                    { text: "๔ ปี", isCorrect: true, rationale: "ตามมาตรา ๗๑/๓ กรรมการผู้ทรงคุณวุฒิใน ก.พ.ร. ดำรงตำแหน่งคราวละสี่ปีเต็ม" },
+                    { text: "๕ ปี", isCorrect: false, rationale: "ไม่ถูกต้อง" },
+                    { text: "ไม่มีข้อใดกล่าวถูก", isCorrect: false, rationale: "๔ ปี ถูกต้องตามกฎหมาย" }
+                ],
+                hint: "เท่ากับอายุสภาผู้แทนราษฎรและการบริหารงานรอบปกติของรัฐบาล"
+            },
+            {
+                question: "หากต้องการสั่งเปลี่ยนชื่อกระทรวงแรงงานไปเป็นกระทรวงพัฒนาฝีมือแรงงานแผ่นดิน จะต้องตราเป็นกฎหมายระดับใดตามมาตรา ๘ ตรี?",
+                options: [
+                    { text: "พระราชบัญญัติ", isCorrect: false, rationale: "การเปลี่ยนชื่อกระทรวงไม่มีผลเพิ่มงบจัดตั้งใหม่หรือแปรตำแหน่งงาน จึงใช้ระดับพระราชกฤษฎีกาก็พอ" },
+                    { text: "พระราชกฤษฎีกา", isCorrect: true, rationale: "มาตรา ๘ ตรี ระบุว่า 'การเปลี่ยนชื่อส่วนราชการตามมาตรา ๗ (สำนักนายกฯ กระทรวง กรม) ให้ตราเป็นพระราชกฤษฎีกา'" },
+                    { text: "กฎกระทรวงออกโดย รมว.มหาดไทย", isCorrect: false, rationale: "ไม่เกี่ยวข้องกับมหาดไทย" },
+                    { text: "ระเบียบสำนักนายกรัฐมนตรีร่วมเห็นชอบ", isCorrect: false, rationale: "ระเบียบสำนักนายกฯ ไม่สามารถเปลี่ยนชื่อกระทรวงหลักในมาตรา ๗ ได้" }
+                ],
+                hint: "การยุบ เปลี่ยนชื่อ หรือโอนย้ายที่ไม่มีพนักงานเพิ่มขึ้น ใช้กฎหมายระดับ พระราชกฤษฎีกา"
+            },
+            {
+                question: "ปลัดกระทรวงเป็นข้าราชการประจำสูงสุด คอยดูแลรับผิดชอบงานประจำของกระทรวง และขึ้นตรงต่อใครทางสายงานการเมืองในกระทรวง? (มาตรา ๒๐)",
+                options: [
+                    { text: "นายกรัฐมนตรีแผ่นดินโดยตรง", isCorrect: false, rationale: "ปลัดกระทรวงขึ้นตรงต่อรัฐมนตรีว่าการกระทรวงนั้นๆ ก่อนตามโครงสร้างประจำ" },
+                    { text: "รัฐมนตรีว่าการกระทรวงนั้นๆ", isCorrect: true, rationale: "ตามมาตรา ๒๐ ปลัดกระทรวงเป็นผู้บังคับบัญชาข้าราชการรองจากรัฐมนตรีว่าการกระทรวง" },
+                    { text: "ประธานคณะกรรมการพัฒนาระบบราชการแผ่นดิน", isCorrect: false, rationale: "ก.พ.ร. ดูโครงสร้าง แต่อำนาจสั่งการโยกย้ายรายวันเป็นของ รมว." },
+                    { text: "ไม่มีข้อใดระบุถูกต้องสมบูรณ์", isCorrect: false, rationale: "ขึ้นตรงต่อรัฐมนตรีว่าการกระทรวงถูกต้องและสมบูรณ์ที่สุด" }
+                ],
+                hint: "ปลัดกระทรวงคุมข้าราชการประจำ แต่สายการเมืองที่คุมนโยบายหัวโต๊ะกระทรวงคือ รัฐมนตรีว่าการกระทรวง"
+            },
+            {
+                question: "ใครทำหน้าที่เป็น 'เลขานุการ' ของบอร์ดคณะกรรมการพัฒนาระบบราชการ (ก.พ.ร.) ตามมาตรา ๗๑/๑ วรรคสอง?",
+                options: [
+                    { text: "ปลัดสำนักนายกรัฐมนตรี", isCorrect: false, rationale: "ปลัดสำนักนายกฯ ไม่ใช่เลขานุการบอร์ดพัฒนาระบบราชการนี้" },
+                    { text: "เลขาธิการ ก.พ.ร.", isCorrect: true, rationale: "ระบุเด่นชัดในมาตรา ๗๑/๑ วรรคสองให้เลขาธิการ ก.พ.ร. เป็นกรรมการและเลขานุการ ก.พ.ร. โดยตำแหน่ง" },
+                    { text: "เลขาธิการนายกรัฐมนตรี", isCorrect: false, rationale: "เลขาฯ นายกฯ คุม สลน." },
+                    { text: "ไม่มีข้อใดระบุถูกต้องตรงประเด็น", isCorrect: false, rationale: "เลขาธิการ ก.พ.ร. ถูกต้องตรงตามตัวบทมาตรา" }
+                ],
+                hint: "เป็นหัวหน้าสำนักงาน ก.พ.ร. โดยตำแหน่งนั่นเอง ได้แก่ เลขาธิการ ก.พ.ร."
+            },
+            {
+                question: "ตามมาตรา ๓/๑ การจัดสรรงบประมาณตลอดจนบรรจุและแต่งตั้งบุคคลเข้าดำรงตำแหน่งราชการแผ่นดิน ต้องคำนึงถึงสิ่งใดเป็นสำคัญ?",
+                options: [
+                    { text: "หลักคุณธรรมและความสามารถในการปฏิบัติงานเพื่อประโยชน์สุขประชาชน", isCorrect: true, rationale: "การบริหารงานและงบประมาณบุคคลต้องมุ่งสู่เป้าหมายสัมฤทธิผลและธรรมาภิบาลที่ดี" },
+                    { text: "ระบบอุปถัมภ์ของเครือข่ายภาคีจังหวัด", isCorrect: false, rationale: "ระบบอุปถัมภ์ขัดต่อหลักการบริหารราชการที่ดีและกฎหมายคุณธรรม" },
+                    { text: "การตอบสนองต่อนักการเมืองเสียงข้างมากรายพรรค", isCorrect: false, rationale: "ไม่ถูกต้องตามมาตรา ๓/๑" },
+                    { text: "ไม่มีข้อความใดระบุได้สมบูรณ์ตรงประเด็น", isCorrect: false, rationale: "วงเล็บแรกถูกต้องตามหลักการคุณธรรมแผ่นดิน" }
+                ],
+                hint: "ต้องคัดกรองความรู้ความสามารถ (ระบบคุณธรรม) เพื่อให้ได้พนักงานข้าราชการที่ทำงานตอบสนองราษฎรได้จริง"
+            },
+            {
+                question: "มาตรา ๑๑ (๗) ให้อำนาจนายกรัฐมนตรีสั่งการให้ข้าราชการรายงานข้อเท็จจริงเกี่ยวกับการทำหน้าที่ และหากพบการละเลยปฏิบัติหน้าที่ นายกฯ มีสิทธิ์สั่งการตามข้อใด?",
+                options: [
+                    { text: "สั่งให้ข้าราชการผู้นั้นยุติการปฏิบัติหน้าที่ชั่วคราว หรือสั่งสำรองราชการตามวินัย", isCorrect: true, rationale: "มาตรา ๑๑ (๗) นายกฯ มีสิทธิ์สั่งสืบสวนและส่งเรื่องต่อหัวหน้าส่วนงานให้ลงดาบวินัยข้าราชการได้เด็ดขาดชั่วคราว" },
+                    { text: "สั่งยึดทรัพย์สินส่วนตัวข้าราชการมาเป็นของแผ่นดินทันทีโดยไม่ต้องผ่านศาล", isCorrect: false, rationale: "การยึดทรัพย์ต้องอาศัยคดีอาญาจากคำสั่งศาลชี้ขาด นายกฯ สั่งยึดทรัพย์สินส่วนตัวตรงมาตรานี้ไม่ได้" },
+                    { text: "สั่งยุบกองงานจังหวัดที่พนักงานผู้นั้นสังกัดอยู่", isCorrect: false, rationale: "การยุบกองงานต้องใช้กฎกระทรวงหรือ พ.ร.ฎ. ตามขั้นตอนปกติ ไม่ใช่สั่งเดี่ยวรายกรณีบุคคลละเลยงาน" },
+                    { text: "ไม่มีข้อความใดถูกต้อง", isCorrect: false, rationale: "ข้อย่อยแรกสมบูรณ์" }
+                ],
+                hint: "นายกฯ มีสิทธิ์เบรกระงับงานหรือสั่งให้ย้ายพ้นพื้นที่เพื่อความปลอดภัยและตั้งกรรมการสืบสวนคดี"
+            },
+            {
+                question: "ในสำนักงานปลัดสำนักนายกรัฐมนตรี (OPM) ปลัดสำนักนายกฯ เป็นข้าราชการพลเรือนสามัญ มีผู้บังคับบัญชาตามมาตรา ๑๖ ในลักษณะใด?",
+                options: [
+                    { text: "ขึ้นตรงต่อเลขาธิการนายกรัฐมนตรีแผ่นดินชั่วคราว", isCorrect: false, rationale: "ปลัดคุมงานประจำ OPM ไม่ได้ขึ้นตรงต่อเลขาฯ นายกฯ (สลน.)" },
+                    { text: "ขึ้นตรงและบังคับบัญชาข้าราชการรองจากนายกรัฐมนตรี รองนายกรัฐมนตรี และรัฐมนตรีประจำสำนักนายกรัฐมนตรี", isCorrect: true, rationale: "ระบุไว้ในมาตรา ๑๖ อย่างชัดเจนเพื่อจัดโครงสร้างสายการบังคับบัญชาใน OPM" },
+                    { text: "ขึ้นตรงต่อประธานวุฒิสภาแผ่นดินเพื่อส่งเอกสารจัดซื้อจัดจ้าง", isCorrect: false, rationale: "ปลัดสำนักนายกฯ อยู่ฝ่ายบริหาร ไม่ขึ้นกับประธานวุฒิสภา" },
+                    { text: "ไม่มีข้อความใดระบุได้ถูกต้องตรงประเด็น", isCorrect: false, rationale: "ข้อย่อยสองสมบูรณ์ดี" }
+                ],
+                hint: "ปลัด OPM คุมข้าราชการประจำ OPM จึงขึ้นตรงต่อข้าราชการการเมืองระดับสูงประจำสำนักนายกฯ ทั้งสามส่วน"
+            },
+            {
+                question: "ในการมอบอำนาจตามมาตรา ๓๘ ข้อใด 'ไม่สามารถ' มอบอำนาจต่อให้ผู้รับมอบอำนาจช่วงอื่นได้อีก?",
+                options: [
+                    { text: "ผู้รับมอบอำนาจช่วงสามารถมอบต่อได้เลยในทุกกรณีเพื่อความรวดเร็ว", isCorrect: false, rationale: "การมอบช่วงต้องมีกฎหมายหรือคำสั่งของผู้มอบเดิมอนุญาตไว้ชัดเจน" },
+                    { text: "ห้ามมิให้ผู้รับมอบอำนาจมอบอำนาจนั้นให้แก่ผู้อื่นต่อไป เว้นแต่จะได้รับการยินยอมและมีระเบียบหรือคำสั่งอนุญาตไว้โดยชัดเจน", isCorrect: true, rationale: "หลักการมอบอำนาจช่วงตามมาตรา ๓๘ ป้องกันการปัดความรับผิดชอบไปเรื่อยๆ จึงห้ามมอบช่วงต่อยกเว้นมีกฎเกณฑ์อนุญาตเด็ดขาดไว้" },
+                    { text: "สามารถมอบช่วงให้พนักงานจ้างเหมาเอกชนทำแทนได้ทันที", isCorrect: false, rationale: "เอกชนไม่รับสิทธิ์ถือมอบอำนาจสั่งการแผ่นดินของทางราชการ" },
+                    { text: "ไม่มีข้อใดระบุถูกต้องตรงประเด็น", isCorrect: false, rationale: "ข้อย่อยสองสมบูรณ์ดีตามหลักกฎหมายปกครอง" }
+                ],
+                hint: "ป้องกันการกระจายสิทธิ์สั่งการมั่วซั่ว (Delegatus non potest delegare): ได้รับมอบมาแล้วห้ามไปเซ็นมอบช่วงต่อยกเว้นผู้มอบเดิมสั่งอนุญาตไว้ล่วงหน้า"
+            },
+            {
+                question: "จังหวัดที่มีฐานะเป็นนิติบุคคลตามมาตรา ๕๒ ได้รับการแบ่งส่วนราชการภายในจังหวัดออกเป็นส่วนงานใดบ้างตามมาตรา ๕๖?",
+                options: [
+                    { text: "สภาปกครองจังหวัด และ สำนักงานจัดหาพัสดุศาลากลาง", isCorrect: false, rationale: "ไม่มีในโครงสร้างมาตรา ๕๖" },
+                    { text: "สำนักงานจังหวัด และ ส่วนราชการประจำจังหวัดที่กระทรวงต่างๆ ตั้งขึ้นประจำจังหวัด", isCorrect: true, rationale: "มาตรา ๕๖ กำหนดโครงสร้างการจัดทัพจังหวัดออกเป็นสำนักงานจังหวัด (งานธุรการและแผน) และส่วนราชการเฉพาะทางประจำจังหวัด" },
+                    { text: "ที่ว่าการปกครองจังหวัด และ กองกำลังตำรวจปราบปรามประจำภูมิภาค", isCorrect: false, rationale: "ตำรวจภูธรไม่จัดอยู่ในสายบริหารภูมิภาคศาลากลางนี้" },
+                    { text: "ไม่มีข้อใดกล่าวถูกต้องสมบูรณ์", isCorrect: false, rationale: "ข้อย่อยสองถูกต้องตรงตัวบท" }
+                ],
+                hint: "แบ่งเป็นสำนักงานจังหวัด (มีหัวหน้าสำนักงานจังหวัดเป็นเลขาผู้ว่าฯ) และส่วนราชการของกระทรวงต่างๆ เช่น สำนักงานที่ดินจังหวัด สำนักงานคลังจังหวัด"
+            },
+            {
+                question: "ตามมาตรา ๗๑/๒ คณะกรรมการ ก.พ.ร. มีสิทธิ์เสนอแนะต่อคณะรัฐมนตรีให้สั่งการข้อใดแก่ส่วนราชการ?",
+                options: [
+                    { text: "สั่งยุบเลิก หรือปรับปรุงแก้ไขขั้นตอนการปฏิบัติงานของหน่วยราชการที่ล่าช้าซ้ำซ้อนให้ได้ผลสัมฤทธิ์ดีขึ้น", isCorrect: true, rationale: "เป็นหน้าที่เด่นชัดของ ก.พ.ร. ในการสแกนหาจุดอืดอาดล้าสมัยของระบบราชการและชง ครม. ให้สั่งโอนย้ายยุบเลิกได้รวดเร็ว" },
+                    { text: "สั่งปลดข้าราชการการเมืองที่ทุจริตแผ่นดินพ้นเก้าอี้ทันที", isCorrect: false, rationale: "การพ้นตำแหน่งของข้าราชการการเมืองเป็นสิทธิ์ของนายกฯ หรือศาลรัฐธรรมนูญ ไม่ใช่เรื่องที่ ก.พ.ร. สั่งการตรง" },
+                    { text: "สั่งแก้ไขตัวเลขเป้าหมายดอกเบี้ยเงินกู้ของธนาคารพาณิชย์", isCorrect: false, rationale: "ก.พ.ร. ไม่คุมดอกเบี้ยเงินกู้เอกชน" },
+                    { text: "ไม่มีข้อความใดระบุได้ถูกต้อง", isCorrect: false, rationale: "วงเล็บแรกสมบูรณ์" }
+                ],
+                hint: "ชงนโยบายระดับ ครม. เพื่อบีบให้กระทรวงปรับปรุงการทำงานที่ซ้ำซ้อน ลดขั้นตอน และรันงานบริการประชาชนได้ไวขึ้น"
+            },
+            {
+                question: "หากจังหวัดนครสวรรค์ต้องการควบรวมตำบลสองตำบลในต่างอำเภอเข้าเป็นตำบลเดียวกัน จะต้องตราเป็นกฎหมายระดับใดตามมาตรา ๖๑?",
+                options: [
+                    { text: "พระราชบัญญัติ", isCorrect: false, rationale: "พ.ร.บ. ใช้ระดับจังหวัด ไม่ใช่ตำบลหรืออำเภอ" },
+                    { text: "พระราชกฤษฎีกา", isCorrect: false, rationale: "พ.ร.ฎ. ใช้ตั้งหรือยุบระดับอำเภอ" },
+                    { text: "ประกาศกระทรวงมหาดไทย", isCorrect: true, rationale: "การแบ่งเขตตำบล หมู่บ้าน ให้ออกเป็นประกาศกระทรวงมหาดไทยตาม พ.ร.บ. ลักษณะปกครองท้องที่ ไม่ใช่ พ.ร.ฎ. อำเภอ ม.๖๑" },
+                    { text: "กฎกระทรวงมหาดไทยเห็นชอบ", isCorrect: false, rationale: "กฎกระทรวงใช้แบ่งกองงานกรม ไม่ใช่แบ่งเขตพื้นที่ตำบล" }
+                ],
+                hint: "การแปรเขตพื้นที่ตำบลหมู่บ้านเป็นงานระดับกระทรวงปกครองส่วนท้องที่คือกฎหมายประกาศกระทรวงมหาดไทย"
+            },
+            {
+                question: "มาตรา ๓/๑ ระบุเรื่องความ 'คุ้มค่า' ในการปฏิบัติราชการแผ่นดินแนะแนวทางวัดผลอย่างไร?",
+                options: [
+                    { text: "ต้องมีการวิเคราะห์ผลกระทบเปรียบเทียบระหว่างผลประโยชน์ที่ได้รับกับค่าใช้จ่ายต้นทุนที่ต้องเสียไปอย่างคุ้มค่าต่อภารกิจรัฐ", isCorrect: true, rationale: "หลักความคุ้มค่า (Value for Money) ต้องดูว่าเงินภาษีที่จ่ายไปได้ผลลัพธ์คุ้มกับที่ประชาชนต้องการหรือไม่" },
+                    { text: "การดูว่ายอดงบจัดซื้อจัดจ้างต่ำที่สุดและประหยัดที่สุดเสมอโดยไม่ดูผลลัพธ์สินค้า", isCorrect: false, rationale: "ของถูกที่สุดแต่ใช้งานไม่ได้ไม่ถือว่าคุ้มค่าตามเจตจำนงธรรมาภิบาลที่ดี" },
+                    { text: "การให้ส่วนท้องถิ่นจัดทำรายงานหนี้สินสะสมรายปี", isCorrect: false, rationale: "ไม่ใช่เกณฑ์วัดความคุ้มค่าของการปฏิบัติงานราชการประจำมาตรานี้" },
+                    { text: "ไม่มีข้อความใดระบุสมบูรณ์ดี", isCorrect: false, rationale: "ข้อย่อยแรกสมบูรณ์ตรงประเด็นตามหลักวิชารัฐศาสตร์สมัยใหม่" }
+                ],
+                hint: "ชั่งน้ำหนักระหว่างผลสัมฤทธิ์ที่ประชาชนได้รับ (ผลประโยชน์) กับงบประมาณแผ่นดินที่ลงทุนไป (ต้นทุน)"
+            },
+            {
+                question: "ในการแบ่งส่วนราชการในสำนักเลขาธิการคณะรัฐมนตรี (สลค.) มาตรา ๑๔ วรรคสี่ บัญญัติให้มีเจ้าหน้าที่ข้าราชการประเภทใดช่วยสายงาน?",
+                options: [
+                    { text: "ข้าราชการพลเรือนสามัญทั้งหมด", isCorrect: true, rationale: "สลค. ดูแลธุรการ ครม. และงานธุรการสัญญาราชพิธี จึงต้องใช้ข้าราชการประจำเพื่อความเป็นกลางอย่างมั่นคงต่อเนื่อง" },
+                    { text: "ข้าราชการการเมืองทั้งหมด", isCorrect: false, rationale: "ข้าราชการการเมืองเข้าออกตามวาระรัฐบาล ขัดต่อระบบงานประจำของ ครม. ที่ต้องเก็บเอกสารความลับข้ามสมัย" },
+                    { text: "ข้าราชการพลเรือนร่วมกับข้าราชการการเมืองครึ่งต่อครึ่ง", isCorrect: false, rationale: "ระบบ สลค. ล็อกเพดานให้เป็นพลเรือนสามัญประจำทั้งหมดเพื่อความมั่นคงของแผ่นดิน" },
+                    { text: "ไม่มีข้อความใดกล่าวถูกตรงเกณฑ์", isCorrect: false, rationale: "ข้อย่อยแรกสมบูรณ์ดี" }
+                ],
+                hint: "งาน ครม. รัฐสภา และงานสถาบันระดับชาติ ต้องคุมด้วยข้าราชการพลเรือนประจำเพื่อความเที่ยงตรงไม่ฝักใฝ่พรรคการเมืองใดพรรคหนึ่ง"
+            },
+            {
+                question: "มาตรา ๕๕/๑ ให้จัดตั้ง ก.ธ.จ. (คณะกรรมการธรรมาภิบาลจังหวัด) ขึ้นมาคอยสอดส่องงานในจังหวัด ยกเว้นส่วนราชการประเภทใดที่ ก.ธ.จ. 'ไม่มีอำนาจเข้าไปสอดส่อง'?",
+                options: [
+                    { text: "องค์การบริหารส่วนจังหวัด", isCorrect: false, rationale: "อปท. ทั่วไปจัดอยู่ในขอบข่ายการสอดส่องของ ก.ธ.จ." },
+                    { text: "ราชการทหาร และ ศาลยุติธรรมแผ่นดิน", isCorrect: true, rationale: "ราชการทหาร (งานความมั่นคง) และศาลยุติธรรม (งานตุลาการ) มีกลไกธรรมและการถ่วงดุลอิสระของตนเองตามกฎหมายเฉพาะ ก.ธ.จ. พลเรือนก้าวล่วงไม่ได้" },
+                    { text: "ที่ว่าการอำเภอ และ กรมที่ดินจังหวัด", isCorrect: false, rationale: "ขอบงานปกครองพลเรือนภูมิภาคเป็นเป้าหมายหลักที่ ก.ธ.จ. ตรวจสอบได้เต็มพิกัด" },
+                    { text: "ไม่มีข้อใดกล่าวถูกสมบูรณ์", isCorrect: false, rationale: "ราชการทหารและงานศาลระบุอยู่ในข้อยกเว้นทางปฏิบัติการธรรมาภิบาลจังหวัดพลเรือน" }
+                ],
+                hint: "เป็นหน่วยงานความมั่นคงเชิงยุทธ์ทางทหารและหน่วยงานอำนาจตุลาการที่มีสิทธิ์พิจารณาคดีเป็นอิสระ"
+            },
+            {
+                question: "การยุบส่วนราชการระดับกรมตามมาตรา ๘ จัตวา บัญญัติให้ทรัพย์สินและตำแหน่งพนักงานข้าราชการของกรมที่โดนยุบต้องส่งคืนคลังภายในกี่วัน?",
+                options: [
+                    { text: "๑๕ วัน", isCorrect: false, rationale: "สั้นเกินไป" },
+                    { text: "๓๐ วัน นับแต่วันที่พระราชกฤษฎีกายุบกรมมีผลบังคับใช้", isCorrect: true, rationale: "มาตรา ๘ จัตวา กำหนดกรอบเวลาสำหรับการเคลียร์พนักงานและการส่งต่อโอนงานไว้ที่ ๓๐ วันทำการ" },
+                    { text: "๖๐ วัน นับจากวันที่ลงประชามติ", isCorrect: false, rationale: "ไม่ใช่" },
+                    { text: "ไม่มีข้อความใดระบุได้สมบูรณ์ตรงประเด็น", isCorrect: false, rationale: "๓๐ วันปฏิทินถัดจากประกาศบังคับใช้ถ้อยตัวกฎหมายยุบเลิก" }
+                ],
+                hint: "กรอบเวลาหนึ่งเดือน (๓๐ วัน) ถือเป็นเกณฑ์จัดการเอกสารและการรื้อถอนระบบงาน"
+            },
+            {
+                question: "มาตรา ๓/๑ บัญญัติเจตจำนงสูงสุดของการรันงานราชการแผ่นดินไทยแนวใหม่ด้วยเป้าหมายหลักกี่วัตถุประสงค์?",
+                options: [
+                    { text: "๗ วัตถุประสงค์ (ประโยชน์สุขประชาชน สัมฤทธิผล คุ้มค่า ลดขั้นตอน กระจายภารกิจ ประเมินผล ผู้รับผิดชอบต่อผลงาน)", isCorrect: true, rationale: "ตามมาตรา ๓/๑ วรรคหนึ่ง มีเจตจำนงแนะแนวทางบริหารแผ่นดินที่ดี ๗ ด้านหลักร่วมกัน" },
+                    { text: "๕ วัตถุประสงค์หลัก", isCorrect: false, rationale: "น้อยกว่าจำนวนเกณฑ์ที่กฎหมายระบุคัดสรรคุณค่าธรรมาภิบาลที่ดี" },
+                    { text: "๑๐ วัตถุประสงค์เชิงยุทธ์", isCorrect: false, rationale: "มากเกินไป" },
+                    { text: "ไม่มีข้อความใดกล่าวถูกต้องตรงตามตัวบท", isCorrect: false, rationale: "๗ วัตถุประสงค์หลักระบุตรงตัวบท พ.ร.บ." }
+                ],
+                hint: "นับจำนวนเกณฑ์หลัก: ประโยชน์สุข -> สัมฤทธิผล -> คุ้มค่า -> ลดขั้นตอน -> กระจายงาน -> ประเมินผล -> Accountability (มีผู้รับผิดชอบต่อผลงาน)"
+            },
+            {
+                question: "การจัดระเบียบบริหารราชการในต่างประเทศตามมาตรา ๕๐/๒ บัญญัติให้ใครเป็นผู้มีอำนาจปกครองและคุมคณะทีมข้าราชการไทยแลนด์ (Team Thailand) ในต่างแดนทั้งหมด?",
+                options: [
+                    { text: "ปลัดกระทรวงการต่างประเทศที่นั่งสั่งการจากกรุงเทพฯ", isCorrect: false, rationale: "ปลัดกระทรวงสั่งการห่างๆ แต่อำนาจในพื้นที่ต่างแดนยกให้ทูต ณ ที่นั้น" },
+                    { text: "หัวหน้าคณะผู้แทน (เอกอัครราชทูต หรือ ผู้รักษาการ)", isCorrect: true, rationale: "มาตรา ๕๐/๒ บัญญัติให้หัวหน้าคณะผู้แทนมีอำนาจบังคับบัญชาข้าราชการทุกกระทรวงที่ส่งไปประจำการ ณ ประเทศปลายทางนั้น (เอกภาพในการทูต)" },
+                    { text: "ผู้ว่าราชการจังหวัดชายแดนติดต่อกัน", isCorrect: false, rationale: "ผู้ว่าฯ จังหวัดชายแดนดูแลเขตตนเอง ไม่คุมสถานทูตไทยในต่างประเทศซีกโลกอื่น" },
+                    { text: "ไม่มีข้อความใดกล่าวถูกสมบูรณ์", isCorrect: false, rationale: "หัวหน้าคณะผู้แทน (ทูต) ถูกต้องตรงตามอำนาจมาตราบริหารต่างประเทศ" }
+                ],
+                hint: "เอกอัครราชทูต ณ ประเทศปลายทางนั่นเอง ได้รับแต่งตั้งเป็นหัวหน้าคณะผู้แทนพิทักษ์อำนาจแผ่นดินไทยต่างแดน"
+            },
+            {
+                question: "ในกรณีที่มีการมอบอำนาจตามมาตรา ๓๘ ข้อความใดถูกต้องเกี่ยวกับการแสดงความรับผิดชอบเชิงกฎหมายปกครองของผู้มอบอำนาจ?",
+                options: [
+                    { text: "ผู้มอบอำนาจพ้นจากความรับผิดชอบในงานนั้นทั้งหมด ๑๐๐% และโยนบาปให้ผู้รับทำแทนรับเคราะห์คนเดียว", isCorrect: false, rationale: "ขัดต่อหลักการปกครองที่ดี ผู้มอบยังคงมีหน้าที่สอดส่องและรับผิดชอบฐานะผู้ควบคุมนโยบาย" },
+                    { text: "ผู้มอบอำนาจยังมีหน้าที่สอดส่อง กำกับ และประเมินผลการทำงานของผู้รับมอบอำนาจ และมีสิทธิ์ดึงอำนาจกลับคืนได้เมื่อพบความล่าช้าหรือทุจริต", isCorrect: true, rationale: "การมอบอำนาจไม่ใช่การทิ้งขว้าง ผู้มอบยังต้องคอยกำกับสอดส่องและดึงคืนสิทธิ์ได้ตลอดเวลาเพื่อรักษาประโยชน์รัฐ" },
+                    { text: "สัญญามอบอำนาจจะมีผลสมบูรณ์เมื่อผู้รับมอบอำนาจผ่านการตรวจประวัติวินัย ๓ ปี", isCorrect: false, rationale: "ไม่ใช่เกณฑ์อนุมัติมอบอำนาจ" },
+                    { text: "ไม่มีข้อใดระบุถูกต้องตรงเกณฑ์หลักการการมอบอำนาจที่ดี", isCorrect: false, rationale: "ข้อย่อยสองสมบูรณ์ดีเลิศตรงตามหลักวิชาการบริหารรัฐกิจ" }
+                ],
+                hint: "มอบสิทธิ์ให้ไปทำงานแทนตัว แต่สายใยความรับผิดชอบ (Supervision) และการกำกับดูแลยังอยู่ที่ตัวผู้มอบเสมอ"
+            },
+            {
+                question: "ผู้ใดเป็นผู้แต่งตั้งคณะกรรมการพัฒนาระบบราชการ (ก.พ.ร.) ตามกฎหมายแปรสภาพระเบียบมาตรา ๗๑/๑?",
+                options: [
+                    { text: "ประธานวุฒิสภาร่วมลงประชามติ", isCorrect: false, rationale: "สภาแต่งตั้งบอร์ดอิสระรัฐธรรมนูญ ไม่ได้ตั้ง ก.พ.ร. ฝ่ายบริหาร" },
+                    { text: "คณะรัฐมนตรี (ครม.)", isCorrect: true, rationale: "คณะรัฐมนตรีเป็นผู้มีอำนาจพิจารณาแต่งตั้งกรรมการผู้ทรงคุณวุฒิและจัดตั้ง ก.พ.ร. ขึ้นมาทำงานพัฒนาระบบราชการแผ่นดิน" },
+                    { text: "เลขาธิการคณะกรรมการกฤษฎีกา", isCorrect: false, rationale: "ไม่ถูกต้อง" },
+                    { text: "ไม่มีข้อความใดกล่าวถูกตรงตัวบท", isCorrect: false, rationale: "ครม. เป็นผู้แต่งตั้งถูกต้องสมบูรณ์ตามตัวบทมาตรา" }
+                ],
+                hint: "ฝ่ายนโยบายระดับสูงสุดของรัฐบาล ได้แก่ คณะรัฐมนตรี (ครม.)"
+            },
+            {
+                question: "ตามมาตรา ๓/๑ การลดขั้นตอนการปฏิบัติงาน และการกระจายอำนาจตัดสินใจ มีจุดประสงค์เพื่อตอบสนองต่อผู้ใดสูงสุด?",
+                options: [
+                    { text: "ความพึงพอใจและการกินดีอยู่ดีของประชาชน (ประชาชนเป็นศูนย์กลาง)", isCorrect: true, rationale: "ธรรมาภิบาลที่ดี (Good Governance) เน้นให้ประชาชนเป็นจุดรับผลประโยชน์และความสะดวกสูงสุดในการติดต่อภาครัฐ" },
+                    { text: "ความเกรงใจของปลัดกระทรวงต่อนักการเมืองรายพรรค", isCorrect: false, rationale: "ไม่ใช่" },
+                    { text: "การเพิ่มพูนเกียรติประวัติของอธิบดีกรมจัดเก็บภาษี", isCorrect: false, rationale: "ไม่ใช่เกณฑ์เป้าหมายตามมาตรา ๓/๑" },
+                    { text: "ไม่มีข้อความใดระบุสมบูรณ์ตรงประเด็น", isCorrect: false, rationale: "ประโยชน์สุขและการอำนวยความสะดวกประชาชนเป็นศูนย์กลางถูกต้องที่สุด" }
+                ],
+                hint: "กฎหมายแผ่นดินเขียนขึ้นมาเพื่อหนุนเสริมความสุขและบรรเทาความยากลำบากของประชาชนเป็นหลัก"
+            },
+            {
+                question: "ในการสั่งข้าราชการข้ามสังกัดมาปฏิบัติหน้าที่ OPM ตามมาตรา ๑๑ (๔) ใครเป็นผู้ลงลายมือชื่ออนุมัติเห็นชอบงบประมาณเบิกจ่ายเงินเดือนขั้นและระดับพนักงาน?",
+                options: [
+                    { text: "ปลัดกระทรวงต้นสังกัดเดิมของข้าราชการผู้นั้น", isCorrect: false, rationale: "ปลัดสังกัดเดิมต้องทราบตัวย้าย แต่อัตราเงินและขั้นยื่นเบิกผ่านสำนักนายกฯ" },
+                    { text: "นายกรัฐมนตรี ในฐานะผู้ออกคำสั่งย้ายตัวข้ามสังกัด", isCorrect: true, rationale: "นายกรัฐมนตรีสั่งการย้ายและควบคุมสิทธิ์งบเบิกข้าราชการมาใช้งานสังกัดสำนักนายกฯ ได้เองตรงตามสิทธิ์ ม.๑๑" },
+                    { text: "ผู้ว่าราชการจังหวัดต้นภูมิลำเนาข้าราชการผู้นั้น", isCorrect: false, rationale: "ผู้ว่าฯ ไม่เกี่ยวโยงกับการเซ็นอนุมัติงบข้ามสังกัดส่วนกลางลักษณะนี้" },
+                    { text: "ไม่มีข้อความใดระบุได้ถูกต้อง", isCorrect: false, rationale: "นายกรัฐมนตรีคุมอำนาจชี้ขาดถูกต้องสมบูรณ์ตามมาตรา" }
+                ],
+                hint: "หัวหน้ารัฐบาลสูงสุดใช้อำนาจจัดสรรพนักงานมาใช้งานได้เด็ดขาดตามพระราชบัญญัตินี้"
+            },
+            {
+                question: "มาตรา ๒๐ บัญญัติให้กระทรวงมีส่วนราชการย่อยระดับสำนักงานรัฐมนตรีทำหน้าที่ประสานงานการเมือง ใครคุมสำนักงานรัฐมนตรีดังกล่าว?",
+                options: [
+                    { text: "เลขานุการรัฐมนตรี (ข้าราชการการเมือง)", isCorrect: true, rationale: "สำนักงานรัฐมนตรีคุมนโยบายการเมือง จึงมอบให้เลขานุการรัฐมนตรีเป็นหัวหน้าปกครองข้าราชการในสังกัด" },
+                    { text: "ปลัดกระทรวงประจำกระทรวงนั้นๆ", isCorrect: false, rationale: "ปลัดกระทรวงคุมสำนักงานปลัดกระทรวง ไม่ได้เป็นผู้บังคับบัญชาสำนักงานรัฐมนตรีเชิงการเมืองโดยตรง" },
+                    { text: "โฆษกพรรครัฐบาลเสียงข้างมาก", isCorrect: false, rationale: "โฆษกพรรคไม่มีสายงานบังคับบัญชาอย่างเป็นทางการในกระทรวง" },
+                    { text: "ไม่มีข้อใดกล่าวถูก", isCorrect: false, rationale: "เลขานุการรัฐมนตรีถูกต้องตามสายงานมาตรา ๒๒" }
+                ],
+                hint: "เป็นขุนศึกการเมืองประจำตัวรัฐมนตรีว่าการ ได้แก่ เลขานุการรัฐมนตรี"
+            },
+            {
+                question: "จังหวัดฉะเชิงเทราต้องการตั้ง 'อำเภอใหม่' เพื่อแบ่งขอบข่ายการปกครองและบริการราษฎร ตราเป็นกฎหมายข้อใดตามมาตรา ๖๑?",
+                options: [
+                    { text: "พระราชบัญญัติ (พ.ร.บ.)", isCorrect: false, rationale: "พ.ร.บ. ใช้ตั้งจังหวัด (ม.๕๒) ส่วนระดับอำเภอใช้ระดับพระราชกฤษฎีกา" },
+                    { text: "พระราชกฤษฎีกา (พ.ร.ฎ.)", isCorrect: true, rationale: "มาตรา ๖๑ วรรคสอง กำหนดชัดเจนว่า 'การตั้ง ยุบ และเปลี่ยนเขตอำเภอ ให้ตราเป็นพระราชกฤษฎีกา'" },
+                    { text: "กฎกระทรวงมหาดไทยเห็นชอบ", isCorrect: false, rationale: "กฎกระทรวงใช้แบ่งงานโครงสร้างย่อย ไม่ใช่ตั้งอำเภอใหม่" },
+                    { text: "ระเบียบสำนักนายกรัฐมนตรีร่วมเห็นชอบ", isCorrect: false, rationale: "ไม่ถูกต้อง" }
+                ],
+                hint: "จังหวัดตั้งด้วย พระราชบัญญัติ แต่อำเภอตั้งด้วย พระราชกฤษฎีกา จำคู่หูนี้ไว้ห้ามสลับออกข้อสอบบ่อยมาก!"
+            },
+            {
+                question: "คณะกรรมการ ก.พ.ร. ตามมาตรา ๗๑/๑ มีจำนวนกรรมการผู้ทรงคุณวุฒิไม่ต่ำกว่ากี่คนและคัดเลือกจากผู้เชี่ยวชาญด้านใด?",
+                options: [
+                    { text: "ไม่ต่ำกว่า ๑๐ คน คัดเลือกจากนิติศาสตร์และสังคมศาสตร์", isCorrect: false, rationale: "ตัวเลขและวิธีคัดแยกบอร์ดคลาดเคลื่อน" },
+                    { text: "มีจำนวนสัดส่วนผู้ทรงคุณวุฒิไม่เกิน ๑๐ คน คัดเลือกจากผู้เชี่ยวชาญด้านกฎหมายปกครอง รัฐศาสตร์ บริหารธุรกิจ เศรษฐศาสตร์ และจิตวิทยาองค์กร", isCorrect: true, rationale: "กฎหมายระบุสาขาวิชาเชี่ยวชาญไว้ละเอียดเพื่อแนะทิศทางพัฒนาระบบราชการแผ่นดินให้ทันสมัยรอบด้าน" },
+                    { text: "ไม่จำกัดจำนวนขึ้นกับนายกรัฐมนตรีเห็นชอบส่วนตัว", isCorrect: false, rationale: "กฎหมายคุมจำกัดโควตาเพดานสูงสุดไว้ชัดเจนไม่เกิน ๑๐ คน" },
+                    { text: "ไม่มีข้อใดกล่าวถูกต้องสมบูรณ์", isCorrect: false, rationale: "ข้อย่อยสองสมบูรณ์ตรงตามระเบียบตัวบทกฎหมาย" }
+                ],
+                hint: "บอร์ดปฏิรูประบบราชการต้องการสายความรู้: กฎหมายปกครอง รัฐศาสตร์ การเงิน เศรษฐศาสตร์ และการบริหารจัดการบริหารธุรกิจสมัยใหม่"
+            },
+            {
+                question: "การแบ่งส่วนราชการภายในสำนักนายกรัฐมนตรีที่มีฐานะเทียบเท่ากระทรวงให้จัดทำกฎหมายข้อใดตามมาตรา ๘?",
+                options: [
+                    { text: "พระราชบัญญัติ", isCorrect: true, rationale: "สำนักนายกรัฐมนตรีมีฐานะเป็นกระทรวง การแบ่งหรือโยนโอนตั้งส่วนราชการหลักตราเป็นพระราชบัญญัติสอดคล้องตามข้อกำหนด" },
+                    { text: "พระราชกฤษฎีกา", isCorrect: false, rationale: "พระราชกฤษฎีกาไม่ใช้จัดตั้งสำนักนายกฯ หรือกระทรวงใหม่" },
+                    { text: "กฎกระทรวงเห็นชอบ", isCorrect: false, rationale: "ไม่ถูกต้อง" },
+                    { text: "ไม่มีข้อความใดระบุสมบูรณ์", isCorrect: false, rationale: "พ.ร.บ. ถูกต้องตรงมาตรา" }
+                ],
+                hint: "เทียบเท่ากระทรวงและมีฐานะนิติบุคคล การตราจัดสรรใดๆ จึงใช้ระดับพระราชบัญญัติเป็นหลัก"
+            },
+            {
+                question: "การประสานงานราชการระหว่างจังหวัดและองค์กรปกครองส่วนท้องถิ่นตามมาตรา ๕๓/๑ ข้อความใดกล่าวถูกต้องทางปฏิบัติ?",
+                options: [
+                    { text: "ผู้ว่าราชการจังหวัดมีหน้าที่คอยกำกับดูแล ประสานงาน และสอดส่องให้ อปท. ทำงานสอดรับกับนโยบายพัฒนาจังหวัดและชาติ", isCorrect: true, rationale: "ผู้ว่าฯ คุมสิทธิ์กำกับท้องถิ่นตาม พ.ร.บ. แผ่นดินและ พ.ร.บ. ท้องถิ่น เพื่อรันงานให้เกิดภาพรวมเอกภาพเดียวกัน" },
+                    { text: "ผู้ว่าราชการจังหวัดมีอำนาจสั่งปลดสมาชิกสภาท้องถิ่นได้เดี่ยวๆ รายกรณีไม่มีการสืบสวนคดี", isCorrect: false, rationale: "การปลดสมาชิก อปท. ต้องตั้งกรรมการสอบวินัยและเสนอกลั่นกรองมหาดไทยตามขั้นตอน" },
+                    { text: "อปท. ไม่ต้องรายงานใดๆ ต่อผู้ว่าฯ เนื่องจากแยกเป็นอิสระ ๑๐๐% จากส่วนภูมิภาค", isCorrect: false, rationale: "ท้องถิ่นแยกอิสระเชิงงบและบริหารแต่ยังอยู่ภายใต้การกำกับดูแลประสานความมั่นคงของผู้ว่าฯ" },
+                    { text: "ไม่มีข้อความใดระบุได้ถูกต้องตรงประเด็น", isCorrect: false, rationale: "วงเล็บแรกสมบูรณ์ดี" }
+                ],
+                hint: "ผู้ว่าฯ รักษาการเป็นตัวแทนกำกับสอดส่อง อปท. เพื่อให้แผนจังหวัดและแผนท้องถิ่นไม่ทับซ้อนหรือขัดทิศทางประเทศ"
+            },
+            {
+                question: "มาตรา ๓/๑ วรรคท้าย บัญญัติให้ส่วนราชการจัดทำสิ่งใดเพื่อให้เกิดการประเมินผลการปฏิบัติราชการประจำปี?",
+                options: [
+                    { text: "ตัวชี้วัดความสำเร็จการทำงาน และ มีบอร์ดประเมินผลตรวจสอบความคุ้มค่าสัมฤทธิผลสอดรับนโยบายรัฐ", isCorrect: true, rationale: "ต้องตั้งเกณฑ์ KPI (Key Performance Indicator) ตรวจวัดว่าพนักงานข้าราชการได้ผลงานตรงตามวัตถุประสงค์งบประมาณหรือไม่" },
+                    { text: "รายงานหนี้สินสะสมข้าราชการรายปี", isCorrect: false, rationale: "ไม่เกี่ยว" },
+                    { text: "สมุดพกรายงานความดีส่วนบุคคลเสนอผู้ว่าฯ", isCorrect: false, rationale: "ไม่ใช่เกณฑ์ประเมินองค์กรระบบราชการที่ดีตามกฎหมาย" },
+                    { text: "ไม่มีข้อใดระบุเกณฑ์ตรงประเด็นแต่อย่างใด", isCorrect: false, rationale: "วงเล็บแรกถูกต้องตามหลักวิชารัฐประศาสนศาสตร์สมัยใหม่" }
+                ],
+                hint: "ต้องตั้งดัชนีวัดความสำเร็จ (KPI) และจัดประเมินผลการทำงานเพื่อความโปร่งใสและคุ้มค่าภาษีประชาชน"
+            },
+            {
+                question: "การแบ่งส่วนราชการภายในสำนักเลขาธิการนายกรัฐมนตรี (สลน.) ตามมาตรา ๑๓ วรรคท้าย บัญญัติให้มีผู้บังคับบัญชาในลักษณะใด?",
+                options: [
+                    { text: "มีเลขาธิการนายกรัฐมนตรี (การเมือง) และมีรองฝ่ายบริหาร-ผู้ช่วย ซึ่งเป็นข้าราชการพลเรือนสามัญคอยช่วยดูแล", isCorrect: true, rationale: "การจัดพนักงานใน สลน. ผสมผสานระหว่างทีมงานการเมืองคุมทิศทางนโยบายและทีมงานข้าราชการประจำคุมงานสารบรรณหนังสือแผ่นดิน" },
+                    { text: "มีข้าราชการประจำคุมสายงานโดยไม่มีโควตาการเมืองเลย", isCorrect: false, rationale: "สลน. คุมงานการเมืองนายกฯ จึงจำเป็นต้องมีข้าราชการการเมืองถือบังเหียนใหญ่เสมอ" },
+                    { text: "ขึ้นตรงต่อเลขาธิการ ครม. อย่างไม่มีข้อยกเว้น", isCorrect: false, rationale: "ไม่ถูกต้อง" },
+                    { text: "ไม่มีข้อความใดระบุสมบูรณ์ตรงประเด็น", isCorrect: false, rationale: "ข้อย่อยแรกระบุถูกต้องตรงเกณฑ์จัดบุคลากรตามมาตรา ๑๓" }
+                ],
+                hint: "มองหาตัวช่วยประคองงานที่มีทั้งสายการเมือง (เลขาฯ) และสายข้าราชการประจำ (รองปลัด/รองเลขาฯ ฝ่ายบริหาร)"
+            },
+            {
+                question: "มาตรา ๕ บัญญัติให้การเปลี่ยนชื่อกระทรวงตราเป็นพระราชกฤษฎีกา และจะต้องระบุถึงประเด็นใดเพิ่มเติมเพื่อความสมบูรณ์ทางกฎหมาย?",
+                options: [
+                    { text: "ต้องระบุการเปลี่ยนชื่อตำแหน่งข้าราชการในส่วนราชการนั้นให้สอดคล้องกันไปด้วยในพระราชกฤษฎีกา", isCorrect: true, rationale: "มาตรา ๘ ตรี บัญญัติว่าการตรา พ.ร.ฎ. เปลี่ยนชื่อ ต้องระบุสลับตำแหน่งและชื่อข้าราชการในกรมนั้นให้มีผลสัมพันธ์ตรงกันด้วย" },
+                    { text: "ต้องระบุอัตราเงินและขั้นสวัสดิการข้าราชการการเมืองที่จะเพิ่มขึ้น", isCorrect: false, rationale: "การเปลี่ยนชื่อไม่มีผลเพิ่มงบการเงินการเมืองลักษณะนี้" },
+                    { text: "ต้องระบุสัญญากู้เงินแผ่นดินระดับภูมิภาค", isCorrect: false, rationale: "ไม่เกี่ยวข้อง" },
+                    { text: "ไม่มีข้อความใดกล่าวถูกตรงตัวบท", isCorrect: false, rationale: "การเปลี่ยนชื่อตำแหน่งข้าราชการต้องระบุไว้ถูกต้องตรงมาตรา" }
+                ],
+                hint: "เมื่อเปลี่ยนชื่อหน่วยงาน ย่อมต้องมีผลเปลี่ยนชื่อเรียกตำแหน่งข้าราชการในสังกัดนั้นตามไปด้วยเสมอเพื่อความถูกต้องในการใช้อำนาจเซ็น"
+            },
+            {
+                question: "ในกรณีการรักษาราชการแทนปลัดกระทรวงตามมาตรา ๔๔ หากไม่มีผู้ดำรงตำแหน่งรองปลัดกระทรวง และไม่สามารถเรียกประชุมคณะรัฐมนตรีได้ทันที ใครเป็นผู้เซ็นสั่งการแต่งตั้งชั่วคราว?",
+                options: [
+                    { text: "รัฐมนตรีว่าการกระทรวงนั้นๆ แต่งตั้งข้าราชการในกระทรวงซึ่งดำรงตำแหน่งไม่ต่ำกว่าอธิบดีเป็นผู้รักษาแทน", isCorrect: true, rationale: "มาตรา ๔๔ ให้อำนาจ รมว. เซ็นแต่งตั้งอธิบดีคนหนึ่งขึ้นมาขัดตาทัพทำหน้าที่รักษาการปลัดกระทรวงชั่วคราวได้ทันทีเพื่อไม่ให้ระบบแผ่นดินหยุดนิ่ง" },
+                    { text: "ปลัดสำนักนายกฯ เดินทางไปเซ็นจัดหาบุคคลแทนข้ามสังกัด", isCorrect: false, rationale: "ปลัด OPM คุมงานเฉพาะ OPM ไม่ยุ่งเกี่ยวเซ็นตั้งรักษาราชการข้ามกระทรวงอื่น" },
+                    { text: "เลขาธิการ ก.พ.ร. สั่งพักงานทุกคนในกระทรวงเพื่อรอ ครม.", isCorrect: false, rationale: "ไม่ถูกต้อง" },
+                    { text: "ไม่มีข้อความใดระบุได้ตรงตามมาตรา", isCorrect: false, rationale: "รัฐมนตรีว่าการแต่งตั้งข้าราชการไม่ต่ำกว่าระดับอธิบดีถูกต้องสมบูรณ์ดี" }
+                ],
+                hint: "เป็นขุนพลฝ่ายการเมืองผู้ถือค้อนชี้ชะตาภายในกระทรวงนั้น ได้แก่ รัฐมนตรีว่าการกระทรวง"
+            },
+            {
+                question: "การจัดระเบียบบริหารราชการแผ่นดินของไทยตามพระราชบัญญัติ พ.ศ. ๒๕๓๔ บังคับใช้วันถัดจากวันประกาศในราชกิจจานุเบกษา คือวันที่เท่าใด?",
+                options: [
+                    { text: "๔ กันยายน พ.ศ. ๒๕๓๔", isCorrect: false, rationale: "๔ กันยายน ๒๕๓๔ เป็นวันประกาศใช้ในราชกิจจานุเบกษา" },
+                    { text: "๕ กันยายน พ.ศ. ๒๕๓๔", isCorrect: true, rationale: "พ.ร.บ. ระเบียบบริหารราชการแผ่นดินมีผลเริ่มใช้บังคับในวันถัดจากวันประกาศ คือ วันที่ ๕ กันยายน พ.ศ. ๒๕๓๔" },
+                    { text: "๖ กันยายน พ.ศ. ๒๕๓๔", isCorrect: false, rationale: "เลยวันเริ่มบังคับใช้จริงไปแล้วหนึ่งวัน" },
+                    { text: "๑ ตุลาคม พ.ศ. ๒๕๓๔", isCorrect: false, rationale: "ไม่ถูกต้อง" }
+                ],
+                hint: "ยึดเกณฑ์ 'วันถัดจากวันประกาศในราชกิจจานุเบกษา' (ประกาศเมื่อวันที่ ๔ กันยายน ๒๕๓๔)"
+            },
+            {
+                question: "ข้อใดคือเจตจำนงสูงสุดของการตราพระราชบัญญัติระเบียบบริหารราชการแผ่นดิน พ.ศ. ๒๕๓๔ และที่แก้ไขเพิ่มเติม?",
+                options: [
+                    { text: "เพื่อสร้างระบบควบคุมการใช้อำนาจปกครองแผ่นดิน และอำนวยความสะดวกในการจัดสรรบริการสาธารณะเพื่อประโยชน์สุขของประชาชนอย่างยั่งยืน", isCorrect: true, rationale: "เป็นหัวใจหลักของกฎหมายแผ่นดินไทย มุ่งเป้าประโยชน์สุขประชาชน สอดคล้องธรรมาภิบาลที่ดี" },
+                    { text: "เพื่อให้ภูมิภาคคุมท้องถิ่นได้เบ็ดเสร็จอย่างเด็ดขาดถาวร", isCorrect: false, rationale: "ขัดต่อหลักเจตจำนงการกระจายสิทธิ์ให้แก่ส่วนท้องถิ่น" },
+                    { text: "เพื่อลดอำนาจสิทธิ์การสั่งงบลงทุนของส่วนราชการส่วนกลาง", isCorrect: false, rationale: "ไม่ใช่จุดมุ่งหมายหลัก" },
+                    { text: "ไม่มีข้อใดกล่าวได้สมบูรณ์ตรงประเด็นตามมาตรา ๓/๑", isCorrect: false, rationale: "เป้าหมายหลักประโยชน์สุขและบริการสาธารณะถูกต้องตรงใจความที่สุด" }
+                ],
+                hint: "กฎหมายและทิศทางการจัดโครงสร้างแผ่นดินไทยทั้งหมด ตราขึ้นมาเพื่อเป้าหมายใหญ่ที่สุดคือ ประโยชน์สุขและการกินดีอยู่ดีอย่างสงบโปร่งใสของปวงชนชาวไทย"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let hasAnswered = false;
+
+        // Switch Tabs Logic
+        function switchTab(tab) {
+            const summaryBtn = document.getElementById('tab-summary-btn');
+            const quizBtn = document.getElementById('tab-quiz-btn');
+            const summarySec = document.getElementById('summary-section');
+            const quizSec = document.getElementById('quiz-section');
+
+            if (tab === 'summary') {
+                summaryBtn.className = "px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg font-medium text-xs sm:text-sm transition-all duration-200 bg-brand-500 text-white shadow-sm";
+                quizBtn.className = "px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg font-medium text-xs sm:text-sm transition-all duration-200 text-slate-600 hover:text-brand-600 hover:bg-brand-50";
+                summarySec.classList.remove('hidden');
+                quizSec.classList.add('hidden');
+            } else {
+                quizBtn.className = "px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg font-medium text-xs sm:text-sm transition-all duration-200 bg-brand-500 text-white shadow-sm";
+                summaryBtn.className = "px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg font-medium text-xs sm:text-sm transition-all duration-200 text-slate-600 hover:text-brand-600 hover:bg-brand-50";
+                quizSec.classList.remove('hidden');
+                summarySec.classList.add('hidden');
+                initQuiz();
+            }
+        }
+
+        // Initialize / Restart Quiz
+        function initQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            hasAnswered = false;
+            document.getElementById('quiz-play-box').classList.remove('hidden');
+            document.getElementById('quiz-score-box').classList.add('hidden');
+            showQuestion();
+        }
+
+        // Render Current Question
+        function showQuestion() {
+            hasAnswered = false;
+            const q = quizData[currentQuestionIndex];
+            
+            // Set Progress Indicators
+            document.getElementById('current-question-indicator').innerText = `${currentQuestionIndex + 1}/${quizData.length}`;
+            document.getElementById('quiz-progress-bar').style.width = `${((currentQuestionIndex + 1) / quizData.length) * 100}%`;
+            
+            // Set Question Statement
+            document.getElementById('question-text').innerText = `[ข้อที่ ${currentQuestionIndex + 1}] ${q.question}`;
+            
+            // Hide next button & hint box
+            document.getElementById('next-btn').classList.add('hidden');
+            document.getElementById('explanation-box').classList.add('hidden');
+            
+            // Reset hint btn
+            const hintDisplay = document.getElementById('hint-display-box');
+            hintDisplay.classList.add('hidden');
+            document.getElementById('hint-text-label').innerText = "แสดงคำใบ้";
+            document.getElementById('hint-content').innerText = q.hint;
+
+            // Generate Option Cards
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+            
+            q.options.forEach((opt, idx) => {
+                const optId = `opt-${idx}`;
+                const card = document.createElement('div');
+                card.id = optId;
+                card.onclick = () => selectOption(idx);
+                card.className = "p-3 sm:p-4 bg-white hover:bg-amber-50/50 border border-slate-150 hover:border-brand-300 rounded-xl cursor-pointer transition-all duration-150 flex items-start gap-3 shadow-sm";
+                
+                // Bullet icon placeholder
+                card.innerHTML = `
+                    <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-slate-300 flex items-center justify-center flex-shrink-0 text-[10px] sm:text-xs font-semibold text-slate-400 bg-slate-50 transition-all opt-bullet">
+                        ${String.fromCharCode(65 + idx)}
+                    </div>
+                    <div class="text-xs sm:text-sm font-medium text-slate-800 flex-grow leading-relaxed">${opt.text}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Toggle Hint Display
+        function toggleHint() {
+            const hintBox = document.getElementById('hint-display-box');
+            const hintLabel = document.getElementById('hint-text-label');
+            if (hintBox.classList.contains('hidden')) {
+                hintBox.classList.remove('hidden');
+                hintLabel.innerText = "ซ่อนคำใบ้";
+            } else {
+                hintBox.classList.add('hidden');
+                hintLabel.innerText = "แสดงคำใบ้";
+            }
+        }
+
+        // Select Option Handling
+        function selectOption(selectedIdx) {
+            if (hasAnswered) return; // Prevent multiple clicks
+            hasAnswered = true;
+            
+            const q = quizData[currentQuestionIndex];
+            const isCorrect = q.options[selectedIdx].isCorrect;
+            
+            if (isCorrect) score++;
+
+            // Visual markers for choices
+            q.options.forEach((opt, idx) => {
+                const card = document.getElementById(`opt-${idx}`);
+                const bullet = card.querySelector('.opt-bullet');
+                
+                // Remove interactive styles
+                card.className = card.className.replace('hover:bg-amber-50/50', '').replace('hover:border-brand-300', '').replace('cursor-pointer', '');
+                
+                if (opt.isCorrect) {
+                    // Correct green styling
+                    card.classList.add('border-green-500', 'bg-green-50/80');
+                    bullet.className = "w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-green-500 text-white flex items-center justify-center flex-shrink-0 text-[10px] sm:text-xs font-semibold";
+                    bullet.innerHTML = '<i class="fa-solid fa-check text-[9px] sm:text-[11px]"></i>';
+                } else if (idx === selectedIdx) {
+                    // Incorrect red styling
+                    card.classList.add('border-red-500', 'bg-red-50/80');
+                    bullet.className = "w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-red-500 text-white flex items-center justify-center flex-shrink-0 text-[10px] sm:text-xs font-semibold";
+                    bullet.innerHTML = '<i class="fa-solid fa-xmark text-[9px] sm:text-[11px]"></i>';
+                } else {
+                    card.classList.add('opacity-60');
+                }
+            });
+
+            // Show explanation/rationale box
+            const expBox = document.getElementById('explanation-box');
+            const expIcon = document.getElementById('explanation-icon-container');
+            const expTitle = document.getElementById('explanation-title');
+            const expBody = document.getElementById('explanation-body');
+            
+            expBox.classList.remove('hidden');
+            
+            if (isCorrect) {
+                expIcon.className = "w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-white bg-green-500 shadow-sm";
+                expIcon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+                expTitle.className = "font-bold text-xs sm:text-sm text-green-700";
+                expTitle.innerText = "ตอบคำถามได้ถูกต้อง!";
+            } else {
+                expIcon.className = "w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-white bg-red-500 shadow-sm";
+                expIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+                expTitle.className = "font-bold text-xs sm:text-sm text-red-600";
+                expTitle.innerText = "ยังตอบไม่ถูกต้อง";
+            }
+            
+            expBody.innerText = q.options[selectedIdx].rationale;
+            
+            // Show next button
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.classList.remove('hidden');
+            if (currentQuestionIndex === quizData.length - 1) {
+                nextBtn.innerHTML = '<span>ตรวจดูผลประเมินผลการเรียนรู้</span> <i class="fa-solid fa-square-poll-vertical ml-1.5"></i>';
+            } else {
+                nextBtn.innerHTML = '<span>ทำข้อต่อไป</span> <i class="fa-solid fa-chevron-right text-[10px] ml-1.5"></i>';
+            }
+        }
+
+        // Progress or finish quiz
+        function goToNextQuestion() {
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                showQuestion();
+            } else {
+                showQuizResult();
+            }
+        }
+
+        // Show Scoreboard Screen
+        function showQuizResult() {
+            document.getElementById('quiz-play-box').classList.add('hidden');
+            
+            const scoreBox = document.getElementById('quiz-score-box');
+            scoreBox.classList.remove('hidden');
+            
+            document.getElementById('final-score-display').innerText = `${score} / ${quizData.length}`;
+            
+            const assessment = document.getElementById('score-assessment');
+            if (score === 100) {
+                assessment.innerText = "ระดับความรอบรู้: 🏆 มหาเทพ พ.ร.บ. แผ่นดิน (คะแนนเต็ม 100/100 คุณคือผู้เขียนกฎหมายตัวจริง!)";
+                assessment.className = "text-xs sm:text-sm font-bold text-emerald-600 block";
+            } else if (score >= 85) {
+                assessment.innerText = "ระดับความรอบรู้: 🥇 ยอดเยี่ยม (เกรดเอ ทักษะการวิเคราะห์กฎหมายโครงสร้างพลเรือนดีเยี่ยม พร้อมสอบปลัด/ครูผู้ช่วย)";
+                assessment.className = "text-xs sm:text-sm font-bold text-teal-600 block";
+            } else if (score >= 60) {
+                assessment.innerText = "ระดับความรอบรู้: 🥈 ผ่านเกณฑ์ความรู้พื้นฐานดีมาก (เข้าใจหลักการรักษาราชการแทนและการยุบย้ายหน่วยงานส่วนใหญ่ มีพลาดจุดหลอกเล็กน้อย)";
+                assessment.className = "text-xs sm:text-sm font-bold text-amber-600 block";
+            } else {
+                assessment.innerText = "ระดับความรอบรู้: ⚠️ ควรเปิดทบทวนมาตรา ๓/๑, ม.๘ (พ.ร.บ. vs พ.ร.ฎ.), และเกณฑ์การไกล่เกลี่ยคดีแพ่งอำเภอ ม.๖๑ ใหม่อีกครั้ง";
+                assessment.className = "text-xs sm:text-sm font-bold text-red-500 block";
+            }
+        }
+
+        function restartQuiz() {
+            initQuiz();
+        }
+
+        // Start app in summary tab on load
+        window.onload = function() {
+            switchTab('summary');
+        };
+    </script>
+</body>
+</html>

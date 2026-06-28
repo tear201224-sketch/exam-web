@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจำลองข้อสอบ พ.ร.ฎ. การบริหารกิจการบ้านเมืองที่ดี พ.ศ. ๒๕๔๖ และที่แก้ไขเพิ่มเติม</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sarabun) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+        /* Custom scrollbar for question navigation grid */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-emerald-800 to-teal-950 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="bg-white p-2.5 rounded-full shadow-inner flex items-center justify-center">
+                    <!-- Royal Seal Emblem Silhouette / Shield Icon -->
+                    <svg class="w-10 h-10 text-emerald-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <circle cx="12" cy="11" r="3"/>
+                        <path d="M12 14v4"/>
+                        <path d="M7 11h10"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-tight">ระบบจำลองข้อสอบ พ.ร.ฎ. บริหารบ้านเมืองที่ดีฯ</h1>
+                    <p class="text-xs sm:text-sm text-emerald-100 mt-1">พระราชกฤษฎีกาว่าด้วยหลักเกณฑ์และวิธีการบริหารกิจการบ้านเมืองที่ดี พ.ศ. ๒๕๔๖ และที่แก้ไขเพิ่มเติม (ฉบับที่ ๒) พ.ศ. ๒๕๖๒</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 bg-emerald-700/50 text-emerald-100 rounded-full text-xs font-semibold border border-emerald-500/30">๑๐๐ ข้อเต็ม</span>
+                <span class="px-3 py-1 bg-teal-700/50 text-teal-100 rounded-full text-xs font-semibold border border-teal-500/30">วิเคราะห์ประเมินผลละเอียด</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 py-8 sm:px-6 lg:px-8">
+        
+        <!-- Welcome / Setup / Summary Screen -->
+        <div id="setup-screen" class="max-w-4xl mx-auto space-y-8">
+            
+            <!-- Cheat Sheet (สรุปใจความสำคัญที่ชอบออกข้อสอบ) -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 space-y-6">
+                <div class="border-b border-slate-100 pb-4">
+                    <span class="text-emerald-600 font-semibold tracking-wider text-xs uppercase bg-emerald-50 px-3 py-1 rounded-full">สรุปใจความสำคัญก่อนสอบ (Cheat Sheet)</span>
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-950 mt-2">สรุปประเด็น พ.ร.ฎ. บริหารบ้านเมืองที่ดีฯ ที่พบบ่อยที่สุดในสนามสอบ</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-emerald-900 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span> ๑. เป้าหมายการบริหารบ้านเมืองที่ดี ๗ ประการ (ม.๖)
+                        </h3>
+                        <ol class="list-decimal list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li>เกิด<strong class="text-slate-800">ประโยชน์สุข</strong>ของประชาชน (ถือประชาชนเป็นศูนย์กลาง)</li>
+                            <li>เกิด<strong class="text-slate-800">ผลสัมฤทธิ์</strong>ต่อภารกิจของรัฐ (ทำแผนล่วงหน้า)</li>
+                            <li>มี<strong class="text-slate-800">ประสิทธิภาพและความคุ้มค่า</strong> (ทำบัญชีต้นทุน)</li>
+                            <li><strong class="text-slate-800">ไม่มีขั้นตอนเกินความจำเป็น</strong> (กระจายอำนาจ)</li>
+                            <li><strong class="text-slate-800">ปรับปรุงภารกิจ</strong>ให้ทันต่อสถานการณ์ (ทบทวนยุบเลิก)</li>
+                            <li>ประชาชนได้รับ<strong class="text-slate-800">อำนวยความสะดวก/ตอบสนองความต้องการ</strong></li>
+                            <li>มีการ<strong class="text-slate-800">ประเมินผล</strong>อย่างสม่ำเสมอ (ผู้ประเมินอิสระ)</li>
+                        </ol>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-emerald-900 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span> ๒. สรุปกรอบเวลาและตัวเลขสำคัญ
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-slate-800">แผนปฏิบัติราชการ:</strong> ปกติกำหนดเป็นแผน <span class="font-bold text-emerald-700">๕ ปี</span> (สอดคล้องยุทธศาสตร์ชาติ)</li>
+                            <li><strong class="text-slate-800">แผนระยะเริ่มแรก (ฉบับ ๒):</strong> กำหนดเป็นแผน <span class="font-bold text-emerald-700">๓ ปี</span> (งบประมาณ พ.ศ. ๒๕๖๓ - ๒๕๖๕)</li>
+                            <li><strong class="text-slate-800">การพิจารณาอนุมัติ/อนุญาตระหว่างหน่วยงาน:</strong> ต้องแจ้งผลภายใน <span class="font-bold text-emerald-700">๑๕ วัน</span></li>
+                            <li><strong class="text-slate-800">ตอบข้อซักถามประชาชน (เป็นหนังสือ):</strong> ต้องแจ้งผลภายใน <span class="font-bold text-emerald-700">๑๕ วัน</span></li>
+                            <li><strong class="text-slate-800">สพร. จัดทำแพลตฟอร์มดิจิทัลกลาง:</strong> ภายใน <span class="font-bold text-emerald-700">๙๐ วัน</span> นับแต่วันใช้บังคับ</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-emerald-900 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span> ๓. ข้อยกเว้นและคำนิยามสำคัญ (ม.๔)
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-slate-800">ส่วนราชการ:</strong> กระทรวง ทบวง กรม และหน่วยงานรัฐในกำกับฝ่ายบริหาร <span class="font-bold text-rose-700">แต่ไม่รวมถึงองค์กรปกครองส่วนท้องถิ่น (อปท.)</span></li>
+                            <li><strong class="text-slate-800">อปท. ทำอย่างไร:</strong> ให้ อปท. ทำหลักเกณฑ์การบริหารกิจการบ้านเมืองที่ดี โดยมี ก.พ.ร. และมหาดไทยคอยช่วยเหลือ</li>
+                            <li><strong class="text-slate-800">ผู้รักษาการ:</strong> <span class="font-bold text-emerald-700">นายกรัฐมนตรี</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-emerald-900 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span> ๔. หน่วยงานหลักและหน้าที่ตามกฎหมาย
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-600 pl-2">
+                            <li><strong class="text-slate-800">ก.พ.ร.:</strong> เสนอแนะ ครม., กำหนดมาตรการกำกับร่วมกับ ครม., กำหนดตัวชี้วัดและมาตรฐาน</li>
+                            <li><strong class="text-slate-800">กรมบัญชีกลาง:</strong> กำหนดหลักเกณฑ์การจัดทำบัญชีต้นทุนและรายจ่ายต่อหน่วย</li>
+                            <li><strong class="text-slate-800">สำนักงานคณะกรรมการกฤษฎีกา:</strong> เสนอแนะส่วนราชการเพื่อยกเลิก แก้ไขกฎหมายที่ไม่ทันสมัย</li>
+                            <li><strong class="text-slate-800">สพร. (DGA):</strong> กำหนดและจัดให้มีแพลตฟอร์มดิจิทัลกลาง</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Setup Panel -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 space-y-8">
+                <div class="text-center space-y-2">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-bold">เข้าสู่ระบบการทำข้อสอบ พ.ร.ฎ. บริหารบ้านเมืองที่ดีฯ</h2>
+                    <p class="text-slate-500 text-sm max-w-lg mx-auto">ศึกษาชุดข้อสอบจำลองคุณภาพสูง 100 ข้อถอดรหัสจาก พ.ร.ฎ. บริหารกิจการบ้านเมืองที่ดี พ.ศ. ๒๕๔๖ และฉบับแก้ไขเพิ่มเติม พ.ศ. ๒๕๖๒</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Practice Mode Card -->
+                    <button onclick="selectMode('practice')" id="mode-practice-btn" class="group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-emerald-600 hover:bg-emerald-50/10 transition-all duration-200 focus:outline-none">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-emerald-100 text-emerald-700 p-3 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดฝึกฝน (Practice Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">เรียนรู้พร้อมเฉลยละเอียดทันที แสดงอ้างอิงมาตราและข้อกฎหมายอย่างถูกต้องหลังตอบแต่ละข้อ</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Exam Mode Card -->
+                    <button onclick="selectMode('exam')" id="mode-exam-btn" class="group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-teal-600 hover:bg-teal-50/10 transition-all duration-200 focus:outline-none">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-teal-100 text-teal-700 p-3 rounded-lg group-hover:bg-teal-600 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดสอบจริง (Exam Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">จำลองเวลาจำกัด 45 นาที สลับสุ่มข้อสอบ และปิดเฉลยเพื่อประเมินความรู้ผลสัมฤทธิ์หลังทำครบชุด</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Parameters Selection -->
+                <div class="border-t border-slate-200 pt-6 space-y-4">
+                    <h4 class="font-semibold text-slate-800">ตั้งค่าแบบทดสอบ</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">จำนวนข้อสอบที่ต้องการทำ</label>
+                            <select id="exam-quantity" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm">
+                                <option value="20">20 ข้อ (ทบทวนด่วน)</option>
+                                <option value="50">50 ข้อ (ขนาดมาตรฐาน)</option>
+                                <option value="100" selected>100 ข้อเต็ม (สมบูรณ์แบบครบคลังเนื้อหา)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">ขอบเขตเนื้อหา</label>
+                            <select id="exam-scope" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm">
+                                <option value="all">พ.ร.ฎ. บริหารบ้านเมืองที่ดี พ.ศ. ๒๕๔๖ และฉบับที่ ๒ พ.ศ. ๒๕๖๒</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz()" class="w-full py-4 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold rounded-xl shadow-md shadow-emerald-600/20 transition-all text-center block focus:outline-none">
+                    เริ่มต้นทำแบบทดสอบ
+                </button>
+            </div>
+        </div>
+
+        <!-- Active Quiz Screen -->
+        <div id="quiz-screen" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Question Panel (3/4 of width) -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Status bar -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="flex items-center gap-3">
+                        <span id="badge-mode" class="px-2.5 py-0.5 rounded text-xs font-bold uppercase"></span>
+                        <div class="text-sm font-medium text-slate-500">
+                            ข้อที่ <span id="current-q-index" class="text-slate-800 font-bold">1</span> จาก <span id="total-q-count" class="text-slate-800 font-bold">100</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-grow max-w-md w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                        <div id="progress-bar-fill" class="bg-emerald-600 h-full transition-all duration-300" style="width: 1%"></div>
+                    </div>
+
+                    <div id="timer-container" class="flex items-center gap-2 text-rose-600 font-bold hidden">
+                        <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span id="quiz-timer">45:00</span>
+                    </div>
+                </div>
+
+                <!-- Question Card -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+                    <div class="flex justify-between items-center">
+                        <span id="question-category" class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded">หมวดทั่วไป</span>
+                        <button onclick="toggleFlag()" id="flag-btn" class="text-slate-400 hover:text-amber-500 focus:outline-none flex items-center gap-1.5 text-xs font-medium">
+                            <svg id="flag-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                            <span>ปักหมุดทบทวน</span>
+                        </button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-950 leading-relaxed"></h3>
+                    </div>
+
+                    <!-- Options list -->
+                    <div id="options-container" class="grid grid-cols-1 gap-3.5">
+                        <!-- Options generated dynamically -->
+                    </div>
+
+                    <!-- Instant Explanation (Only in Practice Mode) -->
+                    <div id="explanation-panel" class="hidden bg-slate-50 rounded-xl border border-slate-200 p-5 space-y-2.5">
+                        <div class="flex items-center gap-2">
+                            <span id="explanation-title-badge" class="px-2 py-0.5 rounded text-xs font-bold text-white"></span>
+                            <span class="text-sm font-bold text-slate-800">มาตรา/เฉลยประกอบมาตราและเหตุผลทางกฎหมาย:</span>
+                        </div>
+                        <p id="explanation-text" class="text-sm text-slate-600 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between items-center gap-4">
+                    <button onclick="prevQuestion()" id="prev-btn" class="px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg> ย้อนกลับ
+                    </button>
+                    
+                    <button onclick="nextQuestion()" id="next-btn" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none flex items-center gap-2">
+                        ถัดไป <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+
+                    <button onclick="showSubmitConfirmModal()" id="submit-quiz-btn" class="hidden px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-lg shadow-md shadow-rose-600/10 transition-colors text-sm focus:outline-none">
+                        ส่งกระดาษคำตอบ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar Controllers -->
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-4">
+                    <h4 class="font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                        <span>แผงควบคุมข้อสอบ</span>
+                        <span id="score-counter" class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">0/100</span>
+                    </h4>
+                    
+                    <div id="grid-navigation" class="grid grid-cols-5 gap-2 max-h-72 overflow-y-auto p-1 custom-scrollbar">
+                        <!-- Dynamic Grid of Questions numbers -->
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-3 space-y-2">
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-emerald-600 inline-block"></span>
+                            <span>กำลังทำอยู่</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-emerald-100 border border-emerald-300 inline-block"></span>
+                            <span>ทำไปแล้ว</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-amber-500 inline-block"></span>
+                            <span>ปักหมุดทบทวน</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-slate-100 border border-slate-200 inline-block"></span>
+                            <span>ยังไม่ทำ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="confirmExit()" class="w-full py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-lg text-sm shadow-sm transition-colors focus:outline-none text-center block">
+                    ออกจากห้องสอบ
+                </button>
+            </div>
+        </div>
+
+        <!-- Result / Evaluation Dashboard -->
+        <div id="result-screen" class="hidden max-w-4xl mx-auto space-y-8 animate-fadeIn">
+            
+            <!-- Result Summary Box -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 text-center space-y-6">
+                <div class="space-y-2">
+                    <span id="result-badge" class="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">ผ่านเกณฑ์ยอดเยี่ยม</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 font-bold">ผลการทดสอบ พ.ร.ฎ. บริหารบ้านเมืองที่ดีฯ</h2>
+                </div>
+
+                <div class="relative w-44 h-44 mx-auto flex items-center justify-center">
+                    <!-- Circle Bar -->
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e2e8f0" stroke-width="8"/>
+                        <circle id="score-ring-fill" cx="50" cy="50" r="40" fill="transparent" stroke="#059669" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round" class="transition-all duration-1000 ease-out"/>
+                    </svg>
+                    <!-- Percentage dynamic -->
+                    <div class="absolute flex flex-col items-center">
+                        <span id="result-percentage" class="text-4xl font-extrabold text-slate-900">0%</span>
+                        <span id="result-score-fraction" class="text-xs text-slate-500 font-bold mt-1">0/100 คะแนน</span>
+                    </div>
+                </div>
+
+                <p id="result-feedback-text" class="text-slate-600 max-w-md mx-auto text-sm sm:text-base leading-relaxed"></p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-200 pt-6">
+                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                        <span class="block text-xs font-medium text-emerald-600">ตอบถูกต้อง</span>
+                        <span id="stat-correct" class="text-xl font-extrabold text-emerald-800">0 ข้อ</span>
+                    </div>
+                    <div class="bg-rose-50 rounded-xl p-4 border border-rose-100">
+                        <span class="block text-xs font-medium text-rose-600">ตอบผิด / ข้าม</span>
+                        <span id="stat-incorrect" class="text-xl font-extrabold text-rose-800">0 ข้อ</span>
+                    </div>
+                    <div class="bg-blue-50 rounded-xl p-4 border border-blue-100">
+                        <span class="block text-xs font-medium text-blue-600">เวลาที่ใช้</span>
+                        <span id="stat-time-spent" class="text-xl font-extrabold text-blue-800">0 นาที</span>
+                    </div>
+                </div>
+
+                <!-- Topic analysis skills -->
+                <div class="border-t border-slate-200 pt-6 space-y-4 text-left">
+                    <h4 class="font-bold text-slate-800">การวิเคราะห์ความรู้และความเข้าใจรายหมวด</h4>
+                    <div id="topic-analysis-container" class="space-y-3.5">
+                        <!-- Dynamic analysis bars go here -->
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <button onclick="restartQuiz()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-all text-sm focus:outline-none">
+                        กลับสู่หน้าหลัก
+                    </button>
+                    <button onclick="toggleDetailedReview()" id="toggle-review-btn" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-all text-sm focus:outline-none border border-slate-300">
+                        ดูข้อสอบเฉลยละเอียด
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed review of correction -->
+            <div id="detailed-review-section" class="hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-slate-100 p-4 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 text-lg">คำเฉลยและบทวิเคราะห์อ้างอิงมาตราแบบเรียลข้อ</h3>
+                    <div>
+                        <select id="review-filter" onchange="filterReviewList()" class="bg-white border border-slate-300 text-xs font-bold rounded-lg px-2.5 py-1.5 focus:outline-none">
+                            <option value="all">แสดงทั้งหมด</option>
+                            <option value="incorrect">แสดงเฉพาะข้อที่ตอบผิด</option>
+                            <option value="flagged">แสดงเฉพาะข้อที่ปักหมุดทบทวน</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="review-questions-list" class="space-y-6">
+                    <!-- Review cards generated dynamically -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs mt-auto border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 space-y-1">
+            <p>ระบบจำลองข้อสอบสร้างขึ้นเพื่อวัตถุประสงค์ในการทบทวนความรู้กฎหมายปกครองและการปฏิบัติหน้าที่ในส่วนราชการ</p>
+            <p>© 2569 จำลองเพื่อส่งเสริมความพร้อมและทักษะความเชี่ยวชาญก่อนเข้าสู่ตำแหน่งข้าราชการ</p>
+        </div>
+    </footer>
+
+    <!-- Submit Confirmation Modal -->
+    <div id="submit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200">
+            <div class="text-center space-y-3">
+                <div class="bg-rose-50 text-rose-600 p-3 rounded-full w-fit mx-auto border border-rose-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">ยืนยันการส่งกระดาษคำตอบ?</h3>
+                <p id="modal-completion-status" class="text-sm text-slate-500 leading-relaxed"></p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideSubmitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำแบบทดสอบต่อ
+                </button>
+                <button onclick="submitQuiz()" class="flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none shadow-md shadow-emerald-600/10">
+                    ยืนยันส่งคำตอบ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Confirmation Modal -->
+    <div id="exit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200">
+            <div class="text-center space-y-3">
+                <div class="bg-slate-50 text-slate-600 p-3 rounded-full w-fit mx-auto border border-slate-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900">ต้องการออกจากห้องสอบหรือไม่?</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">ความก้าวหน้าและการบันทึกการทำแบบทดสอบรอบนี้จะไม่ได้รับการบันทึกไว้</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideExitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำต่อ
+                </button>
+                <button onclick="exitQuiz()" class="flex-1 py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ออกจากห้องสอบ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DB Array containing exactly 100 questions from the PDF content -->
+    <script>
+        const ALL_QUESTIONS = [
+            {
+                id: 1,
+                category: "บททั่วไปและรักษาการ",
+                question: "การปฏิบัติตามพระราชกฤษฎีกานี้ในเรื่องใดสมควรที่ส่วนราชการใดจะปฏิบัติเมื่อใดและต้องมีเงื่อนไขอย่างไร ผู้ใดเป็นผู้กำหนด?",
+                options: ["ก. คณะรัฐมนตรี", "ข. ก.พ.ค.", "ค. ก.พ.ร.", "ง. นายกรัฐมนตรี"],
+                answer: 0,
+                rationale: "มาตรา ๓: การปฏิบัติตามพระราชกฤษฎีกานี้ในเรื่องใดสมควรที่ส่วนราชการใดจะปฏิบัติเมื่อใด และจะต้องมีเงื่อนไขอย่างใด ให้เป็นไปตามที่คณะรัฐมนตรีกำหนดตามข้อเสนอแนะของ ก.พ.ร."
+            },
+            {
+                id: 2,
+                category: "บททั่วไปและรักษาการ",
+                question: "ผู้ใดเป็นผู้เสนอแนะต่อคณะรัฐมนตรี ว่าเรื่องใดสมควรที่ส่วนราชการใดจะปฏิบัติเมื่อใด?",
+                options: ["ก. ก.พ.ร.", "ข. รัฐมนตรี", "ค. คณะรัฐมนตรี", "ง. นายกรัฐมนตรี"],
+                answer: 0,
+                rationale: "มาตรา ๓: การกำหนดเงื่อนไขและแนวทางปฏิบัติการบริหารบ้านเมืองที่ดี ให้เป็นไปตามที่ ครม. กำหนดตามข้อเสนอแนะของ ก.พ.ร. (คณะกรรมการพัฒนาระบบราชการ)"
+            },
+            {
+                id: 3,
+                category: "คำนิยาม",
+                question: "ข้อใดมิใช่ 'ส่วนราชการ' ตามพระราชกฤษฎีกานี้?",
+                options: ["ก. ส่วนราชการตามกฎหมายว่าด้วยการปรับปรุงกระทรวง", "ข. ทบวง กรม", "ค. หน่วยงานอื่นของรัฐที่อยู่ในกำกับของส่วนราชการฝ่ายบริหาร", "ง. องค์กรปกครองส่วนท้องถิ่น"],
+                answer: 3,
+                rationale: "มาตรา ๔: 'ส่วนราชการ' หมายความว่า ส่วนราชการตามกฎหมายว่าด้วยการปรับปรุงกระทรวง ทบวง กรม และหน่วยงานอื่นของรัฐที่อยู่ในกำกับของราชการฝ่ายบริหาร แต่ไม่รวมถึงองค์กรปกครองส่วนท้องถิ่น"
+            },
+            {
+                id: 4,
+                category: "บททั่วไปและรักษาการ",
+                question: "ผู้ใดรักษาการตามพระราชกฤษฎีกานี้?",
+                options: ["ก. นายกรัฐมนตรี", "ข. รัฐมนตรีว่าการกระทรวงการคลัง", "ค. ปลัดกระทรวงการคลัง", "ง. คณะรัฐมนตรี"],
+                answer: 0,
+                rationale: "มาตรา ๕: ให้นายกรัฐมนตรีรักษาการตามพระราชกฤษฎีกานี้"
+            },
+            {
+                id: 5,
+                category: "เป้าหมายการบริหาร",
+                question: "การบริหารกิจการบ้านเมืองที่ดี ได้แก่ การบริหารราชการเพื่อบรรลุเป้าหมาย กี่ประการ?",
+                options: ["ก. ๓ ประการ", "ข. ๕ ประการ", "ค. ๖ ประการ", "ง. ๗ ประการ"],
+                answer: 3,
+                rationale: "มาตรา ๖: การบริหารกิจการบ้านเมืองที่ดี ได้แก่ การบริหารราชการเพื่อบรรลุเป้าหมาย ๗ ประการ เช่น เกิดประโยชน์สุขประชาชน เกิดผลสัมฤทธิ์ต่อภารกิจรัฐ ฯลฯ"
+            },
+            {
+                id: 6,
+                category: "เป้าหมายการบริหาร",
+                question: "บริหารกิจการบ้านเมืองที่ดี ได้แก่ การบริหารราชการเพื่อบรรลุเป้าหมายดังต่อไปนี้ ข้อใด 'ไม่ใช่'?",
+                options: ["ก. เกิดประโยชน์สุขของหน่วยงานของรัฐ", "ข. มีประสิทธิภาพและเกิดความคุ้มค่าในเชิงภารกิจของรัฐ", "ค. ไม่มีขั้นตอนการปฏิบัติงานเกินความจำเป็น", "ง. ประชาชนได้รับการอำนวยความสะดวกและได้รับการตอบสนองความต้องการ"],
+                answer: 0,
+                rationale: "มาตรา ๖: ต้องเป็นเกิด 'ประโยชน์สุขของประชาชน' ไม่ใช่ 'ประโยชน์สุขของหน่วยงานของรัฐ'"
+            },
+            {
+                id: 7,
+                category: "ประโยชน์สุขของประชาชน",
+                question: "การบริหารราชการเพื่อประโยชน์สุขของประชาชน ส่วนราชการต้องดำเนินการอย่างไร?",
+                options: ["ก. จัดทำแผนปฏิบัติราชการ", "ข. การกำหนดแผนปฏิบัติราชการ", "ค. ถือว่าประชาชนเป็นศูนย์กลางที่จะได้รับการบริการจากรัฐ", "ง. ถือว่ารัฐคือศูนย์กลางในการให้บริการประชาชน"],
+                answer: 2,
+                rationale: "มาตรา ๘: ในการบริหารราชการเพื่อประโยชน์สุขของประชาชน ส่วนราชการจะต้องดำเนินการโดยถือว่าประชาชนเป็นศูนย์กลางที่จะได้รับการบริการจากรัฐ"
+            },
+            {
+                id: 8,
+                category: "ประโยชน์สุขของประชาชน",
+                question: "การบริหารราชการเพื่อประโยชน์สุขของประชาชน ในการกำหนดภารกิจของรัฐ ต้องสอดคล้องกับข้อใด?",
+                options: ["ก. นโยบายของหน่วยงาน", "ข. นโยบายแห่งรัฐและนโยบายของคณะรัฐมนตรีที่แถลงต่อรัฐสภา", "ค. นโยบายของรัฐมนตรีว่าการกระทรวง", "ง. นโยบายของสหประชาชาติ"],
+                answer: 1,
+                rationale: "มาตรา ๘ (๑): การกำหนดภารกิจของรัฐและส่วนราชการต้องสอดคล้องกับแนวนโยบายแห่งรัฐและนโยบายของคณะรัฐมนตรีที่แถลงต่อรัฐสภา"
+            },
+            {
+                id: 9,
+                category: "ประโยชน์สุขของประชาชน",
+                question: "การปฏิบัติภารกิจของส่วนราชการต้องเป็นไปอย่างไร?",
+                options: ["ก. ซื่อสัตย์สุจริต", "ข. สามารถตรวจสอบได้", "ค. มุ่งให้เกิดประโยชน์สุขแก่ประชาชนทั้งในระดับประเทศและท้องถิ่น", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "มาตรา ๘ (๒): การปฏิบัติภารกิจของส่วนราชการต้องเป็นไปโดยซื่อสัตย์สุจริต สามารถตรวจสอบได้ และมุ่งให้เกิดประโยชน์สุขแก่ประชาชนทั้งในระดับประเทศและท้องถิ่น"
+            },
+            {
+                id: 10,
+                category: "ประโยชน์สุขของประชาชน",
+                question: "การบริหารราชการเพื่อประโยชน์สุขของประชาชน ก่อนเริ่มดำเนินการ ส่วนราชการต้องดำเนินการอย่างไร?",
+                options: ["ก. จัดให้มีการศึกษาวิเคราะห์ผลดีและผลเสีย", "ข. กำหนดขั้นตอนการดำเนินการที่โปร่งใส", "ค. มีกลไกตรวจสอบการดำเนินการในแต่ละขั้นตอน", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "มาตรา ๘ (๓): ก่อนเริ่มดำเนินการ ส่วนราชการต้องจัดให้มีการศึกษาวิเคราะห์ผลดีและผลเสียให้ครบถ้วนทุกด้าน กำหนดขั้นตอนที่โปร่งใส และมีกลไกตรวจสอบ"
+            },
+            {
+                id: 11,
+                category: "ประโยชน์สุขของประชาชน",
+                question: "ถ้าภารกิจใดจะมีผลกระทบต่อประชาชน ส่วนราชการต้องดำเนินการอย่างไร?",
+                options: ["ก. ยุติภารกิจในเรื่องนั้น", "ข. ดำเนินการตามภารกิจนั้น แล้วแจ้งให้ประชาชนทราบ", "ค. รับฟังความคิดเห็นของประชาชน หรือชี้แจงเพื่อให้ประชาชนตระหนักถึงประโยชน์ที่ส่วนรวมจะได้รับ", "ง. แก้ไข เปลี่ยนแปลงภารกิจนั้นทันที"],
+                answer: 2,
+                rationale: "มาตรา ๘ (๓) วรรคท้าย: ในกรณีที่ภารกิจใดจะมีผลกระทบต่อประชาชน ส่วนราชการต้องดำเนินการรับฟังความคิดเห็นของประชาชนหรือชี้แจงทำความเข้าใจ"
+            },
+            {
+                id: 12,
+                category: "ประโยชน์สุขของประชาชน",
+                question: "ในกรณีที่ปัญหาหรืออุปสรรคจากการดำเนินการ เกิดขึ้นจากส่วนราชการอื่นหรือระเบียบ ข้อบังคับที่ออกโดยส่วนราชการอื่น ให้ดำเนินการอย่างไร?",
+                options: ["ก. รับฟังความคิดเห็นของประชาชน", "ข. แจ้งให้ส่วนราชการที่เกี่ยวข้องทราบ เพื่อให้แก้ไข ปรับปรุงโดยเร็วต่อไป และแจ้งให้ ก.พ.ร. ทราบด้วย", "ค. แจ้งให้ส่วนราชการที่เกี่ยวข้องทราบ และให้แจ้ง ก.พ.ค. ทราบด้วย", "ง. แจ้งให้ส่วนราชการที่เกี่ยวข้องทราบ และแจ้ง คณะรัฐมนตรีทราบด้วย"],
+                answer: 1,
+                rationale: "มาตรา ๘ (๕): กรณีเกิดปัญหาอุปสรรคจากระเบียบหรือส่วนราชการอื่น ให้แจ้งส่วนราชการที่เกี่ยวข้องทราบเพื่อแก้ไขโดยเร็ว และให้แจ้ง ก.พ.ร. ทราบด้วย"
+            },
+            {
+                id: 13,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "การบริหารราชการเพื่อให้เกิดผลสัมฤทธิ์ต่อภารกิจของรัฐ ก่อนดำเนินการตามภารกิจใด ส่วนราชการต้องทำสิ่งใดก่อน?",
+                options: ["ก. กำหนดขั้นตอน ระยะเวลา", "ข. จัดทำแผนปฏิบัติราชการล่วงหน้า", "ค. กำหนดเป้าหมาย", "ง. กำหนดผลสัมฤทธิ์"],
+                answer: 1,
+                rationale: "มาตรา ๙ (๑): ก่อนจะดำเนินการตามภารกิจใด ส่วนราชการต้องจัดทำแผนปฏิบัติราชการไว้เป็นการล่วงหน้า"
+            },
+            {
+                id: 14,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "แผนปฏิบัติราชการของส่วนราชการ ต้องมีองค์ประกอบสำคัญใด?",
+                options: ["ก. รายละเอียดของขั้นตอน ระยะเวลา และงบประมาณ", "ข. เป้าหมายของภารกิจ ผลสัมฤทธิ์ของภารกิจ", "ค. ตัวชี้วัดความสำเร็จของภารกิจ", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "มาตรา ๙ (๒): แผนปฏิบัติราชการต้องมีรายละเอียดขั้นตอน ระยะเวลา งบประมาณ เป้าหมาย ผลสัมฤทธิ์ และตัวชี้วัดความสำเร็จของภารกิจ"
+            },
+            {
+                id: 15,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ส่วนราชการต้องมีการติดตามและประเมินผลการปฏิบัติตามแผนปฏิบัติราชการ โดยต้องสอดคล้องกับมาตรฐานที่ใครกำหนด?",
+                options: ["ก. คณะรัฐมนตรี", "ข. ก.พ.ร.", "ค. ก.พ.ค.", "ง. นายกรัฐมนตรี"],
+                answer: 1,
+                rationale: "มาตรา ๙ (๓): ส่วนราชการต้องจัดให้มีการติดตามและประเมินผลการปฏิบัติราชการตามหลักเกณฑ์ที่กำหนด ซึ่งต้องสอดคล้องกับมาตรฐานที่ ก.พ.ร. กำหนด"
+            },
+            {
+                id: 16,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ภารกิจใด มีความเกี่ยวข้องกับหลายส่วนราชการ หรือเป็นภารกิจใกล้เคียงกัน ให้ส่วนราชการที่เกี่ยวข้องนั้น กำหนดแนวทางปฏิบัติ เพื่อให้เกิดการบริหารราชการแบบใด?",
+                options: ["ก. แบบร่วมกัน", "ข. แบบร่วมกันบูรณาการ", "ค. แบบบูรณาการร่วมกัน", "ง. แบบผสมผสาน"],
+                answer: 2,
+                rationale: "มาตรา ๑๐: บัญญัติให้ส่วนราชการที่เกี่ยวข้องกำหนดแนวทางปฏิบัติการแบบ 'บูรณาการร่วมกัน' โดยมุ่งให้เกิดผลสัมฤทธิ์ต่อภารกิจของรัฐ"
+            },
+            {
+                id: 17,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "เพื่อประโยชน์ในการปฏิบัติราชการให้เกิดผลสัมฤทธิ์ ก.พ.ร. อาจเสนอต่อใคร เพื่อกำหนดมาตรการกำกับการปฏิบัติราชการโดยการทำความตกลงเป็นลายลักษณ์อักษร?",
+                options: ["ก. ก.พ.", "ข. คณะรัฐมนตรี", "ค. รัฐมนตรีเจ้าสังกัด", "ง. ก.พ.ค."],
+                answer: 1,
+                rationale: "มาตรา ๑๒: เพื่อประโยชน์ในการปฏิบัติราชการให้เกิดผลสัมฤทธิ์ ก.พ.ร. อาจเสนอต่อคณะรัฐมนตรีเพื่อกำหนดมาตรการกำกับการปฏิบัติราชการ"
+            },
+            {
+                id: 18,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ส่วนราชการต้องจัดทำแผนปฏิบัติราชการของส่วนราชการนั้น เป็นแผนกี่ปี?",
+                options: ["ก. ๒ ปี", "ข. ๓ ปี", "ค. ๔ ปี", "ง. ๕ ปี"],
+                answer: 3,
+                rationale: "มาตรา ๑๖ (แก้ไขเพิ่มเติม ฉบับที่ ๒): ให้ส่วนราชการจัดทำแผนปฏิบัติราชการของส่วนราชการจัดทำเป็น 'แผนห้าปี' ซึ่งต้องสอดคล้องกับยุทธศาสตร์ชาติ"
+            },
+            {
+                id: 19,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ให้ส่วนราชการจัดทำแผนปฏิบัติราชการเป็นแผน ๕ ปี ซึ่งต้องสอดคล้องกับหลายด้าน ยกเว้นข้อใด?",
+                options: ["ก. ยุทธศาสตร์ชาติ แผนแม่บท", "ข. แผนการปฏิรูปประเทศ แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ", "ค. นโยบายของคณะรัฐมนตรีที่แถลงต่อรัฐสภา และแผนอื่นที่เกี่ยวข้อง", "ง. แผนการบริหารจัดการงบประมาณรายจ่ายประจำปี"],
+                answer: 3,
+                rationale: "มาตรา ๑๖: แผนปฏิบัติราชการต้องสอดคล้องกับยุทธศาสตร์ชาติ แผนแม่บท แผนปฏิรูป แผนพัฒนา นโยบาย ครม. แต่ไม่มีกำหนดสอดคล้องกับแผนการจัดสรรงบประมาณเป็นการเฉพาะ"
+            },
+            {
+                id: 20,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ในวาระเริ่มแรก การจัดทำแผนปฏิบัติราชการของส่วนราชการตามพระราชกฤษฎีกาบริหารกิจการบ้านเมืองที่ดี (ฉบับที่ ๒) พ.ศ. ๒๕๖๒ ให้จัดทำเป็นแผนกี่ปี?",
+                options: ["ก. ๒ ปี", "ข. ๓ ปี", "ค. ๔ ปี", "ง. ๕ ปี"],
+                answer: 1,
+                rationale: "มาตรา ๙ (ฉบับที่ ๒ พ.ศ. ๒๕๖๒): ในวาระเริ่มแรก การจัดทำแผนปฏิบัติราชการตามมาตรา ๑๖ ให้จัดทำเป็น 'แผนสามปี' เพื่อความเหมาะสมในช่วงเปลี่ยนผ่าน"
+            },
+            {
+                id: 21,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ในวาระเริ่มแรก แผนปฏิบัติราชการ ๓ ปี มีห้วงระยะเวลาตั้งแต่ปีงบประมาณใดถึงปีงบประมาณใด?",
+                options: ["ก. พ.ศ. ๒๕๖๒ ถึง พ.ศ. ๒๕๖๔", "ข. พ.ศ. ๒๕๖๒ ถึง พ.ศ. ๒๕๖๕", "ค. พ.ศ. ๒๕๖๓ ถึง พ.ศ. ๒๕๖๕", "ง. พ.ศ. ๒๕๖๓ ถึง พ.ศ. ๒๕๖๖"],
+                answer: 2,
+                rationale: "มาตรา ๙ (ฉบับที่ ๒ พ.ศ. ๒๕๖๒): กำหนดให้จัดทำเป็นแผนสามปีโดยมีห้วงระยะเวลาตั้งแต่ปีงบประมาณ พ.ศ. ๒๕๖๓ ถึงปีงบประมาณ พ.ศ. ๒๕๖๕"
+            },
+            {
+                id: 22,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "แผนปฏิบัติราชการ ๕ ปี ของส่วนราชการต้องสอดคล้องกับสิ่งใดบ้าง?",
+                options: ["ก. ยุทธศาสตร์ชาติ แผนแม่บท แผนการปฏิรูปประเทศ", "ข. แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ", "ค. นโยบายของคณะรัฐมนตรีที่แถลงต่อรัฐสภา", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "มาตรา ๑๖: บัญญัติให้แผนสอดคล้องกับ ยุทธศาสตร์ชาติ แผนแม่บท แผนปฏิรูปประเทศ แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ นโยบาย ครม. ที่แถลงต่อรัฐสภา และแผนอื่นที่เกี่ยวข้อง"
+            },
+            {
+                id: 23,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ในแต่ละปีงบประมาณ ให้ส่วนราชการจัดทำแผนปฏิบัติราชการประจำปี เสนอต่อผู้ใดเพื่อให้ความเห็นชอบ?",
+                options: ["ก. รัฐมนตรีเจ้าสังกัด", "ข. ก.พ.ร.", "ค. รัฐสภา", "ง. ก.พ.ค."],
+                answer: 0,
+                rationale: "มาตรา ๑๖ วรรคสอง: ในแต่ละปีงบประมาณ ให้ส่วนราชการจัดทำแผนปฏิบัติราชการประจำปีเสนอต่อ 'รัฐมนตรี' เพื่อให้ความเห็นชอบ"
+            },
+            {
+                id: 24,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "เมื่อรัฐมนตรีให้ความเห็นชอบแผนปฏิบัติราชการประจำปีของส่วนราชการแล้ว หน่วยงานใดมีหน้าที่ดำเนินการจัดสรรงบประมาณ?",
+                options: ["ก. กรมบัญชีกลาง", "ข. กระทรวงการคลัง", "ค. สำนักงบประมาณ", "ง. สำนักการคลัง"],
+                answer: 2,
+                rationale: "มาตรา ๑๖ วรรคสาม: เมื่อรัฐมนตรีเห็นชอบแผนแล้ว ให้ 'สำนักงบประมาณ' ดำเนินการจัดสรรงบประมาณตามแผนนั้น"
+            },
+            {
+                id: 25,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "เมื่อสิ้นปีงบประมาณ ให้ส่วนราชการจัดทำรายงานแสดงผลสัมฤทธิ์ของแผนปฏิบัติราชการประจำปี เสนอต่อผู้ใด?",
+                options: ["ก. นายกรัฐมนตรี", "ข. คณะรัฐมนตรี", "ค. ก.พ.ร.", "ง. สำนักงบประมาณ"],
+                answer: 1,
+                rationale: "มาตรา ๑๖ วรรคท้าย: สิ้นปีงบประมาณให้ส่วนราชการจัดทำรายงานแสดงผลสัมฤทธิ์เสนอต่อ 'คณะรัฐมนตรี'"
+            },
+            {
+                id: 26,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ในการจัดทำแผนปฏิบัติราชการเพื่อขอรับงบประมาณ ใครเป็นผู้ร่วมกันกำหนดแนวทางการจัดทำแผนปฏิบัติราชการเพื่อไม่ให้เพิ่มภาระงานเกินสมควร?",
+                options: ["ก. คณะรัฐมนตรี และ ก.พ.ร. ร่วมกัน", "ข. สำนักงบประมาณ และ คณะรัฐมนตรี ร่วมกัน", "ค. สำนักงบประมาณ และ ก.พ.ร. ร่วมกัน", "ง. คณะรัฐมนตรี และ หัวหน้าส่วนราชการ ร่วมกัน"],
+                answer: 2,
+                rationale: "มาตรา ๑๗: ในกรณีที่กฎหมายวิธีการงบประมาณกำหนดให้ทำแผนเสนอ ให้ 'สำนักงบประมาณ และ ก.พ.ร.' ร่วมกันกำหนดแนวทางการจัดทำเพื่อลดความซ้ำซ้อน"
+            },
+            {
+                id: 27,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "การโอนงบประมาณข้ามภารกิจที่มีผลทำให้ภารกิจเดิมไม่บรรลุเป้าหมาย หรือนำไปใช้ในภารกิจใหม่ที่มิได้กำหนดในแผน จะกระทำได้ต่อเมื่อได้รับอนุมัติจากผู้ใด?",
+                options: ["ก. นายกรัฐมนตรี", "ข. ก.พ.ร.", "ค. สำนักงบประมาณ", "ง. คณะรัฐมนตรี"],
+                answer: 3,
+                rationale: "มาตรา ๑๘: การโอนงบประมาณที่ส่งผลทำให้ภารกิจเดิมไม่บรรลุเป้าหมาย หรือภารกิจใหม่นอกแผน จะกระทำได้ต่อเมื่อได้รับอนุมัติจาก 'คณะรัฐมนตรี' เพื่อปรับแผนปฏิบัติราชการ"
+            },
+            {
+                id: 28,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "เมื่อนายกรัฐมนตรีพ้นจากตำแหน่ง ให้หัวหน้าส่วนราชการมีหน้าที่ดำเนินการใด?",
+                options: ["ก. สรุปผลการปฏิบัติราชการและให้ข้อมูลต่อนายกรัฐมนตรีคนใหม่", "ข. สรุปผลการปฏิบัติราชการให้นายกรัฐมนตรีคนเดิม", "ค. สรุปผลการปฏิบัติราชการและให้ข้อมูลต่อคณะรัฐมนตรี", "ง. สรุปผลการปฏิบัติราชการและให้ข้อมูลต่อ ก.พ.ร. เพื่อสั่งการต่อไป"],
+                answer: 0,
+                rationale: "มาตรา ๑๙: เมื่อนายกรัฐมนตรีพ้นจากตำแหน่ง ให้หัวหน้าส่วนราชการมีหน้าที่สรุปผลและให้ข้อมูลต่อนายกรัฐมนตรีคนใหม่"
+            },
+            {
+                id: 29,
+                category: "ประสิทธิภาพและความคุ้มค่า",
+                question: "เพื่อการปฏิบัติราชการอย่างมีประสิทธิภาพ ให้ส่วนราชการกำหนดสิ่งใดและเผยแพร่ให้ข้าราชการและประชาชนทราบ?",
+                options: ["ก. กำหนดเป้าหมาย แผนการทำงาน", "ข. ระยะเวลาแล้วเสร็จของงานหรือโครงการ", "ค. งบประมาณที่จะต้องใช้", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "มาตรา ๒๐: กำหนดเป้าหมาย แผนการทำงาน ระยะเวลาแล้วเสร็จ งบประมาณ และเผยแพร่ให้ข้าราชการและประชาชนทราบโดยทั่วไป"
+            },
+            {
+                id: 30,
+                category: "ประสิทธิภาพและความคุ้มค่า",
+                question: "ให้ส่วนราชการจัดทำบัญชีต้นทุนในงานบริการสาธารณะแต่ละประเภท ขึ้นตามหลักเกณฑ์ที่หน่วยงานใดกำหนด?",
+                options: ["ก. กรมบัญชีกลาง", "ข. ก.พ.ร.", "ค. สำนักงบประมาณ", "ง. คณะรัฐมนตรี"],
+                answer: 0,
+                rationale: "มาตรา ๒๑: ให้จัดทำบัญชีต้นทุนในงานบริการสาธารณะแต่ละประเภทขึ้นตามหลักเกณฑ์ที่ 'กรมบัญชีกลาง' กำหนด"
+            },
+            {
+                id: 31,
+                category: "ประสิทธิภาพและความคุ้มค่า",
+                question: "ให้ส่วนราชการคำนวณรายจ่ายต่อหน่วยของงานบริการสาธารณะ และต้องรายงานให้ใครทราบ?",
+                options: ["ก. สำนักงบประมาณ และกรมบัญชีกลาง", "ข. สำนักงบประมาณ กรมบัญชีกลาง และ คณะรัฐมนตรี", "ค. สำนักงบประมาณ และ ก.พ.ร.", "ง. สำนักงบประมาณ กรมบัญชีกลาง และ ก.พ.ร."],
+                answer: 3,
+                rationale: "มาตรา ๒๑ วรรคสอง: ต้องรายงานให้ สำนักงบประมาณ กรมบัญชีกลาง และ ก.พ.ร. ทราบ"
+            },
+            {
+                id: 32,
+                category: "ประสิทธิภาพและความคุ้มค่า",
+                question: "หากส่วนราชการจำเป็นต้องได้รับอนุญาต อนุมัติ หรือความเห็นชอบจากส่วนราชการอื่น ส่วนราชการที่มีอำนาจอนุมัติต้องแจ้งผลให้ทราบภายในเวลากี่วัน?",
+                options: ["ก. ๗ วัน", "ข. ๑๕ วัน", "ค. ๓๐ วัน", "ง. ๙๐ วัน"],
+                answer: 1,
+                rationale: "มาตรา ๒๔: ให้ส่วนราชการที่มีอำนาจพิจารณาอนุมัติ/อนุญาต แจ้งผลการพิจารณาให้ส่วนราชการที่ยื่นขอทราบภายในสิบห้าวันนับแต่วันที่ได้รับคำขอ"
+            },
+            {
+                id: 33,
+                category: "ลดขั้นตอนการปฏิบัติงาน",
+                question: "การกำหนดแนวทางกระจายอำนาจตัดสินใจ ความรับผิดชอบ และการลดขั้นตอน เป็นอำนาจของใครด้วยความเห็นชอบของ ครม.?",
+                options: ["ก. นายกรัฐมนตรี", "ข. คณะรัฐมนตรี", "ค. ก.พ.ร.", "ง. ก.พ.ค."],
+                answer: 2,
+                rationale: "มาตรา ๒๘: เพื่อประโยชน์ในการกระจายอำนาจตัดสินใจ ก.พ.ร. ด้วยความเห็นชอบของคณะรัฐมนตรี จะกำหนดหลักเกณฑ์วิธีการเป็นแนวทางปฏิบัติก็ได้"
+            },
+            {
+                id: 34,
+                category: "ลดขั้นตอนการปฏิบัติงาน",
+                question: "การกระจายอำนาจการตัดสินใจตาม พ.ร.ฎ. นี้ กระทำโดยใครเห็นชอบ?",
+                options: ["ก. ก.พ.ร. ด้วยความเห็นชอบของคณะรัฐมนตรี", "ข. ก.พ.ร. ด้วยความเห็นชอบของนายกรัฐมนตรี", "ค. ก.พ.ร. ด้วยความเห็นชอบของรัฐมนตรี", "ง. ก.พ.ร. ด้วยความเห็นชอบของ ก.พ.ค."],
+                answer: 0,
+                rationale: "มาตรา ๒๘: กำหนดหลักเกณฑ์และแนวทางการกระจายอำนาจความรับผิดชอบ และการลดขั้นตอน ดำเนินการโดย ก.พ.ร. ด้วยความเห็นชอบของคณะรัฐมนตรี"
+            },
+            {
+                id: 35,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "ในการให้บริการประชาชน ส่วนราชการแต่ละแห่งต้องจัดทำแผนภูมิขั้นตอนและระยะเวลาการดำเนินการอย่างไร?",
+                options: ["ก. เปิดเผยไว้ ณ ที่ทำการของส่วนราชการ", "ข. เปิดเผยไว้ในระบบเครือข่ายสารสนเทศของส่วนราชการ", "ค. รายละเอียดอื่นที่เกี่ยวข้องให้ตรวจดูได้", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "มาตรา ๒๙: บัญญัติให้จัดทำแผนภูมิขั้นตอนและระยะเวลาการดำเนินการ เปิดเผยไว้ ณ ที่ทำการและในระบบเครือข่ายสารสนเทศของส่วนราชการ"
+            },
+            {
+                id: 36,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "การบริการประชาชนและติดต่อประสานงานระหว่างส่วนราชการ ต้องใช้แพลตฟอร์มดิจิทัลกลางที่กำหนดโดยหน่วยงานใด?",
+                options: ["ก. สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน)", "ข. กรมบัญชีกลาง", "ค. สำนักงบประมาณ", "ง. กระทรวงการคลัง"],
+                answer: 0,
+                rationale: "มาตรา ๒๙ วรรคสอง (ฉบับที่ ๒ พ.ศ. ๒๕๖๒): กำหนดให้ต้องกระทำโดยใช้แพลตฟอร์มดิจิทัลกลางที่สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน) หรือ สพร. (DGA) กำหนด"
+            },
+            {
+                id: 37,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "ในกระทรวงหนึ่ง ผู้ใดมีหน้าที่จัดตั้งศูนย์บริการร่วมเพื่อปฏิบัติงานบริการประชาชนร่วมกัน?",
+                options: ["ก. นายกรัฐมนตรี", "ข. รัฐมนตรีว่าการกระทรวง", "ค. ปลัดกระทรวง", "ง. คณะรัฐมนตรี"],
+                answer: 2,
+                rationale: "มาตรา ๓๐: ในกระทรวงหนึ่ง ให้เป็นหน้าที่ของ 'ปลัดกระทรวง' ที่จะต้องจัดให้ส่วนราชการจัดตั้งศูนย์บริการร่วม"
+            },
+            {
+                id: 38,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "เพื่อให้ประชาชนสามารถติดต่อสอบถาม ขอทราบข้อมูล ขออนุญาต หรือขออนุมัติในเรื่องใด ๆ ณ จุดเดียว ให้บริการ ณ ที่ใด?",
+                options: ["ก. ศูนย์บริการร่วม", "ข. ศูนย์ร่วมบริการ", "ค. ศูนย์บริการเบ็ดเสร็จ", "ง. จุดเดียวเบ็ดเตล็ด"],
+                answer: 0,
+                rationale: "มาตรา ๓๐: กำหนดให้จัดตั้ง 'ศูนย์บริการร่วม' เพื่ออำนวยความสะดวกให้ประชาชนสามารถยื่นสอบถามคำขอต่าง ๆ ได้ ณ ที่เดียว"
+            },
+            {
+                id: 39,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "ข้อใดกล่าว 'ไม่ถูกต้อง' เกี่ยวกับการดำเนินการของศูนย์บริการร่วม?",
+                options: ["ก. จัดให้มีเจ้าหน้าที่รับเรื่องราวต่าง ๆ และดำเนินการส่งต่อให้เจ้าหน้าที่ส่วนราชการที่เกี่ยวข้อง", "ข. มีข้อมูล เอกสาร และแบบคำขอต่าง ๆ พร้อมบริการประชาชน ณ ศูนย์บริการร่วม", "ค. ตรวจสอบเอกสารความถูกต้องและแจ้งกำหนดเวลาแล้วเสร็จในการมาติดต่อครั้งแรก", "ง. หากมีอุปสรรคทางกฎหมาย ให้ส่วนราชการที่เกี่ยวข้องแจ้งให้ ก.พ.ค. ทราบ"],
+                answer: 3,
+                rationale: "มาตรา ๓๑: เมื่อเกิดอุปสรรคในการปฏิบัติราชการตามหลักเกณฑ์ ให้แจ้งให้ 'ก.พ.ร.' ทราบ เพื่อนำเสนอ ครม. ปรับปรุงกฎระเบียบ (ไม่ใช่ ก.พ.ค.)"
+            },
+            {
+                id: 40,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "เมื่อเกิดอุปสรรคทางกฎหมายในศูนย์บริการร่วม และมีการเสนอแนะชี้แจง อำนาจในการแก้ไขปรับปรุงกฎระเบียบหรือกฎหมายเป็นของใคร?",
+                options: ["ก. นายกรัฐมนตรี", "ข. รัฐมนตรีเจ้าสังกัด", "ค. ปลัดกระทรวง", "ง. คณะรัฐมนตรี"],
+                answer: 3,
+                rationale: "มาตรา ๓๑ วรรคท้าย: ก.พ.ร. มีหน้าที่รับเรื่องและเสนอต่อ 'คณะรัฐมนตรี' เพื่อดำเนินการปรับปรุงหลักเกณฑ์วิธีการตามกฎหมายหรือกฎนั้นต่อไป"
+            },
+            {
+                id: 41,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "ในจังหวัด ผู้ใดมีหน้าที่จัดตั้งศูนย์บริการร่วมไว้ ณ ศาลากลางจังหวัด?",
+                options: ["ก. คณะรัฐมนตรี", "ข. ปลัดกระทรวง", "ค. ผู้ว่าราชการจังหวัด", "ง. นายอำเภอ"],
+                answer: 2,
+                rationale: "มาตรา ๓๒: ในระดับจังหวัด ให้เป็นหน้าที่ของ 'ผู้ว่าราชการจังหวัด' จัดให้มีศูนย์บริการร่วม ณ ศาลากลางจังหวัด"
+            },
+            {
+                id: 42,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "ในอำเภอ ผู้ใดมีหน้าที่จัดตั้งศูนย์บริการร่วมไว้ ณ ที่ว่าการอำเภอ?",
+                options: ["ก. นายอำเภอ", "ข. รัฐมนตรีว่าการกระทรวงมหาดไทย", "ค. อธิบดีกรมการปกครอง", "ง. คณะรัฐมนตรี"],
+                answer: 0,
+                rationale: "มาตรา ๓๒: ให้ผู้ว่าราชการจังหวัด 'นายอำเภอ' และปลัดอำเภอผู้เป็นหัวหน้าประจำกิ่งอำเภอ จัดตั้งศูนย์บริการร่วม ณ ที่ว่าการอำเภอ"
+            },
+            {
+                id: 43,
+                category: "ปรับปรุงภารกิจ",
+                question: "การที่ส่วนราชการจัดให้มีการทบทวนภารกิจของตนเองว่ามีความจำเป็นต้องยกเลิก ปรับปรุง เปลี่ยนแปลงหรือไม่ ต้องคำนึงถึงสิ่งใด?",
+                options: ["ก. ยุทธศาสตร์ชาติ แผนแม่บท แผนปฏิรูป แผนพัฒนา", "ข. นโยบาย ครม. ที่แถลงต่อรัฐสภา", "ค. กำลังงบประมาณ ความคุ้มค่าของภารกิจ และสถานการณ์ทั่วไป", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "มาตรา ๓๓: ให้คำนึงถึงยุทธศาสตร์ชาติ แผนแม่บท แผนปฏิรูป แผนพัฒนา นโยบาย ครม. กำลังเงินงบประมาณ ความคุ้มค่า และสถานการณ์ประกอบกัน"
+            },
+            {
+                id: 44,
+                category: "ปรับปรุงภารกิจ",
+                question: "ในวาระเริ่มแรก ให้สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน) จัดให้มีแพลตฟอร์มดิจิทัลกลางภายในกี่วัน?",
+                options: ["ก. ๓๐ วัน", "ข. ๖๐ วัน", "ค. ๙๐ วัน", "ง. ๑๘๐ วัน"],
+                answer: 2,
+                rationale: "มาตรา ๑๐ (ฉบับที่ ๒ พ.ศ. ๒๕๖๒): จัดให้มีแพลตฟอร์มดิจิทัลกลางเพื่อให้ส่วนราชการประสานงานและบริการประชาชนได้ภายใน 'เก้าสิบวัน' นับแต่วันใช้บังคับ"
+            },
+            {
+                id: 45,
+                category: "บททั่วไปและรักษาการ",
+                question: "พระราชกฤษฎีกาว่าด้วยหลักเกณฑ์และวิธีการบริหารกิจการบ้านเมืองที่ดี (ฉบับที่ ๒) พ.ศ. ๒๕๖๒ มีผลใช้บังคับตั้งแต่วันใด?",
+                options: ["ก. ๓๐ เมษายน ๒๕๖๒", "ข. ๑ พฤษภาคม ๒๕๖๒", "ค. ๓๑ สิงหาคม ๒๕๖๒", "ง. ๑ ธันวาคม ๒๕๖๒"],
+                answer: 1,
+                rationale: "ประกาศในราชกิจจานุเบกษาเมื่อ ๓๐ เมษายน ๒๕๖๒ และมีผลบังคับใช้วันถัดไป คือ '๑ พฤษภาคม ๒๕๖๒'"
+            },
+            {
+                id: 46,
+                category: "ปรับปรุงภารกิจ",
+                question: "การกำหนดเวลาและระยะเวลาในการจัดให้มีการทบทวนภารกิจของส่วนราชการ เป็นอำนาจของผู้ใดเป็นผู้กำหนด?",
+                options: ["ก. นายกรัฐมนตรี", "ข. ปลัดกระทรวง", "ค. ก.พ.ร.", "ง. กระทรวงการคลัง"],
+                answer: 2,
+                rationale: "มาตรา ๓๓ วรรคสอง: กำหนดเวลาในการจัดให้มีการทบทวนตามวรรคหนึ่งให้เป็นไปตามที่ 'ก.พ.ร.' กำหนด"
+            },
+            {
+                id: 47,
+                category: "ปรับปรุงภารกิจ",
+                question: "ถ้าส่วนราชการเห็นควรยกเลิก ปรับปรุง หรือเปลี่ยนแปลงภารกิจ ต้องเสนอปรับปรุงโครงสร้างอัตรากำลังเสนอต่อผู้ใดเพื่อให้ความเห็นชอบ?",
+                options: ["ก. นายกรัฐมนตรี", "ข. ปลัดกระทรวง", "ค. ก.พ.ร.", "ง. คณะรัฐมนตรี"],
+                answer: 3,
+                rationale: "มาตรา ๓๓ วรรคสาม: ให้เสนอ 'คณะรัฐมนตรี' พิจารณาให้ความเห็นชอบเพื่อดำเนินการต่อไป"
+            },
+            {
+                id: 48,
+                category: "ปรับปรุงภารกิจ",
+                question: "ในกรณีที่ ก.พ.ร. พิจารณาแล้วเห็นว่าภารกิจของส่วนราชการใดสมควรเปลี่ยนแปลง ยกเลิก หรือเพิ่มเติม ให้เสนอผู้ใดพิจารณาอนุมัติ?",
+                options: ["ก. นายกรัฐมนตรี", "ข. ปลัดกระทรวง", "ค. ก.พ.ร.", "ง. คณะรัฐมนตรี"],
+                answer: 3,
+                rationale: "มาตรา ๓๓ วรรคสี่: หาก ก.พ.ร. พิจารณาแล้วเห็นควรปรับเปลี่ยนโครงสร้างภารกิจ ให้เสนอต่อ 'คณะรัฐมนตรี' เพื่อพิจารณาเห็นชอบ"
+            },
+            {
+                id: 49,
+                category: "ปรับปรุงภารกิจ",
+                question: "ถ้ามีการยุบเลิกส่วนราชการแล้ว ภายหลังห้ามมิให้จัดตั้งส่วนราชการที่มีลักษณะภารกิจเดิมเดียวกัน เว้นแต่จะได้รับความเห็นชอบจากที่ใด?",
+                options: ["ก. คณะรัฐมนตรี", "ข. ก.พ.", "ค. ก.พ.ร.", "ง. ก.พ.ค."],
+                answer: 2,
+                rationale: "มาตรา ๓๔: ห้ามจัดตั้งส่วนราชการภารกิจซ้ำเดิม เว้นแต่รักษาความมั่นคงหรือเศรษฐกิจ และได้รับความเห็นชอบจาก 'ก.พ.ร.'"
+            },
+            {
+                id: 50,
+                category: "ปรับปรุงภารกิจ",
+                question: "ข้อใดอยู่ในเงื่อนไขที่ ก.พ.ร. อาจเห็นชอบให้จัดตั้งส่วนราชการที่มีภารกิจเดิมคล้ายคลึงขึ้นอีกภายหลังมีการยุบเลิก?",
+                options: ["ก. มีเหตุผลและความจำเป็นยิ่งยวด", "ข. เพื่อรักษาความมั่นคงของรัฐหรือเศรษฐกิจของประเทศ", "ค. เพื่อรักษาผลประโยชน์ส่วนรวมของประชาชน", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "มาตรา ๓๔: บัญญัติให้จัดตั้งขึ้นใหม่ได้เฉพาะกรณีรักษาความมั่นคงรัฐ เศรษฐกิจประเทศ หรือรักษาผลประโยชน์ส่วนรวมประชาชน โดยความเห็นชอบของ ก.พ.ร."
+            },
+            {
+                id: 51,
+                category: "ปรับปรุงภารกิจ",
+                question: "หน่วยงานใดมีหน้าที่เสนอแนะต่อส่วนราชการต่าง ๆ เพื่อดำเนินการแก้ไข ปรับปรุง หรือยกเลิกกฎหมายที่ขัดต่อการพัฒนาประเทศ หรือเป็นอุปสรรคต่อประชาชน?",
+                options: ["ก. คณะรัฐมนตรี", "ข. รัฐสภา", "ค. นายกรัฐมนตรี", "ง. สำนักงานคณะกรรมการกฤษฎีกา"],
+                answer: 3,
+                rationale: "มาตรา ๓๖: ให้เป็นอำนาจของ 'สำนักงานคณะกรรมการกฤษฎีกา' เสนอแนะแก่ส่วนราชการในการยกเลิกหรือแก้ไขกฎระเบียบที่ล้าสมัย"
+            },
+            {
+                id: 52,
+                category: "ปรับปรุงภารกิจ",
+                question: "หากส่วนราชการที่ได้รับการเสนอแนะแก้กฎหมาย ไม่เห็นชอบด้วยกับคำเสนอแนะของสำนักงานคณะกรรมการกฤษฎีกา ให้เสนอเรื่องต่อผู้ใดพิจารณาวินิจฉัยชี้ขาด?",
+                options: ["ก. นายกรัฐมนตรี", "ข. ปลัดกระทรวง", "ค. ก.พ.ร.", "ง. คณะรัฐมนตรี"],
+                answer: 3,
+                rationale: "มาตรา ๓๖ วรรคสอง: ในกรณีที่ไม่เห็นชอบร่วมกัน ให้เสนอเรื่องต่อ 'คณะรัฐมนตรี' เพื่อพิจารณาวินิจฉัยชี้ขาด"
+            },
+            {
+                id: 53,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "หากส่วนราชการไม่ยอมกำหนดกรอบเวลาแล้วเสร็จ หรือกำหนดระยะเวลาล่าช้าเกินควร ผู้ใดมีอำนาจกำหนดเวลาแล้วเสร็จให้ส่วนราชการนั้นต้องปฏิบัติ?",
+                options: ["ก. ก.พ.ร.", "ข. ก.พ.ค.", "ค. คณะรัฐมนตรี", "ง. รัฐมนตรีเจ้าสังกัด"],
+                answer: 0,
+                rationale: "มาตรา ๓๗: หาก ก.พ.ร. เห็นว่าระยะเวลาล่าช้าเกินควร 'ก.พ.ร.' จะกำหนดเวลาแล้วเสร็จให้ส่วนราชการนั้นต้องปฏิบัติตามก็ได้"
+            },
+            {
+                id: 54,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "เมื่อส่วนราชการใดได้รับการติดต่อสอบถามเป็นหนังสือจากประชาชน ให้ส่วนราชการนั้นมีหน้าที่ต้องชี้แจงแจ้งผลให้ทราบภายในกี่วัน?",
+                options: ["ก. ๗ วัน", "ข. ๑๕ วัน", "ค. ๓๐ วัน", "ง. ๔๕ วัน"],
+                answer: 1,
+                rationale: "มาตรา ๓๘: บัญญัติให้ตอบข้อคำถามหรือแจ้งการดำเนินการให้ประชาชนทราบภายใน 'สิบห้าวัน'"
+            },
+            {
+                id: 55,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "การจัดให้มีระบบเครือข่ายสารสนเทศกลางตาม พ.ร.ฎ. บริหารกิจการบ้านเมืองที่ดี พ.ศ. ๒๕๔๖ บัญญัติให้เป็นหน้าที่ของกระทรวงใด?",
+                options: ["ก. กระทรวงเทคโนโลยีสารสนเทศและการสื่อสาร", "ข. กระทรวงยุติธรรม", "ค. กระทรวงคมนาคม", "ง. กระทรวงวิทยาศาสตร์และเทคโนโลยี"],
+                answer: 0,
+                rationale: "มาตรา ๔๐: เพื่อความสะดวกรวดเร็ว ให้กระทรวงเทคโนโลยีสารสนเทศและการสื่อสาร (ไอซีที) จัดให้มีระบบเครือข่ายสารสนเทศกลาง"
+            },
+            {
+                id: 56,
+                category: "บททั่วไปและรักษาการ",
+                question: "ปัจจุบัน กระทรวงเทคโนโลยีสารสนเทศและการสื่อสาร ได้เปลี่ยนชื่อเป็นกระทรวงใดตามกฎหมายปรับปรุงส่วนราชการ?",
+                options: ["ก. กระทรวงการสื่อสารและเทคโนโลยี", "ข. กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม", "ค. กระทรวงคมนาคม", "ง. กระทรวงวิทยาศาสตร์และเทคโนโลยี"],
+                answer: 1,
+                rationale: "เปลี่ยนชื่ออย่างเป็นทางการตามกฎหมายปรับปรุงกระทรวง ทบวง กรม (ฉบับที่ ๑๗) พ.ศ. ๒๕๕๙ เป็น 'กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม'"
+            },
+            {
+                id: 57,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "ในกรณีที่ส่วนราชการใดไม่อาจจัดทำระบบสารสนเทศของตนเองได้ อาจร้องขอความช่วยเหลือทางบุคลากรและงบประมาณจากหน่วยงานใด?",
+                options: ["ก. กระทรวงเทคโนโลยีสารสนเทศและการสื่อสาร", "ข. กระทรวงการคลัง", "ค. กระทรวงคมนาคม", "ง. กระทรวงวิทยาศาสตร์และเทคโนโลยี"],
+                answer: 0,
+                rationale: "มาตรา ๔๐ วรรคสอง: อาจร้องขอให้กระทรวงเทคโนโลยีสารสนเทศและการสื่อสาร ดำเนินการช่วยเหลือจัดทำระบบเครือข่ายสารสนเทศให้ได้"
+            },
+            {
+                id: 58,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "ส่วนราชการต้องจัดให้มีการเปิดเผยข้อมูลให้ประชาชนสามารถตรวจสอบขอดูได้ ณ ที่ทำการ ยกเว้นเรื่องใด?",
+                options: ["ก. งบประมาณรายจ่ายประจำปี", "ข. รายการจัดซื้อจัดจ้างที่จะดำเนินการในปีนั้น", "ค. สัญญาใด ๆ ที่มีการอนุมัติจัดซื้อจัดจ้างเสร็จแล้ว", "ง. การแต่งตั้งคณะกรรมการสอบสวนทางวินัยและผลการสอบสวนเฉพาะตัว"],
+                answer: 3,
+                rationale: "มาตรา ๔๔: กำหนดให้เปิดเผยงบประมาณ รายการจัดซื้อจัดจ้าง และสัญญาจัดซื้อจัดจ้าง แต่ไม่รวมข้อมูลส่วนบุคคลที่ปกปิด เช่น ผลการสอบสวนวินัย"
+            },
+            {
+                id: 59,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "ข้อใดกล่าว 'ไม่ถูกต้อง' เกี่ยวกับเงื่อนไขการทำสัญญาจัดซื้อจัดจ้างของภาครัฐ?",
+                options: ["ก. ในการจัดทำสัญญาจัดซื้อจัดจ้าง ให้มีข้อตกลงห้ามมิให้เปิดเผยสัญญาดังกล่าวทั้งหมด", "ข. ห้ามมิให้มีข้อความห้ามมิให้เปิดเผยสัญญาสั่งซื้อจัดจ้าง เว้นแต่จะได้รับยกเว้นเพื่อรักษาความลับราชการ", "ค. การปฏิบัติราชการในเรื่องจัดซื้อจัดจ้างโดยปกติให้ถือว่าเป็นเรื่องเปิดเผย", "ง. การกำหนดความลับในภาครัฐ กระทำได้เท่าที่จำเป็นเพื่อความปลอดภัยของประเทศหรือสิทธิส่วนบุคคล"],
+                answer: 0,
+                rationale: "มาตรา ๔๕: ห้ามมีข้อสัญญาห้ามมิให้เปิดเผยตัวสัญญาจัดซื้อจัดจ้าง ยกเว้นความลับทางราชการหรือความลับทางการค้าที่ระบุตามกฎหมาย"
+            },
+            {
+                id: 60,
+                category: "การประเมินผลการปฏิบัติราชการ",
+                question: "ในการดำเนินการประเมินผลการปฏิบัติงานด้านความคุ้มค่า และคุณภาพบริการ ส่วนราชการต้องจัดตั้งคณะผู้ทำการในลักษณะใด?",
+                options: ["ก. คณะประเมินภายในส่วนราชการ", "ข. คณะผู้ประเมินอิสระ", "ค. คณะประเมินผลงานของรัฐสภา", "ง. คณะผู้ประเมินของกระทรวงมหาดไทย"],
+                answer: 1,
+                rationale: "มาตรา ๔๕: ส่วนราชการต้องจัดให้มี 'คณะผู้ประเมินอิสระ' เพื่อประเมินความสัมฤทธิ์และความคุ้มค่า"
+            },
+            {
+                id: 61,
+                category: "การประเมินผลการปฏิบัติราชการ",
+                question: "การกำหนดหลักเกณฑ์ วิธีการ และกำหนดระยะเวลาการประเมินผลโดยคณะผู้ประเมินอิสระ กำหนดโดยผู้ใด?",
+                options: ["ก. ก.พ.ร.", "ข. ก.พ.", "ค. คณะรัฐมนตรี", "ง. รัฐมนตรีเจ้าสังกัด"],
+                answer: 0,
+                rationale: "มาตรา ๔๕ วรรคท้าย: การประเมินผลงานโดยผู้ประเมินอิสระ ให้เป็นไปตามหลักเกณฑ์ วิธีการ และระยะเวลาที่ 'ก.พ.ร.' กำหนด"
+            },
+            {
+                id: 62,
+                category: "การประเมินผลการปฏิบัติราชการ",
+                question: "เมื่อส่วนราชการบรรลุเป้าหมาย ลดต้นทุนได้สำเร็จและคุ้มค่า ก.พ.ร. จะเสนอใครเพื่อจัดสรรรางวัลการเพิ่มประสิทธิภาพ?",
+                options: ["ก. นายกรัฐมนตรี", "ข. รัฐมนตรี", "ค. ปลัดกระทรวง", "ง. คณะรัฐมนตรี"],
+                answer: 3,
+                rationale: "มาตรา ๔๙: เมื่อปฏิบัติราชการบรรลุเป้าหมายและลดต้นทุนได้ตามเกณฑ์ ให้ ก.พ.ร. เสนอ 'คณะรัฐมนตรี' จัดสรรรางวัลเพิ่มประสิทธิภาพ"
+            },
+            {
+                id: 63,
+                category: "ลดขั้นตอนการปฏิบัติงาน",
+                question: "หลักการสำคัญของการกระจายอำนาจการตัดสินใจ มุ่งหวังเพื่อให้เกิดความสะดวกและรวดเร็วเพื่อผลประการใด?",
+                options: ["ก. เพื่อสร้างขั้นตอนระเบียบในการตรวจสอบเพิ่มขึ้น", "ข. เพื่อประโยชน์สูงสุดในการอำนวยความสะดวกบริการประชาชน", "ค. เพื่อลดขั้นตอนการปฏิบัติงานของส่วนราชการ", "ง. มีผลลัพธ์ที่ถูกต้องตามข้อ ข. และ ค."],
+                answer: 3,
+                rationale: "การกระจายอำนาจมีเป้าหมายเพื่อ 'ลดขั้นตอนงาน' และ 'อำนวยความสะดวกแก่ประชาชนในการบริการอย่างรวดเร็ว'"
+            },
+            {
+                id: 64,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "หน่วยงานใดเป็นผู้พิจารณาอนุมัติแผนงานและงบประมาณเพื่อขอรับงบประมาณสำหรับการปรับปรุงโอนย้ายแผนปฏิบัติราชการประจำปี?",
+                options: ["ก. นายกรัฐมนตรี", "ข. สำนักงบประมาณ", "ค. คณะรัฐมนตรี", "ง. สำนักงาน ก.พ."],
+                answer: 2,
+                rationale: "มาตรา ๑๘: การปรับปรุงหรือโอนงบประมาณและแผนการปฏิบัติงานประจำปี จะต้องเสนอความเห็นชอบและอนุมัติจาก 'คณะรัฐมนตรี'"
+            },
+            {
+                id: 65,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "หน่วยงานใดมีหน้าที่หลักในการพิจารณาและดำเนินการจัดสรรเงินงบประมาณเพื่อให้สอดคล้องกับแผนการบริหารที่รัฐมนตรีให้ความเห็นชอบแล้ว?",
+                options: ["ก. คณะรัฐมนตรี", "ข. สำนักงบประมาณ", "ค. กรมบัญชีกลาง", "ง. รัฐสภา"],
+                answer: 1,
+                rationale: "เมื่อรัฐมนตรีอนุมัติเห็นชอบแผนของส่วนราชการแล้ว ให้เป็นหน้าที่ของ 'สำนักงบประมาณ' ในการพิจารณาอนุมัติจัดสรรงบประมาณต่อ"
+            },
+            {
+                id: 66,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ผู้ใดมีอำนาจร่วมกันกำหนดหลักเกณฑ์และวิธีแนวทางปฏิบัติกรณีที่กฎหมายงบประมาณกำหนดให้ทำแผนเสนอเพื่อมิให้เพิ่มภาระงาน?",
+                options: ["ก. สำนักงาน ก.พ. และ ก.พ.ร.", "ข. สำนักงบประมาณ และ คณะรัฐมนตรี", "ค. สำนักงาน ก.พ.ร. และ สำนักงบประมาณ", "ง. มีคำตอบที่ถูกต้องคือ ข. และ ค."],
+                answer: 2,
+                rationale: "มาตรา ๑๗: กำหนดให้เป็นหน้าที่ร่วมกันระหว่าง 'สำนักงบประมาณ และ ก.พ.ร.' ในการบูรณาการหลักเกณฑ์การทำงานร่วมกัน"
+            },
+            {
+                id: 67,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ในกรณีใดต่อไปนี้ที่ส่วนราชการสามารถเสนอขออนุมัติปรับปรุงแผนปฏิบัติราชการประจำปีได้ตามความเหมาะสม?",
+                options: ["ก. ภารกิจที่ดำเนินการไม่สามารถบรรลุวัตถุประสงค์ต่อไปได้", "ข. การดำเนินการตามภารกิจเสียค่าใช้จ่ายสูงเกินความจำเป็นโดยเลี่ยงไม่ได้", "ค. ภารกิจเดิมหมดความจำเป็นหรือไม่มีประโยชน์อีกต่อไปต่อประชาชน", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "มาตรา ๑๘ วรรคสอง: การปรับแผนกระทำได้เมื่อภารกิจดำเนินต่อไม่ได้ หมดความจำเป็น หรือดำเนินการต่อไปทำให้ค่าใช้จ่ายสูงเกินพิกัดจำเป็น"
+            },
+            {
+                id: 68,
+                category: "ประสิทธิภาพและความคุ้มค่า",
+                question: "ตามหลักเกณฑ์การจัดซื้อจัดจ้างภาครัฐเพื่อความคุ้มค่า ข้อใดกล่าว 'ไม่ถูกต้อง'?",
+                options: ["ก. ต้องยึดถือราคาที่เสนอต่ำสุดเป็นเกณฑ์ชี้ขาดในทุกกรณีเพื่อรักษางบประมาณ", "ข. ดำเนินการโดยเปิดเผย มีความเที่ยงธรรม เสมอภาค โปร่งใส", "ค. ต้องพิจารณาคำนึงถึงคุณภาพมาตรฐานของผลิตภัณฑ์เป็นหลักสำคัญ", "ง. คำนึงถึงราคา ควบคู่กับประโยชน์และอายุการใช้งานที่คุ้มค่าสูงสุด"],
+                answer: 0,
+                rationale: "ตามกฎหมายบริหารบ้านเมืองที่ดี การจัดซื้อจัดจ้างห้ามเน้นแต่ราคาต่ำสุด แต่ต้องพิจารณาคุณภาพ วัตถุประสงค์ และประโยชน์การใช้งานควบคู่กันด้วย"
+            },
+            {
+                id: 69,
+                category: "การประเมินผลการปฏิบัติราชการ",
+                question: "การจัดให้มีการประเมินผลงานของส่วนราชการในภาพรวมความคุ้มค่า และคุณภาพด้านบริหาร ต้องจัดให้ผู้ใดเป็นผู้ดำเนินการ?",
+                options: ["ก. คณะกรรมการตรวจเงินแผ่นดิน (สตง.)", "ข. จัดหาคณะประเมินผลที่มีสถานะเป็นอิสระ (คณะผู้ประเมินอิสระ)", "ค. คณะผู้ประเมินซึ่งแต่งตั้งโดยสำนักนายกรัฐมนตรีโดยตรง", "ง. ดำเนินการประเมินโดยใช้อุปกรณ์ภายในฝ่ายบุคคลของส่วนราชการเอง"],
+                answer: 1,
+                rationale: "มาตรา ๔๕: กำหนดให้นอกจากการประเมินทั่วไปแล้ว ให้แต่งตั้ง 'คณะผู้ประเมินอิสระ' เพื่อประเมินผลงานความเป็นกลางอย่างเป็นระบบ"
+            },
+            {
+                id: 70,
+                category: "การประเมินผลการปฏิบัติราชการ",
+                question: "ผู้ใดมีบทบาทหลักในการเสนอแนะและยกร่างหลักเกณฑ์รายละเอียดเรื่องการมอบและจัดสรรเงินรางวัลเพื่อประสิทธิภาพการทำงาน?",
+                options: ["ก. ก.พ.ร.", "ข. นายกรัฐมนตรี", "ค. คณะรัฐมนตรี", "ง. สำนักงบประมาณ"],
+                answer: 0,
+                rationale: "มาตรา ๔๙: ให้เป็นหน้าที่ของ 'ก.พ.ร.' เป็นผู้ยกร่างข้อเสนอและกำหนดหลักเกณฑ์จัดสรรเงินรางวัลเสนอคณะรัฐมนตรีอนุมัติ"
+            },
+            {
+                id: 71,
+                category: "การประเมินผลการปฏิบัติราชการ",
+                question: "เมื่อ ก.พ.ร. ดำเนินการยกร่างและเสนอหลักเกณฑ์การจัดสรรรางวัลเพิ่มประสิทธิภาพการทำงานแล้ว ใครเป็นผู้พิจารณาให้ความเห็นชอบอนุมัติ?",
+                options: ["ก. คณะรัฐมนตรี", "ข. สำนักงบประมาณ", "ค. นายกรัฐมนตรี", "ง. กรมบัญชีกลาง"],
+                answer: 0,
+                rationale: "มาตรา ๔๙: หลักเกณฑ์และวิธีการจัดสรรรางวัลเพิ่มประสิทธิภาพ ดำเนินการจัดทำโดย ก.พ.ร. 'โดยความเห็นชอบของคณะรัฐมนตรี'"
+            },
+            {
+                id: 72,
+                category: "ประโยชน์สุขของประชาชน",
+                question: "เมื่อส่วนราชการพบปัญหาในการทำงานจากกระบวนการประสานงานต่างกระทรวง ให้แจ้งผลและแนวทางแก้ไขให้แก่หน่วยงานใดทราบด้วย?",
+                options: ["ก. คณะรัฐมนตรี", "ข. ก.พ.ร.", "ค. รัฐมนตรี", "ง. กรมบัญชีกลาง"],
+                answer: 1,
+                rationale: "มาตรา ๘ (๕): บัญญัติให้เมื่อมีอุปสรรคจากระเบียบข้อบังคับจากส่วนราชการอื่น ให้แจ้งต่อหน่วยงานที่รับผิดชอบทราบ และรายงานต่อ 'ก.พ.ร.' ด้วย"
+            },
+            {
+                id: 73,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "คำว่า 'การบริหารราชการแบบบูรณาการ' สอดคล้องและมีความหมายตรงกับกรณีใด?",
+                options: ["ก. การปฏิบัติงานร่วมกันเฉพาะภายในฝ่ายส่วนบริหารของกรมเดียวกัน", "ข. การร่วมมือประสานแนวทางปฏิบัติงานระหว่างหน่วยงานหรือส่วนราชการที่เกี่ยวข้องเพื่อผลสัมฤทธิ์ของรัฐ", "ค. การประสานงานร่วมกันแบบสัญญาลับระหว่างรัฐกับกลุ่มบริษัทการค้า", "ง. การลดอัตรากำลังข้าราชการลงให้ตรงตามที่กฎหมายพรรคการเมืองระบุ"],
+                answer: 1,
+                rationale: "การบูรณาการร่วมกัน (Integrated approach) ตามมาตรา ๑๐ หมายถึงการประสานแนวทางปฏิบัติงานระหว่างส่วนราชการต่าง ๆ ที่เกี่ยวข้องเพื่อผลสัมฤทธิ์สูงสุดต่อภารกิจ"
+            },
+            {
+                id: 74,
+                category: "บททั่วไปและรักษาการ",
+                question: "อักษรย่ออย่างเป็นทางการของ คณะกรรมการพัฒนาระบบราชการ คือข้อใด?",
+                options: ["ก. ก.พ.ร.", "ข. ก.พ.ค.", "ค. ก.พ.", "ง. ก.พ.อ."],
+                answer: 0,
+                rationale: "คณะกรรมการพัฒนาระบบราชการ ย่อว่า 'ก.พ.ร.' (ส่วน คณะกรรมการพิทักษ์ระบบคุณธรรม ย่อว่า 'ก.พ.ค.')"
+            },
+            {
+                id: 75,
+                category: "การประเมินผลการปฏิบัติราชการ",
+                question: "การประเมินความพึงพอใจและทัศนคติผลงานของระดับผู้บังคับบัญชาตาม พ.ร.ฎ. นี้ ควรกระทำในลักษณะใด?",
+                options: ["ก. ดำเนินการเปิดเผยต่อสาธารณะ", "ข. ปกปิดไว้เป็นความลับที่สุด", "ค. ดำเนินการเพื่อส่งเสริมความสามัคคีและประสานทักษะของข้าราชการ", "ง. ถูกต้องตามเงื่อนไขข้อ ก. และ ค."],
+                answer: 3,
+                rationale: "การประเมินภาพรวมของผู้บังคับบัญชาต้องดำเนินไปอย่างโปร่งใสเปิดเผย และมีเป้าหมายสร้างความพึงพอใจ ส่งเสริมความเป็นเอกภาพและความสามัคคีในการทำงานร่วมกัน"
+            },
+            {
+                id: 76,
+                category: "ปรับปรุงภารกิจ",
+                question: "กระบวนการจัดเก็บข้อวิจารณ์ ข้อเสนอแนะ และการเปิดเผยข้อมูลข่าวสารภาครัฐ จัดเป็นการบริการจัดการเพื่อเป้าหมายตามข้อใด?",
+                options: ["ก. เกิดประโยชน์สุขของประชาชน", "ข. การปรับปรุงภารกิจของส่วนราชการให้ทันเหตุการณ์", "ค. เกิดผลสัมฤทธิ์ต่อภารกิจของรัฐ", "ง. การอำนวยความสะดวกประชาชนและตอบสนองความต้องการ"],
+                answer: 1,
+                rationale: "ตามแนวทางการสอบอ้างอิง: การรับฟังคำร้องเรียนและการทบทวนเพื่อแก้ไขขั้นตอนเปิดรับคำขอ จัดอยู่อย่างเหมาะสมในระบบทบทวนและ 'ปรับปรุงภารกิจของส่วนราชการ' (มาตรา ๓๓)"
+            },
+            {
+                id: 77,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "การประสานจัดการและจัดตั้งระบบเครือข่ายฐานข้อมูลหรือสารสนเทศเพื่อความสะดวกรวดเร็วแก่ผู้ใช้บริการ จัดเป็นเป้าหมายข้อใด?",
+                options: ["ก. เพื่อตอบสนองความต้องการและอำนวยความสะดวกแก่ประชาชน", "ข. การปรับปรุงภารกิจความมั่นคง", "ค. เกิดประโยชน์สุขส่วนตัวของเจ้าหน้าที่", "ง. เกิดผลสัมฤทธิ์ในทางธุรกิจรัฐวิสาหกิจ"],
+                answer: 0,
+                rationale: "การนำแพลตฟอร์มดิจิทัลหรือสารสนเทศมาใช้โดยตรงมีขึ้นเพื่อ 'อำนวยความสะดวกและตอบสนองความต้องการของประชาชน' ตามมาตรา ๒๙ และ ๔๐"
+            },
+            {
+                id: 78,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "ในการดำเนินงาน ส่วนราชการต้องจัดทำและเปิดเผยประเด็นข้อมูลสำคัญใดแก่ผู้สนใจทั่วไป?",
+                options: ["ก. สัญญาจัดซื้อจัดจ้างที่อนุมัติแล้ว", "ข. รายการและแผนการจัดจ้างที่จะดำเนินการในปีงบประมาณนั้น", "ค. ข้อมูลรายละเอียดงบประมาณรายจ่ายแต่ละแผนงานประจำปี", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "มาตรา ๔๔: กำหนดให้เปิดเผยงบประมาณรายจ่าย แผนการจัดซื้อจัดจ้างประจำปี และสัญญาใด ๆ ที่ได้รับอนุมัติเสร็จสิ้นแล้ว"
+            },
+            {
+                id: 79,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "ตามเงื่อนไขมาตรา ๔๕ ในสัญญาสั่งซื้อหรือสั่งจ้างของส่วนราชการ ห้ามระบุข้อตกลงหรือเงื่อนไขใดในสัญญา?",
+                options: ["ก. ข้อห้ามมิให้คู่สัญญาเปิดเผยข้อตกลงหรือราคาสัญญาต่อประชาชน", "ข. ข้อกำหนดเรื่องการส่งงานตรงตามมาตรากำหนดคลังสินค้า", "ค. ข้อห้ามการแก้ไขสัญญาหากไม่มีวิศวกรควบคุม", "ง. ข้อกำหนดให้ส่งงบเพื่อหัก ณ ที่จ่ายภาษี"],
+                answer: 0,
+                rationale: "มาตรา ๔๕: ในการจัดจัดซื้อจัดจ้าง ห้ามมีข้อความตกลงในสัญญาที่ระบุ 'ห้ามมิให้เปิดเผยข้อความหรือข้อตกลงในสัญญา' (เว้นแต่ความลับด้านความมั่นคง)"
+            },
+            {
+                id: 80,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "ในกรณีที่ประชาชนต้องการเสนอแนะข้อร้องเรียนเกี่ยวกับคุณภาพบริการของกระทรวง นอกจากการยื่นต่อต้นสังกัดแล้ว ยื่นต่อหน่วยงานใดได้อีก?",
+                options: ["ก. คณะรัฐมนตรี", "ข. นายกรัฐมนตรี", "ค. ก.พ.ร.", "ง. ก.พ.ค."],
+                answer: 2,
+                rationale: "มาตรา ๔๑: ประชาชนมีสิทธิยื่นข้อเสนอแนะนำหรือข้อร้องทุกข์ต่อส่วนราชการ หรือเสนอผ่าน 'ก.พ.ร.' เพื่อพิจารณาส่ง ครม. ได้"
+            },
+            {
+                id: 81,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "การจัดสร้างระบบสารสนเทศเครือข่ายส่วนราชการเพื่ออำนวยความสะดวกประชาชน ต้องดำเนินการจัดตั้งตามกรอบมาตรฐานเดียวกับกระทรวงใด?",
+                options: ["ก. กรมบัญชีกลางกำหนด", "ข. ระบบเดียวกับที่สำนักงบประมาณกำหนด", "ค. ระบบสอดคล้องกับที่กระทรวงเทคโนโลยีสารสนเทศและการสื่อสารกำหนด", "ง. ระบบเดียวกับกระทรวงคมนาคมกำหนด"],
+                answer: 2,
+                rationale: "มาตรา ๔๐: ระบุให้ส่วนราชการจัดสร้างระบบเทคโนโลยีสอดคล้องประสานเป็นกรอบมาตรฐานเครือข่ายเดียวกับที่ 'กระทรวงไอซีที' จัดให้มี"
+            },
+            {
+                id: 82,
+                category: "บททั่วไปและรักษาการ",
+                question: "ตามมาตรา ๓ แห่งพระราชบัญญัติปรับปรุงกระทรวง ทบวง กรม และกฎหมายที่เกี่ยวข้อง คณะกรรมการพัฒนาระบบราชการ (ก.พ.ร.) มีจำนวนไม่เกินกี่คน?",
+                options: ["ก. ๑๐ คน", "ข. ๑๓ คน", "ค. ๑๔ คน", "ง. ๑๕ คน"],
+                answer: 2,
+                rationale: "ตาม พ.ร.ฎ. และข้อสอบอ้างอิงอ้างอิงเฉลย: คณะกรรมการ ก.พ.ร. มีจำนวนไม่เกิน '๑๔ คน'"
+            },
+            {
+                id: 83,
+                category: "บททั่วไปและรักษาการ",
+                question: "ข้อใดกล่าวอธิบายถึงเจตจำนงหรือเหตุผลหลักในการประกาศใช้พระราชกฤษฎีกานี้ได้ครอบคลุมและถูกต้องที่สุด?",
+                options: ["ก. เพื่อปฏิรูประบบราชการให้ปฏิบัติหน้าที่บริการตอบสนองความต้องการประชาชนอย่างรวดเร็วและคุ้มค่า", "ข. เพื่อให้การบริหารกิจการราชการของประเทศเกิดผลสัมฤทธิ์สูงสุดตามกรอบยุทธศาสตร์รัฐ", "ค. เพื่อตราพระราชกฤษฎีกาตามมาตรา ๓/๑ แห่ง พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน พ.ศ. ๒๕๓๔", "ง. ถูกทุกข้อ"],
+                answer: 3,
+                rationale: "เหตุผลในการตรากฎหมายนี้สอดคล้องครบทั้งการขับเคลื่อนการปฏิรูป การสร้างความคุ้มค่า และเพื่อปฏิบัติการตามมาตรา ๓/๑ แห่งพระราชบัญญัติระเบียบบริหารราชการแผ่นดิน"
+            },
+            {
+                id: 84,
+                category: "บททั่วไปและรักษาการ",
+                question: "พระราชกฤษฎีกาว่าด้วยหลักเกณฑ์และวิธีการบริหารกิจการบ้านเมืองที่ดี (ฉบับที่ ๒) พ.ศ. ๒๕๖๒ ได้รับการประกาศลงในราชกิจจานุเบกษาเมื่อวันที่เท่าใด?",
+                options: ["ก. ๑ มีนาคม ๒๕๖๒", "ข. ๓๐ มีนาคม ๒๕๖๒", "ค. ๓๐ เมษายน ๒๕๖๒", "ง. ๑ พฤษภาคม ๒๕๖๒"],
+                answer: 2,
+                rationale: "พ.ร.ฎ. ฉบับแก้ไขเพิ่มเติมที่ ๒ ได้รับการประกาศลงราชกิจจานุเบกษาในวันที่ '๓๐ เมษายน พ.ศ. ๒๕๖๒'"
+            },
+            {
+                id: 85,
+                category: "บททั่วไปและรักษาการ",
+                question: "พระราชกฤษฎีกาว่าด้วยหลักเกณฑ์และวิธีการบริหารกิจการบ้านเมืองที่ดี (ฉบับที่ ๒) พ.ศ. ๒๕๖๒ มีผลบังคับใช้วันถัดจากวันประกาศ คือวันใด?",
+                options: ["ก. ๓๐ เมษายน ๒๕๖๒", "ข. ๑ พฤษภาคม ๒๕๖๒", "ค. ๓๐ มิถุนายน ๒๕๖๒", "ง. ๑๐ พฤษภาคม ๒๕๖๒"],
+                answer: 1,
+                rationale: "ประกาศวันที่ ๓๐ เมษายน ๒๕๖๒ และมีผลใช้บังคับในวันถัดจากวันประกาศ คือวันที่ '๑ พฤษภาคม พ.ศ. ๒๕๖๒'"
+            },
+            {
+                id: 86,
+                category: "บททั่วไปและรักษาการ",
+                question: "พระราชกฤษฎีกาว่าด้วยหลักเกณฑ์และวิธีการบริหารกิจการบ้านเมืองที่ดี ฉบับปรับปรุงแก้ไขเพิ่มเติมที่บังคับใช้ในปัจจุบัน คือฉบับใด?",
+                options: ["ก. (ฉบับที่ ๒) พ.ศ. ๒๕๖๒", "ข. (ฉบับที่ ๒) พ.ศ. ๒๕๖๓", "ค. (ฉบับที่ ๓) พ.ศ. ๒๕๖๒", "ง. (ฉบับที่ ๔) พ.ศ. ๒๕๖๒"],
+                answer: 0,
+                rationale: "ฉบับที่มีการแก้ไขเพิ่มเติมเพื่อสอดประสานยุทธศาสตร์ชาติและเปลี่ยนจากแผน ๔ ปีเป็นแผน ๕ ปี คือ 'ฉบับที่ ๒ พ.ศ. ๒๕๖๒'"
+            },
+            {
+                id: 87,
+                category: "คำนิยาม",
+                question: "ตามหลักของมาตรา ๔ และบทบัญญัติใกล้เคียง ข้อความใดกล่าวอ้างถึงนิยามคำอธิบายกฎหมาย 'คลาดเคลื่อนหรือไม่ถูกต้อง'?",
+                options: ["ก. คณะรัฐมนตรีเป็นผู้ชี้ขาดแนวทางปฏิบัติงานตาม พ.ร.ฎ. นี้โดยคำเสนอแนะของ ก.พ.ร.", "ข. ส่วนราชการในกฎหมายนี้หมายรวมถึงองค์กรปกครองส่วนท้องถิ่น (อปท.) เข้าเป็นเนื้อหาเดียวกันอย่างสมบูรณ์เด็ดขาด", "ค. ให้นายกรัฐมนตรีรักษาการตามพระราชกฤษฎีกานี้", "ง. บริหารกิจการบ้านเมืองที่ดี มุ่งเน้นความสัมฤทธิ์และผลประโยชน์สุขประชาชนรวม ๗ เป้าหมายหลัก"],
+                answer: 1,
+                rationale: "บทบัญญัติมาตรา ๔ กำหนดชัดเจนว่า 'ส่วนราชการ' หมายรวมถึงหน่วยงานรัฐในควบคุมฝ่ายบริหาร 'แต่ไม่รวมถึงองค์กรปกครองส่วนท้องถิ่น' การกล่าวรวม อปท. จึงเป็นความเข้าใจที่ผิด"
+            },
+            {
+                id: 88,
+                category: "เป้าหมายการบริหาร",
+                question: "ข้อใด 'ไม่ใช่' เป้าหมาย ๗ ประการของการบริหารกิจการบ้านเมืองที่ดีตามที่ระบุในกฎหมาย?",
+                options: ["ก. เกิดประโยชน์สุขของประชาชน", "ข. ไม่มีขั้นตอนการปฏิบัติงานเกินความจำเป็น", "ค. ประชาชนได้รับการอำนวยความสะดวกและตอบสนองความต้องการ", "ง. มีประสิทธิภาพและเกิดความคุ้มค่าสูงสุดในเชิงพาณิชย์"],
+                answer: 3,
+                rationale: "มาตรา ๖ (๓): กำหนด 'มีประสิทธิภาพและเกิดความคุ้มค่าในเชิงภารกิจของรัฐ' ไม่ใช่ 'เชิงพาณิชย์'"
+            },
+            {
+                id: 89,
+                category: "ประโยชน์สุขของประชาชน",
+                question: "การดำเนินการเพื่อมุ่งเน้นประโยชน์สุขประชาชน ข้อความใดกล่าวอธิบายได้ 'คลาดเคลื่อนจากความเป็นจริง'?",
+                options: ["ก. กำหนดเป้าหมายการทำงานโดยถือว่า ประชาชนคือศูนย์กลางสำคัญที่จะได้รับการดูแลจากรัฐ", "ข. ภารกิจและการตั้งแผนงานต้องสอดคล้องกับแนวทางยุทธศาสตร์แห่งรัฐและนโยบาย ครม. ที่แถลง", "ค. หากเกิดผลกระทบต่อประชาชน ให้ส่งข้อมูลแจ้งส่วนราชการภายนอกที่เกี่ยวข้องเข้าชี้แจงแทนโดยส่วนราชการต้นเรื่องไม่ต้องดำเนินการเอง", "ง. การทำงานของข้าราชการต้องคอยซื่อสัตย์ โปร่งใส สามารถยื่นตรวจเช็คได้ทุกมิติ"],
+                answer: 2,
+                rationale: "มาตรา ๘ (๓): กำหนดว่าหากภารกิจเกิดผลกระทบต่อประชาชน ให้เป็นหน้าที่ของ 'ส่วนราชการนั้นเอง' ดำเนินการรับฟังเสียงและชี้แจงสร้างความเข้าใจ (ไม่ใช่ปัดงานให้ผู้อื่นทำ)"
+            },
+            {
+                id: 90,
+                category: "ประโยชน์สุขของประชาชน",
+                question: "หากส่วนราชการพบอุปสรรคการประสานงานอันเนื่องมาจากตัวระเบียบข้อบังคับจากหน่วยงานภายนอก ข้อความใดกล่าวผิดเกี่ยวกับขั้นตอนปฏิบัติ?",
+                options: ["ก. จัดการปรับปรุงแก้ไขปัญหาอุปสรรคและประมวลความเห็นโดยเร็ว", "ข. แจ้งต่อส่วนราชการที่รับผิดชอบระเบียบนั้นเพื่อร่วมพิจารณาแก้ไข", "ค. ให้ทำรายงานแจ้ง ก.พ.ร. ทราบเพื่อดำเนินการประสานจัดการต่อ", "ง. ต้องแจ้งรายงานประเมินและขออนุมัติโดยตรงกับนายกรัฐมนตรีโดยลำพังทันที"],
+                answer: 3,
+                rationale: "มาตรา ๘ (๕): เมื่อเกิดปัญหาข้ามหน่วยงาน ให้แจ้งกระทรวงหรือส่วนงานนั้นทราบ และ 'แจ้ง ก.พ.ร. ทราบ' (ไม่ได้กำหนดให้ต้องฟ้องตรงต่อนายกรัฐมนตรีโดนตรงเป็นเรื่องแรก)"
+            },
+            {
+                id: 91,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ข้อใดกล่าวผิดเกี่ยวกับการวางแผนปฏิบัติการเพื่อให้งานเกิดผลสัมฤทธิ์ตามบทบัญญัติมาตรา ๙?",
+                options: ["ก. ก่อนลงมือจัดงานราชการ ต้องมีการประสานงานตั้งงบประมาณสำรองเผื่อจ่ายทั้งหมดเป็นการล่วงหน้า", "ข. ก่อนลงมือดำเนินงานภารกิจ ต้องจัดทำแผนปฏิบัติราชการรองรับล่วงหน้า", "ค. รายละเอียดในแผนปฏิบัติราชการต้องระบุระยะเวลา งบประมาณ ขั้นตอน ตัวชี้วัด และความคุ้มค่าเป้าหมาย", "ง. มีการตรวจสอบและติดตามอย่างสม่ำเสมอสอดคล้องกับเกณฑ์และมาตรฐานของ ก.พ.ร."],
+                answer: 0,
+                rationale: "มาตรา ๙: ไม่ได้มีข้อระบุบังคับว่าต้องจัดเตรียมงบสำรองจ่ายล่วงหน้า แต่อุปสรรคหลักคือต้อง 'จัดทำแผนปฏิบัติราชการไว้เป็นการล่วงหน้า'"
+            },
+            {
+                id: 92,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ข้อใดต่อไปนี้ที่ 'มิใช่' รายละเอียดที่ระบุและข้อกำหนดในตัวแผนปฏิบัติราชการของส่วนราชการ?",
+                options: ["ก. อุปสรรคและปัญหาการเมืองภายในประเทศที่คาดเดาว่าจะเกิด", "ข. รายละเอียดขั้นตอน ระยะเวลาทำงาน และงบประมาณในแต่ละพิกัดขั้นตอน", "ค. ตัวเป้าหมายความสำเร็จ ผลสัมฤทธิ์ของภารกิจ", "ง. เกณฑ์ตัวชี้วัดความก้าวหน้าผลผลิตความสำเร็จของแผนนั้น"],
+                answer: 0,
+                rationale: "ในมาตรา ๙ (๒) กำหนดให้มีรายละเอียด ๕ ส่วน (ขั้นตอน, ระยะเวลา/งบประมาณ, เป้าหมาย, ผลสัมฤทธิ์, ตัวชี้วัด) แต่ไม่มีข้อกำหนดให้เขียนบรรยายเรื่องความขัดแย้งทางการเมืองภายในแผน"
+            },
+            {
+                id: 93,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ข้อใดอธิบายเกี่ยวกับจำนวนอายุและระยะเวลาแผนการวางแผนปฏิบัติราชการได้ 'ผิดจากระเบียบข้อบังคับ'?",
+                options: ["ก. ในกรณีที่การปฏิบัติภารกิจกระทบต่อประชาชน ต้องจัดการเปลี่ยนแผนเพื่อความเหมาะสมช่วยเหลือ", "ข. หากภารกิจคาบเกี่ยวหลายส่วนงาน ให้ร่วมมือวางแผนบูรณาการร่วมกันเป็นกรอบทางเดินเดียว", "ค. เพื่อประสิทธิภาพงาน ก.พ.ร. อาจขอ ครม. กำหนดมาตรการจัดทำบันทึกข้อตกลงเป็นหนังสือประสานร่วมกัน", "ง. ให้ส่วนราชการจัดทำกรอบแผนปฏิบัติราชการปกติกำหนดไว้เป็น แผน ๔ ปี"],
+                answer: 3,
+                rationale: "มาตรา ๑๖ (แก้ไขเพิ่มเติมโดย ฉบับที่ ๒ พ.ศ. ๒๕๖๒): เปลี่ยนแปลงให้ส่วนราชการจัดทำแผนปฏิบัติราชการเป็น 'แผนห้าปี' (แผน ๔ ปี ถูกยกเลิกไปแล้ว)"
+            },
+            {
+                id: 94,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "ข้อใดต่อไปนี้ที่กล่าวไม่ถูกต้องเกี่ยวกับสิทธิและขั้นตอนการเห็นชอบแผนปฏิบัติราชการ?",
+                options: ["ก. ให้ส่วนราชการจัดทำแผนเป็นแผน ๕ ปี สอดประสานกับยุทธศาสตร์ชาติและแผนแม่บทแผนพัฒนาเศรษฐกิจประเทศ", "ข. ในแต่ละปีงบประมาณ ให้ยกร่างแผนประจำปี เสนอต่อ รัฐมนตรีเจ้าสังกัด เพื่ออนุมัติเห็นชอบ", "ค. หลังได้ความเห็นชอบ แผนงานจะถูกยื่นเพื่อจัดสรรงบทำงานต่อไปตามกฎระเบียบ", "ง. สิ้นปีงบประมาณ ให้ยื่นรายงานแสดงสัมฤทธิผลของแผนประจำปีเสนอต่อ รัฐมนตรีคลัง ชี้ขาดโดยลำพัง"],
+                answer: 3,
+                rationale: "มาตรา ๑๖ วรรคสี่: รายงานแสดงผลสัมฤทธิ์ของแผนเมื่อสิ้นงบประมาณ ต้องยื่นเสนอต่อ 'คณะรัฐมนตรี' (ไม่ใช่รัฐมนตรีว่าการกระทรวงการคลังโดยลำพัง)"
+            },
+            {
+                id: 95,
+                category: "ผลสัมฤทธิ์ต่อภารกิจ",
+                question: "การประสานงานกรณีที่กฎหมายงบประมาณบังคับให้ทำแผนเสนอขอรับงบประมาณ ข้อกำหนดใดกล่าวไม่ถูกต้อง?",
+                options: ["ก. ให้ สำนักงบประมาณ และ สำนักงาน ก.พ. ร่วมกันกำหนดแนวทางเพื่อมิให้เพิ่มภาระงานเกินขีดจำกัด", "ข. ให้ สำนักงบประมาณ และ ก.พ.ร. ร่วมกันกำหนดแนวทางการทำงานเสนอแก่ส่วนราชการ", "ค. เมื่อ ครม. อนุมัติแผนประจำปีแล้ว การย้ายโอนเงินข้ามภารกิจที่ทำให้วัตถุประสงค์เดิมคลาดเคลื่อน จะทำได้ต่อเมื่อ ครม. เห็นชอบ", "ง. การปรับเปลี่ยนแผนทำได้เฉพาะภารกิจดำเนินต่อไม่ได้ เสียเวลา หรือมีเหตุผลเลี่ยงไม่ได้จริง"],
+                answer: 0,
+                rationale: "มาตรา ๑๗: บัญญัติให้ 'สำนักงบประมาณ และ ก.พ.ร.' (ไม่ใช่ ก.พ. ของฝ่ายบุคคล) เป็นผู้ประสานข้อตกลงกรอบแผนร่วมกันเพื่อมิให้ข้าราชการเกิดภาระงานซ้ำซ้อน"
+            },
+            {
+                id: 96,
+                category: "ประสิทธิภาพและความคุ้มค่า",
+                question: "ข้อความการจัดทำรายละเอียดบัญชีและเอกสารแสดงการบริการ ข้อใดกล่าวผิดพลาดจากข้อบังคับ?",
+                options: ["ก. หัวหน้าส่วนงานสรุปผลงานและข้อมูลต่อนายกรัฐมนตรีคนใหม่หลังเข้ารับหน้าที่เพื่อวางนโยบาย", "ข. ต้องกระจายแผน ข้อมูล ระยะเวลาดำเนินการ และตัวเลขงบประมาณให้ข้าราชการและประชาขนรับทราบ", "ค. ส่วนราชการจัดทำรายงานบัญชีต้นทุนงานบริการสาธารณะสอดคล้องกับเงื่อนไขเกณฑ์ที่กรมบัญชีกลางจัดทำระบุไว้", "ง. คำนวณรายจ่ายต่อหน่วยงานเสนอรายงานให้ ครม. กำหนดระยะเวลานำเสนอชี้ขาดเกณฑ์ทุกระยะเดือน"],
+                answer: 3,
+                rationale: "มาตรา ๒๑ วรรคสอง: การประเมินและประมวลรายจ่ายต่อหน่วยงาน ให้รายงานตามกำหนดระยะเวลาที่ 'กรมบัญชีกลางกำหนด' (ไม่ใช่ ครม.) ส่งให้ สำนักงบประมาณ กรมบัญชีกลาง และ ก.พ.ร. ทราบ"
+            },
+            {
+                id: 97,
+                category: "ประสิทธิภาพและความคุ้มค่า",
+                question: "ข้อใดอธิบายขอบเขตระยะเวลาและมาตรการตัดสินใจกระจายความรับผิดชอบได้ 'ผิดพลาดจากกฎหมาย'?",
+                options: ["ก. กรณีส่วนราชการยื่นขอรับอนุมัติหรือความเห็นชอบจากส่วนงานอื่นที่คาบเกี่ยว ต้องดำเนินการตอบกลับใน ๗ วัน", "ข. ต้องได้รับการตอบกลับความเห็นชอบและแจ้งผลให้ทราบภายใน ๑๕ วันนับแต่วันรับคำร้องขอ", "ค. การจัดทำแนวทางกระจายหน้าที่และการลดขีดขั้นตอน ยกร่างโดย ก.พ.ร. ด้วยความเห็นชอบ ครม.", "ง. ให้ส่วนราชการยึดแนวทางจัดทำแผนขั้นตอนทำงาน แผนภูมิเพื่อประหยัดแรงงานและเวลาเปิดเผยแก่ทั่วไป"],
+                answer: 0,
+                rationale: "มาตรา ๒๔: กำหนดขั้นตอนประสานระหวางหน่วยงานให้ตอบรับความช่วยเหลือชี้แจงแจ้งผลภายใน 'สิบห้าวัน' (ไม่ใช่อ้างอิง ๗ วัน)"
+            },
+            {
+                id: 98,
+                category: "อำนวยความสะดวกประชาชน",
+                question: "ความสัมพันธและโครงสร้างอำนาจหน้าที่การประสานงานของ ศูนย์บริการร่วม ข้อใดระบุข้อมูล 'ไม่ถูกต้อง'?",
+                options: ["ก. บริการประชาชนและติดต่อหน่วยงาน ใช้สิทธิ์เชื่อมต่อดิจิทัลกลางโดย สพร. ดำเนินการคุมมาตรฐาน", "ข. จัดตั้งศูนย์บริการร่วมในกระทรวง ยึดถือเป็นหน้าที่การลงดาบสั่งการของปลัดกระทรวงในการคุมงานประสาน", "ค. การยื่นฟ้องร้องคำร้อง ณ ศูนย์บริการร่วม ไม่ให้ถือว่าเป็นการยื่นตรงต่อต้นสังกัดราชการที่มีอำนาจพิจารณา", "ง. มีเอกสาร แผนภูมิ แบบยื่น ครบถ้วน เพื่อชี้แจงระยะเวลาทำงานให้ประชาชนตั้งแต่วันแรกที่มาประสาน"],
+                answer: 2,
+                rationale: "มาตรา ๓๑ วรรคสาม: บัญญัติเด็ดขาดว่า 'ในการยื่นคำร้องหรือคำขอต่อศูนย์บริการร่วม ให้ถือว่าเป็นการยื่นต่อส่วนราชการที่เกี่ยวข้องทั้งหมดตามที่ระบุไว้ในกฎหมายแล้ว'"
+            },
+            {
+                id: 99,
+                category: "ปรับปรุงภารกิจ",
+                question: "การยกเลิก ยุบรวม หรือปรับปรุงภารกิจความซ้ำซ้อน ข้อใดกล่าวอธิบายได้ 'ผิดความจริง'?",
+                options: ["ก. การจัดตั้งศูนย์บริการร่วมประจำจังหวัดศาลากลาง ดำเนินงานโดยมีผู้ว่าราชการจังหวัดหรือนายอำเภอตั้งศูนย์ร่วม", "ข. หากส่วนงานเห็นควรล้มเลิก เปลี่ยนทิศทาง หรือยกเลิกหน่วยงาน ให้สรุปโครงสร้าง อัตรากำลัง เสนอขออนุมัติจาก ครม.", "ค. ก.พ.ร. เสนอปรับโครงสร้างหน่วยงานได้ และเมื่อ ครม. เห็นชอบแล้ว ให้ส่วนงานนั้นทำตามโดยเลี่ยงไม่ได้", "ง. หากมีการรวม ยุบเลิกส่วนราชการไปแล้ว การตั้งขึ้นมาใหม่ซ้ำซ้อนกับภารกิจเดิม ได้รับการยินยอมเห็นชอบจาก ครม. ทันที"],
+                answer: 3,
+                rationale: "มาตรา ๓๔: ห้ามจัดตั้งส่วนงานภารกิจซ้ำซ้อนที่เคยยุบไปแล้ว เว้นแต่มั่นคงหรือเศรษฐกิจ และได้รับความเห็นชอบจาก 'ก.พ.ร.' (ไม่ใช่ ครม. ยินยอมได้ทันทีโดยตรงโดยไม่มีเหตุผล)"
+            },
+            {
+                id: 100,
+                category: "ปรับปรุงภารกิจ",
+                question: "แนวทางและบทบาทของกฤษฎีกา และการทำงานภายในตามกฎหมายบริการบ้านเมืองที่ดี ข้อใดกล่าวผิด?",
+                options: ["ก. กฤษฎีกาตรวจพบกฎระเบียบล้าสมัย สามารถลงนามประกาศยกเลิกด้วยตนเองได้ทันทีโดยไม่ต้องปรึกษาใคร", "ข. ในการปฏิบัติงานบริการประชาชน ต้องประกาศแจ้งแนวทางขั้นตอนและเวลาทำงานไว้แก่ส่วนรวมทั่วไป", "ค. หากส่วนงานไม่กำหนดระยะเวลา หรือ ล่าช้า ก.พ.ร. มีสิทธิ์ลงดาบขีดกรอบระยะเวลาบังคับให้ปฏิบัติได้", "ง. เมื่อได้รับติดต่อจดหมายเป็นหนังสือ ต้องจัดการชี้แจงความคืบหน้าแก่ผู้ส่งภายใน ๑๕ วันพิกัดเวลา"],
+                answer: 0,
+                rationale: "มาตรา ๓๖: สำนักงานคณะกรรมการกฤษฎีกามีหน้าที่ 'เสนอแนะแก่ส่วนราชการต้นสังกัด' เพื่อดำเนินการยกเลิก แก้ไข (กฤษฎีกาไม่มีอำนาจลงนามแก้ไขกฎกระทรวงหรือยกเลิกโดยพลการด้วยตนเอง)"
+            }
+        ];
+
+        // --- App State ---
+        let quizQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = {}; // questionIndex -> selectedOptionIndex
+        let flaggedQuestions = {}; // questionIndex -> boolean
+        let quizMode = 'practice'; // 'practice' or 'exam'
+        let quizDuration = 2700; // 45 minutes in seconds
+        let timerInterval = null;
+        let isQuizSubmitted = false;
+        let startTime = null;
+        let timeSpentSeconds = 0;
+
+        // --- Mode Select ---
+        function selectMode(mode) {
+            quizMode = mode;
+            const btnPractice = document.getElementById('mode-practice-btn');
+            const btnExam = document.getElementById('mode-exam-btn');
+            
+            if (mode === 'practice') {
+                btnPractice.classList.add('border-emerald-600', 'bg-emerald-50/20');
+                btnExam.classList.remove('border-teal-600', 'bg-teal-50/20');
+            } else {
+                btnExam.classList.add('border-teal-600', 'bg-teal-50/20');
+                btnPractice.classList.remove('border-emerald-600', 'bg-emerald-50/20');
+            }
+        }
+
+        // Set Default mode on load
+        selectMode('practice');
+
+        // Shuffling questions helper
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex != 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        // --- Start Quiz Action ---
+        function startQuiz() {
+            const quantitySelect = document.getElementById('exam-quantity');
+            const quantity = parseInt(quantitySelect.value);
+            
+            let sourceQuestions = [...ALL_QUESTIONS];
+            if (quizMode === 'exam') {
+                // In exam mode, shuffle completely to test knowledge
+                sourceQuestions = shuffle(sourceQuestions);
+            }
+            
+            quizQuestions = sourceQuestions.slice(0, Math.min(quantity, sourceQuestions.length));
+
+            // Reset States
+            currentQuestionIndex = 0;
+            userAnswers = {};
+            flaggedQuestions = {};
+            isQuizSubmitted = false;
+            timeSpentSeconds = 0;
+            startTime = new Date();
+
+            // Set up Badge/Timer UI
+            const badge = document.getElementById('badge-mode');
+            if (quizMode === 'practice') {
+                badge.innerText = "โหมดฝึกฝน (เฉลยละเอียดทันที)";
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-emerald-100 text-emerald-800 border border-emerald-200";
+                document.getElementById('timer-container').classList.add('hidden');
+                document.getElementById('score-counter').classList.remove('hidden');
+            } else {
+                badge.innerText = "โหมดสอบจริง (จำลองห้องสอบ)";
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-rose-100 text-rose-800 border border-rose-200";
+                document.getElementById('timer-container').classList.remove('hidden');
+                document.getElementById('score-counter').classList.add('hidden');
+                startTimer();
+            }
+
+            // View Transition
+            document.getElementById('setup-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+
+            renderNavigationGrid();
+            loadQuestion(0);
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            let timerSeconds = quizDuration;
+            const timerDisplay = document.getElementById('quiz-timer');
+            
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                timeSpentSeconds++;
+                
+                const minutes = Math.floor(timerSeconds / 60);
+                const seconds = timerSeconds % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timerSeconds <= 300) { // 5 mins left warning
+                    timerDisplay.parentElement.classList.add('text-rose-500', 'animate-pulse');
+                } else {
+                    timerDisplay.parentElement.classList.remove('text-rose-500', 'animate-pulse');
+                }
+
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        // --- Load active question details ---
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const q = quizQuestions[index];
+
+            // Render status texts
+            document.getElementById('current-q-index').innerText = index + 1;
+            document.getElementById('total-q-count').innerText = quizQuestions.length;
+            
+            const progressPercent = ((index + 1) / quizQuestions.length) * 100;
+            document.getElementById('progress-bar-fill').style.width = `${progressPercent}%`;
+
+            // Category & Question text
+            document.getElementById('question-category').innerText = q.category;
+            document.getElementById('question-text').innerText = `ข้อที่ ${index + 1}: ${q.question}`;
+
+            // Bookmarked/Flagged status
+            const flagBtn = document.getElementById('flag-btn');
+            const flagIcon = document.getElementById('flag-icon');
+            if (flaggedQuestions[index]) {
+                flagIcon.setAttribute('fill', '#f59e0b');
+                flagIcon.setAttribute('stroke', '#f59e0b');
+                flagBtn.classList.add('text-amber-500');
+            } else {
+                flagIcon.setAttribute('fill', 'none');
+                flagIcon.setAttribute('stroke', 'currentColor');
+                flagBtn.classList.remove('text-amber-500');
+            }
+
+            // Options Renderer
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const selectedAnswer = userAnswers[index];
+            const isAnswered = selectedAnswer !== undefined;
+            const showAnswersDirectly = (quizMode === 'practice' && isAnswered);
+
+            q.options.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border transition-all text-sm font-medium focus:outline-none flex justify-between items-center gap-4 min-h-[44px]";
+                btn.onclick = () => selectOption(optIdx);
+
+                const textSpan = document.createElement('span');
+                textSpan.innerText = opt;
+                btn.appendChild(textSpan);
+
+                // Option styling logic
+                if (selectedAnswer === optIdx) {
+                    if (showAnswersDirectly) {
+                        if (optIdx === q.answer) {
+                            btn.className += "bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm";
+                            btn.appendChild(createIcon('check', 'text-emerald-600'));
+                        } else {
+                            btn.className += "bg-rose-50 border-rose-400 text-rose-800 shadow-sm";
+                            btn.appendChild(createIcon('x', 'text-rose-600'));
+                        }
+                    } else {
+                        btn.className += "bg-emerald-50 border-emerald-600 text-emerald-950 shadow-md scale-[1.01]";
+                    }
+                } else {
+                    if (showAnswersDirectly && optIdx === q.answer) {
+                        btn.className += "bg-emerald-50 border-emerald-400 text-emerald-800";
+                        btn.appendChild(createIcon('check', 'text-emerald-500'));
+                    } else {
+                        btn.className += "bg-white border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700";
+                    }
+                }
+
+                if (showAnswersDirectly) {
+                    btn.disabled = true;
+                    btn.onclick = null;
+                }
+
+                optionsContainer.appendChild(btn);
+            });
+
+            // Handle Instant Explanation Panel
+            const expPanel = document.getElementById('explanation-panel');
+            if (showAnswersDirectly) {
+                expPanel.classList.remove('hidden');
+                const isCorrect = (selectedAnswer === q.answer);
+                
+                const titleBadge = document.getElementById('explanation-title-badge');
+                if (isCorrect) {
+                    titleBadge.innerText = "ตอบถูกต้อง";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-emerald-600";
+                } else {
+                    titleBadge.innerText = "ตอบผิดพลาด";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-rose-600";
+                }
+                
+                document.getElementById('explanation-text').innerText = q.rationale;
+            } else {
+                expPanel.classList.add('hidden');
+            }
+
+            // Navigation status
+            document.getElementById('prev-btn').disabled = (index === 0);
+            const nextBtn = document.getElementById('next-btn');
+            const submitQuizBtn = document.getElementById('submit-quiz-btn');
+
+            if (index === quizQuestions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitQuizBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitQuizBtn.classList.add('hidden');
+            }
+
+            updateNavigationGridActive();
+        }
+
+        // SVG helper for response checking
+        function createIcon(type, colorClass) {
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.setAttribute("class", `w-5 h-5 ${colorClass} shrink-0`);
+            svg.setAttribute("fill", "none");
+            svg.setAttribute("viewBox", "0 0 24 24");
+            svg.setAttribute("stroke", "currentColor");
+            svg.setAttribute("stroke-width", "3");
+
+            if (type === 'check') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M5 13l4 4L19 7");
+                svg.appendChild(path);
+            } else if (type === 'x') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M6 18L18 6M6 6l12 12");
+                svg.appendChild(path);
+            }
+            return svg;
+        }
+
+        function selectOption(optionIndex) {
+            if (isQuizSubmitted) return;
+            userAnswers[currentQuestionIndex] = optionIndex;
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function toggleFlag() {
+            flaggedQuestions[currentQuestionIndex] = !flaggedQuestions[currentQuestionIndex];
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                loadQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        // Render side helper panel of questions
+        function renderNavigationGrid() {
+            const grid = document.getElementById('grid-navigation');
+            grid.innerHTML = '';
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('score-counter').innerText = `${answeredCount}/${quizQuestions.length}`;
+
+            quizQuestions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full py-2 rounded-lg text-xs font-bold text-center border focus:outline-none transition-all min-h-[36px]";
+                btn.innerText = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+
+                const isSelected = (idx === currentQuestionIndex);
+                const hasAnswered = (userAnswers[idx] !== undefined);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                if (isSelected) {
+                    btn.className += "bg-emerald-600 border-emerald-700 text-white ring-2 ring-emerald-300 ring-offset-1";
+                } else if (isFlagged) {
+                    btn.className += "bg-amber-500 border-amber-600 text-white";
+                } else if (hasAnswered) {
+                    btn.className += "bg-emerald-100 border-emerald-300 text-emerald-800 hover:bg-emerald-200";
+                } else {
+                    btn.className += "bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100";
+                }
+
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateNavigationGridActive() {
+            const grid = document.getElementById('grid-navigation');
+            const btns = grid.children;
+            for (let i = 0; i < btns.length; i++) {
+                const btn = btns[i];
+                if (i === currentQuestionIndex) {
+                    btn.classList.add('ring-2', 'ring-emerald-300', 'ring-offset-1');
+                } else {
+                    btn.classList.remove('ring-2', 'ring-emerald-300', 'ring-offset-1');
+                }
+            }
+        }
+
+        // --- Modals Controls ---
+        function showSubmitConfirmModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = quizQuestions.length - answeredCount;
+            const statusText = document.getElementById('modal-completion-status');
+
+            if (unanswered > 0) {
+                statusText.innerText = `คุณยังไม่ได้ตอบคำถามอีก ${unanswered} ข้อ จากทั้งหมด ${quizQuestions.length} ข้อ หากกดยืนยัน ระบบจะคำนวณคะแนนเฉพาะข้อที่คุณได้เลือกคำตอบไว้เท่านั้น`;
+                statusText.className = "text-sm text-amber-600 leading-relaxed font-semibold";
+            } else {
+                statusText.innerText = "ยอดเยี่ยม! คุณทำข้อสอบครบทุกข้อแล้ว ต้องการเสร็จสิ้นการประเมินและส่งกระดาษคำตอบใช่หรือไม่?";
+                statusText.className = "text-sm text-emerald-600 leading-relaxed font-semibold";
+            }
+
+            document.getElementById('submit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideSubmitConfirmModal() {
+            document.getElementById('submit-confirm-modal').classList.add('hidden');
+        }
+
+        function confirmExit() {
+            document.getElementById('exit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideExitConfirmModal() {
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+        }
+
+        function exitQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+
+        // --- Submit Quiz & Calculate Results ---
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            isQuizSubmitted = true;
+            hideSubmitConfirmModal();
+
+            let scoreCorrect = 0;
+            const categoryAnalysis = {};
+
+            // Initialize categories statistics
+            quizQuestions.forEach(q => {
+                if (!categoryAnalysis[q.category]) {
+                    categoryAnalysis[q.category] = { correct: 0, total: 0 };
+                }
+                categoryAnalysis[q.category].total++;
+            });
+
+            // Calculate score
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if (userAns !== undefined && userAns === q.answer) {
+                    scoreCorrect++;
+                    categoryAnalysis[q.category].correct++;
+                }
+            });
+
+            const totalCount = quizQuestions.length;
+            const percent = Math.round((scoreCorrect / totalCount) * 100);
+
+            // Compute elapsed time
+            if (quizMode !== 'exam') {
+                const end = new Date();
+                timeSpentSeconds = Math.round((end - startTime) / 1000);
+            }
+            const minsUsed = Math.floor(timeSpentSeconds / 60);
+            const secsUsed = timeSpentSeconds % 60;
+
+            // Display Results View
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+
+            document.getElementById('result-percentage').innerText = `${percent}%`;
+            document.getElementById('result-score-fraction').innerText = `${scoreCorrect}/${totalCount} คะแนน`;
+
+            // Draw circular progress bar
+            const dashArray = 251.2;
+            const offset = dashArray - (dashArray * percent) / 100;
+            document.getElementById('score-ring-fill').style.strokeDashoffset = offset;
+
+            // Generate contextual advice
+            const resultBadge = document.getElementById('result-badge');
+            const feedbackText = document.getElementById('result-feedback-text');
+
+            if (percent >= 80) {
+                resultBadge.innerText = "ผ่านเกณฑ์ระดับยอดเยี่ยม";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-200";
+                feedbackText.innerText = "ยอดเยี่ยมมาก! คุณมีความเข้าใจในพระราชกฤษฎีกาการบริหารบ้านเมืองที่ดีฯ อย่างดีเยี่ยม ครบถ้วนทุกมาตราสำคัญ พร้อมสำหรับการสอบวัดผลประเมินราชการ";
+            } else if (percent >= 60) {
+                resultBadge.innerText = "ผ่านเกณฑ์มาตรฐาน";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200";
+                feedbackText.innerText = "ผ่านเกณฑ์ประเมินเบื้องต้นแล้ว แนะนำให้อ่านเพิ่มหรือดูบทวิเคราะห์ข้อแนะนำในข้อที่คุณตอบผิดพลาดด้านล่างเพิ่มเติมเพื่อยกระดับความรู้สู่คะแนนเต็ม";
+            } else {
+                resultBadge.innerText = "ควรทบทวนศึกษาเพิ่ม";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800 border border-amber-200";
+                feedbackText.innerText = "คะแนนของคุณยังไม่ถึงเกณฑ์ประเมินเบื้องต้น แนะนำให้ศึกษาจากบทสรุปย่อ Cheat Sheet ที่หน้าแรก และฝึกทำซ้ำในโหมดฝึกฝนเพื่อเรียนรู้เฉลยอ้างอิงมาตราอีกครั้ง";
+            }
+
+            // Fill basic analytics boxes
+            document.getElementById('stat-correct').innerText = `${scoreCorrect} ข้อ`;
+            document.getElementById('stat-incorrect').innerText = `${totalCount - scoreCorrect} ข้อ`;
+            document.getElementById('stat-time-spent').innerText = `${minsUsed} น. ${secsUsed} วิ.`;
+
+            // Fill skills analysis section
+            const topicContainer = document.getElementById('topic-analysis-container');
+            topicContainer.innerHTML = '';
+
+            for (const [category, data] of Object.entries(categoryAnalysis)) {
+                const catPercent = Math.round((data.correct / data.total) * 100);
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = "space-y-1.5";
+
+                const labelRow = document.createElement('div');
+                labelRow.className = "flex justify-between items-center text-xs font-bold text-slate-700";
+                labelRow.innerHTML = `<span>${category}</span> <span class="font-mono">${data.correct}/${data.total} (${catPercent}%)</span>`;
+                wrapper.appendChild(labelRow);
+
+                const barBg = document.createElement('div');
+                barBg.className = "w-full bg-slate-200 h-2.5 rounded-full overflow-hidden";
+                
+                const barFill = document.createElement('div');
+                barFill.className = catPercent >= 80 ? "bg-emerald-500 h-full" : (catPercent >= 60 ? "bg-emerald-400 h-full" : "bg-amber-500 h-full");
+                barFill.style.width = `${catPercent}%`;
+                barBg.appendChild(barFill);
+                
+                wrapper.appendChild(barBg);
+                topicContainer.appendChild(wrapper);
+            }
+
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('toggle-review-btn').innerText = "ดูข้อสอบเฉลยละเอียด";
+            generateDetailedReviewList();
+        }
+
+        // --- Detailed Review List Generation ---
+        function generateDetailedReviewList() {
+            const listContainer = document.getElementById('review-questions-list');
+            listContainer.innerHTML = '';
+
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCorrect = (userAns !== undefined && userAns === q.answer);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                const card = document.createElement('div');
+                card.className = "bg-white border rounded-xl p-5 sm:p-6 space-y-4 shadow-sm transition-all";
+                card.dataset.isCorrect = isCorrect ? "true" : "false";
+                card.dataset.isFlagged = isFlagged ? "true" : "false";
+
+                // Review Card Header
+                const cardHeader = document.createElement('div');
+                cardHeader.className = "flex justify-between items-start gap-4 border-b border-slate-100 pb-2.5";
+                
+                const flexLeft = document.createElement('div');
+                flexLeft.className = "flex items-center gap-2 flex-wrap";
+                
+                const qNum = document.createElement('span');
+                qNum.className = "text-sm font-bold text-slate-800";
+                qNum.innerText = `ข้อที่ ${idx + 1}`;
+                flexLeft.appendChild(qNum);
+
+                const catBadge = document.createElement('span');
+                catBadge.className = "text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded";
+                catBadge.innerText = q.category;
+                flexLeft.appendChild(catBadge);
+
+                if (isFlagged) {
+                    const flgBadge = document.createElement('span');
+                    flgBadge.className = "text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 flex items-center gap-1";
+                    flgBadge.innerHTML = `<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"/></svg> ปักหมุดไว้`;
+                    flexLeft.appendChild(flgBadge);
+                }
+
+                cardHeader.appendChild(flexLeft);
+
+                // Right Badge Status
+                const statusBadge = document.createElement('span');
+                if (isCorrect) {
+                    statusBadge.innerText = "ตอบถูก";
+                    statusBadge.className = "text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200";
+                } else if (userAns === undefined) {
+                    statusBadge.innerText = "ไม่ได้ทำ";
+                    statusBadge.className = "text-[10px] font-bold text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200";
+                } else {
+                    statusBadge.innerText = "ตอบผิด";
+                    statusBadge.className = "text-[10px] font-bold text-rose-800 bg-rose-50 px-2 py-0.5 rounded border border-rose-200";
+                }
+                cardHeader.appendChild(statusBadge);
+
+                card.appendChild(cardHeader);
+
+                // Question Text
+                const qText = document.createElement('h5');
+                qText.className = "font-bold text-slate-950 leading-relaxed text-sm sm:text-base";
+                qText.innerText = q.question;
+                card.appendChild(qText);
+
+                // Options list in review card
+                const listGrid = document.createElement('div');
+                listGrid.className = "grid grid-cols-1 gap-2 pt-2";
+
+                q.options.forEach((opt, optIdx) => {
+                    const optBlock = document.createElement('div');
+                    optBlock.className = "p-3 rounded-lg border text-xs font-medium flex justify-between items-center gap-3";
+                    optBlock.innerText = opt;
+
+                    if (optIdx === q.answer) {
+                        optBlock.className += "bg-emerald-50 border-emerald-300 text-emerald-800";
+                        optBlock.appendChild(createIcon('check', 'text-emerald-600'));
+                    } else if (userAns === optIdx) {
+                        optBlock.className += "bg-rose-50 border-rose-300 text-rose-800";
+                        optBlock.appendChild(createIcon('x', 'text-rose-600'));
+                    } else {
+                        optBlock.className += "bg-white border-slate-200 text-slate-600";
+                    }
+
+                    listGrid.appendChild(optBlock);
+                });
+
+                card.appendChild(listGrid);
+
+                // Explanation Block
+                const expWrapper = document.createElement('div');
+                expWrapper.className = "bg-slate-50 p-4 rounded-lg border border-slate-100 space-y-1";
+                
+                const expLabel = document.createElement('div');
+                expLabel.className = "text-[10px] font-extrabold text-emerald-700 uppercase tracking-wide";
+                expLabel.innerText = "หลักกฎหมาย / ข้อแนะนำจากมาตราอ้างอิง:";
+                expWrapper.appendChild(expLabel);
+
+                const expP = document.createElement('p');
+                expP.className = "text-xs text-slate-600 leading-relaxed";
+                expP.innerText = q.rationale;
+                expWrapper.appendChild(expP);
+
+                card.appendChild(expWrapper);
+                listContainer.appendChild(card);
+            });
+        }
+
+        function toggleDetailedReview() {
+            const reviewSection = document.getElementById('detailed-review-section');
+            const btn = document.getElementById('toggle-review-btn');
+
+            if (reviewSection.classList.contains('hidden')) {
+                reviewSection.classList.remove('hidden');
+                btn.innerText = "ซ่อนข้อสอบเฉลยละเอียด";
+                reviewSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                reviewSection.classList.add('hidden');
+                btn.innerText = "ดูข้อสอบเฉลยละเอียด";
+            }
+        }
+
+        function filterReviewList() {
+            const filterValue = document.getElementById('review-filter').value;
+            const container = document.getElementById('review-questions-list');
+            const cards = container.children;
+
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const isCorrect = card.dataset.isCorrect === "true";
+                const isFlagged = card.dataset.isFlagged === "true";
+
+                if (filterValue === 'all') {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'incorrect' && !isCorrect) {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'flagged' && isFlagged) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            }
+        }
+
+        function restartQuiz() {
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

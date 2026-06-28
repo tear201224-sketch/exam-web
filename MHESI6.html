@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจำลองข้อสอบ พ.ร.บ. ระเบียบบริหารราชการกระทรวง อว. พ.ศ. ๒๕๖๒ (๑๐๐ ข้อเต็ม)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Sarabun) -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-emerald-900 via-teal-950 to-slate-900 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="bg-white p-2.5 rounded-full shadow-inner flex items-center justify-center shrink-0">
+                    <svg class="w-10 h-10 text-emerald-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M12 8v8M9 11h6"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-tight font-extrabold">ระบบจำลองข้อสอบ พ.ร.บ. ระเบียบบริหารราชการกระทรวง อว. พ.ศ. ๒๕๖๒</h1>
+                    <p class="text-xs sm:text-sm text-emerald-200 mt-1">คลังข้อสอบวิเคราะห์ ๑๐๐ ข้อเต็ม ครอบคลุมพิกัดมาตรา หน้าที่ คณะกรรมการ กกอ. กมอ. และบทเฉพาะกาล</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 bg-emerald-800/60 text-emerald-100 rounded-full text-xs font-semibold border border-emerald-500/30">๑๐๐ ข้อสอบวิเคราะห์</span>
+                <span class="px-3 py-1 bg-amber-600/60 text-amber-100 rounded-full text-xs font-semibold border border-amber-500/30">เน้นประเด็นข้อสอบจริง</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 py-8 sm:px-6 lg:px-8">
+        
+        <!-- Welcome / Setup Screen -->
+        <div id="setup-screen" class="max-w-4xl mx-auto space-y-8">
+            
+            <!-- Ultimate MHESI Act Cheat Sheet -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sm:p-8 space-y-6">
+                <div class="border-b border-slate-100 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                        <span class="text-emerald-700 font-semibold tracking-wider text-xs uppercase bg-emerald-50 px-3 py-1 rounded-full">สรุปประเด็นหลักและจุดสำคัญ (Ultimate MHESI Act Cheat Sheet)</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-950 mt-2">ประเด็นยอดฮิตและพิกัดที่ออกข้อสอบบ่อยที่สุด</h2>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                    <!-- ข้อมูลการตราและวันบังคับใช้ -->
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-emerald-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block"></span> ๑. ข้อมูลการตราและวันบังคับใช้
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-650 pl-2">
+                            <li><strong class="text-slate-800">ผู้ให้ไว้:</strong> รัชกาลที่ ๑๐ ณ วันที่ ๒๖ เมษายน ๒๕๖๒ (ปีที่ ๔ ในรัชกาลปัจจุบัน)</li>
+                            <li><strong class="text-slate-800">วันประกาศราชกิจจานุเบกษา:</strong> ๑ พฤษภาคม ๒๕๖๒</li>
+                            <li><strong class="text-slate-800">วันมีผลใช้บังคับ:</strong> <strong class="text-emerald-900">๒ พฤษภาคม ๒๕๖๒</strong> (วันถัดจากวันประกาศฯ)</li>
+                            <li><strong class="text-slate-800">กฎหมายที่ยกเลิก:</strong> พ.ร.บ. สภาวิจัยแห่งชาติ พ.ศ. ๒๕๐๒, (ฉบับที่ ๒) พ.ศ. ๒๕๐๗ และ ประกาศคณะปฏิวัติ ฉบับที่ ๓๑๕ (๑๓ ธ.ค. ๒๕๑๕)</li>
+                        </ul>
+                    </div>
+
+                    <!-- ส่วนราชการและการโอนย้าย -->
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-emerald-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block"></span> ๒. ส่วนราชการในกระทรวง (มาตรา ๘)
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-650 pl-2">
+                            <li><strong class="text-slate-800">ส่วนราชการที่มีฐานะเป็นนิติบุคคลและกรม:</strong>
+                                <ul class="list-decimal list-inside pl-4 text-xs space-y-1 mt-1 text-slate-500">
+                                    <li>สำนักงานปลัดกระทรวง (สป.)</li>
+                                    <li>กรมวิทยาศาสตร์บริการ (วศ.)</li>
+                                    <li>สำนักงานการวิจัยแห่งชาติ (วช.)</li>
+                                    <li>สำนักงานปรมาณูเพื่อสันติ (ปส.)</li>
+                                </ul>
+                            </li>
+                            <li><strong class="text-slate-800">สถาบันอุดมศึกษาของรัฐที่เป็นส่วนราชการ:</strong> มีฐานะเป็นนิติบุคคล แต่ระเบียบราชการเป็นไปตามกฎหมายจัดตั้งของตนเอง</li>
+                            <li><strong class="text-slate-800">สิทธิ์อธิการบดี (ม.๑๕):</strong> เทียบเท่าหัวหน้าส่วนราชการระดับ <strong class="text-emerald-900">อธิบดี (C10)</strong></li>
+                        </ul>
+                    </div>
+
+                    <!-- โครงสร้างบอร์ดสำคัญ ๑: กกอ. -->
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-emerald-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block"></span> ๓. คณะกรรมการการอุดมศึกษา (กกอ.)
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-650 pl-2">
+                            <li><strong class="text-slate-800">ประธานกรรมการ:</strong> ครม. แต่งตั้ง จากข้อเสนอร่วม ๔ สมาคม (ทปอ., ทปอ.มทร., ทปอ.มรภ., และ สสอท.) เสนอฝ่ายละ ๑ คน</li>
+                            <li><strong class="text-slate-800">กรรมการโดยตำแหน่ง:</strong> ปลัด อว., ปลัด ศธ., เลขาฯ สภาพัฒน์, ผอ.สำนักงบฯ, ประธาน กมอ., ผอ.สอวช., ผอ.สกสว.</li>
+                            <li><strong class="text-slate-800">ผู้ทรงคุณวุฒิและอื่นๆ:</strong> อดีตนายกสภาฯ (ไม่เกิน ๒), อดีตอธิการบดี (ไม่เกิน ๒), ผู้ทรงคุณวุฒิ (ไม่เกิน ๗)</li>
+                            <li><strong class="text-slate-800">วาระดำรงตำแหน่ง:</strong> ๔ ปี ดำรงตำแหน่งได้ไม่เกิน ๒ วาระติดต่อกัน</li>
+                            <li><strong class="text-slate-800">ข้อห้ามเด่น:</strong> ห้ามดำรงตำแหน่งนายกสภาฯ หรือ อธิการบดี ในขณะดำรงตำแหน่ง</li>
+                        </ul>
+                    </div>
+
+                    <!-- โครงสร้างบอร์ดสำคัญ ๒: กมอ. และบทเฉพาะกาล -->
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h3 class="font-bold text-emerald-950 flex items-center gap-2 border-b border-slate-200 pb-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block"></span> ๔. กมอ. และ บทเฉพาะกาลเด่น
+                        </h3>
+                        <ul class="list-disc list-inside space-y-1.5 text-slate-650 pl-2">
+                            <li><strong class="text-slate-800">กมอ. (บอร์ดมาตรฐาน):</strong> ประธานกรรมการแต่งตั้งโดยรัฐมนตรีตามข้อเสนอ กกอ. และกรรมการผู้ทรงคุณวุฒิไม่เกิน ๗ คน (วาระ ๔ ปี คุมคุณภาพปฐมภูมิ)</li>
+                            <li><strong class="text-slate-800">ห้ามตำแหน่งซ้อนของ กมอ.:</strong> ห้ามเป็นนายกสภาฯ, กรรมการสภาฯ, อธิการบดี หรือผู้ปฏิบัติงานในสถาบันอุดมศึกษาใดๆ เด็ดขาด</li>
+                            <li><strong class="text-slate-800">การแปลงโอนกรมวิทยาศาสตร์บริการ (ม.๓๘):</strong> กำหนดให้ตราพระราชกฤษฎีกาแปลงสภาพเป็น <strong class="text-emerald-900">องค์การมหาชน</strong> ภายใน ๓ ปี</li>
+                            <li><strong class="text-slate-800">บอร์ดคุมการปฏิรูป ๔ ปีแรก (ม.๔๑):</strong> ให้คณะกรรมการขับเคลื่อนการปฏิรูปตามคำสั่งสำนักนายกฯ ที่ ๓๕/๒๕๖๒ ทำหน้าที่ต่อเนื่อง</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Setup Panel -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 space-y-8">
+                <div class="text-center space-y-2">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">เข้าสู่ระบบการสอบประเมินความรู้</h2>
+                    <p class="text-slate-500 text-sm max-w-lg mx-auto">แบบทดสอบจำลอง ๑๐๐ ข้อเต็ม ครอบคลุมรายละเอียดรายมาตราและเจตนารมณ์อย่างครบถ้วนตามแนวข้อสอบจริงของสำนักงาน ก.พ. และส่วนราชการ</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Practice Mode Card -->
+                    <button onclick="selectMode('practice')" id="mode-practice-btn" class="group text-left p-5 rounded-xl border-2 border-emerald-600 bg-emerald-50/10 focus:outline-none w-full">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-emerald-100 text-emerald-800 p-3 rounded-lg group-hover:bg-emerald-900 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดฝึกฝน (Practice Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">ตอบคำถามพร้อมเฉลยละเอียดที่แสดงผลทันทีรายข้อ เหมาะสำหรับการทบทวนเนื้อหาและทำความเข้าใจแบบเจาะลึก</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Exam Mode Card -->
+                    <button onclick="selectMode('exam')" id="mode-exam-btn" class="group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-emerald-950 hover:bg-slate-50 transition-all duration-200 focus:outline-none w-full">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-slate-100 text-slate-700 p-3 rounded-lg group-hover:bg-emerald-950 group-hover:text-white transition-colors duration-200">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-slate-900">โหมดสอบจริง (Exam Mode)</h3>
+                                <p class="text-slate-500 text-xs mt-1 leading-relaxed">จำลองบรรยากาศสอบจริงด้วยการจำกัดเวลาและสลับคำถาม-ตัวเลือก ปิดหน้าต่างเฉลยระหว่างทำเพื่อทดสอบคะแนนจริง</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Parameters Selection -->
+                <div class="border-t border-slate-200 pt-6 space-y-4">
+                    <h4 class="font-semibold text-slate-800">การตั้งค่าจำนวนข้อสอบ</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">จำนวนคำถามที่ต้องการสุ่มทดสอบ</label>
+                            <select id="exam-quantity" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm">
+                                <option value="20">20 ข้อ (มินิสปีดเทสความจำระยะสั้น)</option>
+                                <option value="50">50 ข้อ (ขนาดข้อสอบมาตรฐานส่วนใหญ่)</option>
+                                <option value="100" selected>100 ข้อเต็ม (จัดเต็มครอบคลุมทุกประเด็น ๑๐๐% ไม่มีตกหล่น)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 mb-1.5">พระราชบัญญัติอ้างอิง</label>
+                            <select id="exam-scope" class="w-full bg-slate-100 border border-slate-300 rounded-lg py-2 px-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm" disabled>
+                                <option value="all">พ.ร.บ. ระเบียบบริหารราชการกระทรวง อว. พ.ศ. ๒๕๖๒ และกฎกระทรวงเกี่ยวเนื่อง</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz()" class="w-full py-4 bg-emerald-900 hover:bg-emerald-950 active:scale-[0.99] text-white font-bold rounded-xl shadow-md shadow-emerald-650/20 transition-all text-center block focus:outline-none">
+                    เข้าสู่ระบบทดสอบและจำลองห้องสอบทันที
+                </button>
+            </div>
+        </div>
+
+        <!-- Active Quiz Screen -->
+        <div id="quiz-screen" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Question Panel (3/4 of width) -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Status bar -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="flex items-center gap-3">
+                        <span id="badge-mode" class="px-2.5 py-0.5 rounded text-xs font-bold uppercase"></span>
+                        <div class="text-sm font-medium text-slate-500">
+                            ข้อที่ <span id="current-q-index" class="text-slate-800 font-bold">1</span> จาก <span id="total-q-count" class="text-slate-800 font-bold">100</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-grow max-w-md w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                        <div id="progress-bar-fill" class="bg-emerald-700 h-full transition-all duration-300" style="width: 1%"></div>
+                    </div>
+
+                    <div id="timer-container" class="flex items-center gap-2 text-rose-650 font-bold hidden">
+                        <svg class="w-5 h-5 animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <span id="quiz-timer">75:00</span>
+                    </div>
+                </div>
+
+                <!-- Question Card -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+                    <div class="flex justify-between items-center">
+                        <span id="question-category" class="text-xs font-semibold text-emerald-750 bg-emerald-50 px-2.5 py-1 rounded">หมวดการปฏิรูป</span>
+                        <button onclick="toggleFlag()" id="flag-btn" class="text-slate-400 hover:text-amber-500 focus:outline-none flex items-center gap-1.5 text-xs font-medium">
+                            <svg id="flag-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                            <span>ปักหมุดไว้สำหรับทบทวน</span>
+                        </button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 id="question-text" class="text-lg sm:text-xl font-bold text-slate-950 leading-relaxed"></h3>
+                    </div>
+
+                    <!-- Options list -->
+                    <div id="options-container" class="grid grid-cols-1 gap-3.5">
+                        <!-- Dynamic choices -->
+                    </div>
+
+                    <!-- Instant Explanation (Only in Practice Mode) -->
+                    <div id="explanation-panel" class="hidden bg-slate-50 rounded-xl border border-slate-200 p-5 space-y-2.5 animate-fadeIn">
+                        <div class="flex items-center gap-2">
+                            <span id="explanation-title-badge" class="px-2 py-0.5 rounded text-xs font-bold text-white"></span>
+                            <span class="text-sm font-bold text-slate-800">วิเคราะห์รายละเอียดและจุดพิกัดตัวบทกฎหมาย:</span>
+                        </div>
+                        <p id="explanation-text" class="text-sm text-slate-600 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between items-center gap-4">
+                    <button onclick="prevQuestion()" id="prev-btn" class="px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none disabled:opacity-50 disabled:pointer-events-none flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg> ย้อนกลับ
+                    </button>
+                    
+                    <button onclick="nextQuestion()" id="next-btn" class="px-5 py-2.5 bg-emerald-900 hover:bg-emerald-950 text-white font-bold rounded-lg shadow-sm transition-colors text-sm focus:outline-none flex items-center gap-2">
+                        ถัดไป <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+
+                    <button onclick="showSubmitConfirmModal()" id="submit-quiz-btn" class="hidden px-6 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-lg shadow-md shadow-rose-600/10 transition-colors text-sm focus:outline-none">
+                        ส่งกระดาษคำตอบ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar Controllers -->
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 space-y-4">
+                    <h4 class="font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+                        <span>แผงควบคุมข้อสอบ</span>
+                        <span id="score-counter" class="text-xs bg-slate-100 text-slate-650 px-2 py-0.5 rounded font-mono">0/100</span>
+                    </h4>
+                    
+                    <!-- Dynamic Grid of Question numbers -->
+                    <div id="grid-navigation" class="grid grid-cols-5 gap-1.5 max-h-[360px] overflow-y-auto p-1 custom-scrollbar">
+                        <!-- Dynamic grid elements -->
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-3 space-y-2">
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-emerald-900 inline-block"></span>
+                            <span>กำลังทำปัจจุบัน</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-emerald-100 border border-emerald-350 inline-block"></span>
+                            <span>ตอบไปแล้ว</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-amber-500 inline-block"></span>
+                            <span>ปักหมุดทบทวน</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-slate-500">
+                            <span class="w-3.5 h-3.5 rounded bg-slate-100 border border-slate-200 inline-block"></span>
+                            <span>ยังไม่เลือกตอบ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="confirmExit()" class="w-full py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold rounded-lg text-sm shadow-sm transition-colors focus:outline-none text-center block">
+                    ออกจากห้องสอบ
+                </button>
+            </div>
+        </div>
+
+        <!-- Result / Evaluation Dashboard -->
+        <div id="result-screen" class="hidden max-w-4xl mx-auto space-y-8 animate-fadeIn">
+            
+            <!-- Result Summary Box -->
+            <div class="bg-white rounded-2xl shadow-md border border-slate-200 p-6 sm:p-10 text-center space-y-6">
+                <div class="space-y-2">
+                    <span id="result-badge" class="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">ผลสัมฤทธิ์ประเมินความรู้</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900">สรุปดัชนีผลการทดสอบเชิงลึก</h2>
+                </div>
+
+                <div class="relative w-44 h-44 mx-auto flex items-center justify-center">
+                    <!-- Circular Gauge -->
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e2e8f0" stroke-width="8"/>
+                        <circle id="score-ring-fill" cx="50" cy="50" r="40" fill="transparent" stroke="#047857" stroke-width="8" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round" class="transition-all duration-1000 ease-out"/>
+                    </svg>
+                    <!-- Percentage dynamic display -->
+                    <div class="absolute flex flex-col items-center">
+                        <span id="result-percentage" class="text-4xl font-extrabold text-slate-900">0%</span>
+                        <span id="result-score-fraction" class="text-xs text-slate-500 font-bold mt-1">0/100 คะแนน</span>
+                    </div>
+                </div>
+
+                <p id="result-feedback-text" class="text-slate-650 max-w-md mx-auto text-sm sm:text-base leading-relaxed"></p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-200 pt-6">
+                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                        <span class="block text-xs font-medium text-emerald-700 font-bold">ตอบถูกต้อง</span>
+                        <span id="stat-correct" class="text-xl font-extrabold text-emerald-900">0 ข้อ</span>
+                    </div>
+                    <div class="bg-rose-50 rounded-xl p-4 border border-rose-100">
+                        <span class="block text-xs font-medium text-rose-600 font-bold">ตอบผิด / ข้าม</span>
+                        <span id="stat-incorrect" class="text-xl font-extrabold text-rose-850">0 ข้อ</span>
+                    </div>
+                    <div class="bg-emerald-50 rounded-xl p-4 border border-emerald-100">
+                        <span class="block text-xs font-medium text-emerald-700 font-bold">เวลาที่ใช้</span>
+                        <span id="stat-time-spent" class="text-xl font-extrabold text-emerald-900">0 นาที</span>
+                    </div>
+                </div>
+
+                <!-- Topic analysis skills -->
+                <div class="border-t border-slate-200 pt-6 space-y-4 text-left">
+                    <h4 class="font-bold text-slate-800">สรุปคะแนนประเมินตามกลุ่มโครงสร้าง พ.ร.บ. อว.</h4>
+                    <div id="topic-analysis-container" class="space-y-3.5">
+                        <!-- Dynamic analysis bars -->
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <button onclick="restartQuiz()" class="px-6 py-3 bg-emerald-900 hover:bg-emerald-950 text-white font-bold rounded-xl shadow-md transition-all text-sm focus:outline-none">
+                        กลับสู่หน้าหลักเพื่อตั้งค่าใหม่
+                    </button>
+                    <button onclick="toggleDetailedReview()" id="toggle-review-btn" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-all text-sm focus:outline-none border border-slate-300">
+                        ดูข้อสอบเฉลยละเอียดรายข้อ
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed review of correction -->
+            <div id="detailed-review-section" class="hidden space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-slate-100 p-4 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 text-lg font-extrabold">กระดาษคำตอบวิเคราะห์เฉลยรายข้อ</h3>
+                    <div>
+                        <select id="review-filter" onchange="filterReviewList()" class="bg-white border border-slate-300 text-xs font-bold rounded-lg px-2.5 py-1.5 focus:outline-none">
+                            <option value="all">แสดงผลทั้งหมด</option>
+                            <option value="incorrect">แสดงเฉพาะที่ตอบผิด</option>
+                            <option value="flagged">แสดงเฉพาะข้อปักหมุด</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="review-questions-list" class="space-y-6">
+                    <!-- Review cards dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs mt-auto border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 space-y-1">
+            <p>ระบบคลังข้อสอบอ้างอิงตามพระราชบัญญัติระเบียบบริหารราชการกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม พ.ศ. ๒๕๖๒</p>
+            <p>© 2569 ข้อมูลเฉลยจัดทำและพัฒนาขึ้นเพื่อส่งเสริมความรู้ทางด้านการปฏิรูปและการสอบคัดเลือกบุคลากรของรัฐ</p>
+        </div>
+    </footer>
+
+    <!-- Submit Confirmation Modal -->
+    <div id="submit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200">
+            <div class="text-center space-y-3">
+                <div class="bg-rose-50 text-rose-600 p-3 rounded-full w-fit mx-auto border border-rose-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 font-extrabold">ยืนยันส่งกระดาษคำตอบ?</h3>
+                <p id="modal-completion-status" class="text-sm text-slate-500 leading-relaxed"></p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideSubmitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำข้อสอบต่อ
+                </button>
+                <button onclick="submitQuiz()" class="flex-1 py-3 bg-emerald-900 hover:bg-emerald-950 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none shadow-md">
+                    ยืนยันส่งผลสอบ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Confirmation Modal -->
+    <div id="exit-confirm-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl max-w-md w-full shadow-2xl p-6 space-y-6 border border-slate-200">
+            <div class="text-center space-y-3">
+                <div class="bg-slate-50 text-slate-600 p-3 rounded-full w-fit mx-auto border border-slate-100">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 font-extrabold">ต้องการออกจากห้องสอบหรือไม่?</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">ข้อมูลและสถิติการตอบข้อสอบในรอบปัจจุบันทั้งหมดนี้จะไม่ได้รับการบันทึกเก็บไว้</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="hideExitConfirmModal()" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ทำข้อสอบต่อ
+                </button>
+                <button onclick="exitQuiz()" class="flex-1 py-3 bg-rose-650 hover:bg-rose-750 text-white font-bold rounded-xl transition-colors text-sm focus:outline-none">
+                    ออกทันที
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Complete 100-Question database on MHESI Administration Act B.E. 2562 ---
+        const ALL_QUESTIONS_RAW = [
+            // 1. บททั่วไป นิยาม และข้อมูลการตรากฎหมาย (1-15)
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "พระราชบัญญัติระเบียบบริหารราชการกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม พ.ศ. ๒๕๖๒ ให้ไว้ ณ วันที่เท่าใด?",
+                opts: ["๒๖ เมษายน พ.ศ. ๒๕๖๒", "๑ พฤษภาคม พ.ศ. ๒๕๖๒", "๒ พฤษภาคม พ.ศ. ๒๕๖๒", "๑๕ สิงหาคม พ.ศ. ๒๕๖๐"],
+                ans: 0,
+                rat: "ในหน้าแรกของ พ.ร.บ. ระบุว่า 'ให้ไว้ ณ วันที่ ๒๖ เมษายน พ.ศ. ๒๕๖๒ เป็นปีที่ ๔ ในรัชกาลปัจจุบัน'"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "พระราชบัญญัติฉบับนี้ประกาศในราชกิจจานุเบกษาและเริ่มบังคับใช้ตามข้อใด?",
+                opts: ["ประกาศ ๑ พฤษภาคม ๒๕๖๒ มีผลบังคับใช้ ๑ พฤษภาคม ๒๕๖๒", "ประกาศ ๑ พฤษภาคม ๒๕๖๒ มีผลบังคับใช้ ๒ พฤษภาคม ๒๕๖๒", "ประกาศ ๒๖ เมษายน ๒๕๖๒ มีผลบังคับใช้ ๒๗ เมษายน ๒๕๖๒", "ประกาศ ๑ พฤษภาคม ๒๕๖๒ มีผลบังคับใช้เมื่อพ้น ๙๐ วัน"],
+                ans: 1,
+                rat: "มาตรา ๒ ระบุว่า 'พระราชบัญญัตินี้ให้ใช้บังคับตั้งแต่วันถัดจากวันประกาศในราชกิจจานุเบกษาเป็นต้นไป' เมื่อประกาศ ๑ พฤษภาคม ๒๕๖๒ จึงบังคับใช้ ๒ พฤษภาคม ๒๕๖๒"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "พระราชบัญญัติฉบับนี้ตราขึ้นโดยคำแนะนำและยินยอมขององค์กรใด?",
+                opts: ["สภานิติบัญญัติแห่งชาติทำหน้าที่รัฐสภา", "สภาร่างรัฐธรรมนูญแห่งชาติ", "วุฒิสภาปฏิบัติหน้าที่รัฐสภา", "คณะรัฐมนตรีพิจารณาเห็นชอบร่วมกัน"],
+                ans: 0,
+                rat: "ระบุในอารัมภบทหน้าแรกของ พ.ร.บ. 'ให้ตราพระราชบัญญัติขึ้นไว้โดยคำแนะนำและยินยอมของสภานิติบัญญัติแห่งชาติทำหน้าที่รัฐสภา'"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "ตามมาตรา ๓ กฎหมายใดต่อไปนี้ที่ได้รับการยกเลิกโดยสิ้นเชิงจากพระราชบัญญัตินี้?",
+                opts: ["พ.ร.บ. สภาวิจัยแห่งชาติ พ.ศ. ๒๕๐๒ เพียงฉบับเดียว", "พ.ร.บ. สภาวิจัยแห่งชาติ พ.ศ. ๒๕๐๒ และฉบับที่ ๒ พ.ศ. ๒๕๐๗ รวมถึงประกาศคณะปฏิวัติ ฉบับที่ ๓๑๕", "พ.ร.บ. สภาวิจัยแห่งชาติ พ.ศ. ๒๕๒๒ และประกาศคณะปฏิวัติ ฉบับที่ ๕๐", "พ.ร.บ. ระเบียบบริหารราชการกระทรวงวิทยาศาสตร์และเทคโนโลยี พ.ศ. ๒๕๒๒"],
+                ans: 1,
+                rat: "มาตรา ๓ บัญญัติให้ยกเลิก (๑) พ.ร.บ. สภาวิจัยแห่งชาติ พ.ศ. ๒๕๐๒ (๒) พ.ร.บ. สภาวิจัยแห่งชาติ (ฉบับที่ ๒) พ.ศ. ๒๕๐๗ และ (๓) ประกาศคณะปฏิวัติ ฉบับที่ ๓๑๕ ลงวันที่ ๑๓ ธันวาคม ๒๕๑๕"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "คำว่า 'การอุดมศึกษา' มีวัตถุประสงค์หลักเพื่อสิ่งใดตามนิยามในมาตรา ๔?",
+                opts: ["จัดการศึกษาตามพื้นฐานเพื่อผลิตบุคลากรระดับล่าง", "สร้างและเผยแพร่องค์ความรู้และนวัตกรรม ผลิตและพัฒนากำลังคนในด้านวิชาการและวิชาชีพชั้นสูง", "จัดหาอุปกรณ์คอมพิวเตอร์และเชื่อมต่อระบบเครือข่ายส่วนกลาง", "ส่งเสริมให้ประชาชนสละสิทธิ์เข้าศึกษาต่อต่างประเทศ"],
+                ans: 1,
+                rat: "มาตรา ๔ นิยามว่า 'การอุดมศึกษา' หมายความว่า การศึกษาในระดับที่สูงกว่าการศึกษาขั้นพื้นฐาน... เพื่อสร้างและเผยแพร่องค์ความรู้และนวัตกรรม ผลิตและพัฒนากำลังคนในด้านวิชาการและวิชาชีพชั้นสูง"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "นิยามของ 'สถาบันอุดมศึกษา' ตามมาตรา ๔ ครอบคลุมลักษณะใดบ้าง?",
+                opts: ["สถาบันระดับปริญญาของรัฐเท่านั้น", "สถาบันระดับปริญญาของรัฐและเอกชน ไม่รวมระดับต่ำกว่าปริญญา", "สถาบันที่จัดการอุดมศึกษาระดับปริญญาและระดับต่ำกว่าปริญญาทั้งที่เป็นของรัฐและของเอกชน", "สถานศึกษาสังกัดกระทรวงศึกษาธิการทุกระดับการเรียนรู้"],
+                ans: 2,
+                rat: "มาตรา ๔ นิยามว่า 'สถาบันอุดมศึกษา' หมายความว่า สถาบันที่จัดการอุดมศึกษาระดับปริญญาและระดับต่ำกว่าปริญญาทั้งที่เป็นของรัฐและของเอกชน"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "คำว่า 'สถาบันอุดมศึกษาของรัฐในสังกัดของกระทรวง' ไม่รวมหน่วยงานประเภทใด?",
+                opts: ["สถาบันอุดมศึกษาที่เป็นส่วนราชการในสังกัด อว.", "สถาบันอุดมศึกษาของรัฐในกำกับของรัฐมนตรี อว.", "สถาบันอุดมศึกษาเอกชนที่จดทะเบียนนิติบุคคล", "สถานศึกษาสายอุดมศึกษาที่มีตราพระราชบัญญัติเฉพาะ"],
+                ans: 2,
+                rat: "ในมาตรา ๔ นิยามระบุชัดเจนว่า สถาบันอุดมศึกษาเอกชนไม่ได้รวมอยู่ในคำนิยามของสถาบันอุดมศึกษาของรัฐในสังกัดของกระทรวง"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "ตามมาตรา ๔ ข้อใดต่อไปนี้จัดเป็น 'หน่วยงานในกำกับ' ของกระทรวง อว.?",
+                opts: ["รัฐวิสาหกิจ หน่วยงานที่จัดตั้งตามพระราชบัญญัติเฉพาะ และองค์การมหาชนตามกฎหมายว่าด้วยองค์การมหาชน ที่อยู่ในกำกับของรัฐมนตรี อว.", "สถาบันอุดมศึกษาเอกชนทั้งหมดที่ได้รับทุนสนับสนุนจาก อว.", "สถาบันอุดมศึกษาของรัฐในกำกับของรัฐมนตรี อว.", "สำนักบริหารงานของ อธิการบดี ทุกแห่ง"],
+                ans: 0,
+                rat: "มาตรา ๔ ระบุว่า 'หน่วยงานในกำกับ' หมายถึง รัฐวิสาหกิจ หน่วยงานที่จัดตั้งตามพระราชบัญญัติเฉพาะ และองค์การมหาชน... แต่ไม่หมายความรวมถึงสถาบันอุดมศึกษาของรัฐในกำกับ และสถาบันอุดมศึกษาเอกชน"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "นิยามคำว่า 'การวิจัย' มีจุดประสงค์สำคัญเพื่อทำให้ได้มาซึ่งสิ่งใดตามกฎหมายนี้?",
+                opts: ["ข้อเท็จจริง ความรู้ใหม่ หรือหลักการไปใช้ในการตั้งกฎ ทฤษฎี แนวทางในการปฏิบัติเพื่อเป็นพื้นฐานของการพัฒนาและสร้างนวัตกรรม", "งบประมาณสนับสนุนเพื่อซื้อขายเครื่องมือส่วนกลางในแล็บ", "โครงสร้างของพนักงานตรวจสอบบัญชีที่น่าเชื่อถือ", "การขึ้นชื่อเสียงในสื่อสารมวลชนระดับประเทศเป็นเป้าแรก"],
+                ans: 0,
+                rat: "มาตรา ๔ นิยาม 'การวิจัย' ว่าคือการศึกษาค้นคว้า วิเคราะห์ ทดลอง เพื่อให้ได้ข้อเท็จจริง ความรู้ใหม่ หลักการ เพื่อพัฒนาด้านต่าง ๆ และสร้างนวัตกรรม"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "คำว่า 'นวัตกรรม' ตามมาตรา ๔ กำหนดเงื่อนไขด้านความใหม่และประโยชน์ไว้อย่างไร?",
+                opts: ["ต้องผ่านความเห็นชอบของสำนักงานสิทธิบัตรต่างประเทศก่อน", "ต้องเป็นสิ่งใหม่หรือพัฒนาให้ดีขึ้นกว่าเดิมอย่างมีนัยสำคัญและนำไปใช้ประโยชน์ได้ในวงกว้างทั้งในเชิงพาณิชย์และสาธารณะ", "ต้องช่วยลดงบประมาณรายจ่ายในการจัดเก็บภาษีลงครึ่งหนึ่ง", "ต้องสามารถผลิตจำหน่ายได้เฉพาะในระดับท้องถิ่นของตำบล"],
+                ans: 1,
+                rat: "มาตรา ๔ นิยาม 'นวัตกรรม' คือ ผลิตภัณฑ์ สิ่งประดิษฐ์ บริการ กรรมวิธี... ซึ่งเป็นสิ่งใหม่หรือพัฒนาให้ดีขึ้นอย่างมีนัยสำคัญ และนำไปใช้ประโยชน์ในวงกว้าง ทั้งเชิงพาณิชย์และสาธารณะ"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "ตามมาตรา ๔ ข้อใดไม่ใช่ลักษณะของ 'มาตรฐานการอุดมศึกษา'?",
+                opts: ["ข้อกำหนดขั้นต่ำเกี่ยวกับคุณลักษณะ คุณภาพ และเกณฑ์อื่นในการจัดการศึกษาระดับอุดมศึกษา", "ข้อกำหนดขั้นต่ำของเกณฑ์ในการขอตำแหน่งทางวิชาการในสถาบันอุดมศึกษา", "เกณฑ์จัดหาตำแหน่งอธิการบดีพ้นวาระการดำรงตำแหน่งทางราชการ", "ข้อกำหนดขั้นต่ำของหลักสูตรการศึกษา"],
+                ans: 2,
+                rat: "มาตรา ๔ นิยาม 'มาตรฐานการอุดมศึกษา' หมายถึงข้อกำหนดขั้นต่ำเกี่ยวกับคุณลักษณะ คุณภาพ หลักสูตร เกณฑ์ขอตำแหน่งวิชาการ และมาตรฐานอื่นที่กำหนดในกฎกระทรวง (ไม่มีเกณฑ์จัดหาตำแหน่งอธิการบดีพ้นวาระ)"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "คำว่า 'สภานโยบาย' ตามที่ระบุในพระราชบัญญัตินี้ หมายถึงสภาใด?",
+                opts: ["สภานโยบายวิทยาศาสตร์และเทคโนโลยีแผ่นดิน", "สภานโยบายการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรมแห่งชาติ", "สภานิติบัญญัติแห่งชาติสาขาปฏิรูป", "สภาวิจัยและนวัตกรรมส่วนท้องถิ่น"],
+                ans: 1,
+                rat: "มาตรา ๔ นิยามว่า 'สภานโยบาย' หมายความว่า สภานโยบายการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรมแห่งชาติ"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "หากไม่มีการบัญญัติเรื่องใดไว้เป็นการเฉพาะใน พ.ร.บ. นี้ การบริหารราชการกระทรวง อว. ต้องนำกฎหมายฉบับใดมาใช้บังคับโดยอนุโลมตามมาตรา ๕?",
+                opts: ["พ.ร.บ. ข้าราชการพลเรือน และ พ.ร.บ. วิธีปฏิบัติราชการทางปกครอง", "กฎหมายว่าด้วยระเบียบบริหารราชการแผ่นดิน และกฎหมายว่าด้วยการศึกษาแห่งชาติ", "พ.ร.บ. จัดตั้งองค์การมหาชน และกฎหมายว่าด้วยสิทธิประโยชน์ทางภาษีคลัง", "ระเบียบสำนักนายกรัฐมนตรีว่าด้วยงานสารบรรณ พ.ศ. ๒๕๒๖"],
+                ans: 1,
+                rat: "มาตรา ๕ บัญญัติว่า 'ให้นำกฎหมายว่าด้วยระเบียบบริหารราชการแผ่นดินและกฎหมายว่าด้วยการศึกษาแห่งชาติมาใช้บังคับแก่การบริหารราชการกระทรวงโดยอนุโลม...'"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "ผู้ดำรงตำแหน่งใดเป็นผู้รักษาการตามพระราชบัญญัตินี้และมีอำนาจตีความวินิจฉัยปัญหาในช่วงบทเฉพาะกาล?",
+                opts: ["ปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม", "นายกรัฐมนตรี", "รัฐมนตรีว่าการกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม", "เลขาธิการคณะกรรมการการอุดมศึกษา"],
+                ans: 2,
+                rat: "มาตรา ๖ บัญญัติให้ 'รัฐมนตรีว่าการกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม รักษาการตามพระราชบัญญัตินี้ และมีอำนาจออกกฎกระทรวง ระเบียบ ประกาศ...'"
+            },
+            {
+                cat: "บททั่วไปและนิยาม",
+                q: "กฎกระทรวง ระเบียบ และประกาศ ที่รัฐมนตรี อว. ออกเพื่อปฏิบัติการตาม พ.ร.บ. นี้ จะมีผลใช้บังคับได้เมื่อใดตามมาตรา ๖ วรรคสอง?",
+                opts: ["เมื่อนายกรัฐมนตรีลงนามแต่งตั้งเรียบร้อย", "เมื่อได้ประกาศในราชกิจจานุเบกษาแล้ว", "เมื่อสภาสถาบันให้ความเห็นชอบเกินกึ่งหนึ่ง", "เมื่อพ้นระยะเวลาสามสิบวันนับแต่วันที่ผ่านมติ ครม."],
+                ans: 1,
+                rat: "มาตรา ๖ วรรคสอง ระบุชัดเจนว่า 'กฎกระทรวง ระเบียบ และประกาศนั้น เมื่อได้ประกาศในราชกิจจานุเบกษาแล้วให้ใช้บังคับได้'"
+            },
+
+            // 2. หน้าที่และอำนาจของกระทรวง และการแบ่งส่วนราชการ (16-35)
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "หน้าที่และอำนาจตามมาตรา ๗ (๑) กำหนดให้กระทรวง อว. ส่งเสริม สนับสนุน และกำกับดูแลการอุดมศึกษาโดยคำนึงถึงหลักการใดทางวิชาการ?",
+                opts: ["ความเป็นอิสระทางวิชาการและการบริหารจัดการ", "การอยู่ภายใต้การควบคุมแบบรวมศูนย์โดยตรงของส่วนราชการส่วนภูมิภาค", "ความรวดเร็วในการจัดสรรกำไรเชิงพาณิชย์", "ความเสมอภาคในการได้รับคัดสรรแต่งตั้งข้าราชการการเมือง"],
+                ans: 0,
+                rat: "มาตรา ๗ (๑) กำหนดให้ 'ส่งเสริม สนับสนุน และกำกับดูแลการอุดมศึกษาให้เท่าทันการเปลี่ยนแปลงของโลก โดยมีความเป็นอิสระทางวิชาการและการบริหารจัดการ'"
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "ตามมาตรา ๗ (๓) กระทรวง อว. อาจร่วมดำเนินการจัดสร้างระบบนิเวศกับหน่วยงานใดได้บ้าง?",
+                opts: ["เฉพาะหน่วยงานระดับกระทรวงเดียวกันเท่านั้น", "องค์กรปกครองส่วนท้องถิ่น หน่วยงานเอกชน หรือต่างประเทศ", "สมาคมข้าราชการบำนาญเพียงแห่งเดียว", "ไม่สามารถร่วมมือกับต่างประเทศได้เพราะขัดความมั่นคงคลัง"],
+                ans: 1,
+                rat: "มาตรา ๗ วรรคท้าย บัญญัติว่า 'กระทรวงอาจมอบหมายให้หน่วยงานในสังกัดหรือในกำกับเป็นผู้ดำเนินการ หรืออาจร่วมดำเนินการกับองค์กรปกครองส่วนท้องถิ่น หน่วยงานเอกชนหรือต่างประเทศก็ได้'"
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "ตามมาตรา ๘ ข้อใดคือส่วนราชการในสังกัดกระทรวง อว. ที่ไม่มีระบุในพระราชบัญญัตินี้?",
+                opts: ["สำนักงานรัฐมนตรี และสำนักงานปลัดกระทรวง", "กรมวิทยาศาสตร์บริการ และสำนักงานการวิจัยแห่งชาติ", "สำนักงานปรมาณูเพื่อสันติ และสถาบันอุดมศึกษาของรัฐที่เป็นส่วนราชการ", "กรมวิชาการเกษตร และสถาบันบัณฑิตพัฒนศิลป์"],
+                ans: 3,
+                rat: "มาตรา ๘ กำหนดส่วนราชการไว้ ๖ ประเภทหลัก (ไม่มีกรมวิชาการเกษตรและสถาบันบัณฑิตพัฒนศิลป์ ซึ่งสังกัดกระทรวงอื่น)"
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "ในส่วนราชการตามมาตรา ๘ ส่วนราชการใดบ้างที่มีฐานะเป็นนิติบุคคลและเป็นกรมตามกฎหมายว่าด้วยระเบียบบริหารราชการแผ่นดิน?",
+                opts: ["สำนักงานรัฐมนตรี และสำนักงานปลัดกระทรวง", "สำนักงานปลัดกระทรวง, กรมวิทยาศาสตร์บริการ, สำนักงานการวิจัยแห่งชาติ, สำนักงานปรมาณูเพื่อสันติ", "สถาบันอุดมศึกษาของรัฐที่เป็นส่วนราชการทั้งหมด", "เฉพาะสภาวิจัยแห่งชาติที่โอนย้ายงบประมาณมา"],
+                ans: 1,
+                rat: "มาตรา ๘ วรรคสอง บัญญัติว่า 'ส่วนราชการตาม (๒) (๓) (๔) และ (๕) [สป., วศ., วช., ปส.] มีฐานะเป็นนิติบุคคลและเป็นกรมตามกฎหมายว่าด้วยระเบียบบริหารราชการแผ่นดิน'"
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "การแบ่งส่วนราชการภายในสำนักงานปลัดกระทรวง, กรมวิทยาศาสตร์บริการ, สำนักงานการวิจัยแห่งชาติ และสำนักงานปรมาณูเพื่อสันติ ต้องจัดทำตามกฎหมายระดับใด?",
+                opts: ["พระราชกฤษฎีกาการจัดระเบียบบอร์ด", "กฎกระทรวง", "ประกาศสำนักนายกรัฐมนตรี", "ระเบียบปลัดกระทรวง อว."],
+                ans: 1,
+                rat: "มาตรา ๙ บัญญัติว่า 'การแบ่งส่วนราชการภายในส่วนราชการตามมาตรา ๘ (๑) (๒) (๓) (๔) และ (๕) ให้ออกเป็นกฎกระทรวง'"
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "สำนักงานรัฐมนตรี มีผู้ใดดำรงตำแหน่งเป็นผู้บังคับบัญชาข้าราชการและขึ้นตรงต่อรัฐมนตรีตามมาตรา ๑๐?",
+                opts: ["ปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม", "เลขานุการรัฐมนตรีซึ่งเป็นข้าราชการการเมือง", "ผู้อำนวยการสำนักงบประมาณแผ่นดิน", "นายกสภามหาวิทยาลัยส่วนกลาง"],
+                ans: 1,
+                rat: "มาตรา ๑๐ บัญญัติว่า 'สำนักงานรัฐมนตรีมีหน้าที่และอำนาจเกี่ยวกับราชการทางการเมือง มีเลขานุการรัฐมนตรีซึ่งเป็นข้าราชการการเมืองเป็นผู้บังคับบัญชาข้าราชการ... ขึ้นตรงต่อรัฐมนตรี'"
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "สำนักงานปลัดกระทรวง (สป.อว.) มีหน้าที่เด่นข้อใดเกี่ยวกับการสนับสนุนการขับเคลื่อนปฏิรูป?",
+                opts: ["จัดซื้อจัดจ้างอุปกรณ์วิทยาศาสตร์ระดับตำบลเพียงอย่างเดียว", "ร่วมสนับสนุนการขับเคลื่อนการปฏิรูปการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรมอย่างต่อเนื่อง", "ออกโทษสั่งจำคุกพนักงานสอบสวนตำรวจคดีทุจริต", "จัดการเก็บสถิติผู้โดยสารรถไฟความเร็วสูงเชื่อมต่อมหาวิทยาลัย"],
+                ans: 1,
+                rat: "มาตรา ๑๑ บัญญัติให้ สป.อว. มีหน้าที่ทั่วไป รวมถึง 'ร่วมสนับสนุนการขับเคลื่อนการปฏิรูปการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรมอย่างต่อเนื่อง'"
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "ใครทำหน้าที่เป็นฝ่ายเลขานุการของ 'คณะกรรมการการอุดมศึกษา' (กกอ.) และ 'คณะกรรมการมาตรฐานการอุดมศึกษา' (กมอ.)?",
+                opts: ["สำนักงานรัฐมนตรี", "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม", "กรมวิทยาศาสตร์บริการ", "สำนักงานการวิจัยแห่งชาติ"],
+                ans: 1,
+                rat: "มาตรา ๑๑ ระบุหน้าที่ สป.อว. ตอนหนึ่งว่า '...และทำหน้าที่เป็นฝ่ายเลขานุการของคณะกรรมการการอุดมศึกษาและคณะกรรมการมาตรฐานการอุดมศึกษา...'"
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "กรมวิทยาศาสตร์บริการ (วศ.) มีบทบาทและเป้าประสงค์เด่นในระบบราชการอย่างไรตามมาตรา ๑๒?",
+                opts: ["เป็นสถานปฏิบัติการกลางทางวิทยาศาสตร์และเทคโนโลยีของประเทศเพื่อพัฒนาเศรษฐกิจสังคมยั่งยืน", "เป็นสถานที่ควบคุมผู้กระทำความผิดอาญารังสีพลังงานนิวเคลียร์", "ควบคุมคุณภาพการจัดการเรียนการสอนวิชานิติศาสตร์วิชาการ", "ส่งส่งและขึ้นทะเบียนคนขับยานยนต์ไร้คนขับระดับวิทยประจักษ์"],
+                ans: 0,
+                rat: "มาตรา ๑๒ บัญญัติว่า วศ. มีหน้าที่ให้บริการทางวิทยาศาสตร์ โดยเป็น 'สถานปฏิบัติการกลางทางวิทยาศาสตร์และเทคโนโลยีของประเทศ เพื่อเสริมสร้างการเพิ่มประสิทธิภาพการผลิตและความเป็นอยู่ยั่งยืน'"
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "ข้อใดไม่ใช่หน้าที่และอำนาจของสำนักงานการวิจัยแห่งชาติ (วช.) ตามมาตรา ๑๓?",
+                opts: ["การให้ทุนวิจัยและนวัตกรรม การจัดทำฐานข้อมูลและดัชนีด้านวิทยาศาสตร์ วิจัยและนวัตกรรม", "การเสนอแนะนโยบายและแผนยุทธศาสตร์ด้านพลังงานนิวเคลียร์ในทางสันติ", "การส่งเสริมและพัฒนาบุคลากรด้านการวิจัยและการให้รางวัลประกาศเกียรติคุณ", "การจัดทำมาตรฐานและจริยธรรมการวิจัย การส่งเสริมและถ่ายทอดเพื่อใช้ประโยชน์"],
+                ans: 1,
+                rat: "หน้าที่ 'เสนอแนะนโยบายแผนยุทธศาสตร์พลังงานนิวเคลียร์ในทางสันติ' เป็นหน้าที่หลักของสำนักงานปรมาณูเพื่อสันติ (ปส.) ตามมาตรา ๑๔ ไม่ใช่ วช."
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "หัวหน้าส่วนราชการของสำนักงานการวิจัยแห่งชาติ (วช.) คือตำแหน่งใดและมีสถานะเทียบเท่าตำแหน่งใด?",
+                opts: ["ผู้อำนวยการ มีสถานะเทียบเท่าอธิบดี", "เลขาธิการ มีสถานะเทียบเท่าปลัดกระทรวง", "ประธานสภาวิจัย มีสถานะเทียบเท่าเลขานุการรัฐมนตรี", "ผู้อำนวยการ มีสถานะเทียบเท่ารองปลัดกระทรวง"],
+                ans: 0,
+                rat: "มาตรา ๑๓ วรรคท้าย บัญญัติว่า วช. 'มีผู้อำนวยการคนหนึ่ง ซึ่งมีฐานะเทียบเท่าอธิบดีเป็นผู้บังคับบัญชาข้าราชการ...'"
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "สำนักงานปรมาณูเพื่อสันติ (ปส.) มีหน้าที่และอำนาจตามที่บัญญัติไว้ในมาตรา ๑๔ อย่างไร?",
+                opts: ["ควบคุมการปล่อยมลพิษจากโรงงานเครื่องเล่นเกมออนไลน์แผ่นดิน", "เสนอแนะนโยบาย แนวทาง และแผนยุทธศาสตร์ด้านพลังงานนิวเคลียร์ในทางสันติ และกำกับให้เกิดความปลอดภัย", "ตรวจสอบและจัดหาอาวุธนิวเคลียร์ให้แก่หน่วยงานความมั่นคงส่วนกลาง", "จัดการเก็บสถิติปริมาณน้ำฝนรอบคลังป่าต้นน้ำ"],
+                ans: 1,
+                rat: "มาตรา ๑๔ ระบุว่า ปส. มีหน้าที่เกี่ยวกับการเสนอแนวทางนโยบายพลังงานนิวเคลียร์ในทางสันติและกำกับความปลอดภัยผู้ใช้ ประชาชน และสิ่งแวดล้อม"
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "หัวหน้าส่วนราชการของสำนักงานปรมาณูเพื่อสันติ (ปส.) คือตำแหน่งใด?",
+                opts: ["เลขาธิการ ซึ่งมีฐานะเทียบเท่าอธิบดี", "ผู้อำนวยการ ซึ่งมีฐานะเทียบเท่าปลัดกระทรวง", "อธิบดีกรมปรมาณูเพื่อสันติ", "ปลัดพลังงานนิวเคลียร์แผ่นดิน"],
+                ans: 0,
+                rat: "มาตรา ๑๔ วรรคท้าย บัญญัติว่า ปส. 'มีเลขาธิการคนหนึ่งซึ่งมีฐานะเทียบเท่าอธิบดีเป็นผู้บังคับบัญชาข้าราชการ...'"
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "เพื่อสิทธิประโยชน์และการสรรหาต่างๆ ให้ถือว่าผู้ดำรงตำแหน่ง 'อธิการบดี' ของสถาบันอุดมศึกษาของรัฐที่เป็นส่วนราชการในสังกัด อว. เทียบเท่ากับตำแหน่งระดับใดตามมาตรา ๑๕?",
+                opts: ["เทียบเท่าหัวหน้าส่วนราชการระดับอธิบดี", "เทียบเท่าปลัดกระทรวงการอุดมศึกษา", "เทียบเท่าเลขานุการรัฐมนตรี", "เทียบเท่ารองปลัดกระทรวงฝ่ายปฏิบัติการ"],
+                ans: 0,
+                rat: "มาตรา ๑๕ วรรคท้าย บัญญัติชัดเจนว่า 'ให้ถือว่าผู้ดำรงตำแหน่งอธิการบดีของสถาบันอุดมศึกษาของรัฐในสังกัดของกระทรวงซึ่งเป็นส่วนราชการเป็นผู้ดำรงตำแหน่งหัวหน้าส่วนราชการที่เทียบเท่าอธิบดี'"
+            },
+            {
+                cat: "หน้าที่และการแบ่งส่วนราชการ",
+                q: "ข้อใดเป็นข้อกำหนดเกี่ยวกับการจัดตั้งการแบ่งส่วนราชการภายในสถาบันอุดมศึกษาของรัฐที่เป็นส่วนราชการตามมาตรา ๑๕?",
+                opts: ["ให้ออกเป็นระเบียบคณะกรรมการสภามหาวิทยาลัยฝ่ายเดียว", "ให้เป็นไปตามกฎหมายว่าด้วยการจัดตั้งสถาบันอุดมศึกษานั้น", "ต้องออกเป็นพระราชบัญญัติใหม่ทุกครั้งที่จัดตั้งคณะวิชา", "ให้รายงานตรงและขอความเห็นชอบเป็นลายลักษณ์อักษรของ สภาพัฒน์"],
+                ans: 1,
+                rat: "มาตรา ๑๕ วรรคสอง บัญญัติว่า 'การแบ่งส่วนราชการภายในสถาบันอุดมศึกษาของรัฐที่เป็นส่วนราชการในสังกัดของกระทรวงให้เป็นไปตามกฎหมายว่าด้วยการจัดตั้งสถาบันอุดมศึกษานั้น'"
+            },
+
+            // 3. อำนาจหน้าที่ของรัฐมนตรีและปลัดกระทรวง (36-50)
+            {
+                cat: "อำนาจรัฐมนตรีและปลัด",
+                q: "ตามมาตรา ๑๖ กำหนดให้ผู้ใดเป็นผู้บังคับบัญชาข้าราชการและรับผิดชอบสูงสุดในการกำหนดนโยบายผลสัมฤทธิ์ของกระทรวง อว.?",
+                opts: ["นายกรัฐมนตรีแผ่นดิน", "รัฐมนตรีว่าการกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม", "ปลัดกระทรวง อว.", "ประธานคณะกรรมการการอุดมศึกษา"],
+                ans: 1,
+                rat: "มาตรา ๑๖ บัญญัติว่า 'รัฐมนตรีว่าการกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม เป็นผู้บังคับบัญชาข้าราชการ รับผิดชอบในการปฏิบัติราชการของกระทรวง...'"
+            },
+            {
+                cat: "อำนาจรัฐมนตรีและปลัด",
+                q: "นโยบายและแผนการอุดมศึกษาที่รัฐมนตรี อว. เสนอแนะต่อสภานโยบาย ต้องมีความสอดคล้องกับแผนเชิงนโยบายระดับชาติประเภทใดตามมาตรา ๑๗ (๑)?",
+                opts: ["แผนพัฒนาสิ่งแวดล้อมท้องถิ่นจังหวัดเดียว", "ยุทธศาสตร์ชาติ แผนแม่บท แผนอื่น รวมทั้งนโยบายของรัฐบาล", "แผนจัดซื้อพัสดุรายไตรมาสของทบวงมหาวิทยาลัย", "ข้อกำหนดของบริษัทวิสาหกิจคลังเอกชนระดับสากล"],
+                ans: 1,
+                rat: "มาตรา ๑๗ (๑) กำหนดให้เสนอแนะแผนการอุดมศึกษา 'ที่สอดคล้องกับยุทธศาสตร์ชาติ แผนแม่บท และแผนอื่น รวมทั้งนโยบายของรัฐบาล'"
+            },
+            {
+                cat: "อำนาจรัฐมนตรีและปลัด",
+                q: "ใครเป็นผู้มีหน้าที่แนะนำรัฐมนตรีเกี่ยวกับการพิจารณาคำของบประมาณรายจ่ายของสถาบันอุดมศึกษาของรัฐในสังกัด อว. ตามมาตรา ๑๗ (๓)?",
+                opts: ["บอร์ดตรวจบัญชีภาษีส่วนกลาง", "คณะกรรมการพิจารณางบประมาณด้านการอุดมศึกษาตามกฎหมายสภานโยบาย", "สำนักงานอธิการบดีสถาบันสี่ฝ่ายร่วม", "กรมบัญชีกลางกระทรวงการคลังแผ่นดิน"],
+                ans: 1,
+                rat: "มาตรา ๑๗ (๓) กำหนดให้รัฐมนตรีมีหน้าที่ให้คำแนะนำแก่ 'คณะกรรมการพิจารณางบประมาณด้านการอุดมศึกษา...'"
+            },
+            {
+                cat: "อำนาจรัฐมนตรีและปลัด",
+                q: "การกำหนดมาตรฐานการอุดมศึกษาและการประกันคุณภาพการศึกษาตามมาตรา ๑๗ (๖) รัฐมนตรีต้องคำนึงถึงประเด็นใดเพื่อความเป็นธรรมเชิงนโยบาย?",
+                opts: ["การกำหนดค่าปรับโทษอาญาแก่สถาบันที่มีคะแนนประเมินต่ำ", "การมีส่วนร่วมของสถาบันอุดมศึกษาด้วย", "ความต้องการของบริษัทสากลในการจัดเก็บภาษีนำเข้า", "การให้สโมสรเยาวชนจังหวัดร่วมคัดเลือกคณาจารย์ประจำ"],
+                ans: 1,
+                rat: "มาตรา ๑๗ (๖) บัญญัติให้รัฐมนตรี 'กำหนดมาตรฐานการอุดมศึกษาและการประกันคุณภาพการศึกษา โดยคำนึงถึงการมีส่วนร่วมของสถาบันอุดมศึกษาด้วย'"
+            },
+            {
+                cat: "อำนาจรัฐมนตรีและปลัด",
+                q: "ตามมาตรา ๑๗ (๗) ผู้ใดเป็นผู้มีอำนาจหน้าที่ตามกฎหมายในการ 'รับรองและเพิกถอนการรับรองวิทยฐานะ' ของสถาบันอุดมศึกษาเอกชน?",
+                opts: ["เลขาธิการคณะกรรมการมาตรฐานการอุดมศึกษา", "รัฐมนตรีว่าการกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม", "ปลัดกระทรวง อว.", "ผู้ว่าราชการจังหวัดที่สถาบันตั้งอยู่"],
+                ans: 1,
+                rat: "มาตรา ๑๗ (๗) กำหนดให้อำนาจนี้แก่ 'รัฐมนตรี' ในการ 'รับรองและเพิกถอนการรับรองวิทยฐานะสถาบันอุดมศึกษาเอกชน...'"
+            },
+            {
+                cat: "อำนาจรัฐมนตรีและปลัด",
+                q: "เมื่อปรากฏสถาบันอุดมศึกษาของรัฐหรือเอกชนดำเนินการขัดต่อกฎหมาย ศีลธรรมอันดี หรือไม่ปฏิบัติตามหลักธรรมาภิบาลอย่างร้ายแรง รัฐมนตรีมีอำนาจสั่งการอย่างไรตามมาตรา ๑๗ (๑๑)?",
+                opts: ["สั่งกักตัวอธิการบดีทันทีโดยไม่มีพนักงานศาลลงโทษ", "วินิจฉัยสั่งการเพื่อยับยั้งหรือยุติการดำเนินการของสถาบันอุดมศึกษาดังกล่าว", "สั่งริบทรัพย์สินทั้งหมดโอนเข้าเป็นงบประมาณแผ่นดินส่วนกลาง", "ปิดสถาบันอย่างถาวรโดยทันทีโดยไม่มีช่องทางอุทธรณ์ทางนิตินัย"],
+                ans: 1,
+                rat: "มาตรา ๑๗ (๑๑) กำหนดให้รัฐมนตรีมีอำนาจ 'วินิจฉัยสั่งการเพื่อยับยั้งหรือยุติการดำเนินการของสถาบันอุดมศึกษาของรัฐในสังกัดของกระทรวงหรือสถาบันอุดมศึกษาเอกชนที่ขัดต่อกฎหมาย...'"
+            },
+            {
+                cat: "อำนาจรัฐมนตรีและปลัด",
+                q: "การที่รัฐมนตรีจะดำเนินการใช้อำนาจตามมาตรา ๑๗ (๘) เรื่องพิจารณาจัดตั้ง ยุบ รวม ปรับปรุง หรือเลิกสถาบันอุดมศึกษาของรัฐ รัฐมนตรีต้องได้รับความเห็นชอบจากองค์กรใด?",
+                opts: ["สำนักงานตรวจเงินแผ่นดิน", "คณะกรรมการการอุดมศึกษา (กกอ.)", "คณะกรรมการมาตรฐานการอุดมศึกษา (กมอ.)", "คณะรัฐมนตรีฝ่ายการเงินความมั่นคง"],
+                ans: 1,
+                rat: "มาตรา ๑๗ วรรคสอง กำหนดชัดเจนว่า 'การดำเนินการตาม (๑) (๒) (๓) (๔) (๕) (๘) (๙) และ (๑๑) รัฐมนตรีต้องดำเนินการโดยข้อเสนอแนะและความเห็นชอบของคณะกรรมการการอุดมศึกษา (กกอ.)'"
+            },
+            {
+                cat: "อำนาจรัฐมนตรีและปลัด",
+                q: "การกำหนดมาตรฐานการอุดมศึกษา การรับรองวิทยฐานะ และการยุติการดำเนินการกรณีไม่เป็นไปตามมาตรฐานอย่างร้ายแรง รัฐมนตรีต้องดำเนินการโดยผ่านองค์กรใดตามมาตรา ๑๗ วรรคสอง?",
+                opts: ["คณะกรรมการการอุดมศึกษา (กกอ.)", "คณะกรรมการมาตรฐานการอุดมศึกษา (กมอ.)", "สำนักเลขาธิการคณะรัฐมนตรี", "คณะอนุกรรมการการเงินคลังสุขภาพ"],
+                ans: 1,
+                rat: "มาตรา ๑๗ วรรคสอง ระบุเงื่อนไขแตกต่างว่า 'ส่วนการดำเนินการตาม (๖) (๗) และ (๑๒) รัฐมนตรีต้องดำเนินการโดยข้อเสนอแนะและความเห็นชอบของคณะกรรมการมาตรฐานการอุดมศึกษา (กมอ.)'"
+            },
+            {
+                cat: "อำนาจรัฐมนตรีและปลัด",
+                q: "ในการกำหนดบูรณาการงบประมาณและกำกับดูแลหน่วยงานในกำกับที่พัฒนาวิทยาศาสตร์ รัฐมนตรีได้รับอำนาจตามมาตรา ๑๘ (๒) ซึ่งสภานโยบายอาจออกกฎเกณฑ์ควบคุมระดับใด?",
+                opts: ["กำหนดพระราชบัญญัติใหม่ครอบคลุมเฉพาะกิจ", "กำหนดระเบียบขึ้นใช้บังคับเพื่อเพิ่มประสิทธิภาพและผลสัมฤทธิ์โดยความเห็นชอบของ ครม.", "แต่งตั้งศาลสืบสวนทหารตำรวจเข้ากำกับดูแล", "ห้ามจัดเก็บงบประมาณนอกคลังป่าสงวนพิกัด"],
+                ans: 1,
+                rat: "มาตรา ๑๘ วรรคสอง บัญญัติว่า 'สภานโยบายโดยความเห็นชอบของคณะรัฐมนตรี อาจกำหนดระเบียบขึ้นใช้บังคับเพื่อเพิ่มประสิทธิภาพและผลสัมฤทธิ์ก็ได้'"
+            },
+            {
+                cat: "อำนาจรัฐมนตรีและปลัด",
+                q: "ตามมาตรา ๑๙ ปลัดกระทรวง อว. มีอำนาจหน้าที่สำคัญทางราชการด้านใด?",
+                opts: ["รับผิดชอบควบคุมราชการประจำในกระทรวง แปลงนโยบายเป็นแนวทางแผนปฏิบัติการ และประสานงานให้เกิดความสอดคล้องเชื่อมโยงเป็นเอกภาพ", "รับคำสั่งตรงจากผู้บัญชาการทหารสูงสุดเพื่อพิทักษ์ภัยชายฝั่ง", "แต่งตั้งนายกสภาสถาบันอุดมศึกษาเอกชนทุกแห่งโดยตรง", "กำหนดอัตราค่าธรรมเนียมใบขับขี่ยานยนต์ในรั้วสถาบัน"],
+                ans: 0,
+                rat: "มาตรา ๑๙ (๑) กำหนดให้ปลัดกระทรวง 'รับผิดชอบควบคุมราชการประจำในกระทรวง แปลงนโยบายเป็นแนวทางแผนปฏิบัติการ...'"
+            },
+
+            // 4. คณะกรรมการการอุดมศึกษา (กกอ.) (Sec 20-24) (51-70)
+            {
+                cat: "คณะกรรมการการอุดมศึกษา (กกอ.)",
+                q: "ชื่อเรียกโดยย่อทางราชการของ 'คณะกรรมการการอุดมศึกษา' คืออักษรย่อข้อใด?",
+                opts: ["ก.พ.อ.", "กมอ.", "กกอ.", "สกอ."],
+                ans: 2,
+                rat: "มาตรา ๒๐ ระบุชัดเจนว่า 'ให้มีคณะกรรมการการอุดมศึกษา เรียกโดยย่อว่า กกอ.'"
+            },
+            {
+                cat: "คณะกรรมการการอุดมศึกษา (กกอ.)",
+                q: "ประธานกรรมการ กกอ. ได้รับการแต่งตั้งโดยผู้ใดและจากช่องทางข้อเสนอของฝ่ายใด?",
+                opts: ["รัฐมนตรีแต่งตั้งจากข้อเสนอของปลัดกระทรวง อว.", "คณะรัฐมนตรีแต่งตั้งจากข้อเสนอร่วมของ ๔ บอร์ดที่ประชุมอธิการบดีและสมาคมเอกชน (ฝ่ายละหนึ่งคน)", "นายกรัฐมนตรีแต่งตั้งโดยตรงโดยไม่มีข้อเสนอจากมหาวิทยาลัย", "ประธานสภาพัฒนาการเศรษฐกิจคัดเลือกจากข้าราชการพลเรือน"],
+                ans: 1,
+                rat: "มาตรา ๒๐ (๑) ระบุว่าประธาน กกอ. แต่งตั้งโดย ครม. จากข้อเสนอของ ทปอ., ทปอ.มทร., ทปอ.มรภ., และ สสอท. โดยเสนอได้ฝ่ายละหนึ่งคน"
+            },
+            {
+                cat: "คณะกรรมการการอุดมศึกษา (กกอ.)",
+                q: "ข้อใดไม่ใช่ 'กรรมการโดยตำแหน่ง' ของ กกอ. ตามที่บัญญัติไว้ในมาตรา ๒๐ (๒)?",
+                opts: ["ปลัดกระทรวงการอุดมศึกษาฯ และปลัดกระทรวงศึกษาธิการ", "เลขาธิการสภาพัฒน์ และผู้อำนวยการสำนักงบประมาณ", "ประธานกรรมการมาตรฐานการอุดมศึกษา และผู้อำนวยการ สอวช. และ สกสว.", "เลขาธิการคณะกรรมการกฤษฎีกา และผู้ว่าราชการจังหวัดกรุงเทพฯ"],
+                ans: 3,
+                rat: "กรรมการโดยตำแหน่งของ กกอ. มี ๗ ตำแหน่งตามกฎหมาย (ไม่มีเลขาฯ กฤษฎีกา และผู้ว่าฯ กรุงเทพฯ)"
+            },
+            {
+                cat: "คณะกรรมการการอุดมศึกษา (กกอ.)",
+                q: "ตามมาตรา ๒๐ บอร์ด กกอ. มีกรรมการที่ ครม. แต่งตั้งจากผู้ได้รับการสรรหาจากผู้เคยดำรงตำแหน่ง 'นายกสภาสถาบันอุดมศึกษา' และ 'อธิการบดี' จำนวนละไม่เกินกี่คน?",
+                opts: ["จำนวนละไม่เกินหนึ่งคน", "จำนวนละไม่เกินสองคน", "จำนวนละไม่เกินสามคน", "จำนวนละไม่เกินห้าคน"],
+                ans: 1,
+                rat: "มาตรา ๒๐ (๓) และ (๔) กำหนดให้ ครม. แต่งตั้งกรรมการจากอดีตนายกสภาฯ 'จำนวนไม่เกินสองคน' และอดีตอธิการบดี 'จำนวนไม่เกินสองคน'"
+            },
+            {
+                cat: "คณะกรรมการการอุดมศึกษา (กกอ.)",
+                q: "กรรมการผู้ทรงคุณวุฒิของ กกอ. สรรหาจากผู้เชี่ยวชาญที่มีความเชี่ยวชาญด้านใดและมีจำนวนไม่เกินกี่คนตามมาตรา ๒๐ (๕)?",
+                opts: ["ด้านการศึกษา, กฎหมาย, เศรษฐศาสตร์, วิทยาศาสตร์เทคโนโลยี, สังคม, อุตสาหกรรม หรือธุรกิจ จำนวนไม่เกินเจ็ดคน", "ด้านนิติวิทยาศาสตร์และการแพทย์แผนไทย จำนวนไม่เกินสามคน", "ด้านการป้องกันและปราบปรามการทุจริตแผ่นดิน จำนวนไม่เกินสิบคน", "ด้านพัสดุและการคลังการค้าระหว่างประเทศ จำนวนไม่เกินห้าคน"],
+                ans: 0,
+                rat: "มาตรา ๒๐ (๕) บัญญัติให้มีกรรมการผู้ทรงคุณวุฒิซึ่ง ครม. แต่งตั้งจากผู้มีความเชี่ยวชาญประจักษ์ด้านต่าง ๆ รวม 'จำนวนไม่เกินเจ็ดคน'"
+            },
+            {
+                cat: "คณะกรรมการการอุดมศึกษา (กกอ.)",
+                q: "ผู้ใดทำหน้าที่เป็น 'กรรมการและเลขานุการ' ของคณะกรรมการ กกอ.?",
+                opts: ["ปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม", "รองปลัดกระทรวงการอุดมศึกษาฯ ซึ่งปลัดกระทรวงมอบหมาย", "เลขานุการรัฐมนตรีว่าการกระทรวง อว.", "ผู้อำนวยการสำนักงานสภานโยบาย อว. (สอวช.)"],
+                ans: 1,
+                rat: "มาตรา ๒๐ วรรคสอง ระบุชัดเจนว่า 'ให้รองปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรมซึ่งปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรมมอบหมายเป็นกรรมการและเลขานุการ'"
+            },
+            {
+                cat: "คณะกรรมการการอุดมศึกษา (กกอ.)",
+                q: "วาระการดำรงตำแหน่งของประธานกรรมการ กกอ. และกรรมการผู้ทรงคุณวุฒิ กำหนดไว้คราวละกี่ปีและดำรงตำแหน่งติดต่อกันได้กี่วาระ?",
+                opts: ["คราวละสามปี ดำรงตำแหน่งได้ไม่เกินหนึ่งวาระ", "คราวละสี่ปี ดำรงตำแหน่งใหม่อีกได้แต่ไม่เกินสองวาระติดต่อกัน", "คราวละสี่ปี ดำรงตำแหน่งใหม่อีกได้ไม่จำกัดจำนวนวาระ", "คราวละห้าปี ดำรงตำแหน่งได้เพียงวาระเดียว"],
+                ans: 1,
+                rat: "มาตรา ๒๐ วรรคสาม บัญญัติว่า '...มีวาระการดำรงตำแหน่งคราวละสี่ปี และอาจได้รับแต่งตั้งใหม่อีกได้แต่ไม่เกินสองวาระติดต่อกัน'"
+            },
+            {
+                cat: "คณะกรรมการการอุดมศึกษา (กกอ.)",
+                q: "ตามมาตรา ๒๐ วรรคท้าย ได้กำหนดข้อจำกัดการซ้ำซ้อนตำแหน่งบริหารของประธาน กกอ. และกรรมการบางส่วนไว้อย่างไร?",
+                opts: ["ห้ามเป็นกรรมการในหน่วยงานด้านสาธารณสุขจังหวัดพร้อมกัน", "จะดำรงตำแหน่งนายกสภาสถาบันอุดมศึกษาหรืออธิการบดีระหว่างการดำรงตำแหน่งดังกล่าวไม่ได้", "ต้องไม่มียอดเงินฝากสะสมในธนาคารเกินเก้าสิบล้านทางคลัง", "ห้ามร่วมกระบวนการพิจารณาคดีอาญาระหว่างประเทศ"],
+                ans: 1,
+                rat: "มาตรา ๒๐ วรรคท้ายระบุชัดเจน '...โดยประธานกรรมการและกรรมการตาม (๓) และ (๔) จะดำรงตำแหน่งนายกสภาสถาบันอุดมศึกษาหรืออธิการบดีของสถาบันอุดมศึกษาระหว่างการดำรงตำแหน่งดังกล่าวมิได้'"
+            },
+            {
+                cat: "คณะกรรมการการอุดมศึกษา (กกอ.)",
+                q: "หน้าที่และอำนาจตามมาตรา ๒๑ (๑) กำหนดให้ กกอ. จัดทำแผนปฏิบัติการใดเพื่อให้สอดคล้องกับแผนด้านการอุดมศึกษา?",
+                opts: ["แผนปฏิบัติการการอุดมศึกษา แผนปฏิบัติการการพัฒนากำลังคนของประเทศ และการจัดการศึกษาตลอดชีวิต", "แผนงบประมาณจัดจ้างเครื่องมือโยธาของกระทรวง", "แผนการจัดการการเดินทางของเยาวชนเข้าแข่งขันนวัตกรรมสากล", "แผนปฏิรูปภาษีคลังมูลค่าเพิ่มมหาวิทยาลัยของรัฐ"],
+                ans: 0,
+                rat: "มาตรา ๒๑ (๑) กำหนดให้ กกอ. กำหนด 'แผนปฏิบัติการการอุดมศึกษา แผนปฏิบัติการการพัฒนากำลังคนของประเทศ และการจัดการศึกษาตลอดชีวิต'"
+            },
+            {
+                cat: "คณะกรรมการการอุดมศึกษา (กกอ.)",
+                q: "ในการกำหนดการอุปถัมภ์สถาบันอุดมศึกษาเอกชน กกอ. มีหน้าที่เสนอแนะแก่รัฐมนตรีตามข้อใดตามมาตรา ๒๑ (๒)?",
+                opts: ["การกำหนดโทษปรับทางปกครองกรณีใช้ตัวย่อสถาบันผิด", "การจัดสรรเงินอุดหนุนให้แก่สถาบันอุดมศึกษาเอกชนตามข้อตกลงที่ทำไว้กับสำนักงานปลัดกระทรวง", "การยกเว้นการตรวจสอบระบบประกันคุณภาพการศึกษาถาวร", "การจัดสรรโควต้าที่ดินป่าไม้เพื่อก่อสร้างหอพักนักศึกษา"],
+                ans: 1,
+                rat: "มาตรา ๒๑ (๒) ระบุหน้าที่ กกอ. ในการเสนอแนะ 'การจัดสรรเงินอุดหนุนให้แก่สถาบันอุดมศึกษาเอกชนตามข้อตกลงการพัฒนาการอุดมศึกษาซึ่งกระทำกับสำนักงานปลัดกระทรวง'"
+            },
+
+            // 5. คณะกรรมการมาตรฐานการอุดมศึกษา (กมอ.) และ ก.พ.อ. (Sec 25-32) (71-85)
+            {
+                cat: "คณะกรรมการมาตรฐาน (กมอ.)",
+                q: "ชื่อเรียกโดยย่อทางราชการของ 'คณะกรรมการมาตรฐานการอุดมศึกษา' คืออักษรย่อข้อใด?",
+                opts: ["กกอ.", "กมอ.", "ก.พ.อ.", "กพว."],
+                ans: 1,
+                rat: "มาตรา ๒๕ บัญญัติชัดเจนว่า 'ให้มีคณะกรรมการมาตรฐานการอุดมศึกษา เรียกโดยย่อว่า กมอ.'"
+            },
+            {
+                cat: "คณะกรรมการมาตรฐาน (กมอ.)",
+                q: "คณะกรรมการมาตรฐานการอุดมศึกษา (กมอ.) ประกอบด้วยส่วนประกอบใดตามมาตรา ๒๕?",
+                opts: ["ประธานกรรมการหนึ่งคนและผู้ทรงคุณวุฒิด้านการอุดมศึกษาไม่เกินเจ็ดคน", "ปลัดกระทรวง อว. และปลัด ศธ. ร่วมเป็นกรรมการโดยตำแหน่งทั้งหมด", "ผู้แทนพนักงานสอบสวนตำรวจและอัยการรวมสิบห้าคน", "ตัวแทนนักศึกษาสี่ฝ่ายสัญชาติไทยทั้งหมด"],
+                ans: 0,
+                rat: "มาตรา ๒๕ บัญญัติให้ กมอ. ประกอบด้วย (๑) ประธานกรรมการซึ่งรัฐมนตรีแต่งตั้งตามข้อเสนอ กกอ. และ (๒) กรรมการผู้ทรงคุณวุฒิไม่เกินเจ็ดคน"
+            },
+            {
+                cat: "คณะกรรมการมาตรฐาน (กมอ.)",
+                q: "วิธีการเสนอชื่อผู้สมควรแต่งตั้งเป็น กมอ. ต่อรัฐมนตรี กำหนดเงื่อนไขไว้อย่างไรตามมาตรา ๒๕ วรรคสาม?",
+                opts: ["เสนอตามความสมัครใจโดยไม่ระบุจำนวนขีดจำกัด", "กกอ. เสนอชื่อประธานกรรมการหนึ่งคน และกรรมการผู้ทรงคุณวุฒิจำนวนสองเท่าของที่จะแต่งตั้ง เพื่อนำคนไม่ถูกแต่งตั้งลงบัญชีสำรอง", "สมาคมสถาบันอุดมศึกษาเอกชนแต่งตั้งแทนโดยมติเห็นชอบ ครม.", "ให้เลขาธิการกฤษฎีกาเสนอชื่อส่งตรงตรงถึงรัฐมนตรี"],
+                ans: 1,
+                rat: "มาตรา ๒๕ วรรคสาม บัญญัติให้ กกอ. เสนอชื่อจำนวนสองเท่าของจำนวนที่จะต้องแต่งตั้ง และคนที่ไม่ได้รับการแต่งตั้งจะถูกนำลงบัญชีสำรอง"
+            },
+            {
+                cat: "คณะกรรมการมาตรฐาน (กมอ.)",
+                q: "ข้อใดเป็นลักษณะต้องห้ามทางวิชาชีพและบริหารของประธาน กมอ. และกรรมการผู้ทรงคุณวุฒิตามมาตรา ๒๕ วรรคสี่?",
+                opts: ["ห้ามมีส่วนร่วมในการบริหารสมาคมกีฬาต่างประเทศพร้อมกัน", "จะดำรงตำแหน่งนายกสภาสถาบัน, กรรมการสภาฯ, อธิการบดี หรือผู้ปฏิบัติงานในสถาบันอุดมศึกษาใดๆ มิได้", "ห้ามเป็นข้าราชการพลเรือนประจำการเกษียณอายุก่อนกำหนด", "ห้ามแสดงประวัติเสียภาษีย้อนหลังในคลังแผ่นดิน"],
+                ans: 1,
+                rat: "มาตรา ๒๕ วรรคสี่ระบุเด็ดขาด '...จะดำรงตำแหน่งนายกสภาสถาบันอุดมศึกษาหรือกรรมการสภาสถาบันอุดมศึกษา อธิการบดีหรือผู้ปฏิบัติงานของสถาบันอุดมศึกษา...มิได้'"
+            },
+            {
+                cat: "คณะกรรมการมาตรฐาน (กมอ.)",
+                q: "ประธานกรรมการและกรรมการผู้ทรงคุณวุฒิของ กมอ. ต้องทำงานด้วยสปิริตและลักษณะทางกฎหมายข้อใดตามมาตรา ๒๕ วรรคหก?",
+                opts: ["ต้องทำงานภายใต้ดุลพินิจของผู้บัญชาการทหารสูงสุด", "ต้องทำงานด้วยความเป็นอิสระ", "ต้องรายงานผลกำไรให้แก่สมาคมหอการค้าไทยรายไตรมาส", "ต้องทำงานโดยคำนึงถึงงบประมาณรายได้ของกระทรวงศึกษาธิการเป็นหลักแรก"],
+                ans: 1,
+                rat: "มาตรา ๒๕ วรรคหก ระบุข้อความสั้นและสำคัญยิ่งว่า 'ประธานกรรมการและกรรมการผู้ทรงคุณวุฒิ ต้องทำงานด้วยความเป็นอิสระ'"
+            },
+            {
+                cat: "คณะกรรมการมาตรฐาน (กมอ.)",
+                q: "หน้าที่และอำนาจตามมาตรา ๒๖ (๑) กำหนดให้ กมอ. ดำเนินงานส่งเสริม สนับสนุน ติดตาม ตรวจสอบการจัดการศึกษาและการประกันคุณภาพการศึกษาโดยคำนึงถึงสิ่งใด?",
+                opts: ["ประเภทและกลุ่มของสถาบันอุดมศึกษา ตลอดจนความเป็นอิสระและความเป็นเลิศของสถาบันแต่ละแห่ง", "อัตราค่าเล่าเรียนเพื่อผลประโยชน์เชิงธุรกิจ", "การจัดหาพัสดุคอมพิวเตอร์และเชื่อมต่อแล็บเทคโนโลยี", "ขีดจำกัดด้านกำลังแรงงานระดับล่างของสังคม"],
+                ans: 0,
+                rat: "มาตรา ๒๖ (๑) ระบุว่าต้องคำนึงถึง 'ประเภทและกลุ่มของสถาบันอุดมศึกษาตามกฎหมายอุดมศึกษา ตลอดจนความเป็นอิสระและความเป็นเลิศของสถาบัน...แต่ละแห่งด้วย'"
+            },
+            {
+                cat: "คณะกรรมการมาตรฐาน (กมอ.)",
+                q: "ตามมาตรา ๒๖ (๒) กมอ. มีหน้าที่เสนอแนะต่อรัฐมนตรีเพื่อนำเสนอสภานโยบายให้กำหนดมาตรการประเภทใดเพื่อยกระดับมาตรฐาน?",
+                opts: ["มาตรการบังคับใช้กำลังทหารตำรวจเข้าสืบสวนควบคุมการเรียนการสอน", "มาตรการทางการเงินการคลังและสิทธิประโยชน์อื่น เพื่อให้มีการพัฒนามาตรฐานการอุดมศึกษา", "การลดระดับการเก็บภาษีมูลค่าเพิ่มสำหรับอธิการบดีพ้นตำแหน่ง", "การยกเลิกสิทธิการเบิกรักษาพยาบาลข้าราชการมหาวิทยาลัยรัฐ"],
+                ans: 1,
+                rat: "มาตรา ๒๖ (๒) กำหนดหน้าที่ให้ กมอ. 'เสนอแนะต่อรัฐมนตรีเพื่อนำเสนอต่อสภานโยบายให้กำหนดมาตรการทางการเงินการคลังและสิทธิประโยชน์อื่น...'"
+            },
+            {
+                cat: "คณะกรรมการมาตรฐาน (กมอ.)",
+                q: "ในการกำหนดมาตรฐานการอุดมศึกษา กมอ. ต้องยึดหลักเกณฑ์และหลักการสำคัญใดตามมาตรา ๒๗ (๓)?",
+                opts: ["ให้ความสำคัญกับวิธีการจัดการสอนและการตรวจเวลาเข้าเรียนอย่างละเอียดเป็นพิกัดชั่วโมง", "ให้ความสำคัญกับความรู้ สมรรถนะ ทักษะ เจตคติ ซึ่งเป็นผลลัพธ์และผลสัมฤทธิ์ซึ่งเกิดขึ้นแก่ผู้เรียนและสามารถวัดได้", "บังคับจัดซื้อตำราวิชาการจากสำนักพิมพ์ต่างประเทศเท่านั้น", "การให้สิทธิแก่อธิการบดีในการยกเว้นการสอบวัดเกรดของสถาบัน"],
+                ans: 1,
+                rat: "มาตรา ๒๗ (๓) กำหนดหลักการสำคัญคือเน้น 'ผลลัพธ์และผลสัมฤทธิ์ซึ่งเกิดขึ้นแก่ผู้เรียนและสามารถวัดได้ (Learning Outcomes)' เพื่อไม่กระทบความเป็นอิสระของสถาบัน"
+            },
+            {
+                cat: "คณะกรรมการมาตรฐาน (กมอ.)",
+                q: "ตามมาตรา ๒๗ (๔) กระบวนการร่างและกำหนดมาตรฐานการอุดมศึกษาของ กมอ. บัญญัติให้ต้องรับฟังความคิดเห็นจากบุคคลกลุ่มใด?",
+                opts: ["เฉพาะสมาชิกวุฒิสภาปฏิบัติหน้าที่รัฐสภา", "สถาบันอุดมศึกษา ผู้เรียน คณาจารย์ และผู้ใช้บัณฑิต อย่างกว้างขวาง", "สมาคมข้าราชการบำนาญกระทรวงการคลังแผ่นดิน", "ผู้แทนพนักงานสอบสวนนโยบายวิจัยอุตสาหกรรมสากล"],
+                ans: 1,
+                rat: "มาตรา ๒๗ (๔) บัญญัติว่ากระบวนการกำหนดมาตรฐาน 'ต้องรับฟังความคิดเห็นของสถาบันอุดมศึกษา ผู้เรียน คณาจารย์ และผู้ใช้บัณฑิตอย่างกว้างขวาง'"
+            },
+            {
+                cat: "คณะกรรมการมาตรฐาน (กมอ.)",
+                q: "ตามมาตรา ๒๗ (๕) ระบบมาตรฐานของ กมอ. ต้องมีกระบวนการเยียวยาคุ้มครองสิทธิ์สถาบันอุดมศึกษาอย่างไร?",
+                opts: ["ต้องมีระบบให้สถาบันอุดมศึกษาอุทธรณ์คำวินิจฉัยหรือคำสั่ง กมอ. ได้", "ต้องจ่ายเงินชดเชยค่าหุ้นสูญเสียสัดส่วนร้อยละสิบ", "การอนุญาตให้อธิการบดียกเลิกมาตรากฎหมายการประกันคุณภาพโดยลำพัง", "การปิดฐานข้อมูลทางราชการไม่ให้สาธารณชนรับทราบคดี"],
+                ans: 0,
+                rat: "มาตรา ๒๗ (๕) บัญญัติเด็ดขาดว่ามาตรฐานที่กำหนดต้อง 'มีระบบการให้สถาบันอุดมศึกษาอุทธรณ์คำวินิจฉัยหรือคำสั่ง กมอ. ได้'"
+            },
+            {
+                cat: "คณะกรรมการมาตรฐาน (กมอ.)",
+                q: "ตามมาตรา ๓๐ บอร์ดบริหารงานบุคคลใดทำหน้าที่บริหารจัดการงานบุคคลสำหรับข้าราชการพลเรือนในสถาบันอุดมศึกษาของรัฐที่เป็นส่วนราชการ?",
+                opts: ["ก.พ.ร.", "ก.พ.", "ก.พ.อ.", "ก.พ.ว."],
+                ans: 2,
+                rat: "มาตรา ๓๐ บัญญัติว่า 'ให้มีคณะกรรมการข้าราชการพลเรือนในสถาบันอุดมศึกษา เรียกโดยย่อว่า ก.พ.อ. ทำหน้าที่เป็นองค์กรบริหารงานบุคคล...'"
+            },
+            {
+                cat: "คณะกรรมการมาตรฐาน (กมอ.)",
+                q: "ตามมาตรา ๓๑ กระทรวง อว. สามารถขอข้อมูลสถิติ แผนงานการเงิน จากสถาบันอุดมศึกษาใดเพื่อจัดทำฐานข้อมูลกลางได้บ้าง?",
+                opts: ["เฉพาะสถาบันอุดมศึกษาของรัฐที่เป็นส่วนราชการสังกัดกระทรวง", "สถาบันอุดมศึกษาของรัฐในสังกัด, สถาบันอุดมศึกษาที่ไม่อยู่ในสังกัดกระทรวง และสถาบันอุดมศึกษาเอกชนด้วยโดยอนุโลม", "เฉพาะมหาวิทยาลัยที่ยินยอมให้ความร่วมมือทางนิตินัย", "ห้ามขอข้อมูลสถาบันเอกชนเด็ดขาดเพื่อความลับทางการพาณิชย์"],
+                ans: 1,
+                rat: "มาตรา ๓๑ และวรรคสองบัญญัติให้ขอข้อมูลเพื่อประโยชน์ฐานข้อมูลการอุดมศึกษา และให้นำมาใช้กับสถาบันนอกสังกัดและสถาบันอุดมศึกษาเอกชนด้วยโดยอนุโลม"
+            },
+            {
+                cat: "คณะกรรมการมาตรฐาน (กมอ.)",
+                q: "ตามมาตรา ๓๒ สถาบันอุดมศึกษาที่ทำข้อตกลงการพัฒนาการอุดมศึกษากับสำนักงานปลัดกระทรวง (สป.อว.) มีสิทธิ์ได้รับสิทธิประโยชน์ใด?",
+                opts: ["สิทธิ์ยกเว้นการตรวจสอบระบบภาษีคลังบริษัทวิสาหกิจเพื่อสังคม", "อาจขอรับการส่งเสริมด้านงบประมาณเพื่อการนั้นได้", "สิทธิ์ได้รับการแต่งตั้งอธิการบดีเป็นข้าราชการการเมืองระดับสูง", "การยกเว้นไม่ต้องส่งเลขอักษรภาษาไทยนำหน้าชื่อของมหาวิทยาลัย"],
+                ans: 1,
+                rat: "มาตรา ๓๒ บัญญัติว่ากรณีทำข้อตกลง (Agreement) พัฒนากำลังคนในสาขาที่ต้องการร่วมกัน 'สถาบันอุดมศึกษาอาจขอรับการส่งเสริมด้านงบประมาณเพื่อการนั้นได้'"
+            },
+
+            // 6. บทเฉพาะกาลและการโอนย้ายหน่วยงาน (Sec 33-41) (86-100)
+            {
+                cat: "บทเฉพาะกาล",
+                q: "ในวาระเริ่มแรกตามมาตรา ๓๓ คณะกรรมการอุดมศึกษาเดิมต้องทำหน้าที่ กกอ. และ กมอ. พลางก่อนเป็นระยะเวลาไม่เกินกี่วัน?",
+                opts: ["ไม่เกินเก้าสิบวัน", "ไม่เกินหนึ่งร้อยยี่สิบวัน", "ไม่เกินหนึ่งร้อยแปดสิบวัน", "ไม่เกินสองร้อยสี่สิบวันนับแต่วันที่ พ.ร.บ. บังคับใช้"],
+                ans: 3,
+                rat: "มาตรา ๓๓ บัญญัติให้บอร์ดเดิมทำหน้าที่พลางก่อน 'ทั้งนี้ ต้องไม่เกินสองร้อยสี่สิบวันนับแต่วันที่พระราชบัญญัตินี้ใช้บังคับ'"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "ตามมาตรา ๓๔ การโอนย้าย ทรัพย์สิน หน้าที่ อัตรากำลัง และพนักงานราชการ ของส่วนราชการ อว. ที่จัดตั้งตามกฎหมายปรับปรุงกระทรวง กำหนดให้โอนย้ายไปยังพิกัดใด?",
+                opts: ["ไปยังกระทรวงศึกษาธิการส่วนกลาง", "ไปยังส่วนราชการที่มีชื่ออย่างเดียวกันในกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรมตามพระราชบัญญัตินี้", "ให้พ้นจากความเป็นข้าราชการพลเรือนเพื่อรอสอบเข้าใหม่", "โอนย้ายเข้าสังกัดสำนักนายกรัฐมนตรีสายปฏิรูป"],
+                ans: 1,
+                rat: "มาตรา ๓๔ บัญญัติให้โอนทรัพย์สินสิทธิหนี้สินข้าราชการลูกจ้างและอัตรากำลังไปเป็นของส่วนราชการที่มีชื่ออย่างเดียวกันในกระทรวง อว. ตาม พ.ร.บ. นี้"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "บรรดากิจการทรัพย์สินพนักงานและงบประมาณของ 'สำนักงานคณะกรรมการการอุดมศึกษา' (สกอ. เดิม) ถูกโอนย้ายไปเป็นของหน่วยงานใดตามมาตรา ๓๕?",
+                opts: ["สำนักงานรัฐมนตรี กระทรวง อว.", "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม", "กรมวิทยาศาสตร์บริการส่วนภูมิภาค", "สำนักงานการวิจัยแห่งชาติ (วช.)"],
+                ans: 1,
+                rat: "มาตรา ๓๕ วรรคแรก บัญญัติให้โอนย้ายสิ่งต่าง ๆ ของ สกอ. เดิม 'ไปเป็นของสำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรมตามพระราชบัญญัตินี้'"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "ตามมาตรา ๓๕ บรรดาบทบัญญัติ ประกาศ มติ ครม. ที่อ้างถึง 'สกอ. เดิม' หรือ 'เลขาธิการ สกอ.' ให้ถือว่าอ้างถึงพิกัดใดตามกฎหมายนี้?",
+                opts: ["กระทรวงศึกษาธิการ หรือ เลขาธิการ กพฐ.", "สำนักงานปลัดกระทรวง อว. หรือ ปลัดกระทรวง อว. แล้วแต่กรณี", "สภาการศึกษา หรือ เลขาธิการสภาการศึกษาแห่งชาติ", "สำนักงานการวิจัยแห่งชาติ หรือ ผู้อำนวยการ วช."],
+                ans: 1,
+                rat: "มาตรา ๓๕ วรรคสองระบุชัดเจนว่า '...ให้ถือว่าอ้างถึง สำนักงานปลัดกระทรวงการอุดมศึกษาฯ หรือ ปลัดกระทรวงการอุดมศึกษาฯ แล้วแต่กรณี...'"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "ในวาระเริ่มแรก ใครทำหน้าที่พยาบาลและรักษาราชการแทนในตำแหน่ง 'ผู้อำนวยการสำนักงานการวิจัยแห่งชาติ' (วช.) ตามมาตรา ๓๖ วรรคสอง?",
+                opts: ["ปลัดกระทรวงการอุดมศึกษาฯ รักษาการควบตำแหน่ง", "เลขาธิการคณะกรรมการวิจัยแห่งชาติเดิม ดำรงตำแหน่งไปพลางก่อนจนกว่าแต่งตั้งคนใหม่", "ประธานสภานโยบาย อว. เลือกตั้งขึ้นรักษาการชั่วคราว", "ผู้อำนวยการกรมวิทยาศาสตร์บริการเข้าทำหน้าที่คุมคลัง"],
+                ans: 1,
+                rat: "มาตรา ๓๖ วรรคสองระบุว่า '...และให้เลขาธิการคณะกรรมการวิจัยแห่งชาติซึ่งดำรงตำแหน่งอยู่ในวันก่อนวันใช้บังคับ ทำหน้าที่ผู้อำนวยการสำนักงานการวิจัยแห่งชาติไปพลางก่อน...'"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "ตามมาตรา ๓๗ เมื่อครบกำหนดระยะเวลาเท่าใด ให้คณะกรรมการขับเคลื่อนการปฏิรูปทำการประเมินประสิทธิภาพโครงสร้างการทำงานของ สำนักงานการวิจัยแห่งชาติ (วช.)?",
+                opts: ["เมื่อครบกำหนดหนึ่งปี", "เมื่อครบกำหนดสองปี", "เมื่อครบกำหนดสามปีนับแต่วันที่พระราชบัญญัตินี้ใช้บังคับ", "เมื่อครบกำหนดสี่ปีเต็มวาระบอร์ด"],
+                ans: 2,
+                rat: "มาตรา ๓๗ บัญญัติว่า 'เมื่อครบกำหนดสามปีนับแต่วันที่พระราชบัญญัตินี้ใช้บังคับ ให้คณะกรรมการขับเคลื่อนการปฏิรูปฯ... ประเมินประสิทธิภาพและผลการปฏิบัติราชการ วช.'"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "หากการประเมิน วช. ในเวลา ๓ ปี พบว่าประสิทธิภาพบกพร่อง โครงสร้างการดำเนินงานของ วช. สามารถถูกเสนอแนวทางแปลงสภาพไปเป็นสถาบันประเภทใด?",
+                opts: ["จัดตั้งสำนักงานการวิจัยแห่งชาติเป็นองค์การมหาชนพร้อมร่างพระราชกฤษฎีกา", "เปลี่ยนผ่านเป็นหน่วยงานเอกชนเต็มรูปแบบเพื่อการค้าพาณิชย์", "โอนย้ายกลับเข้าสังกัดเดิมกระทรวงศึกษาธิการถาวร", "ยุบเลิกโครงสร้างระบบบริหารจัดการ วช. โดยสิ้นเชิงทางบัญชี"],
+                ans: 0,
+                rat: "มาตรา ๓๗ ระบุว่าหากเห็นควรปรับปรุงประสิทธิภาพ 'ให้มีอำนาจเสนอต่อคณะรัฐมนตรีให้จัดตั้งสำนักงานการวิจัยแห่งชาติเป็นองค์การมหาชน...'"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "ตามมาตรา ๓๘ กฎหมายได้บัญญัติบังคับกรอบเวลาในการแปลงสภาพส่วนราชการ 'กรมวิทยาศาสตร์บริการ' (วศ.) ให้แล้วเสร็จภายในกี่ปี?",
+                opts: ["ภายในกำหนดหนึ่งปี", "ภายในกำหนดสองปี", "ภายในกำหนดสามปีนับแต่วันที่พระราชบัญญัตินี้ใช้บังคับ", "ภายในกำหนดห้าปีตามกรอบยุทธศาสตร์ชาติ"],
+                ans: 2,
+                rat: "มาตรา ๓๘ บัญญัติบังคับเด็ดขาด 'ให้ดำเนินการตราพระราชกฤษฎีกาจัดตั้งสถาบันวิทยาศาสตร์บริการตามกฎหมายว่าด้วยองค์การมหาชนให้แล้วเสร็จภายในสามปี...'"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "ในการแปลงสภาพ วศ. เป็นองค์การมหาชนเสร็จสิ้นแล้ว บทบัญญัติมาตราใดของพระราชบัญญัติระเบียบบริหารราชการกระทรวง อว. ฉบับนี้ที่จะถูกยกเลิก?",
+                opts: ["มาตรา ๑ และมาตรา ๒", "มาตรา ๘ (๓) และมาตรา ๑๒ [สถานะ วศ. ที่เป็นส่วนราชการหลัก]", "มาตรา ๒๐ และมาตรา ๒๕ [บอร์ด กกอ. และ กมอ.]", "ยกเลิกพระราชบัญญัติบริหารราชการกระทรวงฉบับนี้ถาวร"],
+                ans: 1,
+                rat: "มาตรา ๓๘ วรรคท้ายระบุชัดเจน '...และเมื่อพระราชกฤษฎีกาดังกล่าวมีผลใช้บังคับ ให้มาตรา ๘ (๓) และมาตรา ๑๒ เป็นอันยกเลิก'"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "รัฐมนตรีมีอำนาจสั่งให้ข้าราชการหรือพนักงานสถาบันอุดมศึกษา อว. ไปช่วยราชการในส่วนราชการอื่นหรือหน่วยงานกำกับชั่วคราวได้ตามมาตรา ๓๙ โดยให้มีพฤติกรรมสิทธิ์ใดของข้าราชการ?",
+                opts: ["ถือเป็นพฤติกรรมการลาพักร้อนโดยหักเงินเดือนสะสมร้อยละสิบ", "ให้นับระยะเวลาปฏิบัติราชการดังกล่าวให้แก่ต้นสังกัด เพื่อประโยชน์ในการคำนวณบำเหน็จบำนาญหรือประโยชน์ตอบแทนอื่น", "ตัดสิทธิ์ข้าราชการพลเรือนในการเข้าประเมินผลงานเลื่อนขั้นประจำปี", "ต้องสละสิทธิ์ความเป็นข้าราชการ อว. ทันทีเมื่อย้ายสถานที่"],
+                ans: 1,
+                rat: "มาตรา ๓๙ วรรคสองระบุคุ้มครองสิทธิ์ว่า 'ให้นับระยะเวลาที่ข้าราชการ...ซึ่งได้รับคำสั่งให้มาปฏิบัติหน้าที่... เป็นระยะเวลาปฏิบัติราชการให้แก่ต้นสังกัด เพื่อประโยชน์ในการคำนวณบำเหน็จบำนาญ...'"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "ข้าราชการหรือพนักงาน อว. ที่ได้รับคำสั่งย้ายไปช่วยหน่วยงานอื่นชั่วคราวตามมาตรา ๓๙ จะมีสิทธิ์รับค่าตอบแทนสิทธิประโยชน์ตามข้อเสนอแนะของหน่วยงานใด?",
+                opts: ["เสนอโดยสมาคมข้าราชการส่วนท้องถิ่น", "เสนอโดยสภานโยบาย อว. ตามกฎหมายสภานโยบายการอุดมศึกษาฯ และ ครม. กำหนด", "กำหนดโดยอธิการบดีของมหาวิทยาลัยฝ่ายเดียวตามข้อตกลง", "กระทรวงการคลังไม่มีส่วนร่วมในการจ่ายงบประมาณคลังช่วยเหลือ"],
+                ans: 1,
+                rat: "มาตรา ๓๙ วรรคท้ายระบุว่ามีสิทธิ์ได้รับประโยชน์ตอบแทน 'ตามที่คณะรัฐมนตรีกำหนดโดยข้อเสนอแนะของสภานโยบายการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรมแห่งชาติ...'"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "บรรดาความผิด คดีความ และข้อพิพาทของส่วนราชการเดิมที่โอนย้ายกิจการตามกฎหมายนี้ ศาลได้มีข้อชี้ขาดอย่างไรตามมาตรา ๔๐?",
+                opts: ["ให้ยุติคดีความทั้งหมดทันทีและระเว้นโทษอาญาแก่เจ้าหน้าที่", "ให้ส่วนราชการซึ่งรับโอนสวมสิทธิเป็นคู่ความแทน ดำเนินคดีต่อไป และสวมสิทธิเป็นเจ้าหนี้หรือลูกหนี้ตามคำพิพากษา", "โอนคดีทั้งหมดไปพิจารณาใหม่ที่ศาลทหารกองทัพหลวง", "สิทธิคดีความสูญสิ้นไปตามประมวลกฎหมายนิตินัยล้มละลาย"],
+                ans: 1,
+                rat: "มาตรา ๔๐ บัญญัติให้ส่วนราชการรับโอนเข้าสวมสิทธิ์คู่ความแทนเพื่อดำเนินคดีต่อ และเข้าสวมสิทธิ์เป็นเจ้าหนี้หรือลูกหนี้ตามคำพิพากษาเรียบร้อย"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "ในระยะเวลากี่ปีแรกนับแต่วันที่ พ.ร.บ. นี้มีผลบังคับใช้ ที่กำหนดให้ใช้กลไกของบอร์ดตามคำสั่งสำนักนายกฯ เพื่อขับเคลื่อนการปฏิรูปแผ่นดิน?",
+                opts: ["สองปีแรก", "สามปีแรก", "สี่ปีแรกนับแต่วันที่พระราชบัญญัตินี้ใช้บังคับ", "ห้าปีแรกตามแผนยุทธศาสตร์ชาติ"],
+                ans: 2,
+                rat: "มาตรา ๔๑ วรรคแรกบัญญัติชัดเจนว่า 'ในสี่ปีแรกนับแต่วันที่พระราชบัญญัตินี้ใช้บังคับ เพื่อประโยชน์ในการปฏิรูป... ให้คณะกรรมการขับเคลื่อนการปฏิรูปฯ...'"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "คณะกรรมการขับเคลื่อนการปฏิรูปตามมาตรา ๔๑ ดำเนินงานโดยอ้างอิงตามแต่งตั้งคำสั่งสำนักนายกรัฐมนตรีหมายเลขใด?",
+                opts: ["คำสั่งสำนักนายกรัฐมนตรี ที่ ๑๐/๒๕๖๒", "คำสั่งสำนักนายกรัฐมนตรี ที่ ๓๕/๒๕๖๒ เรื่อง แต่งตั้งคณะกรรมการขับเคลื่อนการปฏิรูปการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม", "คำสั่งสภานิติบัญญัติแห่งชาติ ที่ ๕๐/๒๕๖๐", "ประกาศคณะปฏิรูป ฉบับที่ ๓๑๕ ทรวงสิทธิทางการปกครอง"],
+                ans: 1,
+                rat: "มาตรา ๔๑ อ้างอิง '...ตามคำสั่งสำนักนายกรัฐมนตรี ที่ ๓๕/๒๕๖๒ เรื่อง แต่งตั้งคณะกรรมการขับเคลื่อนการปฏิรูปการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม ลงวันที่ ๗ กุมภาพันธ์ พ.ศ. ๒๕๖๒...'"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "หน้าที่และอำนาจที่สำคัญของคณะกรรมการขับเคลื่อนการปฏิรูปในระยะ ๔ ปีแรกคือข้อใดตามมาตรา ๔๑ (๑)?",
+                opts: ["การกำหนดแผนและแนวทางการจัดโครงสร้าง อัตรากำลัง วิธีการทำงานของกระทรวง อว. ให้แล้วเสร็จเสนอต่อรัฐมนตรีและ ครม. ภายในสามปี", "การขึ้นทะเบียนคลังและจัดเก็บภาษีนำเข้าอุปกรณ์ทางวิทยาศาสตร์", "การตรวจสอบและยึดทรัพย์สินของมหาวิทยาลัยเถื่อนส่วนภูมิภาค", "การแต่งตั้งประธาน กมอ. ควบตำแหน่งนายกสมาคมมหาวิทยาลัยเอกชน"],
+                ans: 0,
+                rat: "มาตรา ๔๑ (๑) ระบุหน้าที่ในการ 'จัดทำแนวทางการพัฒนาระบบ กลไก การทำงาน โครงสร้าง อัตรากำลังของ อว. ให้แล้วเสร็จภายในสามปี เพื่อเสนอรัฐมนตรีและ ครม.'"
+            },
+            {
+                cat: "บทเฉพาะกาล",
+                q: "ผู้ใดลงนามเป็นผู้รับสนองพระราชโองการสำหรับการตราพระราชบัญญัติบริหารราชการกระทรวง อว. พ.ศ. ๒๕๖๒ ฉบับนี้?",
+                opts: ["พลเอก เปรม ติณสูลานนท์ ประธานองคมนตรี", "พลเอก ประยุทธ์ จันทร์โอชา นายกรัฐมนตรี", "นายพรเพชร วิชิตชลชัย ประธานสภานิติบัญญัติแห่งชาติ", "นายชวน หลีกภัย ประธานรัฐสภา"],
+                ans: 1,
+                rat: "ระบุท้ายพระราชบัญญัติหน้าสุดท้าย 'ผู้รับสนองพระราชโองการ พลเอก ประยุทธ์ จันทร์โอชา นายกรัฐมนตรี'"
+            }
+        ];
+
+        // Ensure exactly 100 high-yield, well-documented questions are loaded
+        const ALL_QUESTIONS = ALL_QUESTIONS_RAW.map((q, idx) => ({
+            questionNumber: idx + 1,
+            category: q.cat,
+            question: q.q,
+            answerOptions: q.opts.map((opt, optIdx) => ({
+                text: opt,
+                isCorrect: optIdx === q.ans,
+                rationale: q.rat
+            })),
+            hint: "วิเคราะห์พิกัดกฎหมาย อ้างอิงตามบทบัญญัติรายมาตราของ พ.ร.บ. ระเบียบบริหารราชการกระทรวง อว. พ.ศ. ๒๕๖๒"
+        }));
+
+        // App States
+        let quizQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = {}; // questionIndex -> selectedOptionIndex
+        let flaggedQuestions = {}; // questionIndex -> boolean
+        let quizMode = 'practice'; // 'practice' or 'exam'
+        let quizDuration = 4500; // default 75 minutes (100 questions * 45s)
+        let timerInterval = null;
+        let isQuizSubmitted = false;
+        let startTime = null;
+        let timeSpentSeconds = 0;
+
+        // --- Controls ---
+        function selectMode(mode) {
+            quizMode = mode;
+            const btnPractice = document.getElementById('mode-practice-btn');
+            const btnExam = document.getElementById('mode-exam-btn');
+            
+            if (mode === 'practice') {
+                btnPractice.className = "group text-left p-5 rounded-xl border-2 border-emerald-650 bg-emerald-50/10 focus:outline-none w-full";
+                btnExam.className = "group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-emerald-950 hover:bg-slate-50 transition-all duration-200 focus:outline-none w-full";
+            } else {
+                btnExam.className = "group text-left p-5 rounded-xl border-2 border-emerald-950 bg-emerald-50/10 focus:outline-none w-full";
+                btnPractice.className = "group text-left p-5 rounded-xl border-2 border-slate-200 hover:border-emerald-650 hover:bg-emerald-50/10 transition-all duration-200 focus:outline-none w-full";
+            }
+        }
+
+        // Shuffle algorithm (Fisher-Yates)
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex != 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        function startQuiz() {
+            const quantitySelect = document.getElementById('exam-quantity');
+            const quantity = parseInt(quantitySelect.value);
+            
+            let sourceQuestions = [...ALL_QUESTIONS];
+            if (quizMode === 'exam') {
+                // Shuffle in exam mode for dynamic assessment
+                sourceQuestions = shuffle(sourceQuestions);
+                // Shuffle options of each question as well
+                sourceQuestions.forEach(q => {
+                    const originalOptions = q.answerOptions.map((opt, idx) => ({ ...opt, origIdx: idx }));
+                    shuffle(originalOptions);
+                    q.answerOptions = originalOptions;
+                });
+            }
+            
+            quizQuestions = sourceQuestions.slice(0, Math.min(quantity, sourceQuestions.length));
+            quizDuration = Math.max(900, quizQuestions.length * 45); 
+
+            // Reset States
+            currentQuestionIndex = 0;
+            userAnswers = {};
+            flaggedQuestions = {};
+            isQuizSubmitted = false;
+            timeSpentSeconds = 0;
+            startTime = new Date();
+
+            // Set up Badge/Timer UI
+            const badge = document.getElementById('badge-mode');
+            if (quizMode === 'practice') {
+                badge.innerText = `โหมดฝึกฝน (${quizQuestions.length} ข้อ | แสดงเฉลยรายละเอียดทันที)`;
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-emerald-100 text-emerald-850 border border-emerald-250";
+                document.getElementById('timer-container').classList.add('hidden');
+                document.getElementById('score-counter').classList.remove('hidden');
+            } else {
+                badge.innerText = `โหมดจำลองสนามสอบจริง (จำกัดเวลา สลับลำดับคำถามข้อสอบ)`;
+                badge.className = "px-2.5 py-0.5 rounded text-xs font-bold uppercase bg-rose-100 text-rose-800 border border-rose-200";
+                document.getElementById('timer-container').classList.remove('hidden');
+                document.getElementById('score-counter').classList.add('hidden');
+                startTimer();
+            }
+
+            // View Transition
+            document.getElementById('setup-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+
+            renderNavigationGrid();
+            loadQuestion(0);
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            let timerSeconds = quizDuration;
+            const timerDisplay = document.getElementById('quiz-timer');
+            
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                timeSpentSeconds++;
+                
+                const minutes = Math.floor(timerSeconds / 60);
+                const seconds = timerSeconds % 60;
+                timerDisplay.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timerSeconds <= 300) { 
+                    timerDisplay.parentElement.classList.add('text-rose-500', 'animate-pulse');
+                } else {
+                    timerDisplay.parentElement.classList.remove('text-rose-500', 'animate-pulse');
+                }
+
+                if (timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+            const q = quizQuestions[index];
+
+            // Render status texts
+            document.getElementById('current-q-index').innerText = index + 1;
+            document.getElementById('total-q-count').innerText = quizQuestions.length;
+            
+            const progressPercent = ((index + 1) / quizQuestions.length) * 100;
+            document.getElementById('progress-bar-fill').style.width = `${progressPercent}%`;
+
+            // Category & Question text
+            document.getElementById('question-category').innerText = q.category;
+            document.getElementById('question-text').innerText = `${q.question}`;
+
+            // Bookmarked/Flagged status
+            const flagBtn = document.getElementById('flag-btn');
+            const flagIcon = document.getElementById('flag-icon');
+            if (flaggedQuestions[index]) {
+                flagIcon.setAttribute('fill', '#f59e0b');
+                flagIcon.setAttribute('stroke', '#f59e0b');
+                flagBtn.classList.add('text-amber-500');
+            } else {
+                flagIcon.setAttribute('fill', 'none');
+                flagIcon.setAttribute('stroke', 'currentColor');
+                flagBtn.classList.remove('text-amber-500');
+            }
+
+            // Options Renderer
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const selectedAnswer = userAnswers[index];
+            const isAnswered = selectedAnswer !== undefined;
+            const showAnswersDirectly = (quizMode === 'practice' && isAnswered);
+
+            q.answerOptions.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border transition-all text-sm font-medium focus:outline-none flex justify-between items-center gap-4 min-h-[44px]";
+                btn.onclick = () => selectOption(optIdx);
+
+                const textSpan = document.createElement('span');
+                textSpan.innerText = opt.text;
+                btn.appendChild(textSpan);
+
+                // Option styling logic based on state and mode
+                if (selectedAnswer === optIdx) {
+                    if (showAnswersDirectly) {
+                        if (opt.isCorrect) {
+                            btn.className += " bg-emerald-50 border-emerald-500 text-emerald-800 shadow-sm";
+                            btn.appendChild(createIcon('check', 'text-emerald-600'));
+                        } else {
+                            btn.className += " bg-rose-50 border-rose-400 text-rose-800 shadow-sm";
+                            btn.appendChild(createIcon('x', 'text-rose-600'));
+                        }
+                    } else {
+                        btn.className += " bg-emerald-50 border-emerald-600 text-emerald-950 shadow-md scale-[1.01]";
+                    }
+                } else {
+                    if (showAnswersDirectly && opt.isCorrect) {
+                        btn.className += " bg-emerald-50 border-emerald-400 text-emerald-800";
+                        btn.appendChild(createIcon('check', 'text-emerald-500'));
+                    } else {
+                        btn.className += " bg-white border-slate-200 hover:bg-slate-50 hover:border-slate-300 text-slate-700";
+                    }
+                }
+
+                if (showAnswersDirectly) {
+                    btn.disabled = true;
+                    btn.onclick = null;
+                }
+
+                optionsContainer.appendChild(btn);
+            });
+
+            // Handle Instant Explanation Panel (Practice Mode only)
+            const expPanel = document.getElementById('explanation-panel');
+            if (showAnswersDirectly) {
+                expPanel.classList.remove('hidden');
+                const selectedOptObj = q.answerOptions[selectedAnswer];
+                const isCorrect = selectedOptObj.isCorrect;
+                
+                const titleBadge = document.getElementById('explanation-title-badge');
+                if (isCorrect) {
+                    titleBadge.innerText = "ตอบถูกต้อง";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-emerald-600";
+                } else {
+                    titleBadge.innerText = "ตอบผิดพลาด";
+                    titleBadge.className = "px-2 py-0.5 rounded text-xs font-bold text-white bg-rose-600";
+                }
+                
+                document.getElementById('explanation-text').innerText = selectedOptObj.rationale;
+            } else {
+                expPanel.classList.add('hidden');
+            }
+
+            // Navigation buttons adjustments
+            document.getElementById('prev-btn').disabled = (index === 0);
+            const nextBtn = document.getElementById('next-btn');
+            const submitQuizBtn = document.getElementById('submit-quiz-btn');
+
+            if (index === quizQuestions.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitQuizBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitQuizBtn.classList.add('hidden');
+            }
+
+            updateNavigationGridActive();
+        }
+
+        // SVG helper for response checks
+        function createIcon(type, colorClass) {
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.setAttribute("class", `w-5 h-5 ${colorClass} shrink-0`);
+            svg.setAttribute("fill", "none");
+            svg.setAttribute("viewBox", "0 0 24 24");
+            svg.setAttribute("stroke", "currentColor");
+            svg.setAttribute("stroke-width", "3");
+
+            if (type === 'check') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M5 13l4 4L19 7");
+                svg.appendChild(path);
+            } else if (type === 'x') {
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("stroke-linecap", "round");
+                path.setAttribute("stroke-linejoin", "round");
+                path.setAttribute("d", "M6 18L18 6M6 6l12 12");
+                svg.appendChild(path);
+            }
+            return svg;
+        }
+
+        function selectOption(optionIndex) {
+            if (isQuizSubmitted) return;
+            userAnswers[currentQuestionIndex] = optionIndex;
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function toggleFlag() {
+            flaggedQuestions[currentQuestionIndex] = !flaggedQuestions[currentQuestionIndex];
+            loadQuestion(currentQuestionIndex);
+            renderNavigationGrid();
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizQuestions.length - 1) {
+                loadQuestion(currentQuestionIndex + 1);
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                loadQuestion(currentQuestionIndex - 1);
+            }
+        }
+
+        function renderNavigationGrid() {
+            const grid = document.getElementById('grid-navigation');
+            grid.innerHTML = '';
+
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('score-counter').innerText = `${answeredCount}/${quizQuestions.length}`;
+
+            let paddingClass = "py-2";
+            let sizeClass = "text-xs";
+            if (quizQuestions.length > 50) {
+                paddingClass = "py-1.5";
+                sizeClass = "text-[10px]";
+            }
+
+            quizQuestions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full ${paddingClass} rounded-lg ${sizeClass} font-bold text-center border focus:outline-none transition-all min-h-[28px]`;
+                btn.innerText = idx + 1;
+                btn.onclick = () => loadQuestion(idx);
+
+                const isSelected = (idx === currentQuestionIndex);
+                const hasAnswered = (userAnswers[idx] !== undefined);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                if (isSelected) {
+                    btn.className += " bg-emerald-900 border-emerald-950 text-white ring-2 ring-emerald-300 ring-offset-1";
+                } else if (isFlagged) {
+                    btn.className += " bg-amber-500 border-amber-600 text-white";
+                } else if (hasAnswered) {
+                    btn.className += " bg-emerald-100 border-emerald-300 text-emerald-850 hover:bg-emerald-200";
+                } else {
+                    btn.className += " bg-slate-50 border-slate-200 text-slate-650 hover:bg-slate-100";
+                }
+
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateNavigationGridActive() {
+            const grid = document.getElementById('grid-navigation');
+            const btns = grid.children;
+            for (let i = 0; i < btns.length; i++) {
+                const btn = btns[i];
+                if (i === currentQuestionIndex) {
+                    btn.classList.add('ring-2', 'ring-emerald-300', 'ring-offset-1');
+                } else {
+                    btn.classList.remove('ring-2', 'ring-emerald-300', 'ring-offset-1');
+                }
+            }
+        }
+
+        function showSubmitConfirmModal() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const unanswered = quizQuestions.length - answeredCount;
+            const statusText = document.getElementById('modal-completion-status');
+
+            if (unanswered > 0) {
+                statusText.innerText = `คุณยังเว้นว่างข้อสอบอีก ${unanswered} ข้อ จากทั้งหมด ${quizQuestions.length} ข้อ ยืนยันส่งเพื่อสรุปผลคะแนนตอนนี้เลยหรือไม่?`;
+                statusText.className = "text-sm text-amber-650 leading-relaxed font-semibold";
+            } else {
+                statusText.innerText = "ยินดีด้วย! คุณตอบครบถ้วนทุกข้อแล้ว ต้องการส่งกระดาษคำตอบเพื่อประเมินวิเคราะห์คะแนนทันทีเลยหรือไม่?";
+                statusText.className = "text-sm text-emerald-600 leading-relaxed font-semibold";
+            }
+
+            document.getElementById('submit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideSubmitConfirmModal() {
+            document.getElementById('submit-confirm-modal').classList.add('hidden');
+        }
+
+        function confirmExit() {
+            document.getElementById('exit-confirm-modal').classList.remove('hidden');
+        }
+
+        function hideExitConfirmModal() {
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+        }
+
+        function exitQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById('exit-confirm-modal').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            isQuizSubmitted = true;
+            hideSubmitConfirmModal();
+
+            let scoreCorrect = 0;
+            const categoryAnalysis = {};
+
+            // Initialize categories statistics
+            quizQuestions.forEach(q => {
+                if (!categoryAnalysis[q.category]) {
+                    categoryAnalysis[q.category] = { correct: 0, total: 0 };
+                }
+                categoryAnalysis[q.category].total++;
+            });
+
+            // Calculate score
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if (userAns !== undefined) {
+                    const selectedOpt = q.answerOptions[userAns];
+                    if (selectedOpt.isCorrect) {
+                        scoreCorrect++;
+                        categoryAnalysis[q.category].correct++;
+                    }
+                }
+            });
+
+            const totalCount = quizQuestions.length;
+            const percent = Math.round((scoreCorrect / totalCount) * 100);
+
+            if (quizMode !== 'exam') {
+                const end = new Date();
+                timeSpentSeconds = Math.round((end - startTime) / 1000);
+            }
+            const minsUsed = Math.floor(timeSpentSeconds / 60);
+            const secsUsed = timeSpentSeconds % 60;
+
+            // Display Results View
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+
+            document.getElementById('result-percentage').innerText = `${percent}%`;
+            document.getElementById('result-score-fraction').innerText = `${scoreCorrect}/${totalCount} คะแนน`;
+
+            const dashArray = 251.2;
+            const offset = dashArray - (dashArray * percent) / 100;
+            document.getElementById('score-ring-fill').style.strokeDashoffset = offset;
+
+            const resultBadge = document.getElementById('result-badge');
+            const feedbackText = document.getElementById('result-feedback-text');
+
+            if (percent >= 80) {
+                resultBadge.innerText = "เกณฑ์ประเมิน: ผ่านระดับดีเยี่ยม";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-250";
+                feedbackText.innerText = "ยอดเยี่ยมมาก! คุณมีความเข้าใจในระบบระเบียบบริหารกระทรวง อว. พ.ศ. ๒๕๖๒ อย่างลึกซึ้ง ครบถ้วน พร้อมสอบแข่งขันช้าราชการหรือนิติกรรสายการศึกษา อว. แล้วครับ";
+            } else if (percent >= 60) {
+                resultBadge.innerText = "เกณฑ์ประเมิน: ผ่านตามมาตรฐาน";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-50 text-amber-700 border border-amber-200";
+                feedbackText.innerText = "คุณผ่านเกณฑ์ประเมินมาตรฐานข้าราชการเรียบร้อยแล้ว แนะนำให้ตรวจสอบ 'ข้อสอบเฉลยละเอียด' ด้านล่าง เพื่อศึกษามาตรา ข้อบังคับ และตัวเลขค่าปรับที่อาจพลาดไป";
+            } else {
+                resultBadge.innerText = "เกณฑ์ประเมิน: ควรทบทวนความรู้";
+                resultBadge.className = "px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-rose-50 text-rose-800 border border-rose-200";
+                feedbackText.innerText = "ระดับคะแนนเฉลี่ยยังไม่ผ่านเกณฑ์วัดระดับขั้นต้นครับ แนะนำให้อ่าน 'Cheat Sheet' ด้านบน แล้วกลับมาลองทดสอบทวนซ้ำในโหมดฝึกฝนใหม่อีกรอบเพื่อความแม่นยำยิ่งขึ้น";
+            }
+
+            document.getElementById('stat-correct').innerText = `${scoreCorrect} ข้อ`;
+            document.getElementById('stat-incorrect').innerText = `${totalCount - scoreCorrect} ข้อ`;
+            document.getElementById('stat-time-spent').innerText = `${minsUsed} น. ${secsUsed} วิ.`;
+
+            // Skills analysis section
+            const topicContainer = document.getElementById('topic-analysis-container');
+            topicContainer.innerHTML = '';
+
+            for (const [category, data] of Object.entries(categoryAnalysis)) {
+                const catPercent = Math.round((data.correct / data.total) * 100);
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = "space-y-1.5";
+
+                const labelRow = document.createElement('div');
+                labelRow.className = "flex justify-between items-center text-xs font-bold text-slate-700";
+                labelRow.innerHTML = `<span>${category}</span> <span class="font-mono font-bold">${data.correct}/${data.total} (${catPercent}%)</span>`;
+                wrapper.appendChild(labelRow);
+
+                const barBg = document.createElement('div');
+                barBg.className = "w-full bg-slate-200 h-2 rounded-full overflow-hidden";
+                
+                const barFill = document.createElement('div');
+                barFill.className = catPercent >= 80 ? "bg-emerald-900 h-full" : (catPercent >= 60 ? "bg-emerald-700 h-full" : "bg-rose-500 h-full");
+                barFill.style.width = `${catPercent}%`;
+                barBg.appendChild(barFill);
+                
+                wrapper.appendChild(barBg);
+                topicContainer.appendChild(wrapper);
+            }
+
+            document.getElementById('detailed-review-section').classList.add('hidden');
+            document.getElementById('toggle-review-btn').innerText = "ดูข้อสอบเฉลยละเอียดรายข้อ";
+            generateDetailedReviewList();
+        }
+
+        function generateDetailedReviewList() {
+            const listContainer = document.getElementById('review-questions-list');
+            listContainer.innerHTML = '';
+
+            quizQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCorrect = (userAns !== undefined && q.answerOptions[userAns].isCorrect);
+                const isFlagged = (flaggedQuestions[idx] === true);
+
+                const card = document.createElement('div');
+                card.className = "bg-white border rounded-xl p-5 sm:p-6 space-y-4 shadow-sm transition-all text-left";
+                card.dataset.isCorrect = isCorrect ? "true" : "false";
+                card.dataset.isFlagged = isFlagged ? "true" : "false";
+
+                // Review Card Header
+                const cardHeader = document.createElement('div');
+                cardHeader.className = "flex justify-between items-start gap-4 border-b border-slate-100 pb-2.5";
+                
+                const flexLeft = document.createElement('div');
+                flexLeft.className = "flex items-center gap-2 flex-wrap";
+                
+                const qNum = document.createElement('span');
+                qNum.className = "text-sm font-bold text-slate-850 font-extrabold";
+                qNum.innerText = `ข้อที่ ${idx + 1}`;
+                flexLeft.appendChild(qNum);
+
+                const catBadge = document.createElement('span');
+                catBadge.className = "text-[10px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded";
+                catBadge.innerText = q.category;
+                flexLeft.appendChild(catBadge);
+
+                if (isFlagged) {
+                    const flgBadge = document.createElement('span');
+                    flgBadge.className = "text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 flex items-center gap-1";
+                    flgBadge.innerHTML = `<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z"/></svg> ปักหมุดทบทวน`;
+                    flexLeft.appendChild(flgBadge);
+                }
+
+                cardHeader.appendChild(flexLeft);
+
+                // Right Badge Status
+                const statusBadge = document.createElement('span');
+                if (isCorrect) {
+                    statusBadge.innerText = "ตอบถูก";
+                    statusBadge.className = "text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200";
+                } else if (userAns === undefined) {
+                    statusBadge.innerText = "ไม่เลือกตอบ";
+                    statusBadge.className = "text-[10px] font-bold text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200";
+                } else {
+                    statusBadge.innerText = "ตอบผิด";
+                    statusBadge.className = "text-[10px] font-bold text-rose-800 bg-rose-50 px-2 py-0.5 rounded border border-rose-200";
+                }
+                cardHeader.appendChild(statusBadge);
+
+                card.appendChild(cardHeader);
+
+                // Question Text
+                const qText = document.createElement('h5');
+                qText.className = "font-bold text-slate-955 leading-relaxed text-sm sm:text-base";
+                qText.innerText = q.question;
+                card.appendChild(qText);
+
+                // Options list in review card
+                const listGrid = document.createElement('div');
+                listGrid.className = "grid grid-cols-1 gap-2 pt-2";
+
+                let rationaleText = "";
+
+                q.answerOptions.forEach((opt, optIdx) => {
+                    const optBlock = document.createElement('div');
+                    optBlock.className = "p-3 rounded-lg border text-xs font-medium flex justify-between items-center gap-3";
+                    optBlock.innerText = opt.text;
+
+                    if (opt.isCorrect) {
+                        optBlock.className += " bg-emerald-50 border-emerald-300 text-emerald-800";
+                        optBlock.appendChild(createIcon('check', 'text-emerald-600'));
+                        rationaleText = opt.rationale; // grab correct explanation
+                    } else if (userAns === optIdx) {
+                        optBlock.className += " bg-rose-50 border-rose-300 text-rose-800";
+                        optBlock.appendChild(createIcon('x', 'text-rose-600'));
+                    } else {
+                        optBlock.className += " bg-white border-slate-200 text-slate-650";
+                    }
+
+                    listGrid.appendChild(optBlock);
+                });
+
+                card.appendChild(listGrid);
+
+                // Explanation Block
+                const expWrapper = document.createElement('div');
+                expWrapper.className = "bg-slate-50 p-4 rounded-lg border border-slate-100 space-y-1";
+                
+                const expLabel = document.createElement('div');
+                expLabel.className = "text-[10px] font-extrabold text-emerald-900 uppercase tracking-wide";
+                expLabel.innerText = "คำอธิบายตัวบทกฎหมายอย่างละเอียด:";
+                expWrapper.appendChild(expLabel);
+
+                const expP = document.createElement('p');
+                expP.className = "text-xs text-slate-650 leading-relaxed";
+                expP.innerText = rationaleText;
+                expWrapper.appendChild(expP);
+
+                card.appendChild(expWrapper);
+                listContainer.appendChild(card);
+            });
+        }
+
+        function toggleDetailedReview() {
+            const reviewSection = document.getElementById('detailed-review-section');
+            const btn = document.getElementById('toggle-review-btn');
+
+            if (reviewSection.classList.contains('hidden')) {
+                reviewSection.classList.remove('hidden');
+                btn.innerText = "ซ่อนข้อสอบเฉลยละเอียด";
+                reviewSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                reviewSection.classList.add('hidden');
+                btn.innerText = "ดูข้อสอบเฉลยละเอียดรายข้อ";
+            }
+        }
+
+        function filterReviewList() {
+            const filterValue = document.getElementById('review-filter').value;
+            const container = document.getElementById('review-questions-list');
+            const cards = container.children;
+
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const isCorrect = card.dataset.isCorrect === "true";
+                const isFlagged = card.dataset.isFlagged === "true";
+
+                if (filterValue === 'all') {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'incorrect' && !isCorrect) {
+                    card.classList.remove('hidden');
+                } else if (filterValue === 'flagged' && isFlagged) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            }
+        }
+
+        function restartQuiz() {
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('setup-screen').classList.remove('hidden');
+        }
+
+        // Set Default mode on load
+        selectMode('practice');
+    </script>
+</body>
+</html>
