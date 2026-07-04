@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>exam-ratchakarnthai · ระบบเตรียมสอบข้าราชการไทย</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #f4f3ef;
+    --surface:    #ffffff;
+    --navy:       #0d1d3a;
+    --gold:       #c8831a;
+    --gold-light: #f0c45a;
+    --text:       #18253a;
+    --text-light: #4a5a6e;
+    --muted:      #7a8898;
+    --border:     #dbd6cc;
+    --warm:       #f9f7f2;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'Sarabun',sans-serif; min-height:100vh; }
+
+  /* TOPBAR */
+  .topbar { background:var(--navy); padding:9px 32px; display:flex; align-items:center; gap:10px; }
+  .topbar-brand { font-size:.77rem; font-weight:700; color:var(--gold-light); letter-spacing:.13em; text-transform:uppercase; }
+  .topbar-sep { color:rgba(255,255,255,.2); }
+  .topbar-sub { font-size:.77rem; font-weight:300; color:rgba(255,255,255,.42); }
+
+  /* HERO */
+  .hero { background:var(--navy); position:relative; overflow:hidden; }
+  .hero::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:4px;
+    background:linear-gradient(90deg,#ef3340 0% 20%,#fff 20% 40%,#2d44a0 40% 60%,#fff 60% 80%,#ef3340 80% 100%);
+  }
+  .hd1 { position:absolute; right:-90px; top:50%; transform:translateY(-50%); width:400px; height:400px; border-radius:50%; border:1px solid rgba(200,131,26,.07); pointer-events:none; }
+  .hd2 { position:absolute; right:-45px; top:50%; transform:translateY(-50%); width:250px; height:250px; border-radius:50%; border:1px solid rgba(200,131,26,.12); }
+  .hd3 { position:absolute; right:-5px;  top:50%; transform:translateY(-50%); width:140px; height:140px; border-radius:50%; border:1px solid rgba(200,131,26,.18); }
+
+  .hero-inner { max-width:900px; margin:0 auto; padding:54px 32px 50px; position:relative; z-index:1; }
+
+  .eyebrow {
+    display:inline-flex; align-items:center; gap:7px;
+    border:1px solid rgba(200,131,26,.42); border-radius:4px;
+    padding:4px 12px; font-size:.75rem; font-weight:700;
+    color:var(--gold-light); letter-spacing:.12em; text-transform:uppercase; margin-bottom:20px;
+  }
+
+  .hero h1 { font-family:'Noto Serif Thai',serif; font-size:2.15rem; font-weight:700; color:#fff; line-height:1.42; margin-bottom:10px; max-width:580px; }
+  .hero h1 em { color:var(--gold-light); font-style:normal; }
+
+  .hero-desc { font-size:.94rem; font-weight:300; color:rgba(255,255,255,.45); line-height:1.75; max-width:500px; margin-bottom:36px; }
+
+  .stats { display:flex; flex-wrap:wrap; border:1px solid rgba(255,255,255,.09); border-radius:8px; overflow:hidden; max-width:580px; }
+  .stat  { flex:1; min-width:110px; padding:13px 18px; border-right:1px solid rgba(255,255,255,.07); text-align:center; }
+  .stat:last-child { border-right:none; }
+  .stat-n { display:block; font-family:'Noto Serif Thai',serif; font-size:1.4rem; font-weight:700; color:var(--gold-light); line-height:1.1; }
+  .stat-l { display:block; font-size:.71rem; font-weight:300; color:rgba(255,255,255,.38); letter-spacing:.03em; margin-top:3px; }
+
+  /* MAIN */
+  .main { max-width:900px; margin:0 auto; padding:34px 32px 80px; }
+
+  .sec-label { font-size:.73rem; font-weight:700; color:var(--muted); letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+  .sec-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  /* COLLECTION CARDS */
+  .col-grid { display:grid; gap:14px; }
+
+  .col-card {
+    background:var(--surface); border:1px solid var(--border); border-radius:12px;
+    overflow:hidden; text-decoration:none; color:inherit;
+    display:grid; grid-template-columns:190px 1fr; min-height:152px;
+    transition:box-shadow .18s,transform .18s,border-color .18s;
+  }
+  .col-card:hover { box-shadow:0 8px 32px rgba(13,29,58,.12); transform:translateY(-3px); border-color:#b4b8c8; text-decoration:none; }
+
+  .col-left {
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    gap:9px; padding:22px 18px;
+    border-right:1px solid rgba(255,255,255,.08);
+    position:relative; overflow:hidden;
+  }
+  .col-left::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 30% 40%,rgba(255,255,255,.07) 0%,transparent 70%); pointer-events:none; }
+
+  .bg-navy   { background:#0d1d3a; }
+  .bg-red    { background:#7a1a1a; }
+  .bg-orange { background:#6a2e08; }
+  .bg-ink    { background:#1a1a2a; }
+
+  .col-icon { font-size:2rem; line-height:1; }
+  .col-num  { font-size:.72rem; font-weight:700; color:rgba(255,255,255,.45); letter-spacing:.08em; text-transform:uppercase; text-align:center; }
+  .col-pill { background:rgba(255,255,255,.11); border:1px solid rgba(255,255,255,.18); border-radius:20px; padding:3px 11px; font-size:.71rem; font-weight:600; color:rgba(255,255,255,.78); text-align:center; }
+
+  .col-right { padding:20px 24px; display:flex; flex-direction:column; justify-content:space-between; }
+  .col-agency { font-size:.71rem; font-weight:600; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-bottom:5px; }
+  .col-title { font-family:'Noto Serif Thai',serif; font-size:1.05rem; font-weight:700; color:var(--navy); line-height:1.45; margin-bottom:7px; }
+  .col-desc  { font-size:.82rem; font-weight:300; color:var(--text-light); line-height:1.65; }
+
+  .col-foot { display:flex; align-items:center; flex-wrap:wrap; gap:5px; margin-top:13px; padding-top:12px; border-top:1px solid #f0ece6; }
+
+  .tag { display:inline-flex; padding:2px 8px; border-radius:4px; font-size:.71rem; font-weight:500; }
+  .tag-b { background:#eef3fc; color:#1b3870; border:1px solid #c4d3f0; }
+  .tag-r { background:#fdf0f0; color:#9c2020; border:1px solid #f5bfbf; }
+  .tag-o { background:#fdf4ec; color:#7a3008; border:1px solid #f5c89a; }
+  .tag-k { background:#f0f0f3; color:#1a1a2a; border:1px solid #c8c8d8; }
+
+  .col-arrow { margin-left:auto; font-size:.95rem; font-weight:700; color:var(--muted); opacity:.32; transition:opacity .15s,transform .15s,color .15s; }
+  .col-card:hover .col-arrow { opacity:1; transform:translateX(4px); color:var(--gold); }
+
+  /* HOW TO USE */
+  .how { margin-top:38px; background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:22px 26px; }
+  .how-title { font-family:'Noto Serif Thai',serif; font-size:.88rem; font-weight:700; color:var(--navy); margin-bottom:14px; display:flex; align-items:center; gap:7px; }
+  .how-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .how-step  { display:flex; gap:11px; align-items:flex-start; }
+  .step-num  { width:25px; height:25px; border-radius:50%; background:var(--navy); color:#fff; font-size:.7rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+  .step-txt  { font-size:.82rem; color:var(--text-light); line-height:1.55; font-weight:300; }
+  .step-txt strong { display:block; color:var(--text); font-weight:600; font-size:.83rem; margin-bottom:1px; }
+
+  /* FOOTER */
+  footer { max-width:900px; margin:0 auto; border-top:1px solid var(--border); padding:22px 32px; text-align:center; font-size:.78rem; color:var(--muted); font-weight:300; }
+  footer strong { color:var(--text-light); font-weight:500; }
+
+  @media (max-width:640px) {
+    .topbar,.hero-inner,.main,footer { padding-left:16px; padding-right:16px; }
+    .hero h1 { font-size:1.55rem; }
+    .col-card { grid-template-columns:1fr; min-height:auto; }
+    .col-left { flex-direction:row; padding:14px 18px; border-right:none; border-bottom:1px solid rgba(255,255,255,.09); }
+    .how-steps { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-brand">exam-ratchakarnthai</span>
+  <span class="topbar-sep">·</span>
+  <span class="topbar-sub">ระบบเตรียมสอบข้าราชการไทย</span>
+</div>
+
+<header class="hero">
+  <div class="hd1"></div><div class="hd2"></div><div class="hd3"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">🏛 ชุดข้อสอบและสรุปเนื้อหา</div>
+    <h1>เตรียมสอบ<em>ข้าราชการไทย</em><br>ครบทุกสนาม ทุกกรม</h1>
+    <p class="hero-desc">รวมระบบจำลองข้อสอบ สรุปเนื้อหา และ Cheat Sheet สำหรับสนาม ก.พ. ท้องถิ่น และกรมเฉพาะทาง เลือกชุดเตรียมสอบที่ตรงกับตำแหน่งของคุณ</p>
+    <div class="stats">
+      <div class="stat"><span class="stat-n">4</span><span class="stat-l">ชุดเตรียมสอบ</span></div>
+      <div class="stat"><span class="stat-n">46</span><span class="stat-l">หัวข้อรวม</span></div>
+      <div class="stat"><span class="stat-n">2,300+</span><span class="stat-l">ข้อสอบรวม</span></div>
+      <div class="stat"><span class="stat-n">ก.พ. / ท้องถิ่น / กรม</span><span class="stat-l">ทุกสนาม</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+
+  <div class="sec-label">เลือกชุดเตรียมสอบ</div>
+
+  <div class="col-grid">
+
+    <a class="col-card" href="index_coreexam.html">
+      <div class="col-left bg-navy">
+        <span class="col-icon">⚖️</span>
+        <span class="col-num">ชุดที่ 1</span>
+        <span class="col-pill">16 หัวข้อ · 1,550+ ข้อ</span>
+      </div>
+      <div class="col-right">
+        <div>
+          <div class="col-agency">ก.พ. · ท้องถิ่น · ข้าราชการทุกระดับ</div>
+          <div class="col-title">กฎหมายและนโยบายหลัก<br>สำหรับสนามสอบข้าราชการ</div>
+          <div class="col-desc">พ.ร.บ. ระเบียบบริหารราชการแผ่นดิน · รัฐธรรมนูญ 2560 · ระเบียบสารบรรณ · พ.ร.บ. ข้าราชการพลเรือน · PDPA · วินัยการเงินการคลัง · ยุทธศาสตร์ชาติ 20 ปี · แผนพัฒนาฯ ฉ.13 และอีก 8 หัวข้อ</div>
+        </div>
+        <div class="col-foot">
+          <span class="tag tag-b">พ.ร.บ. 8 ฉบับ</span>
+          <span class="tag tag-b">5 แผนยุทธศาสตร์</span>
+          <span class="tag tag-b">Cheat Sheet ทุกหัวข้อ</span>
+          <span class="col-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="col-card" href="indexMHESI.html">
+      <div class="col-left bg-red">
+        <span class="col-icon">🔬</span>
+        <span class="col-num">ชุดที่ 2</span>
+        <span class="col-pill">6 หัวข้อ · 360+ ข้อ</span>
+      </div>
+      <div class="col-right">
+        <div>
+          <div class="col-agency">กระทรวง อว. · สป.อว. · สนอว.</div>
+          <div class="col-title">กระทรวงการอุดมศึกษา<br>วิทยาศาสตร์ วิจัยและนวัตกรรม (อว.)</div>
+          <div class="col-desc">พ.ร.บ. การอุดมศึกษา 2562 · พ.ร.บ. สถาบันอุดมศึกษาเอกชน 2546 · พ.ร.บ. ระเบียบบริหารราชการกระทรวง อว. · แผนด้านการอุดมศึกษา 2566–2570 · กรอบนโยบาย อววน. และความเป็นมา อว.</div>
+        </div>
+        <div class="col-foot">
+          <span class="tag tag-r">พ.ร.บ. อว. 3 ฉบับ</span>
+          <span class="tag tag-r">แผนอุดมศึกษา</span>
+          <span class="tag tag-r">กรอบ อววน.</span>
+          <span class="col-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="col-card" href="index-departmentofdisaster.html">
+      <div class="col-left bg-orange">
+        <span class="col-icon">🚨</span>
+        <span class="col-num">ชุดที่ 3</span>
+        <span class="col-pill">10 หัวข้อ · 200+ ข้อ</span>
+      </div>
+      <div class="col-right">
+        <div>
+          <div class="col-agency">กรมป้องกันและบรรเทาสาธารณภัย · กระทรวงมหาดไทย</div>
+          <div class="col-title">กรมป้องกันและบรรเทาสาธารณภัย<br>(ปภ.) กระทรวงมหาดไทย</div>
+          <div class="col-desc">พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย 2550 · ระเบียบ อปพร. 2553 · ระเบียบเตือนภัยพิบัติแห่งชาติ 2552 · ระเบียบป้องกันอุบัติภัยแห่งชาติ 2564 · แผน ปภ. แห่งชาติ 2564–2570 · เงินทดรองราชการ 2568</div>
+        </div>
+        <div class="col-foot">
+          <span class="tag tag-o">10 หัวข้อเฉพาะทาง</span>
+          <span class="tag tag-o">แผน ปภ. แห่งชาติ</span>
+          <span class="tag tag-o">กฎหมาย ปภ.</span>
+          <span class="col-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="col-card" href="index-quiz.html">
+      <div class="col-left bg-ink">
+        <span class="col-icon">📝</span>
+        <span class="col-num">ชุดที่ 4</span>
+        <span class="col-pill">4 ชุดข้อสอบ · 195+ ข้อ</span>
+      </div>
+      <div class="col-right">
+        <div>
+          <div class="col-agency">ข้อสอบปรนัย · สุ่มใหม่ทุกรอบ · พร้อมเฉลย</div>
+          <div class="col-title">ชุดข้อสอบพร้อมเฉลย<br>เตรียมสอบราชการ</div>
+          <div class="col-desc">พ.ร.บ. การอุดมศึกษา 2562 (65 ข้อ) · พ.ร.บ. ระเบียบบริหารราชการกระทรวง อว. 2562 · พ.ร.บ. สถาบันอุดมศึกษาเอกชน 2546 (65 ข้อ) · พ.ร.บ. PDPA 2562 พร้อมอ้างอิงมาตราและจุดดักสนามจริง</div>
+        </div>
+        <div class="col-foot">
+          <span class="tag tag-k">สุ่มข้อใหม่ทุกรอบ</span>
+          <span class="tag tag-k">เฉลยพร้อมจุดดัก</span>
+          <span class="tag tag-k">อ้างอิงรายมาตรา</span>
+          <span class="col-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="how">
+    <div class="how-title">📌 วิธีใช้งาน</div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="step-num">1</div>
+        <div class="step-txt"><strong>เลือกชุดเตรียมสอบ</strong>คลิกเข้าชุดที่ตรงกับสนามสอบหรือกรมที่สมัคร</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">2</div>
+        <div class="step-txt"><strong>เลือกหัวข้อจากสารบรรณ</strong>อ่านสรุปเนื้อหาก่อน จากนั้นเข้าระบบจำลองข้อสอบ</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">3</div>
+        <div class="step-txt"><strong>ฝึกซ้ำจนมั่นใจ</strong>ข้อสอบสุ่มใหม่ทุกครั้ง พร้อมเฉลย จุดดัก และ Cheat Sheet</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <strong>exam-ratchakarnthai</strong> · ระบบเตรียมสอบข้าราชการไทย<br>
+  เนื้อหาจัดทำเพื่อการทบทวนเตรียมสอบเท่านั้น · โปรดตรวจสอบกับกฎหมายต้นฉบับฉบับล่าสุดก่อนนำไปใช้งานจริง
+</footer>
+
+</body>
+</html>
