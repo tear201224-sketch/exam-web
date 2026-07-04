@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สารบรรณ · ข้อสอบปรนัย กระทรวง อว.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:      #f4f3ef;
+    --surface: #ffffff;
+    --navy:    #0d1d3a;
+    --gold:    #c8831a;
+    --gold-lt: #f0c45a;
+    --text:    #18253a;
+    --text2:   #4a5a6e;
+    --muted:   #7a8898;
+    --border:  #dbd6cc;
+    --warm:    #f9f7f2;
+
+    --purple: #4a3080;
+    --t-pur:  #f5f0fc;
+    --b-pur:  #cdbff0;
+
+    --dark:   #2a2a3a;
+    --t-dark: #f0f0f3;
+    --b-dark: #c8c8d8;
+
+    --blue:   #1b3870;
+    --t-blue: #eef3fc;
+    --b-blue: #c4d3f0;
+
+    --red:    #9c2020;
+    --t-red:  #fdf0f0;
+    --b-red:  #f5bfbf;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'Sarabun',sans-serif; min-height:100vh; }
+
+  /* ── HERO ── */
+  .hero { background:var(--navy); position:relative; overflow:hidden; }
+  .hero::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:4px;
+    background:linear-gradient(90deg,#ef3340 0% 20%,#fff 20% 40%,#2d44a0 40% 60%,#fff 60% 80%,#ef3340 80% 100%);
+  }
+  .hd { position:absolute; border-radius:50%; border:1px solid rgba(200,131,26,.1); pointer-events:none; }
+  .hd1 { right:-80px; top:50%; transform:translateY(-50%); width:360px; height:360px; border-color:rgba(200,131,26,.07); }
+  .hd2 { right:-35px; top:50%; transform:translateY(-50%); width:220px; height:220px; border-color:rgba(200,131,26,.13); }
+  .hd3 { right:0px;   top:50%; transform:translateY(-50%); width:110px; height:110px; border-color:rgba(200,131,26,.2); }
+
+  .hero-inner { max-width:820px; margin:0 auto; padding:50px 32px 46px; position:relative; z-index:1; }
+
+  .eyebrow {
+    display:inline-flex; align-items:center; gap:7px;
+    border:1px solid rgba(200,131,26,.42); border-radius:4px;
+    padding:4px 12px; font-size:.75rem; font-weight:700;
+    color:var(--gold-lt); letter-spacing:.12em; text-transform:uppercase; margin-bottom:18px;
+  }
+
+  .hero h1 { font-family:'Noto Serif Thai',serif; font-size:1.9rem; font-weight:700; color:#fff; line-height:1.42; margin-bottom:9px; }
+  .hero h1 em { color:var(--gold-lt); font-style:normal; }
+
+  .hero-sub { font-size:.9rem; font-weight:300; color:rgba(255,255,255,.44); line-height:1.75; max-width:480px; margin-bottom:30px; }
+
+  .chips { display:flex; flex-wrap:wrap; gap:7px; }
+  .chip  { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.13); border-radius:20px; padding:4px 13px; font-size:.74rem; font-weight:500; color:rgba(255,255,255,.62); }
+
+  /* ── CONTENT ── */
+  .content { max-width:820px; margin:0 auto; padding:30px 32px 72px; }
+
+  .sec-lbl {
+    font-size:.72rem; font-weight:700; color:var(--muted);
+    letter-spacing:.12em; text-transform:uppercase;
+    margin-bottom:14px; display:flex; align-items:center; gap:10px;
+  }
+  .sec-lbl::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  /* ── CARDS ── */
+  .grid { display:grid; gap:11px; }
+
+  .card {
+    background:var(--surface); border:1px solid var(--border); border-radius:11px;
+    overflow:hidden; text-decoration:none; color:inherit;
+    display:grid; grid-template-columns:7px 1fr;
+    transition:box-shadow .17s,transform .17s,border-color .17s;
+  }
+  .card:hover { box-shadow:0 7px 28px rgba(13,29,58,.11); transform:translateY(-2px); border-color:#b8bcc8; text-decoration:none; }
+
+  .stripe { min-height:100%; }
+  .s-pur  { background:var(--purple); }
+  .s-dark { background:var(--dark); }
+  .s-blue { background:var(--blue); }
+  .s-red  { background:var(--red); }
+
+  .card-body { padding:17px 20px 15px; }
+
+  .card-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:7px; }
+
+  .num {
+    font-size:.69rem; font-weight:700; color:var(--muted);
+    letter-spacing:.08em; background:var(--warm); border:1px solid var(--border);
+    padding:2px 7px; border-radius:4px; font-feature-settings:"tnum"; flex-shrink:0;
+  }
+
+  .tag { display:inline-flex; padding:2px 8px; border-radius:4px; font-size:.71rem; font-weight:500; }
+  .tag-pur  { background:var(--t-pur);  color:var(--purple); border:1px solid var(--b-pur); }
+  .tag-dark { background:var(--t-dark); color:var(--dark);   border:1px solid var(--b-dark); }
+  .tag-blue { background:var(--t-blue); color:var(--blue);   border:1px solid var(--b-blue); }
+  .tag-red  { background:var(--t-red);  color:var(--red);    border:1px solid var(--b-red); }
+
+  .card-title { font-family:'Noto Serif Thai',serif; font-size:.98rem; font-weight:700; color:var(--navy); line-height:1.45; margin-bottom:6px; }
+  .card-desc  { font-size:.82rem; font-weight:300; color:var(--text2); line-height:1.65; margin-bottom:11px; }
+
+  .card-foot { display:flex; align-items:center; flex-wrap:wrap; gap:5px; padding-top:10px; border-top:1px solid #f0ece6; }
+
+  .arrow { margin-left:auto; font-size:.88rem; font-weight:700; color:var(--muted); opacity:.32; transition:opacity .15s,transform .15s,color .15s; }
+  .card:hover .arrow { opacity:1; transform:translateX(3px); color:var(--gold); }
+
+  /* ── FOOTER ── */
+  footer { max-width:820px; margin:0 auto; border-top:1px solid var(--border); padding:21px 32px; text-align:center; font-size:.77rem; color:var(--muted); font-weight:300; }
+  footer strong { color:var(--text2); font-weight:500; }
+
+  @media (max-width:600px) {
+    .hero-inner,.content,footer { padding-left:16px; padding-right:16px; }
+    .hero h1 { font-size:1.45rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hd hd1"></div><div class="hd hd2"></div><div class="hd hd3"></div>
+  <div class="hero-inner">
+    <div class="eyebrow">📝 ข้อสอบปรนัย</div>
+    <h1>ชุดข้อสอบพร้อมเฉลย<br><em>กระทรวง อว. และกฎหมายที่เกี่ยวข้อง</em></h1>
+    <p class="hero-sub">ข้อสอบสุ่มลำดับใหม่ทุกครั้ง พร้อมเฉลย อ้างอิงมาตรา และจุดดักที่คนชอบตอบผิด</p>
+    <div class="chips">
+      <span class="chip">4 ชุดข้อสอบ</span>
+      <span class="chip">สุ่มข้อใหม่ทุกรอบ</span>
+      <span class="chip">เฉลยพร้อมจุดดัก</span>
+      <span class="chip">อ้างอิงรายมาตรา</span>
+      <span class="chip">สรุปสาระสำคัญ</span>
+    </div>
+  </div>
+</header>
+
+<main class="content">
+
+  <div class="sec-lbl">เลือกชุดข้อสอบ</div>
+
+  <div class="grid">
+
+    <!-- 01 -->
+    <a class="card" href="mmhesi1.html">
+      <div class="stripe s-pur"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="num">01</span>
+          <span class="tag tag-pur">🏫 อุดมศึกษาเอกชน</span>
+        </div>
+        <div class="card-title">พ.ร.บ. สถาบันอุดมศึกษาเอกชน พ.ศ. ๒๕๔๖ (แก้ไขฉบับที่ ๒ พ.ศ. ๒๕๕๐)</div>
+        <div class="card-desc">65 ข้อ · 9 หมวด · เน้นประเด็นที่แก้ไขโดยฉบับที่ ๒ พ.ศ. ๒๕๕๐ ครอบคลุมเงื่อนไขที่ดิน สภาสถาบัน ตำแหน่งวิชาการ ทรัพย์สินและบัญชี พร้อมจุดดักสนามจริง</div>
+        <div class="card-foot">
+          <span class="tag tag-pur">65 ข้อ</span>
+          <span class="tag tag-pur">9 หมวด</span>
+          <span class="tag tag-pur">ฉบับที่ 2/2550</span>
+          <span class="tag tag-pur">สรุปสาระสำคัญ</span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 02 -->
+    <a class="card" href="mmhesi2.html">
+      <div class="stripe s-dark"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="num">02</span>
+          <span class="tag tag-dark">🔒 PDPA</span>
+        </div>
+        <div class="card-title">พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ (PDPA)</div>
+        <div class="card-desc">ข้อสอบปรนัยพร้อมเฉลย จุดดัก และสรุปเนื้อหาครบทุกหมวด ครอบคลุมขอบเขตและข้อยกเว้น สิทธิของเจ้าของข้อมูล ผู้ควบคุม ผู้ประมวลผล และบทลงโทษทางอาญา</div>
+        <div class="card-foot">
+          <span class="tag tag-dark">ครบทุกหมวด</span>
+          <span class="tag tag-dark">สิทธิเจ้าของข้อมูล</span>
+          <span class="tag tag-dark">บทลงโทษ</span>
+          <span class="tag tag-dark">สรุปสาระสำคัญ</span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 03 -->
+    <a class="card" href="mmhesi3.html">
+      <div class="stripe s-blue"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="num">03</span>
+          <span class="tag tag-blue">⚖️ อุดมศึกษา</span>
+        </div>
+        <div class="card-title">พ.ร.บ. การอุดมศึกษา พ.ศ. ๒๕๖๒</div>
+        <div class="card-desc">65 ข้อ · 9 หมวด · ช้อยส์หลอกยากๆ พร้อมเฉลย อ้างอิงมาตรา และจุดดัก ครอบคลุมหลักการ สิทธิผู้เรียน การยกเว้นส่งคลัง และบทลงโทษ</div>
+        <div class="card-foot">
+          <span class="tag tag-blue">65 ข้อ</span>
+          <span class="tag tag-blue">9 หมวด</span>
+          <span class="tag tag-blue">อ้างอิงมาตรา</span>
+          <span class="tag tag-blue">สรุปสาระสำคัญ</span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 04 -->
+    <a class="card" href="mmhesi4.html">
+      <div class="stripe s-red"></div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="num">04</span>
+          <span class="tag tag-red">🔬 กระทรวง อว.</span>
+        </div>
+        <div class="card-title">พ.ร.บ. ระเบียบบริหารราชการกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม พ.ศ. ๒๕๖๒</div>
+        <div class="card-desc">ข้อสอบปรนัยพร้อมเฉลย จุดดัก และสรุปเนื้อหาครบทุกมาตรา ครอบคลุมโครงสร้าง กกอ. กมอ. ส่วนราชการในกระทรวง และบทเฉพาะกาล</div>
+        <div class="card-foot">
+          <span class="tag tag-red">ครบทุกมาตรา</span>
+          <span class="tag tag-red">กกอ. / กมอ.</span>
+          <span class="tag tag-red">บทเฉพาะกาล</span>
+          <span class="tag tag-red">สรุปสาระสำคัญ</span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+</main>
+
+<footer>
+  ชุดข้อสอบปรนัย · <strong>กระทรวง อว. และกฎหมายที่เกี่ยวข้อง</strong><br>
+  เนื้อหาจัดทำเพื่อการทบทวนเตรียมสอบเท่านั้น · ตรวจสอบกับกฎหมายต้นฉบับก่อนนำไปใช้งานจริง
+</footer>
+
+</body>
+</html>

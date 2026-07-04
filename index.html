@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สารบรรณกลาง · ศูนย์รวมชุดเตรียมสอบราชการ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f4f0;
+    --surface: #ffffff;
+    --navy: #0f2044;
+    --royal: #1b3d7a;
+    --gold: #c8881e;
+    --gold-light: #f5c96a;
+    --red: #9b2335;
+    --teal: #13646b;
+    --green: #1e6b3a;
+    --purple: #4a3080;
+    --orange: #b55c1a;
+    --text: #1a2535;
+    --text-light: #4c5d6e;
+    --muted: #7a8a98;
+    --border: #ddd8cf;
+    --border-light: #ede9e3;
+    --warm: #f9f7f3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* thai flag stripe accent */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg,
+      #ef3340 0% 20%, #fff 20% 40%, #2e44a0 40% 60%, #fff 60% 80%, #ef3340 80% 100%);
+  }
+
+  /* faint concentric emblem, right side */
+  .hero-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(201,146,42,0.14);
+    top: 50%;
+    right: -90px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  .r1 { width: 380px; height: 380px; border-color: rgba(201,146,42,0.07); }
+  .r2 { width: 240px; height: 240px; right: -40px; border-color: rgba(201,146,42,0.12); }
+  .r3 { width: 120px; height: 120px; right: 10px; border-color: rgba(201,146,42,0.2); }
+
+  .hero-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 54px 32px 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200,136,30,0.15);
+    border: 1px solid rgba(200,136,30,0.4);
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 2.05rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 11px;
+  }
+  .hero h1 em { color: var(--gold-light); font-style: normal; }
+
+  .hero .subtitle {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    max-width: 560px;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 32px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 640px;
+  }
+
+  .stat {
+    flex: 1;
+    min-width: 120px;
+    padding: 14px 20px;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    display: block;
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.1;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    margin-top: 3px;
+    display: block;
+  }
+
+  /* ─── CONTENT ─── */
+  .content {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 16px 32px 72px;
+  }
+
+  .section { margin-top: 38px; }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
+  .section-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+  .si-core   { background: #eef3fc; color: #1b3d7a; border: 1px solid #c4d4f0; }
+  .si-mhesi  { background: #fdf6ec; color: #9a6512; border: 1px solid #f0d49a; }
+  .si-mahad  { background: #fff3ec; color: #b55c1a; border: 1px solid #f5c6b0; }
+
+  .section-title {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+  .section-line { height: 1px; background: var(--border-light); flex: 1; }
+  .section-count {
+    font-size: 0.76rem;
+    color: var(--muted);
+    font-weight: 500;
+    background: var(--warm);
+    border: 1px solid var(--border);
+    padding: 2px 9px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+
+  /* ─── CARDS ─── */
+  .cards { display: grid; gap: 11px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    text-decoration: none;
+    color: inherit;
+    display: grid;
+    grid-template-columns: 6px 1fr;
+    overflow: hidden;
+    transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
+  }
+  .card:hover {
+    box-shadow: 0 7px 26px rgba(15,32,68,0.11);
+    transform: translateY(-2px);
+    border-color: #b0b8c8;
+    text-decoration: none;
+  }
+
+  .card-stripe { min-height: 100%; }
+  .st-navy   { background: var(--royal); }
+  .st-gold   { background: var(--gold); }
+  .st-purple { background: var(--purple); }
+  .st-orange { background: var(--orange); }
+
+  .card-body { padding: 18px 20px 16px; }
+
+  .card-top {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+  }
+  .card-title {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 1.04rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+  .card-org {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+
+  .card-desc {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.62;
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+
+  .card-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 9px;
+    border-radius: 4px;
+    font-size: 0.73rem;
+    font-weight: 500;
+  }
+  .tag-navy   { background: #eef3fc; color: #1b3d7a; border: 1px solid #c4d4f0; }
+  .tag-gold   { background: #fdf6ec; color: #8a5a0a; border: 1px solid #f0d49a; }
+  .tag-purple { background: #f5f0fc; color: #4a3080; border: 1px solid #cdbff0; }
+  .tag-orange { background: #fdf1e8; color: #a5511a; border: 1px solid #f3ccae; }
+
+  .card-arrow {
+    margin-left: auto;
+    font-size: 0.9rem;
+    color: var(--muted);
+    opacity: 0.4;
+    transition: opacity 0.15s, transform 0.15s, color 0.15s;
+  }
+  .card:hover .card-arrow { opacity: 1; transform: translateX(3px); color: var(--gold); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 32px;
+    text-align: center;
+    font-size: 0.79rem;
+    color: var(--muted);
+    max-width: 920px;
+    margin: 0 auto;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+  footer strong { color: var(--text-light); font-weight: 500; }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.5rem; }
+    .hero-inner { padding: 40px 18px 36px; }
+    .content, footer { padding-left: 16px; padding-right: 16px; }
+    .hero-stats { flex-direction: column; }
+    .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .stat:last-child { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-ring r1"></div>
+  <div class="hero-ring r2"></div>
+  <div class="hero-ring r3"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">📚 สารบรรณกลาง</div>
+    <h1>ศูนย์รวมชุดเตรียมสอบราชการ<br><em>ทุกสารบรรณ · ทุกกระทรวง · ที่เดียว</em></h1>
+    <p class="subtitle">รวมสารบรรณชุดข้อสอบปรนัยพร้อมเฉลย สรุปสาระสำคัญ และจุดดักสนามจริง จัดหมวดตามหน่วยงานเพื่อเลือกเข้าติวได้ทันที</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">4</span><span class="stat-label">สารบรรณ</span></div>
+      <div class="stat"><span class="stat-num">36</span><span class="stat-label">ชุดข้อสอบ</span></div>
+      <div class="stat"><span class="stat-num">2,000+</span><span class="stat-label">ข้อสอบรวม</span></div>
+      <div class="stat"><span class="stat-num">ก.พ. · อว. · มท.</span><span class="stat-label">ครอบคลุมทุกสนาม</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- หมวด 1: สอบกลาง / ทุกสนาม -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon si-core">⚖️</div>
+      <span class="section-title">ความรู้พื้นฐาน · ใช้สอบได้ทุกสนาม</span>
+      <div class="section-line"></div>
+      <span class="section-count">1 สารบรรณ</span>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="index_coreexam.html">
+        <div class="card-stripe st-navy"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-title">กฎหมายและนโยบายหลัก · สนามสอบข้าราชการ</span>
+            <span class="card-org">ก.พ. · ท้องถิ่น · ข้าราชการทุกระดับ</span>
+          </div>
+          <div class="card-desc">สารบรรณกฎหมายหลักครบชุด ครอบคลุม พ.ร.บ. · พ.ร.ฎ. · รัฐธรรมนูญ · ยุทธศาสตร์ชาติ · แผนพัฒนา จัดเป็น 5 หมวดหมู่ พร้อมข้อสอบจำลองสนามจริงและ Cheat Sheet</div>
+          <div class="card-foot">
+            <span class="tag tag-navy">16 ชุด</span>
+            <span class="tag tag-navy">1,550+ ข้อ</span>
+            <span class="tag tag-navy">5 หมวดหมู่</span>
+            <span class="tag tag-navy">สรุปรายมาตรา</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- หมวด 2: กระทรวง อว. -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon si-mhesi">🔬</div>
+      <span class="section-title">กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม (อว.)</span>
+      <div class="section-line"></div>
+      <span class="section-count">2 สารบรรณ</span>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="indexMHESI.html">
+        <div class="card-stripe st-gold"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-title">ชุดเตรียมสอบ กระทรวง อว.</span>
+            <span class="card-org">นักวิเคราะห์นโยบายและแผน</span>
+          </div>
+          <div class="card-desc">รวมความรู้และนโยบายกระทรวง แผนด้านการอุดมศึกษา และกรอบยุทธศาสตร์ อววน. พร้อมพระราชบัญญัติสำคัญในรูปแบบระบบจำลองสอบ 100 ข้อ (Practice / Exam Mode)</div>
+          <div class="card-foot">
+            <span class="tag tag-gold">6 ชุด</span>
+            <span class="tag tag-gold">ความรู้ + นโยบาย</span>
+            <span class="tag tag-gold">พ.ร.บ. 100 ข้อ</span>
+            <span class="tag tag-gold">สรุปเนื้อหา</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="card" href="index-mmhesi2.html">
+        <div class="card-stripe st-purple"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-title">ข้อสอบปรนัย อว. และกฎหมายที่เกี่ยวข้อง</span>
+            <span class="card-org">อุดมศึกษาเอกชน · PDPA · อุดมศึกษา · ระเบียบบริหาร</span>
+          </div>
+          <div class="card-desc">ชุดข้อสอบปรนัยเน้นช้อยส์หลอกยากๆ สุ่มลำดับข้อใหม่ทุกครั้ง เฉลยพร้อมจุดดักและอ้างอิงรายมาตรา ครอบคลุม พ.ร.บ. สถาบันอุดมศึกษาเอกชน · PDPA · การอุดมศึกษา · ระเบียบบริหารราชการ อว.</div>
+          <div class="card-foot">
+            <span class="tag tag-purple">4 ชุด</span>
+            <span class="tag tag-purple">สุ่มข้อใหม่ทุกรอบ</span>
+            <span class="tag tag-purple">เฉลย + จุดดัก</span>
+            <span class="tag tag-purple">อ้างอิงมาตรา</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- หมวด 3: กระทรวงมหาดไทย -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon si-mahad">🛡️</div>
+      <span class="section-title">กระทรวงมหาดไทย</span>
+      <div class="section-line"></div>
+      <span class="section-count">1 สารบรรณ</span>
+    </div>
+    <div class="cards">
+
+      <a class="card" href="index-departmentofdisaster.html">
+        <div class="card-stripe st-orange"></div>
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-title">กรมป้องกันและบรรเทาสาธารณภัย (ปภ.)</span>
+            <span class="card-org">กระทรวงมหาดไทย</span>
+          </div>
+          <div class="card-desc">สารบรรณเตรียมสอบ ปภ. ครบ 10 ชุด ครอบคลุม พ.ร.บ. ป้องกันและบรรเทาสาธารณภัย 2550 · ระเบียบ อปพร. · แผน ปภ. แห่งชาติ 2564–2570 · เงินทดรองราชการ และกฎหมายที่เกี่ยวข้อง</div>
+          <div class="card-foot">
+            <span class="tag tag-orange">10 ชุด</span>
+            <span class="tag tag-orange">พ.ร.บ. ปภ. 2550</span>
+            <span class="tag tag-orange">แผนชาติ 64–70</span>
+            <span class="tag tag-orange">ความรู้กรม ปภ.</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  สารบรรณกลาง · <strong>ศูนย์รวมชุดเตรียมสอบราชการ</strong> · จัดหมวดตามหน่วยงาน<br>
+  เนื้อหาจัดทำเพื่อการทบทวนเตรียมสอบเท่านั้น · โปรดตรวจสอบกับกฎหมายและเอกสารต้นฉบับฉบับล่าสุดก่อนนำไปใช้งานจริง
+</footer>
+
+</body>
+</html>
